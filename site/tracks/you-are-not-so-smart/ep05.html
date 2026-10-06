@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 5: Bayes&#x27; Theorem with Julia Galef — AI Podcast Curriculum</title>
+<meta name="description" content="The repair kit for the previous four chapters: think in grayscale, weigh evidence by comparing two worlds, respect base rates, and accept that your brain is not">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="you-are-not-so-smart-ep05" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05" class="active">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">You Are Not So Smart with David McRaney</a> / Episode 5: Bayes&#x27; Theorem with Julia Galef</nav>
+      <h1>Episode 5: Bayes&#x27; Theorem with Julia Galef</h1>
+      <p class="meta-line">2016-04-08 · Instructor: Julia Galef · You Are Not So Smart</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>The first four chapters are diagnosis. This one is the repair kit. Bayes&rsquo; theorem is a small piece of probability mathematics that, taken as a habit of mind, tells you how much any belief should move when new evidence arrives. It answers episode 1&rsquo;s broken judge, episode 2&rsquo;s false objectivity, episode 3&rsquo;s keystones, and episode 4&rsquo;s solo lawyer with one discipline: state your confidence as a number, and move it by the evidence, no more and no less. No other episode gives you the machinery.</p>
+<h2 id="beliefs-are-grayscale">Beliefs are grayscale</h2>
+<h3 id="the-theorem-in-plain-words">The theorem in plain words</h3>
+<p>Definition: Bayes&rsquo; rule is a theorem from probability that tells you how a probability should change in response to new evidence. As a habit of mind, it says: your degree of confidence in an idea should shift, up or down, whenever relevant new evidence arrives.</p>
+<p>The formula itself is, in McRaney&rsquo;s paraphrase, two things multiplied together over another thing. The episode does not dwell on the symbols. It dwells on the move the formula encodes: nothing stays at 0 percent or 100 percent. Everything lives somewhere in between, and the position moves.</p>
+<h3 id="the-job-interview">The job interview</h3>
+<p>Galef&rsquo;s opening intuition pump: you apply for a job and wait to hear back. News arrives that they wanted exactly your degree. Your confidence that you got the job rises. Then news arrives that applicant numbers were unusually high this year. Your confidence falls. Nobody finds this strange. Nobody insists on 0 or 100. The belief is grayscale and it fluctuates with evidence, naturally.</p>
+<p>The catch: we run this machinery on job hunts and abandon it on ideologies. Ask someone their confidence that their party&rsquo;s candidate would make the better president, and the number does not move with news the way the job number moves. The machinery exists. Its application is selective.</p>
+<h3 id="credence-and-bets">Credence and bets</h3>
+<p>To use the rule on real beliefs, you need probabilities for things that are not dice. There is no frequency for &ldquo;inflation under a Clinton presidency.&rdquo; Galef&rsquo;s bridge: talk about subjective confidence, called credence, and cash it out as betting odds. To say &ldquo;I am 67 percent confident&rdquo; means &ldquo;I would accept 2-to-1 odds.&rdquo; If you would not take the bet, your stated confidence is a pose.</p>
+<p>Figure 1. Grayscale beliefs. AI Podcast Curriculum, ep05 (Julia Galef interview, 2016-04-08). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Belief</th>
+<th>Binary mode</th>
+<th>Grayscale mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Got the job</td>
+<td>Yes or no</td>
+<td>40 percent, moves with each news item</td>
+</tr>
+<tr>
+<td>My party is better</td>
+<td>True, 100 percent</td>
+<td>62 percent, should move with evidence</td>
+</tr>
+<tr>
+<td>The cash-out</td>
+<td>Stated certainty</td>
+<td>Odds you would actually accept</td>
+</tr>
+<tr>
+<td>The toy</td>
+<td>2 settings</td>
+<td>A slider from 0 to 100</td>
+</tr>
+</tbody>
+</table>
+<h2 id="probability-lives-in-the-head-not-the-world">Probability lives in the head, not the world</h2>
+<h3 id="the-trick-coin">The trick coin</h3>
+<p>The thought experiment that snaps it together: a trick coin always lands heads or always lands tails, but you do not know which. You flip it, catch it, cover it. What is the probability it shows heads? The coin already shows one face. The probability is not in the coin. It is in your state of knowledge about the coin.</p>
+<p>Galef&rsquo;s sharper version: she flips a coin, looks at it, and covers it with her hand. Asked for the probability of heads, your answer should be one half. You know nothing. Her answer is basically zero. She saw tails. Two different probabilities, neither wrong. Probability is a feature of the knower&rsquo;s information, not of the world.</p>
+<p>McRaney&rsquo;s gloss: the android Data from Star Trek could watch the flip&rsquo;s initial conditions, finger position, air movement, weight distribution, and predict the landing. His probability would differ from yours. The coin did not change. The knower did.</p>
+<h3 id="what-this-forces">What this forces</h3>
+<p>If probability lives in the head, then every probability you hold must move when your information changes. Up or down, it cannot sit still while evidence arrives. That is the whole discipline. The binary mind treats &ldquo;I believe X&rdquo; as a possession. The Bayesian mind treats &ldquo;I am N percent on X&rdquo; as a position that evidence pushes around.</p>
+<h2 id="the-two-worlds-test-for-evidence">The two-worlds test for evidence</h2>
+<h3 id="the-definition">The definition</h3>
+<p>Definition: the Bayesian definition of evidence compares how likely an observation is in two worlds: the world where the hypothesis is true, and the world where it is false. Evidence is strong when the observation is much likelier in one world than the other.</p>
+<p>Galef&rsquo;s hair example: you ask someone how your new haircut looks and they say &ldquo;it looks good.&rdquo; How much evidence is that for &ldquo;they think it looks good&rdquo;? From a generic person, almost none: most people say &ldquo;looks good&rdquo; whether they mean it or not, so the observation looks the same in both worlds. From Jane, a friend renowned for brutal honesty, it is strong evidence: Jane saying it in the world where she dislikes the cut is very unlikely. Same sentence, different evidential weight, decided by the two-worlds comparison.</p>
+<h3 id="the-car-crash">The car crash</h3>
+<p>The applied case: you have a minor car accident that is arguably not your fault. The human move is to build the exonerating story: the other driver turned too fast, the sign was hidden. Find a plausible story and confidence in your driving survives untouched.</p>
+<p>The Bayesian move: ask the two-worlds question. In the world where you are a good driver, how likely is a crash? In the world where you are not, how likely? Bad drivers crash more often on average. So the crash is evidence against your driving, even with a true exonerating story. Your confidence should downgrade &ldquo;at least a little.&rdquo; The story explains this crash. It does not erase the base pattern.</p>
+<h3 id="the-bob-and-amy-correction">The Bob and Amy correction</h3>
+<p>Galef catches herself in real time. A colleague, Bob, complains that a mutual colleague, Amy, runs late to meetings. Galef&rsquo;s first thought: this proves Bob is jealous of Amy, a hypothesis she already held. Then she runs the two-worlds test. World one: Bob is jealous. World two: Bob is not jealous. How likely is the complaining in each? Bob dislikes lateness generally and complains a lot generally, so the complaining is quite likely in world two as well. Slightly less likely than in world one, but not much. Verdict: weak evidence. She updated hard on evidence that fit, while ignoring that it also fit the alternative. The discipline caught the exact failure the earlier chapters describe.</p>
+<p>Figure 2. The two-worlds test. AI Podcast Curriculum, ep05 (Julia Galef interview, 2016-04-08). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Lazy version</th>
+<th>Bayesian version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Does the evidence fit my hypothesis?</td>
+<td>Yes, update hard</td>
+<td>Also ask: does it fit the alternative?</td>
+</tr>
+<tr>
+<td>Bob complains about Amy</td>
+<td>Fits jealousy</td>
+<td>Also fits &ldquo;Bob complains about everything&rdquo;</td>
+</tr>
+<tr>
+<td>Hair looks good, generic speaker</td>
+<td>Fits &ldquo;they like it&rdquo;</td>
+<td>Also fits &ldquo;people are polite&rdquo;</td>
+</tr>
+<tr>
+<td>The one rule</td>
+<td>Compare the observation across two worlds</td>
+<td>Update only by the difference</td>
+</tr>
+</tbody>
+</table>
+<h2 id="base-rates-the-prior-you-forgot">Base rates: the prior you forgot</h2>
+<h3 id="the-breast-cancer-arithmetic">The breast-cancer arithmetic</h3>
+<p>The classic trap, given to doctors and medical students who mostly get it wrong: a screening test is 90 percent accurate. It catches 90 percent of true cancers and clears 90 percent of healthy patients. A patient tests positive. What is the probability she has cancer?</p>
+<p>The lazy answer: 90 percent. The missing piece: how common is the disease? Suppose 1 in 1,000 people has it. Work it by hand for 1,000 patients.</p>
+<p>One patient has cancer. The test catches her: 1 true positive. Of the 999 healthy patients, the test wrongly flags 10 percent: about 100 false positives. Total positives: about 101. True positives among them: 1 out of 101, under 1 percent.</p>
+<p>The exact arithmetic: (0.9 times 0.001) divided by (0.9 times 0.001 plus 0.1 times 0.999). That is 0.0009 divided by 0.1008, about 0.0089, or roughly 0.9 percent. A 90-percent-accurate test returns a sub-1-percent probability, because the prior was 1 in 1,000. Doctors who remember the base rate still guess 70 or 80 percent. The prior is that easy to underweight.</p>
+<p>Figure 3. The base-rate arithmetic. AI Podcast Curriculum, ep05 (Julia Galef interview, 2016-04-08). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Group in 1,000 patients</th>
+<th>Count</th>
+<th>Test says positive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Has cancer</td>
+<td>1</td>
+<td>0.9, rounds to 1</td>
+</tr>
+<tr>
+<td>Healthy</td>
+<td>999</td>
+<td>10 percent, about 100</td>
+</tr>
+<tr>
+<td>Total positives</td>
+<td></td>
+<td>About 101</td>
+</tr>
+<tr>
+<td>True cases among positives</td>
+<td></td>
+<td>1 of 101, under 1 percent</td>
+</tr>
+<tr>
+<td>The count</td>
+<td>90 percent accurate test</td>
+<td>0.9 percent probability</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-plumber">The plumber</h3>
+<p>Galef&rsquo;s real-life application: renting an Airbnb with colleagues, they hired a plumber who snooped in rooms unrelated to the job and seemed shifty. The group debated fleeing to a different rental. Instead they ran the numbers. They looked up base rates for home robbery in the area: low. They estimated the evidence strength: in the world where a robbery was planned, how likely is room-snooping, versus the world with honest plumbers? Somewhat likelier, but only moderately. Low prior times moderate evidence: stay. They stayed. The episode&rsquo;s word for this is gloriously nerdy and correct: they looked up base rates.</p>
+<p>The social-anxiety version of the same error: a friend does not return your call, and the anxious mind jumps to &ldquo;she hates me.&rdquo; The missed call is weak evidence. The prior, a long history of friendship, is strong. The update should be tiny.</p>
+<h2 id="the-discipline-without-the-math">The discipline without the math</h2>
+<h3 id="non-mathematical-principles">Non-mathematical principles</h3>
+<p>Galef&rsquo;s promise: you do not need to run numbers to get most of the value. The principles she uses multiple times a day:</p>
+<p>One, think in grayscale always. No belief deserves 100 percent. Two, treat everything as evidence: a smart person you respect holding the other view, the economy performing under the other party, all of it moves the slider a little. Three, let small evidence accumulate. A single item rarely decides. A hundred small items, each honestly admitted, move the total a lot over two years. Four, ask the honest two-worlds question instead of defaulting to &ldquo;it is uncertain.&rdquo;</p>
+<h3 id="the-fallacy-of-gray">The fallacy of gray</h3>
+<p>The counter-trap, which Galef names explicitly: the fallacy of gray. It is a mistake to see everything as black and white, and it is also a mistake to see everything as the same shade of gray. People abuse uncertainty as a shield: the evidence strongly favors one side, but they say &ldquo;we just cannot know&rdquo; to avoid admitting it. The discipline is to ask honestly how much likelier the evidence is in each world, and accept the answer when it is lopsided.</p>
+<h3 id="when-to-crank-the-engine">When to crank the engine</h3>
+<p>The honest cost: full Bayesian updating on millions of beliefs would freeze you. Galef does not update &ldquo;is Anna in the office today&rdquo; with ceremony. The framework is a drill, not a lifestyle. Deploy it on medium and large decisions, and on any belief where the stakes or the suspicious heat from episode 3 suggest the machinery is compromised.</p>
+<h2 id="your-brain-is-not-a-bayes-net">Your brain is not a Bayes net</h2>
+<h3 id="the-harvard-example">The Harvard example</h3>
+<p>Definition: a Bayes net is a way of representing relationships between probabilities, used in AI. Change one node and the change propagates instantly through every related node.</p>
+<p>Galef&rsquo;s example: three nodes. Did Bob get into Harvard? Does Bob have a very high IQ? Is Bob a legacy? Learning Bob got in raises both the IQ probability and the legacy probability. Then learning Bob is a legacy lowers the IQ probability somewhat: legacy admission needs less IQ, so the IQ evidence is partly explained away. In the AI, every related probability reprices the instant one moves.</p>
+<p>The human brain does this sometimes. Learn your lunch spot is closed and the probability you eat Thai food today drops automatically. But usually it does not. And that gap explains one of McRaney&rsquo;s deepest frustrations.</p>
+<h3 id="the-jenga-block-that-is-not">The Jenga block that is not</h3>
+<p>McRaney&rsquo;s frustration: arguing with someone, you catch them in a contradiction, say in the Bible&rsquo;s text on same-sex behavior versus its text on diet or clothing, and expect a cascade. One domino falls, the network follows, the whole belief system reprices. It never works that way.</p>
+<p>Galef&rsquo;s explanation: the brain is not a Bayes net. A person can lose the God node entirely, or flip the same-sex-marriage node, while the neighboring nodes sit untouched. Beliefs that look logically connected are stored independently. Full propagation would be computationally ruinous: every new fact about whether Anna looks upset today would force repricing &ldquo;how upset is Anna generally,&rdquo; &ldquo;how upset are people generally,&rdquo; &ldquo;how good am I at reading people,&rdquo; and thousands more. The brain would never get anything else done.</p>
+<p>So the arguer&rsquo;s Jenga strategy, pull the one block and watch the tower fall, fails on the architecture. McRaney&rsquo;s image for the doomed hope: the Jenga block you must pull to topple the tower. Galef: there is no such block, because the tower is not one tower.</p>
+<p>Figure 4. The non-propagating brain. AI Podcast Curriculum, ep05 (Julia Galef interview, 2016-04-08). Shell 4. Show the new symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Change one node</th>
+<th>What happens to neighbors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bayes net (AI)</td>
+<td>Bob is a legacy</td>
+<td>IQ probability reprices instantly</td>
+</tr>
+<tr>
+<td>Human brain</td>
+<td>Same-sex marriage is fine</td>
+<td>God node, LGBT-sin node: often untouched</td>
+</tr>
+<tr>
+<td>Why</td>
+<td>Mathematics</td>
+<td>Full propagation would paralyze the mind</td>
+</tr>
+<tr>
+<td>The new symbol</td>
+<td>No Jenga block exists</td>
+<td>Attack nodes one at a time, or change the source</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-source-check-habit">The source-check habit</h3>
+<p>Galef&rsquo;s practical replacement for the Jenga strategy: when a belief comes up for a decision or a disagreement, trace the belief to its source. Ask whether you still endorse that source, or whether the source is long defunct and you simply never noticed. If the source died, downgrade the belief. This is propagation done manually, on demand, for the beliefs that matter, instead of automatically for all of them.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain Bayes&#x27; rule like I am new. What are the moving parts?</div><div class="a"><p>A probability should change when relevant evidence arrives. The parts: your prior confidence (where the slider starts), the evidence, and the update (how far the slider moves). The update&rsquo;s size depends on how much likelier the evidence is if the hypothesis is true than if it is false. Nothing sits at 0 or 100. Everything is grayscale and everything moves.</p><div class="followup"><strong>Follow-up:</strong> What is credence? Your subjective probability, cashed out as betting odds. &quot;67 percent&quot; means &quot;I would take 2-to-1 odds.&quot; If you would not bet it, you do not believe it at that number.</div></div></div>
+<div class="qa"><div class="q">What does &quot;probability is in the head, not the world&quot; mean?</div><div class="a"><p>Take the covered trick coin. You say one half, Galef says near zero after peeking. Both are correct because probability describes the knower&rsquo;s information, not the coin. Data the android could predict the flip from initial conditions and would hold yet another probability. Same coin, three probabilities, zero contradictions.</p><div class="followup"><strong>Follow-up:</strong> What does this force on you? Every probability you hold must move when your information changes. A belief that never moves while evidence arrives is not a probability. It is a possession.</div></div></div>
+<div class="qa"><div class="q">What is the two-worlds test for evidence?</div><div class="a"><p>Compare how likely the observation is in the world where your hypothesis is true versus the world where it is false. Strong evidence is much likelier in one world. The hair example: &ldquo;looks good&rdquo; from a random person is weak (politeness explains it in both worlds). From brutally honest Jane it is strong. The Bob example: complaining fits jealousy and fits chronic complaining, so it is weak.</p><div class="followup"><strong>Follow-up:</strong> What was Galef&#x27;s original error with Bob? She asked only &quot;does this fit my hypothesis?&quot; and updated hard. The fix is the second question: &quot;does it also fit the alternative?&quot; The update shrinks to the difference.</div></div></div>
+<div class="qa"><div class="q">Work the breast-cancer numbers. Why do doctors get it wrong?</div><div class="a"><p>Test 90 percent accurate, disease in 1 of 1,000. In 1,000 patients: 1 true positive, about 100 false positives from the 999 healthy. So 1 true case among about 101 positives: under 1 percent. Doctors answer 90 percent, or 70 to 80 after remembering the base rate exists. They underweight the prior because the vivid new evidence crowds it out.</p><div class="followup"><strong>Follow-up:</strong> What is the plumber version? Low base rate of robbery in the area times moderate evidence from snooping: stay in the Airbnb. The anxious-friend version: one missed call is weak evidence against a strong prior of friendship. Same arithmetic, no numbers needed.</div></div></div>
+<div class="qa"><div class="q">What is the fallacy of gray?</div><div class="a"><p>The mistake of treating all uncertainty as equal: &ldquo;we just cannot know,&rdquo; used as a shield when the evidence actually favors one side strongly. Grayscale thinking requires honest shades, not a uniform wash. Ask how much likelier the evidence is in each world and accept lopsided answers.</p><div class="followup"><strong>Follow-up:</strong> When is &quot;uncertain&quot; the honest answer? When the two-worlds comparison genuinely comes out near even. The fallacy defaults to even without running the comparison.</div></div></div>
+<div class="qa"><div class="q">Why is the brain not a Bayes net, and why does that matter for arguing?</div><div class="a"><p>In a Bayes net, changing one node reprices every related node instantly. Brains skip propagation because repricing thousands of related beliefs per new fact would paralyze thought. So the Jenga strategy fails: catching one contradiction does not cascade through the network. Nodes sit independent even when logic connects them.</p><div class="followup"><strong>Follow-up:</strong> What replaces the Jenga strategy? Galef&#x27;s source-check: when a belief matters, trace it to its source manually. If the source is defunct, downgrade. Manual propagation, on demand, for the beliefs that count.</div></div></div>
+<div class="qa"><div class="q">Give the non-mathematical version. What do you actually do daily?</div><div class="a"><p>Four habits. Think in grayscale: no 100 percents. Treat everything as evidence: opponents&rsquo; views, others&rsquo; track records, small data. Let small evidence accumulate: a hundred honest small updates beat one dramatic conversion. Ask the honest two-worlds question instead of sheltering in &ldquo;uncertain.&rdquo;</p><div class="followup"><strong>Follow-up:</strong> When do you crank the full engine? Medium and large decisions, and any belief carrying the heat from episode 3&#x27;s detector. Training on small beliefs builds the reflex for the large ones.</div></div></div>
+<div class="qa"><div class="q">How does this chapter repair the previous four?</div><div class="a"><p>Episode 1&rsquo;s broken judge gets an external procedure: move the slider by the evidence, not by the feeling. Episode 2&rsquo;s false objectivity gets the two-worlds test: your construction is one world, theirs is another, compare honestly. Episode 3&rsquo;s keystones get the source-check: trace the load-bearing belief to its source. Episode 4&rsquo;s solo lawyer gets a judge: the update rule grades the argument.</p><div class="followup"><strong>Follow-up:</strong> What is the honest limit? The engine is expensive, so you cannot run it on millions of beliefs. And grayscale is not grayness: lopsided evidence demands lopsided confidence. The discipline is selective and honest, not total and vague.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The rule in one line: move the slider by the evidence, no more and no less.</li>
+<li>Grayscale: no 100 percents. Cash out confidence as odds you would accept.</li>
+<li>The two-worlds test: how likely is this observation if I am right, versus if I am wrong? Update by the difference.</li>
+<li>Base rates: the 90-percent test gives a 0.9-percent answer when the disease is 1 in 1,000. The prior is the story.</li>
+<li>The plumber rule: low prior times moderate evidence means stay. Look up base rates.</li>
+<li>The fallacy of gray: uncertain is not a shield. Run the comparison.</li>
+<li>No Jenga block: the brain does not propagate. Argue nodes, not towers.</li>
+<li>The source-check: trace the belief to its source. Dead source, downgraded belief.</li>
+<li>Never-confuse pair: evidence versus fit. &ldquo;It fits my hypothesis&rdquo; is not evidence. Evidence is the difference between the two worlds. Bob&rsquo;s complaining fits jealousy and fits chronic complaining: weak.</li>
+<li>Never-confuse pair: grayscale versus gray. Grayscale assigns honest shades, including near-black and near-white. Gray washes everything to mush. The fallacy of gray is the wash.</li>
+<li>Trap card: &ldquo;The test is 90 percent accurate, so a positive means 90 percent.&rdquo; The base rate decides. One in 1,000 in, under 1 percent out.</li>
+<li>Trap card: &ldquo;One contradiction will collapse their worldview.&rdquo; The brain is not a Bayes net. Nodes do not propagate. There is no Jenga block.</li>
+<li>Trap card: &ldquo;I count as Bayesian because I admit uncertainty.&rdquo; Uncertainty without the two-worlds comparison is the fallacy of gray. Admit the shade, not the fog.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: pick three live beliefs (a hire, a design bet, a market view). Write each as a percentage, not a verdict. For each, write the prior in one line and the single strongest piece of evidence for and against. Move the slider and note the new number.</li>
+<li>Catch yourself: the next time evidence &ldquo;proves you right,&rdquo; run the two-worlds test before celebrating. Write how likely the evidence was in the world where you are wrong. If the answer is &ldquo;also likely,&rdquo; shrink the update.</li>
+<li>Behavior change per major idea:</li>
+<li>Grayscale: ban 0 and 100 from your working vocabulary for a week. Every claim gets a number. Notice which claims resist numbering: those are the possessions.</li>
+<li>Two-worlds: keep an evidence log for one live decision. Each entry: the observation, likelihood if right, likelihood if wrong, slider move. Review weekly.</li>
+<li>Base rates: before your next consequential judgment (candidate, vendor, incident), write the base rate first. One line. Then look at the evidence.</li>
+<li>Fallacy of gray: when you hear yourself say &ldquo;we cannot know,&rdquo; stop and run the comparison. Write the lopsided answer if it is lopsided.</li>
+<li>Source-check: pick one belief you have held for years. Trace it to its source. Is the source still alive? Write the verdict.</li>
+<li>Monthly: review your slider history on the three live beliefs. Count how many moved and by how much. A slider that never moves is a possession wearing a number.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Guided: a test is 99 percent accurate and the condition affects 1 in 10,000 people. In 10,000 patients, how many true positives and false positives? What is the probability of the condition given a positive? (Answer: 1 true positive. About 100 false positives from 9,999 healthy at 1 percent error. 1 of 101, under 1 percent. Now ask: at what base rate does the positive become more likely true than false?)</li>
+<li>Fermi: you hold 20 working beliefs about your system architecture. Suppose each week brings 3 relevant evidence items, each honestly worth a 2-point slider move on average. After a year, how many points of total movement is that, and what does it imply about beliefs that never moved? (Answer: 3 times 52 is 156 items. Times 2 points is 312 points across 20 beliefs, about 15 points per belief per year. A belief that moved zero points either saw no evidence, which is suspicious, or is a possession.)</li>
+<li>Journal: &ldquo;My possessions.&rdquo; List five beliefs you would state at 95 percent or above. For each, write the bet you would accept at those odds. If you flinch at the bet, rewrite the number honestly.</li>
+<li>Argue both sides: &ldquo;The brain should propagate like a Bayes net&rdquo; versus &ldquo;non-propagation is the correct design.&rdquo; Use the Anna-upset cascade (thousands of repricings per glance) for the second side. What is the exact cost that makes full propagation wrong, and where would you still want more of it?</li>
+<li>Observe: for three days, catch every &ldquo;this proves it&rdquo; moment in yourself and others. For each, run the silent two-worlds test. Tally how many survive as strong evidence. What fraction of your certainty survives?</li>
+<li>First principles: derive the base-rate result without the formula. Use only the 1,000-patient count and the idea that positives come from two groups. Then explain in two sentences why smart, trained doctors still answer 90 percent.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>State any belief as a percentage and cash it as a bet.</li>
+<li>Run the two-worlds test on any evidence before updating.</li>
+<li>Compute a base-rate problem by counting (true positives versus false positives in a fixed population).</li>
+<li>Look up base rates before consequential judgments.</li>
+<li>Distinguish grayscale honesty from the fallacy of gray.</li>
+<li>Trace a belief to its source and downgrade dead sources.</li>
+<li>Spot the Jenga fallacy in arguments: no single contradiction collapses a network.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official episode page with audio and transcript links: https://youarenotsosmart.com/2016/04/08/yanss-073-how-to-get-the-most-out-of-realizing-you-are-wrong-by-using-bayes-theorem-to-update-your-beliefs/</li>
+<li>Galef&rsquo;s book The Scout Mindset develops the same habits at length. Her &ldquo;Bayes&rsquo; rule&rdquo; explainers cover the visual version of the two-worlds test. Search the exact titles [uncertain: direct links were not verifiable from this machine. Confirm the landing page before citing.]</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Beliefs are sliders</td>
+<td>True or false</td>
+<td>0 to 100, moves with evidence</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Evidence is the two-worlds difference</td>
+<td>Fits my hypothesis, update hard</td>
+<td>Also fits alternative, update by difference</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Base rate decides</td>
+<td>90 percent test, 90 percent answer</td>
+<td>90 percent test, 0.9 percent answer</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Brains do not propagate</td>
+<td>Change a node, network reprices</td>
+<td>Change a node, neighbors sit still</td>
+<td>Figure 4</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Whole chapter trade</td>
+<td>Possessions defended</td>
+<td>Sliders moved by evidence</td>
+<td>Figure 5 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 (chapter plate). The cost of binary belief. AI Podcast Curriculum, ep05 (original toy, 2016-04-08). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beliefs as possessions: 100 percent or 0, never moving. Base rates ignored, so 90-percent tests read as 90-percent answers. Jenga arguments pulled forever, towers never falling.</td>
+<td>Four instruments: the slider (number every belief), the two-worlds test (update by the difference), the base rate (count the population), the source-check (dead source, downgraded belief).</td>
+<td>Confidence tracks evidence. Small updates accumulate into large accuracy. Arguments target nodes that can actually move.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: pay the discomfort of numbering your certainties and the effort of manual propagation, instead of the cost of confident immobility.
+Footer: probability is in the head. Move it like it is.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://youarenotsosmart.com/2016/04/08/yanss-073-how-to-get-the-most-out-of-realizing-you-are-wrong-by-using-bayes-theorem-to-update-your-beliefs/" target="_blank" rel="noopener">073 - Bayes&#x27; Theorem</a></li><li><span class="src-tag">TRANSCRIPT</span><a href="https://youarenotsosmart.com/transcripts/transcript-interview-with-julia-galef-from-episode-073/" target="_blank" rel="noopener">Transcript: Interview with Julia Galef</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/you-are-not-so-smart/ep04.html"><span class="lbl">← Previous</span>Episode 4: Arguing with Hugo Mercier</a><a href="../../tracks/you-are-not-so-smart/ep06.html"><span class="lbl">Next →</span>Episode 6: The Search Effect with Matthew Fisher</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
