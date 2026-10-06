@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 7: Meta — AI Podcast Curriculum</title>
+<meta name="description" content="How Facebook connected half of humanity: the growth machine, the mobile near-death, the acquisition playbook, and the $60B Reality Labs hedge.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="acquired-ep07" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07" class="active">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Acquired</a> / Episode 7: Meta</nav>
+      <h1>Episode 7: Meta</h1>
+      <p class="meta-line">2024-10-28 · Instructor: Ben Gilbert and David Rosenthal · Acquired</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="CS2Lqdwja8o"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/CS2Lqdwja8o" title="Meta (Audio)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=CS2Lqdwja8o" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=CS2Lqdwja8o" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">The full Meta history: from Kirkland House to 4 billion users, through Beacon, mobile, Cambridge Analytica, ATT, and TikTok.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>No company in history has served this many humans. Four billion monthly users is half of humanity. The Roman Empire at its peak reached 40 percent, the British Empire 23 percent. This episode is the complete operating history of how that happened: the growth discipline Facebook invented, the mobile transition that nearly killed it, the acquisition strategy laid out in a 2012 email, and the $60 billion Reality Labs bet explained as an insurance premium. If Episode 3 gave you Zuckerberg&rsquo;s mind, this one gives you the machine he built.</p>
+<h2 id="the-story">The story</h2>
+<h3 id="the-scale">The scale</h3>
+<p>Ben opens with the numbers because nothing else frames it. Meta&rsquo;s apps serve 4 billion monthly active users and over 3 billion daily. Eight billion humans exist. No government, no religion, no company has ever addressed this share of the species. The episode&rsquo;s goal: understand how Meta became the dominant fabric connecting humanity, through the breathless first decade and the scandal-defined second, without flinching from either.</p>
+<p>Figure 1. Share of the species. AI Podcast Curriculum, ep07 (Meta, 2024-10-28). Shell 2. Count the toy. Source: original toy, from episode claims.
+| Entity | Peak share of humans |
+|&mdash;|&mdash;|
+| Roman Empire | About 40 percent |
+| British Empire | About 23 percent |
+| Meta (2024) | About 50 percent (4B monthly of 8B) |</p>
+<h3 id="the-kid-civilization-code-and-classics">The kid: Civilization, code, and classics</h3>
+<p>Mark Elliot Zuckerberg was born in May 1984 in Dobbs Ferry, New York, the second of four children. His mother Karen is a psychologist. His father Ed, the son of Jewish immigrants, studied dentistry at NYU and practiced as a dentist. A classic American leveling-up story: grandparents sacrificed, parents became professionals, the kids got to explore.</p>
+<p>Mark&rsquo;s three passions, in order: turn-based strategy games (Civilization, released September 1991, when he was 7, the 4X genre: explore, expand, exploit, exterminate), programming, and ancient Greek and Latin. The episode keeps returning to Civilization: the turn-based strategist who gets more turns and learns more per turn is the same kid who later ran Meta as a turn-based strategy game.</p>
+<p>Harvard, fall 2003. Sophomore year, Kirkland House suite H33: Zuckerberg, Chris Hughes, Dustin Moskovitz, and Billy Olsen. Mark built Facemash, then thefacebook.com in February 2004. Eduardo Saverin, a fraternity brother in the investing club, put in $1,000 for servers. Mark added $1,000. The split: Mark two-thirds, Eduardo one-third.</p>
+<h3 id="the-money-from-2000-to-104-billion">The money: from $2,000 to $104 billion</h3>
+<p>Figure 2. The funding ladder. AI Podcast Curriculum, ep07 (Meta, 2024-10-28). Shell 2. Count the toy. Source: original toy, from episode claims.
+| Round | Amount | Valuation | Note |
+|&mdash;|&mdash;|&mdash;|&mdash;|
+| Founders | $2,000 | n/a | Mark 2/3, Eduardo 1/3 |
+| Angel, 2004 | $500,000 | $5M pre | Thiel most; Hoffman, Pincus $37.5K each; ~250,000x since |
+| Venture debt | $600,000 | n/a | Western Technology Investment; warrants called the greatest venture debt deal ever |
+| Series A, 2005 | $12.7M | $98M post | Accel; Mark kept board control; &lt;20% sold (norm was 25-30%) |
+| Microsoft, 2007 | $240M | $15B | Ad partnership plus investment; $240M later worth $8B |
+| IPO, 2012 | $16B raised | $104B | Priced $38, top of range; 3rd largest IPO ever |</p>
+<p>Sean Parker&rsquo;s fingerprints are on the early company: he negotiated the facebook.com domain purchase ($200,000, a huge chunk of the angel money). The Series A details are wild for 2005: Accel&rsquo;s $12.7M at $98M post, with Mark keeping board control and selling under 20 percent. Jim Breyer personally put in $1.1M at 4.5 cents a share. At $600 a share that is a 13,000x return. The round was supposed to be Don Graham of the Washington Post at $60M. Accel topped it, and $3M went to Mark, Dustin, and Sean as a secondary.</p>
+<h3 id="growth-the-numbers-then-the-machine">Growth: the numbers, then the machine</h3>
+<p>By November 2005, Facebook was doing 230 million page views a day, passing Google. User counts: 3 million (June 2005), 5 million (September 2005, 10x year over year, a third of US college students), 70 percent daily active. Revenue: $9M in 2005, cash-flow positive in 2006, $48M in 2006 and $153M in 2007 on the Microsoft ad partnership. The $1 billion Yahoo offer came in 2006. Mark said no.</p>
+<p>Two product earthquakes defined the era.</p>
+<p>News Feed launched September 5, 2006, to everyone at once, no opt-in. Users hated it: 30,000 angry support emails on day one, and 10 percent of the entire user base joined a protest group. It was a total paradigm shift. Social networks had been profiles you visited. Now the updates came to you. The episode&rsquo;s verdict: users always hate the change, then cannot live without it.</p>
+<p>Platform launched at f8 in May 2007: apps inside Facebook. Twenty million users growing 100,000 a day. For four years (2007-2011), platform was the company&rsquo;s core belief about the future. FarmVille and Zynga rode it to hundreds of millions of users.</p>
+<p>The Microsoft deal of 2007 made Microsoft the exclusive third-party ad network worldwide and included the $240M investment at $15B. Thirteen months after the $1B Yahoo bid. Microsoft had also floated acquiring Facebook on terms netting about $24B. For Microsoft, the deal helped spin up Bing&rsquo;s ad serving. The $240M became $8B.</p>
+<h3 id="beacon-the-failure-that-built-the-ads-business">Beacon: the failure that built the ads business</h3>
+<p>Mark thought ads were gross and wanted to outsource monetization to Microsoft while he focused on product. But Facebook also tried its own &ldquo;native&rdquo; ad idea: Beacon, led by Chamath Palihapitiya. Advertisers embedded JavaScript that published your off-Facebook purchases into your friends&rsquo; News Feeds. A diamond ring purchase could spoil an engagement. Users revolted, advertisers were confused about what was even an ad, and credibility burned everywhere.</p>
+<p>The episode is blunt: a head-up-your-rear-end idea. But the failure was productive. Mark&rsquo;s takeaway: maybe he did not understand advertising as well as he thought. Enter Sheryl Sandberg, who joined Google in 2001 as AdWords was being figured out and built its self-serve business. The deal: Mark owns product and engineering. Sheryl owns ads and operations. Their first exercise: should Facebook even be in the ads business? Answer: yes, it is a media business, and it should build the best targeting engine in the world, which its social data uniquely enables.</p>
+<h3 id="the-growth-team-a-discipline-is-invented">The growth team: a discipline is invented</h3>
+<p>After Beacon, Chamath needed a new job. At most companies he would have been fired. Facebook&rsquo;s culture, &ldquo;move fast and break things,&rdquo; found him the right seat instead. User growth was stalling, and Chamath built the first growth team in the industry&rsquo;s history: himself, Alex Schultz, Naomi Gleit, and Javi Olivan.</p>
+<p>The definition matters. Growth is not marketing. Marketing and product both touch customers but never talk to each other. The growth team unified them inside product, on the principle that the product itself is the best growth lever. No amount of marketing beats the product doing the right thing for the right user at the right time.</p>
+<p>Their methods: obsessive analytics to find where users got value and where they got confused. Crowdsourced translation (users translated Facebook into every language, which seeded power users who felt ownership, and captured local nuance no agency could). And People You May Know, still a core surface. The famous finding: a new user&rsquo;s odds of becoming engaged tracked how many friends they added in the first day or two. Alex Schultz&rsquo;s gloss: it is linear, not magic. More friends faster is just better.</p>
+<p>Results: 100M users (August 2008) to 150M (end of 2008) to 350M (end of 2009, up 250 percent). Revenue: $280M (2008), ~$800M (2009), $2B (2010), $3.7B (2011). Users: 600M (2010), 850M (2011).</p>
+<p>Figure 3. The growth loop. AI Podcast Curriculum, ep07 (Meta, 2024-10-28). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Analytics finds friction] --> B[Product change, not marketing]
+    B --> C[More engaged users]
+    C --> D[Users translate, invite, seed]
+    D --> A
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Analytics finds friction] --&gt; B[Product change, not marketing]
+    B --&gt; C[More engaged users]
+    C --&gt; D[Users translate, invite, seed]
+    D --&gt; A
+</code></pre>
+<h3 id="the-mobile-crisis-five-ways-to-die">The mobile crisis: five ways to die</h3>
+<p>By 2011, everything Facebook had built assumed the open web. Mobile broke every assumption. The episode lists five reasons:</p>
+<ol>
+<li>Closed platforms. iOS and Android are proprietary ecosystems Facebook does not control. The web was the only open platform in history: free technologies, interchangeable browsers, distribution by shared URL.</li>
+<li>Platform dies. Apps cannot run inside apps on mobile. Facebook Platform, half the company&rsquo;s imagined future value, switches off permanently.</li>
+<li>No mobile revenue. The S1 admitted it: 425 million mobile monthly users in December 2011, and &ldquo;we do not currently directly generate any meaningful revenue from the use of Facebook mobile products.&rdquo; Desktop ads lived in the right-hand column. Phones have no right-hand column, only the feed, which had never carried ads and which the culture considered pristine.</li>
+<li>No code velocity. On the web, push anytime. On mobile, a two-week App Store review, and Apple can reject or stall you.</li>
+<li>Competitive reset. On the web, Facebook absorbed every new social mechanic. On mobile, it is one icon among many, and single-purpose apps (Instagram for photos, WhatsApp for messaging) peel off use cases.</li>
+</ol>
+<p>Figure 4. The five mobile breaks. AI Podcast Curriculum, ep07 (Meta, 2024-10-28). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Web-era assumption | Mobile break |
+|&mdash;|&mdash;|
+| Open web platform | Closed iOS and Android |
+| Apps run inside Facebook Platform | Apps cannot run inside apps |
+| Right-column desktop ads | No right column; the feed was pristine |
+| Push code anytime | Two-week App Store review |
+| Absorb every new mechanic | One icon among many |</p>
+<p>They went public into this. The IPO priced at $38, top of the range, raising $16B at $104B. Nine days earlier, during the quiet period, Facebook bought Instagram for $1B (its previous largest acquisition: $70M). The stock closed day one at $38.23 only because the underwriting banks bought to support it. It fell 9 of the next 13 sessions, bottomed at $17.68 on September 4, 2012 (down 53.5 percent), and stayed underwater for 16 months.</p>
+<p>The turnaround: a full native rewrite, then the invention that saved the company, feed ads, plus app-install ads (Facebook became the front end for App Store discovery). Q4 2013 earnings popped the stock 75 percent above the IPO price to ~$175B. The Instagram monetization engine followed.</p>
+<h3 id="the-constellation-of-apps-playing-the-other-teams-game">The constellation of apps: playing the other team&rsquo;s game</h3>
+<p>For a while in the early 2010s, Facebook responded to unbundling by imitating the unbundlers. The industry belief was that mobile meant specialized apps, each for its own tiny purpose. So Facebook built a constellation of single-purpose apps: Slingshot, Poke, Messenger, Paper, Rooms, Riff, Camera.</p>
+<p>The problem: the strategy contradicted Facebook&rsquo;s own value. A large share of Facebook&rsquo;s value came from bundling many use cases into one app, so they feed into each other and compound engagement. Single-purpose apps made it easy for users to split their attention: keep Facebook for life events, take photos elsewhere, message on WhatsApp. The constellation strategy asked users to unbundle Facebook itself, which is what the strategy was supposed to defend against.</p>
+<h3 id="the-acquisition-playbook-buying-time">The acquisition playbook: buying time</h3>
+<p>In 2013, Facebook bought Onavo, an Israeli VPN/data-compression app. It let Facebook see mobile app usage trends the way Apple and Google could. It tipped them off to WhatsApp and Snap.</p>
+<p>Mark&rsquo;s actual strategy surfaced in a February 28, 2012 email to his CFO, revealed in court. The plan: buy companies, keep them running independently, and integrate the social mechanics they invented into Facebook&rsquo;s core products over 12 to 24 months. &ldquo;What we&rsquo;re really buying is time.&rdquo; Network effects plus a finite number of social mechanics to invent: once someone wins a mechanic, others cannot supplant them without something different. Buy the mechanic, deploy it at your scale before anyone else can, and you win whether the original product or your copy wins. Probably both win.</p>
+<p>Instagram ($1B, April 2012): the mechanic was filtered photo sharing. WhatsApp ($19B, February 2014): not a competitor, a different use case, private messaging, the living-room shift. Oculus ($2B, March 2014, 34 days after WhatsApp): a research lab for the next platform, the way FAIR was for AI.</p>
+<p>Snapchat would not sell, so Facebook copied Stories. The copy was better than the original in one specific way: Instagram launched Stories as an algorithmically ranked row of faces, powered by the News Feed ranking expertise Snap did not have. Copying well means deploying the mechanic with your superior distribution and algorithms.</p>
+<p>Figure 5. The acquisition logic. AI Podcast Curriculum, ep07 (Meta, 2024-10-28). Shell 3. Apply the one rule. Source: original toy, built from Zuckerberg&rsquo;s 2012 email as quoted in the episode.</p>
+<pre class="ascii">Buy the company
+  -&gt; keep it running (option value if it becomes huge)
+  -&gt; integrate its mechanics into core (12-24 months)
+  -&gt; deploy at your scale before anyone else can
+  = &quot;what we're really buying is time&quot;
+Win if the original wins. Win if your copy wins. Usually both.
+</pre>
+<h3 id="town-square-to-living-room">Town Square to living room</h3>
+<p>Mark&rsquo;s 2019 strategic frame: social was moving from the Town Square (public, permanent, performative: the classic Facebook feed, early Instagram) to the living room (small, private, ephemeral: messaging, Stories, groups). As the town square stage got bigger, people only took it for major announcements. Sharing moved private.</p>
+<p>The second-order effect nobody predicted: once social moves to the living room, media can divorce from social entirely. TikTok is not social media. It is media. Your graph does not matter. The AI does. In your first ten videos, the algorithm learns what engages you, and none of it comes from friends. Facebook&rsquo;s durable advantage, the authenticated network, became irrelevant to the engagement at hand. All that was left was the habit of tapping the app, and habits break.</p>
+<p>TikTok also broke the organizational model. ByteDance is an AI company that ships products as deployment vectors for its AI, organized around centers of excellence. Facebook was a product company. Meta reorganized to look like ByteDance: FAIR, shared infrastructure, shared revenue, shared growth, integrity and safety as spanning centers of excellence, with product heads rolling up to Chris Cox.</p>
+<p>The response: Reels, built fast enough to stem the bleeding, aiming for stalemate. It worked because of FAIR: &ldquo;no AI, no Reels.&rdquo;</p>
+<p>Figure 6. Town square to living room. AI Podcast Curriculum, ep07 (Meta, 2024-10-28). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<pre class="ascii">Town square:  public, permanent, performative (the feed)
+Living room:  private, ephemeral, small groups (messaging, Stories)
+Consequence:  the square empties, TikTok fills it with pure media, no social graph
+</pre>
+<h3 id="fair-the-profitable-ai-lab">FAIR: the profitable AI lab</h3>
+<p>In 2013, with mobile finally stabilizing, Mark and Mike Schroepfer asked when the tiger would jump next. They started FAIR (Facebook AI Research) by recruiting Yann LeCun in summer 2013. LeCun&rsquo;s terms: stay in New York, keep teaching at NYU, publish everything. Facebook, built on the LAMP stack and already open-sourcing Cassandra and React, said yes to all of it.</p>
+<p>The key design choice: focused research, not blue-sky. The mission was explicit: AI that ships into products. And it paid off in two years, not ten. The episode names three payoffs: (1) immediate, wildly profitable application to feed ranking and ad targeting. Meta&rsquo;s AI spend has guaranteed ROI because every improvement makes ads and engagement more valuable. An AI assistant is a nice-to-have. The recommender is the business. (2) A chess piece for whatever platform comes next. (3) The weapon against TikTok: Reels.</p>
+<p>The line to remember: most AI companies spend hoping the use case materializes. Meta&rsquo;s use case has been proven and profitable for a decade.</p>
+<h3 id="2016-2018-the-fall">2016-2018: the fall</h3>
+<p>Content moderation at planetary scale broke the company politically. Tens of thousands of contractors, escalating policies, and a platform where anyone could reach everyone. Then the 2016 election and Cambridge Analytica.</p>
+<p>The episode reconstructs what actually happened, carefully. A quiz app harvested profile data under the old permissive platform API (in the early 2010s, authorizing an app exposed your data and your friends&rsquo; data). The developer violated terms of service by keeping and repurposing it. About 320,000 people took the quiz. The surface area reached 87 million profiles. Cambridge Analytica got derivative psychographic labels, not raw Facebook data. Facebook had asked for deletion in 2015. The UK investigation was skeptical the methodology even worked: internal communications showed doubt about the models&rsquo; real-world accuracy.</p>
+<p>The brand impact dwarfed the facts. Hundreds of millions of people believed Facebook data had swung the election. The episode&rsquo;s diagnosis: Facebook had earned the distrust through years of &ldquo;win first, clean up later&rdquo; behavior, and the town-square-to-living-room shift made old permissiveness look grotesque through new expectations. The FTC settlement: $5 billion and 20 years of monitoring. In July 2018, the privacy-focused earnings call wiped $119 billion in a day, the largest single-day loss in history at the time.</p>
+<p>Mark&rsquo;s &ldquo;20-year mistake&rdquo; line from Episode 3 gets its context here: the brand damage and the settlement&rsquo;s two-decade tail.</p>
+<h3 id="apple-the-platform-war">Apple: the platform war</h3>
+<p>Mark and Steve Jobs had a genuine relationship: Jobs reached out in 2007, and in 2008 Facebook pitched bringing its platform into iOS. Jobs&rsquo;s answer: &ldquo;We&rsquo;re just not going to let somebody else build a platform on top of our platform.&rdquo; Cordial, final.</p>
+<p>Apple then did what platforms do. Privacy is sincere Apple belief and excellent strategy (Ben Thompson&rsquo;s &ldquo;strategy credit&rdquo;): Apple does not need server-side data or ads, so it can afford the stance. In 2021, iOS 14.5/14.6 shipped App Tracking Transparency: apps must ask permission to track, in aggressive language. Most users said no. Facebook&rsquo;s off-app targeting picture collapsed.</p>
+<p>February 2022: Meta said ATT would cost about $10 billion in 2022 revenue. The stock fell 26 percent in a day, $232 billion, a new record. It was also the first quarter-over-quarter user decline, with TikTok compounding. By Halloween 2022, the stock was down 72 percent from February.</p>
+<p>The episode&rsquo;s judgment: the real threat was TikTok (users), not ATT (monetization efficiency). A founder-led company reacted to both at once, cannibalizing its own feed revenue to push Reels while absorbing the ATT hit. A professional CEO would have waited out ATT first. Mark could not be fired, so he did the right painful thing immediately. The stock is up roughly 5x from the bottom.</p>
+<p>The aftermath vindicated scale: Meta built Advantage Plus on first-party signals, advertisers kept spending because budgets must go somewhere, and smaller competitors without Meta&rsquo;s data and engineers could not adapt at all. ATT destroyed value overall. The dollars did not move to Apple. Targeting just got worse for everyone, including a retail advertiser whose acquisition costs doubled with no connection to the App Store.</p>
+<h3 id="reality-labs-the-60-billion-hedge">Reality Labs: the $60 billion hedge</h3>
+<p>February 2014: $19B for WhatsApp. Thirty-four days later: $2B for Oculus. Mark had tried the demo and found it the most credible future he had ever seen. Treat Oculus as a research lab purchase, like FAIR.</p>
+<p>Since 2019, Reality Labs has lost about $60 billion in reported operating losses. The episode does the math two ways.</p>
+<p>The product math: to earn back $60B, Reality Labs must become the most successful consumer product in history. Napkin math: if Orion glasses launched tomorrow and grew exactly like the iPhone with an Apple-sized services business attached, Meta&rsquo;s cumulative Reality Labs cash flow stays negative until at least 2035. Anything less is incineration.</p>
+<p>The hedge math: Apple erased $10B of revenue with one policy change and could, in theory, remove Meta from the App Store entirely. Google could too. Expected value of that risk: some small probability times a $1.5 trillion market cap is still an enormous number. Spending $15-20B a year, about 1 percent of enterprise value, to buy a chance at platform independence is rational insurance. Plus the upside: owning the next platform means millions of developers building on you, the way they once did.</p>
+<p>At Meta Connect in September 2024, the multi-hour keynote spent zero minutes on the $100B ads business. It was all Meta AI, Llama, developers, Quest, Ray-Bans, and Orion. The company is all-in on the platform future.</p>
+<p>Figure 7. The two maths of Reality Labs. AI Podcast Curriculum, ep07 (Meta, 2024-10-28). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Lens | The math |
+|&mdash;|&mdash;|
+| Product | Must become the most successful consumer device ever; break-even around 2035 on iPhone math |
+| Hedge | About 1 percent of a $1.5T enterprise value per year against App Store removal risk |</p>
+<h3 id="the-business-today">The business today</h3>
+<p>The numbers at recording: 3.3 billion daily actives across the family of apps (up 7 percent), about $12 revenue per person. Facebook alone: 2.1B daily, 3.1B monthly. WhatsApp and Instagram: ~2B monthly each. WhatsApp hit 100M US users. 2023: $135B revenue, $47B operating income (35 percent margin), $28B capex (a hyperscaler-sized data center footprint, the fourth cloud, consumed internally). $50B cash ($58B with securities), 71,000 employees, $1.5T market cap, up from $230B in October 2022.</p>
+<p>Two observations the hosts find insane. First, every product&rsquo;s engagement grows over time: the growth function is a heat-seeking missile, a process, not a fluke. Second, monetization: US and Canada ARPU went from $11 at IPO to $227. Global is $44. Of 5.4 billion humans online (UN), Meta serves 4 billion outside China.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">How did Facebook get its first users, and why did the college strategy work?</div><div class="a"><p>One school at a time, starting with Harvard. Exclusivity plus density: when everyone in your dorm is on it, joining is compulsory. By September 2005: 5M users, 10x year over year, a third of US college students, 70 percent daily active. The strategy was density before breadth: win one network completely, then copy the playbook to the next.</p><div class="followup"><strong>Follow-up:</strong> When does exclusivity stop working? When the network inside is complete and growth needs outsiders. Facebook opened registration in 2006, then spent the next decade proving the product worked without the college scaffold.</div></div></div>
+<div class="qa"><div class="q">What was the growth team&#x27;s key insight?</div><div class="a"><p>Growth is a product discipline, not marketing. The 2008 team (Chamath, Alex Schultz, Naomi Gleit, Javi Olivan) unified product and marketing inside product, used analytics to find value and friction, and grew Facebook with Facebook: crowdsourced translation, People You May Know, friend-count onboarding. The metric: friends added in the first day or two predicts engagement, linearly.</p><div class="followup"><strong>Follow-up:</strong> Why &quot;linear, not magic&quot;? Because teams waste months hunting for a magic threshold (10 friends in 14 days!). Schultz&#x27;s point: more friends faster is just better. Optimize the slope, not the step.</div></div></div>
+<div class="qa"><div class="q">Why did Beacon fail, and why did the failure matter?</div><div class="a"><p>Beacon published your off-site purchases into friends&rsquo; feeds. Users revolted (a diamond ring spoiled an engagement), advertisers were confused, privacy implications were horrific. It failed because it violated the user&rsquo;s mental model: my purchases are not content. It mattered because it taught Mark he could not engineer his way around advertising, which led to hiring Sheryl Sandberg and building the targeting engine honestly.</p><div class="followup"><strong>Follow-up:</strong> What is the generalizable rule? Do not ship the clever ad format before the obvious one. Facebook tried native-social ads before basic display. The market wanted basic display first. Cleverness is a tax on adoption.</div></div></div>
+<div class="qa"><div class="q">Explain the Instagram acquisition logic from Mark&#x27;s 2012 email.</div><div class="a"><p>Buy the company, keep it running, integrate its mechanics into your core products within 12-24 months. Network effects plus a finite set of inventable mechanics means the winner of a mechanic is hard to dislodge. Buying buys time: deploy the mechanic at your scale before anyone else can. You win if the original wins, you win if your copy wins. Usually both.</p><div class="followup"><strong>Follow-up:</strong> Why keep Instagram separate instead of merging it? Because the mechanic&#x27;s network is already winning. Merging risks killing it. Own the network, copy the mechanic, let both run.</div></div></div>
+<div class="qa"><div class="q">What is Town Square to living room, and why did it enable TikTok?</div><div class="a"><p>Social moved from public permanent broadcast (the feed) to private ephemeral small-group sharing (messaging, Stories). Once your social life lives in the living room, the town square is free to become pure media. TikTok filled it: no social graph, just AI picking videos. The shift Meta identified created the opening Meta did not see.</p></div></div>
+<blockquote>
+<p>Follow-up: What is the next shift the same logic predicts? Whatever moves the living room itself: if private sharing gets a better mechanic, the apps owning it today are as exposed as the feed was. Watch the mechanic, not the app.</p>
+</blockquote>
+<div class="qa"><div class="q">Was the $60B Reality Labs spend rational?</div><div class="a"><p>As a product investment, only if it becomes the most successful consumer device in history (break-even ~2035 on iPhone math). As a hedge, yes: 1 percent of a $1.5T enterprise value per year to insure against platform owners who already cost you $10B with one policy and could remove you entirely. The honest answer is both: the math only works as insurance plus a platform dream.</p><div class="followup"><strong>Follow-up:</strong> What would change your mind? A credible alternative hedge: if web distribution or regulation removed the App Store risk, the insurance value collapses and only the product math remains.</div></div></div>
+<div class="qa"><div class="q">Why did Meta survive ATT while smaller advertisers&#x27; costs doubled?</div><div class="a"><p>Scale and engineering. Meta rebuilt targeting on first-party signals (Advantage Plus). Advertisers&rsquo; budgets had to go somewhere, and Meta remained the best somewhere. Smaller players could not rebuild. ATT destroyed total value. The dollars did not migrate to Apple. They just bought less efficient ads everywhere.</p><div class="followup"><strong>Follow-up:</strong> Who actually won from ATT? Apple, strategically: it weakened a rival, burnished the privacy brand, and grew App Store search ads. The user got a permission prompt. Everyone else paid more.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>Half of humanity: 4B monthly users vs Rome&rsquo;s 40% and Britain&rsquo;s 23%.</li>
+<li>The $2,000 start: Mark 2/3, Eduardo 1/3, and a $1,000 server bill.</li>
+<li>4.5 cents to $600: Breyer&rsquo;s Series A shares, the 13,000x.</li>
+<li>Beacon: the ad format so bad it hired Sheryl Sandberg.</li>
+<li>Growth is product: the 2008 invention of the discipline.</li>
+<li>The S1 confession: 425M mobile users, zero meaningful mobile revenue.</li>
+<li>The email: February 28, 2012. &ldquo;What we&rsquo;re really buying is time.&rdquo;</li>
+<li>Never-confuse pair: Town Square (public broadcast, the old feed) vs living room (private small-group, where social went). TikTok is neither: it is media without social.</li>
+<li>Trap card: &ldquo;Facebook won mobile by buying Instagram.&rdquo; Instagram had no mobile revenue either. Facebook won mobile by rewriting natively and inventing feed ads. The acquisition bought time and mechanics, not monetization.</li>
+<li>The numbers: $17.68 (Sept 2012 bottom) to 5x. The 72% drawdown that a founder&rsquo;s control made survivable.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: run the growth-team audit on something you own. Find where users get value and where they get confused, with data, not opinions. Change the product, not the marketing. One change, measured.</li>
+<li>Catch yourself: the next time you propose a clever solution before the obvious one, name it &ldquo;Beacon&rdquo; out loud. Ship the obvious version first.</li>
+<li>Behavior change per major idea:</li>
+<li>Density: launch your next thing to one dense group, not everyone. Win the dorm before the world.</li>
+<li>Growth is product: move one marketing task inside the product this month. If it cannot live there, question the task.</li>
+<li>The email: when acquiring anything (a tool, a hire, a company), write the &ldquo;what we&rsquo;re really buying is time&rdquo; memo. What mechanic are you buying? What is the 12-month integration plan?</li>
+<li>Town square: notice where your own sharing moved private. That migration is the market telling you what it wants. Build for the living room.</li>
+<li>The hedge: price your biggest platform risk as expected value (probability times enterprise value). If the insurance costs 1%, buy it.</li>
+<li>Monthly: check your ARPU-equivalent: revenue per user per month for whatever you do. Is it compounding like $11 to $227? If not, find the monetization you have not built.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<ol>
+<li>Fermi: 230M page views/day (Nov 2005) with 5M users. What is views per user per day? Compare with 3.3B daily actives today. What broke in the ratio, and what does that tell you about engagement depth versus breadth? (Work it: 46 views/user/day in 2005. The ratio fell as the world joined. Depth concentrated in the core.)</li>
+<li>Argue both sides: Facebook should have merged Instagram immediately. Argue for focus and against option value. Then check against the email: which did Mark choose, and what would have died in the merge?</li>
+<li>Journal: &ldquo;What is my Beacon?&rdquo; Write about the clever thing you shipped that violated the user&rsquo;s mental model. What was the obvious version? What did the failure buy you?</li>
+<li>First principles: derive the growth team from scratch. You have a product with stalling growth and a marketing team that cannot touch the product. Design the team that can. You should arrive near: analytics-obsessed, inside product, product-as-lever.</li>
+<li>Observe: find a company living through its &ldquo;five reasons&rdquo; mobile moment today: a platform shift that kills its assumptions one by one. List the five. Which one is existential versus painful?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Run a growth audit: separate product levers from marketing spend, instrument the value and friction points, and change the product first.</li>
+<li>Write an acquisition memo: name the mechanic you are buying, the integration timeline, and why time (not the asset) is the purchase.</li>
+<li>Price platform risk: expected value equals probability times enterprise value. Size the hedge as a percentage and defend it.</li>
+<li>Diagnose a social shift: track where sharing moves (public to private, permanent to ephemeral) and position before the mechanic migrates.</li>
+<li>Survive a drawdown: distinguish the real threat (users, TikTok) from the painful one (monetization, ATT), and let the founder&rsquo;s control do its job.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Zuckerberg&rsquo;s February 2012 acquisition email (via court filings): search &ldquo;Zuckerberg February 28 2012 email Instagram neutralize competitor&rdquo; for the full text.</li>
+<li>Alex Schultz&rsquo;s Startup School talk on growth (the &ldquo;linear, not magic&rdquo; lecture): https://www.youtube.com/watch?v=n_yHZ_vKjno</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Planetary scale</td>
+<td>Rome 40%, Britain 23%</td>
+<td>Meta: half of humanity</td>
+<td>fig1</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Funding ladder</td>
+<td>$2,000 founders</td>
+<td>$104B IPO</td>
+<td>fig2</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Growth team invented</td>
+<td>Marketing vs product split</td>
+<td>Product-led growth loop</td>
+<td>fig3</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Mobile killed every assumption</td>
+<td>5 web-era pillars</td>
+<td>5 existential breaks</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Acquisition = buying time</td>
+<td>Buy and merge</td>
+<td>Buy, run, integrate mechanics</td>
+<td>fig5</td>
+<td>ascii</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Town Square to living room</td>
+<td>Public broadcast</td>
+<td>Private sharing; TikTok fills square</td>
+<td>fig6</td>
+<td>ascii</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u07</td>
+<td>Reality Labs two maths</td>
+<td>$60B burned</td>
+<td>Product math vs hedge math</td>
+<td>fig7</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 7 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=CS2Lqdwja8o" target="_blank" rel="noopener">Meta (Audio)</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/acquired/ep06.html"><span class="lbl">← Previous</span>Episode 6: Microsoft Volume I, Founding through Windows 95</a><a href="../../tracks/acquired/ep08.html"><span class="lbl">Next →</span>NVIDIA Part II: The Machine Learning Company (2006-2022)</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
