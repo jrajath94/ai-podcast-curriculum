@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 1: NVIDIA CEO Jensen Huang — AI Podcast Curriculum</title>
+<meta name="description" content="Jensen Huang on betting the company only when the simulation says it will work, building CUDA as a platform, and why Nvidia prices at a thousand times the chip ">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="acquired-ep01" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01" class="active">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Acquired</a> / Episode 1: NVIDIA CEO Jensen Huang</nav>
+      <h1>Episode 1: NVIDIA CEO Jensen Huang</h1>
+      <p class="meta-line">2023-10-16 · Instructor: Jensen Huang · Acquired</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="y6NfxiemvHg"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/y6NfxiemvHg" title="NVIDIA CEO Jensen Huang" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=y6NfxiemvHg" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=y6NfxiemvHg" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Jensen Huang walks through Nvidia's near-death moments, the CUDA platform bet, the data center pivot, and what founders should steal.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>No other episode in this track puts you in the room with the person who made the calls. The three-part Nvidia series tells you what happened. This episode tells you how Jensen decided. You get his rule for betting the company, his definition of a moat, his org chart, and his arithmetic for why Nvidia stopped pricing like a chip company. If you only internalize one idea from the whole track, make it this one: pull the future forward and simulate it before you bet.</p>
+<p>At recording time (October 2023), Nvidia was worth about 1.1 trillion dollars, the sixth most valuable company in the world. Ben and David say they researched Nvidia for roughly 500 hours over two years before this interview, and Jensen still surprised them.</p>
+<h2 id="the-story">The story</h2>
+<h3 id="1993-the-founding-bet-on-a-market-that-did-not-exist">1993: the founding bet on a market that did not exist</h3>
+<p>Jensen founded Nvidia in 1993 with Chris Malachowsky and Curtis Priem. In the episode he says Nvidia was the only consumer 3D graphics company ever created at that time. Their thesis: the PC should become an accelerated PC, because Windows was still a software-rendered system.</p>
+<p>Their first architecture bet was wrong. The first chips (NV1, NV2) used forward texture mapping: they drew curves and tessellated them, which avoided Z-buffers. Jensen says they thought avoiding Z-buffers was clever. It was the wrong answer. By the time they admitted it, Microsoft had shipped DirectX, which was fundamentally incompatible with Nvidia&rsquo;s architecture, and about 30 competitors had entered the field. Nvidia had months of cash left.</p>
+<p>Definition: a Z-buffer is a piece of memory that stores how far away each pixel is, so the chip can decide which surface is in front. Skipping it seemed efficient. The industry standardized on it anyway.</p>
+<h3 id="1997-riva-128-the-bet-the-company-chip">1997: RIVA 128, the bet-the-company chip</h3>
+<p>With cash running out, Nvidia made what Jensen calls probably the company&rsquo;s best moment. They decided not to fight DirectX. They decided to build the best chip in the world for it: the RIVA 128, the first fully hardware-accelerated 3D pipeline for a PC. Transform, projection, lighting, frame buffer: every stage in hardware.</p>
+<p>They had one constraint that changed everything. They could afford exactly one tape-out.</p>
+<p>Definition: taping out a chip means sending the final design to the factory (the fab) to be manufactured. Each tape-out costs millions of dollars and months. A mistake means starting over.</p>
+<p>The normal industry process was: build the chip, write the software, find the bugs, tape out again, repeat. Jensen says that method would have put them out of business. So they bought an emulator from a company called iSOS, which was shutting down that same day. Jensen called, bought their inventory, no promises. Dwight Diercks and the software team wrote the entire software stack and ran it on the emulator. It rendered about one frame per hour [uncertain: the episode hedges between 60 seconds and an hour per frame; the hour figure anchors the worked arithmetic in this chapter]. They sat in the lab and watched Windows paint, one frame at a time, until they believed the chip was perfect.</p>
+<p>Then they taped out once and went straight to production, marketing blitz, developer relations, everything. Jensen&rsquo;s line: &ldquo;I know it is going to be perfect because if it is not we will be out of business, so let us make it perfect.&rdquo;</p>
+<p>The chip came back supporting 8 of the 32 DirectX blend modes. Jensen says he learned too late that they should have implemented all 32. So they did the only thing left: they convinced the market and the developers that the other 24 did not matter.</p>
+<p>Figure 1. The RIVA 128 decision. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Months of cash left] --> B[Buy dying emulator firm]
+    B --> C[Simulate chip + software]
+    C --> D[One tape-out]
+    D --> E[Straight to production]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Months of cash left] --&gt; B[Buy dying emulator firm]
+    B --&gt; C[Simulate chip + software]
+    C --&gt; D[One tape-out]
+    D --&gt; E[Straight to production]
+</code></pre>
+<p>Figure 2. Before and after the emulation bet. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Step | Normal industry process | Nvidia, 1997 |
+|&mdash;|&mdash;|&mdash;|
+| Test | On physical prototypes | On emulator, 1 frame per hour |
+| Tape-outs | Several, fix bugs between | Exactly one |
+| Software | Written after silicon | Written before silicon |
+| Outcome if wrong | Lose months | Lose the company |</p>
+<h3 id="the-lesson-only-bet-the-company-when-you-know-it-will-work">The lesson: only bet the company when you know it will work</h3>
+<p>Ben asks the obvious question. Jensen keeps pushing all the chips in, and it keeps working. Is the lesson just &ldquo;bet big&rdquo;? Jensen says no.</p>
+<p>His rule: when you bet the farm, you are pulling everything risky from the future into the present. Everything they could prefetch, they prefetched. Everything they could simulate, they simulated. In his words, you push your chips in when you know it is going to work, because you already simulated it.</p>
+<p>This is a decision rule you can reuse. A bet is not brave because it is large. A bet is sound because the uncertainty was removed before the money moved.</p>
+<h3 id="cuda-the-ten-thousand-person-year-bet">CUDA: the ten-thousand-person-year bet</h3>
+<p>After RIVA 128, Nvidia won graphics. Then Jensen made a stranger bet: CUDA, a programming model that let developers run general computation on the graphics chip. The investment was on the order of 10,000 person-years, poured in before any market existed.</p>
+<h3 id="cuda-the-first-principles-case">CUDA: the first-principles case</h3>
+<p>Why did he believe? Two reasons from the episode.</p>
+<p>First, the hardware was already right. A programmable shader is a massively parallel processor. Before CUDA there was Cg, an early attempt at a higher-level abstraction above the chip. Nvidia had already tested the idea on CT reconstruction and image processing. The pipeline of a programmable shader is a processor: highly parallel, massively threaded. Jensen calls the GPU the only processor in the world that works that way.</p>
+<p>Second, Jensen went back to first principles after AlexNet (2012). AlexNet was a neural network that crushed 30 years of computer vision work overnight. Jensen asked why it worked. His answer: deep learning is a universal function approximator. Give it enough example data and enough layers, and there is no reason it cannot keep getting better as data and models grow. Then the hinge: for most valuable problems, causality does not matter. Prediction is enough. Do you care why someone prefers one toothpaste over another? No. You care that you can predict the choice. The same holds for movies, music, weather, and which item to show next in a social feed.</p>
+<p>If prediction is the product and examples are the fuel, then almost every piece of software in the world would eventually be programmed this way. That is the market that justified 10,000 person-years before it existed.</p>
+<h3 id="cuda-winning-the-researchers">CUDA: winning the researchers</h3>
+<p>The early believers were researchers. Jensen says CUDA democratized supercomputing, and researchers were the first users: molecular dynamics, CT reconstruction, seismic processing, weather simulation, quantum chemistry. When deep learning arrived, Nvidia went to every AI researcher on the planet and asked how to help: Yann LeCun, Andrew Ng, Geoff Hinton, Ilya Sutskever. Jensen met Ilya at AI conferences. He read the papers himself. Papers came every three months, then every day. He watched progress compound in real time, exponentially.</p>
+<h3 id="cuda-the-emergence-evidence">CUDA: the emergence evidence</h3>
+<p>He describes seeing a GAN for the first time as a 32 by 32 blurry image of a cat. It looked like a toy. His question was: how far can it go? His answer: scale the data, scale the model, and it gets better. Once models crossed 10 billion parameters, and certainly at 100 billion, they became magically more accurate, more useful, more lifelike.</p>
+<p>On language models, his first reaction to BERT was about how clever the trick was: mask out words, make the model guess them. Self-supervised learning at its best. Text encodes reasoning, he argues. Humans get common sense from reading. Why would a machine not learn reasoning from reading too? Emergent abilities follow from reasoning ability. The fact that it is sensible does not make it less amazing.</p>
+<p>Definition: emergent abilities are capabilities a model shows at large scale that it did not show at small scale, and that nobody explicitly programmed.</p>
+<p>Figure 3. Scale and emergence. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 2. Count the toy. Source: original toy, from episode claims.
+| Model scale | Behavior, per the episode |
+|&mdash;|&mdash;|
+| Below ~10 billion parameters | Models hallucinate and babble |
+| ~10 billion parameters | Crossover: capabilities begin to work |
+| ~100 billion parameters | &ldquo;Magically&rdquo; more accurate, useful, lifelike |</p>
+<p>Figure 4. The CUDA flywheel. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Every GPU runs CUDA] --> B[Researchers build on CUDA]
+    B --> C[More CUDA software exists]
+    C --> D[Next GPU more valuable]
+    D --> A
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Every GPU runs CUDA] --&gt; B[Researchers build on CUDA]
+    B --&gt; C[More CUDA software exists]
+    C --&gt; D[Next GPU more valuable]
+    D --&gt; A
+</code></pre>
+<h3 id="the-one-non-negotiable-rule">The one non-negotiable rule</h3>
+<p>Jensen states exactly one rule that is not negotiable in the company: every accelerator Nvidia makes must be architecturally compatible with every other one. He says Nvidia is the only accelerator company on the planet where that is true. The installed base he cites: 250 to 300 million active CUDA GPUs, all compatible. Everything else in the company is negotiable.</p>
+<p>Why does this matter? A computing platform cannot exist if each generation breaks the last. Developers invest years learning CUDA and writing CUDA code. If a new chip invalidates that investment, the platform dies. Compatibility is what turns a product line into a platform. Note the lineage: CUDA&rsquo;s &ldquo;UDA&rdquo; (unified device architecture) goes back to the company&rsquo;s first days. Jensen says Nvidia was always a platform company internally, even when its products were just technology.</p>
+<p>Ben makes the point that every big tech company started as a technology company serving developers, and that companies that try to start as platform companies fail. Jensen agrees with the sequence but corrects the framing: inside Nvidia, the platform architecture (UDA) was there from day one.</p>
+<h3 id="the-data-center-separating-compute-from-the-screen">The data center: separating compute from the screen</h3>
+<p>About 17 years before the interview (so around 2006), Jensen started the data center journey. His reasoning: Nvidia&rsquo;s technology was plugged into a computer that had to sit next to you, because it had to connect to your monitor. Desktops are a bounded market. There are only so many PCs and only so many displays to drive.</p>
+<p>The insight: what if the computer does not have to be near the viewing device? One of his engineers showed him a demo: capture the frame buffer, encode it as video, stream it to a thin device. That became GeForce NOW, Nvidia&rsquo;s cloud gaming product, and a much bigger idea: compute can happen anywhere, and the screen can be anywhere else.</p>
+<p>The physics objection is latency, specifically the speed of light. Jensen&rsquo;s answer: the speed of light end to end is roughly 70 to 120 milliseconds across the planet. That is not that long. If you remove every other obstacle, light speed is fine. So build data centers as large as you like, and every small device instantly becomes amazing.</p>
+<p>Nvidia&rsquo;s first data center product, then a second (OEM graphics for enterprise data centers), then a third: CUDA plus GPU as a supercomputer. Jensen&rsquo;s point is that the data center business looks like it is about AI, but that is a false equivalence. Nvidia could explode into AI only because it had spent years learning to build data center computers in smaller markets first. His decision rule: you cannot wait until the opportunity is in front of you. Position the company near where the apple will fall, close enough to make the diving catch. You do not have to be perfect. You have to be near.</p>
+<p>Figure 5. The data-center journey. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Desktop gaming PCs] --> B[GeForce NOW streams pixels]
+    B --> C[Enterprise OEM graphics]
+    C --> D[CUDA supercomputers]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Desktop gaming PCs] --&gt; B[GeForce NOW streams pixels]
+    B --&gt; C[Enterprise OEM graphics]
+    C --&gt; D[CUDA supercomputers]
+</code></pre>
+<p>Figure 6. The separation insight. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<pre><code>Before:  [GPU]--cable--[monitor]     compute must sit next to the screen
+After:   [GPU farm]--network--[any screen]   compute can sit anywhere
+Rule:    light speed (~100 ms planet-wide) is fast enough; kill other latencies
+</code></pre>
+<h3 id="mellanox-the-network-is-the-computer">Mellanox: the network is the computer</h3>
+<p>In 2019 Nvidia bought Mellanox, the Israeli high-performance networking company, for about 7 billion dollars. Jensen calls it one of the best strategic decisions he ever made. The company had about 3,200 people in Israel.</p>
+<p>His reasoning has two parts.</p>
+<p>First: a data center is not distinguished from a desktop by its processor. Desktops and data centers use nearly the same CPUs and GPUs. What makes a data center a data center is the networking and infrastructure: how computing is distributed, how security is provided, how the network moves data. Those characteristics belonged to Mellanox, not Nvidia. If Nvidia wanted to build the computers of the future, and the computers of the future are data centers, then Nvidia had to own networking.</p>
+<p>Second: AI training is the inverse of hyperscale cloud. Hyperscale takes commodity components and virtualizes many users onto one computer. AI training takes one job and orchestrates it across millions of processors. Commodity Ethernet is fine for Hadoop and search queries. It is not fine for sharding a model across thousands of GPUs. Supercomputing-style networking (InfiniBand) is ideal for that. Jensen saw this before others because he was standing near the opportunity: large language models were about to need exactly this.</p>
+<p>Figure 7. Hyperscale versus AI training. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Axis | Hyperscale cloud | AI training |
+|&mdash;|&mdash;|&mdash;|
+| Shape | Many users on one computer | One job across millions of processors |
+| Network need | Commodity Ethernet is fine | Supercomputing fabric (InfiniBand) |
+| Example workloads | Search, Hadoop | LLM training |</p>
+<h3 id="zero-billion-dollar-markets">Zero-billion-dollar markets</h3>
+<p>Jensen uses the phrase &ldquo;zero-billion-dollar market&rdquo; for a market with no revenue yet that he believes will exist. Nvidia positions itself in these deliberately: PC gaming, the design workstation, supercomputing, the software-defined car, Omniverse. When Nvidia entered automotive, a CTO told him cars cannot tolerate the blue screen of death. Jensen&rsquo;s answer: someday every car will be software-defined, and a software-defined car needs an incredible computer. Fifteen years later, he says, they were largely right.</p>
+<p>The structural logic: enter before the market exists, and by the time it emerges there are few competitors shaped like you. Omniverse, at the time of the interview, had about 40 customers, including Amazon and BMW. It looked tiny. That is the point. You navigate the company toward non-consumption, places where nobody is buying yet.</p>
+<p>Definition: non-consumption means potential customers who buy nothing today because no good product exists for them yet.</p>
+<h3 id="moats-are-networks-not-walls">Moats are networks, not walls</h3>
+<p>Ben asks how a company that creates a market keeps its lead. Jensen dislikes the word moat, because it frames strategy as building walls around a castle. He prefers to think in networks. If you build the product right and an ecosystem grows around it, developers and customers build on you, and that network of networks is the moat. You enjoy the market together with everyone in the network, not alone behind a wall.</p>
+<p>This is the economics behind Nvidia&rsquo;s pricing power. The moat is not one chip. It is 250 to 300 million compatible GPUs, the CUDA software stack, the developers trained on it, the libraries, the Mellanox fabric tying it together, and the switching cost of rewriting all of it. That is why the next chapters of this track spend so long on whether the moat persists.</p>
+<h3 id="the-org-chart-mission-is-the-boss">The org chart: mission is the boss</h3>
+<p>Jensen has more than 40 direct reports. He rejects the standard org chart. His argument: a company is the machinery for building its product, so the org should mirror the product&rsquo;s architecture. It makes no sense that every company&rsquo;s chart looks the same when they all build different things.</p>
+<p>Instead, Nvidia wires itself like a neural network around missions. The phrase inside the company is &ldquo;mission is the boss.&rdquo; They figure out the mission, then wire the best skills and teams across the whole organization to achieve it, cutting across reporting lines. Information moves fast and flat: Jensen describes a robotics meeting with new college graduates, vice presidents, and executive staff in one room, deciding together, everyone hearing the decision at the same moment. Nobody has power from privileged information. Leaders earn their jobs by reasoning well and helping others succeed, not by knowing something others do not.</p>
+<p>The price: pressure on leaders is high. In a command-and-control system, your boss has more power because they are closer to the information. At Nvidia, information is everywhere, so leaders have to actually lead.</p>
+<p>Figure 8. The org wiring. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 4. Show the new symbol. Source: original toy, from episode claims.</p>
+<pre class="ascii">Standard:   CEO -&gt; VP -&gt; director -&gt; manager -&gt; you   (information trickles)
+Nvidia:     mission pulls the best people from everywhere at once
+            grads, VPs, and execs decide in the same room
+</pre>
+<h3 id="what-he-reads-what-he-fears-what-he-would-tell-a-founder">What he reads, what he fears, what he would tell a founder</h3>
+<p>Books: Jensen says Clay Christensen&rsquo;s series is the best, no contest: intuitive, sensible, approachable. He also likes Andy Grove&rsquo;s books. His method for reading business books: enjoy them, be inspired, but never adopt. Ask what it means for you, in your context, at your company&rsquo;s age. Learn from everyone, including competitors and adjacent industries. Education is free. Then come back and design your own strategy.</p>
+<p>Don Valentine of Sequoia, Nvidia&rsquo;s first investor, told Jensen: &ldquo;if you lose my money I will kill you.&rdquo; Then, over the decades, mailed him newspaper clippings with &ldquo;good job&rdquo; written over them in crayon. Both founding VCs, Sutter Hill and Sequoia (Tench Coxe, Mark Stevens), were still on the board 30 years later. Jensen says that almost never happens.</p>
+<p>His greatest fear is letting employees down. People joined because they believed in his hopes and dreams, and adopted them as their own. On time: there is plenty of time in the day if you prioritize and refuse to let Outlook control you. He admits he was late to the interview itself.</p>
+<p>His advice on business plans: they should be much shorter. A financial forecast nobody can verify is not the point. The plan must answer: what is the true problem, what unmet need will emerge, and what will you do that is sufficiently hard that competitors cannot swarm it once they see it works. Product, positioning, pricing, and go-to-market are skills you can learn. The essence is hard.</p>
+<p>On luck: you can do all the right smart things and still fail. You can do dumb things, and Jensen says he did many, and still succeed. Skill matters, but circumstances have to cooperate at the important moments.</p>
+<p>On LSI Logic, where he worked before Nvidia: it taught him that you can express chip design in high-level languages and let optimizing compilers do the work. Harvey Jones coined &ldquo;high-level design.&rdquo; Jensen was 21, at ground zero of the EDA revolution, and watched one industry revolutionize another. He wants the same to happen in digital biology, with large language models as the high-level language for biology.</p>
+<h3 id="ai-safety-and-jobs">AI safety and jobs</h3>
+<p>On safety, Jensen splits the problem. In robotics and self-driving: functional safety, active safety, when a human must be in the loop and when not. In information: bias, false information, artists&rsquo; rights. Nvidia partnered with Getty and Shutterstock to train generative image models on licensed data instead of scraping the internet. For increasingly agentic AI: keep the human in the loop as long as it is sensible. Collect data, curate it, train, test, validate, then release. Do not let models self-learn in the wild.</p>
+<p>On jobs: productivity creates prosperity, and prosperous companies hire more people to expand into new areas. The failure mode in the fear is assuming companies have no more ideas. History says otherwise: industry today is vastly larger than industry a thousand years ago because humans have infinite ambition. Net job growth does not guarantee no individual gets fired. His practical advice: you are more likely to lose your job to another human who uses AI than to an AI. Learn to use AI. Every company should use it to become more productive.</p>
+<p>Ben names the pattern the Moritz corollary to Moore&rsquo;s law, after Mike Moritz of Sequoia. When Moritz took over from Don Valentine, he looked at Sequoia&rsquo;s early funds, including the one with Cisco, and asked how they could ever top it. His answer: as compute gets cheaper, it reaches more of the economy, so the addressable markets get bigger. AI does the same thing.</p>
+<h3 id="why-nvidia-is-not-a-chip-company">Why Nvidia is not a chip company</h3>
+<p>The last idea is the pricing key for the whole track. Jensen was told long ago that video could never be a billion-dollar market, and that no chip company could ever be that big. His answer: stop being a chip company. Nvidia manufactures intelligence now. It manufactures productive work.</p>
+<p>His arithmetic: if you build a chip for a car, your market is the number of cars times chips per car. If you build a system that acts as a chauffeur whenever needed, your market is the value of a chauffeur for everyone who has a car. The second market is enormously larger. By building on top of the chip, Nvidia grew its opportunity by roughly a thousand times.</p>
+<p>Do not be surprised, he says, if technology companies become much larger than chip companies ever could. What they produce is something very different.</p>
+<p>Figure 9. The thousand-times market. AI Podcast Curriculum, ep01 (Jensen Huang interview, 2023-10-16). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<pre class="ascii">Chip company:      market = cars x chips per car            (bounded)
+Intelligence co:   market = value of a chauffeur x everyone (vast)
+Jensen's estimate: ~1000x larger opportunity
+</pre>
+<p>He closes with the people. Thirty years in, he is surrounded by colleagues who have been there 25 to 30 years: Chris, Jeff Fisher, Dwight, Jonah, Brian, Joe. Not one of them ever gave up on him. &ldquo;That is the entire ball of wax.&rdquo;</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain the RIVA 128 story like I am new. Why does it matter?</div><div class="a"><p>In 1997 Nvidia was months from dying. Its first chip designs were wrong, Microsoft&rsquo;s DirectX made them obsolete, and 30 competitors existed. Nvidia could afford to manufacture a chip exactly once. So the team bought an emulator from a dying company, ran the whole chip design plus all its software on it at one frame per hour, and only manufactured when they believed it was perfect. It worked and saved the company. It matters because it created Nvidia&rsquo;s permanent method: simulate the future before you bet on it.</p><div class="followup"><strong>Follow-up:</strong> What is the reusable rule? Only bet the company when you have pulled the risk forward. A big bet is justified by preparation, not by courage. Jensen: bet when you know it will work, because you simulated it.</div></div></div>
+<div class="qa"><div class="q">What is CUDA, in one paragraph?</div><div class="a"><p>CUDA is a programming model that lets developers write general-purpose programs that run on Nvidia&rsquo;s graphics chips. Before CUDA, the chip only drew pictures. After CUDA, the same massively parallel hardware could do science, simulation, and machine learning. Every Nvidia accelerator runs it, and every generation stays compatible with the last, so 250 to 300 million GPUs form one platform that developers build on.</p><div class="followup"><strong>Follow-up:</strong> Why did researchers adopt it first? CUDA democratized supercomputing. A researcher could buy one GPU instead of booking time on a supercomputer, and it worked for molecular dynamics, imaging, weather, and chemistry long before deep learning arrived.</div></div></div>
+<div class="qa"><div class="q">Why did Jensen invest 10,000 person-years in CUDA before the market existed?</div><div class="a"><p>After AlexNet (2012), he reasoned from first principles. Deep learning is a universal function approximator: more data plus deeper networks keeps improving it. For most valuable problems, prediction beats causal explanation: nobody cares why you prefer a toothpaste, only that the prediction is right. If that is true, almost all software gets rewritten this way, and the computer itself must change. The market would be enormous, so the investment was rational before revenue existed.</p><div class="followup"><strong>Follow-up:</strong> What is the trap in this reasoning? It only works if the scaling holds. Jensen&#x27;s evidence was the research community: papers every three months, then every day, progress visibly exponential. He did not bet on a theory alone. He bet on a measured trend.</div></div></div>
+<div class="qa"><div class="q">What is the one non-negotiable rule at Nvidia, and why?</div><div class="a"><p>Every accelerator must be architecturally compatible with every other accelerator. No exceptions. Everything else is negotiable. The reason: a computing platform dies if each generation breaks developers&rsquo; past work. Compatibility is what converts a product line into a platform and protects 250 to 300 million GPUs of installed software investment.</p><div class="followup"><strong>Follow-up:</strong> How would you test whether a competitor has this? Ask whether code written five years ago runs unchanged on their newest chip. If not, they sell products, not a platform.</div></div></div>
+<div class="qa"><div class="q">Why did Nvidia buy Mellanox?</div><div class="a"><p>Two reasons. First, a data center is defined by its networking and infrastructure, not its processor: desktops and data centers use nearly the same chips. To be a data center company, Nvidia had to own networking. Second, AI training is the inverse of hyperscale: one job spread across millions of processors, which commodity Ethernet cannot handle. Supercomputing fabric (InfiniBand) can. Jensen saw large language models coming and bought the network they would need.</p><div class="followup"><strong>Follow-up:</strong> What is the general lesson? Define a system by what differentiates it, not by its most famous part. The chip gets the glory. The network decides whether ten thousand chips can act as one.</div></div></div>
+<div class="qa"><div class="q">What does &quot;mission is the boss&quot; mean in practice?</div><div class="a"><p>Nvidia has 40+ direct reports to Jensen and no standard hierarchy. Work organizes around missions: the company figures out the mission, then wires the best people and teams to it across all reporting lines, like a neural network. Information spreads fast and flat: new graduates and executives can hear a decision at the same time. Leaders earn authority by reasoning well, not by hoarding information.</p><div class="followup"><strong>Follow-up:</strong> What is the price? High pressure on leaders. In command-and-control, your boss&#x27;s power comes from being closer to information. When information is everywhere, leaders must actually lead.</div></div></div>
+<div class="qa"><div class="q">What is a zero-billion-dollar market, and why does Nvidia chase them?</div><div class="a"><p>A market with zero revenue today that you believe will exist tomorrow: PC gaming in the 1990s, the software-defined car, Omniverse. Nvidia enters early, so when the market emerges, few competitors are shaped for it. The discipline is navigating toward non-consumption: people who buy nothing today because no good product exists yet.</p><div class="followup"><strong>Follow-up:</strong> How do you avoid fooling yourself? Jensen&#x27;s filter is the unmet need plus sufficient hardness: pick problems hard enough that competitors cannot swarm you once they see it works.</div></div></div>
+<div class="qa"><div class="q">Walk me through Jensen&#x27;s &quot;thousand times&quot; market arithmetic.</div><div class="a"><p>A chip company selling into cars is bounded: cars times chips per car. A company selling a chauffeur on demand prices against the value of a human driver for everyone with a car. Same technology, different market definition, roughly a thousand times larger. Nvidia stopped pricing like a chip company the day it started manufacturing intelligence instead of silicon.</p><div class="followup"><strong>Follow-up:</strong> Apply it once yourself. Pick a product you know. Price it as a component, then price it as the outcome it produces. The gap between those two numbers is the opportunity Jensen is describing.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The RIVA rule: one tape-out, one frame per hour, zero excuses. Simulate before you bet.</li>
+<li>Compatibility is the platform: 250 to 300 million GPUs, one architecture, one non-negotiable rule.</li>
+<li>Moat as network: walls keep people out. Networks pull people in. Nvidia chose the network.</li>
+<li>Mission is the boss: 40+ direct reports, information flat, leaders earn it by reasoning.</li>
+<li>The thousand-times flip: price the outcome (the chauffeur), not the component (the chip).</li>
+<li>Never-confuse pair: hyperscale (many users, one computer, Ethernet is fine) versus AI training (one job, millions of processors, needs InfiniBand).</li>
+<li>Trap card: &ldquo;Nvidia&rsquo;s data center revenue means AI is the whole story.&rdquo; Jensen says that equivalence is false: the data center was a 17-year journey through gaming, OEM graphics, and supercomputing before AI arrived.</li>
+<li>Quote to keep: &ldquo;if you lose my money I will kill you.&rdquo; Don Valentine to Jensen, followed by decades of crayon &ldquo;good job&rdquo; clippings.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: pick one decision you are about to make and &ldquo;pull it forward.&rdquo; Write the failure modes on paper before you commit money or time. Ask: what would I simulate if I could only afford one tape-out? Do the cheap simulation first. Notice the urge to skip it.</li>
+<li>Catch yourself: the next time you feel the pull to bet big on low information, say Jensen&rsquo;s sentence out loud: &ldquo;we assume it is perfect because we emulated the whole thing.&rdquo; If you cannot say it honestly, shrink the bet or buy the emulator.</li>
+<li>Behavior change per major idea:</li>
+<li>RIVA 128: before any irreversible decision, list what a perfect simulation would look like, and run the cheapest version of it.</li>
+<li>CUDA compatibility: when you build anything others will build on, write down your one non-negotiable compatibility promise. Everything else stays negotiable.</li>
+<li>Mission is the boss: in your next team discussion, share the raw information with everyone at once instead of filtering it down a chain. Watch what changes.</li>
+<li>Zero-billion markets: spend 30 minutes listing where your field has non-consumption: people buying nothing because nothing good exists. Keep the list.</li>
+<li>Thousand-times flip: take one thing you price as a component and reprice it as an outcome. Write both numbers down.</li>
+<li>Monthly: reread your &ldquo;one non-negotiable rule&rdquo; for your own work. If the list has grown past one, you do not have a rule. Cut it back to one.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Guided drills. Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Fermi: RIVA 128 rendered one frame per hour on the emulator. A game needs 30 frames per second. How many times slower was the emulator than the real chip? Show the arithmetic. (Answer: 30 frames per second is 108,000 frames per hour. The emulator was roughly 100,000 times slower, and they still shipped on it.)</li>
+<li>Reason it through: Jensen says bet the company only when you know it will work. Argue the other side: name one situation where betting without full simulation is the right move. When does waiting for certainty cost more than the bet?</li>
+<li>Journal: &ldquo;What is my one non-negotiable rule?&rdquo; Write it in one sentence. Then list three things you currently treat as non-negotiable. Cut two. How does it feel?</li>
+<li>Both sides: Jensen dislikes &ldquo;moat&rdquo; and prefers &ldquo;network.&rdquo; Argue for moats: when is a wall better than a network? Name a real company where the wall worked and the network would have failed.</li>
+<li>First principles: pick a product you use daily. Price it as a component, then as an outcome (the chauffeur flip). Compute the ratio. Is it closer to 1x or 1000x? What would have to change to push it toward 1000x?</li>
+<li>Observe: in your next meeting, notice who learns information first and who learns it last. Map the delay. What would &ldquo;everyone hears it at the same time&rdquo; cost in your organization? What would it buy?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Size a market two ways: as components times units, and as outcome value times beneficiaries. Quote both numbers before choosing a strategy.</li>
+<li>Sanity-check any &ldquo;bet the company&rdquo; story: ask what was simulated before the bet. No simulation, no admiration.</li>
+<li>Test a platform claim: ask whether five-year-old code runs on the newest hardware unchanged. That single test separates platforms from products.</li>
+<li>Diagnose a system by its differentiator: when someone pitches &ldquo;the chip&rdquo; (or the model, or the app), ask what actually distinguishes the system: the network, the distribution, the data flywheel. Price the differentiator.</li>
+<li>Run a mission-based review: state the mission in one sentence, list the skills it needs, and check whether the people assigned match the mission or just the org chart.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Ben Gilbert and David Rosenthal&rsquo;s three-part Nvidia series on Acquired (episodes 8 to 10 of this track) covers the full company history behind these decisions.</li>
+<li>Clay Christensen&rsquo;s &ldquo;The Innovator&rsquo;s Dilemma&rdquo; (Jensen&rsquo;s pick for the best business book series, no contest): https://en.wikipedia.org/wiki/The_Innovator%27s_Dilemma, start with the overview, then read the book itself.</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>One tape-out forced emulation</td>
+<td>Normal multi-tape-out flow</td>
+<td>Single emulated tape-out</td>
+<td>fig1</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Emulation replaced prototypes</td>
+<td>Physical prototypes</td>
+<td>Emulator at 1 frame/hour</td>
+<td>fig2</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>CUDA compatibility compounds</td>
+<td>Isolated chips</td>
+<td>250-300M compatible GPUs</td>
+<td>fig4</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Scale crosses emergence thresholds</td>
+<td>Models hallucinate below 10B params</td>
+<td>&ldquo;Magically&rdquo; capable at 100B params</td>
+<td>fig3</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Data center built in three steps</td>
+<td>Desktop-bound compute</td>
+<td>CUDA supercomputers</td>
+<td>fig5</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Compute separated from screen</td>
+<td>GPU cabled to monitor</td>
+<td>GPU farm over network</td>
+<td>fig6</td>
+<td>ascii</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u07</td>
+<td>AI training inverts hyperscale</td>
+<td>Many users, one box</td>
+<td>One job, millions of chips</td>
+<td>fig7</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u08</td>
+<td>Nvidia org mirrors its product</td>
+<td>Standard hierarchy</td>
+<td>Mission-wired network</td>
+<td>fig8</td>
+<td>ascii</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u09</td>
+<td>Intelligence market dwarfs chip market</td>
+<td>Cars x chips per car</td>
+<td>Chauffeur x everyone (~1000x)</td>
+<td>fig9</td>
+<td>ascii</td>
+<td>episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 9 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=y6NfxiemvHg" target="_blank" rel="noopener">NVIDIA CEO Jensen Huang</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/acquired/index.html"><span class="lbl">← Previous</span>Acquired: Track Index</a><a href="../../tracks/acquired/ep02.html"><span class="lbl">Next →</span>Episode 2: TSMC founder Morris Chang</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
