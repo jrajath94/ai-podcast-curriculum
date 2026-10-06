@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 3: Why You Are Not As Broken As You Believe — AI Podcast Curriculum</title>
+<meta name="description" content="George Bonanno on the resilience trajectory: why most people are not destroyed by tragedy, why the fragility script survives anyway, and what it costs us.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="hidden-brain-ep03" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03" class="active">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Hidden Brain</a> / Episode 3: Why You Are Not As Broken As You Believe</nav>
+      <h1>Episode 3: Why You Are Not As Broken As You Believe</h1>
+      <p class="meta-line">2026-05-01 · Instructor: George Bonanno (psychologist, Columbia University) · Hidden Brain</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="DZj73Fu939s"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/DZj73Fu939s" title="Why You&#x27;re Not As Broken As You Believe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=DZj73Fu939s" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=DZj73Fu939s" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">The science says tragedy does not destroy most people. The culture says otherwise. The culture is wrong.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the fifth most-viewed episode (9,221 views as of October 2026), and it is the only one in the track about what happens to you after the worst day of your life. It carries the single most counterintuitive number in the whole track: at most about 10 percent of people suffer chronically after a major loss. The rest do not follow the script your culture handed you. No other episode dismantles a belief this widely held with data this replicated. Read it before you need it, because in the middle of distress, the episode shows, you cannot imagine ever feeling different.</p>
+<h2 id="the-question-nobody-asks-out-loud">The question nobody asks out loud</h2>
+<h3 id="the-expected-script">The expected script</h3>
+<p>Imagine getting a phone call in the middle of the night. Someone you love died. What do you expect to feel? Most of us have an answer ready: devastation, tears, weeks or months of deep unrelenting grief. We expect the world to stop, for everything to shatter. The episode asks: what if the most common response to loss is not that at all? What if for most people the world keeps turning, and they turn with it?</p>
+<h3 id="georges-silence">George&rsquo;s silence</h3>
+<p>At Columbia University, psychologist George Bonanno spent his career studying how people respond to terrible life events. His interest did not begin in a lab. He grew up in a Sicilian immigrant neighborhood in Chicago. His father was hard-working but prone to violent rages. &ldquo;My father would beat us at times,&rdquo; he says in the episode. &ldquo;The beatings were not as bad as the anger that he exhibited.&rdquo; When George was 17, he decided to leave home. His father said, in his words, that if George left then, he should not come crawling back. George drifted through his early 20s, sometimes sleeping outside. At 23, living in Colorado, his brother called: their father died.</p>
+<p>George braced for devastation. It never came. What he experienced was, in his words, &ldquo;essentially silence.&rdquo; He felt grateful his father&rsquo;s pain was over, and confused. He was supposed to feel a certain way, and he did not. People moved cautiously around him, as if he would splinter into tiny shards if they said the wrong thing. Years later, as a researcher, he kept meeting people who did not follow the expected script.</p>
+<h3 id="julia">Julia</h3>
+<p>One was a student he calls Julia. She was home from college, preparing dinner with her mother, when the phone rang. Her father rode his bike home from work, a car hit him, and he landed in the ICU. Julia and her mother drove to the hospital. He died just as they arrived. After the shock, Julia returned to school and threw herself into her work. Friends asked if she wanted to talk about her father&rsquo;s death. She said she did not. She wanted to be with her friends and live her life, not dwell on the past. Her mother worried that Julia forgot her father, that she acted as if life returned to normal. The mother called it denial of grief and suggested Julia see a grief counselor. Consider that: Julia&rsquo;s mother did not send her to therapy because grief had left her unstable. She sent her because her daughter was not grieving enough.</p>
+<h3 id="jed">Jed</h3>
+<p>Then there was Jed, an aspiring musician working at an upscale restaurant in West Greenwich Village. One freezing December night, he stepped into an intersection. A garbage truck made an illegal right turn, clipped him, and pulled him under. It ran over his left leg and hip. He was conscious through the entire thing. The cold slowed his bleeding enough to save his life. He spent six weeks in a medically induced coma, underwent roughly 20 surgeries, and lost his entire left leg and part of his hip. He braced for the psychological aftermath. For about a week, vivid memories of the accident played on a loop. Then they more or less just stopped. Jed was confused, not by the suffering, but by its absence. His question, in his own words: why did he feel okay? Years later he became a university professor, and the question stayed with him.</p>
+<p>Three people, three very different tragedies, one haunting question: what is wrong with me? Why am I not suffering more? The episode asks whether these people are outliers, or whether the rule itself is wrong.</p>
+<h2 id="the-numbers">The numbers</h2>
+<h3 id="your-prediction">Your prediction</h3>
+<p>Before the data, the episode runs an exercise. When a person goes through a serious loss, what percentage develop chronic, long-lasting psychological damage? What if it is not a personal tragedy but a monumental, catastrophic, national one? 30 percent? 50 percent? 80 percent? Hold your number. Mental health experts went through this same exercise shortly after the 9/11 attacks.</p>
+<h3 id="911">9/11</h3>
+<p>The general consensus was that 9/11 would be a mental health crisis of unprecedented proportions. Experts argued there were not enough resources for the problems coming. FEMA, the Federal Emergency Management Agency, allocated about 130 million dollars for emergency funds in New York, mostly for free therapy. Early surveys seemed to confirm the worst. Nearly 8 percent of Manhattan residents met the criteria for post-traumatic stress disorder. For those near the World Trade Center, 20 percent. For those directly affected, possibly 30 percent or higher. But as time went on, the numbers dropped precipitously. By six months, they were more or less back to normal, quite low for the city as a whole.</p>
+<p>Figure 1. 9/11 PTSD rates over time. AI Podcast Curriculum, ep03 (George Bonanno, 2026-05-01). Shell 3. Apply the one rule. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Early surveys</th>
+<th>At 6 months (city-wide reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manhattan residents</td>
+<td>~8 percent</td>
+<td>Back to near normal</td>
+</tr>
+<tr>
+<td>Near the World Trade Center</td>
+<td>~20 percent</td>
+<td>Back to near normal</td>
+</tr>
+<tr>
+<td>Directly affected</td>
+<td>~30 percent or higher</td>
+<td>Back to near normal</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. The rule: time, not treatment, moved the numbers. The predicted permanent crisis never arrived.</p>
+<h3 id="covid">COVID</h3>
+<p>The same pattern repeated with COVID. Experts predicted a mental health catastrophe of unprecedented scale. People thought suicides would skyrocket during the pandemic. In fact, suicides stayed the same or declined globally.</p>
+<h3 id="the-four-trajectories">The four trajectories</h3>
+<p>In a landmark 2018 study published in Clinical Psychology Review, researchers analyzed decades of data on how people respond to adversity. They found four distinct trajectories:</p>
+<ol>
+<li>Chronic suffering. People who cannot move past the loss. This is real, painful, and deserves serious attention and care. It characterizes at most about 10 percent of people.</li>
+<li>Recovery. People who struggle significantly at first, then gradually get better over a year or two.</li>
+<li>Delayed response. People who barely get by, then slowly worsen.</li>
+<li>The resilience trajectory. Short-term distress and upheaval, then the person continues to function normally. Bonanno says that when he began his career, it was assumed hardly anybody would show this pattern, and if they did, something was wrong with them. That was the denial idea. When researchers actually looked, they found the majority, almost always the majority, showing it.</li>
+</ol>
+<p>Figure 2. The four trajectories. AI Podcast Curriculum, ep03 (George Bonanno, 2026-05-01). Shell 2. Count or score the toy. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Trajectory</th>
+<th>Pattern</th>
+<th>Share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resilience</td>
+<td>Short distress, then normal function</td>
+<td>The majority, almost always</td>
+</tr>
+<tr>
+<td>Recovery</td>
+<td>Struggle, then better over 1-2 years</td>
+<td>A minority</td>
+</tr>
+<tr>
+<td>Delayed</td>
+<td>Cope, then slowly worsen</td>
+<td>A minority</td>
+</tr>
+<tr>
+<td>Chronic</td>
+<td>Cannot move past the loss</td>
+<td>At most ~10 percent</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. Resilience is not the exception. It is the norm. This finding replicated after mass shootings, spinal cord injuries, divorce, job loss, and financial ruin.</p>
+<p>So go back to the number you held. If your guess was higher than 10 percent, you are not alone. Most people dramatically overestimate how fragile human beings are. As the PTSD researcher Patricia Resick put it, strong emotions do not equal psychopathology. Being upset after a terrible event is not a disorder. It is what the stress response system was designed to do. The mistake is to confuse initial distress with lasting damage. Grief is not a disorder.</p>
+<h2 id="why-the-wrong-script-survives">Why the wrong script survives</h2>
+<h3 id="the-five-stages-were-never-about-grief">The five stages were never about grief</h3>
+<p>Part of the answer is a theory you have almost certainly heard. In the late 1960s, psychiatrist Elisabeth Kübler-Ross proposed that people face death through five stages: denial, anger, bargaining, depression, and acceptance. The model was never designed to describe grief. It was about people facing their own mortality. Over the decades, professionals and the public adopted it as a map for how all of us are supposed to grieve. The problem: it is far too neat and tidy to be true, and the research has never supported it. There is no real evidence that people go through these stages, and much research contradicts it.</p>
+<p>Worse, the theory does not merely describe reality. It prescribes it. If you have not reached depression, you must be stuck in denial. If you reach acceptance quickly without much anger, you hold something in. The idea that unprocessed grief sits inside us like a time bomb has no scientific basis. Yet it is one of the most deeply held beliefs in modern Western culture.</p>
+<p>Figure 3. The grief script versus the evidence. AI Podcast Curriculum, ep03 (George Bonanno, 2026-05-01). Shell 3. Apply the one rule. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>The script says</th>
+<th>The evidence says</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Five stages, in order</td>
+<td>No evidence for stages, much contradicts them</td>
+</tr>
+<tr>
+<td>Fast recovery = denial</td>
+<td>Fast recovery = the resilience trajectory, the majority</td>
+</tr>
+<tr>
+<td>Unfelt grief is a time bomb</td>
+<td>No scientific basis for the time-bomb idea</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. The rule: the model prescribes the feelings it claims to describe.</p>
+<h3 id="the-resilience-blind-spot">The resilience blind spot</h3>
+<p>Bonanno has a concept he calls the resilience blind spot. When you are in the middle of intense distress, you cannot imagine ever feeling anything different. That initial upset blinds you to the idea that you will ever not feel that way. In a large-scale disaster there is also contagion: other people are upset, so you feel you should be upset, and you are upset, and now they are upset. It spreads fast.</p>
+<h3 id="the-therapists-sample">The therapist&rsquo;s sample</h3>
+<p>Therapists who see patients every day spend their time, by definition, with the people who struggle. They rarely see the resilient majority, the people who never walked through the door. Seeing traumatized people all day, they overgeneralize to the general population. Bonanno calls this very human, not evil or dumb. But it means the professional class that defines normal samples the 10 percent, not the majority.</p>
+<p>Figure 4. The therapist&rsquo;s sample versus the population. AI Podcast Curriculum, ep03 (George Bonanno, 2026-05-01). Shell 2. Count or score the toy. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Share of people</th>
+<th>In the therapist&rsquo;s office</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resilient majority</td>
+<td>The majority</td>
+<td>Rarely seen</td>
+</tr>
+<tr>
+<td>Chronic trajectory</td>
+<td>At most about 10 percent</td>
+<td>Seen daily</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. The profession that defines normal meets the 10 percent, not the majority.</p>
+<h3 id="the-asymmetric-judgment">The asymmetric judgment</h3>
+<p>There is an asymmetry in how we judge predictions. After a mass tragedy, if an expert warns of a mental health disaster and turns out wrong, people shrug and say her heart was in the right place. But if an expert predicts resilience, she may be seen as heartless. Bonanno experienced this for nearly 20 years. Therapists have come up to him after public lectures and said, in his recounting, &ldquo;I am sure you are a good scientist, but you are just wrong about this. I know, and you are wrong.&rdquo; Social media adds its own pressure: trauma dumping on TikTok makes the visible sample look like the whole population.</p>
+<h2 id="what-the-script-costs">What the script costs</h2>
+<h3 id="trigger-warnings">Trigger warnings</h3>
+<p>Does any of this matter? Is it just caution to assume too much fragility? Bonanno says no. The wrong script has real costs. Consider trigger warnings, alerts designed to protect people with hidden traumas from being ambushed by difficult content. They were born of the idea that people carry hidden, unresolved traumas raw inside them. The research on trigger warnings shows fairly convincingly that they either do not help or they cause harm. People given trigger warnings are often more anxious than people who did not receive them.</p>
+<p>The mechanism: researchers have found that the inability to flexibly adjust your emotional responses to different contexts is one of the strongest predictors of PTSD symptoms. Teaching people to brace for emotional damage before they encounter it may undermine the very flexibility they need to cope. The warning trains rigidity, and rigidity predicts the disorder.</p>
+<p>Figure 5. How a trigger warning backfires. AI Podcast Curriculum, ep03 (George Bonanno, 2026-05-01). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Warning given] --> B[Brace for damage]
+    B --> C[Respond rigidly]
+    C --> D[More anxiety]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Warning given] --&gt; B[Brace for damage]
+    B --&gt; C[Respond rigidly]
+    C --&gt; D[More anxiety]
+</code></pre>
+<p>One claim per plate. The protection trains the rigidity it was meant to guard against.</p>
+<h3 id="the-eggshell-cage">The eggshell cage</h3>
+<p>There is also the harm of walking on eggshells. When we assume people are fragile, we build an invisible cage around them. We stop laughing in their presence. We tiptoe. We treat them as though they might break at any moment. But Bonanno&rsquo;s research, conducted with the psychologist Dacher Keltner, shows a very different picture. Most people, even people who lost a spouse within the last few months, showed genuine laughter and smiling during interviews. You might see someone crying, shaking their head in upset, and 30 seconds later laughing, tears still on their face, about something they remembered. That laughter is neither denial nor heartlessness. It signals connection with the person listening and the person who was lost. Genuine laughter and smiling during grief are correlated with better long-term mental health. The human heart can hold grief and joy at the same time.</p>
+<h3 id="a-note-on-the-truly-suffering">A note on the truly suffering</h3>
+<p>To be clear: if you are debilitated by a tragedy from long ago, Bonanno is not saying it is all in your head. Far from it. There is a group of people unable to function long-term because of their traumas. They need professional help and our compassion. But believing that everyone who suffers a setback will be traumatized does a disservice to the actually traumatized. It trivializes a serious problem.</p>
+<h2 id="what-resilience-actually-looks-like">What resilience actually looks like</h2>
+<h3 id="georges-conversations">George&rsquo;s conversations</h3>
+<p>Years after his father&rsquo;s death, George became a parent. Navigating the exhausting, beautiful, terrifying work of raising children, he longed for a relationship with his father that he never had. So he created one. &ldquo;I began to talk with my father,&rdquo; he says. When his children struggled with money or the weight of parenthood, he would tell his father about it: &ldquo;Dad, I know you were very concerned about money. This is really hard.&rdquo; His father never answered back. George would imagine his replies. He found it comforting. What George did was deeply human: building a relationship with his father that death, paradoxically, had made possible. A relationship without the rages, without the fear, without the ultimatums.</p>
+<p>This is what resilience looks like. Not the absence of sadness. Not the denial of loss. The ability to hold grief and growth in the same hand. To cry on a Tuesday and laugh on a Wednesday. To miss someone terribly and still build a good life.</p>
+<h3 id="the-descendant-of-survivors">The descendant of survivors</h3>
+<p>At the start, the episode asked you to imagine the midnight phone call. You probably imagined devastation. You might be devastated for a while. You might cry or feel the world has lost its color. Those feelings are real and part of being alive. But the science says you are almost certainly more resilient than you think. The human mind, shaped by millions of years of evolution, is extraordinarily well equipped to absorb shock, process grief, and find its way back to a life worth living. Your very existence is a testament. You are the descendant of a long line of survivors. Your ability to get back up after being knocked down is woven into your DNA. The danger is not that terrible things will happen. They inevitably will. The danger is the script you carry that tells you that you are supposed to be destroyed by tragedy. The trauma script tells you that you are easily broken. The science says you are not.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic: <strong>HOLD</strong>: the resilience picture. <strong>H</strong>old grief and joy at once. <strong>O</strong>nly about 10 percent stay chronic. <strong>L</strong>aughter during grief predicts better health. <strong>D</strong>istress is not damage.</p>
+<p>Never-confuse pairs:
+- Resilience is not denial. Denial hides from the loss. Resilience feels the loss, functions through it, and keeps living. Julia was not denying. She was resilient, and her mother mislabeled it.
+- Grief is not a disorder. Grief is the stress response working as designed. A disorder is the chronic trajectory, at most 10 percent.
+- The five stages were not a grief theory. Kübler-Ross wrote about people facing their own death. The grief application was an adoption the research never supported.</p>
+<p>Trap cards:
+- Trap: &ldquo;She recovered fast, so she must be in denial.&rdquo; Reality: fast recovery is the majority pattern. The denial label is the script talking, not the evidence.
+- Trap: &ldquo;I should brace myself for permanent damage.&rdquo; Reality: the resilience blind spot makes distress feel permanent. It is not. Bracing with trigger warnings increases anxiety and reduces the flexibility you need.
+- Trap: &ldquo;The therapist sees this every day, so it must be the norm.&rdquo; Reality: the therapist samples the 10 percent who walk in. The majority never walks in.
+- Trap: &ldquo;A warning label will protect the fragile.&rdquo; Reality: trigger warnings do not help or cause harm. Protection that trains rigidity backfires.</p>
+<h2 id="qa">Q&amp;A</h2>
+<p><strong>1. Explain the resilience trajectory to me like I am new.</strong>
+When something terrible happens, most people feel awful for a while, and then they go back to their lives. That is the resilience trajectory. It is not coldness and not denial. Julia lost her father suddenly and went back to school and her friends. Jed lost his leg and part of his hip and asked why he felt okay. George felt silence after his father&rsquo;s death. All three wondered what was wrong with them. Nothing was. They were the majority. About 10 percent of people, at most, get stuck in chronic suffering, and that group is real and needs care. But the normal human response to tragedy is: distress, then recovery, then life. Follow-up: why does this feel wrong to believe? Because the resilience blind spot makes your current pain feel permanent, and because everyone around you follows the fragility script.</p>
+<p><strong>2. Walk me through the 9/11 numbers. What exactly did they show?</strong>
+Experts predicted a mental health crisis of unprecedented proportions. FEMA put about 130 million dollars into free therapy for New Yorkers. Early surveys found roughly 8 percent of Manhattan residents met PTSD criteria, 20 percent near the World Trade Center, and possibly 30 percent or more among the directly affected. Those numbers looked like confirmation. Then they fell, fast. By six months, they were more or less back to normal for the city as a whole. The mechanism: the early spike measured initial distress, which is the stress response working. The six-month reading measured lasting damage, which is what the predictions were really about. They confused the two. Follow-up: how did COVID repeat the pattern? Predicted suicide catastrophe. Suicides stayed flat or declined globally. Same confusion, same correction.</p>
+<p><strong>3. What is wrong with the five stages of grief?</strong>
+Three things. First, it was never a grief theory. Kübler-Ross studied people facing their own death in the late 1960s, not the bereaved. Second, the research never supported it as a grief map. It is too neat and tidy to be true, and much evidence contradicts it. Third, it prescribes instead of describing. Once the stages are the official map, any deviation looks like pathology: fast recovery becomes denial, quick acceptance becomes bottling things up. The model creates the symptoms it claims to track. Follow-up: what replaced it? The four trajectories from the 2018 Clinical Psychology Review analysis: resilience (majority), recovery, delayed, chronic (at most 10 percent).</p>
+<p><strong>4. Why do therapists overestimate fragility?</strong>
+Sampling. A therapist&rsquo;s entire workday is spent with people who struggle. The resilient majority never makes an appointment, so the therapist never meets them. From that sample, the struggling look like the population. Bonanno calls it very human. It is the same availability error everyone makes, but it matters more here because therapists and researchers are the people who write the official story about human nature. Follow-up: what is the parallel in your own life? Anywhere you sample only the failures: customer support sees only broken products, incident reviews see only outages. The fix is the same: ask what the denominator is.</p>
+<p><strong>5. What did the trigger warning research find, and why?</strong>
+Trigger warnings were designed to protect people with hidden raw traumas from being ambushed by difficult content. The research shows fairly convincingly that they either do not help or they cause harm: warned people are often more anxious than unwarned people. The mechanism runs through emotional flexibility. The inability to flexibly adjust emotional responses to context is one of the strongest predictors of PTSD symptoms. A warning trains you to brace, and bracing is rigidity. The protection undermines the exact capacity it was meant to guard. Follow-up: does this mean all warnings are bad? The episode&rsquo;s claim is about trigger warnings specifically, tested in research. It does not generalize to every kind of content notice. Keep the claim inside its evidence.</p>
+<p><strong>6. Applied: a close friend just lost a parent and seems fine two weeks later. Her family thinks she is in denial. What does the episode say to do?</strong>
+Do not pathologize her. Fast return to function is the resilience trajectory, the majority pattern. The denial label is Julia&rsquo;s mother&rsquo;s mistake: she sent a resilient daughter to a grief counselor for not grieving enough. Do not build the eggshell cage either: do not stop laughing around her, do not tiptoe. Bonanno and Keltner&rsquo;s research shows genuine laughter during grief correlates with better long-term mental health. Be normal with her. Let her grieve in her own pattern, and only worry if she is in the chronic trajectory: unable to function over the long term, in which case she needs professional help, not amateur diagnosis. Follow-up: what if you are the one who seems fine? Same answer. You are not broken for being okay. The silence George felt was a natural process, not a symptom.</p>
+<p><strong>7. Applied: you lead a team that just went through layoffs. The company wants mandatory grief counseling for everyone. What is the evidence-based move?</strong>
+Do not mandate therapy for the whole population. Most people will follow the resilience trajectory without intervention, and the 9/11 FEMA experience shows mass therapy spending does not match the actual need curve. Make professional help easily available for the minority who need it, and do not stigmatize the majority who recover on their own. Watch for the chronic trajectory over months, not days. And do not import the fragility script into your messaging: telling people they are traumatized can become the prescription that the five-stages model demonstrates. Follow-up: what about the delayed trajectory? Some people barely cope and then worsen. That is why help stays available over time rather than being a one-week program.</p>
+<p><strong>8. What is the resilience blind spot, and how do you catch it in yourself?</strong>
+It is Bonanno&rsquo;s term for the fact that in the middle of intense distress, you cannot imagine ever feeling different. The current pain fills the whole horizon. You catch it by knowing it exists before you need it, which is why this episode says to read it before you need it. The check: ask whether your prediction about your future feelings is data or just the current feeling projected forward. Add the contagion check: am I upset because of the event, or because everyone around me is upset and I feel I should be? Follow-up: does knowing about the blind spot remove it? No. It gives you a label for the moment, which is often enough to stop the label &ldquo;permanent&rdquo; from sticking to a temporary state.</p>
+<h2 id="chapter-plate">Chapter plate</h2>
+<table>
+<thead>
+<tr>
+<th>Without the rule</th>
+<th>The stored object</th>
+<th>With the rule</th>
+<th>Tradeoff in one line</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fragility script: five stages, denial labels, trigger warnings, eggshell cages</td>
+<td>Four trajectories, resilience is the majority, chronic is at most ~10 percent</td>
+<td>Expect recovery, offer help without mandating it, laugh normally, watch for the true chronic minority</td>
+<td>Believing everyone is fragile feels safe but trivializes the truly suffering and trains rigidity in everyone else</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<p>Concrete practices, this week.</p>
+<ol>
+<li>Retire the denial label. The next time someone recovers fast from a setback, do not call it denial, bottling up, or avoidance. Say: that looks like the resilience trajectory. Observable change: you stop pathologizing normal recovery in yourself and others.</li>
+<li>Run the 10-percent test. When you hear a prediction of mass psychological damage (after news, after a company event), ask: what is the actual base rate? The episode&rsquo;s answer is at most 10 percent chronic. Observable change: your fear calibrates to the data instead of the headlines.</li>
+<li>Dismantle one eggshell cage. Think of someone you tiptoe around. Have one normal interaction: laugh, talk about ordinary things. Observable change: the relationship breathes again, and you see that normalcy is not cruelty.</li>
+<li>Audit your warnings. Notice where you brace yourself or others before difficult content. Ask whether the warning reduces harm or just increases anxiety. Observable change: fewer pre-emptive braces, more trust in flexibility.</li>
+<li>Learn the four trajectories by heart. Resilience, recovery, delayed, chronic. The next time you face a setback, name which one you are in. Observable change: distress stops feeling like a permanent identity.</li>
+<li>Hold two feelings. This week, notice one moment where you feel grief and joy, or stress and gratitude, within the same hour. Write both down. Observable change: you stop treating mixed feelings as a malfunction.</li>
+<li>Check the denominator. Pick one belief you hold about &ldquo;most people&rdquo; that comes from a skewed sample (support tickets, news, therapy anecdotes). Ask who never appears in that sample. Observable change: one overgeneralization corrected.</li>
+</ol>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain before touching AI. Semi-guided: fewer answer sketches than the first chapters.</p>
+<p><strong>Drill 1: your number.</strong> Write the percentage you predicted for chronic damage before reading the data. Now write the episode&rsquo;s number (at most 10 percent). Compute the gap. Write two sentences on what filled that gap: which inputs (news, movies, the five stages, therapist anecdotes) built your number?</p>
+<p><strong>Drill 2: the Julia test.</strong> Describe a time you or someone you know recovered &ldquo;too fast&rdquo; from something and got judged for it. Apply the four trajectories. Which one fits best? What would you say now to the person who applied the denial label?</p>
+<p><strong>Drill 3: the FEMA arithmetic.</strong> FEMA allocated about 130 million dollars for free therapy after 9/11 based on early surveys showing up to 30 percent PTSD among the directly affected. By six months, rates were near normal. Write the argument for and against that spending in three sentences each. What decision rule would you use next time: spend on early surveys, or wait for the six-month reading?</p>
+<p><strong>Drill 4: the flexibility check.</strong> The episode says rigid emotional responses predict PTSD symptoms. List three situations this week where you braced emotionally in advance. For each, describe what a flexible response could look like instead.</p>
+<p><strong>Drill 5: contagion audit.</strong> Think of the last piece of bad news that upset you. Separate your direct reaction from the reactions of people around you. How much of your upset was yours, and how much was contagion? Write the split as a rough percentage and one sentence of evidence.</p>
+<p><strong>Drill 6: the descendant proof.</strong> The episode closes with the claim that you are the descendant of a long line of survivors and that resilience is woven into your DNA. Steelman this: what is the strongest version of the argument? Then steelman the objection: what would a skeptic say? Decide which is stronger, in two sentences.</p>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Name the four trajectories and place any setback on the map instead of catastrophizing it.</li>
+<li>Retire the denial label for fast recovery. Call it the resilience trajectory.</li>
+<li>Calibrate damage predictions to the 10-percent base rate instead of headlines.</li>
+<li>Refuse the fragility script&rsquo;s prescriptions: no mandatory therapy, no eggshell cages, no time-bomb theory.</li>
+<li>Use trigger warnings only where evidence supports them, not as a reflex.</li>
+<li>Distinguish initial distress (normal, designed) from lasting damage (rare, needs care).</li>
+<li>Spot sampling bias in any professional story about &ldquo;most people.&rdquo;</li>
+<li>Catch the resilience blind spot: label current pain as current, not permanent.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The episode itself: https://www.youtube.com/watch?v=DZj73Fu939s</li>
+<li>George Bonanno&rsquo;s research background: https://en.wikipedia.org/wiki/George_Bonanno (HTTP 200, verified 2026-10-06)</li>
+<li>Psychological resilience, the wider literature: https://en.wikipedia.org/wiki/Psychological_resilience (HTTP 200, verified 2026-10-06)</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit id</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure id</th>
+<th>Medium</th>
+<th>Source</th>
+<th>Four tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>9/11 PTSD decayed to normal</td>
+<td>Early: 8/20/30 percent</td>
+<td>6 months: near normal (city-wide)</td>
+<td>fig1</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 3-row decay / T2: comparison forces table / T3: none, static / T4: the decay shape reused in COVID parallel</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Four trajectories, resilience is the norm</td>
+<td>Expected: most break</td>
+<td>Found: majority resilient, chronic ≤10%</td>
+<td>fig2</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 4-row count / T2: comparison forces table / T3: none, static / T4: trajectory names reused in drills</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Five-stages script vs evidence</td>
+<td>Script prescribes stages</td>
+<td>Evidence: no stages, resilience is normal</td>
+<td>fig3</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 3-row claim vs evidence / T2: comparison forces table / T3: none, static / T4: script/evidence chips reused in Q&amp;A</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Therapist samples the struggling minority</td>
+<td>Population: majority resilient</td>
+<td>Office: the chronic 10 percent</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: population vs sample / T2: comparison forces table / T3: none, static / T4: reused in Q&amp;A 4</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Trigger warning trains rigidity</td>
+<td>Warning before content</td>
+<td>Brace, rigid response, more anxiety</td>
+<td>fig5</td>
+<td>mermaid</td>
+<td>episode claims</td>
+<td>T1: four-step causal chain / T2: causal flow forces mermaid / T3: none, static / T4: reused in the warning trap card</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>COVID: predicted suicide catastrophe</td>
+<td>Predicted skyrocketing suicides</td>
+<td>Suicides flat or declined</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: single binary contrast fully stated in prose. Parallels fig1 without adding structure</td>
+</tr>
+<tr>
+<td>u07</td>
+<td>Laughter during grief predicts better health</td>
+<td>Assumed fragility, eggshell cage</td>
+<td>Genuine laughter, better outcomes</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: the episode gives no numbers. Prose carries the correlation</td>
+</tr>
+<tr>
+<td>u08</td>
+<td>George, Julia, Jed: resilience stories</td>
+<td>Expected devastation</td>
+<td>Silence, return to life, &ldquo;why am I okay&rdquo;</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: narratives, not counts. Fig2 maps them to the trajectory</td>
+</tr>
+</tbody>
+</table>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=DZj73Fu939s" target="_blank" rel="noopener">Why You&#x27;re Not As Broken As You Believe</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/hidden-brain/ep02.html"><span class="lbl">← Previous</span>Episode 2: Why Your Brain Works NOTHING Like You Think</a><a href="../../tracks/hidden-brain/ep04.html"><span class="lbl">Next →</span>Episode 4: Brave People Share One Thing. It&#x27;s Not What You Expect</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
