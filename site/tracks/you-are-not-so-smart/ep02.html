@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 2: Naive Realism with Lee Ross — AI Podcast Curriculum</title>
+<meta name="description" content="Why you feel objective and your opponents feel biased: the conviction that you see the world as it is, the bucket-of-facts fallacy, and the exercise that actual">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="you-are-not-so-smart-ep02" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02" class="active">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">You Are Not So Smart with David McRaney</a> / Episode 2: Naive Realism with Lee Ross</nav>
+      <h1>Episode 2: Naive Realism with Lee Ross</h1>
+      <p class="meta-line">2015-11-05 · Instructor: Lee Ross · You Are Not So Smart</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Episode 1 showed that your inner judge is broken. This episode shows that the courtroom itself is a construction site. Naive realism is the conviction that you see the world as it is, unmediated, and that anyone reasonable who saw what you saw would agree. Everything else in the track, from belief to tribal politics, runs on this one conviction. No other episode gives you the machinery under every disagreement you have ever had.</p>
+<h2 id="the-prediction-that-should-unsettle-you">The prediction that should unsettle you</h2>
+<h3 id="the-sweet-spot">The sweet spot</h3>
+<p>Ross opens his book, The Wisest One in the Room, co-written with Tom Gilovich, with a prediction about the reader. He predicts that David McRaney thinks of himself as being as liberal as is reasonable. People to his left are probably too idealistic. People to his right are probably too callous and too selfish. That puts McRaney in the sweet spot: as reasonable and rational as possible.</p>
+<p>Ross&rsquo;s defense of the trick: &ldquo;If you thought that it was sensible to be more idealistic than you are now, you would be more idealistic.&rdquo; Wherever you stand, you stand where you stand because it feels like the reasonable place. The position is not the product of the reasoning. The feeling of reasonableness is the product of the position.</p>
+<p>He used to run the same trick in class. Students gave him their favorite animal, favorite color, and horoscope sign. Then he told them their political position. The content of the answers never mattered. The form was always the same: you are as liberal as is reasonable given the world. People more liberal are naive and simplistic. People more conservative are insufficiently compassionate, maybe crypto-fascists. Every student recognized themselves.</p>
+<h3 id="the-word-too">The word &ldquo;too&rdquo;</h3>
+<p>Definition: the &ldquo;too&rdquo; test is the observation that calling something too loud, too spicy, too idealistic, or too conservative reveals the judge&rsquo;s calibration, not the object&rsquo;s property.</p>
+<p>McRaney&rsquo;s gloss: each of us has found a groove in the spectrum that feels right, built from life experience, biology, and culture. Anything outside the groove, either direction, registers as &ldquo;too.&rdquo; The word is loaded because it smuggles in the assumption that your setting is the correct one.</p>
+<p>Figure 1. The sweet-spot predictor. AI Podcast Curriculum, ep02 (Lee Ross interview, 2015-11-05). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Ross&rsquo;s prediction</th>
+<th>Why it must be true</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your position</td>
+<td>As reasonable as is possible</td>
+<td>You would move if another spot felt more reasonable</td>
+</tr>
+<tr>
+<td>People to your left</td>
+<td>Too idealistic, naive</td>
+<td>They sit outside your groove</td>
+</tr>
+<tr>
+<td>People to your right</td>
+<td>Too callous, selfish</td>
+<td>They sit outside your groove the other way</td>
+</tr>
+<tr>
+<td>The toy</td>
+<td>Favorite animal, color, sign</td>
+<td>The answers never matter. The form always fits</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-definition-naive-realism">The definition: naive realism</h2>
+<h3 id="the-conviction">The conviction</h3>
+<p>Ross defines naive realism as the conviction that we see the world in an objective, essentially unmediated way. There is a one-to-one relationship between our experience of the world and what the world really is. From this, an expectation follows: other reasonable people will share our view. When they do not, the thing to explain is them. Something about them blocks the true picture, which is to say, our picture.</p>
+<p>The explanations come in flavors by context. Sometimes they are ignorant, and need our instruction. Sometimes they are captured by self-interest and cannot afford to see straight. Sometimes it is their culture, their education, their youth, or their senility. The constant: we are uniquely objective. Ross adds the temporal twist: we know our views changed over time, but we read the change as proof that we used to see inaccurately and have now arrived at objectivity. The past self was biased. The current self is wise.</p>
+<h3 id="why-it-feels-true">Why it feels true</h3>
+<p>Ross grounds the feeling in physics before psychology. The Wisest One in the Room opens with Einstein: &ldquo;Reality is an illusion.&rdquo; What we experience is the interaction between the stuff we are made of and the stuff out there, both unknowably complex. The world looks red because of the eyes we have. We perceive solid objects and time because of the kind of meat we are made of.</p>
+<p>The dog example: people say their dog is color-blind, as if the dog misses the real colors. Nobody says the dog smells the world the way it really is while we walk around odor-blind. We grant ourselves the objective seat and hand the dog the defective one, though both are just different receptors.</p>
+<p>The neuroscientist David Eagleman&rsquo;s term for the totality of one creature&rsquo;s subjective world is umwelt. A tick, a fish, a bullfrog, and a human all interact with something real, but their experienced worlds barely overlap. Nobody can say whose inner portrayal sits closest to the accurate one. Bertrand Russell&rsquo;s version: when the observer seems to observe a stone, he is really, if physics is to be believed, noting the effects of the stone upon himself.</p>
+<h3 id="oak-trees-and-bigots">Oak trees and bigots</h3>
+<p>Most of the time the construction works, because we share the machinery. Ross points at an oak tree, says &ldquo;that is an oak tree,&rdquo; and the listener agrees. Says &ldquo;those things under it are acorns,&rdquo; and the listener agrees. Shared receptors make social life possible. The trouble starts with ambiguous, socially constructed objects.</p>
+<p>Ross&rsquo;s contrast: we agree on what an oak tree is, and feeling objective about the oak tree is harmless and constructive. But when we label someone a bigot, we may each mean something very different by it, while it feels exactly like labeling the oak tree. One judgment rides shared perceptual hardware. The other rides a lifetime of unique experience. Naive realism cannot tell the difference between the two feelings.</p>
+<h3 id="the-blind-spot">The blind spot</h3>
+<p>Definition: the bias blind spot is the inability to see your own biases while seeing everyone else&rsquo;s clearly. The term comes from Ross&rsquo;s former student Emily Pronin, now at Princeton.</p>
+<p>The metaphor is anatomical. Look at the world and almost everything registers on the retina, except the one spot where the optic nerve leaves, the blind spot. In the perception of bias, the blind spot sits on the self. Ross&rsquo;s asymmetry, stated plainly: we recognize that experience, education, and culture shaped how we see things, but we read those influences as sources of enlightenment. Other people&rsquo;s different experiences are read as bias. We may even grant that in their shoes we would see as they do. That does not make them right. It makes them understandably distorted.</p>
+<p>Figure 2. The attribution asymmetry. AI Podcast Curriculum, ep02 (Lee Ross interview, 2015-11-05). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>The same life event</th>
+<th>Seen in an ally</th>
+<th>Seen in an opponent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dick Cheney&rsquo;s daughter is gay. His stance on gay rights shifts</td>
+<td>Enlightened by experience</td>
+<td>Biased by personal interest</td>
+</tr>
+<tr>
+<td>A news source grows more neutral</td>
+<td>Finally fair</td>
+<td>Biased against us</td>
+</tr>
+<tr>
+<td>The one rule</td>
+<td>Experience that agrees with me is wisdom</td>
+<td>Experience that disagrees is contamination</td>
+</tr>
+</tbody>
+</table>
+<p>Ross&rsquo;s sharpest corollary: the more objective a news source becomes, the more biased it looks to both sides. If you think the world is black and I think it is white, the reporter who says gray looks to each of us like someone who took the other&rsquo;s exaggerations as seriously as our sound reasoning.</p>
+<h2 id="the-bucket-of-facts-fallacy">The bucket-of-facts fallacy</h2>
+<h3 id="pouring-facts-on-broken-heads">Pouring facts on broken heads</h3>
+<p>Definition: the bucket-of-facts fallacy is the belief that disagreement is a fact shortage, curable by delivering the missing facts.</p>
+<p>Because we believe our views arrived through careful contemplation of reality, we treat the disagreeing person as broken and fixable. The fix: crack open their head and pour in the facts we saw. In practice this looks like Googling a stack of links and pasting them into the person&rsquo;s feed or inbox, confident that any reasonable, intelligent person will read them and converge on our estimate of how things work.</p>
+<p>Ross&rsquo;s 40 years of conflict-resolution work, in Northern Ireland and between Israelis and Palestinians, supply the empirical answer. Well-meaning people on each side are eager to meet the other side. Why? To explain to the other side how things really are. The meeting is a delivery mechanism for their facts. Ross: &ldquo;What I have never experienced in 40 years of doing this, is people who say, &lsquo;I really want to meet with the other side, because I think I have things wrong.&rsquo;&rdquo;</p>
+<p>Figure 3. The bucket-of-facts fallacy. AI Podcast Curriculum, ep02 (Lee Ross interview, 2015-11-05). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What the naive realist expects</th>
+<th>What actually happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Deliver facts</td>
+<td>They see what I saw</td>
+<td>They see facts through their construction</td>
+</tr>
+<tr>
+<td>2. They reason</td>
+<td>Reason converges on my view</td>
+<td>Reason defends their view</td>
+</tr>
+<tr>
+<td>3. Count the conversions</td>
+<td>Many</td>
+<td>Near zero in 40 years of fieldwork</td>
+</tr>
+<tr>
+<td>The toy count</td>
+<td>1 meeting, 2 fact sets, 0 minds changed by facts alone</td>
+<td>Facts are not the bottleneck</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-polarization-study">The polarization study</h3>
+<p>Ross, with Charles Lord and Mark Lepper, ran the experiment that shows why the bucket stays empty. They took supporters and opponents of capital punishment and showed each group the same two studies: one supporting their view, one opposing it. They systematically varied which methodology each study supposedly used.</p>
+<p>Both sides rated the study that agreed with them as the better-done, more coherent study. After reading the same two studies, both sides became more convinced of their original positions. Ross&rsquo;s gloss on why this is not pure irrationality: weighting prior beliefs when processing information is how minds make sense of the world. A friend&rsquo;s ambiguous expression should be read as a smile. An enemy&rsquo;s as a frown. That prior usually serves well. The scientific method&rsquo;s contribution is one rule: you may interpret data through your beliefs, but you may not then test your beliefs on the data you just interpreted. That single prohibition is what saves science from confirmation bias.</p>
+<p>Figure 4. The Lord-Ross-Lepper loop. AI Podcast Curriculum, ep02 (Lee Ross interview, 2015-11-05). Shell 4. Show the new symbol. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Study rated &ldquo;better done&rdquo;</th>
+<th>Confidence after reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supporters of capital punishment</td>
+<td>The pro-punishment study</td>
+<td>Higher than before</td>
+</tr>
+<tr>
+<td>Opponents of capital punishment</td>
+<td>The anti-punishment study</td>
+<td>Higher than before</td>
+</tr>
+<tr>
+<td>The new symbol</td>
+<td>Same two studies in, more certainty out</td>
+<td>Exposure without the disconfirmation rule polarizes</td>
+</tr>
+</tbody>
+</table>
+<p>McRaney&rsquo;s summary line for the whole mechanism: we draw conclusions and then mistake them for hypotheses. We think we form a view when we defend one.</p>
+<h2 id="the-present-self-is-always-the-wisest">The present self is always the wisest</h2>
+<h3 id="the-end-of-history-illusion">The end-of-history illusion</h3>
+<p>Ross connects naive realism to time. Psychologist Daniel Gilbert&rsquo;s end-of-history illusion: at every age, people believe they reached the final, most accurate version of themselves. Ross tells it autobiographically. At 20, he saw history as a linear march toward enlightenment, and himself as marching with it. Older, he sees history as a pendulum, lurching and overcorrecting, and himself as having &ldquo;struck the right balance.&rdquo; The content of the wisdom changed completely. The feeling of having arrived never wavered.</p>
+<h3 id="kahnemans-15-iq-points">Kahneman&rsquo;s 15 IQ points</h3>
+<p>Ross quotes Daniel Kahneman: &ldquo;Every time a hypothesis fails, I gain 15 IQ points.&rdquo; The line is the whole mitigation strategy in miniature. The naive realist treats a failed hypothesis as an embarrassment. The trained mind treats it as the only event that actually updates the model. McRaney&rsquo;s lecture version: he gets audiences to commit confirmation bias live, every time, then shows them that science is not an institution but a thinking tool, built precisely because disconfirmation is not our default.</p>
+<h2 id="what-actually-works">What actually works</h2>
+<h3 id="stop-trying-to-convert-try-to-be-converted">Stop trying to convert. Try to be converted</h3>
+<p>Ross&rsquo;s central practical reversal: if you approach someone to pull them to your side, expect disappointment and conflict. If you approach hoping they will change your views, hoping to feel out the shape of your own ignorance, you are almost guaranteed to get something valuable.</p>
+<p>His exercise for stepping outside naive realism: do not try the &ldquo;walk in their shoes&rdquo; or &ldquo;see through their glasses&rdquo; metaphors. He dislikes them because the whole point is that you cannot. Instead, practice recognizing the authenticity of the other person: they act from values that are real to them. Then hunt for shared fundamentals beneath the policy disagreement. In Ireland, when Ross&rsquo;s teams asked unionists and nationalists about policies, they disagreed vehemently. Asked what they wanted their communities to look like, they grew similar. Asked what they wanted life to be like for their families, the differences vanished.</p>
+<h3 id="the-douglass-move">The Douglass move</h3>
+<p>Ross&rsquo;s favorite historical example of the exercise: Frederick Douglass speaking at the dedication of the Lincoln memorial. Douglass said, from genuine abolitionist ground, that Lincoln was slow and hesitant. Then he added: given the political forces Lincoln faced and his own background, it is hard to imagine him doing otherwise, and viewed through the eyes of history, Lincoln was swift and sure. One mind holding both: here is how I see it, and here is how it looks from their ground. That double hold is the skill.</p>
+<h3 id="lincolns-line">Lincoln&rsquo;s line</h3>
+<p>Ross closes with the Abraham Lincoln line from the book: a man he dislikes is a man he plans to know better. McRaney&rsquo;s closing gloss for the episode: instead of trying to be right, try to be wise.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain naive realism like I am new. What is the claim?</div><div class="a"><p>It is the conviction that you see the world objectively and unmediated, that your experience maps one-to-one onto reality, and that reasonable people who saw what you saw would agree. Disagreement then needs an explanation, and the explanation is always about them: they are ignorant, self-interested, or culturally distorted. You are the objective one.</p><div class="followup"><strong>Follow-up:</strong> What is the temporal version? When your views change, you read it as proof you were biased before and are objective now. The past self was wrong. The current self arrived. That feeling never goes away, no matter how many times the content changes.</div></div></div>
+<div class="qa"><div class="q">What is the &quot;too&quot; test, and what does it reveal?</div><div class="a"><p>When you call music too loud or food too spicy or a position too extreme, the &ldquo;too&rdquo; reveals your calibration, not the object. Ross&rsquo;s classroom trick proves it: favorite animal, color, and horoscope sign predict nothing, yet every student recognizes the resulting political profile, because the profile is always &ldquo;you are as reasonable as possible. The rest are too much.&rdquo;</p><div class="followup"><strong>Follow-up:</strong> How do you use this in a live argument? When you hear yourself think &quot;that is too far,&quot; stop and ask: too far from what? The answer is always &quot;from where I stand.&quot; That does not settle who is right, but it exposes the hidden premise.</div></div></div>
+<div class="qa"><div class="q">What is the attribution asymmetry?</div><div class="a"><p>Your life experiences count as enlightenment. Their life experiences count as bias. Same event, opposite readings: Cheney&rsquo;s gay daughter enlightened him to supporters and biased him to opponents. The more neutral a news source becomes, the more biased it looks to both sides, because gray looks like betrayal to black and to white alike.</p><div class="followup"><strong>Follow-up:</strong> Why can you not fix this by &quot;seeing through their eyes&quot;? Ross rejects the metaphor: naive realism means you cannot occupy their construction. What you can do is grant the authenticity of their values and hunt for shared fundamentals underneath the policy fight.</div></div></div>
+<div class="qa"><div class="q">What is the bucket-of-facts fallacy, and what is the evidence against it?</div><div class="a"><p>The belief that disagreement is a fact shortage, fixable by delivering facts. Ross&rsquo;s 40 years of conflict work: nobody ever asked to meet the other side to be corrected. Everyone wanted to explain how things really are. The Lord-Ross-Lepper study: both sides read the same two studies and both grew more certain. Facts without the disconfirmation rule polarize.</p><div class="followup"><strong>Follow-up:</strong> What is the scientific method&#x27;s actual contribution here? One prohibition: interpret data through your beliefs if you must, but never test your beliefs on data you already interpreted through them. That rule, not more facts, is the fix.</div></div></div>
+<div class="qa"><div class="q">What is the bias blind spot?</div><div class="a"><p>Emily Pronin&rsquo;s term for the asymmetry: you see bias in everyone except yourself. The metaphor is the retina&rsquo;s blind spot where the optic nerve exits. In bias perception, the blind spot sits on the self. You grant that experience shaped you, but call your shaping enlightenment and theirs contamination.</p><div class="followup"><strong>Follow-up:</strong> How is this different from ordinary hypocrisy? Hypocrisy means you know the rule and break it anyway. The blind spot is unawareness. Like episode 1&#x27;s double curse, the instrument that would detect it is the instrument that is broken.</div></div></div>
+<div class="qa"><div class="q">What is the end-of-history illusion, and why does Ross tell it on himself?</div><div class="a"><p>Daniel Gilbert&rsquo;s finding: at every stage of life, people feel they reached their final, most accurate self. Ross at 20 saw linear progress toward enlightenment. Older, he sees a pendulum and himself as balanced. The content inverted. The feeling of arrival never changed. Telling it on himself proves the point: knowing the effect does not exempt you.</p><div class="followup"><strong>Follow-up:</strong> What is Kahneman&#x27;s antidote? &quot;Every time a hypothesis fails, I gain 15 IQ points.&quot; Treat failed predictions as the only real updates. The naive realist mourns them. The trained mind collects them.</div></div></div>
+<div class="qa"><div class="q">What actually works, in Ross&#x27;s account? Give the concrete exercises.</div><div class="a"><p>One, reverse the goal: enter the conversation hoping they change you, not to convert them. Two, the Douglass move: state your view, then state how it looks from their ground, and hold both. Three, the Ireland exercise: drop policy questions and ask what they want their community and family life to look like. Shared fundamentals surface. Four, Lincoln&rsquo;s line: dislike someone, then go know them better.</p><div class="followup"><strong>Follow-up:</strong> Why do &quot;walk in their shoes&quot; metaphors fail? They promise an impossible transfer. The honest version is smaller: grant that their values are authentic to them, then look for the overlap you can verify.</div></div></div>
+<div class="qa"><div class="q">Apply this to a software team disagreement, e.g. a heated architecture debate.</div><div class="a"><p>Each side feels objective: &ldquo;any reasonable engineer who saw this code would agree.&rdquo; Each side reads the other&rsquo;s experience as bias: &ldquo;they only like microservices because their last job used them,&rdquo; while &ldquo;my monolith scars are wisdom.&rdquo; The fix from the episode: stop pasting benchmark links (bucket of facts). Run the Ireland exercise: ask what each side wants the system and the on-call life to look like in two years. Converge on the shared picture first, then argue mechanisms.</p><div class="followup"><strong>Follow-up:</strong> What would the Douglass move sound like here? &quot;From the shipping-speed ground, their design is slow and overbuilt. From the incident-history ground, given their last three outages, it is hard to imagine them choosing otherwise.&quot; Hold both before you vote.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The definition in one line: I see the world as it is. You see it through your biases.</li>
+<li>The &ldquo;too&rdquo; test: &ldquo;too X&rdquo; always means &ldquo;X-er than my setting.&rdquo; Name the setting before you argue.</li>
+<li>The asymmetry: my experience is enlightenment. Yours is bias. Same event, opposite verdicts.</li>
+<li>The bucket: facts do not fix constructed worlds. Forty years, zero conversions by fact delivery.</li>
+<li>The blind spot: the one bias you cannot see is yours. It sits where the optic nerve exits.</li>
+<li>Never-confuse pair: oak tree versus bigot. Shared hardware makes the tree judgment safe. The bigot judgment rides a lifetime of unique experience but feels identical. Do not trust the feeling of objectivity to tell them apart.</li>
+<li>Never-confuse pair: hypothesis versus conclusion. You think you form a hypothesis. You defend a conclusion. Ask which one you would abandon under what evidence. If the answer is &ldquo;none,&rdquo; it was a conclusion.</li>
+<li>Trap card: &ldquo;They just need the facts.&rdquo; The Lord-Ross-Lepper result: same two studies, both sides more certain. More facts without the disconfirmation rule is fuel, not water.</li>
+<li>Trap card: &ldquo;I used to be biased, but now I see clearly.&rdquo; That sentence is the effect talking. The end-of-history illusion guarantees you will say it at every stage.</li>
+<li>Trap card: &ldquo;I can see through their eyes.&rdquo; Ross: you cannot. Grant authenticity, hunt overlap, skip the metaphor.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: pick one live disagreement (code review, design doc, family politics). Before your next reply, write the Douglass move in two sentences: their view from their ground, then yours from yours. Send nothing until both sentences exist.</li>
+<li>Catch yourself: tally every &ldquo;too&rdquo; you think or say for three days (too slow, too complex, too political). For each, write the hidden standard: too compared to what I prefer. Watch how often the standard is just your groove.</li>
+<li>Behavior change per major idea:</li>
+<li>Sweet spot: write your own sweet-spot profile the way Ross would: &ldquo;I am as X as is reasonable. People more X are naive. People less X are callous.&rdquo; Read it aloud. Notice it fits anyone.</li>
+<li>Attribution asymmetry: the next time you explain someone&rsquo;s view by their self-interest, force the mirror: write the same sentence about yourself with your own interests. Keep it for a week.</li>
+<li>Bucket of facts: ban link-pasting in one ongoing argument for two weeks. Replace each link with one question about their ground.</li>
+<li>End-of-history: write what 20-year-old you believed about your current field, then what you believe now, then what 50-year-old you will probably believe. Sign it with today&rsquo;s date.</li>
+<li>Kahneman&rsquo;s 15 points: keep a failed-prediction log. One line per miss. Review monthly and count the IQ points.</li>
+<li>Monthly: re-run the Ireland exercise on your hardest disagreement. Ask the community/family-life question, not the policy question. Log any overlap found.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Guided: Ross&rsquo;s classroom trick used favorite animal, color, and horoscope sign. Explain why the trick works on anyone regardless of answers, in two sentences. Then design a version for a technical disagreement (tabs versus spaces, monolith versus microservices) that exposes the same structure. (Answer: the profile is form, not content: &ldquo;you are as reasonable as possible. Deviations are too much.&rdquo; Any input yields the same form. Technical version: ask for editor, then deliver &ldquo;you use the setup a serious engineer would. The others are either over-thinking it or being sloppy.&rdquo;)</li>
+<li>Fermi: Ross did conflict work for 40 years and reports zero cases of someone meeting the other side to be corrected. Suppose he averaged 20 such meetings a year. What is the observed rate? (Answer: 0 in about 800 meetings. Now ask: what rate would you need to see before you concluded the bucket-of-facts model is dead? One in 800 would already be generous.)</li>
+<li>Journal: &ldquo;My oak trees and my bigots.&rdquo; List three judgments you treat as objective as an oak tree. For each, write what unique life experience built it. Which of the three survives the rewrite?</li>
+<li>Argue both sides: &ldquo;Weighting your priors is rational&rdquo; (Ross&rsquo;s own defense in the capital-punishment discussion) versus &ldquo;weighting your priors is the whole problem.&rdquo; Steelman both using the friend/enemy ambiguous-expression example. Where exactly does the scientific method draw its line, and why there?</li>
+<li>Observe: for one week, in every disagreement, note whether you explain the other side by ignorance, self-interest, culture, or youth/senility. Tally the four flavors. Which flavor do you reach for most? What does that say about your default theory of other minds?</li>
+<li>First principles: derive the &ldquo;neutral source looks biased to both sides&rdquo; result from the definition of naive realism alone, without new assumptions. Then predict: what happens when the source is openly partisan toward side A? Write the prediction before you check it against experience.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Run the &ldquo;too&rdquo; test on your own judgments and name the hidden standard.</li>
+<li>Write the Douglass move: hold your view and their ground in the same paragraph.</li>
+<li>Replace a link-paste with one ground-seeking question.</li>
+<li>Run the Ireland exercise: drop policy, ask about the shared picture of the good outcome.</li>
+<li>Log failed predictions as IQ points instead of mourning them.</li>
+<li>Spot the four flavors of other-explaining (ignorance, self-interest, culture, age) in live arguments.</li>
+<li>Enter a disagreement with the reversed goal: try to be changed.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official episode page with audio and transcript links: https://youarenotsosmart.com/2015/11/09/yanss-062-why-you-often-believe-people-who-see-the-world-differently-are-wrong/</li>
+<li>Ross and Ward&rsquo;s original 1995 naive realism chapter and the Lord-Ross-Lepper 1979 biased-assimilation paper are the two primary sources named in the episode. Both are widely mirrored under their titles. Search the exact titles: &ldquo;Naive realism in everyday life: Implications for social conflict and misunderstanding&rdquo; and &ldquo;Biased assimilation and attitude polarization&rdquo; [uncertain: direct publisher links were not verifiable from this machine. Confirm the landing page before citing.]</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Sweet spot fits everyone</td>
+<td>Position feels reasoned</td>
+<td>Position is wherever you stand</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Same event, opposite verdicts</td>
+<td>One event, one reading</td>
+<td>Ally: enlightened. Opponent: biased</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Facts do not convert</td>
+<td>Deliver facts, expect agreement</td>
+<td>Facts land on other constructions</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Same studies polarize</td>
+<td>Two studies in</td>
+<td>Both sides more certain out</td>
+<td>Figure 4</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Whole chapter trade</td>
+<td>Be right</td>
+<td>Be wise</td>
+<td>Figure 5 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 (chapter plate). The cost of naive realism. AI Podcast Curriculum, ep02 (original toy, 2015-11-05). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Every disagreement becomes a fact-delivery mission. Forty years of fieldwork: zero conversions. Both sides read the same studies and harden.</td>
+<td>Three moves: the &ldquo;too&rdquo; test (name your calibration), the Douglass move (hold both grounds), the Ireland exercise (ask about the shared picture, not the policy).</td>
+<td>Disagreements shrink to their real size. Shared fundamentals surface. Failed hypotheses become IQ points instead of threats.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: surrender the comfort of feeling objective, in exchange for disagreements you can actually resolve.
+Footer: you do not see the world as it is. Neither do they. Start there.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://youarenotsosmart.com/2015/11/09/yanss-062-why-you-often-believe-people-who-see-the-world-differently-are-wrong/" target="_blank" rel="noopener">062 - Naive Realism - Lee Ross</a></li><li><span class="src-tag">TRANSCRIPT</span><a href="https://youarenotsosmart.com/transcripts/transcript-interview-with-lee-ross-from-episode-062/" target="_blank" rel="noopener">Transcript: Interview with Lee Ross</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/you-are-not-so-smart/ep01.html"><span class="lbl">← Previous</span>Episode 1: The Dunning-Kruger Effect with David Dunning</a><a href="../../tracks/you-are-not-so-smart/ep03.html"><span class="lbl">Next →</span>Episode 3: Belief with Will Storr</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
