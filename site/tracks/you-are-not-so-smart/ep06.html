@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 6: The Search Effect with Matthew Fisher — AI Podcast Curriculum</title>
+<meta name="description" content="The internet joined your transactive memory, and you started counting its knowledge as your own. The experiments, the controls, and why the act of searching, no">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="you-are-not-so-smart-ep06" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06" class="active">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">You Are Not So Smart with David McRaney</a> / Episode 6: The Search Effect with Matthew Fisher</nav>
+      <h1>Episode 6: The Search Effect with Matthew Fisher</h1>
+      <p class="meta-line">2015-11-19 · Instructor: Matthew Fisher · You Are Not So Smart</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Episode 5 gave you the repair kit. This episode shows you a new hole in the hull. Somewhere in the last twenty years, the internet became your memory partner, and your brain started filing its knowledge under your name. The result is not stupidity. It is misattribution: you feel smarter after searching, even about things you never searched. No other episode explains why the most informed generation in history keeps overestimating what it knows.</p>
+<h2 id="cognitive-tools-and-transactive-memory">Cognitive tools and transactive memory</h2>
+<h3 id="the-glove-and-the-paper">The glove and the paper</h3>
+<p>Definition: a cognitive tool is an external aid that extends what your mind can do, the way a physical tool extends what your hand can do.</p>
+<p>Fisher starts with a baseball glove: an enhanced hand, crafted for catching, fitted to human biology. Then the cognitive version: writing. Without paper, remembering a birthday costs mental energy every day. With paper, you outsource the storage. Jot it down and the paper holds it. Culture, in this telling, is the long accumulation of such tools, each making us more efficient at our goals.</p>
+<h3 id="the-old-couple">The old couple</h3>
+<p>Definition: transactive memory is a shared memory system between people, in which each person stores some of the knowledge and, just as importantly, knows where the rest is stored.</p>
+<p>The episode&rsquo;s canonical example: an old married couple recounting how they met. Interrogated separately, each struggles with the details. Together, one remembers a fragment that cues the other&rsquo;s fragment, back and forth, until the reconstructed story is richer than the sum of the two separate accounts. The system works because each partner tracks their own memories and the address of the other&rsquo;s.</p>
+<h3 id="the-division-of-cognitive-labor">The division of cognitive labor</h3>
+<p>Definition: the division of cognitive labor is the society-scale version of transactive memory. Each person holds one domain deeply and relies on the network for the rest.</p>
+<p>Fisher&rsquo;s example: a biologist who cannot follow the chemist&rsquo;s derivations or the statistician&rsquo;s proofs, but knows exactly which chemist and which statistician to trust. McRaney&rsquo;s gloss: the great scientific partnerships, Kahneman and Tversky, Ross and Nisbett, look like old couples, sharing a cloud of knowledge where nobody is sure who holds which piece, but everyone knows the cloud holds it.</p>
+<p>The premise the whole episode rests on: humans already lived inside shared knowledge long before the internet. The internet did not invent outsourcing. It perfected the partner.</p>
+<p>Figure 1. Transactive memory. AI Podcast Curriculum, ep06 (Matthew Fisher interview, 2015-11-19). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Setup</th>
+<th>What each mind holds</th>
+<th>What the system holds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alone</td>
+<td>Fragments, gaps</td>
+<td>Fragments, gaps</td>
+</tr>
+<tr>
+<td>Old couple</td>
+<td>Fragments plus the address of the other&rsquo;s fragments</td>
+<td>A story richer than the sum</td>
+</tr>
+<tr>
+<td>Biology lab</td>
+<td>One domain plus the address of the chemist and the statistician</td>
+<td>All of science, distributed</td>
+</tr>
+<tr>
+<td>The toy</td>
+<td>2 minds, partial maps</td>
+<td>1 shared map, nobody holds all of it</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-internet-as-the-ideal-partner">The internet as the ideal partner</h2>
+<h3 id="why-this-partner-is-different">Why this partner is different</h3>
+<p>Fisher&rsquo;s two research questions: can the internet serve as a transactive memory partner, and does the boundary between internal and external knowledge blur?</p>
+<p>On the first, the internet is not just a partner but the ideal one. It is fast. It is accurate for the most part. It is always available, always awake, always in your pocket. And the relationship is one-way: it never asks you questions back. You carry none of the social responsibility a human partner imposes.</p>
+<p>On the second, the blur is the finding. We grow so reliant on outsourced knowledge that we underestimate the reliance itself. Fisher&rsquo;s sentence, worth memorizing verbatim: &ldquo;You erroneously include knowledge stored outside of your own head as your own.&rdquo;</p>
+<h3 id="not-stupidity-misattribution">Not stupidity, misattribution</h3>
+<p>McRaney stresses the distinction the headlines missed. The claim is not &ldquo;the internet makes us stupid.&rdquo; The claim is misattribution plus overconfidence. After plugging into the omniscient source, the glow bleeds into your self-assessment. You feel smarter. The knowledge did not move into your head. The feeling of ownership did.</p>
+<p>The baseline matters: humans already overestimate their abilities in general (episode 1&rsquo;s territory). Fisher&rsquo;s experiments show the internet boosts the bias above that baseline. The design isolates the internet&rsquo;s contribution specifically, so the inflation cannot be dismissed as ordinary overconfidence.</p>
+<h2 id="the-experiments">The experiments</h2>
+<h3 id="the-design">The design</h3>
+<p>Nine experiments total, one core paradigm. Participants are tested online and randomly assigned to an internet condition or a no-internet condition. The induction phase asks moderately difficult common-knowledge questions with intuitive surfaces: why are there phases of the moon, how is glass made, why do golf balls have dimples.</p>
+<p>The internet group searches online and reports the most helpful URL. The no-internet group is handed the answers directly, taken from those same URLs. Both groups see the exact same information. The only difference is the act of searching.</p>
+<p>Then the self-assessment phase: all participants rate how well they could answer questions in unrelated domains, such as weather (why more Atlantic hurricanes in August and September, how tornadoes form, why cloudy nights are warmer). The result: the search group rates itself higher on these unrelated topics. Searching about moon phases inflated confidence about hurricanes.</p>
+<p>Figure 2. The experiment. AI Podcast Curriculum, ep06 (Matthew Fisher interview, 2015-11-19). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Internet group</th>
+<th>No-internet group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Induction</td>
+<td>Searches, finds answers</td>
+<td>Handed the same answers</td>
+</tr>
+<tr>
+<td>Information seen</td>
+<td>Identical</td>
+<td>Identical</td>
+</tr>
+<tr>
+<td>Self-assessment</td>
+<td>Rates self higher on unrelated topics</td>
+<td>Rates self lower</td>
+</tr>
+<tr>
+<td>The count</td>
+<td>1 difference: the act of searching</td>
+<td>Same knowledge, different self-image</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-controls">The controls</h3>
+<p>Fisher&rsquo;s team worried about the obvious confounds and closed them one by one.</p>
+<p>Time on task: maybe searching just takes longer, and longer engagement feels like mastery. Controlled. Effect survives.</p>
+<p>Question interpretation: maybe the search group hears &ldquo;how well could you answer these&rdquo; as &ldquo;how well could you answer these with Google&rsquo;s help.&rdquo; Two fixes. One used a cover story with a brain slider: participants rated how lit-up their brain would look while explaining, from barely lit to fully lit, forcing the judgment inward to their own head. The other rewrote the instructions explicitly: &ldquo;without using any outside sources.&rdquo; The effect survived both.</p>
+<h3 id="the-mechanism-it-is-the-searching">The mechanism: it is the searching</h3>
+<p>The decisive experiment: send the search group to a filtered Google search showing only results from the last week, useless for questions like moon phases. Participants searched, found nothing helpful, and still rated themselves higher afterward.</p>
+<p>McRaney&rsquo;s double-take in the episode is the right reaction: bad results, irrelevant results, no results, and the inflation persists. What matters is not what you learn. It comes from sitting inside the search environment: typing a query into an engine you know can access the world&rsquo;s knowledge. The act alone makes you feel like a larger contributor to the total than you are.</p>
+<p>Figure 3. Search, not learning. AI Podcast Curriculum, ep06 (Matthew Fisher interview, 2015-11-19). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Search condition</th>
+<th>Information gained</th>
+<th>Self-rating after</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal search, good results</td>
+<td>High</td>
+<td>Inflated</td>
+</tr>
+<tr>
+<td>Filtered search, useless results</td>
+<td>Near zero</td>
+<td>Inflated anyway</td>
+</tr>
+<tr>
+<td>No search, handed the answers</td>
+<td>Same as normal search</td>
+<td>Not inflated</td>
+</tr>
+<tr>
+<td>The one rule</td>
+<td>It is the act of searching</td>
+<td>Not the learning</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-the-internet-not-the-library">Why the internet, not the library</h3>
+<p>Is this unique to the internet, or would a 1972 bookworm show it? Fisher: the internet&rsquo;s properties are the difference. Fast, reliable, always available. An encyclopedia in the basement is accessible in theory but does not feel accessible the way Wikipedia does. A hyper-efficient librarian of the card-catalog era might show a trace of the effect, but the pocket supercomputer universalized it. The easier the external knowledge feels like your own, the stronger the misattribution. The internet made external knowledge feel like thought.</p>
+<h2 id="when-it-matters-and-when-it-does-not">When it matters and when it does not</h2>
+<h3 id="mostly-harmless-sometimes-critical">Mostly harmless, sometimes critical</h3>
+<p>Fisher&rsquo;s own cost-benefit: for much of daily life, the inflation does not matter, because the internet is there when the bill comes due. Think you know how tornadoes form but do not? The moment you need to produce the answer, you pull it up in seconds. The partner covers the gap.</p>
+<p>It matters where the partner cannot be consulted or where the judgment must be yours alone. Fisher names the presidency: decisions affecting millions should rest on knowing exactly how much you do not know. McRaney&rsquo;s sharper case: voting. Casting a ballot on an issue demands knowing what you understand independent of sources. The research suggests people walk into the booth feeling like experts on topics where they merely have expert access.</p>
+<h3 id="search-supercharges-confirmation-bias">Search supercharges confirmation bias</h3>
+<p>McRaney&rsquo;s closing question: where does confirmation bias fit? Fisher: it is the obvious next frontier. The internet holds material supporting every point of view, and the ease of finding confirming material &ldquo;is just rising exponentially.&rdquo; Combine the search effect with confirmation bias and you get the worst pairing in the track: people who feel like experts, armed with instant access to evidence for whatever they already believe. Fisher flags it as the great direction for future research.</p>
+<h3 id="the-contractors-buffer">The contractor&rsquo;s buffer</h3>
+<p>McRaney&rsquo;s father was an electrical contractor. The trade knew a human constant: when people project how long a job takes, they underestimate. So contractors built the correction into quotes and blueprints: extra money, extra time, priced in from the start. They banked on the bias.</p>
+<p>Fisher&rsquo;s work has not yet produced the equivalent correction for knowledge. We know we overestimate what we know after searching. We do not yet price it in. McRaney&rsquo;s hope: at some point we will acknowledge the inflation the way contractors acknowledged the planning fallacy, and start adding the buffer. The episode is the first step: name the bias before you can budget for it.</p>
+<p>Figure 4. The missing buffer. AI Podcast Curriculum, ep06 (Matthew Fisher interview, 2015-11-19). Shell 4. Show the new symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>The bias</th>
+<th>The correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construction time</td>
+<td>Underestimate the job</td>
+<td>Add money and time to the quote</td>
+</tr>
+<tr>
+<td>Knowledge after search</td>
+<td>Overestimate what you know</td>
+<td>No correction exists yet</td>
+</tr>
+<tr>
+<td>The new symbol</td>
+<td>The buffer is standard practice</td>
+<td>Name the inflation first, then price it</td>
+</tr>
+</tbody>
+</table>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain the search effect like I am new. What is actually happening?</div><div class="a"><p>The internet became your transactive memory partner: fast, accurate, always available, asking nothing back. The boundary between its knowledge and yours blurred. After searching, you erroneously include knowledge stored outside your head as your own, and you rate yourself higher even on unrelated topics. It is misattribution, not stupidity.</p><div class="followup"><strong>Follow-up:</strong> Why is &quot;the internet makes us stupid&quot; the wrong headline? The knowledge is real and the access is real. The error is in the accounting: the feeling of ownership moved without the knowledge moving. Losing the knowledge would be stupid. This misfiles it.</div></div></div>
+<div class="qa"><div class="q">Walk me through the experiment design. What is the one clever control?</div><div class="a"><p>Two groups see identical information: the search group finds it online, the no-internet group is handed it from the same URLs. Then both rate themselves on unrelated topics. The search group rates higher. The clever part is the identical-information control: it isolates the act of searching as the only difference, ruling out that searchers simply learned more.</p><div class="followup"><strong>Follow-up:</strong> What did the follow-up controls rule out? Time on task, question misreading (fixed with the brain slider and the &quot;without outside sources&quot; instruction), and learning itself (the useless-results search still inflated). What survives all of that is the act.</div></div></div>
+<div class="qa"><div class="q">What is transactive memory, and what is the division of cognitive labor?</div><div class="a"><p>Transactive memory is a shared memory system where each person stores some knowledge and knows where the rest lives: the old couple reconstructing their first meeting better together than apart. The division of cognitive labor scales it up: the biologist who trusts the chemist and the statistician without following their work. Each holds a domain and the addresses of the rest.</p><div class="followup"><strong>Follow-up:</strong> Why does the episode start here instead of with the internet? To show outsourcing is ancient and the internet only perfected the partner. The blur is new. The sharing is not.</div></div></div>
+<div class="qa"><div class="q">Why does useless searching still inflate self-ratings?</div><div class="a"><p>Because the mechanism is the search environment, not the information. Typing into an engine you know holds the world&rsquo;s knowledge makes you feel like a larger contributor to the total. The filtered-search experiment proves it: last-week-only results, nothing helpful found, inflation unchanged.</p><div class="followup"><strong>Follow-up:</strong> What does this imply about &quot;just look it up&quot; as advice? Looking it up fixes the information gap and widens the calibration gap. You now know the answer and overestimate what else you know. The advice needs a second half: note what you looked up.</div></div></div>
+<div class="qa"><div class="q">When does the inflation matter, and when does it not?</div><div class="a"><p>Mostly it does not: the partner is in your pocket when the bill comes due, so the gap rarely gets called. It matters where judgment must be yours alone and the partner cannot answer for you: the presidency, the voting booth, any call where you must know what you know independent of sources.</p><div class="followup"><strong>Follow-up:</strong> What is the voting-booth version of the effect? Feeling like an expert on an issue because you can access expert material. The booth asks what you understand. The phone answers a different question.</div></div></div>
+<div class="qa"><div class="q">What is the contractor analogy, and what buffer does it lack?</div><div class="a"><p>Electrical contractors know humans underestimate project time, so they price extra time and money into every quote. The bias is banked. For knowledge inflation after search, no equivalent buffer exists yet. We named the bias but did not price it. The episode is step one: name it before you can budget for it.</p><div class="followup"><strong>Follow-up:</strong> What would a knowledge buffer look like in practice? Before a consequential judgment, list what you actually know without the phone, then list what you looked up. Treat the second list as borrowed, not owned. Discount accordingly.</div></div></div>
+<div class="qa"><div class="q">How does the search effect combine with confirmation bias?</div><div class="a"><p>Fisher calls it the great open question. The internet holds supporting material for every view, and finding confirming material gets easier exponentially. Pair that with the search effect and you get confident-feeling people with instant access to evidence for what they already believed. Inflation times confirmation.</p><div class="followup"><strong>Follow-up:</strong> Why does this pairing matter for the track&#x27;s arc? Episode 3&#x27;s keystones now have infinite scaffolding on demand. Episode 4&#x27;s solo lawyer now has a research department. The machinery from earlier chapters got an upgrade, and the upgrade points the wrong way.</div></div></div>
+<div class="qa"><div class="q">Apply this to your work as a software engineer.</div><div class="a"><p>Three moves. One, the borrowed list: when you claim you understand a system, write what you can explain with the laptop closed, then what you needed docs for. The second list is the partner&rsquo;s. Two, the interview correction: &ldquo;I can look it up&rdquo; is not &ldquo;I know it&rdquo;. Interviewers test the closed-laptop list. Three, the design-doc buffer: mark every claim in the doc as owned or borrowed, and weight borrowed claims as hypotheses until someone owns them.</p><div class="followup"><strong>Follow-up:</strong> What is the honest limit? The partner is genuinely useful. The episode is not anti-internet. The failure sits in the books, not the access. Keep the partner. Fix the books.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The sentence: &ldquo;You erroneously include knowledge stored outside of your own head as your own.&rdquo;</li>
+<li>The mechanism: it is the searching, not the learning. Useless results inflate just as well.</li>
+<li>The partner: fast, accurate, always available, asks nothing back. The ideal memory partner is the most blurring one.</li>
+<li>The baseline: ordinary overconfidence plus the internet&rsquo;s boost. The design isolates the boost.</li>
+<li>The control to remember: identical information, both groups. Only the act differed.</li>
+<li>Never-confuse pair: stupidity versus misattribution. Stupidity loses knowledge. Misattribution misfiles it. The fix for stupidity is study. The fix for misattribution: keep the books.</li>
+<li>Never-confuse pair: the old couple versus the internet. The couple cues both ways and shares responsibility. The internet is one-way and responsibility-free. The blur is stronger where the partner asks less of you.</li>
+<li>Trap card: &ldquo;I looked it up, so now I know it.&rdquo; You accessed it. The closed-laptop test decides what you know.</li>
+<li>Trap card: &ldquo;More searching fixes overconfidence.&rdquo; The filtered-search result: searching with zero learning inflates identically. More searching is more inflation.</li>
+<li>Trap card: &ldquo;This only affects other people.&rdquo; The effect survived the brain slider and the explicit &ldquo;without outside sources&rdquo; instruction. It affects the people trying to be careful too.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: run the closed-laptop test on one system you claim to understand. Write the explanation with the laptop shut. Then open it and mark every sentence you could not write closed. The marked sentences are the partner&rsquo;s. Count them.</li>
+<li>Catch yourself: the next time you feel smart after a search, pause and ask: what did I know before I typed? Write the before-knowledge in one line. That line is yours. The rest is borrowed.</li>
+<li>Behavior change per major idea:</li>
+<li>Transactive memory: map your real partners. For your three most-used knowledge domains, name the human or system holding what you do not. Make the outsourcing explicit.</li>
+<li>Misattribution: keep a borrowed list for one week. Every lookup gets one line: the question and whether you could now answer it closed-laptop. Review Friday.</li>
+<li>The inflation: before your next consequential judgment, write the owned list first, phone away. Then allow the phone and write the borrowed list separately. Decide from the owned list. Use the borrowed list as hypotheses.</li>
+<li>Confirmation pairing: when researching a view you hold, deliberately search the opposing case first and log what you find. Break the inflation-times-confirmation loop at the search box.</li>
+<li>The buffer: add the contractor&rsquo;s question to your plan: &ldquo;what am I overestimating because I can look it up?&rdquo; Price the buffer in time.</li>
+<li>Monthly: re-run the closed-laptop test on the same system. Count how many borrowed sentences became owned. That count is your real learning rate.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Guided: the experiment&rsquo;s clever control gave both groups identical information. Explain in two sentences why this control is necessary and what conclusion would collapse without it. Then design a follow-up that tests whether the effect transfers to human partners (the old-couple version). (Answer: without identical information, the inflation could be explained by searchers learning more. The control leaves only the act. Human-partner version: one group asks a partner for answers, the other is handed the same answers. Then both self-rate on unrelated topics.)</li>
+<li>Fermi: suppose you look up 15 things a day and each lookup inflates your self-rating on unrelated topics by a small amount that decays over 2 hours. Roughly how many hours a day do you spend inflated? (Answer: 15 lookups times 2 hours is 30 lookup-hours, but they overlap. With waking hours around 16, you are effectively inflated most of the day. Now ask: what would have to be true for the decay to be faster?)</li>
+<li>Journal: &ldquo;My partners.&rdquo; List every external system you treat as memory: people, docs, search, notes, AI. For each, write what you outsourced and what would break if it vanished tonight. Which outsourcing scares you most, and what does that say about the blur?</li>
+<li>Argue both sides: &ldquo;The search effect is harmless because the partner is always there&rdquo; versus &ldquo;the search effect is dangerous because judgment must sometimes be yours alone.&rdquo; Use the presidency and the voting booth for the second side. Where is the exact line between harmless and dangerous?</li>
+<li>Observe: for three days, note every time you answer a question with knowledge you looked up within the last week. Tally them. For each, ask: could I answer closed-laptop? What fraction of your daily expertise is the partner&rsquo;s?</li>
+<li>Design: build a &ldquo;borrowed versus owned&rdquo; protocol for your team&rsquo;s design docs. Specify the marking (owned, borrowed, verified), who may mark borrowed as owned (the closed-laptop test, witnessed), and the review rule (borrowed claims count as hypotheses). Run it on one doc and log what changed.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Run the closed-laptop test on any claimed understanding.</li>
+<li>Keep a borrowed list separate from the owned list.</li>
+<li>Name your transactive partners explicitly instead of blurring them.</li>
+<li>Discount self-ratings taken after searching.</li>
+<li>Search the opposing case first to break the inflation-confirmation pairing.</li>
+<li>Apply the contractor&rsquo;s buffer question to knowledge estimates.</li>
+<li>Mark design-doc claims as owned or borrowed, and treat borrowed as hypotheses.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official episode page with audio and transcript links: https://youarenotsosmart.com/2015/11/25/yanss-063-how-search-engines-make-us-feel-smarter-than-we-really-are/</li>
+<li>Fisher, Goddu, and Keil&rsquo;s 2015 paper &ldquo;Searching for Explanations: How the Internet Inflates Estimates of Internal Knowledge&rdquo; (Journal of Experimental Psychology: General) is the episode&rsquo;s source. Search the exact title [uncertain: the publisher DOI link returned an access denial from this machine. Confirm the landing page before citing.]</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Knowledge is shared before the internet</td>
+<td>Mind alone</td>
+<td>Mind plus partners</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>The act alone inflates</td>
+<td>Same info, same rating</td>
+<td>Same info, search inflates</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Learning is not the mechanism</td>
+<td>Learn more, rate higher</td>
+<td>Learn nothing, rate higher anyway</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>No buffer exists yet</td>
+<td>Contractors price the bias</td>
+<td>Knowledge has no price</td>
+<td>Figure 4</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Whole chapter trade</td>
+<td>Blurred books</td>
+<td>Owned versus borrowed</td>
+<td>Figure 5 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 (chapter plate). The cost of blurred knowledge. AI Podcast Curriculum, ep06 (original toy, 2015-11-19). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You walk into judgments feeling expert on borrowed knowledge. The voting booth gets the partner&rsquo;s answers. Confirmation bias gets a research department.</td>
+<td>Three instruments: the closed-laptop test (what is owned), the borrowed list (what is the partner&rsquo;s), the opposing search (break the pairing).</td>
+<td>Self-ratings track the owned list. Borrowed claims stay hypotheses until witnessed. The partner stays useful and the books stay honest.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: pay the friction of marking borrowed versus owned, instead of the cost of confident misattribution.
+Footer: the partner is ideal. The accounting is yours.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://youarenotsosmart.com/2015/11/25/yanss-063-how-search-engines-make-us-feel-smarter-than-we-really-are/" target="_blank" rel="noopener">063 - The Search Effect - Matthew Fisher</a></li><li><span class="src-tag">TRANSCRIPT</span><a href="https://youarenotsosmart.com/transcripts/transcript-interview-with-matthew-fisher-from-episode-063/" target="_blank" rel="noopener">Transcript: Interview with Matthew Fisher</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/you-are-not-so-smart/ep05.html"><span class="lbl">← Previous</span>Episode 5: Bayes&#x27; Theorem with Julia Galef</a><a href="../../tracks/you-are-not-so-smart/ep07.html"><span class="lbl">Next →</span>Episode 7: Deep Canvassing with Dave Fleischer</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
