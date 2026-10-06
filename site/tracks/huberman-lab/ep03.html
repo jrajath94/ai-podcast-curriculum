@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 3: How to Improve at Learning Using Neuroscience &amp; AI | Dr. Terry Sejnowski — AI Podcast Curriculum</title>
+<meta name="description" content="Terry Sejnowski on sleep spindles that write memories into cortex, the Ambien experiment that doubled recall, and what transformers taught us about how brains d">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="huberman-lab-ep03" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Modern Wisdom - Chris Williamson</h3><ul>
+<li><a href="../../tracks/modern-wisdom/ep01.html" data-page="modern-wisdom-ep01">Ep 1 · AI That Fights Back</a></li>
+<li><a href="../../tracks/modern-wisdom/ep02.html" data-page="modern-wisdom-ep02">Ep 2 · Bunkers for a Reason</a></li>
+<li><a href="../../tracks/modern-wisdom/ep03.html" data-page="modern-wisdom-ep03">Ep 3 · AI Girlfriends</a></li>
+<li><a href="../../tracks/modern-wisdom/ep04.html" data-page="modern-wisdom-ep04">Ep 4 · The AI Debate</a></li>
+<li><a href="../../tracks/modern-wisdom/ep05.html" data-page="modern-wisdom-ep05">Ep 5 · AI vs Music</a></li>
+<li><a href="../../tracks/modern-wisdom/ep06.html" data-page="modern-wisdom-ep06">Ep 6 · The Gemini Disaster</a></li>
+<li><a href="../../tracks/modern-wisdom/ep07.html" data-page="modern-wisdom-ep07">Ep 7 · Yudkowsky</a></li>
+<li><a href="../../tracks/modern-wisdom/ep08.html" data-page="modern-wisdom-ep08">Ep 8 · OnlyFans vs AI</a></li>
+<li><a href="../../tracks/modern-wisdom/ep09.html" data-page="modern-wisdom-ep09">Ep 9 · AI Bands</a></li>
+<li><a href="../../tracks/modern-wisdom/ep10.html" data-page="modern-wisdom-ep10">Ep 10 · Art, Jobs, Everything</a></li>
+</ul>
+<h3>Huberman Lab</h3><ul>
+<li><a href="../../tracks/huberman-lab/index.html" data-page="huberman-lab-index">Huberman Lab · Index</a></li>
+<li><a href="../../tracks/huberman-lab/ep01.html" data-page="huberman-lab-ep01">Ep 1 · Lex Fridman: Machines, Creativity &amp; Love</a></li>
+<li><a href="../../tracks/huberman-lab/ep02.html" data-page="huberman-lab-ep02">Ep 2 · Lex Fridman: Conflict, Purpose &amp; Drive</a></li>
+<li><a href="../../tracks/huberman-lab/ep03.html" data-page="huberman-lab-ep03" class="active">Ep 3 · Terry Sejnowski: Learning, Sleep &amp; AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep04.html" data-page="huberman-lab-ep04">Ep 4 · Marc Andreessen: Risk, Innovation &amp; AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep05.html" data-page="huberman-lab-ep05">Ep 5 · Zuckerberg &amp; Chan: Curing Disease with AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep06.html" data-page="huberman-lab-ep06">Ep 6 · Neuralink: Enhancing Human Brains</a></li>
+<li><a href="../../tracks/huberman-lab/ep07.html" data-page="huberman-lab-ep07">Ep 7 · Fei-Fei Li: AI That Enriches Humanity</a></li>
+<li><a href="../../tracks/huberman-lab/ep08.html" data-page="huberman-lab-ep08">Ep 8 · Essentials: Machines, Creativity &amp; Love</a></li>
+<li><a href="../../tracks/huberman-lab/cheatsheet.html" data-page="huberman-lab-cheatsheet">Huberman Lab · Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Deep Questions with Cal Newport</h3><ul>
+<li><a href="../../tracks/deep-questions/index.html" data-page="deep-questions-index">Track index</a></li>
+<li><a href="../../tracks/deep-questions/ep01.html" data-page="deep-questions-ep01">Ep 1 · Perks of No Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep02.html" data-page="deep-questions-ep02">Ep 2 · Cal&#x27;s Planning System</a></li>
+<li><a href="../../tracks/deep-questions/ep03.html" data-page="deep-questions-ep03">Ep 3 · Core Idea: Deep Work</a></li>
+<li><a href="../../tracks/deep-questions/ep04.html" data-page="deep-questions-ep04">Ep 4 · Digital Minimalism</a></li>
+<li><a href="../../tracks/deep-questions/ep05.html" data-page="deep-questions-ep05">Ep 5 · Core Idea: Slow Productivity</a></li>
+<li><a href="../../tracks/deep-questions/ep06.html" data-page="deep-questions-ep06">Ep 6 · The Slope of Terribleness</a></li>
+<li><a href="../../tracks/deep-questions/ep07.html" data-page="deep-questions-ep07">Ep 7 · Learning vs. Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep08.html" data-page="deep-questions-ep08">Ep 8 · The 5-Step Productivity System</a></li>
+<li><a href="../../tracks/deep-questions/cheatsheet.html" data-page="deep-questions-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Charisma</h3><ul>
+<li><a href="../../tracks/charisma/index.html" data-page="charisma-index">Track index</a></li>
+<li><a href="../../tracks/charisma/ep01.html" data-page="charisma-ep01">Ep 1 · Vanessa Van Edwards</a></li>
+<li><a href="../../tracks/charisma/ep02.html" data-page="charisma-ep02">Ep 2 · Chris Voss</a></li>
+<li><a href="../../tracks/charisma/ep03.html" data-page="charisma-ep03">Ep 3 · Vanessa Van Edwards</a></li>
+<li><a href="../../tracks/charisma/ep04.html" data-page="charisma-ep04">Ep 4 · Charlie Houpert</a></li>
+<li><a href="../../tracks/charisma/ep05.html" data-page="charisma-ep05">Ep 5 · Huberman on Bonding</a></li>
+<li><a href="../../tracks/charisma/ep06.html" data-page="charisma-ep06">Ep 6 · Kay Tye</a></li>
+<li><a href="../../tracks/charisma/ep07.html" data-page="charisma-ep07">Ep 7 · Robert Cialdini</a></li>
+<li><a href="../../tracks/charisma/ep08.html" data-page="charisma-ep08">Ep 8 · Robert Greene</a></li>
+<li><a href="../../tracks/charisma/ep09.html" data-page="charisma-ep09">Ep 9 · Charles Duhigg</a></li>
+<li><a href="../../tracks/charisma/ep10.html" data-page="charisma-ep10">Ep 10 · Matthew Dicks</a></li>
+<li><a href="../../tracks/charisma/cheatsheet.html" data-page="charisma-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Huberman Lab</a> / Episode 3: How to Improve at Learning Using Neuroscience &amp; AI | Dr. Terry Sejnowski</nav>
+      <h1>Episode 3: How to Improve at Learning Using Neuroscience &amp; AI | Dr. Terry Sejnowski</h1>
+      <p class="meta-line">2024-11-18 · Instructor: Dr. Terry Sejnowski · Huberman Lab</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="etbfLTHD_VU"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/etbfLTHD_VU" title="How to Improve at Learning Using Neuroscience &amp; AI | Dr. Terry Sejnowski" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=etbfLTHD_VU" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=etbfLTHD_VU" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Sejnowski explains sleep spindles and memory consolidation, the Boltzmann machine and backpropagation history, and how transformers do self-attention, with a hypothesis that the basal ganglia is the brain's version.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>No other episode in this track teaches you the machinery of learning itself. Sejnowski is a computational neuroscientist who co-invented the Boltzmann machine with Geoffrey Hinton in the 1980s, and he now works on how the brain does what transformers do. You get three things here: the sleep system that writes your day into long-term memory, the perturbation experiment that proves it, and the clearest explanation on the track of self-attention and why the brain might do it in the basal ganglia. The practical payoff is direct: how to learn anything faster, from zero.</p>
+<h2 id="sleep-writes-the-day-into-the-brain">Sleep writes the day into the brain</h2>
+<h3 id="sleep-spindles-the-1-to-2-second-waves">Sleep spindles: the 1 to 2 second waves</h3>
+<p>Sejnowski&rsquo;s group records directly from human cortex. They work with epilepsy patients at Mass General Hospital who have electrodes implanted for weeks while doctors locate seizure origins. During those weeks, the scientists get continuous recordings of a living human cortex. That is how they found something nobody saw before: circular traveling waves during sleep.</p>
+<p>The key structure is the sleep spindle. Definition: a sleep spindle is a burst of rhythmic brain activity lasting about 1 to 2 seconds, traveling in a circle around the cortex during non-REM sleep, especially in transition states.</p>
+<p>What spindles do: they consolidate the day&rsquo;s experiences into long-term memory. The hippocampus, the brain region required for forming new memories, replays the day&rsquo;s experiences. The replay triggers spindles, and the spindles knead the replayed experience into the cortex. The kneading metaphor matters: you must incorporate the new experience into existing knowledge without overwriting what is already there.</p>
+<p>Figure 1. The consolidation loop. AI Podcast Curriculum, huberman-lab ep03 (Terry Sejnowski, 2024-11-18). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<pre><code>DAY: experience enters
+        |
+        v
++----------------+      replay       +----------------+
+|  HIPPOCAMPUS   | ----------------&gt; |     CORTEX     |
+|  holds the day |   triggers        |  long-term     |
+|  temporarily   |   spindles        |  storage       |
++----------------+                   +----------------+
+        ^                                    |
+        |        RULE: spindle kneads         |
+        |        replay into cortex           |
+        +------- without overwriting --------+
+                existing knowledge
+
+One spindle: about 1 to 2 seconds. One circle around the cortex.
+</code></pre>
+<p>Caption: AI Podcast Curriculum. Shell 3. Apply the one rule. Source: episode (Huberman Lab, Terry Sejnowski, 2024-11-18).</p>
+<p>The design constraint the figure shows: the brain must add new knowledge without destroying old knowledge. Every learning system, biological or artificial, faces this. The spindle is the brain&rsquo;s solution.</p>
+<p>Hand-worked numbers: spindles last 1 to 2 seconds. If you sleep 8 hours and a fraction of non-REM sleep carries spindles, you get thousands of 1 to 2 second consolidation events per night. The episode gives no exact spindle count per night. Not in source.</p>
+<h3 id="the-ambien-experiment-double-the-spindles-double-the-memory">The Ambien experiment: double the spindles, double the memory</h3>
+<p>Observation is not proof. Sejnowski describes the perturbation experiment by Sara Mednick at UC Irvine that tests whether spindles cause memory.</p>
+<p>The setup: subjects learn something at night, then take the drug zolpidem, sold as Ambien. The drug doubles the number of sleep spindles. In the morning, subjects remember twice as much of what they learned, and the memories are stable over time.</p>
+<p>The logic chain:</p>
+<ol>
+<li>Learning happens in the evening.</li>
+<li>The drug doubles spindle count during sleep.</li>
+<li>Morning recall doubles.</li>
+<li>Therefore spindles cause consolidation, not just correlate with it.</li>
+</ol>
+<p>Figure 2. The perturbation test. AI Podcast Curriculum, huberman-lab ep03 (Terry Sejnowski, 2024-11-18). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Control night</th>
+<th>Ambien night</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learning</td>
+<td>Evening session</td>
+<td>Evening session</td>
+</tr>
+<tr>
+<td>Spindles</td>
+<td>N</td>
+<td>2N (doubled)</td>
+</tr>
+<tr>
+<td>Morning recall</td>
+<td>R</td>
+<td>2R (doubled)</td>
+</tr>
+<tr>
+<td>Memory stability</td>
+<td>Baseline</td>
+<td>Stable over time</td>
+</tr>
+</tbody>
+</table>
+<p>Caption: AI Podcast Curriculum. Shell 2. Count the toy. Source: episode (Huberman Lab, Terry Sejnowski, 2024-11-18).</p>
+<p>The honest price, which Sejnowski and Huberman state explicitly: you pay the piper. Tweak one thing in the brain and something else gives. Ambien users report waking in hotel rooms with no memory of how they got there. The broader rule from the episode: with brain drugs, you do not get anything for free. Behaviors beat pharmacology as tools. Sleep enough, exercise during the day, and the spindles come without the drug.</p>
+<p>Exercise connection: daytime exercise increases nighttime spindle prevalence. The literature points one way. Movement during the day tunes the motor system, and REM sleep is thought to be involved in that tuning.</p>
+<h3 id="two-kinds-of-dreams">Two kinds of dreams</h3>
+<p>The episode distinguishes dream types by sleep stage, and the distinction is clean:</p>
+<ul>
+<li>REM dreams: vivid, constantly changing, never the same twice.</li>
+<li>Slow-wave sleep dreams: repetitive, the same dream over and over across nights, heavy emotional content.</li>
+</ul>
+<p>Mechanism for the bizarreness of REM dreams: during REM, acetylcholine rises, but not in the prefrontal cortex. Acetylcholine is a neuromodulator important for attention. The visual cortex produces imagery, but the prefrontal circuits that would monitor and interpret the imagery are offline. Unmonitored visual activity becomes bizarre: floating, impossible events, no anchor.</p>
+<p>Practical rule: if a dream repeats with heavy emotion, it is probably a slow-wave dream. If it is vivid and novel, it is probably REM.</p>
+<h2 id="the-history-from-boltzmann-machines-to-transformers">The history: from Boltzmann machines to transformers</h2>
+<h3 id="the-1980s-bet-against-symbols">The 1980s bet against symbols</h3>
+<p>Sejnowski started in the 1980s as a pioneer of learning algorithms for neural networks. He collaborated with Geoffrey Hinton on the Boltzmann machine. Hinton won the Nobel Prize in 2024, which the episode notes happened that same year.</p>
+<p>The bet they made: the dominant AI of the time was symbol processing, rules and logic, a different program for every problem. Sejnowski and Hinton bet on learning systems instead: networks that learn from data rather than from hand-written rules.</p>
+<p>That bet took roughly 40 years to pay off fully. Worked arithmetic: the 1980s to the 2020s is about 40 years. The episode does not give this number. The arithmetic is the chapter&rsquo;s.</p>
+<h3 id="what-a-transformer-actually-does">What a transformer actually does</h3>
+<p>Sejnowski&rsquo;s current research proposal, an NIH Pioneer Award application, is titled around temporal context in brains and transformers. His explanation of the transformer is the clearest on the track:</p>
+<p>Definition: a transformer is a deep-learning architecture, a feedforward network, with a component called self-attention. Self-attention connects words that are far apart in a sequence. Given the word &ldquo;this&rdquo; and three or four nouns it could refer to, context disambiguates which noun it means.</p>
+<p>Training: the transformer predicts the next word in a sentence, over and over, on huge amounts of text. Email autocomplete is a primitive version of the same algorithm.</p>
+<p>What emerges: trained at enough scale, the network builds an internal semantic representation. Words that relate to each other develop associations inside the network. The associations form an internal model of the meaning of the sentence, and of the outside world the words describe. Sejnowski says researchers probed transformers and now hold fair confidence this internal model exists.</p>
+<p>Scale from the episode: these networks run to trillions of parameters. The episode gives no exact count for any specific model. Not in source.</p>
+<p>Figure 3. Self-attention on a toy sentence. AI Podcast Curriculum, huberman-lab ep03 (Terry Sejnowski, 2024-11-18). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<pre><code>Sentence: &quot;The piano has keys. I played it at sunset.&quot;
+
+The word &quot;it&quot; could refer to: piano / sunset / keys
+
+Self-attention scores each candidate against the context:
+
+  it -&gt; piano : HIGH (you play a piano, not a sunset)
+  it -&gt; keys  : LOW  (keys are part of the piano)
+  it -&gt; sunset: LOW  (sunset is background)
+
+RULE: the highest-scoring link wins. &quot;it&quot; binds to &quot;piano&quot;.
+</code></pre>
+<p>Caption: AI Podcast Curriculum. Shell 1. Show the toy. Source: episode (Huberman Lab, Terry Sejnowski, 2024-11-18).</p>
+<h3 id="the-basal-ganglia-hypothesis">The basal ganglia hypothesis</h3>
+<p>Sejnowski&rsquo;s Pioneer proposal asks: how does the brain do self-attention? It must do something equivalent, because brains also connect distant pieces of context. His hypothesis: the basal ganglia. That is the bet he would place.</p>
+<p>Status: hypothesis, not finding. The episode presents it as a guess to be tested with experimental collaborators. Mark it [uncertain] as a scientific claim. It is certain as a report of what Sejnowski proposes.</p>
+<h3 id="in-context-learning-improvement-without-plasticity">In-context learning: improvement without plasticity</h3>
+<p>One of the biggest surprises about large language models, per Sejnowski: there is no learning after training. The model trains once on data. After that, it only runs inference, a fast loop producing one word after another. No weights change.</p>
+<p>And yet, as a dialogue continues, the model seems to get better at the task. This is called in-context learning. The model improves within the conversation without any plasticity, without any weight updates.</p>
+<p>Contrast with the brain: your brain has continuous plasticity. It changes as you use it. The LLM improves within a fixed structure by using the conversation itself as context. Sejnowski is now studying how the brain generates continual internal activity for planning, which LLMs do not yet have. Self-generated thought during sleep, the spindle and REM activity from the first section, is part of that machinery.</p>
+<p>Never-confuse pair: training (weights change, happens once) vs in-context learning (no weights change, happens during the dialogue). A model that gets better in conversation is not learning in the weight-update sense.</p>
+<h2 id="energy-and-pruning">Energy and pruning</h2>
+<h3 id="why-the-infant-brain-overbuilds-then-prunes">Why the infant brain overbuilds then prunes</h3>
+<p>Sejnowski answers Huberman&rsquo;s question about brain connectivity with development. In the first two years of life, the infant brain forms a tremendous number of new synapses, far more than needed. Then it prunes them.</p>
+<p>Why overbuild then cut? Synapses are expensive. Activating neurons and synapses costs energy, especially neurotransmitter turnover. The efficient design: build an overabundant network, keep the synapses that prove important, prune the rest. Pruning slows with age but never fully stops, which is why cortex thins over the lifespan.</p>
+<p>Figure 4. Overbuild then prune. AI Podcast Curriculum, huberman-lab ep03 (Terry Sejnowski, 2024-11-18). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<pre><code>BEFORE (infant):  dense overabundant synapses, high energy cost
+                  every possible connection exists
+
+RULE: keep synapses that prove useful, prune the rest
+
+AFTER (adult):    sparse efficient network, lower energy cost
+                  only proven connections remain
+</code></pre>
+<p>Caption: AI Podcast Curriculum. Shell 3. Apply the one rule. Source: episode (Huberman Lab, Terry Sejnowski, 2024-11-18).</p>
+<p>The engineering parallel: this is the biological version of neural network pruning. Train big, then cut. The brain discovered the recipe first.</p>
+<h3 id="cognitive-velocity">Cognitive velocity</h3>
+<p>Huberman contributes a concept Sejnowski endorses: cognitive velocity. From skateboarding, Huberman learned it is easier to learn a trick going slightly faster than comfortable. Standing still on carpet is the worst way to learn. He translated this to how he reads: a pace of intake exists where he must engage cognitively and retains information, versus a reflexive leisurely pace where nothing sticks.</p>
+<p>The claim: social media trains the brain toward slow, passive, multi-context cycling. Unless something is high-salience, the brain disengages. Deliberate cognitive velocity, slightly faster than comfortable, with full engagement, is the learning mode.</p>
+<p>Sejnowski&rsquo;s addition: we know more about brain states during sleep than during wakefulness. Focus, motivation, flow are not scientific terms. Cognitive velocity could become a real metric of brain state during waking hours. His own pattern: early to late mid-morning and an evening window after an energy trough are his high-velocity hours, about 90 minutes each, when he can mentally sprint.</p>
+<h2 id="hand-worked-numbers">Hand-worked numbers</h2>
+<ul>
+<li>Sleep spindle duration: 1 to 2 seconds each.</li>
+<li>Ambien: doubles spindle count, doubles recall. Ratio 2 to 1 on both.</li>
+<li>Transformer scale: hundreds of billions to trillions of parameters. No specific model count in the episode. Not in source.</li>
+<li>Hinton Nobel: 2024, same year as the episode.</li>
+<li>Boltzmann machine era: 1980s. Gap to the transformer era: about 40 years (worked arithmetic).</li>
+<li>Exact spindle counts per night, exact recall percentages, exact parameter counts: not in source.</li>
+</ul>
+<h2 id="qa">Q&amp;A</h2>
+<ol>
+<li>Explain like I am new: what is a sleep spindle and why should I care?
+A sleep spindle is a 1 to 2 second burst of rhythmic brain activity that travels in a circle around your cortex during non-REM sleep. You should care because it is the mechanism that writes your day into long-term memory. Your hippocampus replays the day, the replay triggers spindles, and the spindles knead the experience into your cortex without overwriting what you already know. No spindles, no consolidation.</li>
+</ol>
+<p>Follow-up: how do I get more spindles? The episode&rsquo;s answer: sleep enough and exercise during the day. The drug route (Ambien) doubles spindles but you pay the piper.</p>
+<ol start="2">
+<li>Walk me through the Ambien experiment as a causal proof.
+Step one: subjects learn in the evening. Step two: half take Ambien, which doubles spindle count. Step three: in the morning, the Ambien group remembers twice as much, with stable memories. The logic: the only manipulated variable is spindle count, so spindles cause the consolidation. This is a perturbation test, the gold standard Sejnowski names: do not just observe the system, perturb it and watch.</li>
+</ol>
+<p>Follow-up: what is the downside? Ambien users report waking with no memory of how they got to their hotel room. The episode&rsquo;s rule: you do not get anything for free with brain drugs.</p>
+<ol start="3">
+<li>What is self-attention, using the toy sentence?
+In &ldquo;The piano has keys. I played it at sunset,&rdquo; the word &ldquo;it&rdquo; is ambiguous. Self-attention scores every candidate noun against the context. Piano scores high because you play pianos, not sunsets. The highest score wins and &ldquo;it&rdquo; binds to &ldquo;piano.&rdquo; That binding across distance is temporal context.</li>
+</ol>
+<p>Follow-up: how is a transformer trained? By predicting the next word, over and over, on massive text. Email autocomplete is the primitive version.</p>
+<ol start="4">
+<li>
+<p>What emerges inside a transformer at scale, and how do we know?
+An internal semantic representation: associations between related words that form a model of what sentences mean. Sejnowski says researchers probed transformers and now hold fair confidence the internal model exists. The scale is hundreds of billions to trillions of parameters.</p>
+</li>
+<li>
+<p>What is Sejnowski&rsquo;s basal ganglia hypothesis, and what is its status?
+The hypothesis: the brain does something equivalent to self-attention, and the basal ganglia is where it happens. Status: hypothesis in a grant proposal, not a finding. It is certain that he proposes it. It is [uncertain] whether it is true.</p>
+</li>
+<li>
+<p>What is in-context learning, and why is it surprising?
+A language model trains once, then its weights freeze. During a dialogue it only runs inference. Yet it seems to get better at the task as the conversation continues, with zero weight updates. That surprises because improvement without plasticity should not happen under the old picture of learning.</p>
+</li>
+</ol>
+<p>Follow-up: how does this differ from the brain? The brain has continuous plasticity and self-generated activity, including during sleep. The model has neither and still improves in context.</p>
+<ol start="7">
+<li>
+<p>Why does the infant brain overbuild synapses and then prune them?
+Synapses are expensive in energy. The efficient strategy: build every possible connection, keep the ones that prove useful, prune the rest. Pruning never fully stops, which is why cortex thins with age.</p>
+</li>
+<li>
+<p>Applied: design your learning day using this episode.
+Put hard learning in your high cognitive-velocity windows (for Sejnowski, mid-morning and an evening window, about 90 minutes each). Learn slightly faster than comfortable, not at leisure pace. Exercise during the day. Sleep a full night. Before sleep, think about the problem you want solved. The episode says the brain works on it during sleep. Do not watch TV right before bed. The brain will work on that instead.</p>
+</li>
+</ol>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic: SPINDLE. Sleep Produces INtegration, Doubles Learning Efficiency. (Ambien doubles spindles, doubles recall.)</p>
+<p>Never-confuse pairs:
+- REM dreams vs slow-wave dreams. REM: vivid, novel, changing. Slow-wave: repetitive, heavy emotion, same dream across nights.
+- Training vs in-context learning. Training changes weights once. In-context learning improves with frozen weights.
+- Observation vs perturbation. Observing spindles during learning is correlation. Doubling them with a drug and doubling recall is causation.
+- Symbol AI vs learning AI. Symbols: hand-written rules, a program per problem. Learning: networks that learn from data. Sejnowski bet on learning in the 1980s.</p>
+<p>Trap cards:
+- Ambien is a learning hack. Trap. It doubles recall and you pay the piper. Behaviors beat drugs.
+- The model learns during chat. Trap. Weights are frozen. What improves is in-context use, not learning.
+- Bigger brain connectivity is always better. Trap. The infant overbuilds, then prunes for efficiency. Sparse beats dense.</p>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ol>
+<li>This week, protect your spindle supply. Set a fixed sleep window of 8 hours for 7 nights. Exercise on at least 4 of those days. Each morning, write down one thing you learned the previous day from memory before checking notes. Watch the recall stabilize across the week.</li>
+<li>Find your cognitive-velocity windows. For 3 days, note the 90-minute blocks when you can mentally sprint and the blocks when no caffeine helps. Schedule your hardest learning into the sprint windows. Schedule leisure intake into the slow windows.</li>
+<li>Use the pre-sleep priming protocol from the episode. Each night, spend 10 minutes thinking about one unsolved problem before sleep. No screens after. In the morning, write what came up before you check your phone.</li>
+</ol>
+<p>Observable behavior change: you stop cramming at midnight and start treating sleep as the second half of studying.</p>
+<p>How to catch yourself violating it: you catch yourself reaching for a pharmacological shortcut, a nootropic or a sleep drug, for a problem the episode says behaviors solve. Name the behavior you skipped.</p>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Intermediate level: guided but with real reasoning load.</p>
+<ol>
+<li>The hippocampus replays the day and spindles knead it into cortex without overwriting old knowledge. Design an artificial system that does this. What breaks if you skip the &ldquo;without overwriting&rdquo; constraint? (This is the catastrophic forgetting problem. Reason it out before searching the term.)</li>
+<li>Ambien doubles spindles and doubles recall. Suppose a new drug triples spindles. Predict the recall change and the price, using the episode&rsquo;s &ldquo;pay the piper&rdquo; rule. What experiment would test your prediction?</li>
+<li>A transformer predicts the next word. Explain how next-word prediction could possibly build an internal model of meaning. Where is the step that surprises you? Push on that step until it stops surprising you.</li>
+<li>Sejnowski bets the basal ganglia does self-attention. Design the experiment that would prove him wrong. What would you measure, and what result kills the hypothesis?</li>
+<li>Fermi-style: a spindle lasts 1.5 seconds. Suppose non-REM sleep totals 4 hours and 5 percent of it carries spindles. How many spindles per night? (Worked: 4 hours is 14,400 seconds. 5 percent is 720 seconds. Divided by 1.5 seconds per spindle: 480 spindles.) Now argue whether 480 consolidation events is a lot or a little for a full day of experience.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Explain sleep spindles and the hippocampus-cortex consolidation loop from zero.</li>
+<li>Run the perturbation logic: observation is correlation, manipulation is causation.</li>
+<li>Explain self-attention with a toy sentence and score the candidates.</li>
+<li>Distinguish training, inference, and in-context learning precisely.</li>
+<li>Apply the overbuild-then-prune design pattern to any learning system.</li>
+<li>Schedule learning around cognitive-velocity windows and pre-sleep priming.</li>
+<li>State the price rule: no free tweaks to the brain.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The Boltzmann machine, Sejnowski and Hinton&rsquo;s 1980s architecture: https://en.wikipedia.org/wiki/Boltzmann_machine</li>
+<li>Self-supervised learning, the modern version of learning without labels: https://en.wikipedia.org/wiki/Self-supervised_learning</li>
+</ul>
+<h2 id="page-audit">Page audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit id</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure id</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Consolidation loop</td>
+<td>Day&rsquo;s experience in hippocampus</td>
+<td>Kneaded into cortex</td>
+<td>f01</td>
+<td>ASCII</td>
+<td>original toy, episode</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Perturbation test</td>
+<td>Control night (N spindles, R recall)</td>
+<td>Ambien night (2N, 2R)</td>
+<td>f02</td>
+<td>Table</td>
+<td>original toy, episode</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Self-attention toy</td>
+<td>Ambiguous &ldquo;it&rdquo;</td>
+<td>&ldquo;it&rdquo; bound to &ldquo;piano&rdquo;</td>
+<td>f03</td>
+<td>ASCII</td>
+<td>original toy, episode</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Overbuild then prune</td>
+<td>Dense infant synapses</td>
+<td>Sparse adult network</td>
+<td>f04</td>
+<td>ASCII</td>
+<td>original toy, episode</td>
+</tr>
+</tbody>
+</table>
+<p>Chapter plate: one claim. Sleep is the second half of learning.</p>
+<pre><code>LEFT: cost without the rule (skip sleep, drug shortcut)
+  - fewer spindles, weaker consolidation
+  - Ambien: double recall now, pay the piper later
+  - behaviors skipped, price paid elsewhere
+
+CENTER: the stored object
+  - the spindle: 1 to 2 second circular wave, hippocampus replay kneaded into cortex
+
+RIGHT: cost with the rule (protect sleep, exercise, prime before bed)
+  - full spindle supply, stable memories
+  - pre-sleep priming aims the consolidation machinery
+  - no pharmacological debt
+
+FOOTER: the tradeoff in one line.
+  The day collects the data. The night writes it. Skip the night and the data rots.
+</code></pre>
+<h2 id="coverage-notes">Coverage notes</h2>
+<p>Source: research/huberman-lab/transcripts/etbfLTHD_VU.txt (keyword-dense window extraction). Sponsor segments were excluded. Numbers (1 to 2 second spindles, doubled spindles and recall, trillions of parameters, 2024 Nobel) come from the transcript windows. The basal ganglia hypothesis is marked as Sejnowski&rsquo;s proposal, not a finding.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=etbfLTHD_VU" target="_blank" rel="noopener">How to Improve at Learning Using Neuroscience &amp; AI | Dr. Terry Sejnowski</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/huberman-lab/ep02.html"><span class="lbl">← Previous</span>Episode 2: Navigating Conflict, Finding Purpose &amp; Maintaining Drive | Dr. Lex Fridman</a><a href="../../tracks/huberman-lab/ep04.html"><span class="lbl">Next →</span>Episode 4: How Risk Taking, Innovation &amp; Artificial Intelligence Transform Human Experience | Marc Andreessen</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
