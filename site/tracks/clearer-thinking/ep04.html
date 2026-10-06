@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 4: Noise with Daniel Kahneman — AI Podcast Curriculum</title>
+<meta name="description" content="Daniel Kahneman on noise: the unwanted variability in human judgment, the noise audit method, the three kinds of noise, and decision hygiene protocols including">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="clearer-thinking-ep04" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04" class="active">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Clearer Thinking with Spencer Greenberg</a> / Episode 4: Noise with Daniel Kahneman</nav>
+      <h1>Episode 4: Noise with Daniel Kahneman</h1>
+      <p class="meta-line">2023-03-14 · Instructor: Daniel Kahneman · Clearer Thinking with Spencer Greenberg</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="bEiQw3Mk0rI"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/bEiQw3Mk0rI" title="Beyond cognitive biases: improving judgment by reducing noise with Daniel Kahneman" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=bEiQw3Mk0rI" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=bEiQw3Mk0rI" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Kahneman explains why judgment is measurement, how to audit noise in an organization, and the decision-hygiene protocols that reduce it.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Behavioral economics taught the world about bias: systematic error in one direction. This episode is about the other half of error, the half almost nobody measures. Noise is unwanted variability in judgments that should be identical. Two judges see the same case and give wildly different sentences. Two underwriters price the same risk 52 percent apart. The episode gives you the measurement framework, the audit method, and the hygiene protocols, and it changes how you run every consequential decision.</p>
+<h2 id="judgment-is-measurement">Judgment is measurement</h2>
+<h3 id="error-has-two-parts">Error has two parts</h3>
+<p>Definition: bias is systematic error. It pushes judgments in one direction, like a scale that always reads two kilos heavy.</p>
+<p>Definition: noise is random variability. It scatters judgments around, like a scale that reads differently every time you step on.</p>
+<p>The episode&rsquo;s equation: total error squared equals bias squared plus noise squared. Both contribute. Organizations obsess over bias and ignore noise, partly because bias tells a story about causes while noise is just scatter, and partly because noise is invisible in a single judgment. You need many judgments of the same case to see it.</p>
+<p>Figure 1. The error equation. AI Podcast Curriculum, ep04 (Daniel Kahneman interview, 2023-03-14). Shell 1. Show the toy. Source: episode claims.</p>
+<p><strong>error² = bias² + noise²</strong></p>
+<h3 id="the-208-judges">The 208 judges</h3>
+<p>The founding demonstration: 208 federal judges were shown the same 16 criminal cases, with enough detail to set sentences. For cases where the average sentence was 7 years, pick two judges at random and the expected difference between their sentences is about 4 years. Same cases. Same law. That scatter is noise, and it means the sentence depends heavily on which judge you draw.</p>
+<h3 id="the-52-percent-underwriters">The 52 percent underwriters</h3>
+<p>The business version. Kahneman asked insurance executives: if two underwriters at random price the same complex risk, by how much would you expect them to differ? The common answer, from executives and audiences alike: about 10 percent. The measured truth: 52 percent. Five times the expected noise. The executives were stunned, which is the point. Nobody expects this much scatter in professional judgment, because nobody measures it.</p>
+<p>Figure 2. Expected versus actual noise in underwriting. AI Podcast Curriculum, ep04 (Daniel Kahneman interview, 2023-03-14). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expected difference between two underwriters</td>
+<td>About 10 percent</td>
+</tr>
+<tr>
+<td>Measured difference</td>
+<td>52 percent</td>
+</tr>
+<tr>
+<td>Ratio of actual to expected</td>
+<td>About 5 to 1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="three-kinds-of-noise">Three kinds of noise</h2>
+<h3 id="level-pattern-occasion">Level, pattern, occasion</h3>
+<p>A noise audit breaks total noise into components, and the components point at different fixes.</p>
+<p>Definition: level noise is differences in average judgment between judges. One judge is simply harsher than another, across all cases.</p>
+<p>Definition: pattern noise is differences in how judges respond to particular features of cases. One judge is harsh on theft but lenient on assault. Another reverses it. This is the biggest component in most audits.</p>
+<p>Definition: occasion noise is variability within the same judge across occasions. Mood, weather, time since lunch, the previous case. The same judge on a different day gives a different answer.</p>
+<h3 id="the-archery-metaphor">The archery metaphor</h3>
+<p>Picture judges as archers shooting at a target. Bias is the whole cluster landing off-center. Noise is the scatter of the arrows. Now flip the target around: in judgment, there is no visible target. Each judgment is a shot at an unseen bullseye, and the scatter only appears when many archers shoot at the same case.</p>
+<p>The metaphor also frames the fix. You cannot see your own scatter from one shot. You need the back of the target: many judgments of the same case, which is exactly what a noise audit collects.</p>
+<p>Figure 3. The three kinds of noise. AI Podcast Curriculum, ep04 (Daniel Kahneman interview, 2023-03-14). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Definition</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Level noise</td>
+<td>Judges differ in average severity</td>
+<td>Judge A averages 8 years, Judge B averages 5</td>
+</tr>
+<tr>
+<td>Pattern noise</td>
+<td>Judges weigh case features differently</td>
+<td>Harsh on theft, lenient on assault, and the reverse</td>
+</tr>
+<tr>
+<td>Occasion noise</td>
+<td>Same judge varies across occasions</td>
+<td>Harsher after a bad morning</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-noise-audit">The noise audit</h2>
+<h3 id="how-to-run-one">How to run one</h3>
+<p>The audit is the episode&rsquo;s central practical method. Pick a set of real past cases. Have multiple judges evaluate each case independently, without discussion. Measure the scatter. Then decompose it into level, pattern, and occasion noise.</p>
+<p>The audit does two things at once. It quantifies the problem, which creates the will to fix it, because nobody believes the 52 percent until they see their own number. And it locates the problem: level noise calls for calibration, pattern noise calls for guidelines, occasion noise calls for structuring the judgment environment.</p>
+<p>Figure 4. The noise audit as a loop. AI Podcast Curriculum, ep04 (Daniel Kahneman interview, 2023-03-14). Shell 4. Show the new symbol. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Shared past cases] --> B[Independent re-judgment]
+    B --> C[Measure scatter]
+    C --> D[Decompose: level, pattern, occasion]
+    D --> E[Match fix to component]
+    E --> A
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Shared past cases] --&gt; B[Independent re-judgment]
+    B --&gt; C[Measure scatter]
+    C --&gt; D[Decompose: level, pattern, occasion]
+    D --&gt; E[Match fix to component]
+    E --&gt; A
+</code></pre>
+<h3 id="the-model-of-you-beats-you">The model of you beats you</h3>
+<p>One of the strangest solid findings in judgment research: a simple model of a judge outperforms the judge. Take an expert&rsquo;s past judgments, fit a linear model to how they weigh the cues, and the model predicts better than the expert does on new cases. The model captures the expert&rsquo;s knowledge without the expert&rsquo;s occasion noise. It applies the same weights every time, never tired, never moody.</p>
+<p>The lesson is not that experts are useless. The expert&rsquo;s knowledge trains the model. The lesson is that consistency is a free upgrade: remove the scatter and keep the signal.</p>
+<h3 id="the-limits-of-prediction">The limits of prediction</h3>
+<p>The Fragile Families study sets the humility bound. Researchers competed to predict life outcomes for children from broken homes, using rich data. The best models moved prediction from about 50 percent to about 57 percent. Enormous effort, tiny gain. Some domains have low predictability ceilings, and no amount of modeling breaks through. A noise audit tells you how much scatter you can remove. Studies like this tell you how much signal exists to find.</p>
+<h2 id="decision-hygiene">Decision hygiene</h2>
+<h3 id="protocols-that-reduce-noise">Protocols that reduce noise</h3>
+<p>Definition: decision hygiene is the set of procedures that reduce noise and bias in judgments, the way hand-washing reduces infection. The episode&rsquo;s protocols:</p>
+<p>Mediating assessments: break a complex judgment into independent sub-judgments, evaluate each separately, and only then combine them into the final call. Hiring becomes separate scores for skill, culture fit, and growth, each made before any discussion of the candidate as a whole. This fights the halo effect, where one strong impression contaminates everything.</p>
+<p>Independent judgments first: never open with discussion. Have each person record their judgment privately before anyone speaks. Discussion after independent judgment averages out noise. Discussion before it creates conformity and group polarization.</p>
+<p>Delay intuition: in the mediating-assessments protocol, the intuitive whole-picture judgment comes last, not first. Let the structured pieces constrain the gut, not the reverse.</p>
+<h3 id="the-premortum">The premortum</h3>
+<p>The episode&rsquo;s individual judgment exercise, rendered &ldquo;premortum&rdquo; in the transcript. Spencer proposes it and Kahneman confirms it. The procedure: make a judgment. Then imagine it turns out bad. Ask yourself what the most likely explanation for the failure is, and adjust the judgment on that basis. Then average the original and the adjusted judgment.</p>
+<p>Why it works: the two estimates are quasi-independent, so averaging cancels some noise. It is a crowd within one head. Kahneman rates it about one third as good as asking a second person, because the range of variability inside one individual is narrower than the range between people.</p>
+<p>This is not a team ritual. Nobody gathers to declare a project dead. The move is private: force a second estimate out of yourself by imagining the first one failed, then split the difference.</p>
+<h3 id="reference-class-forecasting">Reference-class forecasting</h3>
+<p>The planning fallacy is the systematic tendency to underestimate how long things take and how much they cost, while overestimating benefits. The cure is the outside view: find the reference class of similar past projects, look at their actual outcomes, and anchor your forecast there instead of in your plan&rsquo;s details.</p>
+<p>The episode&rsquo;s logic: your project feels unique from the inside. From the outside it is one more instance of a class with a known base rate. The base rate beats the plan. Kahneman&rsquo;s standing advice: when forecasting, distrust the inside view entirely. Let the outside view speak first.</p>
+<h3 id="groups-and-crowds">Groups and crowds</h3>
+<p>Two findings about collective judgment. Group discussion without structure amplifies noise into polarization: like-minded groups end up more extreme than their average member started. But structured aggregation helps: averaging independent judgments, the wisdom of crowds, cancels noise. Even the crowd within helps: asking one person for two independent estimates and averaging them beats either estimate alone, by roughly a third of the available gain by some measures. [uncertain: the episode gives the direction, not the exact fraction. The &ldquo;third&rdquo; is an approximate gloss.]</p>
+<h2 id="the-skepticism">The skepticism</h2>
+<h3 id="kahneman-doubts-debiasing">Kahneman doubts debiasing</h3>
+<p>The episode&rsquo;s most surprising turn: Kahneman is skeptical that teaching people about biases changes their judgments. Knowing about bias does not make your System 1 quieter. What works is not better thinking but better procedure: the hygiene protocols above. You do not debias the judge. You change the process the judge works in.</p>
+<p>This is why the chapter matters for the rationality step of this track. Reading about biases feels like self-improvement. Kahneman says it mostly is not. The improvement lives in checklists, independent judgments, and the premortum check, in structure, not insight.</p>
+<h3 id="the-replication-crisis-as-self-deception">The replication crisis as self-deception</h3>
+<p>On the replication crisis, Kahneman&rsquo;s take is personal: researchers deceived themselves, not others. The machinery of motivated reasoning from ep03 operated inside science itself. His remedy is Bayesian thinking, which he calls normatively correct: update beliefs by the rules of probability, state priors explicitly, and let evidence move them by the correct amount. [uncertain: the episode endorses Bayesian norms without working through the formalism.]</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain the whole chapter like I am new. What is noise and why should I care?</div><div class="a"><p>Noise is unwanted scatter in judgments that should agree. Two judges give the same case sentences years apart. Two underwriters price the same risk 52 percent apart. You should care because the outcome of your case, your loan, your hire, depends heavily on which judge you draw, and nobody notices until they measure it. The fix is procedure: audits, independent judgments, the premortum exercise.</p><div class="followup"><strong>Follow-up:</strong> What is the one equation? Total error squared equals bias squared plus noise squared. Fight both, but start by measuring the one you ignore.</div></div></div>
+<div class="qa"><div class="q">Walk me through the three kinds of noise with a hiring example.</div><div class="a"><p>Level noise: one interviewer scores everyone a 7, another scores everyone a 4. Pattern noise: one interviewer loves prestigious schools and discounts startups, another does the reverse. Occasion noise: the same interviewer scores lower right before lunch. Each needs a different fix: calibration for level, structured rubrics for pattern, better scheduling and breaks for occasion.</p><div class="followup"><strong>Follow-up:</strong> Which is biggest? Usually pattern noise. People differ most in how they weigh features, not in average harshness.</div></div></div>
+<div class="qa"><div class="q">How do I run a noise audit on my own team?</div><div class="a"><p>Pick five to ten real past decisions. Have each decision-maker re-judge each case independently, in writing, with no discussion. Measure the scatter across judges for the same case. Decompose it: consistent harshness differences are level noise, feature-weighting differences are pattern noise. Present the number first. The shock creates the will to fix it.</p><div class="followup"><strong>Follow-up:</strong> What is the cheapest first audit? Hiring. Take three past candidates, have interviewers score them blind from the notes, and compare. Most teams have never done this.</div></div></div>
+<div class="qa"><div class="q">Why does a model of a judge beat the judge?</div><div class="a"><p>The model keeps the judge&rsquo;s knowledge, the cue weights learned from past judgments, and drops the judge&rsquo;s occasion noise. It never has a bad morning. Consistency is a free upgrade when the knowledge is already captured.</p><div class="followup"><strong>Follow-up:</strong> When does this fail? When the environment changes so the old cue weights no longer apply. The model is frozen knowledge. The judge can learn, noisily.</div></div></div>
+<div class="qa"><div class="q">What is the premortum exercise, and why does it work?</div><div class="a"><p>Make a judgment, then imagine it turns out bad. Name the most likely explanation for the failure, adjust the judgment on that basis, then average the original and the adjusted estimate. It works because the two estimates are quasi-independent, so averaging cancels some noise, like a crowd inside one head. Kahneman rates it about one third as good as asking a second person.</p><div class="followup"><strong>Follow-up:</strong> Run it on your next judgment. Write the original, write the adjusted one, average them. Does the average feel more stable than either alone?</div></div></div>
+<div class="qa"><div class="q">What is the outside view, and how do I use reference-class forecasting?</div><div class="a"><p>The inside view builds a forecast from your plan&rsquo;s details. The outside view finds the class of similar past projects and uses their actual outcomes as the forecast. To use it: define the reference class, get the base rates for time and cost, and anchor there before adjusting for genuine differences.</p><div class="followup"><strong>Follow-up:</strong> What counts as a genuine difference? A specific, checkable reason your case beats the class average, not enthusiasm. Enthusiasm is the planning fallacy talking.</div></div></div>
+<div class="qa"><div class="q">Kahneman says teaching biases does not debias. So what is this chapter for?</div><div class="a"><p>It is for changing procedures, not minds. Do not try to think harder about noise. Install the hygiene: independent judgments before discussion, mediating assessments, the premortum check, reference classes. Structure does what insight cannot.</p><div class="followup"><strong>Follow-up:</strong> What is the trap? Collecting bias names as trivia. If your process is unchanged, the chapter changed nothing.</div></div></div>
+<div class="qa"><div class="q">How does this chapter connect to ep03 on persuasion?</div><div class="a"><p>Both chapters distrust unaided introspection. Ep03 showed your reasons are press releases. Ep04 shows your judgments scatter even when you feel certain. The shared cure is procedure over insight: protocols for persuasion, hygiene for judgment.</p><div class="followup"><strong>Follow-up:</strong> And to ep06 on the scout mindset? The scout wants truth. Noise shows the scout needs instruments, not just motives. Good intentions do not reduce scatter. Audits do.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>Error squared equals bias squared plus noise squared. Two enemies, one equation.</li>
+<li>208 judges, 16 cases: two random judges differ by about 4 years on a 7-year average. Same law, lottery sentences.</li>
+<li>Expected 10, measured 52: underwriters scatter five times wider than executives guess.</li>
+<li>Level, pattern, occasion: harshness differs, weights differ, moods differ. Pattern is usually biggest.</li>
+<li>The flipped target: you cannot see your scatter from one shot. Audits show the back of the target.</li>
+<li>The model of you beats you: keep the knowledge, drop the bad mornings.</li>
+<li>50 to 57: the Fragile Families ceiling. Some domains barely predict. Know the ceiling before you optimize.</li>
+<li>Hygiene, not insight: checklists beat willpower. Kahneman doubts debiasing. He trusts procedure.</li>
+<li>Mediating assessments: score the parts separately, combine last. Halo dies in pieces.</li>
+<li>Independent first: write it down before anyone speaks. Discussion averages noise only if the judgments start independent.</li>
+<li>Premortum: imagine the judgment failed, explain why, adjust, average. One head, two estimates, about one third of a second judge.</li>
+<li>Outside view: your plan is a class member. Forecast from the class base rate.</li>
+<li>Never-confuse pair: bias versus noise. Bias is the cluster off-center. Noise is the scatter. Fixing one does not fix the other.</li>
+<li>Trap card: &ldquo;Our experts agree.&rdquo; Agreement without independent measurement may be conformity. Audit before you trust consensus.</li>
+<li>Trap card: &ldquo;I know about biases, so I am safe.&rdquo; Kahneman says knowledge does not transfer. Only the procedure protects you.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: run a premortum on one real judgment. Write the original estimate, imagine it failed, write the most likely explanation, adjust, then average the two. File the averaged number where the decision lives.</li>
+<li>Catch yourself: the next time you feel certain about a judgment, ask when you last measured your scatter on similar judgments. Certainty without an audit is a feeling, not a fact.</li>
+<li>Behavior change per major idea:</li>
+<li>Noise awareness: for your next three consequential judgments, write down your answer before any discussion. Compare afterward. Note the scatter.</li>
+<li>Level noise: calibrate with one colleague. Score five past cases independently and compare averages. Adjust.</li>
+<li>Pattern noise: write your feature weights explicitly before the next evaluation. Ask a colleague for theirs. Discuss only the weights.</li>
+<li>Mediating assessments: break your next hire or purchase into three scored parts. Combine only after all three are scored.</li>
+<li>Premortum: install it as a required step before every consequential judgment over one month of effort.</li>
+<li>Outside view: for your next time estimate, find three comparable past tasks and use their actual durations. Compare with your gut estimate.</li>
+<li>Model of you: for one repeated judgment you make, write the rule you actually follow. Apply it mechanically twice. Compare results.</li>
+<li>Monthly: pick one repeated decision and compute your own scatter across instances. If you cannot, that is the finding.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Harder drills. Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Fermi: 208 judges times 16 cases is 3,328 sentences. If each sentencing decision takes 20 minutes, how many judge-hours did the study consume? (Answer: about 1,110 hours. Now ask: what cheaper audit would have found the same scatter?)</li>
+<li>Argue both sides: &ldquo;Noise audits are unethical because they undermine trust in professionals.&rdquo; Steelman it: public scatter numbers destroy legitimate authority. Rebut it: hidden lotteries are worse. Where is the line between transparency and institutional damage?</li>
+<li>Journal: &ldquo;Where am I the noisy judge?&rdquo; Pick a repeated judgment you make: grading, interviewing, estimating. Write your last five instances and their outcomes. How much scatter do you see? What would a model of you look like?</li>
+<li>First principles: derive why averaging independent judgments reduces noise but not bias. What happens to the average when every judge shares the same bias? Design a procedure that attacks shared bias.</li>
+<li>Observe: for one week, note every group decision you join. Did judgments go independent-first or discussion-first? Tally the polarization: did the group end more extreme than its members started?</li>
+<li>Design: you run admissions for a program with 1,000 applicants and 50 spots. Write the full decision-hygiene protocol: audit, mediating assessments, independence rules, the premortum check. What does it cost in hours? What noise does it remove?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Decompose any judgment error into bias and noise.</li>
+<li>Run a noise audit: independent re-judgment of shared cases, then scatter measurement.</li>
+<li>Classify noise into level, pattern, and occasion, and match each to its fix.</li>
+<li>Build mediating-assessments protocols for hiring, grading, and purchasing.</li>
+<li>Run the premortum on consequential judgments: original, imagined failure, adjusted, average.</li>
+<li>Forecast from the outside view with reference classes.</li>
+<li>Distrust bias knowledge as self-protection and install procedures instead.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The book behind the episode: https://en.wikipedia.org/wiki/Noise:_A_Flaw_in_Human_Judgment</li>
+<li>Clearer Thinking&rsquo;s free tools for better decisions: https://www.clearerthinking.org</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Total error splits into two parts</td>
+<td>One kind of error</td>
+<td>Error² = bias² + noise²</td>
+<td>Figure 1</td>
+<td>equation</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Noise dwarfs expectations</td>
+<td>Experts agree closely</td>
+<td>10 expected, 52 measured</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Noise has three kinds</td>
+<td>Scatter is one thing</td>
+<td>Level, pattern, occasion</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Audits locate the fix</td>
+<td>Noise is mysterious</td>
+<td>Independent re-judgment decomposes it</td>
+<td>Figure 4</td>
+<td>mermaid</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Hygiene beats insight</td>
+<td>Learn biases, improve</td>
+<td>Procedures, not willpower</td>
+<td>Figure 5 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 (chapter plate). Noise on one page. AI Podcast Curriculum, ep04 (original toy, 2023-03-14). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sentences by judge lottery. Prices 52 percent apart. Meetings that polarize. Plans built on the inside view.</td>
+<td>The error equation plus the three noise kinds plus the hygiene checklist, on one index card.</td>
+<td>Audits run on real past cases. Judgments independent-first. Consequential judgments premortumed. Forecasts anchored on base rates.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: pay the hours of an audit and the friction of procedure, stop paying the lottery tax on every decision.
+Footer: you cannot feel your own scatter. Measure it, then procedure it away.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=bEiQw3Mk0rI" target="_blank" rel="noopener">Noise with Daniel Kahneman</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/clearer-thinking/ep03.html"><span class="lbl">← Previous</span>Episode 3: How minds change with David McRaney</a><a href="../../tracks/clearer-thinking/ep05.html"><span class="lbl">Next →</span>Episode 5: Practical wisdom with Barry Schwartz</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
