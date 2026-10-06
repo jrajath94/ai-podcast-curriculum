@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 2: TSMC founder Morris Chang — AI Podcast Curriculum</title>
+<meta name="description" content="Morris Chang on inventing the pure-play foundry, the 40nm crisis that brought him back as CEO at 78, and how TSMC won Apple.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="acquired-ep02" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02" class="active">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Acquired</a> / Episode 2: TSMC founder Morris Chang</nav>
+      <h1>Episode 2: TSMC founder Morris Chang</h1>
+      <p class="meta-line">2025-01-27 · Instructor: Morris Chang · Acquired</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="FZItbr4ZJnc"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/FZItbr4ZJnc" title="TSMC founder Morris Chang" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=FZItbr4ZJnc" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=FZItbr4ZJnc" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">The 93-year-old TSMC founder on the Nvidia partnership, the 2009 comeback, the Apple deal, and the learning curve.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Every chip in the AI boom passes through one company&rsquo;s factories. This episode explains why that company exists, and no other episode gives you the founder&rsquo;s own account. You get the invention of the pure-play foundry, a masterclass in settling a nine-figure dispute over pizza, and the inside story of how TSMC won Apple while a successor&rsquo;s mistake nearly broke the Nvidia relationship. The through-line: Morris saw the future (fabless chip companies), did unglamorous work for years to be ready for it, and never competed with his own customers.</p>
+<p>Ben and David flew to Taipei for a 48-hour trip and recorded in Morris&rsquo;s office. He was 93. He had just published Volume 2 of his autobiography after a 26-year gap. It exists only in traditional Chinese, so they worked from an unpublished translation by Karina Bao, funded by Tyler Cowen&rsquo;s Emergent Ventures. Jensen Huang personally asked Morris to do the interview.</p>
+<h2 id="the-story">The story</h2>
+<h3 id="1987-inventing-the-pure-play-foundry">1987: inventing the pure-play foundry</h3>
+<p>Definition: a foundry manufactures chips designed by other companies. A pure-play foundry does only manufacturing and never sells its own chip designs, so it never competes with its customers. An IDM (integrated device manufacturer) like Intel designs and manufactures its own chips.</p>
+<p>Morris founded TSMC in 1987 at age 56. Everyone thought the idea was crazy. The industry was vertically integrated: you designed your chips and you built your own fabs. A company that only manufactured, for anyone who walked in, seemed like a contradiction.</p>
+<p>Morris had seen the future before founding. At General Instrument, a founder came asking for a 50 million dollar investment, then called back to say he only needed 5 million. Why? &ldquo;I am not going to build a fab.&rdquo; That was the start for Morris: chip companies without factories, fabless companies, were coming. Another company, ATM, had no fabs and wanted General Instrument&rsquo;s empty fabs to make its wafers. The difficulty of the foundry business appeared immediately: every customer wants the fab run their way, but you can only run it one way. The advantage appeared too: many customers, one factory, enormous scale.</p>
+<p>Don Valentine&rsquo;s line about Sequoia, which Morris quotes: &ldquo;I had an advantage. I knew the future.&rdquo; Morris says he had a glimpse of it.</p>
+<p>The timing was close. Morris says he was within about 12 months of when he thought fabless would arrive. But the first five-plus years were unglamorous. TSMC&rsquo;s real business was taking other IDMs&rsquo; least critical, least interesting overflow orders. Ben calls the original business plan kind of bad: rent out spare capacity for anyone&rsquo;s boring chips. Morris does not dispute it. He did the unglamorous business deliberately to build competency, volume, capacity, and literal fabs, so TSMC would be standing there when the fabless revolution arrived.</p>
+<p>Figure 1. The foundry bet. AI Podcast Curriculum, ep02 (Morris Chang interview, 2025-01-27). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Axis | IDM model (Intel) | Pure-play foundry (TSMC) |
+|&mdash;|&mdash;|&mdash;|
+| Designs chips | Yes | Never |
+| Manufactures | Its own designs | Anyone&rsquo;s designs |
+| Competes with customers | Structurally yes | Structurally no |
+| Old fabs | Repurposed for leading edge | Kept running, fully depreciated |</p>
+<p>That last row matters more than it looks. Intel constantly repurposes old fabs for the newest node, which means it loses the ability to make older chips. Demand for old chips fades slowly: replacement parts for cars and machines built decades ago, camera sensors, and countless unglamorous components. TSMC still runs fabs 2 and 3 from the late 1980s. On an accounting basis they are fully depreciated, so they generate nearly free high-margin revenue. Keeping every generation running is a philosophical choice, and it compounds.</p>
+<h3 id="the-golden-accident-of-the-1980s">The golden accident of the 1980s</h3>
+<p>Ben and David note that TSMC, ARM, Synopsys, Cadence, and ASML were all founded within a couple of years of each other in the mid to late 1980s. The industry disintegrated into layers at once: architecture, manufacturing, design software, and equipment each became standalone businesses. ARM and TSMC are, in Ben&rsquo;s phrase, coupled at the hip of history. The x86 world never disintegrated this way, which is why Intel stayed fully integrated and why AMD, the x86 exception, is a TSMC customer.</p>
+<h3 id="1997-the-letter-from-jensen">1997: the letter from Jensen</h3>
+<p>Morris&rsquo;s relationship with Jensen started with a letter in 1997. Nvidia was four years old, had 50 or 60 employees, and was facing bankruptcy. TSMC had a few thousand employees and had passed 1 billion dollars in revenue in 1995. Nvidia had approached TSMC&rsquo;s San Jose office and gotten no answer.</p>
+<p>Morris had always told his salespeople never to ignore a future customer, even a tiny one, so the silence irritated him. The letter also raised his curiosity. He was flying to California the next week anyway. He called Jensen with no advance notice. Jensen picked up himself, background noise of an argument in progress, and shouted to his people: quiet, Morris Chang is calling.</p>
+<p>Jensen impressed Morris with articulateness and optimism, and with frankness: Nvidia was in financial difficulty, but the chip he wanted built would not only save the company, it would make Nvidia a major TSMC customer. Major meant at least 50 million dollars a year in TSMC revenue. Morris calls it quite a bold statement from a company that size.</p>
+<p>The prediction came true. The chip was a successful games chip, it solved Nvidia&rsquo;s financial problems, and within two or three years Nvidia was one of TSMC&rsquo;s five biggest customers. The partnership has run from that day to the present at immense scale.</p>
+<p>The decision rule underneath: never be negligent with a future customer, no matter how small they look today. The San Jose office&rsquo;s non-answer nearly cost TSMC the most valuable customer relationship in its history.</p>
+<h3 id="2009-the-40-nanometer-crisis-and-the-comeback">2009: the 40-nanometer crisis and the comeback</h3>
+<p>Morris had handed the CEO job to a successor, Rick Tsai, while keeping the chairmanship. In Taiwan, he notes, the chairman is the top person anyway. During those years, TSMC hit a crisis on the 40-nanometer node: manufacturing problems and, worse, quality problems. Yields were low.</p>
+<p>Definition: yield is the percentage of chips on a wafer that actually work. A yield problem means you are paying to manufacture chips you must throw away.</p>
+<p>Nvidia was perhaps the biggest customer on that node, and it was losing time and money. But the CEO insisted TSMC was not at fault and offered Nvidia nothing. Zero. Morris, watching as chairman, grew impatient. Other problems piled up: pricing was falling faster than manufacturing cost, so gross margin kept dropping, and the CEO had laid off 600 to 700 people.</p>
+<p>The layoffs violated Morris&rsquo;s deepest management principle, learned at Texas Instruments in the early 1970s. TI&rsquo;s first instinct in a downturn was to lay off by performance rating. Morris was the only one who objected. His argument: performance ratings are subjective. Seven hundred bad ratings come from seven hundred supervisors. Nobody will respect the decision. Worse, the arithmetic fails: separation costs about half a year of pay, and training a replacement takes at least half a year. If you need the people back within a year, the layoff was stupid. At TSMC, the worst outcome for a struggling employee was six months of probation, after which most returned to their jobs and some were transferred to better-fitting roles. Under Morris, TSMC essentially never did layoffs.</p>
+<p>The 600 to 700 laid-off employees came to Morris&rsquo;s home to protest. The company called the police, who sent 50 to 60 officers. Morris had food prepared for 25 to 30 people and served pizza and salad to the protesters in the park. They were thankful, and they told his wife they would not march on the presidential palace that day. Morris had warned the previous CEO before the layoffs happened. The episode, he says, precipitated his return.</p>
+<p>At 78, in 2009, Morris took the CEO job back.</p>
+<p>Figure 2. The 2009 return. AI Podcast Curriculum, ep02 (Morris Chang interview, 2025-01-27). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[40nm yield crisis] --> B[Nvidia offered zero]
+    B --> C[700 laid off]
+    C --> D[Protest at Morris home]
+    D --> E[Morris retakes CEO]
+    E --> F[Fix yields, settle Nvidia]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[40nm yield crisis] --&gt; B[Nvidia offered zero]
+    B --&gt; C[700 laid off]
+    C --&gt; D[Protest at Morris home]
+    D --&gt; E[Morris retakes CEO]
+    E --&gt; F[Fix yields, settle Nvidia]
+</code></pre>
+<p>His first days: he called every major customer, including Jensen. Jensen was friendly but serious: the 40-nanometer quality, delivery, and manufacturing problems were real. Morris said: give me a couple of weeks.</p>
+<p>Then the famous dinner. Morris invited Jensen to his home at 6:00 for salad and pizza, something they had done many times before. Jensen emailed back: when do we discuss business? Morris answered: 6:30 we eat, 8:00 we go to your home office and discuss business. Ninety minutes of family dinner with no business talk. Then the negotiation.</p>
+<p>Morris offered more than 100 million dollars. The offer expired in 48 hours. No bargaining, no arguing. If Jensen refused, they would go to arbitration, which Jensen himself had proposed to the previous CEO, who had not even named a number. Morris had spent weeks arriving at the figure and believed it was fair to both sides. Jensen accepted within two days.</p>
+<p>Since then, the two companies have done many billions of dollars of business together. Morris included the story in his autobiography because it shows what a long partnership makes possible: a large sum, a hard deadline, and a relationship strong enough to survive both.</p>
+<h3 id="2010-the-28-nanometer-bet">2010: the 28-nanometer bet</h3>
+<p>After fixing 40nm, Morris committed to the 28-nanometer node with everything TSMC had. Two numbers define the bet.</p>
+<p>First, R and D at 8 percent of revenue, set by fiat, recession or not. The origin: at Texas Instruments, Morris ran worldwide semiconductors and asked to raise R and D from 4.8 to 5.5 percent. Denied, every time. At TSMC he refused to repeat the annual argument. The company was running 6 or 7 percent, negotiated yearly between the R and D director and the CEO. Morris said: 8 percent, no negotiation, no annual fight. He calls it the best news the R and D organization ever got. Freed from budget warfare, the engineers started thinking big. Their phrase for 28nm: the sweet spot, like a tennis racket.</p>
+<p>Second, capital expenditure of almost 6 billion dollars in 2010, roughly triple the 2 to 2.5 billion TSMC had spent yearly for the previous decade. Morris calls it a mutual feeding: secure the R and D budget, the engineers bring bigger ideas, the bigger ideas justify the capex.</p>
+<p>At 28nm, TSMC became the clear leader among foundries. Not Intel, not yet. But among foundries, definitely. Morris dates TSMC&rsquo;s technology leadership to this node.</p>
+<p>Figure 3. The 28nm commitment. AI Podcast Curriculum, ep02 (Morris Chang interview, 2025-01-27). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Input | Before | 2010 decision |
+|&mdash;|&mdash;|&mdash;|
+| R and D | 6-7%, renegotiated yearly | 8% of revenue, fixed |
+| Annual capex | 2 to 2.5 billion dollars | Almost 6 billion dollars |
+| Position | One of several foundries | The foundry leader |</p>
+<h3 id="winning-apple-the-20-nanometer-detour">Winning Apple: the 20-nanometer detour</h3>
+<p>The Apple story starts with a surprise dinner. Terry Gou, the founder of Foxconn and a second cousin of Morris&rsquo;s wife Sophie, called to say he was coming to dinner and bringing an Apple vice president. Morris assumed it would not be an ordinary VP. At 8 p.m., Jeff Williams walked in. He was Apple&rsquo;s chief operating officer.</p>
+<p>Williams barely made small talk. He talked 80 percent of the dinner. His pitch: Apple wanted TSMC to make iPhone wafers. On economics, he said Apple would let TSMC have 40 percent gross margin. Morris said nothing at the time, but his thought was: we are already at 45 percent, and I am pushing for 50.</p>
+<p>The surprise: Apple did not want 28nm. It wanted 20nm, a half step. In Moore&rsquo;s-law progression, 28 was supposed to go to 16. A half step is a detour: TSMC would spend effort on 20 that would help 16 later, but it would delay 16, and at the time TSMC&rsquo;s R and D could not do two nodes at once. The cost of the detour: on the order of 10 billion dollars over the next few years. And TSMC had planned its 28nm capex without Apple in mind. Apple was a pure surprise on top.</p>
+<p>So Morris did the financial planning. Options: cut the dividend, sell new stock, borrow, or take only part of Apple&rsquo;s order. He had planted a relationship with Goldman Sachs early in TSMC&rsquo;s life and had even served on Goldman&rsquo;s board, so high-level advice was a phone call away. Decision: keep the dividend, sell no stock, borrow billions, and take half of what Apple said it needed. His reasoning on the half: customers have no skin in the game when they state demand. They will happily take your billions in capacity and leave you holding it.</p>
+<p>C.C. Wei, the business development director, first carried the &ldquo;half&rdquo; message to Apple&rsquo;s purchasing people. Their answer: you must be crazy. Morris went to Cupertino himself and told Jeff Williams: after prudent financial planning, we will issue corporate bonds and take half. Williams&rsquo;s only suggestion was to eliminate the dividend. Morris refused. About a third of TSMC&rsquo;s shareholders cared seriously about dividends, and cutting would crash the stock. Williams let it lie. The deal was set.</p>
+<p>Then, in February 2011, Williams called: pause discussions for two months. The highest level of Intel had approached Tim Cook about making Apple&rsquo;s chips. Morris was not worried. In the 1990s, hearing Intel&rsquo;s name made competitors tremble. By 2011, Intel was no longer that name. Morris&rsquo;s read of what Apple wanted: technology at parity with Intel (he believed TSMC was at parity or better), and customer trust. He knew Intel&rsquo;s customers in Taiwan, the PC makers. None of them liked or trusted Intel. Intel always acted like the only supplier. And Intel had a structural conflict: it designs chips that compete with its foundry customers&rsquo; designs. TSMC&rsquo;s extreme core discipline is never competing with customers.</p>
+<p>A month later Morris visited. Williams was away and had Tim Cook meet him instead, an unusual upward delegation. Cook took him to the Apple cafeteria, they carried their trays back to Cook&rsquo;s office, and Cook said: do not worry, Intel just does not know how to be a foundry. Morris&rsquo;s interpretation: a foundry must respond to every customer request, even the crazy and irrational ones, courteously. Intel had never learned that.</p>
+<p>Figure 4. Why Intel could not be the foundry. AI Podcast Curriculum, ep02 (Morris Chang interview, 2025-01-27). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Layer | TSMC | Intel |
+|&mdash;|&mdash;|&mdash;|
+| Technology | At parity or better | The feared incumbent, no longer so |
+| Trust | Apple&rsquo;s customers trusted it | Its own customers did not trust it |
+| Structure | Never designs chips, no conflict | Designs chips that compete with customers |</p>
+<p>Pricing was settled separately, after homework on costs and yields. When it closed, Morris invited Williams to a three-star Taipei restaurant. Williams joked: if you had not liked the pricing, we would probably be going to McDonald&rsquo;s.</p>
+<p>The tradeoff was real. TSMC spent the billions on 20nm, which delayed 16nm. Samsung skipped 20, went straight to 16, and won Apple&rsquo;s first 16nm orders. Morris describes the shock plainly: TSMC had invested tens of billions counting on converting 80 to 90 percent of its 20nm equipment to 16. If Apple bought 16 from Samsung, where did that leave TSMC? He emailed Williams immediately. Williams replied: do not worry, I will be in Taiwan next week to explain. He came, and he said: as soon as you are ready with 16, we will buy all our needs from you. Half a year later TSMC had its own 16nm, and most of Apple&rsquo;s 16nm business stayed with TSMC.</p>
+<p>Figure 5. The Apple detour. AI Podcast Curriculum, ep02 (Morris Chang interview, 2025-01-27). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Apple wants 20nm] --> B[TSMC borrows, takes half]
+    B --> C[20nm delays 16nm]
+    C --> D[Samsung wins first 16nm]
+    D --> E[Williams promises all 16]
+    E --> F[TSMC 16nm, Apple stays]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Apple wants 20nm] --&gt; B[TSMC borrows, takes half]
+    B --&gt; C[20nm delays 16nm]
+    C --&gt; D[Samsung wins first 16nm]
+    D --&gt; E[Williams promises all 16]
+    E --&gt; F[TSMC 16nm, Apple stays]
+</code></pre>
+<h3 id="the-learning-curve-from-the-man-who-refined-it">The learning curve, from the man who refined it</h3>
+<p>Morris did not invent the learning curve, but he refined it into a weapon at Texas Instruments. The simple version: as you make more of anything, unit cost falls. It started with refrigerators and cars. Bruce Henderson, the founder of the Boston Consulting Group, brought the theory to TI around 1970 with Bill Bain. TI&rsquo;s Mark Shepherd agreed to work with them. Morris was TI&rsquo;s guy, and Bain worked three days a week from a small office next to Morris&rsquo;s.</p>
+<p>Morris&rsquo;s warning: anyone who takes the simple explanation and thinks that is all there is has learned nothing. The real learning curve is a strategy, and Ben and David spell out how TSMC plays it. The goal is to be the largest-volume player at the end of the game, because this is a fixed-cost business and the winner spreads fixed costs over the most customers. So you price early at where costs will be at the end. You cut prices aggressively, even starting unprofitable on a new node, to win the volume that drives you down the curve fastest. It works backward from a forecast of mature demand.</p>
+<p>That is why the Apple decision was so delicate. The learning curve says take all of Apple&rsquo;s order: maximum volume, fastest trip down the curve. But taking it all exposes the company to existential risk if your forecast of iPhone demand is off by 5 or 10 percent. Miss the forecast and the node generation&rsquo;s profitability collapses, free cash flow collapses, and you cannot fund the next node. Morris&rsquo;s &ldquo;take half and borrow&rdquo; was the compromise between the curve and survival.</p>
+<p>Get the forecasting and execution right, and the story flips from surprising to inevitable. Ben&rsquo;s summary: of course the company that takes all the orders gets the lowest price. Of course the industry ends with a dominant player. A fab costs 20 billion dollars today and will cost 40, 80, 100 billion. Almost nobody else can deploy that. TSMC&rsquo;s capex grows alongside its net income, and on top of that it funds separate R and D for the next node. Add proprietary packaging like CoWoS for AI chips, which makes it even harder for customers to dual-source, and the leader pulls away every year.</p>
+<p>Figure 6. The learning curve as a loop. AI Podcast Curriculum, ep02 (Morris Chang interview, 2025-01-27). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Forecast mature demand] --> B[Price at end-game cost]
+    B --> C[Win the volume]
+    C --> D[Costs fall fastest]
+    D --> B
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Forecast mature demand] --&gt; B[Price at end-game cost]
+    B --&gt; C[Win the volume]
+    C --&gt; D[Costs fall fastest]
+    D --&gt; B
+</code></pre>
+<p>The numbers Ben and David cite: since TSMC&rsquo;s founding in 1987, the world semiconductor market grew from 26 billion to 527 billion dollars. Moore&rsquo;s law is undefeated, not as a physics law but as a demand law: the world wants roughly twice the computing power every two years, and has for 50 to 60 years.</p>
+<h3 id="organization-combine-do-not-split">Organization: combine, do not split</h3>
+<p>Rick Tsai, the CEO between 2005 and 2009, split operations into advanced technology (led by Mark Liu) and mainstream technology (led by C.C. Wei), each with its own small business development group. Morris never thought the split was a good idea. When he returned, he recombined them: about 10,000 people in advanced, 7,000 to 8,000 in mainstream.</p>
+<p>The mainstream group is the old fabs finding customers who do not need the leading edge: automotive, sensors, replacement parts. It is the institutional form of the &ldquo;keep every generation running&rdquo; philosophy.</p>
+<p>He had fought the same battle in 1996, when McKinsey&rsquo;s Don Brooks proposed a functional organization. Asked to name one big functional company, McKinsey answered Boeing. Morris&rsquo;s reply: Boeing has commercial and government divisions, not a 707 division and a 747 division. Splitting by fab would be like splitting Boeing by airplane model. As chairman, his principle had been to let the CEO make his own mistakes and learn from them, unless the company was going down the drain. The split was a mistake he let happen, then fixed.</p>
+<p>On C.C. Wei: Morris once offered him the business development job to round him out as an executive. Wei had 10,000 people reporting to him and balked at a 60-to-70-person department. Morris&rsquo;s analogy: Kissinger had a couple hundred people as National Security Advisor while the Secretary of State had thousands worldwide. Power is not headcount. Wei took the job, and he is now TSMC&rsquo;s chairman and CEO.</p>
+<h3 id="what-morris-never-compromised">What Morris never compromised</h3>
+<p>Two through-lines. First, never compete with your customers. It is the pure-play foundry&rsquo;s founding promise, and it is why Apple trusted TSMC over Intel. Second, never be negligent with a future customer. The San Jose office ignoring Nvidia&rsquo;s 1997 letter is the cautionary tale inside the success story.</p>
+<p>On margins, Morris is philosophical. TSMC earns mid-50s gross margins today (he retired just short of 50, still pushing). Its customers earn 70 to 80. Pricing, he says, comes down to cost plus what the customer will accept. Value is created jointly. The split is negotiated, and it is personal to each CEO.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain the pure-play foundry like I am new.</div><div class="a"><p>Before TSMC, every chip company designed its chips and built its own factories. Morris split the two jobs. TSMC builds factories and manufactures chips designed by anyone: Apple, Nvidia, Qualcomm. It never designs its own chips, so it never competes with its customers. That promise is the whole business model. Every AI chip you have heard of is made this way.</p><div class="followup"><strong>Follow-up:</strong> Why did everyone think it was crazy in 1987? The industry believed manufacturing skill and design skill had to live in one company. Morris bet they could be separated, and that separation would let one factory serve the entire industry&#x27;s volume.</div></div></div>
+<div class="qa"><div class="q">Why did Morris take the CEO job back at 78?</div><div class="a"><p>Three failures under his successor: the 40-nanometer yield crisis with Nvidia offered zero compensation, pricing falling faster than costs so margins shrank, and 600 to 700 employees laid off by performance rating. The layoffs violated his core principle from Texas Instruments: never lay people off by subjective ratings, and never lay off when you will need people back within a year. He returned in 2009 and fixed all three.</p><div class="followup"><strong>Follow-up:</strong> What is the layoff arithmetic? Separation costs about half a year of pay. Training a replacement takes at least half a year. If the business needs those people back within a year, the layoff destroys value twice: once in cash, once in capability.</div></div></div>
+<div class="qa"><div class="q">Walk me through the 100-million-dollar pizza dinner.</div><div class="a"><p>Morris invited Jensen to his home: 6:00 salad and pizza, no business. Jensen asked when they would discuss business. Morris said 8:00, at Jensen&rsquo;s home office. After ninety minutes of family dinner, Morris offered more than 100 million dollars, expiring in 48 hours, no bargaining, or they go to arbitration. Jensen accepted within two days. The relationship, built over a decade, made a hard offer possible without breaking trust.</p><div class="followup"><strong>Follow-up:</strong> Why the 48-hour deadline? Morris had spent weeks finding the fair number. A deadline converts a fair number into a decision. Without it, a dispute with your biggest customer becomes a permanent tax on the relationship.</div></div></div>
+<div class="qa"><div class="q">Why did TSMC spend 10 billion dollars on 20 nanometers, a node nobody planned?</div><div class="a"><p>Apple demanded it as the price of the iPhone business. The natural progression was 28 to 16, and TSMC&rsquo;s R and D could not do two nodes at once, so 20 delayed 16. Morris funded it with debt, kept the dividend, sold no stock, and took only half of Apple&rsquo;s stated demand, because customers state demand with no skin in the game. Samsung skipped 20 and won Apple&rsquo;s first 16nm orders, but Williams promised all of Apple&rsquo;s 16nm once TSMC was ready, and the promise held.</p><div class="followup"><strong>Follow-up:</strong> What is the general rule? When a whale customer demands a detour, take enough to win them and not so much that a wrong forecast kills you. Half the stated demand, funded with debt, dividend intact.</div></div></div>
+<div class="qa"><div class="q">What is the learning curve as a strategy, not a slogan?</div><div class="a"><p>Unit cost falls as cumulative volume rises. The strategy: decide you will be the largest-volume player at the end, then price early at end-game costs, even unprofitably, to win the volume that gets you there fastest. TSMC pairs this with forecasting: you must predict mature demand for the node, because being off by 5 to 10 percent destroys the node&rsquo;s profitability and your ability to fund the next one.</p><div class="followup"><strong>Follow-up:</strong> Apply it. Name a fixed-cost business you know. What would &quot;price at end-game cost today&quot; look like, and what forecast would you be betting the company on?</div></div></div>
+<div class="qa"><div class="q">Why couldn&#x27;t Intel be Apple&#x27;s foundry?</div><div class="a"><p>Tim Cook&rsquo;s answer to Morris: Intel just does not know how to be a foundry. Morris&rsquo;s interpretation has three layers. Technology: TSMC was at parity or better. Trust: Intel&rsquo;s own customers in Taiwan neither liked nor trusted Intel. Structure: Intel designs chips that compete with its foundry customers&rsquo; designs, a conflict TSMC avoids by never designing chips. And craft: a foundry answers every customer request, even the irrational ones, courteously. Intel never learned that.</p><div class="followup"><strong>Follow-up:</strong> Which of the three layers is hardest to copy? The third. Technology can be bought, trust can be rebuilt, but a culture of courteous responsiveness to thousands of demanding customers is a decade of habit.</div></div></div>
+<div class="qa"><div class="q">Why does TSMC keep ancient fabs running?</div><div class="a"><p>Two reasons. Demand for old nodes fades slowly: replacement parts, cars, sensors, cameras. And the fabs are fully depreciated, so their revenue is nearly pure margin. Intel repurposes old fabs for new nodes and loses old-node capability. TSMC keeps every generation alive, which also keeps every generation&rsquo;s customers.</p><div class="followup"><strong>Follow-up:</strong> What is the trap? Maintenance capex is real, and talent wants to work on the leading edge. The mainstream group exists so old fabs get real leadership, not leftovers.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The foundry promise: never design, never compete with customers. Everything else follows.</li>
+<li>The letter rule: never ignore a future customer, even a 50-person company facing bankruptcy. San Jose&rsquo;s silence nearly cost TSMC Nvidia.</li>
+<li>The layoff test: separation costs half a year, training costs half a year. Need them back within a year? Do not lay off.</li>
+<li>The 8 percent rule: fix R and D as a share of revenue so nobody argues about it yearly. Morris picked 8 and ended the war.</li>
+<li>The half order: whale customers state demand with no skin in the game. Take half, borrow the rest.</li>
+<li>Never-confuse pair: IDM (designs and builds its own chips, competes with customers) versus pure-play foundry (builds anyone&rsquo;s chips, competes with no one).</li>
+<li>Trap card: &ldquo;TSMC won because of cheap Taiwanese labor.&rdquo; The episode&rsquo;s answer is technology leadership, the learning curve, and customer trust. Labor cost is not the story.</li>
+<li>The number: 26 billion to 527 billion dollars. The semiconductor market from TSMC&rsquo;s founding to 2024.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: identify one &ldquo;future customer&rdquo; you are currently ignoring because they look too small. A junior colleague, a tiny client, a side project. Give them a real answer within 48 hours. Log what happens over the next month.</li>
+<li>Catch yourself: the next time a downturn tempts you to cut people or spending by a spreadsheet rule, run Morris&rsquo;s test. Is the rating subjective? Will you need the capacity back within a year? If yes to either, find another cut.</li>
+<li>Behavior change per major idea:</li>
+<li>Foundry promise: write down who your &ldquo;customers&rdquo; are and check whether any of your side projects compete with them. Kill the conflict or disclose it.</li>
+<li>The letter: answer one message you have been ignoring because the sender seemed unimportant. Small senders become large.</li>
+<li>48-hour offers: the next time you owe someone a hard answer, name a fair number and a deadline instead of negotiating forever. Watch how fast things move.</li>
+<li>8 percent rule: pick one important budget in your life (learning, health, savings) and fix it as a percentage. No annual renegotiation with yourself.</li>
+<li>Half the whale: when someone promises huge future volume, discount it by half in your planning until they show skin in the game.</li>
+<li>Monthly: ask whether you are doing &ldquo;crappy work&rdquo; that builds capability for a future you can see, or crappy work that is just crappy. Morris&rsquo;s early years were the first kind. Know which kind yours is.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Drills get slightly harder from here. Still guided, but fewer handrails.</p>
+<ol>
+<li>Fermi: a fab costs 20 billion dollars and a leading-edge wafer sells for roughly 15,000 to 20,000 dollars. How many wafers must the fab sell to pay for itself? What does that imply about how many customers a fab needs? (Work it: 20 billion divided by 20,000 is 1 million wafers. One fab needs a million wafers of demand. That is why volume aggregation is existential.)</li>
+<li>Argue both sides: Morris refused to cut the dividend to fund Apple. Argue he was wrong: the iPhone business would have dwarfed the dividend signaling. Then argue he was right. Which argument would you have made in the room?</li>
+<li>Journal: &ldquo;Who is my San Jose office ignoring?&rdquo; Write about one relationship you are neglecting because the other party seems small. What would the 1997 letter look like in your life?</li>
+<li>First principles: the learning curve says price at end-game cost. Pick a product with high fixed costs and low marginal costs that you know well. Sketch what end-game pricing would be and who would die first if someone did it.</li>
+<li>Observe: find a company that competes with its own customers (an IDM in your field). List three ways the conflict shows up. Then list what a pure-play version of that industry would look like.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Evaluate a manufacturing partnership: check the three layers (technology parity, customer trust, structural conflict). One failing layer is a warning. Two is a no.</li>
+<li>Price with the learning curve: estimate mature volume, compute end-game unit cost, and decide whether you can afford to price there early.</li>
+<li>Discount whale demand: halve any customer forecast that comes with no deposit or penalty, and require deposits where you can. Morris coined &ldquo;confiscate the deposit&rdquo; as a negotiating sentence, even though he never used it.</li>
+<li>Settle disputes like Morris: do weeks of homework, name one fair number, attach a short deadline, and keep the relationship strong enough to survive the hardness.</li>
+<li>Design an org around the product&rsquo;s architecture: if two groups serve different generations of the same system, ask whether the split helps customers or just managers.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The Acquired TSMC remastered episode (the full company history this interview builds on): https://www.youtube.com/watch?v=FZItbr4ZJnc, start from the interview, then work backward through the series.</li>
+<li>Asianometry on YouTube (recommended in the episode by Ben): the best free explainer of how fabs actually work, from wafers to EUV: https://www.youtube.com/@Asianometry</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Pure-play foundry splits design from manufacturing</td>
+<td>IDM does both</td>
+<td>Foundry does one, never competes</td>
+<td>fig1</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>2009 crisis forced Morris back at 78</td>
+<td>40nm failure, zero offered, 700 laid off</td>
+<td>Yields fixed, Nvidia settled</td>
+<td>fig2</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>28nm was a full-commit bet</td>
+<td>6-7% R and D, 2B capex</td>
+<td>8% R and D, 6B capex</td>
+<td>fig3</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Intel could not be Apple&rsquo;s foundry</td>
+<td>Intel the feared incumbent</td>
+<td>Trust and structure favored TSMC</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Apple demanded a 20nm detour</td>
+<td>Plan was 28 to 16</td>
+<td>20 built, 16 delayed, Apple stayed</td>
+<td>fig5</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Learning curve is a priced loop</td>
+<td>Cost-plus pricing</td>
+<td>Price at end-game cost, win volume</td>
+<td>fig6</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u07</td>
+<td>Old fabs are profit centers</td>
+<td>Intel repurposes old fabs</td>
+<td>TSMC keeps them, depreciated</td>
+<td>fig1</td>
+<td>table row</td>
+<td>episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 7 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=FZItbr4ZJnc" target="_blank" rel="noopener">TSMC founder Morris Chang</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/acquired/ep01.html"><span class="lbl">← Previous</span>Episode 1: NVIDIA CEO Jensen Huang</a><a href="../../tracks/acquired/ep03.html"><span class="lbl">Next →</span>Episode 3: The Mark Zuckerberg Interview</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
