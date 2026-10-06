@@ -51,7 +51,7 @@ offering: "AI Podcast Curriculum"
 - Medium-term threshold: raise adrenaline deliberately with a calm mind. Panoramic gaze dilates the response. Healthy dissociation observes the arousal.
 - Oxytocin myth: only intense pair bonding raises it (post-orgasm, lactation, post-sex). Serotonin rises with trusted faces.
 - Melatonin 1 to 3 mg is excessive and suppresses adrenals. Adrenal burnout is a myth (Selye's exhaustion phase was wrong).
-- L-theanine 100 to 200 mg (8 studies, GABA). Ashwagandha: cortisol down 14.5 to 27.9 percent (6 studies).
+- L-theanine 100 to 200 mg (8 studies, GABA). Ashwagandha: cortisol reduction of 14.5 to 27.9 (6 studies).
 - Emotion signals match or mismatch between internal state and demands. Two levers: change the state or change the demands.
 
 ## Ep 4 · Huberman: Rewiring Fear Into Excitement
