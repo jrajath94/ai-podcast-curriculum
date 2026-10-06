@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 1: Why You Are Always Overwhelmed — AI Podcast Curriculum</title>
+<meta name="description" content="Leidy Klotz on subtraction neglect: why your first instinct is always to add, the experiments that prove subtraction never occurs to us, and the tools that forc">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="hidden-brain-ep01" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01" class="active">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Hidden Brain</a> / Episode 1: Why You Are Always Overwhelmed</nav>
+      <h1>Episode 1: Why You Are Always Overwhelmed</h1>
+      <p class="meta-line">2026-04-20 · Instructor: Leidy Klotz (engineer, University of Virginia), Stephanie Preston (psychologist, University of Michigan) · Hidden Brain</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="3wiMC4zsq8o"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/3wiMC4zsq8o" title="Why You&#x27;re Always Overwhelmed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=3wiMC4zsq8o" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=3wiMC4zsq8o" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Why your instinct is always to add and never to subtract, and what that costs you.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the third most-viewed episode of Hidden Brain&rsquo;s YouTube channel (20,092 views as of October 2026), and it is the only one in the track about the architecture of choice itself. It names a defect you cannot feel: subtraction neglect. Your mind solves problems by adding even when removing is the better move. No other episode in this track covers how biology, culture, and organizations all push the same way, or hands you tools that force subtraction into your week. This is the episode you need first, because every later chapter about your mind assumes your mind chooses wisely. It does not. It adds.</p>
+<h2 id="the-instinct-you-cannot-feel">The instinct you cannot feel</h2>
+<h3 id="subtraction-neglect">Subtraction neglect</h3>
+<p>Definition: subtraction neglect is the automatic impulse to solve a problem by addition even when the better solution is to take something away.</p>
+<p>Think of the last time you tried to improve a presentation. You read the slides. Your instinct said: add a chart, add a footnote, add a new slide to explain the previous one. You rarely thought: remove a slide. In the episode, host Shankar Vedantam calls this tendency so automatic and so deeply embedded that we do not notice it. We add. We rarely subtract.</p>
+<p>The hinge question of the whole episode: when you try to make something better, does removal even occur to you as an option?</p>
+<h3 id="the-exam-that-made-a-career">The exam that made a career</h3>
+<p>At the University of Virginia, an engineer named Leidy Klotz has spent years studying this tendency. His own discovery started in a mechanics exam room. As an undergraduate, he prepared by cramming: learn each assigned homework problem, stuff as many as possible into his head, and hope the exam matched one. It did not work. He carried a C average. For the first time in his life he faced real danger of failing a course, which would have meant delayed graduation, extra tuition, or a changed major.</p>
+<p>Before the third exam he did something radical. He stripped everything away. He realized that much of introductory mechanics boils down to one equation: force equals mass times acceleration, F = MA. If he understood that one thing deeply, he could work through most of what the exam threw at him.</p>
+<p>He walked in carrying fewer things in his head than any of his classmates. Afterward, Professor Viscomi wrote two numbers on the chalkboard: 98 and 47. The class assumed the 47 belonged to Klotz. He earned the 98.</p>
+<p>Hand-worked arithmetic (illustrative toy, not the episode numbers. The transcript says only &ldquo;dozens&rdquo;): picture a student who crams 40 memorized problems into memory. He can solve exactly those 40 variants. An exam with 20 problems drawn from 200 variants defeats him. A student who masters 1 equation and its applications covers all 200 variants. The subtracted preparation had 1 item instead of 40 and produced the better score.</p>
+<h3 id="the-duplo-bridge">The Duplo bridge</h3>
+<p>Years later, Klotz saw the same principle in a playroom. He built a bridge out of Duplo blocks with his 3-year-old son Ezra. The two support towers stood at different heights, so the bridge would not sit level. Klotz&rsquo;s instinct: add a block to the shorter tower. Before he could act, Ezra removed a block from the taller tower. Same level bridge, with two fewer blocks than the add-a-block solution. Klotz had not been taught to subtract. Ezra had not been taught to add. Klotz asked colleagues, students, and one professor he describes as a genius to solve similar problems. Everyone added. He understood then that this was not a quirk of personality. It happens inside virtually all of us.</p>
+<p>Figure 1. The Duplo bridge, two solutions. AI Podcast Curriculum, ep01 (Leidy Klotz, 2026-04-20). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<pre><code>Tower A: █████     Tower A: █████       Tower A: ████  (-1)
+Tower B: ████      Tower B: █████ (+1)  Tower B: ████
+BEFORE              ADD (Klotz)         SUBTRACT (Ezra)
+uneven, 9 blocks    level, 10 blocks    level, 8 blocks
+</code></pre>
+<p>One claim per plate. The subtract move reaches the same level state with two fewer blocks than the add move. The arrow from BEFORE to SUBTRACT is the rule: remove from the taller tower.</p>
+<h2 id="the-experiments">The experiments</h2>
+<h3 id="the-grid-experiment">The grid experiment</h3>
+<p>Klotz designed a series of experiments, published in Nature in 2021. In one, volunteers saw a digital grid of colored squares and had to make it symmetrical. They could add squares or remove them. Both approaches worked. Most people chose to add. The moment subtraction was pointed out as an option, people took it. The problem was not that subtraction was worse. It simply did not occur to people as a possibility.</p>
+<h3 id="only-17-percent-subtract-words">Only 17 percent subtract words</h3>
+<p>Klotz asked people to improve a short essay. Only 17 percent subtracted words. The other 83 percent made it longer. Strunk and White&rsquo;s The Elements of Style, the most assigned writing textbook in American classrooms for decades, carries a famous directive: omit needless words. Generations of students read that advice. Handed an essay and told to improve it, they still reached for more words, not fewer.</p>
+<p>Figure 2. The essay experiment. AI Podcast Curriculum, ep01 (Leidy Klotz, 2026-04-20). Shell 2. Count or score the toy. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Share of volunteers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Added words</td>
+<td>83 percent</td>
+</tr>
+<tr>
+<td>Subtracted words</td>
+<td>17 percent</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. Four out of five people lengthened the essay even after generations of training in &ldquo;omit needless words.&rdquo;</p>
+<h3 id="recipes-and-music">Recipes and music</h3>
+<p>The pattern held everywhere Klotz looked. Volunteers asked to improve a five-ingredient dish: only 2 out of 90 removed an ingredient. That is about 2 percent. Given loops of musical notes and asked to improve them, people were three times more likely to add notes than to take them away.</p>
+<p>Hand-worked arithmetic: in the recipe test, the add-to-remove ratio was 88 to 2, which is 44 to 1. The subtract option was not hidden. Volunteers could remove anything. They added at forty-four times the rate of removing.</p>
+<h3 id="the-impossible-itinerary">The impossible itinerary</h3>
+<p>Klotz built one more experiment from a long-running disagreement with his wife, who likes to stuff family travel schedules with activity. He created a fictional itinerary for a day in Washington, D.C.: the White House, the National Cathedral, the Old Post Office, the Lincoln Memorial, the Vietnam Veterans Memorial, a museum, shopping, lunch at a five-star bistro. Fourteen hours of scheduled activity. Just the travel time between stops, assuming optimal D.C. traffic, would exceed two hours. Volunteers could rearrange, add, or remove activities. Even with this jam-packed itinerary, only one in four participants removed activities. The rest rearranged, and most added. They added to a schedule that was already physically impossible to complete.</p>
+<h2 id="why-biology-pushes-you-to-add">Why biology pushes you to add</h2>
+<h3 id="acquisitiveness">Acquisitiveness</h3>
+<p>Part of the answer might be biological. At the University of Michigan, psychologist Stephanie Preston studies what she calls acquisitiveness: our drive to get and keep things. In one study, volunteers saw over 100 objects on a screen: bananas, coffee mugs, extension cords, but also empty 2-liter bottles, used sticky notes, outdated newspapers. They were asked whether they wanted to acquire each item virtually. People wanted to accumulate dozens of objects, things they had no use for. Then came the real test: whittle everything down to fit into a digital grocery bag on the screen. Many participants failed to get it down to a single bag.</p>
+<h3 id="the-reward-pathway">The reward pathway</h3>
+<p>Neuroscience adds a mechanism. When we acquire things, even used sticky notes, it activates the brain&rsquo;s reward pathway. This is the same system stimulated by cocaine. Adding feels like a win, like progress, like abundance. Subtraction feels like a loss. And humans, as any behavioral economist confirms, are deeply averse to losses. The loop is simple: acquire, reward signal fires, the act gets reinforced. Removal produces no such signal. It produces the negative feeling of loss. Biology votes for addition before you have time to think.</p>
+<p>Figure 3. The biology loop. AI Podcast Curriculum, ep01 (Leidy Klotz, 2026-04-20). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Acquire object] --> B[Reward pathway fires]
+    B --> C[Feels like a win]
+    C --> A
+    D[Remove object] --> E[Feels like a loss]
+    E --> F[Avoid removal]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Acquire object] --&gt; B[Reward pathway fires]
+    B --&gt; C[Feels like a win]
+    C --&gt; A
+    D[Remove object] --&gt; E[Feels like a loss]
+    E --&gt; F[Avoid removal]
+</code></pre>
+<p>One claim per plate. The arrow from A to B is the rule: acquisition triggers the reward system, so the loop repeats by itself.</p>
+<h2 id="why-culture-pushes-you-to-add">Why culture pushes you to add</h2>
+<h3 id="what-we-celebrate">What we celebrate</h3>
+<p>Culture adds more pressure. Consider what we celebrate. We build plaques for people who construct skyscrapers. We name buildings after donors. We hold ribbon cuttings for new hospitals and new highways. In the episode, Klotz notes it is far easier to get a donation for a building with the donor&rsquo;s family name on it than for removing something or for something with no physical reminder of generosity. Politicians want to tout a new amenity, something tangible, something they can point to. You cannot cut a ribbon on a decrepit building that is gone.</p>
+<h3 id="the-grammar-of-power">The grammar of power</h3>
+<p>The pattern stretches back to the earliest days of human civilization. The pyramids of Egypt and the ziggurats of Mesopotamia are defined by scale that exceeded any practical function. Leaders who commissioned them gained status. Addition, in the deep grammar of civilization, was the language of power. Two and a half thousand years of monuments taught every generation the same lesson: add to matter.</p>
+<h3 id="why-subtraction-is-harder">Why subtraction is harder</h3>
+<p>Klotz gives three reasons subtraction loses. First, it is more mental work: more steps of thought to figure out what can go. Second, it is more steps of action. Third, there is less to show for it. After all that extra work, you have less evidence, because the thing you did has by definition disappeared. When you add, everyone can see it. When you subtract, the evidence vanishes. That makes subtraction a bad career move inside any organization that rewards visible output.</p>
+<h3 id="the-750-ideas">The 750 ideas</h3>
+<p>He saw this at his own university. The University of Virginia asked for suggestions on how to improve. Out of 750 ideas, fewer than 10 percent suggested taking something away. That is fewer than 75 subtractive ideas against more than 675 additive ones. People wanted more study abroad grants, more mental health services, more housing. Someone requested a new ice arena.</p>
+<p>The social logic is clean. Walk into an organization and propose cutting things, and you challenge someone&rsquo;s pet project, someone&rsquo;s baby. You make enemies. Propose adding something, and there is almost no social risk, and you get to say &ldquo;this will make things better.&rdquo; Removing something also requires you to deeply understand how a system works, to figure out what is redundant or unnecessary. The result, in organizations everywhere, is accumulation: a pileup of programs, initiatives, even meetings that nobody questions.</p>
+<p>Figure 6. The subtraction experiments, side by side. AI Podcast Curriculum, ep01 (Leidy Klotz, 2026-04-20). Shell 2. Count or score the toy. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>Task</th>
+<th>Subtract rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Essay</td>
+<td>Improve the text</td>
+<td>17% subtracted</td>
+</tr>
+<tr>
+<td>Recipe</td>
+<td>Improve the dish</td>
+<td>2 of 90 removed (about 2%)</td>
+</tr>
+<tr>
+<td>Music</td>
+<td>Improve the loop</td>
+<td>Added 3 times more often than removed</td>
+</tr>
+<tr>
+<td>D.C. itinerary</td>
+<td>Fix the day</td>
+<td>1 in 4 removed (25%)</td>
+</tr>
+<tr>
+<td>UVA ideas</td>
+<td>Improve the university</td>
+<td>Fewer than 10% of 750 subtractive</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. Five different tasks, one pattern: the subtract rate is always the small number.</p>
+<h2 id="the-external-executioner">The external executioner</h2>
+<h3 id="the-embarcadero-freeway">The Embarcadero Freeway</h3>
+<p>Subtraction sometimes requires an external push. Call it an external executioner. The Embarcadero Freeway in San Francisco was a massive double-decker concrete structure stretching more than a mile along the eastern waterfront, blocking access to the bay. It was built after World War II. In the mid-1980s, planners proposed tearing it down. Voters rejected it. For every person who wanted the freeway removed, two wanted to keep it. A Pulitzer Prize-winning San Francisco Chronicle columnist named Herb Caen wrote that tearing down the freeway was, quote, &ldquo;an even worse idea than building it.&rdquo;</p>
+<h3 id="the-earthquake">The earthquake</h3>
+<p>Then, on October 17, 1989, the Loma Prieta earthquake struck. It killed more than 60 people and injured thousands. The Embarcadero did not collapse, but it was rendered unusable for a while. People got a view of life without it. They found other ways to get around the city, and it did not ruin life in San Francisco. The earthquake provided the push. The freeway came down. The waterfront came back. Housing increased, jobs increased, traffic rerouted without catastrophe. By 2000, it was hard to find anyone who thought ripping down the freeway was a bad idea.</p>
+<p>Figure 4. The Embarcadero, before and after subtraction. AI Podcast Curriculum, ep01 (Leidy Klotz, 2026-04-20). Shell 3. Apply the one rule. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Waterfront</th>
+<th>Housing and jobs</th>
+<th>Traffic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Freeway standing (before)</td>
+<td>Blocked by concrete</td>
+<td>Flat</td>
+<td>Feared to be essential</td>
+</tr>
+<tr>
+<td>Freeway removed (after)</td>
+<td>Returned</td>
+<td>Increased</td>
+<td>Rerouted without catastrophe</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. The rule: removal proved the freeway was not necessary. It took a disaster to make the possibility visible.</p>
+<h2 id="tools-that-force-subtraction">Tools that force subtraction</h2>
+<h3 id="the-stop-doing-list">The stop doing list</h3>
+<p>Science suggests we do not have to wait for a crisis. We can build structures that force subtraction into decision-making. One of Klotz&rsquo;s most practical tools is the stop doing list. Everyone keeps a to-do list. A stop doing list works on the same logic, except instead of adding tasks, you catalog the things you will quit. His decision rule: if you will add new things to your day and you are already at capacity, you must also name what you will take away.</p>
+<h3 id="stop-editing">Stop editing</h3>
+<p>Klotz reads a great deal of student writing. His temptation is to mark every change he would want to make on a rough draft. His tool: a limit. He gives each student his 10 most important comments, no more. This saves him time, and it rewards students who submit polished work: the polished piece gets 10 ways to be better, and the rough piece gets the same 10, not all of Klotz&rsquo;s time to lift it to the same level as the polished one.</p>
+<h3 id="one-in-one-out-laws">One-in-one-out laws</h3>
+<p>The same principle scales to law. By some measures, the number of laws on the books grows faster than the economy. Some places now require legislators, when proposing a new law, to identify an existing law to remove. By making it a rule, you make subtraction socially acceptable. The rule removes the career risk that normally kills subtraction.</p>
+<h2 id="subtraction-that-saves-lives-and-builds-things">Subtraction that saves lives and builds things</h2>
+<h3 id="the-five-step-checklist">The five-step checklist</h3>
+<p>In medicine, subtractions save lives. At Johns Hopkins University, researcher Peter Pronovost studied catheter-related infections. Catheters, thin plastic tubes used to draw blood or deliver medication, are ubiquitous in hospitals and one of the most common sources of infection. These infections caused roughly 30,000 deaths in the United States every year, about as many as car crashes. The insertion process was complicated, dozens of steps, each requiring judgment.</p>
+<p>Pronovost&rsquo;s insight was to simplify. He proposed a simple recipe: wash hands with soap, clean the patient&rsquo;s skin with antiseptic, put sterile drapes over the entire patient, wear a sterile mask, hat, gown, and gloves, and put a sterile dressing over the catheter site. Five steps. He had made what was essential stand out. And people stopped dying.</p>
+<p>Figure 5. Pronovost&rsquo;s subtraction. AI Podcast Curriculum, ep01 (Leidy Klotz, 2026-04-20). Shell 3. Apply the one rule. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Steps</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before</td>
+<td>Dozens, each requiring judgment</td>
+<td>~30,000 US deaths per year</td>
+</tr>
+<tr>
+<td>After</td>
+<td>5 fixed steps</td>
+<td>Deaths fell</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. The rule: remove the steps that require judgment, keep only the essential ones in fixed order. Exact death counts after the checklist are not given in the episode.</p>
+<h3 id="the-hollow-block">The hollow block</h3>
+<p>In 1927, Anna Keichline had an insight about building materials that changed construction. She was the first female licensed architect in Pennsylvania, a serial inventor. Before her, building blocks were solid, dense, heavy. She asked: do they need to be? She created the hollow block. Removing half the material made it less expensive, easier to build with, and cheaper to transport. The air voids also provided more insulation. Her key brick was cheaper, lighter, insulated better, and was less prone to fire. The hollow concrete masonry unit, its direct descendant, is one of the most commonly used building materials on the planet.</p>
+<h3 id="the-strider-bike">The Strider bike</h3>
+<p>For nearly a century, children&rsquo;s bicycles were loaded with additions: training wheels, fake tires, contraptions attaching a child&rsquo;s bike to a parent&rsquo;s bike like a caboose. Then someone asked: what if we subtract the pedals and the drivetrain entirely? The Strider bike works because toddlers stride with their legs instead of pedaling. Klotz&rsquo;s son aged out of his, and when he moved to a big-kid bike, the family never needed training wheels. He already knew how to balance. By removing what everyone assumed was essential, designers made the bike ridable by children as young as a year and a half. They found a whole new market and eliminated the need for training wheels.</p>
+<h2 id="making-the-invisible-visible">Making the invisible visible</h2>
+<h3 id="nike-air">Nike Air</h3>
+<p>Even when we subtract, there is a final problem: noticeability. When you add something, everyone can see it. When you subtract something, the evidence, by definition, disappears. In the 1970s, aerospace engineer Marion Rudy had an idea: use air to provide cushioning in running shoes. Less material inside the shoe, more performance on the road. Shoe companies kept turning him down. They could not see what he offered. He finally reached Nike. Phil Knight took him out for a run, felt the difference, and agreed. But still, nobody could see it. So Nike made the absence visible: the Air Max 1 displayed the air through a small window cut into the sole. They cut a window so you could see what was no longer there. They did not just sell air cushioning. They made the subtraction visible.</p>
+<h3 id="marie-kondo">Marie Kondo</h3>
+<p>Marie Kondo built an empire on a version of the same refrain. The default tidying advice was: identify what you no longer want, sort the clutter, discard what does not fit. Kondo flipped the question: forget what you want to get rid of. Focus only on what you want to keep. Her core message names spark joy: keep what sparks joy and get rid of everything else. The outcome is identical. What changes is where your attention goes. And that, psychologists say, changes everything.</p>
+<h3 id="springsteens-samurai-record">Springsteen&rsquo;s samurai record</h3>
+<p>When Bruce Springsteen recorded Darkness on the Edge of Town in 1978, he wrote more than 50 songs. Only 10 made the record. The removed songs were not bad. Some became massive hits the moment they left his hands. Patti Smith&rsquo;s Because the Night reached number 13. The Pointer Sisters&rsquo; Fire hit number two. Springsteen gave away top-20 singles before he placed one there himself. He called the album his samurai record: stripped down for fighting.</p>
+<p>Klotz&rsquo;s favorite song on the record, Racing in the Street, was the lullaby he sang to Ezra. Its opening line: &ldquo;I got a &lsquo;69 Chevy with a 396.&rdquo; Compare that with the opening line of Greetings from Asbury Park, New Jersey, Springsteen&rsquo;s debut: &ldquo;Madman drummers, bummers, and Indians in the summer with a teenage diplomat.&rdquo; A cascade of words tumbling forward like a river breaking its banks. Same songwriter, a few years apart. What made the later album better was a radical act of subtraction. The stripping away concentrated the music.</p>
+<h3 id="the-old-quotes">The old quotes</h3>
+<p>Picasso once defined art as the elimination of the unnecessary. Antoine de Saint-Exupéry put it this way: perfection is achieved not when there is nothing more to add, but when there is nothing left to take away. A quote attributed to Lao Tzu goes even further: to attain knowledge, add things every day. To attain wisdom, subtract things every day. Two and a half thousand years ago, Lao Tzu said it. Picasso said it. Saint-Exupéry said it. Klotz&rsquo;s son Ezra lived it. He had not been taught yet that when something is broken, you are supposed to add.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic: <strong>SAIL</strong>: the four forces that push you to add. <strong>S</strong>ubtract never occurs to you. <strong>A</strong>ddition fires the reward pathway. <strong>I</strong>nvisible evidence (subtraction shows nothing). <strong>L</strong>ess social risk in adding.</p>
+<p>Never-confuse pairs:
+- Subtraction neglect is not laziness. Laziness avoids effort. Neglect is a failure of imagination: the option never occurs to you, even when you would take it if shown.
+- A stop doing list is not a to-do list with negative tasks. A to-do list schedules work. A stop doing list cancels work, and it only works if each addition is paired with a removal.
+- Acquisitiveness is not greed. Greed wants more of what is valuable. Acquisitiveness wants more of everything, including used sticky notes.</p>
+<p>Trap cards:
+- Trap: &ldquo;This solution needs more features.&rdquo; Reality: check the 2-of-90 recipe result. Your first instinct has a 44-to-1 bias toward adding. Ask the subtraction question out loud before you build.
+- Trap: &ldquo;Cutting this has no upside for my career.&rdquo; Reality: that is the noticeability problem, not a value problem. Name the removed thing in the release note, like Nike&rsquo;s window.
+- Trap: &ldquo;They will be offended if I remove their piece.&rdquo; Reality: that is the pet-project tax. Use a rule (one-in-one-out) so no person has to be the executioner.
+- Trap: &ldquo;We need a full understanding before we can subtract.&rdquo; Reality: Klotz&rsquo;s exam story (illustrative numbers: dozens of memorized problems down to 1 equation) shows subtraction without full understanding. He built the understanding around the one thing.</p>
+<h2 id="qa">Q&amp;A</h2>
+<p><strong>1. Explain subtraction neglect to me like I am new.</strong>
+Your brain has a default move: when something needs improvement, add. Add a slide, a feature, a meeting, an ingredient. Remove almost never crosses your mind. Leidy Klotz tested this in Nature in 2021: people given a grid to make symmetrical could add or remove squares, and most added. When subtraction was pointed out, they happily used it. The defect is not that subtraction is worse. It is that it never occurs to you. Follow-up: where did you see this today? Name one thing you improved this week by adding, and test whether removal works.</p>
+<p><strong>2. Walk me through the mechanics: why does adding feel good and subtracting feel bad?</strong>
+Two mechanisms stack. First, biology. Acquiring things activates the brain&rsquo;s reward pathway, the same system stimulated by cocaine. Adding registers as a win, as progress, as abundance. Subtraction registers as a loss, and humans are deeply loss-averse. Second, evidence. Adding leaves something visible: a new slide, a new building, a new law. Subtracting leaves nothing, because the removed thing is gone by definition. So the brain gets a chemical reward for adding and a chemical punishment for subtracting, while the social world hands out credit only for the visible part. Follow-up: how would you design a workplace where subtraction gets rewarded? Answer: make it visible (Nike&rsquo;s window), make it a rule (one-in-one-out), and put removals on the stop doing list where everyone sees them.</p>
+<p><strong>3. Why did Klotz&rsquo;s subtracted exam preparation beat cramming, in mechanism terms?</strong>
+Cramming stores surface instances: dozens of memorized problems with no shared structure (illustrative toy uses 40). Subtraction kept one generative rule, F = MA, understood deeply. Each memorized problem covers itself. One equation covers every problem that derives from it. The subtraction traded breadth of instances for depth of the generator. Follow-up: when does this fail? When the exam tests disconnected facts rather than derivable applications. Then the generator covers nothing, and subtraction was the wrong move. Subtraction is a tool, not a law.</p>
+<p><strong>4. What was the Embarcadero Freeway story, and what is an &ldquo;external executioner&rdquo;?</strong>
+The Embarcadero was a double-decker concrete freeway, over a mile long, blocking San Francisco&rsquo;s waterfront. In the mid-1980s planners proposed tearing it down. Voters rejected it two to one. A famous columnist called removal an even worse idea than building it. Then the 1989 Loma Prieta earthquake made the freeway unusable for a while. People discovered they could get around fine without it. The freeway came down, the waterfront returned, housing and jobs increased, traffic rerouted without catastrophe. By 2000, almost nobody called removal a mistake. An external executioner is a force outside the decision that removes the thing for you, because the organization could never choose it. The disaster proved what argument could not: the removed thing was not necessary.</p>
+<p><strong>5. How did Pronovost&rsquo;s checklist save lives, step by step?</strong>
+Start: catheter insertion had dozens of steps, each requiring judgment. Each judgment call is a chance to skip a sterilization step. The infections caused roughly 30,000 US deaths a year. Pronovost subtracted the judgment: five fixed steps in fixed order (wash hands, clean skin with antiseptic, sterile drapes over the patient, mask hat gown and gloves, sterile dressing over the site). Five items fit in working memory. Dozens do not. By removing steps that required discretion, he removed the failure points where infections entered. Follow-up: why not add more training instead? Training adds capability to individuals. The checklist subtracts the need for capability. It works on a tired resident at 3 a.m., when training fades.</p>
+<p><strong>6. Applied: your calendar is full and you want to add a gym habit. Use the episode&rsquo;s tools.</strong>
+Do not add the gym to a full calendar. That is the impossible-itinerary mistake: adding to a schedule that is physically impossible. First, write a stop doing list. Name what you quit: one meeting, one show, one scroll session. Apply Klotz&rsquo;s rule: adding at capacity requires naming a removal. Second, use stop editing: cap the gym plan at 10 words (three days, 40 minutes, walk there). Third, make the subtraction visible: tell one person what you cut, so the removal has social evidence. Follow-up: what if you cannot find anything to cut? Then you are at true capacity, and adding the gym means failing at something else. The honest move is to admit that, not to add anyway.</p>
+<p><strong>7. Applied: your team&rsquo;s codebase keeps growing and reviews take longer. What is the subtraction play?</strong>
+Treat the codebase like the UVA suggestion box: 750 ideas, fewer than 10 percent subtractive, so the pile grows by default. First, run the subtraction question out loud in the next review: &ldquo;What can we remove?&rdquo; Name it explicitly, because it will not occur to anyone otherwise. Second, make it a rule: for every new dependency added, one old dependency is removed (one-in-one-out). Rules remove the pet-project tax: nobody is personally executing someone&rsquo;s favorite library. Third, reward visible removals: put &ldquo;deleted 4,000 lines&rdquo; in the release note, like Nike&rsquo;s window. Follow-up: how do you know what is safe to remove? Removing requires deep system understanding. Start with the smallest safe removal (an unused flag, a dead endpoint), measure, and let the wins fund bolder cuts.</p>
+<p><strong>8. What is the difference between the Duplo solution and the exam solution?</strong>
+The Duplo bridge subtracted material to reach the same state: same level, fewer blocks. The exam subtracted study material to reach a better state: less memorized, higher score. One is efficiency: same output, less input. The other is effectiveness: less input, better output. Both share the mechanism: the default move was addition (more blocks, more facts), and the winning move was never considered until Ezra, a three-year-old, and a failing grade forced it.</p>
+<h2 id="chapter-plate">Chapter plate</h2>
+<table>
+<thead>
+<tr>
+<th>Without the rule</th>
+<th>The stored object</th>
+<th>With the rule</th>
+<th>Tradeoff in one line</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add by default: 83 percent lengthen the essay, 88 of 90 add to the recipe, only 1 in 4 trim the impossible schedule</td>
+<td>Subtraction neglect: the option to remove never occurs to you</td>
+<td>Ask the subtraction question out loud, keep a stop doing list, use one-in-one-out rules, make removals visible</td>
+<td>Subtraction costs more mental work and shows less evidence, so you must make it a rule, not a hope</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<p>Concrete practices, this week.</p>
+<ol>
+<li>The subtraction question. For the next three things you try to improve (an email, a slide deck, a plan), ask out loud: &ldquo;What can I remove?&rdquo; Write the answer before you add anything. Observable change: at least one of the three gets shorter instead of longer.</li>
+<li>Start a stop doing list. Write three things you will quit this week: one meeting, one subscription, one habit. Pair each new commitment with a named removal. Observable change: your calendar or to-do list has fewer items Friday than Monday.</li>
+<li>The 10-comment cap. The next time you review someone&rsquo;s work, give at most 10 comments, the 10 most important. Observable change: reviews finish faster, and the author learns what actually matters.</li>
+<li>Catch the add reflex. Once a day, notice when your first fix idea is to add something. Say the bias out loud: &ldquo;That is subtraction neglect.&rdquo; Observable change: you start hearing how often the reflex fires.</li>
+<li>Delete one dependency. In your code or your workflow, remove one thing you suspect is dead. Test. If nothing breaks, keep it out and tell the team what you removed. Observable change: you produce visible evidence that removal works.</li>
+<li>Audit your add-ons. List every app, subscription, and recurring meeting. Star the ones you would not add today. Cancel one this week. Observable change: less money out, fewer pings, same output.</li>
+<li>Write the impossible schedule test. Take your Wednesday. List every commitment with travel and prep time. If the total exceeds the hours, you run Klotz&rsquo;s D.C. itinerary. Remove one thing before Wednesday arrives. Observable change: one realistic day instead of one failed day.</li>
+</ol>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain before touching AI. Guided, with answer sketches.</p>
+<p><strong>Drill 1: the recipe ratio.</strong> In the recipe experiment, 2 of 90 volunteers removed an ingredient. Compute the add-to-remove ratio. Now imagine a product team of 90 engineers, each proposing one change. If the bias holds, how many proposals are additions? Answer sketch: 88 additions against 2 removals is 44 to 1. Expect roughly 88 additive proposals and 2 subtractive ones. The question for the team: who asks the subtraction question, or does nobody?</p>
+<p><strong>Drill 2: the exam trade.</strong> In the illustrative toy, the student traded 40 memorized problems for 1 equation (the transcript says only &ldquo;dozens&rdquo;). List three areas of your own work where you hold dozens of instances instead of 1 generator. For each, name the generator. Answer sketch: examples: memorizing meeting notes instead of one decision log, memorizing API calls instead of one mental model of the system, memorizing interview answers instead of one framework. The generator is whatever lets you derive the instances.</p>
+<p><strong>Drill 3: the evidence problem.</strong> Nike could not sell invisible air until it cut a window in the sole. Name something you removed or simplified at work that nobody noticed. Design the &ldquo;window&rdquo;: a one-line note, a metric, a demo that makes the removal visible. Answer sketch: a good window names the removed thing and the gain: &ldquo;Removed 3 approval steps. Cycle time fell from 9 days to 4.&rdquo;</p>
+<p><strong>Drill 4: the pet-project tax.</strong> Klotz says proposing cuts makes enemies because you challenge someone&rsquo;s baby. Write down one thing in your organization that survives because nobody wants to be the executioner. Now design a rule that removes it without a person taking the blame. Answer sketch: sunset rules (&ldquo;any tool unused for 6 months is removed&rdquo;), one-in-one-out rules, automatic expiry dates on initiatives.</p>
+<p><strong>Drill 5: the 750-idea audit.</strong> Your team collects improvement ideas. Before reading them, predict the add-to-subtract ratio. Then count. Write the actual ratio and compare it to Klotz&rsquo;s UVA result (fewer than 10 percent subtractive). Answer sketch: most teams land near the same ratio. The follow-up: add a &ldquo;subtraction ideas&rdquo; category to the form, because the option has to be shown before it occurs to people.</p>
+<p><strong>Drill 6: the Strider test.</strong> Name one feature in your product that everyone assumes is essential, the way pedals were essential to a child&rsquo;s bike. Describe what the product looks like with it removed. Who would the stripped version serve that the current version does not? Answer sketch: this is the hardest drill in the set. The pedals answer was obvious only in hindsight. The discipline is to run the thought experiment on the most sacred feature, not the safest one.</p>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Ask the subtraction question out loud before adding anything: it will not occur to the room otherwise.</li>
+<li>Keep a stop doing list and pair every addition at capacity with a named removal.</li>
+<li>Cap feedback at the 10 most important comments to save time and reward the polished.</li>
+<li>Write one-in-one-out rules so subtraction survives without a personal executioner.</li>
+<li>Make removals visible: name the removed thing and the gain, like Nike&rsquo;s window.</li>
+<li>Diagnose accumulation in any organization with the 750-idea test: count subtractive proposals.</li>
+<li>Trade instances for generators: replace memorized cases with the one rule that derives them.</li>
+<li>Spot the reward loop: when adding feels like progress, check whether it is progress or just the reward pathway firing.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The episode itself: https://www.youtube.com/watch?v=3wiMC4zsq8o</li>
+<li>Klotz&rsquo;s 2021 Nature paper, &ldquo;People systematically overlook subtractive changes&rdquo;: https://www.nature.com/articles/s41586-021-03380-y (HTTP 303 redirect to the live article, verified 2026-10-06)</li>
+<li>Hidden Brain&rsquo;s site: https://hiddenbrain.org (HTTP 301 redirect to the live site, verified 2026-10-06)</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit id</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure id</th>
+<th>Medium</th>
+<th>Source</th>
+<th>Four tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Two solutions to the uneven bridge</td>
+<td>Towers uneven, 9 blocks</td>
+<td>Level at 8 blocks via removal (10 by adding)</td>
+<td>fig1</td>
+<td>ASCII</td>
+<td>episode claims</td>
+<td>T1: two tower states / T2: shape change forces before/after trace / T3: block count changeable / T4: the removal arrow reused in drills</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Essay improvement choices</td>
+<td>Essay draft</td>
+<td>83% longer, 17% shorter</td>
+<td>fig2</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 2-row count / T2: comparison of values forces table / T3: none, static / T4: none</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Acquisition loop reinforces itself</td>
+<td>Acquire object</td>
+<td>Reward fires, repeat</td>
+<td>fig3</td>
+<td>mermaid</td>
+<td>episode claims</td>
+<td>T1: 6-node loop / T2: flow forces mermaid / T3: none, static / T4: the loop arrow reused in Q&amp;A</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Embarcadero removal</td>
+<td>Freeway blocks waterfront</td>
+<td>Waterfront returns, traffic fine</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 2-row before/after / T2: state change forces table / T3: none, static / T4: none</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Pronovost checklist</td>
+<td>Dozens of judgment steps</td>
+<td>5 fixed steps</td>
+<td>fig5</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 2-row before/after / T2: state change forces table / T3: none, static / T4: the fixed-step chip reused in drills</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Subtract rate is small in every experiment</td>
+<td>Five separate tasks</td>
+<td>17%, ~2%, 3-to-1, 25%, &lt;10%</td>
+<td>fig6</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: five experiments as rows / T2: comparison of subtract rates forces a table / T3: none, static / T4: the family pattern reused in trap cards and drills</td>
+</tr>
+<tr>
+<td>u07</td>
+<td>Grid symmetry experiment</td>
+<td>Volunteers saw a grid</td>
+<td>Most made it symmetrical by adding</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: the episode gives no counts. A most/few table would repeat the prose without adding information</td>
+</tr>
+<tr>
+<td>u08</td>
+<td>Klotz exam score 98 vs class 47</td>
+<td>C average by cramming</td>
+<td>98 after subtracting to F=MA</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: two-number score fully carried by the prose. A table adds no structure</td>
+</tr>
+<tr>
+<td>u09</td>
+<td>Springsteen cut 50+ songs to 10</td>
+<td>50+ songs written</td>
+<td>10 on the record</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: single before/after count carried by one prose sentence. No reusable symbol</td>
+</tr>
+<tr>
+<td>u10</td>
+<td>Hollow block removed half the material</td>
+<td>Solid heavy blocks</td>
+<td>Half the material, cheaper and lighter</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: proportion stated in prose. No further before/after structure</td>
+</tr>
+<tr>
+<td>u11</td>
+<td>Acquisitiveness: 100+ objects into one bag</td>
+<td>100+ objects shown</td>
+<td>Virtual bag, many failed</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: &ldquo;dozens&rdquo; and &ldquo;many&rdquo; are not exact counts. A table would fake precision</td>
+</tr>
+</tbody>
+</table>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=3wiMC4zsq8o" target="_blank" rel="noopener">Why You&#x27;re Always Overwhelmed</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/hidden-brain/index.html"><span class="lbl">← Previous</span>Hidden Brain: Track Index</a><a href="../../tracks/hidden-brain/ep02.html"><span class="lbl">Next →</span>Episode 2: Why Your Brain Works NOTHING Like You Think</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
