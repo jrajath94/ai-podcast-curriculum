@@ -67,12 +67,13 @@ Inside one H100 (small to big)
           -> 700W TDP: a microwave in your palm
 ```
 
-Figure 1. Inside one H100 (small to big). AI Podcast Curriculum, ep11 synthesis; built from [S] specs verified live against NVIDIA's H100 product page.
+Figure 1. Inside one H100 (small to big). AI Podcast Curriculum, ep11 synthesis. Shell 1. Show the toy. Source: original toy, from NVIDIA H100 product page (verified 2026-10-06).
 
 ## Part B continued: inside the DGX H100 rack [S]
 
 Eight H100s do not make a computer. The DGX H100 system does. Specs **[S]** from NVIDIA's DGX H100 user guide. Three terms in the table need definitions first. NDR is an InfiniBand speed grade, 400 Gb/s per port. PSU means power supply unit. 8U means eight rack units tall. One rack unit (U) is 1.75 inches, so the box is 14 inches high.
 
+Figure 2. DGX H100 rack anatomy. AI Podcast Curriculum, ep11 synthesis. Shell 1. Show the toy. Source: original table, built from the official spec (NVIDIA DGX H100 user guide, verified 2026-10-06).
 | Component | Spec |
 |---|---|
 | GPUs | 8x H100 SXM, 640 GB total HBM3 |
@@ -115,7 +116,7 @@ Add ~30% for networking, cooling, overhead -> ~1.7 MW facility
 Cooling:     must hold every rack between 5 and 30 C
 ```
 
-Figure 2. A 1,000-GPU training cluster (Fermi estimate). AI Podcast Curriculum, ep11 synthesis; built from [S] specs verified live against NVIDIA's DGX H100 user guide.
+Figure 3. A 1,000-GPU training cluster (Fermi estimate). AI Podcast Curriculum, ep11 synthesis. Shell 2. Count the toy. Source: original toy; arithmetic shown, from NVIDIA DGX H100 user guide (verified 2026-10-06).
 
 1.7 megawatts is a small factory's power draw, and it must never blink: a power dip mid-training can waste weeks of a run. This is why the episode's cloud-rental math exists, $100/hour for 8 H100s **[E ep10]**, and why DGX Cloud's ~6-month capex payback **[E ep10]** is possible: the barrier is not the GPUs, it is the building around them.
 
@@ -126,13 +127,13 @@ Figure 2. A 1,000-GPU training cluster (Fermi estimate). AI Podcast Curriculum, 
 ```mermaid
 graph TD
     A[Transistor] --> B[H100 GPU<br/>700W]
-    B --> C[DGX node<br/>8 GPUs, 10.2kW]
+    B --> C[DGX node, 10.2 kW]
     C --> D[InfiniBand fabric<br/>400Gb/s]
-    D --> E[Cluster / SuperPOD<br/>~MW scale]
-    E --> F[One programming model<br/>CUDA everywhere]
+    D --> E[Cluster at MW scale]
+    E --> F[One CUDA everywhere]
 ```
 
-Figure 3. From transistor to one programming model. AI Podcast Curriculum, ep11 synthesis; toy built from [E] ep10 claims and [S] specs.
+Figure 4. From transistor to one programming model. AI Podcast Curriculum, ep11 synthesis. Shell 1. Show the toy. Source: original toy, from [E] ep10 claims and [S] specs.
 
 ## Questions and answers
 
@@ -213,10 +214,12 @@ Figure 3. From transistor to one programming model. AI Podcast Curriculum, ep11 
 
 ## Figure audit
 
-| Unit | Figure | Type |
-|---|---|---|
-| H100 anatomy | Inside-one-H100 ladder | ASCII ≤ 12 lines |
-| DGX H100 anatomy | Full spec table | Table |
-| Cluster build | 1,000-GPU Fermi estimate | ASCII ≤ 12 lines |
-| Chip → cluster | Scale-up/scale-out progression | mermaid ≤ 8 nodes |
-| Every unit tagged | [E]/[S] source key at top; no untagged claims | No blank cells |
+| Unit | Claim | Before | After | Figure | Medium | Source |
+|---|---|---|---|---|---|---|
+| u01 | H100 anatomy, small to big | One transistor (TSMC N4) | NVLink at 900 GB/s to 7 siblings | fig1 | ascii | NVIDIA H100 product page |
+| u02 | DGX H100 rack anatomy | 8 loose GPUs | One 8U, 10.2 kW, 287.6 lb system | fig2 | table | NVIDIA DGX H100 user guide |
+| u03 | 1,000-GPU cluster Fermi | 1,000 GPUs desired | $62.5M hardware, ~1.7 MW facility | fig3 | ascii | computed from DGX specs |
+| u04 | Chip to cluster progression | Transistor | One CUDA programming model | fig4 | mermaid | episode claims + NVIDIA specs |
+| u05 | Every claim tagged [E] or [S] | Episode vs added source | Source key at top, all tagged | (none, tagging rule) | prose | synthesis chapter |
+
+All 5 units mapped. No blank cells. u05 is a labeling rule, not a state change, so the decision rule says do not draw.
