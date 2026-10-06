@@ -36,6 +36,13 @@ the episode transcripts are in
   beginner-explanation and one applied question.
 - G7 DENSITY: sample 20 paragraphs across chapters; each must carry a
   number, mechanism step, failure mode, or decision rule.
+- G7b DEPTH + CONCISENESS (Raj's standing bar): every chapter must be
+  fully understandable from zero prerequisites AND tight enough to learn
+  in one sitting. Check beginner-followability: read as someone who knows
+  software but not the episode's domain; flag any paragraph that assumes
+  unstated background. Kill repetition: flag any paragraph that restates
+  teaching from an earlier paragraph or chapter without adding new
+  information. A chapter that is complete but bloated FAILS G7b.
 - G8 STYLE: grep for contractions, em dashes (—), semicolons in prose,
   banned filler (delve, leverage, unlock, robust, seamless, nuanced,
   pivotal, landscape, realm, tapestry, underscore, harness, foster,
