@@ -37,7 +37,7 @@ summary: "One dense page: every key fact, number, name, and decision rule from t
 
 ## Ep 3: Altman #367 (2023-03-25, 6.8M)
 
-- GPT-4 = buggy proto-AGI. "shitty book" test (sustained coherence) as the bar it fails.
+- GPT-4 = buggy proto-AGI. Altman's bar: it does not feel close to AGI (the sci-fi character remark).
 - RLHF in 4 steps: Demonstrate, Compare (pairwise, tens of thousands), Reward model, Reinforce. Little human data goes far. Reward = what labelers clicked (sycophancy seed).
 - Data curation: signal from noise. Dataset is the product. Scaling laws: predictable loss curves. GPT-3.5 to 4 = hundreds of small wins multiplied. Parameters = gigahertz race (stop counting).
 - Alignment admission: "I do not think we have yet discovered a way to align a super powerful system." Jailbreaks = Spotify/piracy analogy (win by convenience). Bias answer = user steerability within bounds.
@@ -100,7 +100,7 @@ summary: "One dense page: every key fact, number, name, and decision rule from t
 - Holograms: screens/books/games as light-field objects. Display physics years out. Passthrough is the bridge.
 - Identity: photorealistic = bridge (legitimacy), expressive = destination (preference). Temporal accuracy problem (which version of you?). User controls representation.
 - Grief tech: train on messages/voice/video. Protocol = consent in life, family control, private messages stay private, visible simulation marker, off switch.
-- Creator AIs (alive): predictability bounds (useful vs safe). Tighten via failure review = data engine for personality. Meta AI + AI Studio: UGC for AIs. 28 personas (Snoop Dogg DM, Jane Austen, Marcus Aurelius).
+- Creator AIs (alive): predictability bounds (useful vs safe). Tighten via failure review = data engine for personality. Meta AI + AI Studio: UGC for AIs. Launch set with celebrity personas (Snoop Dogg DM, Jane Austen, Marcus Aurelius; 28 per outside reporting).
 - Llama 2 open source: value (builders, scrutiny, distribution) > risk. Red-teamed. Open weights cannot be recalled. Llama 3 decision pending.
 - Ethics: harm principle (consensual game violence fine). Anonymity breaks reputation incentives. Need portable identity consequences.
 - Remote work: live anywhere, feel together. Reality = physical + digital. Consciousness = what feels real.
@@ -168,7 +168,7 @@ summary: "One dense page: every key fact, number, name, and decision rule from t
 - 1,200x cost collapse (GPT-3 level). GPT-4 $60 -> $2 per M tokens. Jevons: AWS raised H100 prices post-DeepSeek. Efficiency grows markets.
 - $5.6M claim excludes research salaries, 2-4x ablations, post-training, inference. Nobody >$1B on a public run. GPT-4 couple hundred M.
 - Power ladder: A100 400W -> H100 700W -> Blackwell 1,000-1,200W. All-in ~1,200-1,400W/Hopper GPU. GPT-4 ~20K A100s = 15-20 MW. Llama 4 ~128K GPUs = 140-150 MW. Stargate Abilene 2.2 GW in / 1.8 GW to chips. NVL72 rack: 72 GPUs, ~120-132 kW (16-17x average rack), 1.36 t, liquid cooling mandatory, ~$3-3.4M/rack ($3.9M all-in), 13.5 TB HBM3e, 130 PFLOPS FP4.
-- Power <20% of cluster cost but binding constraint. Transients: 10-20 MW grid jitter (Memphis). Meta's torch.powerPlantNoBlowup (fake compute flattens draw). Gas now (Meta Louisiana 2 plants. XAI Memphis gas + Megapacks + 90 chillers). Nuclear later. Transmission can cost more than generation (Virginia).
+- Power <20% of cluster cost but binding constraint. Transients: 10-20 MW grid jitter (Memphis). Meta's torch.powerPlantNoBlowup (fake compute flattens draw). Gas now (Meta Louisiana 2 plants. XAI Memphis gas + 90 chillers). Nuclear later. Transmission can cost more than generation (Virginia).
 - Foundry: fab $30-40B. TSMC/Hsinchu R&D. Samsung struggling. Intel lost leadership (missed iPhone, ARM servers, no AI silicon. 18A/14A bet). Arizona ~20% of 5nm. R&D does not move.
 - Export controls Oct 7 2022 (flops + interconnect). H800/H20 compliance. Smuggling small-scale works (ByteDance 500K+ rented GPUs. Singapore 20-30% Nvidia revenue. Suitcases). $10B scale unhideable. Diffusion rules hit rentals too. Serving binds before training (DeepSeek throttled to tokens/sec).
 - Stargate Mar 2026: Abilene 1.2->2 GW expansion scrapped (financing, shifting forecasts, winter cooling outage). Nvidia $150M deposit, courting Meta. Campus completes mid-2026. ~7 GW portfolio continues.
