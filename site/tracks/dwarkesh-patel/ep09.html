@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 9: Richard Sutton — Father of RL thinks LLMs are a dead end — AI Podcast Curriculum</title>
+<meta name="description" content="Richard Sutton argues LLMs are a dead end, the Bitter Lesson favors search and learning over knowledge, and the real path is agents that learn continually.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="dwarkesh-patel-ep09" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09" class="active">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Dwarkesh Patel</a> / Episode 9: Richard Sutton — Father of RL thinks LLMs are a dead end</nav>
+      <h1>Episode 9: Richard Sutton — Father of RL thinks LLMs are a dead end</h1>
+      <p class="meta-line">2025-09-26 · Instructor: Richard Sutton · Dwarkesh Patel</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="21EYKqUsPfg"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/21EYKqUsPfg" title="Richard Sutton: &quot;Father of RL&quot; thinks LLMs are a Dead End" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=21EYKqUsPfg" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=21EYKqUsPfg" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Sutton makes the case against LLMs: the Bitter Lesson, why search and learning beat knowledge, and what continual-learning agents would look like.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the track&rsquo;s dissent. Every other episode assumes the LLM path continues. Sutton, the father of reinforcement learning, says it is a dead end. The episode gives you the Bitter Lesson stated by its author, the search-vs-knowledge distinction (the most important idea in the episode), and the positive program: agents that learn continually from their own experience. It matters because it is the strongest version of the anti-scaling case, and you cannot evaluate the scaling episodes (2, 5, 10) honestly without it. Read it as the defense attorney&rsquo;s closing argument.</p>
+<h2 id="the-story">The story</h2>
+<h3 id="the-bitter-lesson-from-its-author">The Bitter Lesson, from its author</h3>
+<p>Sutton&rsquo;s 2019 essay &ldquo;The Bitter Lesson&rdquo; argues that the history of AI is the history of general methods that leverage computation beating human-knowledge-heavy methods. Chess, Go, speech, vision: every time, the approach that scaled with compute won over the approach that encoded human understanding.</p>
+<p>The bitter part: we keep wanting our knowledge to matter. It feels like our insights should help. But &ldquo;the bitter lesson&rdquo; is that they do not, not in the long run. What wins is search and learning: methods that improve as computation grows.</p>
+<h3 id="why-llms-are-a-dead-end">Why LLMs are a dead end</h3>
+<p>Sutton&rsquo;s case against LLMs has several strands:</p>
+<ol>
+<li>They are frozen. A trained LLM does not learn from experience. It is a snapshot of the internet at a training cutoff, unable to accumulate new understanding by acting in the world.</li>
+<li>They memorize rather than learn. The knowledge is baked in at training time. There is no continual adaptation, no learning from mistakes in deployment.</li>
+<li>They miss the core. Human intelligence is about learning continually from experience: trying, failing, updating. LLMs do none of this. They are, in his view, a sophisticated form of memorization plus pattern completion.</li>
+<li>The scaling is the wrong scaling. Pouring compute into bigger memorizers does not produce the learning algorithm. It produces better memorizers.</li>
+</ol>
+<h3 id="search-and-learning-vs-knowledge">Search and learning vs knowledge</h3>
+<p>The central distinction. There are two things you can put into an AI:</p>
+<ul>
+<li>Knowledge: facts, patterns, memorized from data. This is what LLMs maximize.</li>
+<li>Search and learning: the ability to look ahead, try alternatives, and improve from experience. This is what the Bitter Lesson says wins.</li>
+</ul>
+<p>Sutton&rsquo;s claim: the field has over-invested in knowledge (bigger pre-training) and under-invested in search and learning (agents that plan, try, and learn continually). The bitter lesson predicts the search-and-learning approaches will win in the long run, just as they did in chess and Go.</p>
+<p>Figure 1. Knowledge vs search-and-learning: the two buckets. AI Podcast Curriculum, ep09 (Richard Sutton episode, 2025-09-26). Shell 2. Count the toy: two buckets, the lesson favors one. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Knowledge methods</th>
+<th>Search-and-learning methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it maximizes</td>
+<td>memorized facts and patterns</td>
+<td>look-ahead, trial, update from experience</td>
+</tr>
+<tr>
+<td>Current status</td>
+<td>LLMs maximize this</td>
+<td>under-invested</td>
+</tr>
+<tr>
+<td>Chess, Go, speech, vision</td>
+<td>human heuristics lost</td>
+<td>search won</td>
+</tr>
+<tr>
+<td>Bitter Lesson verdict</td>
+<td>loses in the long run</td>
+<td>wins in the long run</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-positive-program-continual-learning-agents">The positive program: continual-learning agents</h3>
+<p>What Sutton wants instead: agents that learn continually from their own stream of experience. Not trained once on the internet, but learning every day from acting in the world: trying things, getting rewards, updating. This is RL as he originally conceived it: the agent in the environment, learning over a lifetime.</p>
+<p>The pieces: perception, action, reward, and above all continual learning. The agent accumulates knowledge through experience rather than having it baked in. This is the zebra of ep04 (Karpathy&rsquo;s example): the animal that learns by being in the world, not by reading about it.</p>
+<h3 id="the-debate-with-the-scaling-episodes">The debate with the scaling episodes</h3>
+<p>This episode directly contradicts ep02 (Ilya: scaling continues), ep05 (Dario: the blob), and ep10 (Ilya 2023: next-token prediction). The honest way to hold the contradiction:</p>
+<ul>
+<li>Sutton is right that current LLMs do not learn continually, and that this is a real limitation.</li>
+<li>The scaling side is right that the bitter lesson itself favors scaling compute, and LLMs are the current best way to leverage compute.</li>
+<li>The synthesis both episodes point toward: the winner may be continual-learning agents built on top of scaled models (the search-and-learning methods Sutton wants, running on the compute the scalers built).</li>
+</ul>
+<p>Dario&rsquo;s reply (ep05) is the strongest counter: RL environments are at the GPT-1 stage, and the generalization transition is coming. Sutton&rsquo;s reply would be: that is still not continual learning from real experience.</p>
+<p>Figure 2. The debate, honestly held. AI Podcast Curriculum, ep09 (Richard Sutton episode, 2025-09-26). Shell 4. Show the new symbol: the synthesis. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Side</th>
+<th>Right about</th>
+<th>Underplays</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sutton</td>
+<td>current LLMs do not learn continually</td>
+<td>the bitter lesson favors compute</td>
+</tr>
+<tr>
+<td>The scalers</td>
+<td>the empirical record</td>
+<td>the learning gap</td>
+</tr>
+<tr>
+<td>Synthesis</td>
+<td>continual-learning agents on scaled compute</td>
+<td>none stated</td>
+</tr>
+</tbody>
+</table>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>1. What is the Bitter Lesson?</strong></p>
+<p>General methods that leverage computation beat human-knowledge-heavy methods, every time, in the long run. Chess, Go, speech, vision: search and learning won. Encoded human insight lost. The bitter part is accepting that our knowledge does not matter as much as we want it to.</p>
+<p><strong>2. Why does Sutton call LLMs a dead end?</strong></p>
+<p>They are frozen memorizers. No continual learning, no learning from experience, no adaptation in deployment. Scaling them makes better memorizers, not learners. Human intelligence is continual learning from experience. LLMs do none of it.</p>
+<p><strong>3. What is the search-vs-knowledge distinction?</strong></p>
+<p>Knowledge = memorized facts and patterns (what LLMs maximize). Search and learning = looking ahead, trying alternatives, improving from experience (what the Bitter Lesson says wins). The field over-invested in the former and under-invested in the latter.</p>
+<p><strong>4. What does Sutton want instead?</strong></p>
+<p>Continual-learning agents: systems that learn every day from acting in the world, accumulating knowledge through experience rather than having it baked in at training time. RL as originally conceived: the agent in the environment, over a lifetime.</p>
+<p><strong>5. Applied: I am building AI products. What do I take from the dissent?</strong></p>
+<p>Two things. (a) Do not mistake the current paradigm for the final one. Build so you can swap the model layer when the paradigm shifts. (b) For your specific product, ask whether you need knowledge (frozen model suffices) or learning (you need the agent to adapt). Most products need knowledge today. The learning-needing products are the hard, valuable ones.</p>
+<p><strong>6. Who is right: Sutton or the scalers?</strong></p>
+<p>The honest answer is the synthesis: Sutton identifies a real limitation (no continual learning) that the scalers underplay, and the scalers have the empirical record (the bitter lesson itself favors their compute-leveraging methods). The likely winner is continual-learning agents on scaled compute: Sutton&rsquo;s methods on the scalers&rsquo; machines.</p>
+<p><strong>7. How does this connect to Karpathy&rsquo;s ghosts (ep04)?</strong></p>
+<p>Directly. Karpathy&rsquo;s ghosts are Sutton&rsquo;s memorizers: imitation of internet text, no evolution, no real experience. Karpathy&rsquo;s &ldquo;cognitive core&rdquo; (intelligence without memorization) is adjacent to Sutton&rsquo;s search-and-learning. Both episodes agree the current thing is not the final thing. They disagree on what comes next.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>Bitter Lesson: search + learning beat human knowledge, every time, long run.</li>
+<li>Dead end: frozen, memorizing, no continual learning. Better memorizers, not learners.</li>
+<li>Two buckets: knowledge (LLMs maximize) vs search-and-learning (wins long run).</li>
+<li>The program: agents that learn continually from experience. The zebra, not the library.</li>
+<li>The synthesis: Sutton&rsquo;s methods on the scalers&rsquo; machines.</li>
+<li>Never-confuse pair: &ldquo;the bitter lesson favors LLMs&rdquo; (they leverage compute) vs &ldquo;the bitter lesson favors Sutton&rdquo; (search and learning win). Both readings are live. The episode is the debate.</li>
+<li>Trap card: &ldquo;Sutton is anti-AI-progress.&rdquo; He is anti-current-paradigm. He wants more learning, not less AI.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: find one belief you hold because an authority holds it (knowledge) vs one you hold because you tested it (learning). Notice the ratio. Move one belief from the first bucket to the second by testing it.</li>
+<li>Catch yourself: the next time you memorize for a task, ask whether you are building knowledge or learning ability. For the important things, choose learning: do the reps, get the feedback, update.</li>
+<li>Behavior change per major idea:</li>
+<li>Bitter lesson: when choosing methods, favor the ones that improve with more compute/effort over the ones that encode your current cleverness.</li>
+<li>Continual learning: build one feedback loop into your work: act, observe, update. Daily. The agent you want to be learns continually, so should you.</li>
+<li>Dissent: steelman one view you disagree with this week. The track models it: Sutton vs the scalers, honestly held.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Final stretch: unaided reasoning, full weight.</p>
+<ol>
+<li>Adjudicate: write the strongest one-paragraph case for Sutton and the strongest one-paragraph case for Dario (ep05). Then write the synthesis in one paragraph. Which paragraph was hardest to write?</li>
+<li>Design: sketch a continual-learning agent for a domain you know. What is the reward? What is the experience stream? What breaks?</li>
+<li>Predict: if Sutton is right, what does the field look like in 2030? If the scalers are right, what does it look like? Name one observable that distinguishes the two worlds by 2028.</li>
+<li>Personal: where in your life are you a frozen memorizer vs a continual learner? Pick one frozen area and design the experience stream that would thaw it.</li>
+<li>Meta: the bitter lesson says human knowledge loses to compute. Does the bitter lesson apply to this track itself: will reading these chapters (knowledge) lose to building things (learning)? What follows?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>State the Bitter Lesson and apply it to method choice.</li>
+<li>Distinguish knowledge-paradigm from learning-paradigm approaches.</li>
+<li>Steelman a dissenting view against a consensus you hold.</li>
+<li>Design a continual-learning loop (reward, experience stream, update) for a real domain.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Sutton&rsquo;s &ldquo;The Bitter Lesson&rdquo;: https://en.wikipedia.org/wiki/The_Bitter_Lesson</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Search+learning vs knowledge</td>
+<td>One bucket</td>
+<td>Two buckets, lesson favors one</td>
+<td>fig1</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>The debate, honestly held</td>
+<td>Two sides, no verdict</td>
+<td>Synthesis: Sutton&rsquo;s methods on the scalers&rsquo; machines</td>
+<td>fig2</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 2 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=21EYKqUsPfg" target="_blank" rel="noopener">Richard Sutton: &quot;Father of RL&quot; thinks LLMs are a Dead End</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/dwarkesh-patel/ep08.html"><span class="lbl">← Previous</span>Episode 8: Mark Zuckerberg — Llama 3, $10B models, Caesar Augustus, &amp; 1 GW datacenters</a><a href="../../tracks/dwarkesh-patel/ep10.html"><span class="lbl">Next →</span>Episode 10: Ilya Sutskever (2023) — Why next-token prediction could surpass human intelligence</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
