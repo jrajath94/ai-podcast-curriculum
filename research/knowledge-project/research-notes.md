@@ -1,0 +1,7 @@
+# Knowledge Project research notes
+
+1. Channel verified official: "The Knowledge Project Podcast" (@tkppodcast, id UCLtTf_uKt0Itd0NG7txrwXA), Farnam Street. The @TheKnowledgeProject handle 404s. Full 128-video catalog metadata pulled Oct 6, 2026 (~10:05-10:25 EDT); all view counts/dates/durations below are verified yt-dlp values, not estimates.
+2. Only full episodes kept: excluded two shorts ("Naval Ravikant's Manifesto on Reading" 9m, 44,665 views; "Patrick Collison's Manifesto on Reading" 10m, 54,139 views) and one clip ("How to Control Your Impulses So You Don't Ruin Your Life" 6m39s, 123,019 views) despite high views - clips are not curriculum-grade episodes.
+3. Rank 2 (Chamath Palihapitiya, 142,008 views): English auto-captions CONFIRMED to exist, but YouTube's bot-check/429 blocked ~10 subtitle download attempts from this VM (transient; other 9 videos' captions downloaded fine earlier). Transcript fetch is pending - retry command is in episodes.json. Backup candidate if it stays blocked: Marc Andreessen "Inside the Mind of A Famous Investor" (25,544 views, rank 11).
+4. Auto-generated transcripts (6 of 9) contain ASR errors - chapters built from them must not quote guest numbers/claims without verifying against the audio or a second source.
+5. Just-missed high-quality episodes worth considering anyway: Gary Klein "Insights for Making Better Decisions" (20,035, #144), Patrick Collison "Decision Making" (19,498), Adam Robinson "Rules for Winning the Game of Life" (11,558, #47), Adam Robinson "Position Yourself for Success" (9,795, #168).
