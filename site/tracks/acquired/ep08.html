@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>NVIDIA Part II: The Machine Learning Company (2006-2022) — AI Podcast Curriculum</title>
+<meta name="description" content="The middle act: NVIDIA survives an 80% stock collapse, bets everything on CUDA years before anyone wants it, waits a decade, then gets rescued by AlexNet and be">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="acquired-ep08" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08" class="active">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Acquired</a> / NVIDIA Part II: The Machine Learning Company (2006-2022)</nav>
+      <h1>NVIDIA Part II: The Machine Learning Company (2006-2022)</h1>
+      <p class="meta-line">2022-04-20 · Instructor: Ben Gilbert and David Rosenthal · Acquired</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="xU_rLZqlca4"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/xU_rLZqlca4" title="Nvidia: The Machine Learning Company (2006-2022)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=xU_rLZqlca4" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=xU_rLZqlca4" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Nvidia 2006 to 2022: from GPU company to ML company</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Part I ended in 2004-2006 with NVIDIA a high-flying gaming chip company. This episode covers what happened next, and it is the most extreme patience story in business. NVIDIA spends years building CUDA, a general-purpose computing platform, while Wall Street watches the stock fall 80 percent. The company takes its eye off gaming, whiffs on earnings in 2008 and again in 2011, and keeps pouring money into a platform with no visible market. Then in 2012, a neural network trained on NVIDIA hardware wins an image recognition contest by a shocking margin, and everything changes. By 2022, data center revenue has 3X&rsquo;d to over $10.5 billion and NVIDIA is a half-trillion-dollar company. If you want to understand how a moat is built in slow motion, this is the episode.</p>
+<div class="qa"><div class="q"></div><div class="a"></div></div>
+<h2 id="the-story">The story</h2>
+<h3 id="three-foundations-carried-over-from-part-i">Three foundations carried over from Part I</h3>
+<p>David picks up in 2004-2005 with NVIDIA a public company on a tear after the tech bubble crash. Three things from the first decade matter for everything that follows.</p>
+<p>First, the six-month ship cycles. The episode lists the cadence: GeForce 256 in fall 1999, GeForce 2 in spring 2000, GeForce 2 Ultra in fall 2000, GeForce 3 in spring 2001 (the big one, with programmable shaders), GeForce 3 Ti500 six months after that. Competitors shipped on 18-month to two-year cycles and were left in the dust. David compares Intel&rsquo;s architecture changes to new car body styles, arriving every five or six years. NVIDIA shipped fundamentally new architectures at warp speed.</p>
+<p>Second, and this was missed in Part I: NVIDIA wrote its own drivers for its graphics cards. Every other graphics card company at the time let downstream partners write drivers. NVIDIA was the first to say no, we control this, so gamers get a good experience on any system. Ben calls it an Apple-esque view: take the short-term pain of a bigger fixed cost base (employing all those driver engineers) for the long-term benefit of a great user experience. As a side effect, a chip company accidentally built a large base of nitty-gritty, low-level software developers. That base becomes the CUDA team.</p>
+<p>Third, the company had its Microsoft relationship and the programmable GPU, and a stock that went from a sub-billion-dollar market cap after the tech crash to $5-6 billion in 2004-2005, reaching just under $20 billion by mid-2007. Gaming alone looked like a great wave to surf. It was not running out of steam.</p>
+<pre class="ascii">NVIDIA's 2006 position, in round numbers
+Market cap: ~$20B (mid-2007 peak)
+Business:  pure-play gaming graphics cards
+Assets:    six-month chip cadence, own drivers, deep software bench
+Temptation: ride the gaming wave (a $100B market today, zero when NVIDIA started)
+Choice:     bet everything on a market that did not exist yet
+</pre>
+<p>Figure 1. NVIDIA&rsquo;s 2006 position, in round numbers. AI Podcast Curriculum, ep08 (Nvidia: The Machine Learning Company, 2022-04-20). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<h3 id="the-cuda-bet-build-it-before-anyone-can-come">The CUDA bet: build it before anyone can come</h3>
+<p>In 2006, 2007, and 2008, NVIDIA pours resources into building what becomes CUDA: a way for developers to program the GPU for general-purpose computing, not just graphics. At this point it is not yet called that, and there is no clear market for it. The psychology, in the episode&rsquo;s telling, is twofold. Jensen is enamored with the idea of hardware that accelerates specific use cases. And the pitch to rational people is inverted from the movie quote: not &ldquo;if we build it, they will come,&rdquo; but one step removed, if we do not build it, they cannot possibly come. Whether they will come is unknown. The capability has to exist first.</p>
+<p>Scale of the undertaking: Ben searched LinkedIn for NVIDIA employees with CUDA in their title and found 1,100 people dedicated specifically to the CUDA platform. David jokes he is surprised it is not 11,000.</p>
+<div class="qa"><div class="q"></div><div class="a"></div></div>
+<h3 id="the-80-percent-collapse">The 80 percent collapse</h3>
+<p>Wall Street mostly ignores the CUDA spend in 2006-2008 because the gaming business is still growing. Then two things hit. First, AMD acquires ATI (announced 2006, closed 2007), so NVIDIA&rsquo;s remaining gaming competitor now has AMD&rsquo;s resources fully dedicated against it. Second, NVIDIA takes its eye off gaming, CUDA is not yet a revenue driver, and mid-2008 the company whiffs on earnings. The stock gets hammered. From the ~$20 billion peak, it drops 80 percent. The financial crisis finishes the job. Ben notes this is the moment any normal founder calls Goldman Sachs and starts chopping the company up. Jensen instead keeps building CUDA. David calls CUDA one of the greatest business stories of the last 20 years.</p>
+<p>Figure 2. The drawdown and the decade of disbelief. AI Podcast Curriculum, ep08 (Nvidia: The Machine Learning Company, 2022-04-20). Shell 2. Count the toy. Source: original toy, from episode claims.
+| When | What printed |
+|&mdash;|&mdash;|
+| Mid-2007 peak | About $20B market cap |
+| 2008 | Down 80 percent (earnings whiff plus crisis) |
+| 2011 | Another 50 percent drawdown (earnings whiff) |
+| 2012-2015 | Stock under $5 a share |
+| 2016 | Back to the $20B peak |</p>
+<h3 id="the-tegra-detour">The Tegra detour</h3>
+<p>The company is in the penalty box and NVIDIA feels the need to show shareholders something commercial. In 2008, mobile is the hot thing, so NVIDIA launches Tegra, a chip platform for phones. David calls this a clown-car detour. It is not what saves the company. Through the late 2000s and early 2010s the company goes sideways: some years grow 10 percent, some are flat, and in 2011 NVIDIA whiffs on earnings again and the stock takes another 50 percent drawdown. David: everybody else would have given up. Not them.</p>
+<h3 id="alexnet-the-miracle-nobody-saw-coming">AlexNet: the miracle nobody saw coming</h3>
+<p>In 2000, a Princeton computer science professor named Fei-Fei Li (today the Sequoia Capital Professor of Computer Science at Stanford) starts an image-classification project called ImageNet, inspired by WordNet, a 1980s Princeton project that classified words. ImageNet classifies images: a database of millions of labeled images, each tagged correctly (this is a dog, this is a strawberry).</p>
+<p>In the 2012 ImageNet competition, a team from the University of Toronto submits a neural network, AlexNet, and wins by a lot. Error rates: the best previous entries were around 25 percent. AlexNet scores around 15 percent. A ten-point margin in a field that measured single points. Ben: it is like someone breaking the four-minute mile, arguably more impressive. The network was trained on NVIDIA GPUs, using CUDA. David calls this the big bang moment for artificial intelligence, and NVIDIA and CUDA were right there.</p>
+<div class="qa"><div class="q"></div><div class="a"></div></div>
+<h3 id="the-long-recognition-lag">The long recognition lag</h3>
+<p>Even after AlexNet, the market takes years to believe. Marc Andreessen gives a 2016 interview: &ldquo;We&rsquo;ve been investing in a lot of companies applying deep learning to many areas, and every single one effectively comes in building on NVIDIA&rsquo;s platforms. It&rsquo;s like when people were all building on Windows in the &rsquo;90s, we&rsquo;re all building on the iPhone in the late 2000s.&rdquo; He says his firm&rsquo;s internal game, what public companies would we invest in if we were a hedge fund, would put all the money in NVIDIA.</p>
+<p>The numbers: from 2012 to 2015, NVIDIA stock does not trade above $5 a share. At recording time it is around $220, with a past-year high over $300. There was a crypto-driven run to about $65 in 2018, then a crash to $34 at the start of 2019, a level that in retrospect looks like nothing on the run to $350. The kicker: it takes until 2016 for NVIDIA to get back to the $20 billion market cap peak of 2007, when it was just a gaming company. Almost ten years to recover the peak, because the market refused to believe a gaming chip company had become the foundation of AI. Jensen was on stage and on earnings calls telling everyone this was the future. People stayed skeptical.</p>
+<h3 id="crypto-the-third-application-of-the-same-chips">Crypto: the third application of the same chips</h3>
+<p>In 2018, a third class of embarrassingly parallel problems arrives: cryptocurrency mining. People buy consumer NVIDIA graphics cards and build mining rigs. When the crypto winter hits in 2018, mining demand collapses, and crypto had become so big for NVIDIA that revenue actually declines. The technical point: mining is guessing-and-checking with 10,000 parallel attempts, and it is matrix math. Same chips, third application in one decade: gaming, neural networks, crypto. One set of parallel cores, three gold rushes.</p>
+<p>Figure 3. Three rushes, one shovel. AI Podcast Curriculum, ep08 (Nvidia: The Machine Learning Company, 2022-04-20). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Rush | The parallel workload |
+|&mdash;|&mdash;|
+| Gaming | Rendering pixels |
+| Neural networks | Matrix multiplication |
+| Crypto mining (2018) | 10,000-way guess-and-check hashes |</p>
+<h3 id="the-data-center-pivot">The data center pivot</h3>
+<p>Data center GPUs are a different product from gaming cards. The A100 has no video out, it literally cannot drive a monitor, as a Linus Tech Tips video demonstrated. The RTX 3090, the most expensive consumer card, sold for $3,000 (later ~$2,000). The H100 sells for $20,000-$30,000. NVIDIA also walls the segments off: you cannot rack GeForces into a data center rig at home.</p>
+<p>In 2019 (deal completed 2020), NVIDIA acquired Mellanox, an Israeli data-center networking company, for about $7 billion, to build out its data center ambitions. Networking matters because a rack of GPUs is useless if they cannot talk to each other at speed, a thread that leads straight into the cluster-building material of the synthesis chapter.</p>
+<p>The revenue flip: two years before recording, the data center segment did about $3 billion, roughly half of gaming&rsquo;s ~$6 billion, and had been flat. Then it 3X&rsquo;d in two years to over $10.5 billion a year. Gaming through 2006 to 2020 was still king at nearly $6 billion. Data center dethroned it.</p>
+<p>Figure 4. The data-center 3X. AI Podcast Curriculum, ep08 (Nvidia: The Machine Learning Company, 2022-04-20). Shell 2. Count the toy. Source: original toy, from episode claims.
+| When | Data center revenue |
+|&mdash;|&mdash;|
+| About 2020 | About $3B a year (half of gaming&rsquo;s ~$6B) |
+| 2022 | Over $10.5B a year (3X in two years) |
+| Result | Data center dethrones gaming |</p>
+<h3 id="the-2022-numbers-and-the-trillion-dollar-pitch">The 2022 numbers and the trillion-dollar pitch</h3>
+<p>At recording time: about 20,000 employees, $27 billion in annual revenue, roughly $8 billion of free cash flow a year, $21 billion in cash, and a ~$500 billion market cap, the eighth largest company in the world. Growth: 60 percent revenue growth last year at a 30-year-old company, versus Google&rsquo;s 40 percent and Microsoft&rsquo;s 10-20 percent. Valuation: roughly three times Apple&rsquo;s price-to-sales ratio and nearly twice Microsoft&rsquo;s. Google&rsquo;s whole revenue was $257 billion with AdWords alone doing $43 billion in Q4 2021, NVIDIA&rsquo;s revenue is an order of magnitude smaller than the FAANGs, so the multiple is a bet that the revenue is coming.</p>
+<p>The bull case comes from NVIDIA&rsquo;s own investor day: serve customers representing a $100 trillion opportunity and capture 1 percent of it. Automotive alone is pitched as a $300 billion piece of the TAM (current automotive revenue: around $1 billion, barely growing, noted with skepticism). The bear case the episode sketches: Cerebras will sell you a $2 million chip for AI training versus NVIDIA&rsquo;s $20-30K chip (hyper-specialized hardware). Google keeps making noise about its own silicon. And the whole 1,100-person CUDA investment only pays off if it can be amortized over 3 million developers and everyone buying the hardware.</p>
+<p>One more structural fact: NVIDIA&rsquo;s capital efficiency. CapEx is about $1 billion a year. Compare: Apple ~$10 billion, Microsoft and Google ~$25 billion each, TSMC ~$30 billion. NVIDIA is fabless (TSMC builds the chips), so it captures the platform economics without the fab bill.</p>
+<p>Figure 5. Capital efficiency. AI Podcast Curriculum, ep08 (Nvidia: The Machine Learning Company, 2022-04-20). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Company | Annual CapEx |
+|&mdash;|&mdash;|
+| NVIDIA | About $1B |
+| Apple | About $10B |
+| Microsoft, Google | About $25B each |
+| TSMC | About $30B |</p>
+<div class="mermaid">graph LR
+    A[Graphics chips] --> B[CUDA, no market]
+    B --> C[AlexNet 2012]
+    C --> D[Data center 3X]
+    D --> E[$100T TAM pitch]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Graphics chips] --&gt; B[CUDA, no market]
+    B --&gt; C[AlexNet 2012]
+    C --&gt; D[Data center 3X]
+    D --&gt; E[$100T TAM pitch]
+</code></pre>
+<p>Figure 6. From gaming chips to the $100T TAM pitch. AI Podcast Curriculum, ep08 (Nvidia: The Machine Learning Company, 2022-04-20). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q"></div><div class="a"><p>Jensen believed hardware should accelerate specific workloads, and took the inverted Field-of-Dreams view: if we do not build it, developers cannot possibly come. It was an unreasonable-founder bet, unknowable market, enormous cost, funded by the gaming cash cow. The episode frames it as one of the boldest bets they have covered.
+<strong>Follow-up:</strong> What cash cow in your own career could fund a multi-year bet with no visible market, and what would the CUDA-equivalent be, a capability you build before anyone asks for it?</p></div></div>
+<div class="qa"><div class="q"></div><div class="a"><p>Because the story was unbelievable: a gaming graphics company as the foundation of artificial intelligence. Even semiconductor analysts listening to Jensen say it on earnings calls stayed skeptical. The market needed years of revenue proof, the data center 3X, before repricing. Narratives lag technology by roughly a decade.
+<strong>Follow-up:</strong> Name a technology today that is obviously working but whose incumbent-company stock does not reflect it. What would have to print in revenue before the market believed?</p></div></div>
+<div class="qa"><div class="q"></div><div class="a"><p>In a gold rush, every prospector needs picks and shovels regardless of who finds gold. Every deep learning startup &ldquo;effectively comes in building on NVIDIA&rsquo;s platforms&rdquo; (Andreessen). NVIDIA gets paid by winners and losers alike, and the platform (CUDA) means switching shovel brands requires rewriting everything. The moat is the 3 million developers, not the chip.
+<strong>Follow-up:</strong> List three current gold rushes and identify who sells the picks and shovels in each. Which of those sellers has a CUDA-like software lock-in versus a pure commodity tool?</p></div></div>
+<div class="qa"><div class="q"></div><div class="a"><p>It could have, gaming was a $100 billion wave at an inflection point. But AMD bought ATI and dedicated itself to the fight, and Jensen wanted the bigger game. The episode&rsquo;s point: coasting would have been defensible and profitable. The CUDA bet was a choice to risk a great business for a generational one. Most founders, and most boards, would not allow it.
+<strong>Follow-up:</strong> When is &ldquo;coast on the good business&rdquo; the right answer versus &ldquo;risk it for the generational one&rdquo;? What governance would you want in place before making the call?</p></div></div>
+<div class="qa"><div class="q"></div><div class="a"><p>All three are massively parallel problems built on matrix math. A GPU is thousands of simple cores doing the same operation on different data simultaneously, rendering pixels, multiplying neural-network matrices, or guessing-and-checking crypto hashes 10,000 at a time. General-purpose parallel compute turned out to be the universal substrate. The applications were discovered, not designed.
+<strong>Follow-up:</strong> What other &ldquo;embarrassingly parallel&rdquo; problems exist that have not yet had their AlexNet moment? Robotics simulation? Drug discovery? Climate modeling?</p></div></div>
+<div class="qa"><div class="q"></div><div class="a"><p>Because a data center is not a pile of GPUs, it is GPUs that can talk to each other at full speed. Mellanox is an Israeli data-center networking company. As NVIDIA moved up the stack from chips to &ldquo;data center scale computing,&rdquo; owning the interconnect became as strategic as owning the compute. Watch this thread: it is the seed of the full-stack story in the synthesis chapter.
+<strong>Follow-up:</strong> Draw the stack: chip → server → rack → cluster → data center. At which layer does NVIDIA capture the most margin today, and which layer would you attack as a competitor?</p></div></div>
+<div class="qa"><div class="q"></div><div class="a"><p>NVIDIA is fabless: TSMC bears the fab bill, NVIDIA keeps the platform economics. Capital efficiency means more cash for R&amp;D, software, and acquisitions, and higher returns on invested capital. The risk is the mirror image: NVIDIA&rsquo;s entire existence depends on TSMC&rsquo;s fabs, which is exactly the Morris Chang relationship from ep02.
+<strong>Follow-up:</strong> Compute a rough return-on-CapEx: $8B free cash flow on $1B CapEx. What breaks first if TSMC raises prices 30 percent?</p></div></div>
+<div class="qa"><div class="q"></div><div class="a"><p>The multiple (3x Apple&rsquo;s price-to-sales) prices in a future that must arrive. Competitors: Cerebras selling $2M hyper-specialized training chips, Google&rsquo;s own silicon, AMD. The CUDA amortization math only works if the developer base keeps growing. And history says 80 percent drawdowns happen, twice in this episode alone. The bull case is the $100T TAM at 1 percent capture. The bear case is that multiples compress the moment growth misses.
+<strong>Follow-up:</strong> Write the two-sentence short thesis and the two-sentence long thesis. Which one would you have believed in 2015, when the stock was under $5?</p></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ol>
+<li><strong>&ldquo;If we do not build it, they cannot come.&rdquo;</strong> The inverted Field of Dreams. CUDA&rsquo;s founding logic, 2006-2008.</li>
+<li><strong>80 → 50 → 2016.</strong> The pain sequence: 80% drawdown after 2008, another 50% drawdown in 2011, back to the $20B peak only in 2016. Patience measured in decades.</li>
+<li><strong>$5 to $220.</strong> NVIDIA under $5 a share from 2012-2015. ~$220 at recording. The market&rsquo;s decade-long disbelief, priced.</li>
+<li><strong>Three rushes, one shovel.</strong> Gaming, neural networks, crypto mining, all matrix math, all parallel, all the same cores.</li>
+<li><strong>$3B → $10.5B.</strong> Data center revenue 3X in two years, dethroning gaming&rsquo;s ~$6B.</li>
+<li><strong>Never confuse:</strong> CUDA (the software platform, the moat) with the GPU (the hardware, the product). Competitors can copy silicon. They cannot copy 3 million developers and 1,100 CUDA engineers.</li>
+<li><strong>Trap card:</strong> &ldquo;NVIDIA predicted AI.&rdquo; No. They built general-purpose parallel compute with no market in mind, and AI arrived. Preparation, not prediction.</li>
+<li><strong>$1B vs $30B.</strong> NVIDIA&rsquo;s CapEx versus TSMC&rsquo;s. Fabless capital efficiency, and fabless dependency.</li>
+</ol>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ol>
+<li><strong>This week:</strong> write down your &ldquo;CUDA&rdquo;, one capability you will build for two years with no visible market, funded by your current cash cow. Put a dollar and hour budget on it. If you cannot name the cash cow, you are not ready to bet.</li>
+<li><strong>Practice the 80% test:</strong> for any investment or project you hold, ask what you would do if it fell 80% and stayed down for eight years. Jensen kept building. Write your own rule now, while you are calm, for when the drawdown comes.</li>
+<li><strong>Picks-and-shovels audit:</strong> list the tools every team in your company uses regardless of which projects succeed. That is where the durable value sits. Spend one hour learning the most important one deeply.</li>
+<li><strong>Observable behavior:</strong> the next time a narrative sounds unbelievable (&ldquo;a gaming company runs AI&rdquo;), check the revenue line instead of the story. Data center went $3B → $10.5B. Numbers convert skeptics. Stories do not.</li>
+</ol>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>These drills escalate: earlier episodes gave you the numbers, now you build the models.</p>
+<ol>
+<li><strong>Guided:</strong> data center revenue was ~$3B and gaming ~$6B. Two years later data center is $10.5B+. Compute the compound annual growth rate of the data center segment over those two years. (Answer: roughly 87% per year.)</li>
+<li><strong>Fermi:</strong> a training run needs 10,000 H100s at ~$25K each. Estimate the GPU hardware cost of the cluster, then estimate the Mellanox-style networking cost as a fraction of it. What fraction of total cluster cost is interconnect? Defend your fraction.</li>
+<li><strong>Journaling:</strong> &ldquo;NVIDIA was saved by a miracle nobody saw coming.&rdquo; Write 300 words: how much of success is preparation for luck versus creating luck? Use the CUDA decade and AlexNet as your evidence, and steelman the view that NVIDIA just got lucky.</li>
+<li><strong>Reasoning exercise:</strong> the episode says it took until 2016 to recover the 2007 peak. Construct the bull case a 2013 investor could have made using only public facts then (AlexNet 2012, Jensen&rsquo;s earnings-call claims, developer growth). What was knowable, and what required faith?</li>
+<li><strong>Unaided:</strong> you are Jensen in mid-2008, stock down 80%, board restless. Write the one-page memo that keeps the CUDA budget alive. No hindsight allowed, you do not know AlexNet is coming.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li><strong>Reason about platform bets:</strong> apply the three-question test (where is the market, at what scale, what is the cost to build) to any platform proposal, and recognize when the honest answer is &ldquo;unknown&rdquo;, which is precisely when only founder conviction can carry it.</li>
+<li><strong>Read drawdowns correctly:</strong> distinguish a broken thesis (Tegra) from a delayed thesis (CUDA). The test: is the underlying capability still compounding while the price falls? CUDA&rsquo;s developer base grew through both crashes.</li>
+<li><strong>Sanity-check a moat claim:</strong> ask what the switching cost is denominated in. CUDA&rsquo;s moat is denominated in 3 million developers&rsquo; code and 1,100 engineers&rsquo; accumulated software, not in transistor counts, which competitors can match.</li>
+<li><strong>Price patience:</strong> convert &ldquo;the market takes a decade to believe&rdquo; into position sizing. If the thesis needs ten years, the position must survive two 50%+ drawdowns without forced selling.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=wYUTMgGxZzc">Acquired, NVIDIA Part I: The GPU Company (1993-2006)</a>, the prequel: the two earlier death-cheating episodes this chapter builds on.</li>
+<li><a href="https://www.youtube.com/watch?v=nFB-AILkamw">Acquired, NVIDIA Part III: The AI Company (2022-2023)</a>, the sequel: what happens after the $500B mark, covered in ep10.</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Three foundations carried over</td>
+<td>Sub-billion market cap</td>
+<td>$20B peak, software bench</td>
+<td>fig1</td>
+<td>ascii</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>CUDA bet with no market</td>
+<td>Gaming cash cow</td>
+<td>Platform before the market</td>
+<td>fig6</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>80 percent collapse, decade of disbelief</td>
+<td>$20B peak (2007)</td>
+<td>Back to $20B only in 2016</td>
+<td>fig2</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>AlexNet was the big bang</td>
+<td>25% error, the old best</td>
+<td>15% error on CUDA GPUs</td>
+<td>fig6</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>One chip served three gold rushes</td>
+<td>Gaming only</td>
+<td>Gaming, AI, crypto on one core set</td>
+<td>fig3</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Data center dethroned gaming</td>
+<td>$3B/yr, half of gaming</td>
+<td>$10.5B/yr, 3X in two years</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u07</td>
+<td>$100T TAM pitch</td>
+<td>$500B market cap (2022)</td>
+<td>1 percent capture target</td>
+<td>fig6</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u08</td>
+<td>Fabless capital efficiency</td>
+<td>$30B fab bills (TSMC)</td>
+<td>$1B CapEx, platform economics</td>
+<td>fig5</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 8 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE (TOP YOUTUBE RESULT FOR THE SHOW&#x27;S OFFICIAL UPLOAD)</span><a href="https://www.youtube.com/watch?v=xU_rLZqlca4" target="_blank" rel="noopener"></a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/acquired/ep07.html"><span class="lbl">← Previous</span>Episode 7: Meta</a><a href="../../tracks/acquired/ep09.html"><span class="lbl">Next →</span>Nvidia: The GPU Company (1993-2006)</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
