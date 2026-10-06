@@ -26,7 +26,7 @@ The drills in "Think it yourself" get progressively harder across the track, by 
 
 Each line is why the episode matters: what it gives you that no other episode does.
 
-1. **[Ep 1 · Jensen Huang](ep01.md)**: the only first-person account of betting a $20B company on a market that did not exist, and the management system (40+ direct reports, no 1:1s) that made it possible.
+1. **[Ep 1 · Jensen Huang](ep01.md)**: the only first-person account of betting a $20B company on a market that did not exist, and the management system (40+ direct reports, mission is the boss) that made it possible.
 2. **[Ep 2 · TSMC](ep02.md)**: the foundry playbook: why the company that manufactures everyone else's chips is the most defensible business in semiconductors, told through the 2009 crisis.
 3. **[Ep 3 · Zuckerberg](ep03.md)**: the learn-faster loop as a company operating system, and the clearest explanation anywhere of why a rational CEO open-sources.
 4. **[Ep 4 · Google III](ep04.md)**: the innovator's dilemma applied to the company that invented the transformer and still almost lost AI, plus the only 7-powers moat analysis in the track.
