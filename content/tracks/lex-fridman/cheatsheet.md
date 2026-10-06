@@ -18,8 +18,8 @@ summary: "One dense page: every key fact, number, name, and decision rule from t
 - Grok: Hitchhiker's-inspired, fun mode. XAI mission = understand the universe. Truth-seeking as alignment hypothesis.
 - Compute: ~8,000 H100s for Grok. Compute doubling every couple of months. Constraint chain STE: silicon, then voltage transformers, then electricity. Electricity demand ~3x (EVs, heating, AI).
 - Token drift: autoregressive errors compound. Retrieval/tools mitigate, never remove.
-- First principles: price raw materials. The gap is process inefficiency. Batteries: materials a fraction of $600/kWh.
-- Fermi: sun boils oceans in ~0.5B years. Multiplanetary = insurance. Simulation: ancestor simulations outnumber reality. Act to make it interesting.
+- First principles: reason from physics to the limit. Useful compute per watt beats raw FLOPS. Constraint chain: silicon, then transformers, then electricity.
+- Fermi: sun boils oceans in ~0.5B years. Multiplanetary = insurance. Simulation: determinism vs free will — run to see what happens, like SpaceX sims.
 - Useful compute per watt beats FLOPS. X algorithm: hundreds of millions of posts to 1,500 candidates. ~220 CPU-seconds per pass. Pure vector correlation. Community Notes: require agreement across historical disagreement.
 - Autopilot: photons in, controls out. Learned to read untaught. ~100W. Optimus: custom actuators, forearm-tendon hand. Target cheaper than a car. Cynicism = red flag.
 - Advice UBG: be Useful, read Broadly, Grow the pie.
@@ -38,7 +38,7 @@ summary: "One dense page: every key fact, number, name, and decision rule from t
 ## Ep 3: Altman #367 (2023-03-25, 6.8M)
 
 - GPT-4 = buggy proto-AGI. Altman's bar: it does not feel close to AGI (the sci-fi character remark).
-- RLHF in 4 steps: Demonstrate, Compare (pairwise, tens of thousands), Reward model, Reinforce. Little human data goes far. Reward = what labelers clicked (sycophancy seed).
+- RLHF in 4 steps: Demonstrate, Compare (pairwise), Reward model, Reinforce. Little human data goes far. Reward = what labelers clicked (sycophancy seed).
 - Data curation: signal from noise. Dataset is the product. Scaling laws: predictable loss curves. GPT-3.5 to 4 = hundreds of small wins multiplied. Parameters = gigahertz race (stop counting).
 - Alignment admission: "I do not think we have yet discovered a way to align a super powerful system." Jailbreaks = Spotify/piracy analogy (win by convenience). Bias answer = user steerability within bounds.
 - OpenAI structure: nonprofit controls capped-profit. 100x return cap. Microsoft ~$10B. Satya = visionary + operator. (Failed Nov 2023. See Ep 8.)
