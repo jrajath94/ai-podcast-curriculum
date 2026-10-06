@@ -5,7 +5,7 @@ course_name: "Acquired"
 course_order: 5
 order: 98
 nav: "Cheatsheet"
-title: "Acquired — Cheatsheet"
+title: "Acquired: Cheatsheet"
 summary: "Every key fact, number, name, and decision from the Acquired track on one dense page."
 date: 2026-10-06
 instructor: "Ben Gilbert and David Rosenthal"
@@ -57,7 +57,7 @@ offering: "Acquired"
 
 ## Microsoft (ep06)
 
-- IBM deal ($775K testing/consulting + $45K DOS + $310K languages — components as stated; do not sum to the episode's own ~$430K total [uncertain]); QDOS $75K; clones; Windows hedge vs OS/2; kept 49%; seven powers.
+- IBM deal ($775K testing/consulting + $45K DOS + $310K languages, components as stated; do not sum to the episode's own ~$430K total [uncertain]); QDOS $75K; clones; Windows hedge vs OS/2; kept 49%; seven powers.
 
 ## Cross-track patterns
 
