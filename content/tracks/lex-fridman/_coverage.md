@@ -16,9 +16,9 @@ Format: `epNN.md:<line>`.
 | Grok compute: ~8,000 H100s. Compute doubling every couple months | ep01.md:49 |
 | Constraint chain: silicon -> voltage transformers -> electricity. ~3x electricity demand | ep01.md:49 |
 | Token-prediction drift. Compounding errors. Confabulation mechanism | ep01.md:55 |
-| First principles. Battery raw-materials example ($600/kWh) | ep01.md:59 |
+| First principles. Reasoning in the limit (useful compute per watt) | ep01.md:59 |
 | Fermi paradox. Great filter. Sun boils oceans ~0.5B yrs. Multiplanetary insurance | ep01.md:63 |
-| Simulation argument. Ancestor simulations. Make it interesting | ep01.md:67 |
+| Simulation argument. Determinism vs free will. Simulations as experiments | ep01.md:67 |
 | Diablo 4 Uber Lilith. Difficulty/mastery. Learnable patterns [synthesis-marked] | ep01.md:71 |
 | Soma / Brave New World. Comfort kills drive. Choose hard problems | ep01.md:75 |
 | Useful compute per watt > FLOPS | ep01.md:79 |
@@ -57,7 +57,7 @@ Format: `epNN.md:<line>`.
 
 | Claim / topic | Location |
 |---|---|
-| GPT-4 as buggy proto-AGI. "shitty book" test | ep03.md:33 |
+| GPT-4 as buggy proto-AGI. Sci-fi character remark as the bar it fails | ep03.md:33 |
 | ChatGPT moment = RLHF. 4 steps. Little human data needed | ep03.md:39 |
 | Pairwise human preference. Reward model. Sycophancy seed | ep03.md:39 |
 | Data curation: signal from noise. Dataset is the product | ep03.md:50 |
@@ -89,7 +89,7 @@ Format: `epNN.md:<line>`.
 | 8.5 BPS vs 4.2-4.6 record. Mouse median 10. Bliss 17. Civ 6 Korea science victory. "the force". Wants click-on-demand, multi-device, Optimus. Misses touch. Hug mom | ep04.md:72 |
 | Attempted vs imagined movement | ep04.md:82 |
 | Calibration: open-loop -> closed-loop co-adaptation. UX (magnetic targets, DJ mixer, error-cost asymmetry) | ep04.md:86 |
-| Decoder = dataset + compile. Offline metrics lie (1D-conv). Intention labels (monkey straight-line). Nonstationarity (evaporating pot) | ep04.md:95 |
+| Decoder = dataset + compile step (team's framing, paraphrased). Offline metrics lie (1D-conv). Intention labels (monkey straight-line). Nonstationarity (evaporating pot) | ep04.md:95 |
 | Scaling 400 -> 3k-6k channels. Log returns. Reliability beats count | ep04.md:105 |
 | Blindside: phosphenes. Camera->stimulation. Crude but learnable | ep04.md:109 |
 | Neural dust: ultrasound backscatter, piezoelectric. BCI history (Galvani, Berger, Hodgkin-Huxley, Fetz 1969, Georgopoulos). Threads beat Utah arrays on scarring | ep04.md:113 |
@@ -160,7 +160,7 @@ Format: `epNN.md:<line>`.
 | Holograms: screens/books/games as objects. Display physics years out | ep07.md:49 |
 | Photorealistic = bridge, expressive = destination. Temporal accuracy. User controls representation | ep07.md:53 |
 | Grief tech: consent/control/privacy/off-switch. Private messages stay private | ep07.md:59 |
-| Creator AIs (living): predictability bounds. Meta AI + AI Studio. 28 personas (Snoop Dogg, Austen, Aurelius) | ep07.md:65 |
+| Creator AIs (living): predictability bounds. Meta AI + AI Studio. Launch set with celebrity personas (Snoop Dogg, Austen, Aurelius) | ep07.md:65 |
 | Llama 2 open source: value > risk. Red-teamed. Weights unrecallable. Llama 3 pending | ep07.md:77 |
 | Harm principle. Anonymity breaks reputation. Portable consequences | ep07.md:81 |
 | Remote work. Reality = physical + digital. Consciousness = what feels real | ep07.md:85 |
@@ -250,7 +250,7 @@ Format: `epNN.md:<line>`.
 | Three-vector model FMI. Training interconnect-bound. Inference memory-bound | ep11-synthesis.md:43 | [Episode] #459 |
 | CUDA moat = software + developer culture. AMD HW decent/SW behind. Google TPUs internal-only | ep11-synthesis.md:51 | [Episode] #459 |
 | 1,200x cost collapse. GPT-4 $60->$2 per M tokens. Jevons paradox. AWS H100 price rise | ep11-synthesis.md:59 | [Episode] #459 |
-| $5.6M claim excludes salaries, 2-4x ablations, post-training, inference. Nobody >$1B public run | ep11-synthesis.md:65 | [Episode] #459 |
+| 5 million dollar claim (episode's figure, widely reported as 5.6M) excludes salaries, 2-4x ablations, post-training, inference. Nobody >$1B public run | ep11-synthesis.md:65 | [Episode] #459 |
 | Blackwell rack cost ~$3-3.4M ($3.9M all-in). Rentals $10-18/GPU-hr | ep11-synthesis.md:69 | [Added 2026] |
 | Power ladder A100 400W -> H100 700W -> Blackwell 1,000-1,200W. All-in 1,200-1,400W | ep11-synthesis.md:75 | [Episode] #459 |
 | KV cache. MLA 80-90% cut. MoE 671B/37B. H20 vs H800. Reasoning multiplies inference cost | ep11-synthesis.md:81 | [Episode] #459 |
