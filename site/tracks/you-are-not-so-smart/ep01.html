@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 1: The Dunning-Kruger Effect with David Dunning — AI Podcast Curriculum</title>
+<meta name="description" content="Why the unskilled cannot tell they are unskilled: the double curse, the lemon-juice bank robber, the invisible border between what you know and what you do not,">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="you-are-not-so-smart-ep01" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01" class="active">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">You Are Not So Smart with David McRaney</a> / Episode 1: The Dunning-Kruger Effect with David Dunning</nav>
+      <h1>Episode 1: The Dunning-Kruger Effect with David Dunning</h1>
+      <p class="meta-line">2014-11-10 · Instructor: David Dunning · You Are Not So Smart</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This episode names the root bug this whole track exists to debug. Every later chapter assumes you can catch your own mind lying to you. This chapter shows why the catching instrument itself is broken. The relationship between what people believe about their own skill and the reality of that skill is, in Dunning&rsquo;s words, &ldquo;relatively meagre, to often non-existent.&rdquo; You do not get to skip this one. It is the foundation the other nine chapters stand on.</p>
+<h2 id="the-problem-the-tournament-nobody-was-ready-for">The problem: the tournament nobody was ready for</h2>
+<h3 id="eight-friends-who-were-the-best-in-the-world">Eight friends who were the best in the world</h3>
+<p>In college, David McRaney staged a fighting-game tournament. He set up video game systems and invited players from around the country. He had a circle of 8 to 10 friends from his hometown who played one fighting game constantly. They believed they were superb. They believed they were the best in the world. McRaney had no hesitation about inviting the national champions to come play them.</p>
+<p>Every single one of the hometown group lost both matches immediately. They did not place. They did not come close. They were destroyed. McRaney remembers the group shaking their heads and rubbing their temples, asking how they could not just be mediocre but actually terrible.</p>
+<h3 id="the-small-pond-problem">The small-pond problem</h3>
+<p>Definition: the small-pond problem is the state of judging your skill against the only competition you have ever seen.</p>
+<p>The hometown group had never seen the master level. They saw hints: a friend slightly better than them. That was the whole range of competence they had ever observed. Dunning says this pattern also explains the trauma of arriving at college. A student goes from the best swimmer on the high school team to the bottom 20 percent of the college tryouts. The student did not get worse overnight. The pond got bigger.</p>
+<p>The rule behind it: to judge where you stand, you need the full range in view, from worst to best. Most people have not. Not knowing what the top looks like, they presume they sit close to it.</p>
+<h2 id="the-definition-the-double-curse">The definition: the double curse</h2>
+<h3 id="what-the-effect-is-and-is-not">What the effect is and is not</h3>
+<p>In the episode, Dunning gives the short version first. Incompetent people are not in a position to know they are incompetent, in many areas of life.</p>
+<p>Three things follow from it. Incompetent people are worse judges of other people&rsquo;s skill. Incompetent people can recognize their incompetence once they become competent. And it is harder for them to learn how low their skill level is.</p>
+<p>Then the crucial exclusion. This is not denial. This is not self-deception. They are not hiding the truth from themselves. They are not in a position to make the call correctly at all.</p>
+<h3 id="the-double-burden">The double burden</h3>
+<p>Definition: the double curse, or double burden, is the finding that the same gaps in expertise cause two problems at once.</p>
+<p>Problem one: you make mistakes. Lacking expertise, you choose badly. Problem two: you cannot detect those mistakes. In most areas of life, you use the exact same expertise to judge your performance that you used to produce it. The judge and the defendant are the same broken instrument.</p>
+<p>Dunning puts it as a choice rule everyone follows: everybody does what seems most reasonable to them. So nearly everyone ends up thinking they are fine. They picked the best option they could see. Their strategy made the most sense to them. For the incompetent, the tragedy is mechanical: they lack the expertise that would reveal the problems in their chosen strategy. Had they possessed it, they would at minimum ask others for advice.</p>
+<p>Figure 1. The double curse. AI Podcast Curriculum, ep01 (David Dunning interview, 2014-11-10). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What happens</th>
+<th>Who judges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Act</td>
+<td>You pick the most reasonable option your knowledge allows</td>
+<td>Your flawed knowledge</td>
+</tr>
+<tr>
+<td>Judge</td>
+<td>You check whether the option was good</td>
+<td>The same flawed knowledge</td>
+</tr>
+<tr>
+<td>Verdict</td>
+<td>It looks fine</td>
+<td>No surprise: the judge is the defendant</td>
+</tr>
+</tbody>
+</table>
+<p>The hand-worked toy: a student takes a 10-question test with deep gaps in the subject. Her gaps cause 6 wrong answers. She then estimates her score using the same gaps. She cannot see the 6 errors, because seeing them would require the knowledge she lacks. She estimates 8 correct. Her actual score is 4. The 4-point gap between her estimate and reality is invisible to her by construction.</p>
+<h3 id="the-judge-hears-a-different-concert">The judge hears a different concert</h3>
+<p>The American Idol example sharpens the mechanism. In the early days, Dunning says, the effect competed with a rival name: the American Idol effect. Contestants who could not sing believed they could. Why? The evidence they used to judge themselves was exactly the evidence they used to perform: what they heard while singing.</p>
+<p>But what a singer hears internally differs from what the room hears. Dunning: they are &ldquo;probably hearing something that is pretty good.&rdquo; The judges hear something else entirely. So the contestant leaves confident and the judges wince. Same event, two different data streams, and the contestant&rsquo;s stream is the corrupt one.</p>
+<p>McRaney adds the Jeopardy uncle. Uncles who watch Jeopardy think they could win. Put them before Alex Trebek and they would go negative immediately. Why the delusion survives at home: watching TV, you choose which questions to answer. You skip the ones you cannot. You never count the skips. The camera and the nerves then subtract more.</p>
+<p>Figure 2. The Jeopardy-uncle count. AI Podcast Curriculum, ep01 (David Dunning interview, 2014-11-10). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>At home on the couch</th>
+<th>On the show</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Questions faced</td>
+<td>30 (picks 10 to answer)</td>
+<td>30 (must answer all)</td>
+</tr>
+<tr>
+<td>Counted as misses</td>
+<td>3 of the 10 attempted</td>
+<td>All 23 missed</td>
+</tr>
+<tr>
+<td>Felt score</td>
+<td>7 of 10, looks strong</td>
+<td>Negative, game over</td>
+</tr>
+<tr>
+<td>The one rule</td>
+<td>Count the skips</td>
+<td>The skips were always real</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mediocrity-enablers">Mediocrity enablers</h3>
+<p>Definition: mediocrity enablers are the polite people who conspire to keep you inside your false self-image.</p>
+<p>Dunning tells his students to remember that face-to-face praise is not the same as the talk behind their backs. The world is polite. People want to get through the day without disharmony, rancor, or argument. So the American Idol contestant&rsquo;s friends, who are painfully aware the voice is bad, say &ldquo;you were great&rdquo; to the face. The contestant believes it and auditions on television. Dunning calls the enablers&rsquo; conspiracy &ldquo;terrific for conversations, terrific for everyday life,&rdquo; and dangerous the moment someone acts on the belief in a high-stakes setting.</p>
+<h2 id="the-borderline-you-cannot-see">The borderline you cannot see</h2>
+<h3 id="two-contentious-assertions">Two contentious assertions</h3>
+<p>Dunning describes a borderline between what you know and what you do not know. Then he makes two assertions he calls potentially contentious.</p>
+<p>Assertion one: the border arrives quickly, well inside the geography of everyday life. People act from knowledge, but often they act from ignorance and do not know it. The episode&rsquo;s nickname for acting on a totally wrong belief with full confidence is a &ldquo;lemon juice belief,&rdquo; after the story below.</p>
+<p>Assertion two, the more unsettling: of all the things we do not know, the one thing we definitely do not know is where that borderline is. There may be a true red line between knowledge and ignorance. We do not know its position. So we step over it confidently and step back, never noticing either crossing.</p>
+<p>Figure 3. The borderline. AI Podcast Curriculum, ep01 (David Dunning interview, 2014-11-10). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>What we assume</th>
+<th>What the research suggests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Border position</td>
+<td>Far away, past our daily decisions</td>
+<td>Close, inside everyday life</td>
+</tr>
+<tr>
+<td>Border visibility</td>
+<td>We feel when we cross it</td>
+<td>We cannot locate it at all</td>
+</tr>
+<tr>
+<td>Count of crossings</td>
+<td>Rare</td>
+<td>Constant, both directions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-lemon-juice-bank-robber">The lemon-juice bank robber</h3>
+<p>In Pittsburgh, Pennsylvania, a man robbed a couple of banks in broad daylight with no visible disguise. Police caught him within hours by showing his face from surveillance tapes on the evening news. As they showed him the tapes, he muttered, &ldquo;But I wore the juice, I wore the juice.&rdquo;</p>
+<p>He believed smearing lemon juice on his face made it invisible or fuzzy to video cameras. To his credit, he tested the theory: he smeared his face with lemon juice, took a Polaroid selfie, and saw only wall. What he missed: he had mis-aimed the camera.</p>
+<p>Dunning&rsquo;s reflection on reading the story: if a person can believe that, imagine how many times a day a less flamboyant version of this plays out in everyone&rsquo;s life. That question launched the research program.</p>
+<h2 id="the-effect-runs-both-directions">The effect runs both directions</h2>
+<h3 id="geniuses-do-not-know-they-are-geniuses">Geniuses do not know they are geniuses</h3>
+<p>Part of the original framework: highly skilled people often do not know how special they are. For them, tasks come easy. The right answer arrives without effort. So they assume it is easy for everyone. Dunning&rsquo;s lived example: bright students explain things assuming he follows, and he has no clue what they mean. His countermeasure when a plumber visits: carry a tape recorder, replay the fast speech, and look up the words, because nothing else in his arsenal makes the expert slow down.</p>
+<h3 id="the-collective-misses-genius-too">The collective misses genius too</h3>
+<p>Dunning&rsquo;s current work extends the effect to groups. The collective is competent but not perfectly competent, so it cannot reliably recognize true genius when it appears. His favorite example: Alfred Hitchcock&rsquo;s Vertigo. On release it made its money back but was passed over for Best Picture, got mixed reviews, and was not nominated. About 50 years later, Sight and Sound&rsquo;s critics voted it the number one film of all time. It took half a century for the genius in it to be recognized. McRaney adds Moby Dick, dismissed as terrible and unreadable on release, and Walt Whitman&rsquo;s poetry, dismissed in its day.</p>
+<p>Dunning&rsquo;s studies with a colleague exposed people to others ranging from very poor to excellent at logical reasoning and financial literacy. The collective was good at spotting the poor performers. The top performers got underrated and missed. The pithy version: genius hides in plain sight, because most people lack the intellectual scaffolding to recognize it.</p>
+<p>Figure 4. Genius recognition. AI Podcast Curriculum, ep01 (David Dunning interview, 2014-11-10). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Performer</th>
+<th>Collective judgment</th>
+<th>Reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Poor</td>
+<td>Correctly spotted</td>
+<td>Poor</td>
+</tr>
+<tr>
+<td>Excellent</td>
+<td>Underrated, missed</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td>The one rule</td>
+<td>You need the scaffolding to see the top</td>
+<td>The top is invisible without it</td>
+</tr>
+</tbody>
+</table>
+<p>McRaney spots the escape hatch this hands every listener: &ldquo;maybe I am just a genius and no one can recognize it.&rdquo; Dunning agrees this is exactly right, and adds the base rate: the unrecognized geniuses are real, but the people who think they are unrecognized geniuses and are not are a much larger number.</p>
+<h2 id="self-estimates-are-inferred-not-experienced">Self-estimates are inferred, not experienced</h2>
+<h3 id="the-same-test-two-labels">The same test, two labels</h3>
+<p>With Joyce Ehrlinger, Dunning gave students a pop quiz on verbal reasoning with two different labels. One group was told it tested abstract reasoning, a skill students believe they have in abundance. The other group was told it tested the reasoning used in computer programming, a skill students deny having. Same test, same questions, same answers, same font, same copier.</p>
+<p>The abstract-reasoning group estimated about 8 out of 10 correct. The computer-programming group estimated about 6 out of 10. The 2-point gap came from the label alone. Dunning&rsquo;s conclusion: performance estimates are top-down. People infer how they did from preconceived notions about themselves, not from the bottom-up experience of the test. The experience barely registers next to the self-view they walked in with.</p>
+<h3 id="the-gender-follow-up">The gender follow-up</h3>
+<p>Students took a pop quiz on science. Male students walked in believing they had more scientific talent than female students believed they had. Both groups performed equally well on the test. Afterward, the men estimated much higher scores than the women estimated. Dunning notes this as a possible mechanism behind men&rsquo;s overrepresentation in engineering and science: not differences in actual talent, but differences in perceived talent, compounding daily.</p>
+<h3 id="the-preconception-rewrites-the-experience">The preconception rewrites the experience</h3>
+<p>With Clayton Critcher, a deeper follow-up: top-down preconceptions do not just override bottom-up experience, they reshape it. People who think they are skilled report answering faster, finding terms more familiar, and feeling less conflict between answer choices, with no evidence of any of this in reality. The look and feel of the test literally changes with the self-view the person carried into the room.</p>
+<h2 id="what-to-do-about-it">What to do about it</h2>
+<h3 id="manage-confidence-like-a-general">Manage confidence like a general</h3>
+<p>McRaney asks: for a head of state or military commander, would Dunning prefer confidence that may be unearned, or accurate self-assessment? Dunning: &ldquo;I want them both but at different times.&rdquo; A general leading troops into battle should be confident, because doubt delays execution and delay costs lives. But before that moment, the same general should be saturated with doubt: wanting more troops, more ordnance, a plan B and a plan C. Confidence is not a trait to maximize or minimize. It is a dial to turn on and off, and managing the dial is itself a meta-skill.</p>
+<h3 id="build-institutions-that-assume-the-bug">Build institutions that assume the bug</h3>
+<p>Two prescriptions for institutions that want fewer cliffs.</p>
+<p>First, install naysayers. Every decision gets a devil&rsquo;s advocate to poke holes. It is unpleasant. It catches overconfidence the group cannot see in itself, and sometimes simply improves the decision.</p>
+<p>Second, build buffers for wrong decisions you cannot anticipate. Software developers give estimates. Experienced managers inflate them by 30 percent, and by up to 100 percent for a new operating system, because the estimate never includes the unknown unknowns. Architects compute the concrete a building needs for stability, then multiply by as much as 8. Both policies cost money. Both insulate against incompetence you know will arrive somewhere, without knowing where.</p>
+<p>The hand-worked arithmetic: a developer estimates 10 weeks. Add the 30 percent buffer: 13 weeks. A new-OS project at 10 estimated weeks gets up to 20. A building needing 100 tons of concrete for stability gets specified at up to 800. The multiplier is the price of admitting the estimator cannot see the borderline.</p>
+<p>Figure 5. The buffer rule. AI Podcast Curriculum, ep01 (David Dunning interview, 2014-11-10). Shell 4. Show the new symbol. Source: episode claims, toy arithmetic.</p>
+<table>
+<thead>
+<tr>
+<th>Estimate type</th>
+<th>Raw estimate</th>
+<th>Buffer rule</th>
+<th>Budgeted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Software feature</td>
+<td>10 weeks</td>
+<td>Multiply by 1.3</td>
+<td>13 weeks</td>
+</tr>
+<tr>
+<td>New operating system</td>
+<td>10 weeks</td>
+<td>Multiply by up to 2</td>
+<td>Up to 20 weeks</td>
+</tr>
+<tr>
+<td>Building concrete</td>
+<td>100 tons</td>
+<td>Multiply by up to 8</td>
+<td>Up to 800 tons</td>
+</tr>
+<tr>
+<td>The new symbol</td>
+<td>The buffer is not padding</td>
+<td>It is the cost of the unseen border</td>
+<td>Apply it before you need it</td>
+</tr>
+</tbody>
+</table>
+<h3 id="borrow-other-peoples-eyes">Borrow other people&rsquo;s eyes</h3>
+<p>Dunning&rsquo;s closing counsel: knowing yourself is brutally hard as a private task. It gets easier the moment other people enter. Other minds are sources of insight no introspection can supply, some of it unpleasant. Watch what others do. Benchmark yourself against them. &ldquo;It takes a village,&rdquo; he says, &ldquo;for a person to know themselves.&rdquo;</p>
+<h3 id="the-embarrassment-test">The embarrassment test</h3>
+<p>Dunning&rsquo;s heuristic for self-knowledge growth: ask yourself, &ldquo;Are you vaguely embarrassed by things you did 5 or 10 years ago?&rdquo; If yes, good. You grow. If you look at your past self and see no fool, you stalled. He applies it to his own papers: he is happy, in a second-order way, when he rereads old work and thinks, &ldquo;boy did I do that wrong.&rdquo;</p>
+<h3 id="dunnings-own-practice">Dunning&rsquo;s own practice</h3>
+<p>Asked how he lives differently knowing all this, Dunning says he is much quicker to accept being wrong. If he predicted A and the opposite of A happened, he shifts course. He does not rebel against experience or data the way he did when younger. He still hates making mistakes beforehand. Afterward, he does not beat himself up. He accepts the mistake and extracts the lesson.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain the Dunning-Kruger effect like I am new. What are the moving parts?</div><div class="a"><p>The core claim: incompetent people are not in a position to know they are incompetent. The mechanism is the double curse: the same gaps in knowledge cause mistakes and also prevent you from detecting them, because you judge your work with the same broken knowledge you used to do it. It is not denial or lying to yourself. The judge and the performer are one instrument.</p><div class="followup"><strong>Follow-up:</strong> Why can the incompetent not simply learn how bad they are? Grasping the true level requires the very expertise they lack. Competence is the cure that also reveals the disease, which is why training someone up is the reliable fix.</div></div></div>
+<div class="qa"><div class="q">What is the MacArthur Wheeler story, and why did it launch the research?</div><div class="a"><p>A Pittsburgh man robbed banks in daylight with no disguise, believing lemon juice on his face made him invisible to cameras. He even tested it with a Polaroid, but mis-aimed the camera. Caught within hours, he muttered, &ldquo;But I wore the juice, I wore the juice.&rdquo; Dunning&rsquo;s takeaway: if a person can act on a belief that wrong with total confidence, imagine how many smaller lemon-juice beliefs run everyone&rsquo;s day.</p><div class="followup"><strong>Follow-up:</strong> What is the nuance Dunning grants him? Wheeler did test his theory. The failure was in the test design, not in the willingness to check. Bad tests are their own lemon-juice belief.</div></div></div>
+<div class="qa"><div class="q">Why do the unskilled stay confident? Give the three mechanisms from the episode.</div><div class="a"><p>One, the double curse: the same knowledge produces and judges the performance. Two, the small pond: they have never seen the full range of competence, so they assume they sit near the top. Three, mediocrity enablers: polite people tell them to their face what they would never say behind their back. Each mechanism feeds the same verdict: you are fine.</p><div class="followup"><strong>Follow-up:</strong> Which of the three is cheapest to fix? The pond. Exposure to the real top, watching masters work, is the fastest way to recalibrate. The enablers and the judge take longer.</div></div></div>
+<div class="qa"><div class="q">What is the borderline Dunning describes, and why is the second assertion worse?</div><div class="a"><p>The borderline is the line between what you know and what you do not. Assertion one: it arrives quickly, inside everyday life, not at the frontier of expertise. Assertion two: we do not know where it is. The second is worse because it removes the fix: you cannot be careful at the border if you cannot locate it.</p><div class="followup"><strong>Follow-up:</strong> What does this imply for planning? You cannot plan around specific unknowns you cannot see. You plan with buffers and devil&#x27;s advocates, which protect against unknowns without locating them.</div></div></div>
+<div class="qa"><div class="q">What did the Ehrlinger labeling study show?</div><div class="a"><p>The same verbal-reasoning test, labeled &ldquo;abstract reasoning,&rdquo; drew self-estimates near 8 out of 10. Labeled &ldquo;computer programming,&rdquo; the same test drew estimates near 6 out of 10. A 2-point gap from the label alone. Performance estimates are top-down inferences from your self-view, not bottom-up readings of the experience.</p><div class="followup"><strong>Follow-up:</strong> What did the gender and Critcher follow-ups add? Men and women performed equally on a science quiz but men estimated higher, pointing at perceived talent, not actual talent, as a driver of STEM gaps. And preconceptions reshape the felt experience itself: speed, familiarity, conflict all bend to the self-view.</div></div></div>
+<div class="qa"><div class="q">What are the institution-level fixes, with numbers?</div><div class="a"><p>Devil&rsquo;s advocates on every decision: unpleasant, catches overconfidence. Buffers: inflate software estimates 30 percent, up to 100 percent for new operating systems. Architects multiply required concrete by up to 8. The arithmetic: a 10-week estimate becomes 13 weeks, a new-OS 10 weeks becomes up to 20, 100 tons of concrete becomes up to 800.</p><div class="followup"><strong>Follow-up:</strong> Why pay for buffers instead of better estimates? The misses you must insure against are the ones you cannot anticipate. A buffer covers unknown unknowns. A better estimate only covers known ones.</div></div></div>
+<div class="qa"><div class="q">What is the embarrassment test?</div><div class="a"><p>Ask: &ldquo;Are you vaguely embarrassed by things you did 5 or 10 years ago?&rdquo; If yes, you grow and your self-model updates. If you look back and see only excellence, especially as a maker of things, you are likely moving in the wrong direction.</p><div class="followup"><strong>Follow-up:</strong> How does Dunning himself practice this? Accept wrongness fast. If A was predicted and not-A happened, shift course. Do not rebel against data. Hate mistakes beforehand, but do not beat yourself up afterward. Extract the lesson and move.</div></div></div>
+<div class="qa"><div class="q">What is the applied version of all this for a software engineer?</div><div class="a"><p>Four moves. One, expose yourself to the real top: read code from engineers clearly better than you, monthly. Two, install a devil&rsquo;s advocate in design reviews: one person whose job is to break the proposal. Three, buffer every estimate by 1.3, and 2.0 for novel systems. Four, run the embarrassment test yearly on your own old code and old designs. If nothing embarrasses you, your self-model is stale.</p><div class="followup"><strong>Follow-up:</strong> Why does this episode come first in the track? Every later chapter asks you to debug your own mind. This chapter proves the debugger is broken by default, so you learn the external fixes: other eyes, buffers, disconfirmation, and the village.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The double curse in one line: the same broken tool does the work and grades the work.</li>
+<li>The lemon-juice test: before acting on a clever theory, check the test that tested it. Wheeler tested. His test was broken.</li>
+<li>The pond rule: you cannot know your rank until you see the top. Seek the top monthly.</li>
+<li>Mediocrity enablers: politeness is a conspiracy of mutual flattery. Discount praise that costs the giver nothing.</li>
+<li>The borderline: it is close, and you cannot see it. Buffers, not precision, are the answer.</li>
+<li>Never-confuse pair: denial versus the double curse. Denial means you know and hide it. The double curse means the instrument that would know is the instrument that is broken. Treat them differently: denial needs honesty, the curse needs external eyes.</li>
+<li>Never-confuse pair: confidence versus accuracy. The general needs both, at different times. Confidence is a dial, not a virtue.</li>
+<li>Trap card: &ldquo;If I feel I know myself, I know myself.&rdquo; The episode&rsquo;s finding is the opposite: the feeling of self-knowledge is strongest exactly where the knowledge is thinnest. Distrust the feeling.</li>
+<li>Trap card: &ldquo;Geniuses know they are geniuses.&rdquo; They assume ease for them is ease for all, and the collective underrates them anyway. Do not use &ldquo;unrecognized genius&rdquo; as your excuse.</li>
+<li>Trap card: &ldquo;My estimate of my performance comes from the experience.&rdquo; The Ehrlinger study: the label moved estimates 2 points on a 10-point test. Your self-view writes the score before the test begins.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: pick one skill you claim (code review, system design, estimation). Find the real top: one practitioner, team, or codebase clearly better than you. Spend one hour studying their work. Write down three specific gaps. That is your pond-expansion hour.</li>
+<li>Catch yourself: the next time you estimate a task, write the raw estimate, then apply the buffer before you speak it. Times 1.3 for familiar work, times 2 for novel systems. Say the buffered number out loud. Notice the discomfort. That discomfort is the old self-model protesting.</li>
+<li>Behavior change per major idea:</li>
+<li>Double curse: after every significant decision, write what you decided and why, then schedule a 30-day review. At review, grade with fresh eyes. Log the misses.</li>
+<li>Mediocrity enablers: identify one person who tells you hard truths. Ask them to review your next design. Ask explicitly: &ldquo;What would you say behind my back?&rdquo; Listen without defending.</li>
+<li>Borderline: keep a lemon-juice log. One line per week: a belief you acted on that turned out wrong, and where the border was. Review monthly.</li>
+<li>Confidence dial: before your next high-stakes execution (demo, deploy, interview), deliberately switch to confident mode and note the switch. Before the next plan, switch to doubt mode and list plan B and plan C.</li>
+<li>Embarrassment test: open code you wrote 2 years ago. Read 200 lines. Write down what embarrasses you. If the list is empty, that is the finding.</li>
+<li>Monthly: re-run the pond check. One hour with the top. One buffered estimate audit: compare raw estimates to actuals across the month. Shrink the buffer only with data, never with confidence.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Guided: Wheeler&rsquo;s Polaroid test. He saw only wall and concluded the juice worked. List the two alternative hypotheses his test could not distinguish, and design a 5-minute test that distinguishes all three. (Answer: alternatives are &ldquo;camera mis-aimed&rdquo; and &ldquo;juice failed but photo showed nothing for another reason.&rdquo; Distinguishing test: photograph a newspaper headline with the juice on, then without, same aim. Compare.)</li>
+<li>Arithmetic: you estimate a migration at 6 weeks. It touches a system you have never worked in. What is your buffered estimate under Dunning&rsquo;s rules? What does the 30 percent rule give for a routine 6-week feature? (Answers: novel system, up to times 2, so up to 12 weeks. Routine feature times 1.3, so 7.8 weeks. Now ask: which of your last three estimates survived the buffer?)</li>
+<li>Journal: &ldquo;My small ponds.&rdquo; List three domains where you are the best among people you see daily. For each, name where the real top lives and when you last looked at it. If the answer is &ldquo;never,&rdquo; write the date you will look.</li>
+<li>Argue both sides: &ldquo;Politeness is good. Mediocrity enablers are just being kind.&rdquo; Steelman it. Then argue Dunning&rsquo;s side: the enabler conspiracy is terrific for daily life and dangerous at decision points. Where is the line between kindness and enablement in your team?</li>
+<li>Observe: for three days, tally every piece of praise you receive that cost the giver nothing, and every piece of criticism that cost the giver something. Which pile taught you more? What does that say about your feedback diet?</li>
+<li>Design: build a devil&rsquo;s-advocate protocol for your team&rsquo;s design reviews. One page. Who plays the role, when do they speak, what are they forbidden from doing (no solutions, only breaks), and what happens to their objections. Then run it once and log what it caught.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Name the double curse in a live discussion and point at the broken judge, not the person.</li>
+<li>Apply the buffer rule to any estimate: times 1.3 familiar, times 2 novel, and say the buffered number.</li>
+<li>Run the pond check: find the real top of any skill monthly and measure the gap.</li>
+<li>Discount costless praise and weight costly criticism.</li>
+<li>Run the embarrassment test on your own past work yearly.</li>
+<li>Switch the confidence dial deliberately: doubt mode in planning, confident mode in execution.</li>
+<li>Ask for the behind-the-back version: &ldquo;What would you say about this if I were not here?&rdquo;</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official episode page with audio and transcript links: https://youarenotsosmart.com/2014/11/10/yanss-podcast-036-why-we-are-unaware-that-we-lack-the-skill-to-tell-how-how-unskilled-and-unaware-we-are/</li>
+<li>Dunning&rsquo;s own retrospective on the effect (2011, Advances in Experimental Social Psychology. Manuscript widely mirrored by universities): search &ldquo;Dunning 2011 The Dunning-Kruger Effect On Being Ignorant of One&rsquo;s Own Ignorance&rdquo; [uncertain: the PMC link returned a redirect loop from this machine, so verify the landing page yourself before citing.]</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Same knowledge acts and judges</td>
+<td>Act, then judge with same gaps</td>
+<td>Judge is the defendant</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Skips are never counted</td>
+<td>Counts only attempted questions</td>
+<td>All misses counted</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Border is close and unlocatable</td>
+<td>Border far, felt crossings</td>
+<td>Border near, crossings unfelt</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>The collective misses the top</td>
+<td>Poor spotted, top spotted</td>
+<td>Poor spotted, top missed</td>
+<td>Figure 4</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Buffers price the unseen border</td>
+<td>Raw estimate</td>
+<td>Estimate times 1.3 / 2 / 8</td>
+<td>Figure 5</td>
+<td>table</td>
+<td>episode claims, toy arithmetic</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Whole chapter trade</td>
+<td>Trust the inner judge</td>
+<td>External eyes, buffers, disconfirmation</td>
+<td>Figure 6 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 6 (chapter plate). The cost of self-assessment without external instruments. AI Podcast Curriculum, ep01 (original toy, 2014-11-10). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You act on lemon-juice beliefs, misprice every estimate, and never see the top. The inner judge approves everything.</td>
+<td>Three external instruments: other eyes (devil&rsquo;s advocate, costly critics), the buffer (times 1.3, times 2, times 8), and the disconfirmation habit (kill your pet ideas in tests).</td>
+<td>Buffered estimates land near actuals. Monthly pond checks keep rank honest. The embarrassment test confirms the model updates.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: pay the social cost of naysayers and the money cost of buffers, instead of paying the cliff cost of confident error.
+Footer: the inner judge is the defendant. Outsource the verdict.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://youarenotsosmart.com/2014/11/10/yanss-podcast-036-why-we-are-unaware-that-we-lack-the-skill-to-tell-how-how-unskilled-and-unaware-we-are/" target="_blank" rel="noopener">036 - The Dunning-Kruger Effect</a></li><li><span class="src-tag">TRANSCRIPT</span><a href="https://youarenotsosmart.com/transcripts/transcript-interview-with-david-dunning-from-episode-036/" target="_blank" rel="noopener">Transcript: Interview with David Dunning</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/you-are-not-so-smart/index.html"><span class="lbl">← Previous</span>You Are Not So Smart with David McRaney: Track Index</a><a href="../../tracks/you-are-not-so-smart/ep02.html"><span class="lbl">Next →</span>Episode 2: Naive Realism with Lee Ross</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
