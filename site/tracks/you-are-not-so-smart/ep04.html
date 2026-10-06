@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 4: Arguing with Hugo Mercier — AI Podcast Curriculum</title>
+<meta name="description" content="Reason did not evolve to find the truth alone. It evolved to argue: produce reasons, evaluate others&#x27; reasons, and let truth win in groups. The solo reasoner is">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="you-are-not-so-smart-ep04" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04" class="active">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">You Are Not So Smart with David McRaney</a> / Episode 4: Arguing with Hugo Mercier</nav>
+      <h1>Episode 4: Arguing with Hugo Mercier</h1>
+      <p class="meta-line">2013-09-27 · Instructor: Hugo Mercier · You Are Not So Smart</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Episodes 1 through 3 diagnosed the bugs: broken self-judgment, false objectivity, identity keystones. This episode reframes the machine itself. Reason is not a broken truth-finder. It is a working argumentation device used in the wrong setting. The solo thinker is the off-label use. Put reason back in its native habitat, a group exchanging arguments, and the &ldquo;flaws&rdquo; become features. No other episode gives you the one theory that makes confirmation bias look well-designed.</p>
+<h2 id="the-theory-in-one-paragraph">The theory in one paragraph</h2>
+<p>In 2011, Hugo Mercier and Dan Sperber published &ldquo;Why do humans reason? Arguments for an argumentative theory.&rdquo; The claim: humans evolved reason to do two things, produce arguments and evaluate arguments. The purpose of arguing is to overcome what Sperber calls trust bottlenecks. Someone tells you something and you do not take it on trust. Argumentation lets them convince you without force, and lets a couple decide which movie to watch without a shouting match.</p>
+<p>First, the semantic cleanup. English gives &ldquo;arguing&rdquo; two meanings: the nasty shouting fight, and the exchange of reasons. The theory is only about the second. Nobody prescribes shouting.</p>
+<h2 id="why-solo-reasoning-fails">Why solo reasoning fails</h2>
+<h3 id="the-confirmation-bias-is-the-default">The confirmation bias is the default</h3>
+<p>Definition: confirmation bias is the tendency, when reasoning alone, to find mostly arguments for the belief or decision you already hold.</p>
+<p>Mercier&rsquo;s mechanism: alone, you have no sounding board. Nobody tells you other views exist, your arguments are weak, or counterarguments stand ready. So you collect reasons for your side and stop. The result is not neutral. You grow more polarized and more confident. Solo reasoning leaves beliefs unchanged or makes them worse.</p>
+<p>The conventional view says the lone reasoner should do all the work: think carefully before deciding, and you will decide well. Mercier: that recommendation &ldquo;goes against the grain.&rdquo; Carefully examining your own beliefs for flaws is not what the machinery was built to do.</p>
+<h3 id="truth-wins-in-groups">Truth wins in groups</h3>
+<p>The same machinery, placed in a group, reverses the verdict. When two people argue about a math problem, a logic problem, or a factual question, the one who is right is more likely to convince the other than the reverse. At the end, at least one of them holds better beliefs than at the start. Often both do, because each was right about something and the group merges the wins.</p>
+<p>Mercier&rsquo;s stability argument: if nobody ever changed their mind, argumentation would die out. &ldquo;If everybody was deaf, people would stop talking.&rdquo; The fact that we still argue means arguments sometimes work, which means minds sometimes change.</p>
+<p>Figure 1. The two settings. AI Podcast Curriculum, ep04 (Hugo Mercier interview, 2013-09-27). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What reason does</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solo</td>
+<td>Generates reasons for the existing belief</td>
+<td>Same belief, more confidence</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>One side produces, the other evaluates</td>
+<td>Truth wins. Both can improve</td>
+</tr>
+<tr>
+<td>The toy</td>
+<td>1 mind, 2 jobs</td>
+<td>2 minds, 1 job each</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-half-the-newspapers-dropped">The half the newspapers dropped</h2>
+<h3 id="winning-is-only-half">Winning is only half</h3>
+<p>When the New York Times covered the theory, the headline version was sensational: reasoning evolved to win arguments. Mercier: that is half the claim. The other half is evaluation. You cannot win an argument unless someone can lose one, and losing often means gaining a better belief. If you were wrong and the other person was right, losing is the good outcome. Production without evaluation is noise. Evaluation without production is silence. The two only make sense together.</p>
+<h3 id="bias-is-not-always-a-flaw">Bias is not always a flaw</h3>
+<p>Mercier resists calling the production side &ldquo;flawed.&rdquo; A bias is not automatically a defect. His example: a mechanism for avoiding poisonous mushrooms should be biased toward calling the mushroom poisonous. Better to skip a fine mushroom than to eat a lethal one. Confirmation bias, shallow arguments, satisficing: these look terrible in a lone truth-seeker and optimal in an arguer. In a live exchange you do not need the perfect argument up front. Offer a weak one. If it lands, done. If not, the other person supplies the counterargument, and you answer that. Anticipating every objection yourself would be, in his words, &ldquo;extremely uneconomical and kind of painful.&rdquo;</p>
+<p>His restaurant example: you want to convince a friend to try a Japanese restaurant. Their possible objections are many: they dislike Japanese food, it is too expensive, they ate Japanese two days ago. You cannot enumerate them all. So you say &ldquo;it is a good restaurant,&rdquo; they say &ldquo;I do not like Japanese food,&rdquo; and you say &ldquo;they serve Thai too.&rdquo; The division of cognitive labor does the work neither mind could do alone.</p>
+<p>Figure 2. The division of cognitive labor. AI Podcast Curriculum, ep04 (Hugo Mercier interview, 2013-09-27). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Solo attempt</th>
+<th>Group attempt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anticipate objections</td>
+<td>List all 3 (expensive, slow)</td>
+<td>Offer 1 weak reason</td>
+</tr>
+<tr>
+<td>Find the flaws</td>
+<td>Search your own argument (unnatural)</td>
+<td>Let them find the flaws (natural)</td>
+</tr>
+<tr>
+<td>Adjust</td>
+<td>Guess</td>
+<td>Answer the actual objection</td>
+</tr>
+<tr>
+<td>The one rule</td>
+<td>&ldquo;Rather than looking for flaws in our own arguments, it is easier to let the other person find them, and then only then adjust our arguments if necessary.&rdquo;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="reason-optimizes-for-justifiability-not-quality">Reason optimizes for justifiability, not quality</h2>
+<h3 id="the-chocolate-study">The chocolate study</h3>
+<p>When people face a decision with no strong prior intuition, confirmation bias has nothing to confirm. You might expect reason to then do objective weighing. It does not. It picks the most easily justifiable option, which is often not the best one.</p>
+<p>The study by Christopher Hsee and colleagues: participants earn a choice between two chocolates as a gift. One is small, cheap, and heart-shaped. The other is bigger, more expensive, and shaped like a cockroach. Asked which they would enjoy more, most say the heart. Asked which they pick, most pick the roach. Why? &ldquo;It is rational to pick the biggest, most expensive thing&rdquo; is an available justification. &ldquo;I do not want to eat something shaped like a roach&rdquo; is true but hard to defend. So they choose the chocolate they expect to enjoy less, because it is easier to justify. Given what psychology knows about disgust, the roach chocolate will sit uneaten.</p>
+<h3 id="the-disjunction-effect">The disjunction effect</h3>
+<p>Definition: the disjunction effect is the finding that people choose differently when they know which outcome occurred than when the outcome is unknown, even when they would choose the same way under each known outcome.</p>
+<p>The coin-flip version: flip a coin. Heads, you win $200. Tails, you lose $100. Then you are offered a second flip. Winners usually say yes: they are on a streak and can spare $100. Losers usually say yes: the odds favor making the loss back. But when the first flip&rsquo;s outcome is hidden, most people decline the second flip.</p>
+<p>The hand-worked arithmetic: the second flip pays $200 with probability one half and loses $100 with probability one half. Expected value is (0.5 times 200) minus (0.5 times 100), which is 100 minus 50, or plus $50. Every second flip, win or lose, has positive expected value of $50. Refusing it when the outcome is unknown forfeits $50 of expected value. The machinery does not see the arithmetic. It sees that the two reasons for flipping, the winner&rsquo;s reason and the loser&rsquo;s reason, point in different directions and cannot merge into one good reason. No single justifiable reason, no flip.</p>
+<p>The Hawaii version, from the same literature: students may buy a heavily discounted Hawaii trip after an exam. Told they passed, they buy: a reward for hard work. Told they failed, they buy: consolation after failure. Told nothing, they do not buy. The pass reason and the fail reason are opposites. Without one clean justification, the purchase dies.</p>
+<p>Figure 3. The disjunction effect. AI Podcast Curriculum, ep04 (Hugo Mercier interview, 2013-09-27). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Knowledge state</th>
+<th>Reason available</th>
+<th>Choice</th>
+<th>Expected value left on the table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Know: won $200</td>
+<td>Streak, can spare it</td>
+<td>Flip again</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Know: lost $100</td>
+<td>Odds favor recovery</td>
+<td>Flip again</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>No single clean reason</td>
+<td>Decline</td>
+<td>$50</td>
+</tr>
+<tr>
+<td>The count</td>
+<td>2 known states, 1 flip each</td>
+<td>1 unknown state, 0 flips</td>
+<td>Reason needs a story. Arithmetic does not</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sunk-cost-reframed">Sunk cost, reframed</h3>
+<p>The traditional telling: people keep investing in a failing project to justify past investment, a pure error. Mercier&rsquo;s reframing: the driver is the pressure to justify. People find it hard to justify waste, so they keep spending rather than admit the earlier spending was wasted. Evidence: children, who feel less pressure to justify everything, are much less susceptible to the fallacy. And when people get a valid justification for quitting, they quit.</p>
+<p>The twist for education: economics students taught about the sunk-cost fallacy get these problems right more often, not because they reason better in general, but because the lesson gave them a ready justification pointing the right way. The available justifications decide the outcome. Mercier&rsquo;s summary: &ldquo;to reason well, it is much more important to be in the right context, than to be a good reasoner.&rdquo;</p>
+<h2 id="the-bat-and-the-ball">The bat and the ball</h2>
+<h3 id="ten-cents-is-wrong">Ten cents is wrong</h3>
+<p>The demonstration Mercier uses instead of the Wason selection task, because the arithmetic is checkable: a bat and a ball cost $1.10 together. The bat costs $1.00 more than the ball. How much does the ball cost?</p>
+<p>The immediate intuition says 10 cents. Check it: if the ball is 10 cents, the bat is $1.10, and the total is $1.20, not $1.10. Wrong. The correct answer: the ball costs 5 cents, the bat $1.05, total $1.10. Solo, most people answer 10 cents, then reason their way into defending it: a dollar here, $1.10 there, it all seems to fit. Reason finds reasons for the wrong intuition.</p>
+<h3 id="argument-forces-the-five-cents">Argument forces the five cents</h3>
+<p>Put people in a group and two things can happen. If everyone got it wrong, nothing happens. No disagreement, no argument. But if one person got it right, that person can always convince the rest. Mercier has run this many times: with one exception, a person not mathematically literate enough to follow, everyone converts, sometimes after 5 to 10 minutes of argument.</p>
+<p>The critical detail: telling does not work. Saying &ldquo;the answer is 5 cents,&rdquo; or offering &ldquo;it is either 5 or 10,&rdquo; changes nothing. People must be argued into it. The arguer&rsquo;s production and the group&rsquo;s evaluation do jointly what neither does alone. This is the theory in miniature.</p>
+<p>Figure 4. The bat and the ball. AI Podcast Curriculum, ep04 (Hugo Mercier interview, 2013-09-27). Shell 4. Show the new symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>State</th>
+<th>Arithmetic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intuition</td>
+<td>10 cents</td>
+<td>0.10 plus 1.10 equals 1.20, too much</td>
+</tr>
+<tr>
+<td>Solo reasoning</td>
+<td>Defends 10 cents</td>
+<td>Finds reasons for the wrong answer</td>
+</tr>
+<tr>
+<td>Group argument</td>
+<td>One correct voice, 5 to 10 minutes</td>
+<td>0.05 plus 1.05 equals 1.10, exact</td>
+</tr>
+<tr>
+<td>The new symbol</td>
+<td>Telling fails. Arguing converts</td>
+<td>Production plus evaluation beats either alone</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-hopeful-history">The hopeful history</h2>
+<p>Mercier closes with the abolition of the slave trade in Britain. The moral story often told is emotions and conformity: minds changed, then crowds followed, reasons unclear. Mercier&rsquo;s reading: arguments played a critical role. In the late 18th century, slavery was fully allowed in Britain. Members of Parliament were genuinely convinced, by argument, that it was wrong and not even economically best. Decades later it was fully outlawed. Slow to the people living it. Fast against the scale of the change.</p>
+<p>His internet optimism follows the same logic. Critics see YouTube comments and despair. Mercier sees the printing press: when it arrived, critics warned that astrology and superstition would flood the world and the bad would outrun the good. In retrospect the panic looks ridiculous. The internet, unlike print, enables argument at scale: replies, counters, threads. If the theory is right, more argumentation means more truth winning, slowly, the way it did with abolition.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain the argumentative theory like I am new. What is the claim?</div><div class="a"><p>Reason did not evolve to make lone thinkers accurate. It evolved for argumentation: producing arguments to convince others and evaluating arguments others produce. Its purpose is to overcome trust bottlenecks, letting people coordinate without force. Confirmation bias and shallow reasoning look like design flaws only if you assume reason is a solo truth device.</p><div class="followup"><strong>Follow-up:</strong> What is the stability proof? If arguments never changed minds, arguing would die out, the way speech would die if everyone were deaf. We still argue, so minds still change, so the device works often enough to survive.</div></div></div>
+<div class="qa"><div class="q">What is the difference between the two meanings of &quot;arguing,&quot; and why does it matter?</div><div class="a"><p>Meaning one is the nasty shouting fight. Meaning two is the exchange of reasons. The theory is only about meaning two. Confusing them makes the theory sound like an endorsement of fighting, when it is a claim about the division of cognitive labor.</p><div class="followup"><strong>Follow-up:</strong> What did the New York Times get half-right? &quot;Reasoning evolved to win arguments&quot; is half the claim. The missing half is evaluation: someone must be able to lose, and losing with a better belief at the end is the good outcome.</div></div></div>
+<div class="qa"><div class="q">Why does solo reasoning make beliefs worse instead of better?</div><div class="a"><p>Alone, you have no sounding board. You generate reasons for what you already believe, find no counterarguments, and stop. Confidence rises while accuracy does not. The conventional advice, think carefully alone before deciding, goes against the grain of the machinery.</p><div class="followup"><strong>Follow-up:</strong> What is the group reversal? In a group, the person who is right tends to convince the person who is wrong. Both can leave with better beliefs than they brought, because each side may hold the right answer on different parts.</div></div></div>
+<div class="qa"><div class="q">Walk me through the bat-and-ball numbers. Why does telling fail but arguing work?</div><div class="a"><p>Total $1.10, bat costs $1.00 more than ball. Intuition: 10 cents. Check: 0.10 plus 1.10 is 1.20, wrong. Correct: 5 cents, since 0.05 plus 1.05 is exactly 1.10. Telling someone &ldquo;5 cents&rdquo; does not convert them. Five to ten minutes of argument does. The arguer must produce the steps and the listener must evaluate them. The joint process is the mechanism, and neither half works alone.</p><div class="followup"><strong>Follow-up:</strong> Why does this matter for teaching? Lecturing the answer counts as telling. It fails the way telling fails. You need the student&#x27;s production and your evaluation, or the reverse, in live exchange.</div></div></div>
+<div class="qa"><div class="q">What is the disjunction effect, in numbers?</div><div class="a"><p>A second coin flip pays $200 half the time and loses $100 half the time: expected value plus $50. Winners take it, losers take it, but people who do not know the first outcome refuse it, forfeiting $50 of expected value. The winner&rsquo;s reason and the loser&rsquo;s reason cannot merge into one justifiable story, so with no clean reason, the machinery declines.</p><div class="followup"><strong>Follow-up:</strong> What is the Hawaii version? Pass the exam and buy the trip as a reward. Fail and buy it as consolation. Hear nothing and buy nothing. Same structure: two opposite reasons, no single justification, no purchase.</div></div></div>
+<div class="qa"><div class="q">What is Mercier&#x27;s reframing of the sunk-cost fallacy?</div><div class="a"><p>The driver is not stupidity but the pressure to justify. Quitting means admitting past spending was waste, which is hard to justify, so people keep spending. Children feel less justification pressure and fall for it less. Give people a valid justification for quitting and they quit. Economics students taught the fallacy carry the right justification ready-made.</p><div class="followup"><strong>Follow-up:</strong> What is the general lesson? Outcomes follow the available justifications, not raw reasoning talent. Change the justifications in the room and the decisions change.</div></div></div>
+<div class="qa"><div class="q">What does &quot;context beats talent&quot; mean here?</div><div class="a"><p>&ldquo;To reason well, it is much more important to be in the right context, than to be a good reasoner.&rdquo; A genius reasoning alone about a hard problem does worse than an ordinary person arguing in a good group. The setting decides. The talent is secondary.</p><div class="followup"><strong>Follow-up:</strong> Apply it to a design review. Do not assemble the smartest solo reasoners and ask each for a verdict. Assemble disagreeing people and make them argue. Staff the evaluation side, not just the production side.</div></div></div>
+<div class="qa"><div class="q">What is the hopeful historical case, and what does it prove?</div><div class="a"><p>The abolition of the slave trade in Britain: fully legal in the late 18th century, fully outlawed decades later, with arguments doing critical work on Parliament along the way. It proves large moral reversals can come from sustained argumentation, slowly. The internet optimism is the same bet at scale: print survived its astrology panic, and the net adds two-way argument to print&rsquo;s one-way broadcast.</p><div class="followup"><strong>Follow-up:</strong> What is the honest limit? Mercier admits moral cases are tricky: argument leads to outcomes better for the arguers, not necessarily morally best for everyone. The mechanism is real. The direction is not guaranteed.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The theory in one line: reason is a lawyer and a judge, not a scientist. Solo, you only get the lawyer.</li>
+<li>Trust bottlenecks: arguing exists so we can coordinate without force. That is the job.</li>
+<li>The half-quote: &ldquo;winning arguments&rdquo; without evaluation is noise. Losing well is the good outcome.</li>
+<li>The division of labor: let them find your flaws. Answer real objections, not imagined ones.</li>
+<li>Justifiability: reason picks what is easiest to defend, not what is best. The roach chocolate proves it.</li>
+<li>The $50 flip: unknown outcome, refused flip, $50 of expected value burned for lack of a story.</li>
+<li>Never-confuse pair: producing versus evaluating. You are biased and shallow at producing. You are good at evaluating. Staff your life accordingly: produce in groups, never grade your own draft alone.</li>
+<li>Never-confuse pair: justification versus quality. &ldquo;I can defend it&rdquo; and &ldquo;it is best&rdquo; are different claims. The chocolate study separates them with a price tag.</li>
+<li>Trap card: &ldquo;Think harder alone before deciding.&rdquo; The episode&rsquo;s answer: harder solo thinking finds more reasons for the same belief. Think harder together instead.</li>
+<li>Trap card: &ldquo;Telling people the answer teaches them.&rdquo; The bat-and-ball result: telling fails, arguing converts. If they cannot argue it, they do not have it.</li>
+<li>Trap card: &ldquo;Bias is always a defect.&rdquo; The mushroom rule: a bias toward calling it poisonous is the correct design. Ask what the bias is for before you condemn it.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: take one decision you keep turning over alone. Do not decide alone. Find one person who disagrees or might, give them your weakest reason first, and let them find the flaws. Log what they catch that you missed.</li>
+<li>Catch yourself: the next time you feel your confidence rising while thinking alone, stop and label it: &ldquo;lawyer mode, no judge present.&rdquo; Write the belief, then write the strongest objection you can imagine. If you cannot imagine one, you proved the point.</li>
+<li>Behavior change per major idea:</li>
+<li>Solo versus group: move one recurring solo decision (weekly planning, a design call) into a structured argument with a disagreeing partner.</li>
+<li>Production versus evaluation: for your next proposal, split the roles explicitly. You produce. A named skeptic evaluates. No one grades their own draft.</li>
+<li>Justifiability: before your next purchase or technical choice, ask the chocolate question: &ldquo;Am I picking this because it is best, or because it is easiest to defend?&rdquo; Write both answers.</li>
+<li>Disjunction: when a decision stalls for lack of a clean reason, compute the expected value directly. If the arithmetic says go and the story says wait, trust the arithmetic and note the effect&rsquo;s grip.</li>
+<li>Sunk cost: for one live project, write the valid justification for quitting on one page. If it is valid, quit. If you cannot write it, name what you defend.</li>
+<li>Monthly: audit one decision for the justifiability gap. Find a choice you defended well but would not remake. Trace which available justification drove it.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Guided: compute the expected value of the second coin flip from the episode, then compute the expected value of refusing it. State the forfeiture in dollars. Then explain in two sentences why a creature built for argumentation would refuse positive expected value. (Answer: plus $50 to flip, $0 to refuse, forfeiture $50. The machinery needs one justifiable story. The winner&rsquo;s story and the loser&rsquo;s story do not merge, so with the outcome unknown there is no story and no flip.)</li>
+<li>Fermi: Mercier says one correct voice converts a group in 5 to 10 minutes. Suppose a 6-person team debates 10 contested decisions a month, and structured argument converts 8 of them versus 3 by solo verdicts. How many bad decisions does the group setting prevent per year? (Answer: 5 extra conversions monthly times 12 is 60. Now ask: what breaks the estimate? The conversion rate, the contest rate, and whether the &ldquo;correct&rdquo; voice is actually correct.)</li>
+<li>Journal: &ldquo;My lawyer without a judge.&rdquo; List three beliefs you hold confidently that you have never argued against a live opponent. For each, write the opening line you would use if you had to convince a skeptic. Notice how the lines sound like a lawyer&rsquo;s.</li>
+<li>Argue both sides: &ldquo;Confirmation bias is a design flaw&rdquo; versus &ldquo;confirmation bias is optimal for an arguer.&rdquo; Use the mushroom example for the second side and the solo-polarization result for the first. Which side wins for a scientist working alone? For a parliament?</li>
+<li>Observe: for one week, in every meeting, mark each utterance as production (offering a reason) or evaluation (testing one). Tally the ratio. What does your team&rsquo;s ratio say about whether truth can win there?</li>
+<li>Design: build a &ldquo;truth-wins&rdquo; protocol for your team&rsquo;s hardest recurring decision. Specify the disagreement requirement (at least one dissenter), the production rule (weakest reason first), the evaluation rule (flaws before solutions), and the stop rule (what counts as convinced). Run it once and log the conversion.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Split any hard decision into production and evaluation roles across people.</li>
+<li>Lead with your weakest reason and let the other side find the flaws.</li>
+<li>Spot justifiability masquerading as quality (the chocolate test).</li>
+<li>Compute expected value when the story stalls (the $50 flip).</li>
+<li>Write the valid justification for quitting a sunk project, then act on it.</li>
+<li>Replace solo deliberation with structured disagreement for consequential calls.</li>
+<li>Distinguish telling from arguing, and stop expecting telling to convert.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official episode page with audio and transcript links: https://youarenotsosmart.com/2013/09/30/yanss-podcast-episode-nine/</li>
+<li>Mercier and Sperber&rsquo;s 2011 paper &ldquo;Why do humans reason? Arguments for an argumentative theory&rdquo; (Behavioral and Brain Sciences) is the episode&rsquo;s source. Search the exact title for the freely mirrored PDF [uncertain: the author&rsquo;s hosted PDF URL was not verifiable from this machine. Confirm the landing page before citing.]</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Solo versus group settings</td>
+<td>1 mind, 2 jobs</td>
+<td>2 minds, 1 job each</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Let them find the flaws</td>
+<td>Anticipate everything</td>
+<td>Offer weak, answer real</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Unknown outcome kills the flip</td>
+<td>Known: flip</td>
+<td>Unknown: decline, minus $50 EV</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Argument converts. Telling does not</td>
+<td>10-cent intuition defended</td>
+<td>5-cent answer argued into</td>
+<td>Figure 4</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Whole chapter trade</td>
+<td>Think alone, harder</td>
+<td>Argue together, structured</td>
+<td>Figure 5 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 (chapter plate). The cost of solo reasoning. AI Podcast Curriculum, ep04 (original toy, 2013-09-27). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harder solo thought finds more reasons for the same belief. Roach chocolates get picked. Plus-$50 flips get declined. Told answers do not stick.</td>
+<td>Three instruments: split production from evaluation across people, lead with the weakest reason, compute expected value when the story stalls.</td>
+<td>Truth wins in groups. Decisions track justifications you can audit. The lawyer gets a judge.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: pay the social cost of disagreement and the time cost of argument, instead of the hidden cost of confident solo error.
+Footer: reason is a team sport. Stop playing it alone.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://youarenotsosmart.com/2013/09/30/yanss-podcast-episode-nine/" target="_blank" rel="noopener">009 - Arguing</a></li><li><span class="src-tag">TRANSCRIPT</span><a href="https://youarenotsosmart.com/transcripts/009-transcript-interview-with-hugo-mercier/" target="_blank" rel="noopener">Transcript: Interview with Hugo Mercier</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/you-are-not-so-smart/ep03.html"><span class="lbl">← Previous</span>Episode 3: Belief with Will Storr</a><a href="../../tracks/you-are-not-so-smart/ep05.html"><span class="lbl">Next →</span>Episode 5: Bayes&#x27; Theorem with Julia Galef</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
