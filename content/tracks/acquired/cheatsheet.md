@@ -34,7 +34,7 @@ offering: "Acquired"
 - China: 25% of revenue; Sept 2022 export controls → A800 detuned variants.
 - Employees 26,000 (vs Microsoft 220,000); CapEx ~$1B/yr (vs TSMC $30B).
 - Bear cases: margin prize invites attack; training→inference shift. Bull: replication needs a decade.
-- Jensen: "my will to survive exceeds almost everybody else's will to kill me"; 40+ direct reports, no 1:1s; "the mission is the boss"; dislikes the word "vision."
+- Jensen: "my will to survive exceeds almost everybody else's will to kill me"; 40+ direct reports; "the mission is the boss"; dislikes the word "vision."
 - Fermi anchor: 1,000-GPU cluster = 125 DGX × $500K = $62.5M, ~1.7 MW with overhead.
 
 ## TSMC (ep02)
