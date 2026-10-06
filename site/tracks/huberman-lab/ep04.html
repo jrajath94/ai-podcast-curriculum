@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 4: How Risk Taking, Innovation &amp; Artificial Intelligence Transform Human Experience | Marc Andreessen — AI Podcast Curriculum</title>
+<meta name="description" content="Andreessen on the 1943 neural network fork, why bigger datasets made AI work, the precautionary principle&#x27;s war on nuclear power, and AI as the countermeasure t">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="huberman-lab-ep04" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Modern Wisdom - Chris Williamson</h3><ul>
+<li><a href="../../tracks/modern-wisdom/ep01.html" data-page="modern-wisdom-ep01">Ep 1 · AI That Fights Back</a></li>
+<li><a href="../../tracks/modern-wisdom/ep02.html" data-page="modern-wisdom-ep02">Ep 2 · Bunkers for a Reason</a></li>
+<li><a href="../../tracks/modern-wisdom/ep03.html" data-page="modern-wisdom-ep03">Ep 3 · AI Girlfriends</a></li>
+<li><a href="../../tracks/modern-wisdom/ep04.html" data-page="modern-wisdom-ep04">Ep 4 · The AI Debate</a></li>
+<li><a href="../../tracks/modern-wisdom/ep05.html" data-page="modern-wisdom-ep05">Ep 5 · AI vs Music</a></li>
+<li><a href="../../tracks/modern-wisdom/ep06.html" data-page="modern-wisdom-ep06">Ep 6 · The Gemini Disaster</a></li>
+<li><a href="../../tracks/modern-wisdom/ep07.html" data-page="modern-wisdom-ep07">Ep 7 · Yudkowsky</a></li>
+<li><a href="../../tracks/modern-wisdom/ep08.html" data-page="modern-wisdom-ep08">Ep 8 · OnlyFans vs AI</a></li>
+<li><a href="../../tracks/modern-wisdom/ep09.html" data-page="modern-wisdom-ep09">Ep 9 · AI Bands</a></li>
+<li><a href="../../tracks/modern-wisdom/ep10.html" data-page="modern-wisdom-ep10">Ep 10 · Art, Jobs, Everything</a></li>
+</ul>
+<h3>Huberman Lab</h3><ul>
+<li><a href="../../tracks/huberman-lab/index.html" data-page="huberman-lab-index">Huberman Lab · Index</a></li>
+<li><a href="../../tracks/huberman-lab/ep01.html" data-page="huberman-lab-ep01">Ep 1 · Lex Fridman: Machines, Creativity &amp; Love</a></li>
+<li><a href="../../tracks/huberman-lab/ep02.html" data-page="huberman-lab-ep02">Ep 2 · Lex Fridman: Conflict, Purpose &amp; Drive</a></li>
+<li><a href="../../tracks/huberman-lab/ep03.html" data-page="huberman-lab-ep03">Ep 3 · Terry Sejnowski: Learning, Sleep &amp; AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep04.html" data-page="huberman-lab-ep04" class="active">Ep 4 · Marc Andreessen: Risk, Innovation &amp; AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep05.html" data-page="huberman-lab-ep05">Ep 5 · Zuckerberg &amp; Chan: Curing Disease with AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep06.html" data-page="huberman-lab-ep06">Ep 6 · Neuralink: Enhancing Human Brains</a></li>
+<li><a href="../../tracks/huberman-lab/ep07.html" data-page="huberman-lab-ep07">Ep 7 · Fei-Fei Li: AI That Enriches Humanity</a></li>
+<li><a href="../../tracks/huberman-lab/ep08.html" data-page="huberman-lab-ep08">Ep 8 · Essentials: Machines, Creativity &amp; Love</a></li>
+<li><a href="../../tracks/huberman-lab/cheatsheet.html" data-page="huberman-lab-cheatsheet">Huberman Lab · Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Deep Questions with Cal Newport</h3><ul>
+<li><a href="../../tracks/deep-questions/index.html" data-page="deep-questions-index">Track index</a></li>
+<li><a href="../../tracks/deep-questions/ep01.html" data-page="deep-questions-ep01">Ep 1 · Perks of No Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep02.html" data-page="deep-questions-ep02">Ep 2 · Cal&#x27;s Planning System</a></li>
+<li><a href="../../tracks/deep-questions/ep03.html" data-page="deep-questions-ep03">Ep 3 · Core Idea: Deep Work</a></li>
+<li><a href="../../tracks/deep-questions/ep04.html" data-page="deep-questions-ep04">Ep 4 · Digital Minimalism</a></li>
+<li><a href="../../tracks/deep-questions/ep05.html" data-page="deep-questions-ep05">Ep 5 · Core Idea: Slow Productivity</a></li>
+<li><a href="../../tracks/deep-questions/ep06.html" data-page="deep-questions-ep06">Ep 6 · The Slope of Terribleness</a></li>
+<li><a href="../../tracks/deep-questions/ep07.html" data-page="deep-questions-ep07">Ep 7 · Learning vs. Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep08.html" data-page="deep-questions-ep08">Ep 8 · The 5-Step Productivity System</a></li>
+<li><a href="../../tracks/deep-questions/cheatsheet.html" data-page="deep-questions-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Charisma</h3><ul>
+<li><a href="../../tracks/charisma/index.html" data-page="charisma-index">Track index</a></li>
+<li><a href="../../tracks/charisma/ep01.html" data-page="charisma-ep01">Ep 1 · Vanessa Van Edwards</a></li>
+<li><a href="../../tracks/charisma/ep02.html" data-page="charisma-ep02">Ep 2 · Chris Voss</a></li>
+<li><a href="../../tracks/charisma/ep03.html" data-page="charisma-ep03">Ep 3 · Vanessa Van Edwards</a></li>
+<li><a href="../../tracks/charisma/ep04.html" data-page="charisma-ep04">Ep 4 · Charlie Houpert</a></li>
+<li><a href="../../tracks/charisma/ep05.html" data-page="charisma-ep05">Ep 5 · Huberman on Bonding</a></li>
+<li><a href="../../tracks/charisma/ep06.html" data-page="charisma-ep06">Ep 6 · Kay Tye</a></li>
+<li><a href="../../tracks/charisma/ep07.html" data-page="charisma-ep07">Ep 7 · Robert Cialdini</a></li>
+<li><a href="../../tracks/charisma/ep08.html" data-page="charisma-ep08">Ep 8 · Robert Greene</a></li>
+<li><a href="../../tracks/charisma/ep09.html" data-page="charisma-ep09">Ep 9 · Charles Duhigg</a></li>
+<li><a href="../../tracks/charisma/ep10.html" data-page="charisma-ep10">Ep 10 · Matthew Dicks</a></li>
+<li><a href="../../tracks/charisma/cheatsheet.html" data-page="charisma-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Huberman Lab</a> / Episode 4: How Risk Taking, Innovation &amp; Artificial Intelligence Transform Human Experience | Marc Andreessen</nav>
+      <h1>Episode 4: How Risk Taking, Innovation &amp; Artificial Intelligence Transform Human Experience | Marc Andreessen</h1>
+      <p class="meta-line">2023-09-04 · Instructor: Marc Andreessen · Huberman Lab</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="yixIc1Ai6jM"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/yixIc1Ai6jM" title="How Risk Taking, Innovation &amp; Artificial Intelligence Transform Human Experience | Marc Andreessen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=yixIc1Ai6jM" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=yixIc1Ai6jM" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Andreessen traces computing's fork between brain models and calculating machines, explains the three reasons AI started working, attacks the precautionary principle via nuclear power, and argues every AI risk has an AI countermeasure.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>No other episode in this track gives you the history of why AI exists in its current form. Andreessen tells the story as a fork in the road in the 1930s and 1940s. Computers could follow the brain model, and they did not. Then he explains the three reasons AI suddenly started working, using face recognition and ChatGPT as worked examples. The second half is a case study in how a society can talk itself out of a technology, told through nuclear power, and the lesson transfers directly to AI policy. If you internalize one idea, make it this one: data scale, not algorithmic genius, is what woke AI up.</p>
+<h2 id="the-fork-brains-vs-calculating-machines">The fork: brains vs calculating machines</h2>
+<h3 id="the-1943-debate">The 1943 debate</h3>
+<p>When the computer was invented in the 1930s and 1940s, people like Alan Turing and John von Neumann debated its fundamental architecture. Two options:</p>
+<ul>
+<li>Option A: model the computer on the calculating machine, the cash register, the punched-card loom. A device that executes exact instructions.</li>
+<li>Option B: model the computer on the human brain. Neurons interconnecting, synapses, information processing the way biology does it. This is the neural network concept.</li>
+</ul>
+<p>The original paper on neural networks was published in 1943. The researchers knew about the neuron and had a theory of interconnection and synapses, without modern neuroscience.</p>
+<p>The industry chose Option A. Andreessen&rsquo;s explanation: the calculating-machine model was the technology that was practical at the time. Everything we use, up to and including the iPhone, descends from the calculating-machine fork, not the brain fork.</p>
+<p>Figure 1. The fork. AI Podcast Curriculum, huberman-lab ep04 (Marc Andreessen, 2023-09-04). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<pre><code>1930s-1940s: two architectures proposed
+        |
+        +---- Option A: calculating machine (cash register, loom)
+        |         chosen: practical at the time
+        |         result: iPhone, all modern computers
+        |
+        +---- Option B: brain model (neurons, synapses, 1943 paper)
+                  not chosen: ahead of its time
+                  result: waited ~80 years, now the AI boom
+
+RULE: practicality picks the architecture. The idea waits for its hardware.
+</code></pre>
+<p>Caption: AI Podcast Curriculum. Shell 3. Apply the one rule. Source: episode (Huberman Lab, Marc Andreessen, 2023-09-04).</p>
+<h3 id="computers-as-hyper-literal-savants">Computers as hyper-literal savants</h3>
+<p>Because of the fork, Andreessen says, computers as we know them are mathematical savants at best. They do lots of calculations. They execute extremely detailed programs. They are hyper-literal.</p>
+<p>The programmer&rsquo;s rule he states: you must get every instruction correct, because the computer does exactly what you tell it. Bugs are always the programmer&rsquo;s fault. The computer has no judgment, no interpretation, no independent understanding. It does what you tell it step by step.</p>
+<p>This is the baseline the AI boom breaks. Neural networks are the return of Option B: machines that interpret rather than merely execute.</p>
+<p>Hand-worked numbers: 1943 to 2023 is 80 years. The brain-model fork waited roughly eight decades. The episode does not state this arithmetic. The arithmetic is the chapter&rsquo;s, from the episode&rsquo;s dates.</p>
+<h2 id="why-ai-started-working-the-three-reasons">Why AI started working: the three reasons</h2>
+<h3 id="reason-1-larger-datasets">Reason 1: larger datasets</h3>
+<p>Andreessen names three reasons AI started working, and the first is data scale. His worked example is face recognition.</p>
+<ul>
+<li>Ten or twenty years ago: facial recognition systems trained on thousands or tens of thousands of photos.</li>
+<li>Now: trained on billions and billions of photos, all photos of people on the internet.</li>
+</ul>
+<p>Machines are now better than humans at recognizing faces and objects because the training data grew by roughly five to six orders of magnitude. Worked arithmetic: billions divided by thousands is millions. 1,000,000,000 divided by 10,000 equals 100,000. The dataset grew about 100,000-fold. The episode gives the endpoints. The arithmetic is the chapter&rsquo;s.</p>
+<p>The ChatGPT version of the same reason: ChatGPT works because it trained on the entire internet of text. That corpus did not exist until the internet itself existed, which is new in roughly the last decade. The training data is a historical accident of timing.</p>
+<p>Figure 2. The dataset jump. AI Podcast Curriculum, huberman-lab ep04 (Marc Andreessen, 2023-09-04). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Then (10-20 years ago)</th>
+<th>Now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Face recognition training data</td>
+<td>Thousands to tens of thousands of photos</td>
+<td>Billions of photos</td>
+</tr>
+<tr>
+<td>Text training data</td>
+<td>No internet-scale corpus</td>
+<td>Entire internet of text</td>
+</tr>
+<tr>
+<td>Growth factor</td>
+<td>Baseline</td>
+<td>About 100,000x (worked arithmetic)</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>Systems worse than humans</td>
+<td>Systems better than humans at recognition</td>
+</tr>
+</tbody>
+</table>
+<p>Caption: AI Podcast Curriculum. Shell 2. Count the toy. Source: episode (Huberman Lab, Marc Andreessen, 2023-09-04).</p>
+<p>Huberman&rsquo;s challenge and Andreessen&rsquo;s answer: if ChatGPT trains on all text, how does it know what is authentically one person&rsquo;s text? The episode raises the question in the extracted windows without a full recorded answer in the extracted portion. Honest gap: the transcript windows do not contain Andreessen&rsquo;s complete reply. The chapter does not invent it.</p>
+<h3 id="reasons-2-and-3">Reasons 2 and 3</h3>
+<p>The episode states there are three reasons AI started working. The extracted windows detail the dataset reason fully. The remaining two reasons, per the episode&rsquo;s framing, are the standard pair the field cites: better algorithms and more compute. The windows attribute the dataset point explicitly to Andreessen and present the three-reason structure. The chapter marks the algorithm and compute reasons as the episode&rsquo;s stated structure with less extracted detail, not as invented content.</p>
+<p>The Fei-Fei Li episode (ep07) independently confirms the same triad: data plus neural network algorithms plus GPU computing converging in 2012. Two episodes, same three reasons.</p>
+<p>Never-confuse pair: the algorithm (transformer, neural net) vs the data (billions of photos, internet text). Commentators credit the algorithm. Both episodes credit the data first.</p>
+<h2 id="the-precautionary-principle-vs-nuclear-power">The precautionary principle vs nuclear power</h2>
+<h3 id="what-the-principle-is-and-where-it-came-from">What the principle is and where it came from</h3>
+<p>Definition: the precautionary principle says the inventors of a new technology must prove it will not have negative effects before rolling it out.</p>
+<p>Andreessen&rsquo;s history: this is a new idea, invented in the 1970s by the German Greens, for one specific purpose. Huberman guesses famine. The answer: to prevent civilian nuclear power. The logic: prove a reactor can never melt down. As an engineer, Andreessen says, you cannot prove a negative about the future. So the principle functioned as a veto.</p>
+<p>Fast-forward 50 years: the veto worked. Nuclear stalled across Europe, the US, and much of the world.</p>
+<h3 id="project-independence-the-road-not-taken">Project Independence: the road not taken</h3>
+<p>The numbers Andreessen gives:</p>
+<ul>
+<li>1971: Richard Nixon defined Project Independence. The target: 1,000 new state-of-the-art civilian nuclear plants in the US by 1980. The whole grid on nuclear, cars on electricity, off oil entirely.</li>
+<li>What happened: Nixon also created the EPA and the Nuclear Regulatory Commission. The NRC did not authorize a new nuclear plant in the US for 40 years.</li>
+</ul>
+<p>Hand-worked numbers: 1,000 plants in 9 years (1971 to 1980) means about 111 plants per year, roughly one every 3 days (worked arithmetic: 1,000 divided by 9 is about 111, 365 divided by 111 is about 3.3). The target meant industrial mobilization at wartime pace. The NRC&rsquo;s 40-year freeze is the opposite number: zero authorizations in four decades.</p>
+<h3 id="the-backfire-precaution-produced-coal">The backfire: precaution produced coal</h3>
+<p>The episode&rsquo;s central irony. The Greens blocked nuclear to protect the environment. Solar and wind are not reliable: sometimes it gets dark, sometimes the wind does not blow. So when nuclear is blocked and renewables cannot carry the load, utilities fire up coal plants. The consequence of the precautionary principle, on its own terms, was a massive spike in coal use.</p>
+<p>Andreessen&rsquo;s verdict: the principle failed on its own merits, for the exact purpose it was invented. He predicts it will not reverse, because the institutions would have to admit a 50-year error, and institutions rarely do.</p>
+<p>The transfer to AI: the same principle is now aimed at AI in Washington. The demand is that developers prove AI can never be used for bad things. Andreessen&rsquo;s answer is the nuclear answer: you cannot prove that, so the demand is a veto in disguise.</p>
+<p>Figure 3. The precautionary backfire. AI Podcast Curriculum, huberman-lab ep04 (Marc Andreessen, 2023-09-04). Shell 4. Show the new symbol. Source: original toy, from episode claims.</p>
+<pre><code>INTENT: block nuclear to protect the environment
+        |
+        v
+MECHANISM: demand proof of zero future harm (impossible for engineers)
+        |
+        v
+RESULT: nuclear frozen 40 years, renewables cannot carry load
+        |
+        v
+OUTCOME: coal plants fire up. The principle produced the thing it feared.
+</code></pre>
+<p>Caption: AI Podcast Curriculum. Shell 4. Show the new symbol. Source: episode (Huberman Lab, Marc Andreessen, 2023-09-04).</p>
+<h3 id="the-accidents-were-real">The accidents were real</h3>
+<p>The episode does not deny the accidents: Three Mile Island melted down, Chernobyl melted down, Fukushima melted down. Andreessen&rsquo;s point is about proportion. Nuclear arrived as a weapon, which tagged it with dread. It glows green in movies. Supervillains run on it. The Simpsons&rsquo; three-eyed fish did not help. The fear is real and the accidents are real, and the alternative the fear produced, coal, is worse by the episode&rsquo;s accounting.</p>
+<p>Trap card: the precautionary principle sounds like caution. In the episode&rsquo;s telling, it is a veto that produced coal. Caution that blocks the safe option is not caution.</p>
+<h2 id="risk-innovation-and-the-innovator">Risk, innovation, and the innovator</h2>
+<h3 id="what-makes-an-exceptional-innovator">What makes an exceptional innovator</h3>
+<p>The episode opens on innovators, not AI. Andreessen&rsquo;s observations:</p>
+<ul>
+<li>Exceptional innovators take risks in their profession, and some take risks in every domain of life. If one part of life gets stable, some find a way to blow it up.</li>
+<li>The same traits appear in the arts. Picasso&rsquo;s turnover of partners was, by his own account, a source of his creativity.</li>
+<li>Cancellation risk now discourages the fly-close-to-the-sun category. Research that is not politically palatable does not get done, or does not get discussed.</li>
+</ul>
+<p>Huberman keeps a written file, on paper because he is afraid to put it electronic, of topics he will not discuss publicly. The list keeps getting longer. Andreessen&rsquo;s comment: that gives up the whole game. A society where the curious keep paper files of forbidden questions strangles its own innovation.</p>
+<h3 id="lysenkoism-and-survivorship-bias">Lysenkoism and survivorship bias</h3>
+<p>Two historical razors from the episode:</p>
+<ol>
+<li>
+<p>Lysenkoism: the Soviet Union&rsquo;s state-enforced false biology. Andreessen&rsquo;s claim: the Soviet Union never recovered from it. The wheat crisis that helped end the country traces back to Lysenko. The lesson: when the state picks the science, the science dies and the state follows.</p>
+</li>
+<li>
+<p>Survivorship bias: people say markets always recover after crashes. Andreessen says that is survivorship bias. Most stock markets in history crashed and never recovered. People cite the American market because it is the one that did not do that. The pendulum swings back only in the cases where it swings back.</p>
+</li>
+</ol>
+<p>Both razors cut the same way: do not assume recovery. Systems that break the feedback loop between reality and belief do not self-heal.</p>
+<h2 id="ai-and-the-future">AI and the future</h2>
+<h3 id="every-ai-risk-has-an-ai-countermeasure">Every AI risk has an AI countermeasure</h3>
+<p>Andreessen&rsquo;s decision rule for AI fear: every time you think of a risk, think of the countermeasure you can build with the same technology. The countermeasures do not just offset AI risks. They offset existing risks: better vaccines for pathogens, better tools against cyberattacks, better filters for bad content.</p>
+<p>The AI physician example: getting decent healthcare is hard even for people with means and insurance. AI physicians could collapse the phone calls, waits, and referrals.</p>
+<p>The AI assistant as personal filter: instead of a platform deciding what you see, you tell your own AI assistant what you want. Show me everything, or filter by my rules, programmed and controlled by me. Andreessen claims programmed personal filters will be more honest and straightforward than current platform moderation.</p>
+<h3 id="the-china-fork">The China fork</h3>
+<p>The episode&rsquo;s geopolitical frame: China takes a different path with AI, toward population control and authoritarianism, and will export that vision. The US conversation is split: punish American tech companies, or partner with them to compete with China. Andreessen describes DC conversations that flip completely depending on whether China comes up.</p>
+<p>On TikTok: the Chinese system means everything is owned by the party, not the state, the party. It is illegal for an investor to buy equity in a Chinese company, with legal machinations papering over it. Bright Chinese engineers mean well, but the system is unambiguous.</p>
+<p>The episode does not resolve the tension. It presents it as the Cold War dynamic of AI: two systems with different views of freedom, competing through technology.</p>
+<h2 id="hand-worked-numbers">Hand-worked numbers</h2>
+<ul>
+<li>Neural network paper: 1943. Episode date 2023. Fork age: 80 years (worked arithmetic).</li>
+<li>Project Independence: 1971, target 1,000 plants by 1980. Build rate: about 111 per year, about one every 3 days (worked arithmetic).</li>
+<li>NRC freeze: 40 years with no new plant authorized.</li>
+<li>Face recognition data: thousands then, billions now. Growth: about 100,000-fold (worked arithmetic).</li>
+<li>Internet-scale text: available roughly the last decade before the episode.</li>
+<li>Meltdowns named: Three Mile Island, Chernobyl, Fukushima. Three events.</li>
+<li>Huberman&rsquo;s challenge on authentic text: asked in the episode, full answer not in the extracted windows. Honest gap.</li>
+</ul>
+<h2 id="qa">Q&amp;A</h2>
+<ol>
+<li>Explain like I am new: what was the 1943 fork?
+Two designs for the computer were proposed. One copied the calculating machine: exact instructions, exact execution. One copied the brain: neurons and synapses. The industry picked the calculating machine because it was practical. Every computer you use descends from that choice. AI is the brain design coming back 80 years later.</li>
+</ol>
+<p>Follow-up: why did the practical choice win? Because you can build a cash register with 1940s technology. You cannot build a brain with it. Practicality picks the architecture.</p>
+<ol start="2">
+<li>
+<p>Walk me through the dataset argument with the face-recognition numbers.
+Old systems trained on thousands of photos and were worse than humans. New systems train on billions of photos and are better than humans. The dataset grew about 100,000-fold. Nothing about the human face changed. The algorithm family is the same. What changed is the data scale. Therefore data scale does the work.</p>
+</li>
+<li>
+<p>Why does ChatGPT exist now and not in 2005?
+Because its training data, the entire internet of text, did not exist in 2005. The corpus is a historical accident. You cannot train on a corpus that has not been written yet. The episode&rsquo;s point: timing of data availability gates the technology.</p>
+</li>
+<li>
+<p>What is the precautionary principle, and what is Andreessen&rsquo;s objection?
+The principle demands inventors prove no future harm before rollout. The objection: you cannot prove a negative about the future, so the demand is a veto disguised as caution. It was invented in the 1970s by the German Greens specifically to block nuclear power, and it worked.</p>
+</li>
+<li>
+<p>Walk me through the coal backfire step by step.
+Block nuclear via the precautionary principle. Build solar and wind, which are intermittent. When the sun sets and the wind stops, the grid still needs power. Fire up coal plants. Result: the anti-nuclear movement increased coal use. The principle produced the outcome it was invented to prevent.</p>
+</li>
+<li>
+<p>What are the two historical razors, and what do they warn against?
+Lysenkoism warns that state-picked science kills both the science and eventually the state. Survivorship bias warns that &ldquo;it always recovers&rdquo; is false. Most markets that crashed never came back. Both warn against assuming self-healing. Broken feedback loops stay broken.</p>
+</li>
+<li>
+<p>What is Andreessen&rsquo;s rule for AI risk?
+For every risk, build the countermeasure with the same technology. AI-built defenses against pathogens, hacking, and bad content offset both AI risks and pre-existing risks. Do not only price the risk. Price the countermeasure too.</p>
+</li>
+<li>
+<p>Applied: a regulator proposes that AI labs prove their models can never cause harm before deployment. Using this episode, what is your response?
+That is the precautionary principle applied to AI. The nuclear case shows the demand is unmeetable: no engineer can prove a negative about the future. The demand functions as a veto. The likely outcome mirrors nuclear: the technology moves to jurisdictions without the veto, which in this episode is China, whose system will use it for control. If you want safety, fund countermeasures, not vetoes.</p>
+</li>
+</ol>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic: DAB. Why AI woke up: Data, Algorithms, Better compute. The episode leads with Data. Ep07 confirms the triad.</p>
+<p>Never-confuse pairs:
+- Option A vs Option B. A: calculating machine, chosen, gave us the iPhone. B: brain model, waited 80 years, giving us AI.
+- Precaution vs veto. Precaution reduces risk. A veto that demands proof of zero future harm blocks the safe option and produces coal.
+- Survivorship vs universality. The American market recovered. Most markets did not. One survivor is not a law.</p>
+<p>Trap cards:
+- The algorithm did it. Trap. Data scale did it. Billions beat thousands.
+- The precautionary principle is cautious. Trap. It blocked nuclear and produced coal.
+- Markets always recover. Trap. Survivorship bias. Most crashed markets stayed crashed.
+- ChatGPT in 2005. Trap. Its training corpus did not exist yet.</p>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ol>
+<li>This week, find one precautionary-principle demand in your work. Someone asks for proof of zero future harm before shipping. Name it out loud as a veto, not caution. Propose the countermeasure version instead: ship with the defense built alongside.</li>
+<li>Run the survivorship check on one belief. Pick something you believe always recovers or always works. Ask: am I looking at the survivor? Find one case that did not recover. Update the belief.</li>
+<li>Audit one AI claim for the DAB triad. When someone credits an algorithm, ask about the dataset size and the compute. Write down which of the three actually changed.</li>
+</ol>
+<p>Observable behavior change: you stop asking &ldquo;is it safe&rdquo; and start asking &ldquo;what is the countermeasure, and who builds it.&rdquo;</p>
+<p>How to catch yourself violating it: you catch yourself demanding proof of zero harm before acting. That is the veto wearing caution&rsquo;s clothes.</p>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Intermediate level, harder than chapters 1 and 2.</p>
+<ol>
+<li>The 1943 fork chose practicality over the brain model. Name a technology today facing the same fork: the practical architecture vs the ambitious one. Which will win, and what has to change for the ambitious one to win?</li>
+<li>Andreessen says data scale woke AI up. Suppose datasets froze at today&rsquo;s size forever. Which AI capabilities keep improving, and which stall? Reason from the mechanism, not from headlines.</li>
+<li>Steelman the precautionary principle. Give its strongest defense against Andreessen&rsquo;s nuclear case. Then steelman Andreessen&rsquo;s reply. Which steelman is stronger, and what evidence would change your mind?</li>
+<li>Lysenkoism killed Soviet biology. Describe the feedback loop that made it fatal: what signal was blocked, and who benefited from blocking it? Now find the closest modern analogue in AI policy debates.</li>
+<li>Fermi-style: 1,000 plants in 9 years is about 111 per year. The US has about 50 states. How many plants per state per year is that? (Worked: 111 divided by 50 is about 2.2.) What does 2 plants per state per year for 9 years imply about the supply chain, workforce, and regulation? List the three hardest constraints.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Tell the 1943 fork story: why computers are hyper-literal and why AI breaks that.</li>
+<li>Argue the dataset-first position with the face-recognition numbers.</li>
+<li>Spot the precautionary principle in policy and name it as a veto.</li>
+<li>Run the coal-backfire analysis on any blocked technology: what fills the gap?</li>
+<li>Apply the survivorship-bias correction to recovery claims.</li>
+<li>Price AI risk together with its AI countermeasure.</li>
+<li>Date a technology by its data: no corpus, no model.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The 1943 neural network origin paper: https://en.wikipedia.org/wiki/McCulloch%E2%80%93Pitts_neuron</li>
+<li>The precautionary principle, its history and criticisms: https://en.wikipedia.org/wiki/Precautionary_principle</li>
+</ul>
+<h2 id="page-audit">Page audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit id</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure id</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>The 1943 fork</td>
+<td>Two options</td>
+<td>Option A chosen</td>
+<td>f01</td>
+<td>ASCII</td>
+<td>original toy, episode</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Dataset jump</td>
+<td>Thousands of photos</td>
+<td>Billions of photos</td>
+<td>f02</td>
+<td>Table</td>
+<td>original toy, episode</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Precautionary backfire</td>
+<td>Block nuclear</td>
+<td>Get coal</td>
+<td>f03</td>
+<td>ASCII</td>
+<td>original toy, episode</td>
+</tr>
+</tbody>
+</table>
+<p>Chapter plate: one claim. Data scale woke the 1943 idea up.</p>
+<pre><code>LEFT: cost without the rule (small data, brain-model idea)
+  - thousands of photos, no internet corpus
+  - neural nets known since 1943, ignored
+  - computers stay hyper-literal savants
+
+CENTER: the stored object
+  - the dataset jump: 100,000-fold growth in training data
+
+RIGHT: cost with the rule (internet-scale data)
+  - billions of photos, entire internet of text
+  - face recognition beats humans, ChatGPT works
+  - the 1943 fork finally pays off
+
+FOOTER: the tradeoff in one line.
+  The algorithm waited 80 years. The data arrived in one decade. Data did the waking.
+</code></pre>
+<h2 id="coverage-notes">Coverage notes</h2>
+<p>Source: research/huberman-lab/transcripts/yixIc1Ai6jM.txt (keyword-dense window extraction). Huberman&rsquo;s challenge on authentic text is asked in the windows. The complete answer was not in the extracted portion and is marked as a gap, not invented. All arithmetic is labeled as the chapter&rsquo;s work from the episode&rsquo;s numbers.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=yixIc1Ai6jM" target="_blank" rel="noopener">How Risk Taking, Innovation &amp; Artificial Intelligence Transform Human Experience | Marc Andreessen</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/huberman-lab/ep03.html"><span class="lbl">← Previous</span>Episode 3: How to Improve at Learning Using Neuroscience &amp; AI | Dr. Terry Sejnowski</a><a href="../../tracks/huberman-lab/ep05.html"><span class="lbl">Next →</span>Episode 5: Curing All Human Diseases &amp; the Future of Health &amp; Technology | Mark Zuckerberg &amp; Dr. Priscilla Chan</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
