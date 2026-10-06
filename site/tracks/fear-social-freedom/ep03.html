@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 3: Tools for Managing Stress and Anxiety — AI Podcast Curriculum</title>
+<meta name="description" content="Huberman turns stress into an operating manual: the sympathetic chain, the physiological sigh with its exact counts, short-term stress as immune training, the m">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="fear-social-freedom-ep03" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Modern Wisdom - Chris Williamson</h3><ul>
+<li><a href="../../tracks/modern-wisdom/ep01.html" data-page="modern-wisdom-ep01">Ep 1 · AI That Fights Back</a></li>
+<li><a href="../../tracks/modern-wisdom/ep02.html" data-page="modern-wisdom-ep02">Ep 2 · Bunkers for a Reason</a></li>
+<li><a href="../../tracks/modern-wisdom/ep03.html" data-page="modern-wisdom-ep03">Ep 3 · AI Girlfriends</a></li>
+<li><a href="../../tracks/modern-wisdom/ep04.html" data-page="modern-wisdom-ep04">Ep 4 · The AI Debate</a></li>
+<li><a href="../../tracks/modern-wisdom/ep05.html" data-page="modern-wisdom-ep05">Ep 5 · AI vs Music</a></li>
+<li><a href="../../tracks/modern-wisdom/ep06.html" data-page="modern-wisdom-ep06">Ep 6 · The Gemini Disaster</a></li>
+<li><a href="../../tracks/modern-wisdom/ep07.html" data-page="modern-wisdom-ep07">Ep 7 · Yudkowsky</a></li>
+<li><a href="../../tracks/modern-wisdom/ep08.html" data-page="modern-wisdom-ep08">Ep 8 · OnlyFans vs AI</a></li>
+<li><a href="../../tracks/modern-wisdom/ep09.html" data-page="modern-wisdom-ep09">Ep 9 · AI Bands</a></li>
+<li><a href="../../tracks/modern-wisdom/ep10.html" data-page="modern-wisdom-ep10">Ep 10 · Art, Jobs, Everything</a></li>
+</ul>
+<h3>Huberman Lab</h3><ul>
+<li><a href="../../tracks/huberman-lab/index.html" data-page="huberman-lab-index">Huberman Lab · Index</a></li>
+<li><a href="../../tracks/huberman-lab/ep01.html" data-page="huberman-lab-ep01">Ep 1 · Lex Fridman: Machines, Creativity &amp; Love</a></li>
+<li><a href="../../tracks/huberman-lab/ep02.html" data-page="huberman-lab-ep02">Ep 2 · Lex Fridman: Conflict, Purpose &amp; Drive</a></li>
+<li><a href="../../tracks/huberman-lab/ep03.html" data-page="huberman-lab-ep03">Ep 3 · Terry Sejnowski: Learning, Sleep &amp; AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep04.html" data-page="huberman-lab-ep04">Ep 4 · Marc Andreessen: Risk, Innovation &amp; AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep05.html" data-page="huberman-lab-ep05">Ep 5 · Zuckerberg &amp; Chan: Curing Disease with AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep06.html" data-page="huberman-lab-ep06">Ep 6 · Neuralink: Enhancing Human Brains</a></li>
+<li><a href="../../tracks/huberman-lab/ep07.html" data-page="huberman-lab-ep07">Ep 7 · Fei-Fei Li: AI That Enriches Humanity</a></li>
+<li><a href="../../tracks/huberman-lab/ep08.html" data-page="huberman-lab-ep08">Ep 8 · Essentials: Machines, Creativity &amp; Love</a></li>
+<li><a href="../../tracks/huberman-lab/cheatsheet.html" data-page="huberman-lab-cheatsheet">Huberman Lab · Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Naval Ravikant</h3><ul>
+<li><a href="../../tracks/naval-ravikant/index.html" data-page="naval-ravikant-index">Track index</a></li>
+<li><a href="../../tracks/naval-ravikant/ep01.html" data-page="naval-ravikant-ep01">Ep 1 · How to Get Rich</a></li>
+<li><a href="../../tracks/naval-ravikant/ep02.html" data-page="naval-ravikant-ep02">Ep 2 · Happiness</a></li>
+<li><a href="../../tracks/naval-ravikant/ep03.html" data-page="naval-ravikant-ep03">Ep 3 · Wealth, Not Money or Status</a></li>
+<li><a href="../../tracks/naval-ravikant/ep04.html" data-page="naval-ravikant-ep04">Ep 4 · Specific Knowledge</a></li>
+<li><a href="../../tracks/naval-ravikant/ep05.html" data-page="naval-ravikant-ep05">Ep 5 · Your Desires Are Not Yours</a></li>
+<li><a href="../../tracks/naval-ravikant/ep06.html" data-page="naval-ravikant-ep06">Ep 6 · Learn to Sell, Learn to Build</a></li>
+<li><a href="../../tracks/naval-ravikant/ep07.html" data-page="naval-ravikant-ep07">Ep 7 · How to Angel Invest</a></li>
+<li><a href="../../tracks/naval-ravikant/ep08.html" data-page="naval-ravikant-ep08">Ep 8 · Making Money Isn&#x27;t About Luck</a></li>
+<li><a href="../../tracks/naval-ravikant/ep09.html" data-page="naval-ravikant-ep09">Ep 9 · Business Models With Leverage</a></li>
+<li><a href="../../tracks/naval-ravikant/ep10.html" data-page="naval-ravikant-ep10">Ep 10 · Judgment</a></li>
+<li><a href="../../tracks/naval-ravikant/cheatsheet.html" data-page="naval-ravikant-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dating Instruction</h3><ul>
+<li><a href="../../tracks/dating/index.html" data-page="dating-instruction-index">Dating Instruction</a></li>
+<li><a href="../../tracks/dating/ep01.html" data-page="dating-instruction-ep01">Ep 1 · Four Ways to Meet Women</a></li>
+<li><a href="../../tracks/dating/ep02.html" data-page="dating-instruction-ep02">Ep 2 · How Women Want to Be Approached</a></li>
+<li><a href="../../tracks/dating/ep03.html" data-page="dating-instruction-ep03">Ep 3 · The Truth About Female Attraction</a></li>
+<li><a href="../../tracks/dating/ep04.html" data-page="dating-instruction-ep04">Ep 4 · How Men Sabotage Themselves</a></li>
+<li><a href="../../tracks/dating/ep05.html" data-page="dating-instruction-ep05">Ep 5 · Date Like a Scientist</a></li>
+<li><a href="../../tracks/dating/ep06.html" data-page="dating-instruction-ep06">Ep 6 · The Dating Playbook</a></li>
+<li><a href="../../tracks/dating/ep07.html" data-page="dating-instruction-ep07">Ep 7 · Attachment in Practice</a></li>
+<li><a href="../../tracks/dating/ep08.html" data-page="dating-instruction-ep08">Ep 8 · The Mistake That Wastes Years</a></li>
+<li><a href="../../tracks/dating/ep09.html" data-page="dating-instruction-ep09">Ep 9 · How Relationships Work: Value</a></li>
+<li><a href="../../tracks/dating/ep10.html" data-page="dating-instruction-ep10">Ep 10 · The Relationship Crisis</a></li>
+<li><a href="../../tracks/dating/cheatsheet.html" data-page="dating-instruction-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Fear &amp; Social Freedom</h3><ul>
+<li><a href="../../tracks/fear-social-freedom/index.html" data-page="fear-social-freedom-index">Track index</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep01.html" data-page="fear-social-freedom-ep01">Ep 1 · The Neuroscience of Fear</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep02.html" data-page="fear-social-freedom-ep02">Ep 2 · The Neuroscience of Emotions</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep03.html" data-page="fear-social-freedom-ep03" class="active">Ep 3 · Tools for Stress and Anxiety</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep04.html" data-page="fear-social-freedom-ep04">Ep 4 · Rewiring Fear Into Excitement</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep05.html" data-page="fear-social-freedom-ep05">Ep 5 · The Inner Voice</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep06.html" data-page="fear-social-freedom-ep06">Ep 6 · Overcoming Social Anxiety</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep07.html" data-page="fear-social-freedom-ep07">Ep 7 · Speaking With Confidence</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep08.html" data-page="fear-social-freedom-ep08">Ep 8 · Battle-Tested Confidence</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep09.html" data-page="fear-social-freedom-ep09">Ep 9 · Detaching From Overthinking</a></li>
+<li><a href="../../tracks/fear-social-freedom/ep10.html" data-page="fear-social-freedom-ep10">Ep 10 · The Phone-Based Childhood</a></li>
+<li><a href="../../tracks/fear-social-freedom/cheatsheet.html" data-page="fear-social-freedom-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Deep Questions with Cal Newport</h3><ul>
+<li><a href="../../tracks/deep-questions/index.html" data-page="deep-questions-index">Track index</a></li>
+<li><a href="../../tracks/deep-questions/ep01.html" data-page="deep-questions-ep01">Ep 1 · Perks of No Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep02.html" data-page="deep-questions-ep02">Ep 2 · Cal&#x27;s Planning System</a></li>
+<li><a href="../../tracks/deep-questions/ep03.html" data-page="deep-questions-ep03">Ep 3 · Core Idea: Deep Work</a></li>
+<li><a href="../../tracks/deep-questions/ep04.html" data-page="deep-questions-ep04">Ep 4 · Digital Minimalism</a></li>
+<li><a href="../../tracks/deep-questions/ep05.html" data-page="deep-questions-ep05">Ep 5 · Core Idea: Slow Productivity</a></li>
+<li><a href="../../tracks/deep-questions/ep06.html" data-page="deep-questions-ep06">Ep 6 · The Slope of Terribleness</a></li>
+<li><a href="../../tracks/deep-questions/ep07.html" data-page="deep-questions-ep07">Ep 7 · Learning vs. Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep08.html" data-page="deep-questions-ep08">Ep 8 · The 5-Step Productivity System</a></li>
+<li><a href="../../tracks/deep-questions/cheatsheet.html" data-page="deep-questions-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Charisma</h3><ul>
+<li><a href="../../tracks/charisma/index.html" data-page="charisma-index">Track index</a></li>
+<li><a href="../../tracks/charisma/ep01.html" data-page="charisma-ep01">Ep 1 · Vanessa Van Edwards</a></li>
+<li><a href="../../tracks/charisma/ep02.html" data-page="charisma-ep02">Ep 2 · Chris Voss</a></li>
+<li><a href="../../tracks/charisma/ep03.html" data-page="charisma-ep03">Ep 3 · Vanessa Van Edwards</a></li>
+<li><a href="../../tracks/charisma/ep04.html" data-page="charisma-ep04">Ep 4 · Charlie Houpert</a></li>
+<li><a href="../../tracks/charisma/ep05.html" data-page="charisma-ep05">Ep 5 · Huberman on Bonding</a></li>
+<li><a href="../../tracks/charisma/ep06.html" data-page="charisma-ep06">Ep 6 · Kay Tye</a></li>
+<li><a href="../../tracks/charisma/ep07.html" data-page="charisma-ep07">Ep 7 · Robert Cialdini</a></li>
+<li><a href="../../tracks/charisma/ep08.html" data-page="charisma-ep08">Ep 8 · Robert Greene</a></li>
+<li><a href="../../tracks/charisma/ep09.html" data-page="charisma-ep09">Ep 9 · Charles Duhigg</a></li>
+<li><a href="../../tracks/charisma/ep10.html" data-page="charisma-ep10">Ep 10 · Matthew Dicks</a></li>
+<li><a href="../../tracks/charisma/cheatsheet.html" data-page="charisma-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Fear &amp; Social Freedom</a> / Episode 3: Tools for Managing Stress and Anxiety</nav>
+      <h1>Episode 3: Tools for Managing Stress and Anxiety</h1>
+      <p class="meta-line">2021-03-08 · Instructor: Andrew Huberman (solo) · Huberman Lab</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="ntfcfJ28eiU"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/ntfcfJ28eiU" title="Tools for Managing Stress &amp; Anxiety" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=ntfcfJ28eiU" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=ntfcfJ28eiU" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">The physiology of stress and the tools that control it in real time.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Episodes 1 and 2 mapped the circuits. This episode is the operator manual for the stress half of the system. In the episode, Huberman defines stress as a generic mobilization system, traces the exact neural chain that runs it, and then gives tools that act on each link: the physiological sigh for real-time control, deliberate cold and breathing for stress inoculation, and a supplement list with doses and study counts.</p>
+<p>The episode also draws the line the whole track respects: short-term stress is good, long-term stress is bad, and the boundary between them is sleep. Everything practical in later episodes, from speaking anxiety to social courage, assumes you can run this manual.</p>
+<h2 id="stress-is-a-system-stressors-are-triggers">Stress is a system, stressors are triggers</h2>
+<p>Definition: stress is the generic mobilization response of brain and body. Definition: a stressor is whatever triggers it. The system is one. The triggers are many. This distinction matters because you cannot remove all triggers, but you can train the system.</p>
+<p>The episode frames stress on a timeline. Short-term stress, minutes to hours, is good: it sharpens immunity and focus. Medium-term stress, hours to days, is trainable: it raises your threshold if you dose it deliberately. Long-term stress, weeks to months, is bad: it drives hypertension and heart disease. Sleep is the boundary between acute and chronic. A stress that resolves before sleep stays acute. A stress that invades sleep becomes chronic.</p>
+<h2 id="the-sympathetic-chain-runs-neck-to-navel">The sympathetic chain runs neck to navel</h2>
+<p>Definition: the sympathetic chain is a line of ganglia, clusters of neurons, running on both sides of the spine from the neck to the navel. Definition: a ganglion is a relay station where one neuron hands the signal to the next.</p>
+<p>The chain works in three steps. Step one: the brain sends acetylcholine down to the chain ganglia. Step two: the postganglionic neurons release epinephrine across the body. Step three: epinephrine binds beta receptors on target organs. The receptors dilate blood vessels to muscle and heart and constrict vessels to digestion and reproduction. The logic is triage: in a threat, muscle matters now, digestion can wait.</p>
+<p>Two details make the system legible. Dry throat under stress comes from constricted salivary flow, another triage cut. The agitation you feel is not a bug. Adrenaline biases the body toward movement. The system was built to move you.</p>
+<p>Figure 1. The sympathetic chain in three steps. AI Podcast Curriculum, ep03 (Andrew Huberman, 2021-03-08). Shell 2. Count or score the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Signal</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Brain to chain</td>
+<td>Acetylcholine</td>
+<td>Activates the ganglia from neck to navel</td>
+</tr>
+<tr>
+<td>2. Chain to body</td>
+<td>Epinephrine from postganglionic neurons</td>
+<td>Floods the target organs</td>
+</tr>
+<tr>
+<td>3. Organs respond</td>
+<td>Beta receptors</td>
+<td>Dilate to muscle and heart, constrict digestion and reproduction</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-physiological-sigh-is-the-fastest-brake">The physiological sigh is the fastest brake</h2>
+<p>Definition: the physiological sigh is a double inhale through the nose followed by a long exhale through the mouth. Discovered in the 1930s. Mechanism mapped by Jack Feldman at UCLA and Mark Krasnow at Stanford.</p>
+<p>The mechanism has two parts. Part one is mechanical. Stress breathing is shallow, and shallow breathing lets some lung air sacs, alveoli, collapse. The double inhale pops them back open like a stuck balloon that needs two pushes. Open alveoli mean more surface for gas exchange. The episode gives the scale: the lung surface area is about the size of a tennis court. Part two is chemical. The long exhale offloads carbon dioxide. Much of the stress feeling is elevated CO2 in the blood, so dumping CO2 damps the alarm directly.</p>
+<p>The heart link makes it fast. Inhaling speeds the heart through the sinoatrial node, the heart&rsquo;s pacemaker. Exhaling slows the heart through the parasympathetic system. A long exhale is therefore a direct command to slow the heart. The episode gives the dose: 1 to 3 sigh cycles, with heart rate dropping in about 20 to 30 seconds.</p>
+<p>The episode adds one caution. People who faint at the sight of blood or needles, the vasovagal type, should use the sigh gently, because strong vagal activation can drop them.</p>
+<p>Figure 2. Why the sigh works. AI Podcast Curriculum, ep03 (Andrew Huberman, 2021-03-08). Shell 3. Apply one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Action in the sigh</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double nasal inhale</td>
+<td>Reopens collapsed alveoli</td>
+<td>Restores the tennis-court exchange surface</td>
+</tr>
+<tr>
+<td>Long mouth exhale</td>
+<td>Offloads CO2, drives parasympathetic</td>
+<td>Heart slows via the sinoatrial node</td>
+</tr>
+<tr>
+<td>Dose</td>
+<td>1 to 3 cycles</td>
+<td>Heart rate drops in 20 to 30 seconds</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-jaw-is-a-back-door-to-the-calm-system">The jaw is a back door to the calm system</h2>
+<p>The episode names two brainstem nuclei: the pre-Botzinger complex, which generates the breathing rhythm, and the parafacial nucleus, which connects to facial muscles including the jaw. Deliberately relaxing the jaw sends a signal through this wiring that the threat passed. A clenched jaw tells the brainstem you are still fighting. An open, loose jaw tells it the fight is over.</p>
+<p>The practice is trivial and therefore usable mid-meeting. Unclench the teeth. Let the jaw hang slightly. Drop the tongue from the roof of the mouth. The face is an output of the stress system, and outputs can be driven backward as inputs.</p>
+<h2 id="short-term-stress-trains-immunity">Short-term stress trains immunity</h2>
+<p>The episode makes the counterintuitive claim with a mechanism. Short-term stress moves immune cells, especially killer cells from the spleen, into the blood. The body anticipates wounds during a threat and pre-positions its defenses. Brief stress is therefore an immune workout.</p>
+<p>The Wim Hof method is the worked example. The protocol named in the episode: about 25 deep breaths, then an exhale and a breath hold, repeated in rounds. This is Tummo-style cyclic hyperventilation. In a PNAS study, practitioners injected with a bacterial endotoxin showed zero symptoms: no fever, no sickness response. Their trained stress system met the immune challenge and won.</p>
+<p>The episode states the safety rule in absolute terms. Never do breath holds near water. Deaths occurred from shallow-water blackout: the hold suppresses the urge to breathe until consciousness cuts out. Do the protocol on a couch or a bed, never in a pool or bath.</p>
+<p>Figure 3. The Wim Hof protocol from the episode. AI Podcast Curriculum, ep03 (Andrew Huberman, 2021-03-08). Shell 3. Apply one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Action</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>About 25 deep breaths</td>
+<td>Spike adrenaline deliberately</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Exhale, hold on empty lungs</td>
+<td>Train calm during the spike</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Repeat for several rounds</td>
+<td>Build the immune and stress response</td>
+</tr>
+<tr>
+<td>Rule</td>
+<td>Never near water</td>
+<td>Shallow-water blackout kills</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stress-is-a-nootropic-until-sleep-breaks">Stress is a nootropic, until sleep breaks</h2>
+<p>Definition: a nootropic is a focus and cognition enhancer. The episode treats short-term stress as one. Adrenaline sharpens attention and memory formation. This is why deadlines focus the mind and why procrastination works: the last-minute adrenaline spike is a self-administered nootropic.</p>
+<p>The sick-after-vacation crash follows from the same mechanism. Chronic stress holds the immune system on a leash. When the stress lifts on vacation, the leash drops and the backlog of illness arrives at once. The lesson is not to avoid stress. It is to resolve stress before sleep, so the acute never converts to chronic.</p>
+<h2 id="the-medium-term-threshold-is-trainable">The medium-term threshold is trainable</h2>
+<p>The episode introduces a trainable zone between acute and chronic. The method: deliberately raise adrenaline while keeping the mind calm. Cold exposure, hard exercise, and breath holds all qualify. The calm mind during high arousal teaches the system a new threshold: this much adrenaline no longer means emergency.</p>
+<p>Two tools mark the zone. Panoramic gaze, widening the visual field, dilates the stress response downward. The episode also names healthy dissociation: stepping back to observe your own arousal without merging with it. The combination is the target state for hard things: body activated, mind clear, self observed from a slight distance.</p>
+<h2 id="serotonin-oxytocin-and-the-isolation-signal">Serotonin, oxytocin, and the isolation signal</h2>
+<p>The episode corrects the oxytocin myth. Oxytocin does not rise from casual friendly contact. It rises with intense pair bonding: after orgasm, during lactation, after sex. Do not expect a chat with a colleague to dose it.</p>
+<p>Serotonin tracks differently. Time with trusted faces in safe settings raises it. And the isolation signal from episode 1 returns: Tachykinin rises with isolation, and Huberman keeps the post-it note on his desk as a standing reminder. The chemistry of connection is specific. Casual contact gives serotonin. Intense bonding gives oxytocin. Isolation gives Tachykinin, which raises the fear gain.</p>
+<h2 id="gratitude-is-a-low-cost-intervention">Gratitude is a low-cost intervention</h2>
+<p>The episode names gratitude writing as a real tool. Writing down specific things you are grateful for shifts the valence system toward approach. The mechanism fits the track: the prefrontal narrative changes, and the change propagates down to the alarm. The dose is small and the cost is zero, which makes it a daily practice rather than an emergency tool.</p>
+<h2 id="melatonin-at-1-to-3-mg-is-excessive">Melatonin at 1 to 3 mg is excessive</h2>
+<p>The episode warns that the common 1 to 3 mg melatonin dose is far above the physiological range and suppresses the adrenal system over time. It also kills a myth: &ldquo;adrenal burnout&rdquo; is not a real diagnosis. Hans Selye&rsquo;s exhaustion phase, the idea that the adrenals run out of stress hormones, was wrong. The adrenals do not empty. Chronic stress damages through prolonged cortisol exposure, not through gland failure.</p>
+<p>The rule: fix the stress timeline, not the gland. Protect sleep, resolve stress before bed, and the hormonal system recovers on its own.</p>
+<h2 id="the-supplement-list-with-numbers">The supplement list with numbers</h2>
+<p>The episode gives two supplements with doses and study counts, and points to examine.com as the verification source.</p>
+<p>L-theanine at 100 to 200 mg acts on the GABA system. The episode cites 8 studies for anxiety reduction. Ashwagandha showed a 14.5 to 27.9 reduction in cortisol across 6 studies. The range matters: the effect is real but variable, so treat it as a nudge, not a transformation.</p>
+<p>Figure 4. Supplement numbers from the episode. AI Podcast Curriculum, ep03 (Andrew Huberman, 2021-03-08). Shell 2. Count or score the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Supplement</th>
+<th>Dose from the episode</th>
+<th>Evidence named</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L-theanine</td>
+<td>100 to 200 mg</td>
+<td>8 studies on anxiety, GABA mechanism</td>
+</tr>
+<tr>
+<td>Ashwagandha</td>
+<td>Dose not specified in the episode</td>
+<td>6 studies, cortisol reduction of 14.5 to 27.9</td>
+</tr>
+</tbody>
+</table>
+<h2 id="emotion-is-a-match-or-mismatch-signal">Emotion is a match or mismatch signal</h2>
+<p>The episode closes the loop with a definition. Emotion signals the match or mismatch between your internal state and the demands in front of you. Anxiety means the demands exceed your current state. Calm means they match. Excitement means your state exceeds the demands.</p>
+<p>This reframes every tool in the chapter. You have two levers: change the state (breathe, move, dose stress) or change the demands (prepare, simplify, reappraise). Most people pull only one lever. The manual says pull both.</p>
+<h2 id="qa">Q&amp;A</h2>
+<ol>
+<li>
+<p>Explain to me like I am new: what does the physiological sigh actually do?
+Your lungs contain tiny air sacs. Shallow stress breathing lets some collapse, like deflated balloons. The double inhale through the nose pops them open with two pushes of air. The long exhale through the mouth dumps carbon dioxide, which is much of what &ldquo;stressed&rdquo; feels like in the blood. Exhaling also directly slows the heart. Three parts, one result: the alarm loses its fuel in 20 to 30 seconds.</p>
+</li>
+<li>
+<p>Why is &ldquo;take a deep breath&rdquo; the wrong advice?
+A single deep inhale speeds the heart through the sinoatrial node and does nothing for collapsed alveoli or CO2. The calming power sits in the exhale, not the inhale. The episode replaces the advice: double inhale through the nose, then a long exhale through the mouth, 1 to 3 cycles. Exhale-emphasized breathing is the correction.</p>
+</li>
+<li>
+<p>Applied: you have a hard conversation in 60 seconds. What is the exact protocol?
+Unclench your jaw and drop your tongue from the roof of your mouth. Do 2 physiological sighs: double inhale through the nose, long exhale through the mouth. Widen your gaze to panoramic for a few seconds. Enter the conversation with the body downregulated and the mind clear. Total time: under 30 seconds.</p>
+</li>
+<li>
+<p>How can stress both boost immunity and cause disease?
+Timeline decides. Minutes to hours of stress mobilize killer immune cells from the spleen into the blood, which is protective. Weeks to months of unrelenting stress keep cortisol high, which suppresses immunity and damages vessels. Sleep is the boundary: stress that resolves before sleep stays in the good zone.</p>
+</li>
+<li>
+<p>What is the Wim Hof result, and what is the safety rule?
+Practitioners did about 25 deep breaths plus breath holds, then received a bacterial endotoxin injection in a PNAS study. They showed zero symptoms. The trained stress system met the immune challenge. The safety rule is absolute: never do breath holds near water, because shallow-water blackout kills.</p>
+</li>
+<li>
+<p>Why is the oxytocin story a myth, and what actually raises it?
+Casual friendly contact does not raise oxytocin meaningfully. Intense pair bonding does: after orgasm, during lactation, after sex. The myth matters because people chase casual socializing for a chemical it cannot deliver. Trusted time together raises serotonin. Only intense bonding raises oxytocin.</p>
+</li>
+<li>
+<p>What is &ldquo;adrenal burnout&rdquo; and why does the episode reject it?
+Adrenal burnout claims the adrenal glands run out of stress hormones after chronic stress. The episode states this is a myth: Hans Selye&rsquo;s exhaustion phase was wrong, and the glands do not empty. Damage from chronic stress comes from prolonged cortisol exposure, not gland failure. Fix the timeline, not the gland.</p>
+</li>
+</ol>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic for the sigh: In In Out. Double inhale through the nose, long exhale through the mouth. In In Out, 1 to 3 times, calm in 20 to 30 seconds.</p>
+<p>Mnemonic for the stress timeline: Good, Trainable, Bad. Minutes: good, immune boost. Hours to days: trainable, threshold work. Weeks: bad, disease. Sleep is the gate between acute and chronic.</p>
+<p>Never-confuse pair: stress versus stressor. Stress is the one generic mobilization system. Stressors are the many triggers. You train the system. You cannot delete all triggers.</p>
+<p>Never-confuse pair: adrenaline versus cortisol. Adrenaline is the fast wave: seconds, mobilization now. Cortisol is the slow wave: hours, gene expression, the reason noon still colors evening.</p>
+<p>Trap card: the Wim Hof zero-symptom result comes from one PNAS endotoxin study with trained practitioners. It does not prove breathwork cures infections. Quote the result with the study attached.</p>
+<p>Trap card: the 14.5 to 27.9 cortisol reduction for ashwagandha is a range across 6 studies, not a guarantee. The wide range is the point: variable effect, modest nudge.</p>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<p>This week, run three practices. First, the sigh drill. Set three phone alarms per day. Each time one rings, do 2 physiological sighs wherever you are. Log the context and a 1-to-10 calm rating before and after. You are building a real-time tool with measured effect.</p>
+<p>Second, one threshold session. Pick one: a 60-second cold shower ending, a hard exercise set, or 2 rounds of 25 breaths plus holds on a couch. During the arousal spike, keep the jaw loose and the mind on slow exhales. Write one sentence after: how long until the shock feeling faded. Watch the number shrink across the week.</p>
+<p>Third, the sleep gate. Each night, write down any unresolved stressor in one line and one next action for tomorrow. You move the stressor out of the sleep window so acute never converts to chronic.</p>
+<p>Self-catch: when you notice a clenched jaw, treat it as a dashboard light. Unclench it, do one sigh, and ask what demand currently exceeds your state.</p>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain, before touching any AI. Guided drills with worked structure.</p>
+<ol>
+<li>Trace the chain. A sudden deadline lands. Write the three steps of the sympathetic chain with the exact signals: what the brain sends, what the ganglia release, what the beta receptors do to muscle versus digestion.</li>
+<li>Compute the sigh. Explain in four sentences why a double inhale plus long exhale beats a single deep inhale, naming the alveoli, the CO2, and the sinoatrial node.</li>
+<li>Prescribe the timeline. A friend has a stressful job and poor sleep. Using the Good-Trainable-Bad timeline and the sleep gate, write a one-week plan with one acute stressor, one threshold session, and one sleep protection rule.</li>
+<li>Spot the myth. A wellness post claims &ldquo;hugs raise oxytocin, so hug everyone to fix anxiety&rdquo; and &ldquo;your adrenals are burnt out, take 3 mg melatonin nightly.&rdquo; Correct both claims with the episode&rsquo;s numbers and mechanisms.</li>
+<li>Argue both sides. Side A: procrastination is a character flaw. Side B: procrastination is rational self-dosing of a nootropic. Use the adrenaline-focus mechanism to decide which side the episode supports, then state the price of side B.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Run the physiological sigh with the exact dose: double nasal inhale, long mouth exhale, 1 to 3 cycles, effect in 20 to 30 seconds.</li>
+<li>Explain the sympathetic chain in three steps with the real signals: acetylcholine, epinephrine, beta receptors.</li>
+<li>Distinguish short-term, medium-term, and long-term stress and place sleep as the boundary.</li>
+<li>Run a threshold session: deliberate adrenaline spike with a calm mind, jaw loose, to raise the stress tolerance.</li>
+<li>Quote the supplement numbers correctly: L-theanine 100 to 200 mg with 8 studies, ashwagandha 14.5 to 27.9 cortisol reduction across 6 studies.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The episode video: https://www.youtube.com/watch?v=ntfcfJ28eiU</li>
+<li>Kox et al. (2014) PNAS endotoxin study, the paper behind the Wim Hof zero-symptom result cited in the episode: https://www.sciencedaily.com/releases/2014/05/140505155210.htm</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit id</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure id</th>
+<th>Medium</th>
+<th>Source</th>
+<th>Four tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Sympathetic chain</td>
+<td>Stress as a vague wave</td>
+<td>Three steps with named signals</td>
+<td>fig1</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 3-row chain table / T2: chain steps force a table / T3: none, static plate / T4: chain reused in trace drill</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Sigh mechanism</td>
+<td>Sigh as a trick</td>
+<td>Mechanical plus chemical plus heart link</td>
+<td>fig2</td>
+<td>table</td>
+<td>episode claims, Feldman, Krasnow</td>
+<td>T1: 3-row mechanism table with the 20 to 30 s dose / T2: three parts force a table / T3: 1 to 3 cycles adjustable / T4: In-In-Out reused in drills</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Wim Hof protocol</td>
+<td>Breathwork as hype</td>
+<td>Steps, result, safety rule</td>
+<td>fig3</td>
+<td>table</td>
+<td>episode claims, PNAS endotoxin study</td>
+<td>T1: 3-step protocol table / T2: steps plus rule force a table / T3: 25 breaths adjustable / T4: protocol reused in imbibe</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Supplement numbers</td>
+<td>Supplements as vibes</td>
+<td>Dose and study count per item</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 2-row dose table / T2: two dose sets force a table / T3: 100 to 200 mg adjustable / T4: numbers reused in Q&amp;A</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Whole chapter trade</td>
+<td>Stress as an unmanageable wave</td>
+<td>Stress as a system with a brake</td>
+<td>Figure 5 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+<td>T1: 3-column plate / T2: whole-chapter trade forces the chapter plate / T3: none, static plate / T4: manual reused by the speaking and social chapters</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 (chapter plate). Stress is one system with a real-time brake. AI Podcast Curriculum, ep03 (Andrew Huberman, 2021-03-08). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triggers treated as the enemy. The system stays untrained while stressors multiply. Weeks of stress past the sleep gate, where the good acute effect ends and chronic harm begins.</td>
+<td>The operator manual. The physiological sigh: double inhale through the nose, long exhale through the mouth, 1 to 3 rounds, calm in 20 to 30 seconds. Ashwagandha: cortisol reduction of 14.5 to 27.9 across 6 studies. L-theanine: 100 to 200 mg across 8 studies. The rule: sleep is the gate between acute and chronic.</td>
+<td>Real-time control in under a minute. Deliberate stress raises the threshold week by week. Supplements used as a measured nudge with doses and counts.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: regular brief deliberate stress, in exchange for a system that resets fast under real load.
+Footer: this manual runs underneath every speaking and social tool later in the track.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=ntfcfJ28eiU" target="_blank" rel="noopener">Tools for Managing Stress &amp; Anxiety</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/fear-social-freedom/ep02.html"><span class="lbl">← Previous</span>Episode 2: Neuroscience of Emotions and Emotion Regulation</a><a href="../../tracks/fear-social-freedom/ep04.html"><span class="lbl">Next →</span>Episode 4: Rewiring Fear Into Excitement</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
