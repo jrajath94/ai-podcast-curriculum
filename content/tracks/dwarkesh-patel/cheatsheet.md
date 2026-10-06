@@ -10,12 +10,12 @@ summary: "One dense page: the key facts, numbers, names, and decisions from all 
 date: "2026-10-06"
 ---
 
-# Dwarkesh Patel — Cheatsheet
+# Dwarkesh Patel: Cheatsheet
 
 ## The thesis (ep10 → ep02 → ep05)
 
 - Next-token prediction → world model → superintelligence. Simplicity scales (Ilya, 2023).
-- Update (2025): data is the bottleneck; research (agents generating own data) is the path.
+- Update (2025): data is the bottleneck. Research (agents generating own data) is the path.
 - The blob: compute, data quantity, data quality, duration, scalable objective, normalization, conditioning (Dario, 2017). Nothing since violated it.
 - RL scales log-linear like pre-training (AIME and beyond).
 
@@ -31,7 +31,7 @@ date: "2026-10-06"
 - Ghosts, not animals: imitation of text, not evolution. Brilliant on-manifold, lost off it.
 - RL = sucking supervision through a straw: one grade smeared across the trajectory.
 - Autonomy slider: compilers → autocomplete → agents. Gradual, not rupture.
-- March of nines: 90% is the first nine; each nine is constant work.
+- March of nines: 90% is the first nine. Each nine is constant work.
 - nanochat: 8,000 lines, no copy-paste. "If I cannot build it, I do not understand it."
 - Code classes: hands (architecture) / autocomplete (intense unique code) / agents (boilerplate).
 
@@ -39,7 +39,7 @@ date: "2026-10-06"
 
 - Code spectrum: 90% lines → 100% lines → 90% tasks → 100% tasks → 90% less demand. Do not confuse step 1 with step 5.
 - 15-20% speedup now vs 5% six months ago. The snowball: 10, 20, 25, 40.
-- Responsible scaling: $1T revenue vs $800B = bankruptcy with no hedge. Buy hundreds of billions; survive being off by one year.
+- Responsible scaling: $1T revenue vs $800B = bankruptcy with no hedge. Buy hundreds of billions. Survive being off by one year.
 - Technology timeline (1-3 yrs) vs revenue timeline (1-5 yrs after). The gap kills.
 - 3-4 labs, like cloud. Tokens priced unequally: cents to tens of millions.
 
@@ -48,7 +48,7 @@ date: "2026-10-06"
 - 330K GB300 GPUs ≈ 1GW (Elon). Compute is electricity.
 - Nvidia moat: silicon, networking, CUDA (20 yrs of code), supply chain, AI factories. Price the stack, not the chip.
 - 1GW datacenter: power, cooling, networking, multi-year supply chain (Zuck).
-- $10B training runs: each generation 10x; plan for the next zero.
+- $10B training runs: each generation 10x. Plan for the next zero.
 - Stack: die (tensor cores, HBM) → 8-GPU server (NVLink) → rack → cluster → datacenter.
 - Meta strategy: commoditize your complement (open Llama, monetize products).
 
