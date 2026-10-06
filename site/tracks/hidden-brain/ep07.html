@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 7: Why You Choke Under Pressure — AI Podcast Curriculum</title>
+<meta name="description" content="Sian Beilock on the machinery of choking: working memory hijacked by worry, and four science-backed tools to perform when the stakes are highest.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="hidden-brain-ep07" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07" class="active">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Hidden Brain</a> / Episode 7: Why You Choke Under Pressure</nav>
+      <h1>Episode 7: Why You Choke Under Pressure</h1>
+      <p class="meta-line">2026-04-10 · Instructor: Sian Beilock (cognitive scientist) · Hidden Brain</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="bTQM2XMec6M"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/bTQM2XMec6M" title="Why You Choke Under Pressure" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=bTQM2XMec6M" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=bTQM2XMec6M" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">You practiced a thousand times and froze. Here is the brain mechanism, and four ways to beat it.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the tenth most-viewed episode (5,940 views as of October 2026) and the closing chapter of the track. It is the only episode that turns the whole track&rsquo;s self-knowledge into performance: you now know how your mind works, and this is how you keep it working when the stakes are highest. It gives the track&rsquo;s most mechanical model, working memory as cognitive horsepower, and its most actionable toolkit: practice to automaticity, reframe the symptoms, breathe, ritualize. It is also the final exam of the intelligence thread: the drills here give you no answer sketches. Reason from the episode, unaided.</p>
+<h2 id="the-greatest-choke-in-olympic-history">The greatest choke in Olympic history</h2>
+<h3 id="cate-campbell">Cate Campbell</h3>
+<p>Think of a time you crumbled under pressure: froze during a wedding speech, hit the wrong note on stage, stumbled through a job interview. Keep yours in mind. In 2008, Cate Campbell was a young Australian swimmer debuting at the Beijing Olympics. She came third in the 50-meter freestyle with 24.17 seconds, one of the youngest swimmers there. In 2012 in London she won gold with her team. Then at the Australian Swimming Championships she won the 100-meter freestyle and set a personal best, her first in three years. Her next stop: the 2016 Summer Olympics in Rio. She arrived with sky-high expectations. Vedantam says he would have bet on her winning the 100-meter freestyle. She reached the final and was placed in lane four. The best swimmers go in the middle lanes.</p>
+<p>Nearly everything important in that race happened before it even began. On the starting blocks, the referee told the athletes to take their marks. Right there, Cate made a slight movement. One small flinch. Barely perceptible to everyone except Cate. She worried the flinch would be judged a false start. At that moment, her attention shifted. Instead of focusing on swimming the race as planned, she started thinking: oh no, I made a mistake, they will disqualify me. The race started. She dove in and swam. But her mind stayed on the flinch. She swam the first 50 meters too fast, ahead of world-record pace by the turn, and ran out of gas. Instead of accelerating home, she lost steam. Other swimmers passed her. She finished sixth. Not first, second, or third. Not fourth or fifth. Sixth. Cate herself calls it the greatest choke in Olympic history.</p>
+<h2 id="the-machinery-working-memory">The machinery: working memory</h2>
+<h3 id="cognitive-horsepower">Cognitive horsepower</h3>
+<p>A few key factors explain choking. The first is the working-memory system. Sian Beilock, a cognitive scientist who spent years studying choking under pressure, describes working memory as cognitive horsepower. It lets you juggle numbers in your head, plan for the future, and make decisions from a lot of information. Working memory is all the stuff you keep in your head while doing a task.</p>
+<h3 id="the-digit-experiments">The digit experiments</h3>
+<p>Beilock&rsquo;s team has a fun experiment that shows how working memory works, and the episode runs it on you. First: 7 6 2 4. Four digits, shown briefly, then gone. Repeat them back. You probably got it. Next: 5 8 9 7 4 3. Six digits. Harder. Next: 9 1 0 4 8 2, six digits, but repeat them in reverse order. Much harder. Vedantam describes his own strategy: hold the whole series, ask what the last number is, re-hold the whole series from the start, pick out the second-to-last, and so on. Your ability to hold the numbers while producing the answers is the product of your working memory. And as you can see, we do not have vast reserves of it.</p>
+<p>Figure 1. The working-memory ladder. AI Podcast Curriculum, ep07 (Sian Beilock, 2026-04-10). Shell 2. Count or score the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Digits</th>
+<th>Demand</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repeat 7624</td>
+<td>4</td>
+<td>Hold and echo</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>Repeat 589743</td>
+<td>6</td>
+<td>Hold more</td>
+<td>Harder</td>
+</tr>
+<tr>
+<td>Repeat 910482 reversed</td>
+<td>6, reversed</td>
+<td>Hold, reorder, emit</td>
+<td>Much harder</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. Each step adds one operation on the same small store. The store does not grow. That fixed size is the whole theory.</p>
+<h3 id="the-hijack">The hijack</h3>
+<p>What happens when limited working memory is occupied with something it should not be focused on? You choke. That is what happened to Cate Campbell. Her working memory, which should run the race plan, ran the worry instead: the flinch, the false start, the disqualification. The worry consumed the horsepower. The swimming, which she had done ten thousand times, had no processor left to run on. She did not lose skill. She lost the memory the skill needed.</p>
+<p>Figure 4. The hijack: what occupies the store. AI Podcast Curriculum, ep07 (Sian Beilock, 2026-04-10). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Working memory holds</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal pressure</td>
+<td>The race plan</td>
+<td>Skill executes</td>
+</tr>
+<tr>
+<td>Hijacked</td>
+<td>The worry (flinch, crowd, verdict)</td>
+<td>Skill sits idle, choking</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. The skill does not leave. The processor gets reassigned.</p>
+<h3 id="steph-currys-working-memory">Steph Curry&rsquo;s working memory</h3>
+<p>It helps to see working memory deployed well under stress. On a basketball court, the Golden State Warriors against the Los Angeles Lakers: Steph Curry, number 30, passes to Jonathan Kuminga almost as if he knew exactly where his teammate was behind him. Kuminga snakes through the defense. The episode&rsquo;s point: skilled players saw so many similar situations that they do not spend working memory tracking where everyone is. They process the game faster and aim their memory at what is truly novel, like an opposing player unexpectedly stealing the ball. Practice made the familiar automatic, which freed the horsepower for the new.</p>
+<p>The same thing happens when you drive to work. You listen to music or chat on the phone, not thinking about traffic, and then you are in your parking spot. A thousand repetitions moved the driving off working memory and onto fast automatic processing. Choking is what happens when worry moves back in and evicts the skill from the small store.</p>
+<h2 id="the-machinery-anxiety">The machinery: anxiety</h2>
+<h3 id="the-yellow-square">The yellow square</h3>
+<p>There is a second dimension of choking, and it runs through anxiety. Beilock&rsquo;s team brought people into the lab for brain scans. Some were anxious about math. Others were not. People watched a screen where a math problem would occasionally pop up, preceded by a warning: a yellow square. People who liked math were fine. But the math-worried, when they saw the yellow square, lit up brain areas associated with pain. This happened before any math appeared. They simply knew it was on its way, and the pain circuitry activated.</p>
+<p>The episode&rsquo;s reading: the volunteers did not use their working memory to solve the math problem. They used it to remind themselves that they were not good at math. Same hijack as Cate&rsquo;s flinch, different content. The store is small either way, and worry spends it.</p>
+<p>Figure 5. The yellow square: pain before the problem. AI Podcast Curriculum, ep07 (Sian Beilock, 2026-04-10). Shell 2. Count or score the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Brain at the warning, before any math</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Math-anxious</td>
+<td>Pain areas light up</td>
+</tr>
+<tr>
+<td>Comfortable with math</td>
+<td>No pain response</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. The hijack starts at the warning, not at the task.</p>
+<h3 id="the-oath">The oath</h3>
+<p>Take the 2009 inauguration. Chief Justice John Roberts swearing in President-elect Barack Obama. Both men had spent years in the public eye. Both had ample practice. The words were not complicated: &ldquo;I, Barack Hussein Obama, do solemnly swear that I will faithfully execute the office of the President of the United States.&rdquo; Here is how it went. Obama: &ldquo;I, Barack Hussein Obama, do solemnly swear.&rdquo; Roberts: &ldquo;I, Barack Hussein Obama, do solemnly swear that I will execute the office of President to the United States faithfully.&rdquo; Obama: &ldquo;that I will execute the office of President of the United States faithfully, and will to the best of my ability&hellip;&rdquo; Roberts: &ldquo;and will, to the best of my ability, preserve, protect, and defend the Constitution of the United States.&rdquo; They stumbled through 35 words they both knew cold.</p>
+<p>What happened? The stakes were very high. When the internal pressure gauge goes into the red zone, things you can do in your sleep become very difficult. In front of the watching world, both men started focusing on the audience instead of the sentence in front of them. And once things went wrong, a voice said: you mess up in front of millions of people. Attention on the audience is attention off the task. The working memory that should have held the next phrase held the crowd.</p>
+<h3 id="the-parallel-parking-rule">The parallel-parking rule</h3>
+<p>Think of the last time you parallel parked with someone watching. It was harder. The stakes are higher performing before a crowd. The audience does not change the car&rsquo;s geometry. It changes where your working memory points.</p>
+<h3 id="stereotype-threat">Stereotype threat</h3>
+<p>Sometimes the people around us make us choke because we believe they believe we will mess up. Psychology has a word for this: stereotype threat. If you believe others hold a negative stereotype about you, you are more likely to behave in ways that make the stereotype come true. Others&rsquo; views of you become prophecies that fulfill themselves. The episode cites a film about the stereotype that white players are not as good at basketball as Black players. If you faced a situation where you knew others expected you to fail, you know how easy it becomes to choke. The mechanism fits the model exactly: part of your small working memory is now running their expected verdict of you.</p>
+<h2 id="the-four-solutions">The four solutions</h2>
+<h3 id="1-practice-to-automaticity">1. Practice to automaticity</h3>
+<p>The first solution is practice. Remember Steph Curry. Practice makes you so fluent that the task becomes nearly automatic. Automatic processing does not bill working memory. With the skill off the small store, the store is free for what is important: the novel elements, the actual plan. This is also why Cate&rsquo;s choke is instructive rather than mysterious. She had the practice. The flinch worry re-billed the store anyway. Practice protects you against everything except the hijack, which is what the other three tools are for.</p>
+<h3 id="2-reframe-the-symptoms">2. Reframe the symptoms</h3>
+<p>When jitters set in, do not treat nervousness as an emotional state. Treat it as a physiological state. Sweaty palms, pounding heart: instead of telling yourself &ldquo;I am in over my head,&rdquo; focus on the symptoms and reframe them. Say: my palms are sweaty, my heart races, that means I am excited. My body readies itself for a challenge. Beilock and colleagues showed that when people reinterpret the symptoms as a sign they will thrive, that the beating heart shunts blood to the brain so they can think, rather than a sign they will fail, they actually perform better. The symptoms do not change. The label changes, and the label decides what working memory does with them: fuel versus verdict.</p>
+<p>Figure 2. Reframing arousal. AI Podcast Curriculum, ep07 (Sian Beilock, 2026-04-10). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Anxious label</th>
+<th>Performance label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sweaty palms, racing heart</td>
+<td>I am in over my head</td>
+<td>I am excited, my body readies itself</td>
+</tr>
+<tr>
+<td>Pounding heart</td>
+<td>A sign I will fail</td>
+<td>Blood shunting to my brain so I can think</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. The rule: the same physiology gets two labels, and the label routes working memory to worry or to the task.</p>
+<h3 id="3-breathe">3. Breathe</h3>
+<p>Breathing is an underrated trick. It takes your mind off the worry, and it calms the body in the process. In the model: breathing evicts the worry from the store by giving the store a different, neutral occupant, while the physiology settles.</p>
+<h3 id="4-use-a-ritual">4. Use a ritual</h3>
+<p>If you start paying too much attention to things you should not focus on, a ritual helps. Invent your own: count backwards, sing a song, focus on one important thought. The ritual is a controlled occupant for working memory. It holds the slot that worry wants, and it points attention at something harmless until the task takes over.</p>
+<p>Figure 3. The four solutions and their mechanisms. AI Podcast Curriculum, ep07 (Sian Beilock, 2026-04-10). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Effect on working memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Practice to automaticity</td>
+<td>Moves the skill off the store, frees it for the novel</td>
+</tr>
+<tr>
+<td>Reframe symptoms</td>
+<td>Relabels arousal from verdict to fuel</td>
+</tr>
+<tr>
+<td>Breathe</td>
+<td>Evicts worry with a neutral occupant, calms the body</td>
+</tr>
+<tr>
+<td>Ritual</td>
+<td>Holds the slot with a harmless placeholder</td>
+</tr>
+</tbody>
+</table>
+<p>One claim per plate. Four tools, one target: keep worry from spending the small store.</p>
+<h3 id="not-weakness">Not weakness</h3>
+<p>In moments of pressure the mind can feel like it fights you. These blocks are not signs of weakness. They are clues into how the brain operates, and how you might learn to work with your hidden brain for a better outcome.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic: <strong>STORE</strong>: the choking model. <strong>S</strong>mall store (working memory is tiny). <strong>T</strong>he worry spends it. <strong>O</strong>ccupy it deliberately (ritual, breath). <strong>R</strong>elabel arousal (excited, not doomed). <strong>E</strong>xpertise automates (practice frees it).</p>
+<p>Never-confuse pairs:
+- Choking is not lack of skill. Cate Campbell had the skill. She lost the processor the skill needed. The oath-takers knew the words. They lost the phrase to the crowd.
+- Reframing is not positive thinking. Positive thinking denies the symptoms. Reframing keeps the symptoms and changes the label: the heart still pounds, but it means fuel now.
+- A ritual is not superstition. Superstition believes the ritual causes the outcome. The episode&rsquo;s ritual occupies working memory so worry cannot. The mechanism is attentional, not magical.</p>
+<p>Trap cards:
+- Trap: &ldquo;I choked, so I am not good enough.&rdquo; Reality: the store got hijacked. The skill is intact. Fix the hijack, not the self.
+- Trap: &ldquo;Calm down.&rdquo; Reality: you cannot will the symptoms away, and trying spends more working memory. Relabel them instead.
+- Trap: &ldquo;More practice will fix it.&rdquo; Reality: practice protects against everything except the hijack. Cate had the practice. You need the other three tools too.
+- Trap: &ldquo;They expect me to fail, so I will.&rdquo; Reality: that is stereotype threat spending your store on their verdict. Name it and the spending stops being invisible.</p>
+<h2 id="qa">Q&amp;A</h2>
+<p><strong>1. Explain choking to me like I am new.</strong>
+Your brain has a small workspace called working memory. It holds the few things you are actively thinking about while you do a task. Under pressure, worry moves into that workspace: the flinch, the crowd, the voice saying you mess up. The workspace is small, so the worry pushes out the task. Cate Campbell did not forget how to swim. Her workspace was full of the false-start worry, so the race plan had nowhere to sit. She swam the first half too fast on autopilot and died in the second half. Choking is not skill failure. It is workspace theft. Follow-up: why did she swim too fast instead of too slow? The worry consumed the planning function. Without the plan regulating pace, the body defaulted to adrenaline speed.</p>
+<p><strong>2. Walk me through the digit experiments. What does each step prove?</strong>
+Four digits, repeat back: easy. The store holds them. Six digits: harder. The store is near capacity. Six digits reversed: much harder. Now the store must hold the series, compute the reversal, and emit it in order. Each step adds one operation on the same fixed store, and performance falls. The ladder proves three things: the store is small, it is shared between holding and computing, and adding operations degrades both. Follow-up: map each rung to Cate&rsquo;s race. Four digits is the warm-up swim. Six digits is the final with the plan loaded. Six reversed is the final with the false-start worry loaded on top. Same store, more operations, collapse.</p>
+<p><strong>3. What did the yellow-square experiment show, exactly?</strong>
+People watched a screen where math problems would occasionally appear, each preceded by a yellow square warning. Brain scans showed that math-anxious people activated pain-associated areas at the warning, before any math appeared. People comfortable with math did not. The episode&rsquo;s reading: the anxious did not use working memory on the math. They used it to remind themselves they were bad at math. The pain response fired at the anticipation, which means the hijack starts before the task does. Follow-up: why does this matter for test design? Because the damage is done at the warning. Anything that reduces anticipatory dread, including reframing, protects the store before the first question.</p>
+<p><strong>4. Explain the Obama-Roberts oath failure in the episode&rsquo;s model.</strong>
+Thirty-five practiced words, two expert performers, a global audience. Under extreme stakes, both shifted attention from the sentence to the audience. Working memory that should have held the next phrase held the crowd instead. Once the first stumble happened, the inner voice (&ldquo;you mess up in front of millions&rdquo;) took a second slot. Each error fed the voice, and the voice took more of the store. The failure compounded because the monitor consumed the processor. Follow-up: why could they not just read it? They performed from memory under watch. The episode&rsquo;s point is that the same mechanism hits practiced material hardest: the better you know it, the less store it normally needs, so the hijack has more room to hide until it is total.</p>
+<p><strong>5. What is stereotype threat, and how does it fit the working-memory model?</strong>
+If you believe others hold a negative stereotype about you, you become more likely to confirm it. The episode&rsquo;s example: the stereotype that white players are not as good at basketball as Black players. The fit is exact: part of your small store is now running their expected verdict of you. That is one fewer slot for the task, plus an emotional charge that makes the worry sticky. Others&rsquo; views become self-fulfilling because your brain spends its horsepower rehearsing their judgment. Follow-up: what is the defense? Name it. Stereotype threat works best unnamed, as background dread. Labeling it (&ldquo;that is their verdict renting my store&rdquo;) moves it from background to object, which is the first step toward eviction.</p>
+<p><strong>6. Applied: you have a job interview in one hour and your heart pounds. Run the episode&rsquo;s toolkit in order.</strong>
+First, reframe, now: sweaty palms and pounding heart mean your body readies itself, shunting blood to your brain so you can think. Say it literally. Second, breathe: two minutes, slow exhales, giving the store a neutral occupant and calming the body. Third, ritual: pick one now, a short phrase or a backward count from 20, and run it in the waiting room to hold the slot that worry wants. Fourth, trust the practice: your preparation moved the answers toward automaticity, so stop rehearsing and let the store stay clear for the novel parts, the interviewer&rsquo;s actual questions. Do not try to &ldquo;calm down.&rdquo; That is a suppression task, and suppression bills the store. Follow-up: what if you blank on a question mid-interview? That is the hijack in progress. Breathe once, run the ritual phrase, and let the automatic knowledge surface instead of chasing it with the worried store.</p>
+<p><strong>7. Applied: your team chokes in big client demos. Design the team&rsquo;s anti-choke system.</strong>
+Practice: run the demo so many times it is automatic, including the failure paths, so the store is free for the client&rsquo;s novel questions. Reframe: pre-brief the team that racing hearts mean readiness, not doom. Make the label explicit and shared. Ritual: give the demo a fixed opening sequence, the same first 60 seconds every time, a team-wide placeholder that holds attention until the flow takes over. Breathing: build a two-minute reset into the pre-demo routine, not as wellness theater but as store management. And name stereotype threat: if the team believes the client expects them to fail, say so out loud before the demo, or the client&rsquo;s imagined verdict will rent everyone&rsquo;s store. Follow-up: how do you know it worked? The metric is recovery speed: when something goes wrong mid-demo, how fast does the team return to the plan? That is the store being reclaimed.</p>
+<p><strong>8. The episode says these blocks are not signs of weakness. Argue the case from the evidence.</strong>
+Cate Campbell was an Olympic finalist who swam a personal best weeks earlier. Her sixth-place finish came from a flinch worry, not from lost ability. Obama and Roberts were among the most practiced public speakers alive. 35 known words defeated them under watch. Steph Curry&rsquo;s genius, in the episode&rsquo;s telling, is partly store management: automaticity freeing horsepower for the novel. In each case the skill was intact and the processor was stolen. Weakness means missing skill. Choking means an occupied workspace. The distinction matters because the fixes differ: weakness needs training, choking needs the four tools. Treating choking as weakness prescribes more practice, which Cate already had, and misses the hijack entirely.</p>
+<h2 id="chapter-plate">Chapter plate</h2>
+<table>
+<thead>
+<tr>
+<th>Without the rule</th>
+<th>The stored object</th>
+<th>With the rule</th>
+<th>Tradeoff in one line</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pressure fills the small store with worry: the flinch, the crowd, their verdict, skill sits idle with no processor</td>
+<td>Working memory as fixed-size workspace, shared between holding and computing, worry is the thief</td>
+<td>Practice moves skill off the store, reframe relabels arousal as fuel, breath evicts worry, ritual holds the slot</td>
+<td>None of the four tools adds skill, all four protect the workspace the skill needs, which is why practice alone never suffices</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<p>Concrete practices, this week.</p>
+<ol>
+<li>Measure your store. Run the digit ladder on yourself: 4 forward, 6 forward, 6 reversed. Feel the exact point where it breaks. Observable change: you gain a felt sense of the store&rsquo;s size, which makes the hijack recognizable later.</li>
+<li>Pre-write your reframe. Write your arousal relabel sentence now: &ldquo;My heart pounds. That is blood moving to my brain so I can think.&rdquo; Memorize it. Observable change: the sentence is available when the symptoms arrive, instead of the doom label.</li>
+<li>Build one ritual. Choose a 20-second placeholder: count backward from 30, a short phrase, three slow breaths. Use it before one stressful thing this week. Observable change: you have a tool that holds the slot on demand.</li>
+<li>Name one stereotype threat. Write a situation where you feel others expect you to fail. Label it explicitly before the next occurrence. Observable change: the background dread becomes a named object, which weakens its tenancy.</li>
+<li>Automate one skill. Pick something you do under pressure (a standup update, a demo opening). Rehearse it until it needs no thought. Observable change: the store stays clear for the parts you cannot rehearse.</li>
+<li>Debrief one choke. Recall your last freeze or fumble. Map it: what occupied the store? Name the worry in one sentence. Observable change: the event converts from shame to mechanism.</li>
+<li>Teach it once. Explain the store model to one person this week, with the digit ladder. Observable change: teaching forces the model into your own permanent memory, and you gain a shared language for team pressure.</li>
+</ol>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Do these with your own brain before touching AI. No answer sketches. Reason from the episode, unaided.</p>
+<p><strong>Drill 1: the flinch autopsy.</strong> Reconstruct Cate&rsquo;s race as a store-occupancy timeline: blocks, &ldquo;take your marks,&rdquo; the flinch, the dive, the first 50 meters, the turn, the finish. At each point, write what occupied working memory. Identify the exact moment the race was lost, and defend your choice against the alternative that it was lost at the turn.</p>
+<p><strong>Drill 2: design the experiment.</strong> The yellow square showed pain activation at anticipation. Design a follow-up experiment testing whether reframing (&ldquo;this means you are ready&rdquo;) reduces that activation. Specify the groups, the warning, the measurement, and the prediction. Then name the strongest objection to your design.</p>
+<p><strong>Drill 3: the oath rewrite.</strong> Using the episode&rsquo;s model, rewrite the inauguration protocol so the oath cannot fail this way. You may change the procedure but not the words or the people. Explain each change as store management.</p>
+<p><strong>Drill 4: your hijack inventory.</strong> List your last three pressure failures. For each, name the worry that rented the store, in one sentence. Look for the pattern across the three. Is it the same tenant every time? Write the eviction plan: which of the four tools fits each?</p>
+<p><strong>Drill 5: the stereotype audit.</strong> Identify one stereotype threat operating in your own life right now, however mild. Describe the exact mechanism by which it spends your store. Then write the naming sentence you will use before the next exposure.</p>
+<p><strong>Drill 6: the track synthesis.</strong> This track taught you: subtraction neglect, the divided brain, resilience, courage, forgetting, memorability, and choking. Write one paragraph on how all seven form a single operating system for a mind under pressure. Then name the one idea you will install first, and the first observable behavior that will prove it is installed.</p>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Run the digit ladder to feel your working memory&rsquo;s fixed size.</li>
+<li>Diagnose any choke as workspace theft: name the worry that rented the store.</li>
+<li>Reframe arousal on the spot: pounding heart as fuel, not verdict.</li>
+<li>Deploy a personal ritual to hold the store&rsquo;s slot under pressure.</li>
+<li>Use breathing as store management: evict worry with a neutral occupant.</li>
+<li>Name stereotype threat before it spends your store on someone else&rsquo;s verdict.</li>
+<li>Automate practiced skills so the store stays clear for the novel.</li>
+<li>Debrief failures as mechanism, not shame, and prescribe the matching tool.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The episode itself: https://www.youtube.com/watch?v=bTQM2XMec6M</li>
+<li>Sian Beilock&rsquo;s research background: https://en.wikipedia.org/wiki/Sian_Beilock (HTTP 200, verified 2026-10-06)</li>
+<li>Working memory, the core mechanism: https://en.wikipedia.org/wiki/Working_memory (HTTP 200, verified 2026-10-06)</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit id</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure id</th>
+<th>Medium</th>
+<th>Source</th>
+<th>Four tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Store is small and shared</td>
+<td>4 digits: easy</td>
+<td>6 reversed: collapse</td>
+<td>fig1</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 3-row ladder / T2: comparison forces table / T3: none, static / T4: digit chips reused in drills</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Same physiology, two labels</td>
+<td>Anxious label: doom</td>
+<td>Performance label: fuel</td>
+<td>fig2</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 2-row relabel / T2: comparison forces table / T3: none, static / T4: the fuel label reused in imbibe</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Four tools, one target</td>
+<td>Worry rents the store</td>
+<td>Each tool reclaims it differently</td>
+<td>fig3</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 4-row mechanism table / T2: comparison forces table / T3: none, static / T4: tool names reused in drills</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>The hijack: worry occupies the store</td>
+<td>Store holds the plan</td>
+<td>Store holds the worry</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: store contents before/after / T2: before/after forces table / T3: none, static / T4: store-occupancy chip reused in drills and imbibe</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Yellow square: pain before any math</td>
+<td>Math-anxious at warning</td>
+<td>Pain areas light up</td>
+<td>fig5</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: two groups at one timepoint / T2: comparison forces table / T3: none, static / T4: reused in Q&amp;A 3, drill 2</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Cate Campbell: sixth place</td>
+<td>Expected gold</td>
+<td>Finished sixth</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: narrative. The mechanism is fig4</td>
+</tr>
+<tr>
+<td>u07</td>
+<td>Curry: practice frees the store</td>
+<td>Novices track everything</td>
+<td>Experts aim memory at the novel</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: illustration of fig3&rsquo;s practice row. Prose carries it</td>
+</tr>
+<tr>
+<td>u08</td>
+<td>Stereotype threat rents the store</td>
+<td>Store holds the task</td>
+<td>Store holds their verdict</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: same occupancy mechanism as fig4. Prose covers it</td>
+</tr>
+<tr>
+<td>u09</td>
+<td>Obama-Roberts oath: 35 known words failed</td>
+<td>35 words known cold</td>
+<td>Stumbled under watch</td>
+<td>none</td>
+<td>none</td>
+<td>episode claims</td>
+<td>No figure: narrative illustration of fig4&rsquo;s hijack</td>
+</tr>
+</tbody>
+</table>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=bTQM2XMec6M" target="_blank" rel="noopener">Why You Choke Under Pressure</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/hidden-brain/ep06.html"><span class="lbl">← Previous</span>Episode 6: The Secret Coding in Your Brain That Makes Art Unforgettable</a><a href="../../tracks/hidden-brain/cheatsheet.html"><span class="lbl">Next →</span>Hidden Brain: Cheatsheet</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
