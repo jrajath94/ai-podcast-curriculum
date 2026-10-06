@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 9: Any Austin on the Hermeneutics of Game Infrastructure — AI Podcast Curriculum</title>
+<meta name="description" content="Tyler walks Austin through discovery, infrastructure, glitches, AI art, commentary, VR, and why games are not getting better.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="conversations-with-tyler-ep09" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09" class="active">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Conversations with Tyler</a> / Episode 9: Any Austin on the Hermeneutics of Game Infrastructure</nav>
+      <h1>Episode 9: Any Austin on the Hermeneutics of Game Infrastructure</h1>
+      <p class="meta-line">2025-06-11 · Instructor: Any Austin · Conversations with Tyler</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="rOYjgXY-Ts4"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/rOYjgXY-Ts4" title="Any Austin on Video Games, Infrastructure, and Seeing | Conversations with Tyler" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=rOYjgXY-Ts4" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=rOYjgXY-Ts4" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Tyler interviews Any Austin on games, art, and attention.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the WATCHING GREAT MINDS chapter on seeing. Tyler introduces Austin as the best in the world at the hermeneutics of infrastructure within video games: watching how a game&rsquo;s parts fit together. His famous video asks, &ldquo;Do Liberty City&rsquo;s Power Lines Connect to Anything?&rdquo; He covers unemployment in games, how you might find a job, the background people and what they do, the roads, the cars. Nobody else does this. Austin likes it that way: best in the world at something nobody else does is &ldquo;a really good place to be.&rdquo;</p>
+<h2 id="the-90-percent-rule">The 90 percent rule</h2>
+<p>How do people find him? If he had to put a number on it: 90 percent the YouTube algorithm. Word of mouth, Discord, podcasts, social media: the margins. Posting on Instagram costs disproportionate effort for the reach. No other algorithm is as adept at getting content people want in front of the people who want it. Do the work well and the algorithm does the rest, &ldquo;not effortlessly, but very, very effectively if you approach it correctly.&rdquo;</p>
+<p>Tyler&rsquo;s gloss: the future belongs to people who can name what they are best in the world at, even if it sounds strange. Austin&rsquo;s addition, later in the episode: when someone says &ldquo;the algorithm,&rdquo; replace the word with &ldquo;audience.&rdquo; It is just the audience. YouTube&rsquo;s is the best.</p>
+<p>Figure 1. The 90 percent rule. AI Podcast Curriculum, ep09 (Any Austin interview, 2025-06-11). Shell 2. Count the toy. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Share of discovery</th>
+<th>Cost per unit of reach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YouTube algorithm</td>
+<td>About 90 percent</td>
+<td>Low, if the work is good</td>
+</tr>
+<tr>
+<td>Word of mouth, Discord</td>
+<td>Single digits</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Instagram, social posting</td>
+<td>Margin</td>
+<td>Disproportionate</td>
+</tr>
+<tr>
+<td>The rule</td>
+<td>Algorithm equals audience</td>
+<td>Make the thing, let it match</td>
+</tr>
+</tbody>
+</table>
+<h2 id="learning-to-look">Learning to look</h2>
+<p>Is the noticing built in or learned? Austin is not sure. He walks around in a fog while noticing the fog. But he sees far more utility poles now, just from having made the video. And he has a theory of origin: as a kid, strict limits on game time, 20 minutes a day, and no saves. Turn it off and you start from the beginning. So he ran the same locations over and over and had to make fun in that tiny space. Maybe that taught him to look at spaces in detail, and he carried it outside. &ldquo;One of the many things video games can teach us about ourselves and how we interact with our environment.&rdquo;</p>
+<p>The method generalizes. Real-world infrastructure is the payoff: it is &ldquo;way more important than you think it is,&rdquo; and we assume it is simple.</p>
+<h2 id="the-ideal-form-versus-the-real-pole">The ideal form versus the real pole</h2>
+<p>The core Austin move: compare the game&rsquo;s infrastructure to the ideal form, then go outside and compare reality to the ideal form too. We expect the ideal form in the game. A utility pole with the wire wrong looks broken. But walk outside: real infrastructure is usually wrong compared to its ideal form. So many things collide when you build a city, the same collisions as building a game. The guy who was supposed to dig the hole. The contractor with his own constraints. Call this person, do that other thing.</p>
+<p>A paved road with a utility pole to your house looks simple. It took enormous coordination, knowledge, and effort. People should appreciate that more. He is passionate about it &ldquo;on accident.&rdquo;</p>
+<p>Tyler asks the metaphysical version: studying game glitches all day, does he ever doubt reality is fully knit together? Austin&rsquo;s answer is not simulation but rules. Games run on codified rules and things still go wrong. Reality seems to have rules and consistencies. The interesting question is the real-life equivalent of hacking physics: interplays of rule sets that create strange things. Ghosts are people&rsquo;s concrete version. He doubts it is that legible. But some imperfection in how the rules fit together feels inevitable. &ldquo;It seems really unlikely to me that everything works all the time.&rdquo; He is not a physicist.</p>
+<p>Tyler offers his version: quantum mechanics and general relativity are not obviously consistent. Maybe all possible universes exist, many with glitches, and we are in one that works well enough to survive. Austin: it would have to work well enough. If it did not, we would not be here. The anthropic principle, with a YouTuber&rsquo;s instinct: rules cohere on a spectrum, and ours held for billions of years. Then, at some point, whatever.</p>
+<p>Figure 2. Ideal form versus real pole. AI Podcast Curriculum, ep09 (Any Austin interview, 2025-06-11). Shell 3. Apply the one rule. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>The game pole</th>
+<th>The real pole</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expectation</td>
+<td>Should match the ideal form</td>
+<td>Should match the ideal form</td>
+</tr>
+<tr>
+<td>Reality</td>
+<td>Sometimes the wire is wrong</td>
+<td>Usually wrong versus the ideal</td>
+</tr>
+<tr>
+<td>Why</td>
+<td>Design collisions, deadlines</td>
+<td>The hole guy, the contractor, the calls</td>
+</tr>
+<tr>
+<td>The lesson</td>
+<td>Glitches reveal the build</td>
+<td>Glitches reveal the build</td>
+</tr>
+<tr>
+<td>The metaphysics</td>
+<td>Rules plus bugs</td>
+<td>Rules plus bugs, over billions of years</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai-art-and-the-competency-trap">AI art and the competency trap</h2>
+<p>AI image and video: Austin has almost no interest in the visual now. It grew less interesting as it grew more competent. LLMs are the inverse: seriously capable educational tools. A chicken bone turning into a runway model is still neat, that halfway strangeness. But the trajectory is toward eliminating the surrealness and making it competent, because competency is what sells productivity: the bear scratching a tree without paying $50 for the sketch. It will absorb every low-paid stock photographer job. It will not make interesting art unless preferences change, because the frontier of cool art was never the most perfect realistic thing. Video games learned this over 20 years: chasing the perfect realistic thing is not where the frontier is.</p>
+<p>Tyler&rsquo;s counter: at low token cost, run a million storylines, let the AI judge, keep the one in a million. Austin: yes, on infinite timescales, AI will capture what is in the human heart. &ldquo;There is no reason to think it will not.&rdquo; In 10 years, maybe. But right now he can come up with something faster than the AI can, so the AI is not useful to him for images. And the billion-experiment plan has a hole: who looks through all those pictures? &ldquo;Not me.&rdquo; The AI picks? Then it has to get it right every time. Not yet.</p>
+<p>The deeper point: good artists are fast. The first thing they come up with is the coolest thing, and they do it right then. Speed beats search.</p>
+<h2 id="where-the-value-lives">Where the value lives</h2>
+<p>Tyler: the role in history matters. AI art gets its own role, but it does not compete with Michelangelo. Without Christianity, Florence, the Renaissance, Michelangelo loses more than half its value. Movies are different: new movies have no history yet, and it is all artifice anyway.</p>
+<p>Austin: the value is in the interaction. The cup is the art, he is the viewer, and the value lives somewhere in between. A sculpture can be totally moving with zero knowledge, and he generally prefers knowing nothing. History adds a separate fun thing in a separate part of the brain. It does not change the meaning the piece had.</p>
+<p>And the authenticity test fails anyway. People swear a band&rsquo;s album was authentic, then the history shows it was made under duress and nobody cared. We cannot tell authentic human art from inauthentic. We will not tell AI art from human art either. We cannot tell now.</p>
+<h2 id="the-tyler-glitch">The Tyler glitch</h2>
+<p>Tyler confesses his own infrastructure glitch: the first two or three sentences of every guest introduction need redoing. The middle never breaks. Austin loves the asymmetry: no matter what happens mid-show, it goes right, but the intro sometimes does not.</p>
+<p>Tyler&rsquo;s diagnosis: being warmed up versus self-conscious. The intro is pseudo-memorized, over-controlled, a bad place to be. Improvisation beats the script. Austin: the intro was the overture. Everything after is improvisation.</p>
+<p>The general lesson Austin takes: glitches reveal the build. Tyler&rsquo;s glitch reveals that control is the fragile part and spontaneity is the strong part.</p>
+<h2 id="games-are-not-getting-better">Games are not getting better</h2>
+<p>The pet peeve, stated flatly: games will not get better over the next 20 years. &ldquo;None. No better.&rdquo; Not worse either. Same.</p>
+<p>The theory: every medium has a nascent period where the basic tools get figured out. After that, art does not get qualitatively better. It gets different and more expensive. Red Dead Redemption II versus The Legend of Zelda on the NES in 1984: different tone, different timbre, not more aggregate impact on the heart. Atari games mostly stink, but once Nintendo revitalized the industry in the 1980s, games stayed really good and really fun.</p>
+<p>On seminal games drying up: Austin demands the graph. Minecraft, 2011 to 2014, blew open what games could be. Breath of the Wild, 2017, revolutionized again. Tyler reports the secondhand claim that the distribution falls. Austin: &ldquo;Tell them to do it, and then I will look at the graph.&rdquo;</p>
+<p>The market reality: 12 percent of self-described gamers buy a game in a given year. Gaming revenue blew up over 15 to 20 years, but the serious audience is book-sized, not film-sized. Fortnite, VALORANT, and Counter-Strike are games the way football is theater: same medium word, different cultural thing. The AAA collapse is a bubble deflating after 10 to 15 years, not the medium dying. The barrier to entry is structural: interactivity means you must learn to do something, like literacy for books. It will never have TV&rsquo;s market.</p>
+<p>Figure 3. Better versus different. AI Podcast Curriculum, ep09 (Any Austin interview, 2025-06-11). Shell 3. Apply the one rule. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nascent period</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What happens</td>
+<td>Basic tools figured out</td>
+<td>Same tools, more money</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>NES era, 1980s</td>
+<td>Red Dead Redemption II</td>
+</tr>
+<tr>
+<td>Impact on the heart</td>
+<td>High</td>
+<td>Same, different timbre</td>
+</tr>
+<tr>
+<td>Seminal rate</td>
+<td>N/A</td>
+<td>Minecraft, Breath of the Wild. Show the graph</td>
+</tr>
+<tr>
+<td>The rule</td>
+<td>Art gets good and stays good</td>
+<td>Better is the wrong axis. Different is the axis</td>
+</tr>
+</tbody>
+</table>
+<h2 id="commentary-eats-the-game">Commentary eats the game</h2>
+<p>Tyler&rsquo;s provocation: a fan spent six hours on NBA podcasts without watching a game all week. Is the Mishnah bigger than the Torah now? Austin: we are already there. Lots of people watch game streams who never played a game. It says nothing deep about games or the NBA. It says the barrier to entry for watching is lower than for playing.</p>
+<p>But Austin has a complaint about the commentary value system: it is uniform. Frame rates, settings, comparative analysis, every review forced to say &ldquo;this game plus that game.&rdquo; Nobody talks about music&rsquo;s sampling rate. They talk about how the song made them feel. Games commentary needs the sculpture treatment: what is it, literally, what are we looking at, what did it make you feel.</p>
+<p>His goal: change how YouTube thinks about games. The infrastructure videos are second order. First order is mindfulness: learn to look at things, use your brain, see what is there. He half-jokes about tertiary goals: hydrology master&rsquo;s students up 3 to 4 percent, engineering admissions up 3 to 4 percent. The Morrowind hydrology video ends by admitting the opposite argument is equally good. &ldquo;The point is not correctness.&rdquo; The point: you can think analytically.</p>
+<p>He sees copycats latching onto the surface: housing prices in games, in-game economies. The initial interpretation, not the method. He needs to rebalance toward the thinking itself.</p>
+<h2 id="vr-food-and-the-secret-sauce">VR, food, and the secret sauce</h2>
+<p>VR: Resident Evil 4 on GameCube in 2002, on Wii in 2007, on Quest 2 about three years ago. All three felt equally immersive. &ldquo;What is the point? Why even put the thing on?&rdquo; Not bullish economically: the barrier is too high, development is complicated and annoying. Maybe in 20 years, when the headset is tiny. Zelda 1984 versus Half-Life: Alyx: same fun. Technology changes the experience less than it appears.</p>
+<p>New Orleans food, analytically: the city is great at New Orleans food, gumbo, jambalaya, crawfish, fish. It is not good at Thai, burritos, or Chinese. Average quality, outside specialties: not good. His hot take, and he only eats fish.</p>
+<p>What makes him a great YouTuber? He refuses to know. Artists who learn their own trick fly off a cliff and become parodies of themselves. &ldquo;The less you know about how you do what you do, the better.&rdquo;</p>
+<h2 id="the-austin-questions">The Austin questions</h2>
+<p>Austin turns interviewer. First: is there a correlation between making great work and being an interesting person? Tyler: the world is more meritocratic than he once thought. Success is usually deserved. The best interviews are with less-public people, for two reasons: they say what they think, and selection, like the NBA free-throw pattern where taller players shoot worse but still belong. Yes, he has met exceptional makers who were dull, even about their own work. Many remarkable people run on persistence plus one deep thing. Austin: that is hopeful. Great work does not require a sparkling personality. Tyler: it is hopeful for the interesting people too. Clear field.</p>
+<p>Second: why so many interviews lately? Tyler: he likes to listen and talk, likes to stay sharp at 63. And the AI reason: enough online writing and podcasts gives the AIs a good picture of you. &ldquo;You will be more real to them, and they will like you more and take better care of you.&rdquo; He accelerated for the AIs. He has done it eight years for the people.</p>
+<p>Last: has Tyler ever touched a video game? Not seriously. Space Invaders in arcades. Austin&rsquo;s recorded goal: a video on Space Invaders or Pac-Man with millions of views, changing how we think about them. &ldquo;They do it with a hundred lines of code or whatever it is. It&rsquo;s crazy.&rdquo; Tyler liked Space Invaders more than Pac-Man. Pac-Man felt too mechanical, too optimizable, not strange enough. Austin: Space Invaders has mushiness. The optimal path is never quite clear. Both beautiful, both meaningful, both telling us about the human condition.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">What is the 90 percent rule?</div><div class="a"><p>Discovery is 90 percent the YouTube algorithm. Everything else is the margin. The algorithm is the audience: the best matching engine ever built for want-to-watch to want-to-watch. The cost asymmetry is the point. Instagram effort buys almost nothing next to it.</p><div class="followup"><strong>Follow-up:</strong> Audit your own discovery. What is your 90 percent channel? What margin work are you overpaying for?</div></div></div>
+<div class="qa"><div class="q">Explain the ideal-form move.</div><div class="a"><p>Step one: judge the game&rsquo;s pole against the ideal pole. Step two: judge the real pole against the ideal pole. Step three: notice reality fails the test too, because building things means collisions. The move dissolves the superiority of the real over the simulated. Both are builds with glitches.</p><div class="followup"><strong>Follow-up:</strong> Take one thing you call &quot;real&quot; and one you call &quot;fake.&quot; Run the ideal-form test on both. Which fails harder?</div></div></div>
+<div class="qa"><div class="q">Why is AI art in a competency trap?</div><div class="a"><p>The trajectory optimizes for competency and cleanliness because that is what buys productivity: the bear sketch without the $50. But the frontier of cool art was never the most perfect realistic thing. Optimizing for the buyer kills the strangeness that made it art. Competency is the local maximum. Interesting is elsewhere.</p><div class="followup"><strong>Follow-up:</strong> Where are you optimizing for competency when you want interesting? Name the buyer you serve. Fire them for one project.</div></div></div>
+<div class="qa"><div class="q">Where does the value of art live, in Austin&#x27;s account?</div><div class="a"><p>In the interaction, not the object and not the history. The cup, the viewer, the value in between. History is a separate fun thing in a separate part of the brain. And the authenticity detector is broken anyway: we cannot tell the duress album from the authentic one, so we will not tell the AI one from the human one.</p><div class="followup"><strong>Follow-up:</strong> Take a work you love. Separate the interaction value from the history value. What is left if the history goes to zero?</div></div></div>
+<div class="qa"><div class="q">What does the Tyler glitch reveal?</div><div class="a"><p>That control is fragile and spontaneity is strong. The pseudo-memorized intro breaks. The improvised middle never does. Over-control is the failure mode. The glitch is diagnostic: it shows where the build is weakest, which is the whole Austin method applied to a podcast.</p><div class="followup"><strong>Follow-up:</strong> Find your intro. The part you over-control and redo. What happens if you improvise it once?</div></div></div>
+<div class="qa"><div class="q">Why are games not getting better?</div><div class="a"><p>Because better is the wrong axis after the nascent period. Tools get figured out, then art gets different and more expensive, not qualitatively better. Zelda 1984 and Red Dead Redemption II move the heart the same amount. Demand the graph before accepting decline narratives.</p><div class="followup"><strong>Follow-up:</strong> Take your field&#x27;s decline narrative. Is it better-versus-worse or different-versus-same? Who benefits from the decline story?</div></div></div>
+<div class="qa"><div class="q">What is wrong with games commentary?</div><div class="a"><p>One shared value system pretending to be diversity. Frame rates, settings, forced comparisons. It discusses the technical instead of the felt. The fix is the sculpture treatment: what is it, literally, and what did it do to you. First order: learn to look. Everything else is second order.</p><div class="followup"><strong>Follow-up:</strong> Audit the commentary in your field. What is its frame-rate equivalent? Write one sculpture-style review of your own work.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The 90 percent: algorithm equals audience.</li>
+<li>The 20 minutes: no saves, same level, learned to look.</li>
+<li>The pole: real ones fail the ideal test too.</li>
+<li>The hole guy: collisions build cities and games.</li>
+<li>The cup: value lives in between.</li>
+<li>The cliff: artists who learn their trick fall off it.</li>
+<li>The graph: &ldquo;Tell them to do it, and then I will look at the graph.&rdquo;</li>
+<li>The 12 percent: self-called gamers who buy a game.</li>
+<li>The mushiness: Space Invaders over Pac-Man.</li>
+<li>The hundred lines: code that tells us about ourselves.</li>
+<li>The overture: intro breaks, middle never does.</li>
+<li>The 3 percent: hydrology master&rsquo;s students, the joke goal.</li>
+<li>Never-confuse pair: better versus different. After the nascent period, only different exists.</li>
+<li>Never-confuse pair: algorithm versus audience. Same thing, one honest name.</li>
+<li>Trap card: &ldquo;Games get better with time.&rdquo; Austin: none. No better. Different and pricier.</li>
+<li>Trap card: &ldquo;Commentary is diverse.&rdquo; Many voices, one value system.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: pick one game, one street, one system. Run the ideal-form test. Photograph three poles, literal or metaphorical, that fail it. Write what the failure reveals about the build.</li>
+<li>Catch yourself: the next time you optimize for competency, ask who the buyer is. If you wanted interesting, fire the buyer for one draft.</li>
+<li>Catch yourself: the next time you cite decline, demand the graph. No graph, no claim.</li>
+<li>Behavior change per major idea:</li>
+<li>Seeing: spend 20 minutes in one tiny space, real or virtual, looking. No phone. Note what appears on the third pass.</li>
+<li>Commentary: write one sculpture-style note on your own work. What is it, literally? What did it do to you?</li>
+<li>Discovery: put 90 percent of distribution effort into the best matching engine, not the loudest margin.</li>
+<li>Glitches: log your intro, your redo, your fragile part. Improvise it once.</li>
+<li>Monthly: revisit one old game or old tool. Measure fun, not features. Same or different?</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Unaided first-principles reasoning. No answers shown.</p>
+<ol>
+<li>Derive the 90 percent rule for your own field. What is the matching engine, and what are the margins? What would you stop doing?</li>
+<li>Take a system you admire and one you dismiss. Run the ideal-form test on both. Write the collision list for each. Which build is more honest?</li>
+<li>Steel-man the competency trap escape: what preference change would make AI art interesting? Who has to change, the maker or the viewer?</li>
+<li>Separate interaction value from history value for three works. Is Tyler or Austin right? Under what conditions does each win?</li>
+<li>Find the nascent period of your medium. Are you before or after it? What does that imply for where effort goes?</li>
+<li>Design the sculpture-style review format for your field. What questions does it ask? What does it ban?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Run the ideal-form test on games and reality alike.</li>
+<li>Price discovery channels. Find your 90 percent.</li>
+<li>Detect the competency trap in AI output.</li>
+<li>Separate interaction value from history value.</li>
+<li>Diagnose glitches as build revelations.</li>
+<li>Demand the graph before accepting decline.</li>
+<li>Write sculpture-style commentary.</li>
+<li>Refuse to learn your own trick.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official Conversations with Tyler episode page for this interview: https://www.youtube.com/watch?v=rOYjgXY-Ts4</li>
+<li>Austin&rsquo;s famous infrastructure video &ldquo;Do Liberty City&rsquo;s Power Lines Connect to Anything?&rdquo; on his channel: search YouTube for the exact title.</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Discovery is concentrated</td>
+<td>Spread the effort</td>
+<td>90 percent algorithm</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Real beats ideal</td>
+<td>Ideal is the standard</td>
+<td>Both fail, both reveal</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Progress is better</td>
+<td>Better after nascent</td>
+<td>Different, not better</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Whole chapter trade</td>
+<td>Games as product</td>
+<td>Games as seeing practice</td>
+<td>Chapter plate</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 4 (chapter plate). Learn to look. AI Podcast Curriculum, ep09 (original toy, 2025-06-11). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Competency optimized, decline narrated, commentary technical, glitches ignored. The medium consumed, never seen.</td>
+<td>The pole, the cup, the graph, the hundred lines.</td>
+<td>First order: look, use your brain, see what you see. Demand the graph, fire the buyer, improvise the intro.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: seeing is slow and unscalable, which is why the algorithm cannot do it for you and why it compounds.
+Footer: Austin&rsquo;s production function is attention pointed at infrastructure until it becomes mindfulness.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=rOYjgXY-Ts4" target="_blank" rel="noopener">Any Austin on Video Games, Infrastructure, and Seeing | Conversations with Tyler</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/conversations-with-tyler/ep08.html"><span class="lbl">← Previous</span>Episode 8: David Deutsch on the Multiverse, Explanations, and Freedom</a><a href="../../tracks/conversations-with-tyler/ep10.html"><span class="lbl">Next →</span>Episode 10: Niall Ferguson on Doom, History, and Counterfactuals</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
