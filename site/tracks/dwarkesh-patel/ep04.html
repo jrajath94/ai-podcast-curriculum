@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 4: Andrej Karpathy — We&#x27;re summoning ghosts, not building animals — AI Podcast Curriculum</title>
+<meta name="description" content="Karpathy on the decade of agents, ghosts vs animals, why RL is terrible, the autonomy slider, the march of nines, and building nanochat from scratch.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="dwarkesh-patel-ep04" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04" class="active">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Dwarkesh Patel</a> / Episode 4: Andrej Karpathy — We&#x27;re summoning ghosts, not building animals</nav>
+      <h1>Episode 4: Andrej Karpathy — We&#x27;re summoning ghosts, not building animals</h1>
+      <p class="meta-line">2025-10-17 · Instructor: Andrej Karpathy · Dwarkesh Patel</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="lXUZvyajciY"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/lXUZvyajciY" title="Andrej Karpathy — &quot;We&#x27;re summoning ghosts, not building animals&quot;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=lXUZvyajciY" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=lXUZvyajciY" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Karpathy explains why agents will take a decade, why we build ghosts instead of animals, why RL sucks supervision through a straw, and how he built nanochat.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the track&rsquo;s builder&rsquo;s manual. Everyone else tells you what AI will become. Karpathy tells you how to think about building it, using it, and learning it, from fifteen years of watching predictions fail. The episode gives you four tools no other episode gives: the ghosts-vs-animals frame (why our AI is nothing like biology and why that matters), the &ldquo;sucking supervision through a straw&rdquo; diagnosis of RL (the clearest explanation anywhere of why current training is stupid), the autonomy slider (AI as a continuum with compilers, not a rupture), and the nanochat method (rebuild from scratch, no copy-paste, or you do not understand it). It is also the most practical episode for your own work: his rules for when to use autocomplete vs agents vs writing by hand come from a month of building a real training stack.</p>
+<h2 id="the-story">The story</h2>
+<h3 id="the-decade-of-agents-not-the-year">The decade of agents, not the year</h3>
+<p>Karpathy opens by deflating the slogan. &ldquo;The year of agents&rdquo; was going around. His reaction was that the industry was over-predicting timelines. His version: the decade of agents.</p>
+<p>The test he proposes: think of an agent as an employee or intern you would hire. Would you hand Claude or Codex the work your employees do? &ldquo;Currently, of course they cannot.&rdquo; What is missing: enough intelligence, multimodality, computer use, continual learning. &ldquo;You cannot just tell them something and they will remember it. They are cognitively lacking and it is just not working.&rdquo;</p>
+<p>Why a decade and not one year or fifty? Fifteen years of watching predictions, in research and industry. &ldquo;I feel like the problems are tractable, they are surmountable, but they are still difficult. If I just average it out, it just feels like a decade to me.&rdquo;</p>
+<h3 id="three-seismic-shifts-and-the-agents-we-tried-too-early">Three seismic shifts, and the agents we tried too early</h3>
+<p>Karpathy narrates his career as three buckets:</p>
+<ol>
+<li>Per-task neural nets. He started next to Geoff Hinton at Toronto, when deep learning was &ldquo;a niche little subject on the side.&rdquo; AlexNet reoriented the field, but everything was still one net per task: an image classifier, a translator.</li>
+<li>The first round of agents, too early. Around 2013, Atari deep RL tried agents that perceive, act, and get rewards. &ldquo;That was a misstep,&rdquo; including at early OpenAI, which spent years on game-playing RL. His objection then and now: &ldquo;you want something like an accountant that is interacting with the real world. I just did not see how games add up to it.&rdquo;</li>
+<li>LLMs: seeking representation power first. His own OpenAI project, Universe, tried keyboard-and-mouse agents on web pages. &ldquo;Way too early.&rdquo; The reward was too sparse. &ldquo;you are going to burn a forest of computing&rdquo; without the representation power that only pre-training gives. &ldquo;You have to get the language model first, you have to get the representations first, and you have to do that by all the pre-training and all the LLM stuff.&rdquo;</li>
+</ol>
+<p>The pattern: &ldquo;people kept trying to get the full thing too early a few times.&rdquo; Agents are more competent now, &ldquo;but maybe we are still missing some parts of that stack.&rdquo;</p>
+<h3 id="ghosts-not-animals">Ghosts, not animals</h3>
+<p>The episode&rsquo;s title thesis, and its most quoted idea. Steelman the Sutton view (episode 9 of this track): animals get thrown into the world with no labels and figure it out. Why should AI not do the same?</p>
+<p>Karpathy&rsquo;s answer: &ldquo;We are not building animals. We are building ghosts or spirits.&rdquo; We do not run evolution. We train by imitating humans and the data they put on the internet. The result is &ldquo;ethereal spirit entities&rdquo; that are fully digital and mimic humans: &ldquo;a different kind of intelligence&rdquo; starting from &ldquo;a different point&rdquo; in the space of possible minds.</p>
+<p>The zebra test: a zebra is born and minutes later runs with its mother. &ldquo;That is an extremely complicated thing to do. That is not reinforcement learning. That is something that is baked in.&rdquo; Evolution encodes neural-net weights in DNA (&ldquo;ATCGs&rdquo;), &ldquo;and I have no idea how that works, but it apparently works.&rdquo; Most of what looks like animal learning is maturation, not learning. &ldquo;I actually kind of think humans do not really use RL, roughly speaking.&rdquo; Animal RL is motor tasks (throwing a hoop), not intelligence tasks like problem-solving.</p>
+<p>The DNA compression miracle sharpens it: 3 gigabytes of DNA cannot store every synapse. So the genome must encode learning algorithms that grow the brain, not the weights. Evolution finds the algorithm for lifetime learning. Pre-training, by contrast, stores knowledge directly.</p>
+<p>So he calls pre-training &ldquo;crappy evolution&rdquo;: the practically possible version. It does two unrelated things at once:</p>
+<ol>
+<li>It picks up knowledge (all the facts).</li>
+<li>It boots up intelligence: &ldquo;little circuits and algorithms&rdquo; for in-context learning and problem-solving strategies, meta-learned from the algorithmic patterns on the internet.</li>
+</ol>
+<p>The knowledge, he argues, may be holding the intelligence back. Agents are bad at going &ldquo;off the data manifold of what exists on the internet.&rdquo; &ldquo;If they had less knowledge or less memory, maybe they would be better.&rdquo; The research program: strip the knowledge, keep the &ldquo;cognitive core,&rdquo; the intelligent entity with the algorithms and the magic but not the memorized facts.</p>
+<p>Where does he feel real intelligence? In context. When the model makes a mistake and says, in effect, &ldquo;Oh wait, that is the wrong way to think about it. I am backing up,&rdquo; all of that happens in context. In-context learning is &ldquo;pattern completion within a token window,&rdquo; and it &ldquo;spontaneously meta-learns&rdquo; from gradient descent on pre-training without being gradient descent itself (though one paper found an in-context linear-regression mechanism analogous to a small gradient-descent loop inside the layers).</p>
+<p>How big is the cognitive core? His contrarian guess: about a billion parameters, within 20 years, a model you can have &ldquo;a very productive conversation&rdquo; with, that knows what it does not know and looks it up. Dwarkesh pushes: models already shrank from trillions to tens of billions (gpt-oss-20b beats the original trillion-parameter GPT-4). Why stop at a billion? Karpathy&rsquo;s answer: the internet is &ldquo;really terrible.&rdquo; A random pre-training document is &ldquo;total garbage,&rdquo; stock tickers and slop, not Wall Street Journal articles. &ldquo;We have to build really big models to compress all that. Most of that compression is memory work instead of cognitive work.&rdquo; Better datasets, refined by intelligent models, distill down to the cognitive part. &ldquo;At some point it should take at least a billion knobs to do something interesting.&rdquo;</p>
+<p>Figure 1. Ghosts vs animals. AI Podcast Curriculum, ep04 (Andrej Karpathy episode, 2025-10-17). Shell 2. Count the toy: two builders, two kinds of mind. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Animals</th>
+<th>Ghosts (LLMs)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Built by</td>
+<td>Evolution (outer loop) + maturation</td>
+<td>Imitation of internet text</td>
+</tr>
+<tr>
+<td>Knowledge source</td>
+<td>Baked-in via DNA compression</td>
+<td>Memorized from pre-training</td>
+</tr>
+<tr>
+<td>Learning</td>
+<td>Lifetime, mostly motor RL</td>
+<td>In-context pattern completion</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Zebra runs minutes after birth</td>
+<td>Model &ldquo;backs up&rdquo; mid-reasoning</td>
+</tr>
+<tr>
+<td>Failure mode</td>
+<td>Not in source</td>
+<td>Cannot go off the data manifold</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rl-is-terrible-and-everything-before-it-was-worse">RL is terrible (and everything before it was worse)</h3>
+<p>The episode&rsquo;s most quotable technical passage. &ldquo;Reinforcement learning is terrible. It just so happens that everything that we had before it is much worse.&rdquo;</p>
+<p>The mechanism, worked through a math problem. RL tries hundreds of attempts in parallel. It checks the back of the book. The attempts that got the right answer get every token upweighted: &ldquo;Do more of this.&rdquo; But the winning trajectory contains wrong alleys, lucky guesses, and wasted steps. All of it gets upweighted. &ldquo;It almost assumes that every single little piece of the solution that you made that arrived at the right answer was the correct thing to do, which is not true.&rdquo;</p>
+<p>His image: &ldquo;You are sucking supervision through a straw.&rdquo; A minute of rollout, one bit of final reward, broadcast across the entire trajectory. &ldquo;It is just stupid and crazy. A human would never do this.&rdquo; Humans do not run hundreds of rollouts. They review: &ldquo;these parts I did well, these parts I did not do that well.&rdquo;</p>
+<p>The alternative is process supervision: grades at every step, not just the end. Why has it not worked? &ldquo;It is tricky how you do that.&rdquo; Correctly supervising intermediate steps is its own hard problem. But papers are emerging (he mentions a Google &ldquo;reflect and review&rdquo; / memory-bank direction), and he expects &ldquo;some major update to how we do algorithms for LLMs,&rdquo; maybe &ldquo;three or four or five more&rdquo; paradigm updates before agents really work.</p>
+<p>He gives RL its due. Imitation learning was &ldquo;extremely surprising and miraculous&rdquo;: InstructGPT showed a base autocomplete model could become a conversational assistant with a few rounds of fine-tuning while keeping pre-training knowledge. &ldquo;That blew my mind.&rdquo; And RL lets you hill-climb on verifiable rewards without expert trajectories, discovering solutions humans would never find. &ldquo;This is incredible. Yet, it is still stupid. We need more.&rdquo;</p>
+<p>One more RL pathology: the collapse of diversity. Labs optimize for usefulness, and creativity is &ldquo;actively penalized&rdquo; (&ldquo;If you are super creative in RL, it is not good&rdquo;). So all models give you the same stuff, which &ldquo;shoots synthetic-data generation in the foot.&rdquo; Entropy regularization could help, but controlling the distribution is tricky: too much entropy and the model &ldquo;starts making up its own language.&rdquo;</p>
+<p>Figure 2. Sucking supervision through a straw. AI Podcast Curriculum, ep04 (Andrej Karpathy episode, 2025-10-17). Shell 3. Apply the one rule: grade the middle, not just the end. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Current RL</th>
+<th>What a human does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attempts</td>
+<td>hundreds of rollouts in parallel</td>
+<td>a few careful tries</td>
+</tr>
+<tr>
+<td>Grading</td>
+<td>one bit at the end, from the back of the book</td>
+<td>review each part</td>
+</tr>
+<tr>
+<td>Update</td>
+<td>upweight every token in the winners, mistakes included</td>
+<td>keep the good parts, fix the bad</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-autonomy-slider">The autonomy slider</h3>
+<p>Karpathy refuses the rupture narrative. &ldquo;I have a hard time differentiating where AI begins and stops because I see AI as fundamentally an extension of computing.&rdquo; The continuum: code editors, syntax highlighting, type checking, compilers, search engines (&ldquo;Why are not search engines part of AI? Ranking is AI&rdquo;). &ldquo;We are now getting a much better autocomplete, and now we are also getting some agents which are these loopy things, but they go off-rails sometimes.&rdquo;</p>
+<p>The frame: an &ldquo;autonomy slider.&rdquo; Humans progressively do less low-level work and rise in abstraction over the automation. We do not write assembly. Compilers do. The slider moves, slowly, and we climb. Coding agents are the slider moving again, not a discontinuity.</p>
+<p>This is also his answer to AI-2027-style takeoff forecasts built on &ldquo;AI automating AI research.&rdquo; Through programming history, productivity improvements (compilers, linting, better languages) raised output without causing explosions. He sees today&rsquo;s agents &ldquo;more in the category of the historical analogies of better compilers.&rdquo;</p>
+<p>Figure 3. The autonomy slider. AI Podcast Curriculum, ep04 (Andrej Karpathy episode, 2025-10-17). Shell 4. Show the new symbol: the slider. Source: original plate from episode claims.</p>
+<p><svg width="640" height="184" viewBox="0 0 640 184" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The autonomy slider: code editors, compilers, autocomplete, agents, with the knob at agents">
+<rect width="640" height="184" fill="#F7F4EE"/>
+<text x="32" y="40" font-family="Inter, 'Source Sans 3', sans-serif" font-size="28" font-weight="600" fill="#1B2838">The autonomy slider</text>
+<text x="32" y="64" font-family="Inter, 'Source Sans 3', sans-serif" font-size="16" fill="#5C6B7A">Humans rise in abstraction as the slider moves. Agents are the slider moving, not a rupture.</text>
+<line x1="64" y1="112" x2="576" y2="112" stroke="#D9D3C7" stroke-width="4"/>
+<circle cx="64" cy="112" r="8" fill="#FFFDF8" stroke="#1B2838" stroke-width="1.5"/>
+<circle cx="224" cy="112" r="8" fill="#FFFDF8" stroke="#1B2838" stroke-width="1.5"/>
+<circle cx="384" cy="112" r="8" fill="#FFFDF8" stroke="#1B2838" stroke-width="1.5"/>
+<circle cx="544" cy="112" r="14" fill="#F4E6D4" stroke="#C46B2C" stroke-width="2"/>
+<text x="64" y="92" text-anchor="middle" font-family="Inter, 'Source Sans 3', sans-serif" font-size="14" font-weight="500" fill="#1B2838">code editors</text>
+<text x="224" y="92" text-anchor="middle" font-family="Inter, 'Source Sans 3', sans-serif" font-size="14" font-weight="500" fill="#1B2838">compilers</text>
+<text x="384" y="92" text-anchor="middle" font-family="Inter, 'Source Sans 3', sans-serif" font-size="14" font-weight="500" fill="#1B2838">autocomplete</text>
+<text x="544" y="92" text-anchor="middle" font-family="Inter, 'Source Sans 3', sans-serif" font-size="14" font-weight="500" fill="#1B2838">agents</text>
+<text x="544" y="144" text-anchor="middle" font-family="Inter, 'Source Sans 3', sans-serif" font-size="13" fill="#C46B2C">you are here</text>
+<text x="64" y="144" font-family="Inter, 'Source Sans 3', sans-serif" font-size="13" fill="#5C6B7A">we do not write assembly anymore</text>
+</svg></p>
+<h3 id="why-coding-is-first-and-the-jagged-economy">Why coding is first, and the jagged economy</h3>
+<p>His AGI definition, kept since OpenAI&rsquo;s founding: &ldquo;any economically valuable task at human performance or better.&rdquo; Concede the physical for now (that alone removes 80-90% of the economy, but the remainder is &ldquo;a few trillion dollars, even in the US&rdquo;).</p>
+<p>The surprise is the deployment shape. A &ldquo;general&rdquo; intelligence should diffuse across knowledge work: a consulting task here, an accounting task there. Instead it is &ldquo;overwhelmingly doing only coding&rdquo; (API revenues, outside chat, are dominated by coding). Programmers are being &ldquo;chiseled away&rdquo; while consultants are not.</p>
+<p>Why coding first: code is text, LLMs are text processors trained on the internet, and &ldquo;we have pre-built a lot of the infrastructure for code.&rdquo; IDEs, diffs, terminals: &ldquo;It is almost like we have pre-built a lot of the infrastructure for code&rdquo; for agents to plug into. Other domains lack that scaffolding.</p>
+<p>The radiologist warning (against Hinton&rsquo;s famous prediction): radiology is &ldquo;an extremely messy, complicated profession,&rdquo; and radiologists are &ldquo;alive and well and growing.&rdquo; The better bellwether is call-center work: simple, repeated, closed, purely digital. But even there, expect the slider, not replacement: AI handles 80%, delegates 20% to humans, and humans supervise teams of AIs. Watch for &ldquo;new interfaces or new companies&rdquo; that manage imperfect AIs.</p>
+<p>The 99% trap, via Waymo: when automating the last 1% requires years of special training, the bottleneck&rsquo;s wages should rise. &ldquo;Your wages go up until you get to 99% and then fall just like that when the last 1% is gone.&rdquo; Radiologist wages may already reflect this. And a documented pattern: companies that automated aggressively are &ldquo;pulling back and rehiring,&rdquo; which he finds &ldquo;quite surprising.&rdquo;</p>
+<h3 id="the-march-of-nines">The march of nines</h3>
+<p>From five years leading Tesla self-driving (2017-2022): demos mislead. CMU drove a truck itself in 1986. He got a perfect Waymo ride in 2014. A decade later, still not done. &ldquo;I am very unimpressed by demos.&rdquo;</p>
+<p>The law: &ldquo;It is a march of nines. Every single nine is a constant amount of work.&rdquo; 90% working is the first nine. Then 99%, 99.9%, each the same grind. Tesla crossed &ldquo;maybe three nines or two nines&rdquo; in five years, with more to go. The property that stretches timelines: cost of failure. Self-driving kills. Production software has &ldquo;unbounded how terrible something could be&rdquo; (a bug leaks hundreds of millions of Social Security numbers). Vibe coding does not have this property. Production code does. &ldquo;That is why this also enforced my timelines.&rdquo;</p>
+<p>Figure 4. The march of nines. AI Podcast Curriculum, ep04 (Andrej Karpathy episode, 2025-10-17). Shell 2. Count the toy: each nine costs the same work. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Nine</th>
+<th>Completeness</th>
+<th>Work to get there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1st (the demo)</td>
+<td>90%</td>
+<td>X</td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>99%</td>
+<td>X again</td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>99.9%</td>
+<td>X again</td>
+</tr>
+<tr>
+<td>Tesla 2017-2022</td>
+<td>about 99 to 99.9%</td>
+<td>five years, more to go</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-growth-debate-and-llm-culture">The growth debate, and LLM culture</h3>
+<p>On 20%-growth forecasts: he rejects the discrete jump. No &ldquo;geniuses in data centers&rdquo; moment. Instead &ldquo;billions of very smart human-like minds&rdquo; diffusing gradually, each starting companies and integrating like skilled immigrants. Hong Kong and Shenzhen did decades of 10%+ growth with people and scarce capital. The Industrial Revolution, he argues, was not magical either: zoom in and there is no single invention, just the exponential 10x-ing. Expect &ldquo;an overhang that is being unlocked,&rdquo; not a moment.</p>
+<p>Two missing multi-agent ideas, both unclaimed:</p>
+<ol>
+<li>LLM culture. Models have no equivalent of accumulated culture: no shared scratchpad, no books written by one LLM for others to read and be inspired by. &ldquo;Why can an LLM not write a book for the other LLMs?&rdquo; The blocker may be cognitive: current models are &ldquo;kindergarten or elementary school students&hellip; savant kids&rdquo; with perfect memory. &ldquo;They do not really know what they are doing.&rdquo;</li>
+<li>Self-play for LLMs. AlphaGo&rsquo;s engine has no LLM equivalent. Proposal: one LLM generates problems, another learns to solve them, difficulty escalating. &ldquo;We are mostly in the realm of a single individual agent&hellip; That is why we are still early.&rdquo;</li>
+</ol>
+<p>On evolution and intelligence (via Nick Lane, Gwern, Quintin Pope): he finds it &ldquo;miraculous&rdquo; intelligence evolved at all, and surprising how recent it is. Gwern&rsquo;s line he endorses: environments must be unpredictable enough that evolution cannot bake the solution into weights, forcing it to build a learner that figures things out at test time. Pope&rsquo;s point: humans needed 50,000 years of cultural scaffolding (cognitive architecture 60K years ago, agriculture 10K). AIs get accumulation &ldquo;for free&rdquo; via distillation and shared corpora, except they lack actual culture.</p>
+<h3 id="nanochat-the-build-from-scratch-method">nanochat: the build-from-scratch method</h3>
+<p>nanochat is his educational artifact: ~8,000 lines implementing a full LLM stack (tokenizer, training, inference, chat), the capstone of his LLM101N course. His learning rule, stated as a Feynman quote: &ldquo;If I cannot build it, I do not understand it.&rdquo;</p>
+<p>The method: put the repo on the right monitor, rebuild from scratch, reference allowed, copy-paste forbidden. &ldquo;There are two types of knowledge&rdquo;: surface knowledge, and the forced confrontation with what you do not know that only building produces. &ldquo;Do not write blog posts, do not do slides, do not do any of that. Build the code, arrange it, get it to work. It is the only way to go.&rdquo;</p>
+<p>Coding models, he says, were &ldquo;of very little help&rdquo; on nanochat. Agents excel at boilerplate, code that appears often on the internet. nanochat is &ldquo;intellectually intense code&rdquo; with a unique structure. The models kept pushing the standard PyTorch DDP container when he had written custom gradient sync inside the optimizer step, bloated the code with defensive try-catch blocks, and used deprecated APIs. &ldquo;It is slop.&rdquo; His sweet spot is autocomplete: &ldquo;a very high information bandwidth to specify what you want.&rdquo; Point at the code, type the first letters, tab through. Agents get used for boilerplate and for languages he is new to (a Rust tokenizer rewrite, anchored by a Python implementation he fully understood plus tests).</p>
+<p>The three interaction classes, stated as a decision rule:</p>
+<p>Figure 5. Three classes of code interaction. AI Podcast Curriculum, ep04 (Andrej Karpathy episode, 2025-10-17). Shell 4. Show the new symbol: the decision rule. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>When to use it</th>
+<th>Karpathy&rsquo;s use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Write by hand, reject LLMs</td>
+<td>Never (outdated)</td>
+<td>Not in source</td>
+</tr>
+<tr>
+<td>Write by hand + autocomplete</td>
+<td>Intellectually intense, unique code</td>
+<td>nanochat core</td>
+</tr>
+<tr>
+<td>Vibe coding / agents</td>
+<td>Boilerplate, unfamiliar languages, non-critical code</td>
+<td>Report generation, Rust rewrite</td>
+</tr>
+</tbody>
+</table>
+<p>And the implication he draws for takeoff forecasts: &ldquo;They are not very good at code that has never been written before.&rdquo; AI automating AI research, the engine of the fast-takeoff story, is exactly the thing they are asymmetrically bad at. GPT-5 Pro as an oracle (paste the whole repo, 20 minutes) is &ldquo;surprisingly good compared to a year ago,&rdquo; but &ldquo;the industry is making too big of a jump and is trying to pretend like this is amazing, and it is not.&rdquo;</p>
+<h3 id="education-ramps-eurekas-per-second-and-the-gym">Education: ramps, eurekas per second, and the gym</h3>
+<p>His Korean-tutor story sets the bar. A 1-on-1 tutor probed his world model in minutes and served exactly the right challenge level: never too hard, never too trivial. &ldquo;I felt like I was the only constraint to learning.&rdquo; That is the product to build, and &ldquo;it is not actually the right time to build this.&rdquo; Current capability is not there. (He notes his consulting value-add was often &ldquo;do not use AI.&rdquo;)</p>
+<p>What he is building instead: LLM101N, with nanochat as capstone, plus TAs. &ldquo;Education is the very difficult technical process of building ramps to knowledge.&rdquo; His metric: &ldquo;eurekas per second,&rdquo; understanding per second. The bottleneck is finding experts who can convert understanding into ramps, field by field.</p>
+<p>Post-AGI education is fun, not useful: the gym analogy. Nobody needs physical strength. People train for fun, health, and looks. Aristocrats and ancient Greece were historical post-scarcity pockets where people flourished cognitively and physically. &ldquo;If we end up in a WALL-E or Idiocracy future, then I do not even care if there are Dyson spheres.&rdquo; His bet: &ldquo;the geniuses of today are barely scratching the surface of what a human mind can do,&rdquo; because everyone bounces off material that is too easy or too hard.</p>
+<p>Teaching craft, from his physics background:</p>
+<ul>
+<li>Physics &ldquo;boots up the brain the best&rdquo;: first-order vs second-order terms, noisy systems with fundamental frequencies, the spherical cow as &ldquo;brilliant&rdquo; generalizable thinking. (Recommends Geoffrey West&rsquo;s Scale.)</li>
+<li>micrograd: 100 lines of Python for backprop. &ldquo;Everything else is just efficiency.&rdquo;</li>
+<li>Never show the solution before the attempt: &ldquo;It is a dick move towards you to present you with the solution before I give you a shot to try to come up with it yourself.&rdquo; Attempting first builds the action space and the objective, which &ldquo;maximizes the amount of knowledge per new fact added.&rdquo;</li>
+<li>The curse of knowledge: experts cannot see the beginner&rsquo;s shoes. His trick: ask ChatGPT his &ldquo;dumb questions&rdquo; about a paper, then share the thread with the author so they can see where beginners get lost.</li>
+<li>Lunch narration: &ldquo;in 100% of cases&hellip; the narration of how they would explain it over lunch is way more understandable and actually more accurate and scientific&rdquo; than the jargon paper. The conference-beer phenomenon: three sentences that capture the paper. &ldquo;Why is not that the abstract?&rdquo;</li>
+<li>Learning on demand beats breadth-first: alternate project-driven depth (&ldquo;you will get a reward&rdquo;) with 101-style breadth.</li>
+<li>Teaching is learning: &ldquo;if I do not really understand something, I cannot explain it&hellip; It fills these gaps of your understanding.&rdquo;</li>
+</ul>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>1. Explain ghosts vs animals to me like I am new.</strong></p>
+<p>Animals were built by evolution: DNA compresses a learning algorithm, the body matures, and the creature learns by trying things. Our AIs were built by imitating internet text: they memorized what people wrote and meta-learned pattern completion. They are &ldquo;ghosts&rdquo;: fully digital spirits that mimic humans, with no body, no evolution, and no real trying-things-out. That is why they are brilliant at anything on the internet&rsquo;s data manifold and lost off it.</p>
+<p><strong>2. Why is RL &ldquo;sucking supervision through a straw&rdquo;?</strong></p>
+<p>Because one final grade gets smeared across every step of a long trajectory, including the mistakes that happened to precede success. Imagine grading a student&rsquo;s whole semester on one exam and then telling them to &ldquo;do more of everything you did.&rdquo; The fix is process supervision (grades along the way) or value functions, but supervising intermediate steps correctly is itself unsolved.</p>
+<p><strong>3. When should I use autocomplete, agents, or my own hands for coding?</strong></p>
+<p>Karpathy&rsquo;s rule from building nanochat: autocomplete for intellectually intense, unique code (highest bandwidth: point, type, tab). Agents for boilerplate, unfamiliar languages, and non-critical code. Your own hands for architecture. And never let an agent write code you could not rewrite yourself: &ldquo;If I cannot build it, I do not understand it.&rdquo;</p>
+<p><strong>4. What is the autonomy slider, and why does it matter for timelines?</strong></p>
+<p>AI is a continuum with compilers, not a rupture. Each generation automates more low-level work and humans rise in abstraction. The slider moves slowly (we still do not write assembly). Agents are the slider moving, which is why Karpathy expects a decade of gradual absorption, not a sudden replacement event.</p>
+<p><strong>5. Applied: my team wants to &ldquo;hire&rdquo; an AI agent as a junior employee. What should I actually plan for?</strong></p>
+<p>Plan for the march of nines. The demo (90%) is the first nine. Production needs several more, each as much work as the last. Scope the agent to low-cost-of-failure work first (vibe-coding territory), build the supervision interface (the human team managing five AIs), and measure the 80/20 split: what fraction still needs human hands. Do not plan for the demo. Plan for the nines.</p>
+<p><strong>6. Why is coding the first thing AI eats?</strong></p>
+<p>Three reasons: code is text (the models&rsquo; home turf), the internet is full of code (training data), and programmers pre-built the agent infrastructure (IDEs, diffs, terminals, tests). Other knowledge work lacks one or more of these. The lesson: the next domain to fall will be the next one with text-native data plus pre-built tooling, not the next one with the highest wages.</p>
+<p><strong>7. What is the cognitive core, and why a billion parameters?</strong></p>
+<p>The intelligence without the memorization: the circuits for reasoning, problem-solving, and in-context learning, stripped of stored facts. A billion is his contrarian guess for a very good core in ~20 years, because current models are mostly doing memory work compressing a terrible internet. Better datasets plus distillation shrink the memory. The cognition is what remains. It would know what it does not know and look it up.</p>
+<p><strong>8. What is &ldquo;eurekas per second,&rdquo; and how do I build ramps?</strong></p>
+<p>Understanding per unit time. A ramp is material calibrated so the learner is never stuck and never bored: always the right challenge at the right moment, like his Korean tutor. Build ramps by finding the first-order structure (the micrograd: 100 lines that are the whole idea), withholding the solution until the learner attempts, and collecting beginners&rsquo; dumb questions to defeat your own curse of knowledge.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>Decade, not year: agents need intelligence, multimodality, computer use, continual learning. Average the difficulty: ten years.</li>
+<li>Ghosts, not animals: we do imitation, not evolution. Ethereal spirits mimicking humans.</li>
+<li>The zebra: born running. Baked in, not learned. That is what evolution does and we do not.</li>
+<li>&ldquo;Crappy evolution&rdquo;: pre-training, the practically possible version. Knowledge + intelligence, tangled.</li>
+<li>Sucking supervision through a straw: one grade, whole trajectory, all mistakes upweighted.</li>
+<li>The autonomy slider: compilers → autocomplete → agents. We rise. The slider moves.</li>
+<li>March of nines: 90% is the first nine. Each nine is constant work. Demos lie.</li>
+<li>80/20, not replacement: AI does 80%, humans supervise teams of AIs.</li>
+<li>The 99% trap: automate 99%, and the last 1% bottleneck&rsquo;s wages go up until the 1% falls.</li>
+<li>nanochat: 8,000 lines, no copy-paste. &ldquo;If I cannot build it, I do not understand it.&rdquo;</li>
+<li>Eurekas per second: the metric for teaching. Ramps, not content.</li>
+<li>Never-confuse pair: autocomplete (you are the architect, high bandwidth) vs agents (they are the architect, good for boilerplate).</li>
+<li>Trap card: &ldquo;The demo works, so the product is near.&rdquo; The demo is the first nine. Production is the march.</li>
+<li>Quote to keep: &ldquo;If I cannot build it, I do not understand it.&rdquo; (Feynman, via Karpathy)</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: pick one thing you &ldquo;know&rdquo; and rebuild a toy version from scratch without copy-paste (Karpathy&rsquo;s rule). A script, a model, an argument. Reference allowed. Time yourself noticing what you did not actually know.</li>
+<li>Catch yourself: the next time you reach for an AI agent, ask which of the three classes this is. Boilerplate or unfamiliar language? Agent. Intellectually intense and unique? Autocomplete. Architecture? Your hands. Notice the urge to delegate the architecture.</li>
+<li>Behavior change per major idea:</li>
+<li>Ghosts: before trusting a model outside its training distribution, ask &ldquo;is this off the data manifold?&rdquo; If yes, verify like you would a confident intern, not an expert.</li>
+<li>Straw supervision: on your next long project, add one process grade in the middle. Do not wait for the final outcome to learn.</li>
+<li>Autonomy slider: list the low-level work you still do that a better tool could take. Move the slider one notch deliberately instead of waiting.</li>
+<li>March of nines: take your current 90%-working thing and estimate the nines to production. Multiply your timeline, then plan the supervision interface for the imperfect version.</li>
+<li>Teaching: explain one idea to someone this week before showing them the answer. Let them attempt first.</li>
+<li>Monthly: rebuild something small from scratch. Keep the list of things you discovered you did not know.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Middle chapters: Fermi estimates and journaling, less scaffolding than ep01-03. Answers sketched, not fully shown. Do these with your own brain before touching AI.</p>
+<ol>
+<li>Fermi: Karpathy guesses a 1B-parameter cognitive core in 20 years. Models fell from ~1T (GPT-4) to ~20B (gpt-oss-20b) in ~2 years with better performance. Extrapolate that shrink rate naively to 20 years. Where does it land, and why does Karpathy think the extrapolation breaks? (Sketch: naive extrapolation goes far below 1B. He thinks it breaks because the shrink so far was mostly removing memorization of a terrible internet, and cognition needs &ldquo;at least a billion knobs.&rdquo;)</li>
+<li>Mechanism: explain the straw-supervision problem to a smart friend using a non-math example (cooking, sports, music). Then propose where the process grades would go.</li>
+<li>Journal: &ldquo;Where am I the ghost?&rdquo; Name one domain where you perform well on-distribution but would fail off-manifold. What would the zebra version (baked-in, tried-in-the-world) look like?</li>
+<li>Both sides: argue that the autonomy slider means no takeoff (Karpathy), then argue that the slider itself is accelerating (the other side). What evidence would change your mind?</li>
+<li>First principles: take one &ldquo;proven&rdquo; tool in your workflow and ask what it would look like rebuilt at your operating point, with your assumptions (the DDP-container move). What would you delete?</li>
+<li>Observe: watch a demo this week (product launch, AI video). Count the nines it demonstrates vs the nines it needs. Write the gap in one sentence.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Classify any coding task into Karpathy&rsquo;s three classes and pick the right tool (hands / autocomplete / agents).</li>
+<li>Diagnose RL training by its supervision bandwidth: one final grade means straw supervision. Ask where the process grades are.</li>
+<li>Apply the march of nines to any demo: 90% is one nine. Budget constant work per nine. Plan the human supervision layer for the imperfect version.</li>
+<li>Spot the 99% wage trap: when automation stalls at 99%, the bottleneck&rsquo;s price rises. Do not mistake that for job security.</li>
+<li>Build a ramp: first-order structure first (the micrograd), attempt before solution, collect dumb questions to beat the curse of knowledge.</li>
+<li>Test off-manifold: treat ghost models as brilliant interns outside their training distribution, and verify accordingly.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>nanochat, the ~8,000-line full-stack LLM build: https://github.com/karpathy/nanochat</li>
+<li>micrograd, backprop in 100 lines: https://github.com/karpathy/micrograd</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Ghosts vs animals: different builders</td>
+<td>Evolution builds animals</td>
+<td>Imitation builds ghosts</td>
+<td>fig1</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>RL sucks supervision through a straw</td>
+<td>One grade, whole trajectory</td>
+<td>Grade the middle, not just the end</td>
+<td>fig2</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>AI is an autonomy slider, not a rupture</td>
+<td>AI as discontinuity</td>
+<td>Slider: editors, compilers, autocomplete, agents</td>
+<td>fig3</td>
+<td>SVG</td>
+<td>original plate from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Demos lie: the march of nines</td>
+<td>90% looks done</td>
+<td>Each nine costs the same work</td>
+<td>fig4</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Three classes of code interaction</td>
+<td>One way to use models</td>
+<td>Hands / autocomplete / agents</td>
+<td>fig5</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 5 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=lXUZvyajciY" target="_blank" rel="noopener">Andrej Karpathy — &quot;We&#x27;re summoning ghosts, not building animals&quot;</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/dwarkesh-patel/ep03.html"><span class="lbl">← Previous</span>Episode 3: Ajeya Cotra — This might be the clearest warning shot we ever get</a><a href="../../tracks/dwarkesh-patel/ep05.html"><span class="lbl">Next →</span>Episode 5: Dario Amodei — We are near the end of the exponential</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
