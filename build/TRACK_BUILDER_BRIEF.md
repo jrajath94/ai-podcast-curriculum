@@ -95,6 +95,11 @@ sources:
   frontmatter). Add 1–2 verified go-deeper links per chapter (papers, docs
   mentioned in the episode — check they return HTTP 200).
 - NO TOKEN LIMITS. Write until the bar is met.
+- DEPTH + CONCISENESS (Raj's standing bar): every chapter must be fully
+  understandable from zero prerequisites AND tight enough to learn in one
+  sitting. Define every term at first use, but never repeat teaching: each
+  paragraph must add new information. If a later paragraph restates an
+  earlier one, cut it or compress it to a cross-reference.
 
 ## Hardware chapters (Acquired track especially)
 Three angles are non-negotiable: (a) why Nvidia is so expensive
