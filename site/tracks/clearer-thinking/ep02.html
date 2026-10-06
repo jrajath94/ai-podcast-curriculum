@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 2: Tyler&#x27;s three laws and twelve rules with Tyler Cowen — AI Podcast Curriculum</title>
+<meta name="description" content="Tyler Cowen on his three laws (something is wrong with everything, there is a literature on everything, all propositions about real interest rates are wrong), l">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="clearer-thinking-ep02" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02" class="active">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Clearer Thinking with Spencer Greenberg</a> / Episode 2: Tyler&#x27;s three laws and twelve rules with Tyler Cowen</nav>
+      <h1>Episode 2: Tyler&#x27;s three laws and twelve rules with Tyler Cowen</h1>
+      <p class="meta-line">2023-03-15 · Instructor: Tyler Cowen · Clearer Thinking with Spencer Greenberg</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="a8qiJckz-8o"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/a8qiJckz-8o" title="Tyler&#x27;s three laws and twelve rules with Tyler Cowen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=a8qiJckz-8o" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=a8qiJckz-8o" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Cowen explains his three laws, his rules for learning from opponents and cultivating mentors, and why most economists' opinions come from their media diet.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>No other episode in this track hands you portable laws for thinking. Cowen&rsquo;s three laws fit on an index card and change how you read papers, form opinions, and argue. His rules for learning from people who offend you and for finding mentors are the most actionable social technology in the track. And his closing idea, that raising someone&rsquo;s aspirations may be the highest-return activity available, reframes what it means to help people think better.</p>
+<h2 id="cowens-three-laws">Cowen&rsquo;s three laws</h2>
+<h3 id="where-the-laws-came-from">Where the laws came from</h3>
+<p>Cowen taught PhD macroeconomics for years. One day he wrote three laws on the chalkboard for his students. They have since generalized far beyond macro.</p>
+<p>Figure 1. Cowen&rsquo;s three laws. AI Podcast Curriculum, ep02 (Tyler Cowen interview, 2023-03-15). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Law</th>
+<th>Statement</th>
+<th>Original use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First</td>
+<td>There is something wrong with everything</td>
+<td>Reading research papers</td>
+</tr>
+<tr>
+<td>Second</td>
+<td>There is a literature on everything</td>
+<td>Writing research papers</td>
+</tr>
+<tr>
+<td>Third</td>
+<td>All propositions about real interest rates are wrong</td>
+<td>Papers on real interest rates</td>
+</tr>
+</tbody>
+</table>
+<h3 id="law-one-something-is-wrong-with-everything">Law one: something is wrong with everything</h3>
+<p>The first law began as a reading rule. Students read research papers and treated them as solved problems. Cowen&rsquo;s standard: you do not understand a paper until you can articulate what is wrong with it. No paper solves its problem perfectly. Finding the flaw is the test of comprehension.</p>
+<p>Generalized, the law becomes a habit of mind. Every argument, every model, every position has a weak point. Your job is to find it, including in views you hold. This is the track&rsquo;s rationality step in one sentence: the scout habit from ep06, stated as a law.</p>
+<h3 id="law-two-there-is-a-literature-on-everything">Law two: there is a literature on everything</h3>
+<p>Young PhD students tend to believe they are the first to approach a problem. The second law corrects the conceit: whatever you think, someone wrote about it already. Check what exists before you go far.</p>
+<p>Generalized, the law fights reinvented wheels. In the episode, Cowen notes it as one reason he wanted studies of super-effective people: the literature there is thin, and Cowen&rsquo;s second law tells you to check before assuming the gap is real.</p>
+<h3 id="law-three-all-propositions-about-real-interest-rates-are-wrong">Law three: all propositions about real interest rates are wrong</h3>
+<p>The third law is deliberately, comically specific, because it came from teaching papers about real interest rates and watching every one of them fail.</p>
+<p>Definition: the real interest rate is the interest rate minus the inflation rate. It measures what lenders actually earn after prices rise.</p>
+<p>The episode&rsquo;s worked example: price inflation hit 6.2 percent while nominal yields barely moved. Real rate equals nominal minus inflation, so roughly 1 percent minus 6.2 percent gives about negative 5 percent. In real terms, lenders lost money to borrowers. Standard theory said deficits should push real rates up and crowd out investment. The data refused to cooperate. Government deficits do not show a measurable effect on real rates. Cowen&rsquo;s summary: real rates always surprise you, and every confident proposition about them fails.</p>
+<p>The meta lesson is the point. Some domains resist understanding so stubbornly that the honest move is a law about your own ignorance. Cowen suggests physics has its version: all propositions about a final unified theory are probably wrong too. [uncertain: the episode offers this as an analogy, not a claim about physics.]</p>
+<p>Figure 2. The real-rate arithmetic from the episode. AI Podcast Curriculum, ep02 (Tyler Cowen interview, 2023-03-15). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Price inflation</td>
+<td>6.2 percent</td>
+</tr>
+<tr>
+<td>Nominal yield on government borrowing</td>
+<td>About 1 percent</td>
+</tr>
+<tr>
+<td>Real interest rate (nominal minus inflation)</td>
+<td>About negative 5 percent</td>
+</tr>
+<tr>
+<td>Theory prediction (deficits push rates up)</td>
+<td>Positive and rising</td>
+</tr>
+<tr>
+<td>Observed</td>
+<td>Negative and falling</td>
+</tr>
+</tbody>
+</table>
+<h2 id="economists-are-people-too">Economists are people too</h2>
+<h3 id="where-economists-get-their-opinions">Where economists get their opinions</h3>
+<p>Cowen&rsquo;s complaint about his profession: economists are hyper-specialized, and outside their specialty their opinions come from the same media diet as other educated coastal professionals. The New York Times. Paul Krugman. Twitter for the activist ones. A study found that a French economist&rsquo;s nationality predicts their opinions better than their being an economist does.</p>
+<p>The mechanism is partly self-interest. With co-author Alex Tabarrok, Cowen wrote a critical piece on how the National Science Foundation funds economists. They found shockingly little existing literature on the topic. Nobody studies the hand that feeds them. Each economist feels someone else will do it. Collectively, nobody does.</p>
+<h3 id="modern-monetary-theory">Modern monetary theory</h3>
+<p>On MMT, Cowen is blunt: it was never coherently defined as a model, so it cannot be coherently presented. He reads it as politics and marketing with one true claim inside: governments could monetize more debt than economists had thought, at least over the prior 30 years. The specific testable claim, that high inflation should be met by cutting government spending, failed its own test when inflation arrived and no MMT advocate called for cuts.</p>
+<h3 id="what-economics-does-not-know">What economics does not know</h3>
+<p>Asked for the biggest open questions, Cowen lists: what drives economic growth, what produces innovation, why unemployment stays stubbornly high, how the business cycle works. On progress over the next 20 years he is pessimistic about breakthroughs and optimistic about clarity: progress means seeing how complicated the problem is.</p>
+<p>On behavioral economics, his view is deflationary but respectful. Economics was behavioral from the start: read Adam Smith&rsquo;s Theory of Moral Sentiments, or Keynes, or his advisor Thomas Schelling. What the modern behavioral literature added was discipline about which effects generalize and which are context-specific. The finding: it is all more context-specific than hoped. Loss aversion cannot be a fixed ratio you plug into a model, because the ratio depends on the situation. The field fragments into isolated papers, each its own little universe, and losing the general engine of inquiry that made economics special.</p>
+<h2 id="the-rules">The rules</h2>
+<h3 id="rule-seven-learn-from-those-who-offend-you">Rule seven: learn from those who offend you</h3>
+<p>Cowen wrote his rules after Jordan Peterson&rsquo;s 12 Rules book showed the demand for them. Rule seven is the load-bearing one for this track.</p>
+<p>The mechanism: on social media you meet the worst, stupidest version of opposing views. The natural reaction is entrenchment. Cowen says that reaction is exactly wrong. Offense is a signal that you have under-invested in understanding them.</p>
+<p>Definition: devalue and dismiss is Cowen&rsquo;s name for the failure mode. You find one thing wrong with an argument or a person, lower their status in your mind, relegate them to a mental zone where you stop learning from them, and move on. The alliteration is deliberate. The two Ds.</p>
+<p>The discipline has two steps. First, notice the offense as data about your own allocation of attention, not as data about their worth. Second, get drawn to them like a magnet and master their point of view. The view may still be wrong. People with terrible views can be extremely smart: Cowen names Picasso&rsquo;s Stalinism and the 20th-century intellectuals who apologized for Mao. You can learn from Marx precisely because his errors pervade his system. Tracing a systematic error teaches you the shape of the whole.</p>
+<p>Spencer adds the confusion to watch for. Sometimes offense tracks a real moral violation, like racism. Sometimes it tracks a status threat, like your group being slighted. People blur the two, which lets them file a worldview slight as a moral verdict and stop thinking.</p>
+<p>Figure 3. From offense to study. AI Podcast Curriculum, ep02 (Tyler Cowen interview, 2023-03-15). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Someone offends you] --> B[Notice the sting]
+    B --> C{What stung?}
+    C -->|Status threat| D[You under-invested here]
+    C -->|Real violation| E[Study the view anyway]
+    D --> F[Master their best case]
+    E --> F
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Someone offends you] --&gt; B[Notice the sting]
+    B --&gt; C{What stung?}
+    C --&gt;|Status threat| D[You under-invested here]
+    C --&gt;|Real violation| E[Study the view anyway]
+    D --&gt; F[Master their best case]
+    E --&gt; F
+</code></pre>
+<h3 id="how-cowen-actually-does-it">How Cowen actually does it</h3>
+<p>The practical method is daily writing. Cowen blogged daily for 18 years. Writing forces the steelman: articulate the best case for a view you do not hold, in public, where flaws get punished. His line: if all he did was repeat himself for decades, people would get bored, and he would stultify. Trying to make the other side&rsquo;s case as strong as possible is what keeps him learning.</p>
+<p>For non-writers, the substitutes from the episode: teach material you disagree with as objectively as you can, and treat failure to make its case as a warning sign about your own understanding. Post online where errors get punished, so finding the flaw first becomes self-interest. These are scout-mindset drills from ep06, independently invented.</p>
+<h3 id="rule-eight-mentors-and-small-groups">Rule eight: mentors and small groups</h3>
+<p>Cowen calls two pieces of advice nearly universal. First, keep a small group of smart, interesting peers. Second, get mentors: people who know an area you do not and will help you learn it. An art mentor. A classical music mentor. A China mentor.</p>
+<p>What a mentor is not: a formal program where you email a stranger asking &ldquo;will you be my mentor.&rdquo; Real mentorship is informal. Someone who knows more, enjoys your company, enjoys teaching you, meets periodically. Sometimes the mentor is already your friend. You redefine the friendship around the new domain.</p>
+<p>Why it works: humans learn through other humans. Knowledge becomes vivid when a person carries it. Cowen is blunt that books alone rarely stick: he could read a geology book, but without a group and a mentor, little would stay.</p>
+<h3 id="rule-two-study-the-symbolic-systems">Rule two: study the symbolic systems</h3>
+<p>Rule two says: study art, music, literature, and religion, because they train you to understand alternative points of view in politics and intellectual life.</p>
+<p>The mechanism: people who study others&rsquo; political views directly hit a wall. They sort everything into agree or disagree and stop learning. Art resists that sorting. It stays complex and keeps outpacing you. Practicing art appreciation builds the mode of learning where you crack cultural codes instead of judging them.</p>
+<p>There is a second, direct channel. A culture&rsquo;s art, music, and literature are the stories it tells about itself. If you want to understand a group, that is a strange place to skip. Cowen&rsquo;s application: much current American literary fiction bores him, written by too narrow a slice of life, while foreign literature in translation stays vital. [uncertain: aesthetic judgment, presented as Cowen&rsquo;s taste in the episode.]</p>
+<h2 id="raising-aspirations">Raising aspirations</h2>
+<h3 id="the-highest-return-activity">The highest-return activity</h3>
+<p>Cowen&rsquo;s closing idea: many people are not ambitious enough. Not because they lack drive, but because their imagination does not include the paths they could take. Raising someone&rsquo;s aspirations, making a bigger life vivid and concrete, may be the highest-return activity available.</p>
+<p>The mechanism is vividness through embodiment. His co-author Daniel Gross tells of meeting Mark Zuckerberg and giving a normal talk. Suddenly &ldquo;being a Mark Zuckerberg&rdquo; became a thing humans do, not an abstraction. The aspiration became real, and the compounding started.</p>
+<p>This connects to the episode&rsquo;s research thread. Cowen wants rigorous studies of super-effective people, an intermediate literature between sprawling biographies and nonexistent trick lists. He is genuinely uncertain how much effectiveness is trainable versus fixed, but notes the local-culture evidence: Florence in the Renaissance, Athens, early-19th-century classical music, central-European mathematics. Same gene pools, wildly different output. Something in the air, small groups, mentorship, raised aspirations, matters enormously.</p>
+<h3 id="lookism-the-undiscussed-privilege">Lookism: the undiscussed privilege</h3>
+<p>In the same spirit of noticing neglected causes, Cowen raises lookism: judging people by looks. Everyone does it. Some of it is informative: most seven-footers play basketball. Most of it is stereotype machinery running past its warrant.</p>
+<p>The neglected asymmetry: we discuss many privileges, but rarely beauty. The very unattractive likely have it quite hard, and nobody credits them for it. There may also be costs to extreme beauty: being taken less seriously, weaker drive, too-easy friendship. Short men show a measurable earnings penalty. The practical takeaway is pure Cowen: where the world systematically misprices people, there is opportunity, for them and for you. A company that hired the undervalued would capture the gap.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain Cowen&#x27;s three laws like I am new. When do I use each?</div><div class="a"><p>Law one, something is wrong with everything: use it when reading. You do not understand a paper until you can state its flaw. Law two, there is a literature on everything: use it when starting research. Check what exists before assuming you are first. Law three, all propositions about real interest rates are wrong: use it as a template for naming the limits of your own understanding in any stubborn domain.</p><div class="followup"><strong>Follow-up:</strong> Why is the third law so specific? It came from teaching PhD macro, where every paper on real rates failed. The specificity is the lesson: generalize your laws, but remember the concrete failure that earned them.</div></div></div>
+<div class="qa"><div class="q">Walk me through the real interest rate arithmetic.</div><div class="a"><p>Real rate equals nominal rate minus inflation. In the episode, inflation ran at 6.2 percent while nominal yields barely moved, near 1 percent. One minus 6.2 gives about negative 5 percent. Theory said deficits should push real rates up. Reality pushed them deeply negative.</p><div class="followup"><strong>Follow-up:</strong> What is the reusable lesson? When a variable surprises you for decades across every theory, stop theorizing and write the law. The law marks the boundary of current understanding.</div></div></div>
+<div class="qa"><div class="q">What does &quot;devalue and dismiss&quot; mean, and how do I catch myself doing it?</div><div class="a"><p>You find one flaw in a person or argument, lower their status, and stop learning from them. Catch it at the sting: when you feel offended, ask whether the sting is a status threat or a real moral violation. If it is a status threat, treat it as a signal that you have under-invested in understanding that view, and go master its best case.</p><div class="followup"><strong>Follow-up:</strong> What if the person is genuinely terrible? Learn anyway. Cowen&#x27;s examples: Picasso&#x27;s politics, Mao&#x27;s apologists, Marx&#x27;s system. A pervasive error is a map of a whole way of thinking. Study the map.</div></div></div>
+<div class="qa"><div class="q">How do I actually get a mentor? Cowen says not to just ask.</div><div class="a"><p>Mentorship is informal and grows from existing contact. Find someone who knows an area deeply and enjoys your company. Make the relationship periodic and concrete: read the books, do the work, bring questions. Sometimes you already have the person. You redefine the friendship around the new domain.</p><div class="followup"><strong>Follow-up:</strong> What are the two near-universal pieces of advice? A small group of smart peers, and mentors. Everything else Cowen says is context-specific.</div></div></div>
+<div class="qa"><div class="q">Why study art and music to understand politics?</div><div class="a"><p>Studying political views directly triggers the agree-or-disagree sort, and learning stops. Art resists sorting: it stays complex and keeps teaching you. That trains the code-cracking mode you need for other minds. Directly, a culture&rsquo;s stories about itself live in its art, so skipping art means skipping primary evidence.</p><div class="followup"><strong>Follow-up:</strong> Try it this week. Take a political group you do not understand and study their music or fiction before their manifestos. Note what you learn that the manifestos never said.</div></div></div>
+<div class="qa"><div class="q">What does it mean to raise someone&#x27;s aspirations, and why is it high-return?</div><div class="a"><p>Most unambitious people do not lack drive. They lack vivid models of bigger paths. Showing them a human who did it, up close, makes the path real and starts compounding. It is high-return because imagination is the bottleneck, and one vivid example can open years of larger effort.</p><div class="followup"><strong>Follow-up:</strong> Who raised yours? Name the person and the moment it became vivid. Then ask who you could do that for this month.</div></div></div>
+<div class="qa"><div class="q">Cowen says behavioral economics is less useful than hoped. What is his argument?</div><div class="a"><p>The effects are real but context-specific. A loss-aversion ratio that changes with the situation cannot sit in a model as a fixed number. Papers become isolated universes, each with its own model and dataset, and the field loses the general engine that made economics powerful. The contribution stands: we now know which effects generalize and which do not.</p><div class="followup"><strong>Follow-up:</strong> How does this connect to law one? &quot;Something is wrong with everything&quot; includes beloved literatures. The context-specificity finding is law one applied to behavioral economics itself.</div></div></div>
+<div class="qa"><div class="q">What is lookism, and what should I do about it?</div><div class="a"><p>Judging people by looks, which everyone does and almost nobody discusses. The very unattractive face real hardship with no credit for it. The practical move is arbitrage: the world systematically misprices people on looks, so understanding the bias lets you back undervalued talent, in hiring and in yourself.</p><div class="followup"><strong>Follow-up:</strong> What is the trap? Assuming the bias only harms the unattractive. Extreme beauty may cost seriousness and drive. Check both tails before you conclude.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The three laws: flaw it, source it, bound it. Find what is wrong with everything you read. Check the literature before you claim novelty. Name the domains where all propositions fail.</li>
+<li>The 6.2 to negative 5: inflation 6.2, nominal near 1, real about negative 5. Theory said up. Reality said down.</li>
+<li>Devalue and dismiss, the two Ds: one flaw found, status lowered, learning stopped. The sting is the signal.</li>
+<li>Offense triage: status threat means study them. Real violation means note it and still study the view.</li>
+<li>The two universals: small peer group, plus mentors. Everything else is context.</li>
+<li>Mentor test: informal, periodic, concrete. If you had to email &ldquo;will you be my mentor,&rdquo; it is not that.</li>
+<li>Art before manifestos: stories a culture tells about itself live in its art. Sort less, crack codes more.</li>
+<li>Aspiration vividness: a path becomes real when a human embodies it. Zuckerberg&rsquo;s talk did more than any advice column.</li>
+<li>Never-confuse pair: the worst version of a view versus the best version. Social media serves the worst. Your job is the best. Devalue-and-dismiss feeds on the worst.</li>
+<li>Trap card: &ldquo;I have no opinion on this.&rdquo; Cowen says you do: a conformist opinion of deference. Name it instead of hiding behind it.</li>
+<li>Trap card: &ldquo;Economists disagree because of rival theories.&rdquo; More often they agree because of shared media diets. Check the diet before the theory.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: apply law one to something you believe. Write one paragraph stating the strongest flaw in your own position on a live disagreement. If you cannot, you have not understood your own view yet.</li>
+<li>Catch yourself: the next time someone offends you online, pause before reacting. Run the triage. Status threat or real violation? If status threat, spend 20 minutes finding the best version of their view. Log what you learned.</li>
+<li>Behavior change per major idea:</li>
+<li>Law one: for every paper or article you read this week, write its flaw in one sentence before you write what you liked.</li>
+<li>Law two: before starting any research task, spend 30 minutes checking the existing literature. Write down what you found so you cannot pretend later you were first.</li>
+<li>Devalue and dismiss: keep a one-line log of people you dismissed this week and why. Revisit one. Find one thing they understand that you do not.</li>
+<li>Mentors: list three domains where you are stuck. For each, name one person who knows it and enjoys your company. Schedule one concrete interaction.</li>
+<li>Aspirations: identify one person whose path made something vivid for you. Write them a note saying so. Then ask who you could make something vivid for.</li>
+<li>Art rule: pick one group you do not understand politically. Study their fiction or music for two hours before reading any of their polemics.</li>
+<li>Monthly: reread your flaw paragraphs. Count how many changed your mind versus how many you dismissed. If the count is zero, law one is decoration, not practice.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Harder drills. Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Fermi: Cowen blogged daily for 18 years. At 500 words per post, how many words is that? (Answer: 18 times 365 times 500 is about 3.3 million words, roughly 40 book-lengths. Now ask: what does that volume buy that reading cannot?)</li>
+<li>Argue both sides: &ldquo;Offense is a signal you have under-invested in understanding.&rdquo; Steelman the objection: some views are engineered to offend as a tactic, and studying them rewards the tactic. Rebut or concede. Where is the line?</li>
+<li>Journal: &ldquo;Who did I devalue and dismiss this month?&rdquo; Write three names and the single flaw that triggered each dismissal. For one of them, write the best case for their view in five sentences. How does it feel?</li>
+<li>First principles: derive law three from scratch. List every mechanism by which deficits could raise real rates, then list what the data showed. At what point does a failed research program earn a law instead of another paper?</li>
+<li>Observe: for one week, note where your opinions on non-specialist topics came from. Tally: direct evidence, expert you trust, media diet, tribe. What share is media diet? Does the French-economist finding predict your tally?</li>
+<li>Design: you run a small fund like Emergent Ventures. Write the one-paragraph criteria for a grant that raises aspirations rather than funding projects. How would you tell it worked five years later?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>State the flaw in anything you read before stating what you liked.</li>
+<li>Check the literature before claiming novelty, in 30 minutes or less.</li>
+<li>Triage offense into status threat versus real violation, and convert the former into study.</li>
+<li>Write the best case for a view you do not hold, in public or on paper.</li>
+<li>Recruit mentors informally through existing relationships and concrete work.</li>
+<li>Study a group&rsquo;s art before its polemics when you need to understand it.</li>
+<li>Make an abstract path vivid by finding a human who embodies it.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Tyler Cowen&rsquo;s biography and work: https://en.wikipedia.org/wiki/Tyler_Cowen</li>
+<li>Clearer Thinking&rsquo;s free tools for better decisions: https://www.clearerthinking.org</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Three laws stated</td>
+<td>No portable laws</td>
+<td>Laws 1-3 with origins</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Real-rate arithmetic</td>
+<td>Theory says rates rise</td>
+<td>6.2 inflation gives negative 5 real</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Offense converts to study</td>
+<td>Devalue and dismiss</td>
+<td>Triage then master the best case</td>
+<td>Figure 3</td>
+<td>mermaid</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Two universal advices</td>
+<td>Generic advice</td>
+<td>Peer group plus mentors</td>
+<td>Figure 4 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 4 (chapter plate). Cowen&rsquo;s toolkit as one page. AI Podcast Curriculum, ep02 (original toy, 2023-03-15). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opinions from the media diet. Offense triggers dismissal. No mentors. Dim aspirations.</td>
+<td>The three laws plus offense triage plus the mentor rules, on one index card.</td>
+<td>Every reading gets a flaw sentence. Every offense gets triaged. Mentor conversations scheduled. One aspiration made vivid.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: pay the sting of finding the flaw and the effort of writing it up, keep the learning you would otherwise dismiss.
+Footer: the laws fit on a card. The practice is daily.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=a8qiJckz-8o" target="_blank" rel="noopener">Tyler&#x27;s three laws and twelve rules with Tyler Cowen</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/clearer-thinking/ep01.html"><span class="lbl">← Previous</span>Episode 1: The secrets of effective learning with Andy Matuschak</a><a href="../../tracks/clearer-thinking/ep03.html"><span class="lbl">Next →</span>Episode 3: How minds change with David McRaney</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
