@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 5: How AI and TikTok Are Breaking the Music Industry (Rick Beato) — AI Podcast Curriculum</title>
+<meta name="description" content="Music educator Rick Beato on AI artists on Spotify, his Senate testimony on copyright, and why the delineation problem has no clean line.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="modern-wisdom-ep05" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Modern Wisdom - Chris Williamson</h3><ul>
+<li><a href="../../tracks/modern-wisdom/ep01.html" data-page="modern-wisdom-ep01">Ep 1 · AI That Fights Back</a></li>
+<li><a href="../../tracks/modern-wisdom/ep02.html" data-page="modern-wisdom-ep02">Ep 2 · Bunkers for a Reason</a></li>
+<li><a href="../../tracks/modern-wisdom/ep03.html" data-page="modern-wisdom-ep03">Ep 3 · AI Girlfriends</a></li>
+<li><a href="../../tracks/modern-wisdom/ep04.html" data-page="modern-wisdom-ep04">Ep 4 · The AI Debate</a></li>
+<li><a href="../../tracks/modern-wisdom/ep05.html" data-page="modern-wisdom-ep05" class="active">Ep 5 · AI vs Music</a></li>
+<li><a href="../../tracks/modern-wisdom/ep06.html" data-page="modern-wisdom-ep06">Ep 6 · The Gemini Disaster</a></li>
+<li><a href="../../tracks/modern-wisdom/ep07.html" data-page="modern-wisdom-ep07">Ep 7 · Yudkowsky</a></li>
+<li><a href="../../tracks/modern-wisdom/ep08.html" data-page="modern-wisdom-ep08">Ep 8 · OnlyFans vs AI</a></li>
+<li><a href="../../tracks/modern-wisdom/ep09.html" data-page="modern-wisdom-ep09">Ep 9 · AI Bands</a></li>
+<li><a href="../../tracks/modern-wisdom/ep10.html" data-page="modern-wisdom-ep10">Ep 10 · Art, Jobs, Everything</a></li>
+</ul>
+<h3>Huberman Lab</h3><ul>
+<li><a href="../../tracks/huberman-lab/index.html" data-page="huberman-lab-index">Huberman Lab · Index</a></li>
+<li><a href="../../tracks/huberman-lab/ep01.html" data-page="huberman-lab-ep01">Ep 1 · Lex Fridman: Machines, Creativity &amp; Love</a></li>
+<li><a href="../../tracks/huberman-lab/ep02.html" data-page="huberman-lab-ep02">Ep 2 · Lex Fridman: Conflict, Purpose &amp; Drive</a></li>
+<li><a href="../../tracks/huberman-lab/ep03.html" data-page="huberman-lab-ep03">Ep 3 · Terry Sejnowski: Learning, Sleep &amp; AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep04.html" data-page="huberman-lab-ep04">Ep 4 · Marc Andreessen: Risk, Innovation &amp; AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep05.html" data-page="huberman-lab-ep05">Ep 5 · Zuckerberg &amp; Chan: Curing Disease with AI</a></li>
+<li><a href="../../tracks/huberman-lab/ep06.html" data-page="huberman-lab-ep06">Ep 6 · Neuralink: Enhancing Human Brains</a></li>
+<li><a href="../../tracks/huberman-lab/ep07.html" data-page="huberman-lab-ep07">Ep 7 · Fei-Fei Li: AI That Enriches Humanity</a></li>
+<li><a href="../../tracks/huberman-lab/ep08.html" data-page="huberman-lab-ep08">Ep 8 · Essentials: Machines, Creativity &amp; Love</a></li>
+<li><a href="../../tracks/huberman-lab/cheatsheet.html" data-page="huberman-lab-cheatsheet">Huberman Lab · Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Deep Questions with Cal Newport</h3><ul>
+<li><a href="../../tracks/deep-questions/index.html" data-page="deep-questions-index">Track index</a></li>
+<li><a href="../../tracks/deep-questions/ep01.html" data-page="deep-questions-ep01">Ep 1 · Perks of No Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep02.html" data-page="deep-questions-ep02">Ep 2 · Cal&#x27;s Planning System</a></li>
+<li><a href="../../tracks/deep-questions/ep03.html" data-page="deep-questions-ep03">Ep 3 · Core Idea: Deep Work</a></li>
+<li><a href="../../tracks/deep-questions/ep04.html" data-page="deep-questions-ep04">Ep 4 · Digital Minimalism</a></li>
+<li><a href="../../tracks/deep-questions/ep05.html" data-page="deep-questions-ep05">Ep 5 · Core Idea: Slow Productivity</a></li>
+<li><a href="../../tracks/deep-questions/ep06.html" data-page="deep-questions-ep06">Ep 6 · The Slope of Terribleness</a></li>
+<li><a href="../../tracks/deep-questions/ep07.html" data-page="deep-questions-ep07">Ep 7 · Learning vs. Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep08.html" data-page="deep-questions-ep08">Ep 8 · The 5-Step Productivity System</a></li>
+<li><a href="../../tracks/deep-questions/cheatsheet.html" data-page="deep-questions-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Charisma</h3><ul>
+<li><a href="../../tracks/charisma/index.html" data-page="charisma-index">Track index</a></li>
+<li><a href="../../tracks/charisma/ep01.html" data-page="charisma-ep01">Ep 1 · Vanessa Van Edwards</a></li>
+<li><a href="../../tracks/charisma/ep02.html" data-page="charisma-ep02">Ep 2 · Chris Voss</a></li>
+<li><a href="../../tracks/charisma/ep03.html" data-page="charisma-ep03">Ep 3 · Vanessa Van Edwards</a></li>
+<li><a href="../../tracks/charisma/ep04.html" data-page="charisma-ep04">Ep 4 · Charlie Houpert</a></li>
+<li><a href="../../tracks/charisma/ep05.html" data-page="charisma-ep05">Ep 5 · Huberman on Bonding</a></li>
+<li><a href="../../tracks/charisma/ep06.html" data-page="charisma-ep06">Ep 6 · Kay Tye</a></li>
+<li><a href="../../tracks/charisma/ep07.html" data-page="charisma-ep07">Ep 7 · Robert Cialdini</a></li>
+<li><a href="../../tracks/charisma/ep08.html" data-page="charisma-ep08">Ep 8 · Robert Greene</a></li>
+<li><a href="../../tracks/charisma/ep09.html" data-page="charisma-ep09">Ep 9 · Charles Duhigg</a></li>
+<li><a href="../../tracks/charisma/ep10.html" data-page="charisma-ep10">Ep 10 · Matthew Dicks</a></li>
+<li><a href="../../tracks/charisma/cheatsheet.html" data-page="charisma-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Modern Wisdom - Chris Williamson</a> / Episode 5: How AI and TikTok Are Breaking the Music Industry (Rick Beato)</nav>
+      <h1>Episode 5: How AI and TikTok Are Breaking the Music Industry (Rick Beato)</h1>
+      <p class="meta-line">2025-07-10 · Instructor: Rick Beato · Modern Wisdom</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="0g06zPgwuKs"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/0g06zPgwuKs" title="How AI and TikTok Are Breaking the Music Industry - Rick Beato" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=0g06zPgwuKs" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=0g06zPgwuKs" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">A two-hour music-industry conversation whose AI segments cover synthetic artists, copyright, and platform incentives.</p></div><h1 id="episode-5-how-ai-and-tiktok-are-breaking-the-music-industry-rick-beato">Episode 5: How AI and TikTok Are Breaking the Music Industry (Rick Beato)</h1>
+<p>Guest: Rick Beato, music educator and YouTuber. Honest note on fidelity: this is a two-hour music-industry episode. The AI material runs through it in segments, not as the whole subject. This chapter covers every AI segment fully and skips the pure music-shop talk, which is not this track&rsquo;s subject.</p>
+<p>The episode&rsquo;s AI question: what happens to music when the machines can make it, the platforms can fake the artists, and nobody can draw the line?</p>
+<h2 id="the-episode-in-one-paragraph">The episode in one paragraph</h2>
+<p>Beato describes AI music already flooding Spotify playlists. He recounts his 2023 Senate testimony arguing that fully generative AI works should not get copyright. He then tackles the impossible problem of drawing a line between AI-assisted and AI-made, and the platform incentive to replace paid artists with synthetic ones it owns.</p>
+<h3 id="ai-music-is-already-on-your-playlists">AI music is already on your playlists</h3>
+<p>Beato says Spotify already pushes AI music into playlists, and the tracks get millions of streams. Much of it is light jazz and atmospheric music: the background genres where nobody asks who made it. Then came the test of whether listeners accept foreground music from fake artists. His example is the Velvet Sundown, covered in detail in Episode 9. The pattern he names: an AI company, or the platform itself, tests listener acceptance with synthetic acts and watches what happens.</p>
+<p>The key number is not in this episode&rsquo;s AI segment but in the next: the Sundown went from zero to 600,000 Spotify followers in a week. Beato&rsquo;s point here is the mechanism. Playlists are the distribution. If the platform controls the playlist and the artist is synthetic, the platform keeps the whole margin.</p>
+<div class="mermaid">graph LR
+    A[Platform owns playlist] --> B[Platform owns artist]
+    B --> C[Platform keeps margin]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Platform owns playlist] --&gt; B[Platform owns artist]
+    B --&gt; C[Platform keeps margin]
+</code></pre>
+<p><em>Figure 1. Vertical integration in three steps: own distribution, own creation, keep the margin. AI Podcast Curriculum, Ep 05, Rick Beato, 2025-07-10. Source: original diagram from episode claims.</em></p>
+<h3 id="the-senate-testimony">The Senate testimony</h3>
+<p>In 2023 Beato testified before the US Senate on AI. He was one of 19 people invited. The Senate held nine closed-door sessions. He sat in the seventh. The first session had Elon Musk, Bill Gates, and Mark Zuckerberg. His session mixed interest groups: SAG-AFTRA, Spotify people, label people, and him, there because of his videos on AI music.</p>
+<p>His position, stated to the senators: nothing fully generative should be copyrightable. The logic is economic, not moral. Copyright creates the financial incentive to produce. If a fully AI-generated song gets copyright, companies gain a reason to flood the market with synthetic music and collect on it. Remove copyright from fully generative works and you remove the incentive at the root. No copyright, no catalog asset, no reason to manufacture a thousand fake bands.</p>
+<p>This is the cleanest policy proposal in the whole track. It does not ban anything. It does not judge art. It changes the money.</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Incentive</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Copyright granted</td>
+<td>Synthetic songs earn</td>
+<td>Flood the market</td>
+</tr>
+<tr>
+<td>Copyright denied</td>
+<td>No asset to own</td>
+<td>Flood loses its prize</td>
+</tr>
+</tbody>
+</table>
+<p><em>Figure 2. Beato&rsquo;s lever: do not ban the music, bankrupt its business model. AI Podcast Curriculum, Ep 05, Rick Beato, 2025-07-10. Source: original table from episode claims.</em></p>
+<h3 id="the-delineation-problem">The delineation problem</h3>
+<p>Then Beato admits the line will not hold, and this is the strongest part of the episode. If a real person prompts an AI song, then re-records it themselves with real instruments, who sues whom? The AI company could claim the melody came from its model. The human claims they prompted and performed it. Beato&rsquo;s image: the Spider-Man meme, two figures pointing at each other, each claiming the song.</p>
+<p>He extends it to his own workflow. He uses AI programs constantly. His best YouTube title generator is Gemini, because Google owns YouTube&rsquo;s data and the model knows his titles. He prompts ten variations, takes the first half of one and the second half of another, and edits. Is that video title AI-generated? Partly. Does the part matter? Nobody could say where the human ends and the model begins.</p>
+<p>The general form: somewhere between a quill with no source material and a full ChatGPT prompt sits almost all real creative work. Prompting itself counts as a skill now. Beato says good prompt craft is an art. So the law wants a bright line, and the practice offers only a gradient.</p>
+<table>
+<thead>
+<tr>
+<th>Work</th>
+<th>Human share</th>
+<th>Machine share</th>
+<th>Who owns it?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quill, no source</td>
+<td>100%</td>
+<td>0%</td>
+<td>The human</td>
+</tr>
+<tr>
+<td>Prompt, edit, perform</td>
+<td>Mixed</td>
+<td>Mixed</td>
+<td>Unclear</td>
+</tr>
+<tr>
+<td>Full ChatGPT prompt</td>
+<td>0%</td>
+<td>100%</td>
+<td>Unclear</td>
+</tr>
+</tbody>
+</table>
+<p><em>Figure 3. The delineation gradient: the law wants yes or no, the practice gives percentages. AI Podcast Curriculum, Ep 05, Rick Beato, 2025-07-10. Source: original table from episode claims.</em></p>
+<h3 id="the-vertical-integration-threat">The vertical integration threat</h3>
+<p>The episode&rsquo;s darkest economic claim comes from Williamson, and Beato agrees. Record labels may get a higher payout per stream than independent artists. [uncertain] Beato says he was sent this information and does not verify it in the episode. Treat the rate gap as alleged, not established. If the gap is real, the incentive is obvious: bypass the labels entirely with AI artists the platform controls.</p>
+<p>The full version is vertical integration. Spotify would own distribution (the playlists), creation (the AI artists), and the margin between them. Williamson&rsquo;s analogy: it is like OnlyFans building its own AI girlfriends and cutting out the creators, the move described in Episode 8. When one company owns the factory, the store, and the customer relationship, the supplier&rsquo;s share goes to zero by construction.</p>
+<p>Beato&rsquo;s open-loop fear: today it is background jazz. Tomorrow the top 10 has five AI acts. Every stream that goes to a synthetic artist is a stream a human artist needed to reach the critical mass for a live career. The record is the top of the funnel: ears first, then merch, then courses, then touring. AI takes the top of the funnel and the whole funnel starves.</p>
+<div class="mermaid">graph LR
+    A[Streams] --> B[Fans]
+    B --> C[Tickets]
+    C --> D[Merch]
+    E[AI takes streams] -.-> A
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Streams] --&gt; B[Fans]
+    B --&gt; C[Tickets]
+    C --&gt; D[Merch]
+    E[AI takes streams] -.-&gt; A
+</code></pre>
+<p><em>Figure 4. The funnel: AI competes at the top, the damage lands at the bottom. AI Podcast Curriculum, Ep 05, Rick Beato, 2025-07-10. Source: original diagram from episode claims. Dotted arrow marks the AI shock.</em></p>
+<h3 id="the-counter-moves">The counter-moves</h3>
+<p>Two defenses appear. First, disclosure and labeling: identify AI artists so listeners can choose. Beato is skeptical but notes the demand. Second, the human-only platform: a streaming service that guarantees no AI music, the organic-food model for ears. He finds it funny and plausible at once. The business model exists the moment enough listeners want it.</p>
+<p>His personal move is already made: he does not use Spotify anymore, because it carries AI artists. Exit is a vote.</p>
+<p>The episode also notes the barrier question. Williamson argues podcasting had a lower skill barrier than drumming, which is why musicians feel the AI threat more sharply. Beato&rsquo;s answer is honest: if we are not going to ban Midjourney images or NotebookLM podcasts, on what principle do we ban AI music? The delineation problem returns. You cannot fence one art form while the others flood.</p>
+<h2 id="q-and-a">Q and A</h2>
+<p><strong>1. Explain Beato&rsquo;s copyright proposal like I am new to it.</strong>
+Copyright lets creators own and sell their work. Beato told the Senate that works made entirely by AI should not get copyright. Without copyright, a synthetic song is not an asset a company can own and monetize. The incentive to mass-produce fake artists disappears. The proposal fights the economics, not the technology.</p>
+<p><strong>2. What is the delineation problem?</strong>
+The problem of drawing a legal line between AI-assisted and AI-made. A human prompts a song, then performs it with real instruments. Parts are human, parts are synthetic. The law wants a yes-or-no answer to &ldquo;who made this?&rdquo; The creative process offers only percentages. Beato&rsquo;s own title workflow with Gemini is the lived example: nobody can say where he ends and the model begins.</p>
+<p><strong>3. What is vertical integration in the Spotify context?</strong>
+One company owning every layer: the AI that makes the music, the platform that distributes it, and the playlists that promote it. With no outside artist or label taking a cut, the margin stays inside. The episode&rsquo;s claim is that this structure makes human artists unnecessary by design, not by competition.</p>
+<p><strong>4. Applied question: you run a small label. What do you do with this episode?</strong>
+You stop depending on playlist placement you do not control. You build the direct relationship: live shows, merch, courses, the funnel Beato describes where the record is only the top. You watch for disclosure rules, because labeled AI music helps human artists compete on authenticity. And you consider the human-only platforms early, before everyone else arrives.</p>
+<p><strong>5. Why does Beato think the line cannot be drawn, even though he proposed one?</strong>
+Because his proposal targets the extreme case, fully generative works, while real practice lives in the middle. Prompting is a skill. Editing AI output is creative. Re-recording AI melodies is performance. Each step mixes human and machine beyond what a statute can separate. He proposes the rule for the clear case and admits the middle will stay contested.</p>
+<p><strong>6. What is the open-loop fear?</strong>
+That there is no natural stopping point. Background AI jazz becomes foreground AI pop, which becomes AI acts in the top 10, which starves human artists of the streams they need to build live careers. Each step is small and defensible. The loop has no built-in brake. Beato&rsquo;s phrase &ldquo;it is an open loop&rdquo; means nobody designed an end state.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<p><strong>Mnemonic: C-D-V.</strong> The three moves: <strong>C</strong>opyright denial, <strong>D</strong>elineation problem, <strong>V</strong>ertical integration. &ldquo;Can Democratic Voters stop it?&rdquo; Beato&rsquo;s answer: only the first is a real lever.</p>
+<p><strong>Never-confuse pair: banning vs de-incentivizing.</strong> A ban says nobody may make AI music. De-incentivizing says nobody can own it. Beato proposes the second. Bans need enforcement against everyone. Copyright denial just removes the prize.</p>
+<p><strong>Never-confuse pair: the funnel top vs the funnel.</strong> The record, the stream, the playlist slot: that is the top of the funnel. The live career, the merch, the teaching: that is the funnel. AI competes at the top. The damage lands at the bottom, where the human career actually lives.</p>
+<p><strong>Trap card: &ldquo;Just label AI music and the problem is solved.&rdquo;</strong> Labels help listeners choose, but they do not fix the economics. A labeled synthetic artist still takes the stream, still starves the funnel, still pays no human. Disclosure is information. The problem is incentives.</p>
+<p><strong>Trap card: &ldquo;Prompting is not a real skill.&rdquo;</strong> The episode&rsquo;s answer is that prompting qualifies as exactly that, and Beato&rsquo;s own workflow proves it. Dismissing the skill does not make the delineation problem go away. It makes your policy dumber.</p>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<p>This week, do three things. First, check your own playlists for AI artists. Look up two acts you stream on autopilot, the background jazz, the atmospheric focus music. Find out who made them. If you cannot find a human, you have met the flood. Second, apply the delineation test to your own AI use. Pick one work task where you used AI this week. Write the percentage you would assign to the machine versus yourself. Notice how arbitrary the number feels. That feeling is the policy problem. Third, follow the money on one platform you use. Who gets paid when you stream, and what share? Write the chain in three links. If a link is absent, that is where the vertical integration will happen.</p>
+<p>Catch yourself when you demand a bright line for AI art. The episode&rsquo;s lesson is that the line does not exist in practice. Ask instead which lever changes the money, because the money is what the platforms obey.</p>
+<p>One observable behavior change: before you share an AI-generated song or image, you check whether it is labeled, and you say so when you share it. Disclosure starts with you.</p>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Semi-guided drills. Brain first.</p>
+<p><strong>Drill 1: the copyright arithmetic.</strong> A synthetic artist gets 10 million streams at 0.4 cents per stream. What is the revenue? (Answer: 40,000 dollars.) Now suppose 1,000 such artists. What is the total? Now suppose the platform owns all of them and pays no royalties. What did the platform just capture? Write what this implies about the incentive to disclose.</p>
+<p><strong>Drill 2: draw your own line.</strong> Write a one-sentence law that defines &ldquo;fully generative&rdquo; tightly enough to enforce. Then attack it with three cases: prompted then re-recorded, AI melody with human lyrics, human melody with AI production. Rewrite the law after each attack. Count how many rewrites it takes before you give up. That count is the delineation problem as personal experience.</p>
+<p><strong>Drill 3: the funnel map.</strong> Draw the funnel for a musician: stream to fan to ticket to merch. Mark where AI competes at each stage. Then draw the funnel for your own profession. Mark the same stages. Write which stage of your funnel is the &ldquo;background jazz&rdquo; that goes first.</p>
+<p><strong>Drill 4: argue both sides.</strong> Side A: &ldquo;AI music democratizes creation, the gatekeepers deserved to fall.&rdquo; Side B: &ldquo;AI music centralizes power in the platforms, the artists were the democracy.&rdquo; Give each side two arguments from the episode and one of your own. Then name the fact that would settle it for you.</p>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<p>You can now state Beato&rsquo;s copyright proposal and its economic logic. You can explain the delineation problem with the Spider-Man meme and the Gemini title workflow. You can map Spotify&rsquo;s vertical integration incentive in three layers. You can describe the open loop and the funnel starvation mechanism. You can argue for and against AI music bans using the episode&rsquo;s own honesty about the line. You can spot the &ldquo;background genres first&rdquo; pattern in any creative industry.</p>
+<h2 id="chapter-plate">Chapter plate</h2>
+<table>
+<thead>
+<tr>
+<th>Platform without rules</th>
+<th>The stored object</th>
+<th>Platform with copyright denial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthetic artists fill playlists, labels bypassed, human funnel starves, nobody knows who made what</td>
+<td>The incentive: own the song, own the margin</td>
+<td>Fully generative works unownable, flood loses its prize, human artists compete on the funnel they own</td>
+</tr>
+<tr>
+<td><strong>Tradeoff in one line:</strong> you cannot ban the technology, but you can bankrupt its business model.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Figure 5. Chapter plate. AI Podcast Curriculum, Ep 05, Rick Beato, 2025-07-10. Source: original synthesis of episode claims.</em></p>
+<p>Plate numbers restate episode figures. No new computation is made on this plate.</p>
+<h2 id="figure-audit">Figure audit</h2>
+<p>Every state-changing claim below maps to one figure. No cell is blank. Symbols are defined in the track <a href="_symbols.md">symbol table</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Unit id</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure id</th>
+<th>Medium</th>
+<th>Source</th>
+<th>4 tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Vertical integration lets the platform keep the margin</td>
+<td>Platform rents artists</td>
+<td>Platform owns artist and playlist</td>
+<td>Fig 1</td>
+<td>Mermaid</td>
+<td>Episode claims</td>
+<td>Looks: 3-node chain. Shape: ownership layers force a chain. Number: margin share kept. Symbol: margin, reused in chapter plate.</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Copyright denial bankrupts the flood</td>
+<td>Synthetic songs earn</td>
+<td>No copyright, no asset, no flood</td>
+<td>Fig 2</td>
+<td>Table</td>
+<td>Episode claims</td>
+<td>Looks: 2-row table. Shape: rule-to-outcome mapping forces a table. Number: revenue per stream, 0.4 cents. Symbol: lever. Terminal: no later reuse.</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>The delineation line is a gradient</td>
+<td>Law wants yes or no</td>
+<td>Practice gives percentages</td>
+<td>Fig 3</td>
+<td>Table</td>
+<td>Episode claims</td>
+<td>Looks: 3-row gradient. Shape: a spectrum forces ordered rows. Number: human share of the work. Symbol: gradient, reused in ep09 Fig 3, chapter plate.</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>AI starves the funnel from the top</td>
+<td>Streams feed the career</td>
+<td>AI takes streams, career starves</td>
+<td>Fig 4</td>
+<td>Mermaid</td>
+<td>Episode claims</td>
+<td>Looks: 4-node funnel plus shock arrow. Shape: a funnel plus one cut forces this layout. Number: streams for critical mass. Symbol: funnel, reused in chapter plate.</td>
+</tr>
+</tbody>
+</table>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=0g06zPgwuKs" target="_blank" rel="noopener">How AI and TikTok Are Breaking the Music Industry - Rick Beato</a></li><li><span class="src-tag">GO-DEEPER</span><a href="https://www.copyright.gov/" target="_blank" rel="noopener">U.S. Copyright Office</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/modern-wisdom/ep04.html"><span class="lbl">← Previous</span>Episode 4: AI Debate - Most People Have No Idea What Is Coming</a><a href="../../tracks/modern-wisdom/ep06.html"><span class="lbl">Next →</span>Episode 6: Destiny Reacts to Google&#x27;s Gemini AI Disaster</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
