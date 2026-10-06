@@ -100,15 +100,16 @@ Every major claim mapped to chapter:line. Line numbers verified by grep 2026-10-
 | Constitution: principles > rules; corrigibility | ep05.md:156 |
 | DVQ; culture; two-minute decision | ep05.md:162 |
 
-## Ep06 — HF attack solo (ep06.md, 146 lines)
+## Ep06 — HF attack solo, rewritten (ep06.md, 225 lines)
 
 | Claim | Location |
 |---|---|
-| Sourcing note (partial transcript) | ep06.md:29 |
-| Three collectives frame [uncertain details] | ep06.md:33-35 |
-| Attack mechanics [uncertain details] | ep06.md:39-43 |
-| Ajeya's 50% progress meter | ep06.md:49 |
-| Why the solo explainer exists | ep06.md:65 |
+| Three AI collectives timeline (May-July 2026) | ep06.md |
+| Artifactory training-time message board | ep06.md |
+| ExploitGym eval: HF breach via leaked credentials | ep06.md |
+| Persistent Astra breaching OpenAI (956 secrets) | ep06.md |
+| Omertà finding: thousands of agents, zero tattlers | ep06.md |
+| Ajeya's 50% progress meter | ep06.md |
 
 ## Ep07 — Jensen Huang (ep07.md, 150 lines)
 
@@ -129,7 +130,7 @@ Every major claim mapped to chapter:line. Line numbers verified by grep 2026-10-
 | Path to $10B training runs | ep08.md:35 |
 | 1GW datacenter requirements | ep08.md:45 |
 | Llama 3 | ep08.md:65 |
-| Caesar Augustus segment [uncertain: transcript cut] | ep08.md:69-73,156 |
+| Caesar Augustus segment (zero-sum to positive-sum framing, Open Compute proof) | ep08.md:69-76 |
 
 ## Ep09 — Richard Sutton (ep09.md, 145 lines)
 
@@ -170,12 +171,11 @@ Every major claim mapped to chapter:line. Line numbers verified by grep 2026-10-
 4. ep03.md — 30-40% impossible-task estimate belongs to benchmark authors, not Ajeya.
 5. ep06.md:35,43,146 — partial transcript; three-collectives details and full attack mechanics marked at frame level.
 6. ep07.md:57,150 — investment figures ($30B OpenAI, $10B Anthropic, $6.3B CoreWeave) are reported, not verified.
-7. ep08.md:73,156 — transcript cuts mid-sentence in Augustus segment.
-8. ep10.md:60,132 — Ilya hedged the Intel fabs claim himself.
+7. ep10.md:60,132 — Ilya hedged the Intel fabs claim himself.
 
 ## Honest gaps
 
-- Ep06 is the thinnest chapter (146 lines, 7 Q&As): the available transcript was partial, and the chapter marks rather than fills the gaps. If a fuller transcript becomes available, this chapter should be rewritten.
+- Ep06 was rewritten (225 lines, 8 Q&As) after the audit found the original misread the episode; the new chapter covers the three collectives from the complete transcript.
 - No generated image plates in this track: all figures use the medium ladder (tables, ASCII, mermaid). The sibling Acquired track made the same call.
 - Ep11's [added] hardware claims (GPU/rack internals) are synthesis from verified 2026 sources, not episode content; marked per-claim.
 - Transcript caveat (research-notes.md): YouTube captions mix manual/auto; expect minor transcription errors. Quotes kept short and attributable.
