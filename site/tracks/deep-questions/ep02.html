@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 2: Cal Newport&#x27;s Planning System (In Detail) — AI Podcast Curriculum</title>
+<meta name="description" content="The three-part planning system behind a decade of books and research: core documents, productivity planning, and hard disciplines, held together by one root doc">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="deep-questions-ep02" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Deep Questions with Cal Newport</h3><ul>
+<li><a href="../../tracks/deep-questions/index.html" data-page="deep-questions-index">Track index</a></li>
+<li><a href="../../tracks/deep-questions/ep01.html" data-page="deep-questions-ep01">Ep 1 · Perks of No Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep02.html" data-page="deep-questions-ep02" class="active">Ep 2 · Cal&#x27;s Planning System</a></li>
+<li><a href="../../tracks/deep-questions/ep03.html" data-page="deep-questions-ep03">Ep 3 · Core Idea: Deep Work</a></li>
+<li><a href="../../tracks/deep-questions/ep04.html" data-page="deep-questions-ep04">Ep 4 · Digital Minimalism</a></li>
+<li><a href="../../tracks/deep-questions/ep05.html" data-page="deep-questions-ep05">Ep 5 · Core Idea: Slow Productivity</a></li>
+<li><a href="../../tracks/deep-questions/ep06.html" data-page="deep-questions-ep06">Ep 6 · The Slope of Terribleness</a></li>
+<li><a href="../../tracks/deep-questions/ep07.html" data-page="deep-questions-ep07">Ep 7 · Learning vs. Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep08.html" data-page="deep-questions-ep08">Ep 8 · The 5-Step Productivity System</a></li>
+<li><a href="../../tracks/deep-questions/cheatsheet.html" data-page="deep-questions-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Deep Questions with Cal Newport</a> / Episode 2: Cal Newport&#x27;s Planning System (In Detail)</nav>
+      <h1>Episode 2: Cal Newport&#x27;s Planning System (In Detail)</h1>
+      <p class="meta-line">2022-09-02 · Instructor: Cal Newport · Deep Questions with Cal Newport</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="3FipKTzkTD4"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/3FipKTzkTD4" title="Cal Newport&#x27;s Planning System (In Detail)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=3FipKTzkTD4" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=3FipKTzkTD4" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">The root document, the three categories (core documents, productivity, discipline), and why he returns to this system every fall.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>No other episode in this track gives you the machinery that makes deep work possible. Deep work is the engine. This episode is the chassis, the fuel system, and the maintenance schedule. Every later chapter tells you to protect focus and work slowly and think ahead. None of that survives without a system that turns values into a weekly plan, a weekly plan into a daily time block, and a daily time block into what you do right now. This chapter is that system.</p>
+<h2 id="the-fall-epiphany">The fall epiphany</h2>
+<h3 id="stress-lost-sleep-and-the-summer-laxness">Stress, lost sleep, and the summer laxness</h3>
+<p>A few days before recording, Cal got stressed and anxious enough to lose a lot of sleep. His mind would not shut down at night. The trigger was simple. The fall semester approached.</p>
+<p>Cal is a professor and a writer. In summer he has little to do, so he goes lax on his systems. He takes his foot off the gas of his organizational machinery. Over that summer he accreted new side systems, new disciplines, new ideas, new projects. Notes about all of it were spread across many digital media and several notebooks.</p>
+<p>Then came the reckoning. He had to wrangle everything and lock his systems back in for the fall. It would not work. Some pieces were redundant. Some did not make sense. There were too many initiatives. The mess stressed him out to the point of insomnia.</p>
+<h3 id="the-epiphany-he-has-every-fall">The epiphany he has every fall</h3>
+<p>The next morning came the epiphany, and Cal puts quotation marks around the word, because it is the exact same epiphany he has every single fall. The planning system he perfected over a decade is what works for him. Every time he tries to reinvent the wheel or bolt new components onto it, he gets stressed.</p>
+<p>So he did what he does every fall. Forget the new inventions. Go back to the standard planning system. Get every piece of it up and running. He felt much better.</p>
+<p>That system, he says, underlies almost everything he has done professionally in the last decade. Most of his books. Most of his academic work. It all happened because of this planning system.</p>
+<h3 id="the-root-document">The root document</h3>
+<p>Cal keeps a document he calls the root document, or the core document. It is the single source from which everything he does comes. The principle behind it is his own phrase: rooted productivity. Everything is written down, and you know where to find it. It is not floating in your head.</p>
+<p>He read the actual document on the show. The wording is imperfect, unpolished, written for himself. That is a feature. It is not an essay for publication. He knows what it means.</p>
+<p>The document divides his system into three categories. Everything related to his core planning falls under one of them: core documents, productivity, discipline.</p>
+<p>Figure 1 (lesson plate, Shell 1). The root document turns scattered notes into one system. AI Podcast Curriculum, deep-questions ep02 (original toy, 2022-09-02). Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Before: summer drift</th>
+<th>The rule: write the root document</th>
+<th>After: rooted productivity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notes across many apps and notebooks</td>
+<td>One core document summarizes the whole system</td>
+<td>Every piece has a home and a category</td>
+</tr>
+<tr>
+<td>Redundant side systems, overlapping lists</td>
+<td>Everything is written down, nothing floats in the head</td>
+<td>You know where to find everything</td>
+</tr>
+<tr>
+<td>Result: stress, lost sleep, too many initiatives</td>
+<td>The rule forces the state change</td>
+<td>Result: trust, calm, one system to return to</td>
+</tr>
+</tbody>
+</table>
+<p>Footer: scattered notes create anxiety. One written root document creates trust.</p>
+<h2 id="category-1-core-documents">Category 1: core documents</h2>
+<h3 id="values-and-two-strategic-plans">Values, and two strategic plans</h3>
+<p>The first category holds three kinds of documents. First, a values document describing his roles and the values by which he tries to live. Second, a career strategic plan. Third, a personal strategic plan. Each plan lays out his current thinking, experimental systems, and plans for living true to his values in that part of life.</p>
+<p>There is a fourth kind, used as needed. Extended plans. If a big project or initiative needs its own description, it gets its own document, linked from the relevant strategic plan.</p>
+<h3 id="how-the-core-documents-are-maintained">How the core documents are maintained</h3>
+<p>Maintenance has three rhythms, and each is explicit.</p>
+<p>First, once a week he looks at his values and produces what he calls a values plan. This is the week&rsquo;s emphasis. Which values need attention. Where he slipped. Which habits would emphasize a particular value. His example: community connection matters, so this week he will call someone every day. The values plan also holds his best practices for mental health, the things that keep his mind sharp and away from anxiety.</p>
+<p>Second, once a week he reviews the strategic plans, and he can tweak them at any time. But at minimum, at the beginning of each new semester, he overhauls them. The plans are written for a semester at a time.</p>
+<p>Third, he keeps an idea notebook, digital and analog. He uses Obsidian and a Moleskine. Ideas live there, and at the very least when he does the semester updates he goes through the ideas and acts on the ones that matter.</p>
+<p>Figure 2 (lesson plate, Shell 2). The core documents and their maintenance rhythms. AI Podcast Curriculum, deep-questions ep02 (original toy, 2022-09-02). Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Cadence</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Values</td>
+<td>Weekly</td>
+<td>Values plan: this week&rsquo;s emphasis, plus mental health practices</td>
+</tr>
+<tr>
+<td>Career strategic plan</td>
+<td>Weekly review, semester overhaul</td>
+<td>Tweaked any time, rewritten each semester</td>
+</tr>
+<tr>
+<td>Personal strategic plan</td>
+<td>Weekly review, semester overhaul</td>
+<td>Tweaked any time, rewritten each semester</td>
+</tr>
+<tr>
+<td>Extended plans</td>
+<td>As needed</td>
+<td>Big initiatives described and linked from the strategic plans</td>
+</tr>
+<tr>
+<td>Idea notebook (Obsidian plus Moleskine)</td>
+<td>Checked at semester updates</td>
+<td>Ideas stored, then acted on or released</td>
+</tr>
+</tbody>
+</table>
+<p>Footer: values are permanent, plans are seasonal, the values plan is weekly. Nothing floats.</p>
+<h2 id="category-2-productivity">Category 2: productivity</h2>
+<h3 id="the-weekly-plan">The weekly plan</h3>
+<p>Each week he builds a weekly plan. The inputs are fixed: the strategic plans, the calendar, the task list, and the values plan. The format is not. A complicated week in the middle of the semester might become an intricate jenga game of fitting everything together. A week in July might say nothing more than an exclamation point.</p>
+<p>The weekly plan answers one question. Given everything I value and everything on my plate, how do I attack this week.</p>
+<h3 id="the-daily-plan-and-the-cascade">The daily plan and the cascade</h3>
+<p>Each day he reviews three things: the weekly plan, the values plan, and the calendar. On a weekday he then makes a time block plan. Every hour of the day gets an assignment. On weekends he does something looser, a quick sketch of what he works on and what to remember.</p>
+<p>The crucial idea is the cascade. The strategic plan influences the weekly plan. The weekly plan feeds the daily plan. The daily plan determines what you do right now. So what you do right now is shaped by your big-picture strategic plans, but you never have to think about your big-picture plans right now. The thinking happens at the right level and flows downhill.</p>
+<p>Figure 3 (lesson plate, Shell 3). The cascade from values to this hour. AI Podcast Curriculum, deep-questions ep02 (original toy, 2022-09-02). Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Written where</th>
+<th>Answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Values and roles</td>
+<td>Values document</td>
+<td>What matters to me</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>Career and personal strategic plans, per semester</td>
+<td>Where this part of life heads</td>
+</tr>
+<tr>
+<td>Week</td>
+<td>Weekly plan, from plans plus calendar plus values plan</td>
+<td>How I attack this week</td>
+</tr>
+<tr>
+<td>Day</td>
+<td>Time block plan, from weekly plan plus calendar</td>
+<td>What each hour today is for</td>
+</tr>
+<tr>
+<td>Now</td>
+<td>The current block</td>
+<td>What I do, nothing else</td>
+</tr>
+</tbody>
+</table>
+<p>Footer: big-picture thinking flows down one level at a time. The present moment carries no big-picture load.</p>
+<h3 id="the-shutdown-ritual">The shutdown ritual</h3>
+<p>Two more pieces complete the productivity category. First, clear work shutdowns, with a shutdown complete ritual. Work ends at a defined point. There is a clear separation between work and non-work. He makes a rough but intentional plan for the rest of the day when he shuts down.</p>
+<p>Second, full capture, in the tradition of David Allen. Capture everything. The whole game is trust. If he writes something down, he trusts it will be seen, processed, and routed. A calendar appointment goes on the calendar. A task goes on the task list. A thought about the plan updates the weekly plan. Because the capture is complete, he does not have to carry anything in his mind. In the moment he worries only about what he does now. In the evening, only about the relaxing thing he chose.</p>
+<p>Figure 4 (lesson plate, Shell 3). Full capture closes the open loops. AI Podcast Curriculum, deep-questions ep02 (original toy, 2022-09-02). Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Before: uncaptured</th>
+<th>The rule: write it down, route it, trust the route</th>
+<th>After: captured</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task floats in the head</td>
+<td>Appointment goes to the calendar</td>
+<td>The head holds only the current block</td>
+</tr>
+<tr>
+<td>Email sits unprocessed</td>
+<td>Task goes to the task list</td>
+<td>The system holds everything else</td>
+</tr>
+<tr>
+<td>Plan change is a worry</td>
+<td>Plan thought updates the weekly plan</td>
+<td>Trust replaces worry</td>
+</tr>
+<tr>
+<td>Result: open loops, background anxiety</td>
+<td>The rule is the state change</td>
+<td>Result: stress management through trust</td>
+</tr>
+</tbody>
+</table>
+<p>Footer: an uncaptured obligation lives in your head. A captured one lives in the system. Only one of those can be trusted.</p>
+<h2 id="category-3-discipline">Category 3: discipline</h2>
+<h3 id="hard-boundaries-tracked-with-metrics">Hard boundaries, tracked with metrics</h3>
+<p>The third category is an evolving list of core disciplines. Hard boundaries he strictly follows to lay a foundation for a deep life. Exercise. A number of deep work hours per day. In sales it might be the number of calls per day. Whatever the domain, the form is the same: I do this, I do that, I do the other thing, and I always do those things.</p>
+<p>He often tracks these with metrics. During an academic semester he keeps a metric code for each discipline in his time block planner: did I do this today, did I do this today. In summer or over breaks he may take a break from tracking.</p>
+<p>The discipline category was the last thing added to the system over the decade. And the reason is personal. For him, if something is not written down, he does not fully trust it, and then he gets anxious. Other people may not need this. He does.</p>
+<h3 id="the-system-expands-and-contracts">The system expands and contracts</h3>
+<p>The final property Cal emphasizes is flexibility. The system scales. In complicated periods the documents get big. Strategic plans grow. Task lists grow. Weekly plans become epic essays. Extended plans get linked in.</p>
+<p>In hard periods the system contracts to the basics. Burnout, despair, difficult stretches. Then it is just the values, the core things that must get done, the minimum that pulls him out of the depths. One system, two sizes.</p>
+<p>He is honest about the rough edges. Some pieces are redundant. The values plan probably should not be separate from the weekly planning. There are little legacy incongruities. It does not matter. The parts mingle, the rhythms hold, and a decade of output is the evidence.</p>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<p>Write your root document this week. One page. Three headings: core documents, productivity, discipline. Under each, write what you actually do today, even if it is thin. Imperfect wording is fine. It is for you. The document is the system. The system is the document.</p>
+<p>Start the weekly rhythm. Pick one day, Friday afternoon or Sunday, and build a weekly plan from four inputs: your strategic direction, your calendar, your task list, and what matters this week. Do not aim for elegance. Aim for one honest page about how you will attack the week.</p>
+<p>Time block tomorrow morning. Before the day starts, assign every hour. Mark which blocks are deep work. When the day drifts, redraw the blocks. The plan is a living document, not a cage.</p>
+<p>Run a shutdown ritual tonight. Close the loops. Capture anything floating. Say a phrase, check a box, close the laptop. Then make a rough intentional plan for the evening. When you are shut down, you are shut down.</p>
+<p>Track one discipline. Pick one hard boundary: exercise, deep work hours, pages written. Track it daily for this week only. Notice what the tracking does to your trust in yourself.</p>
+<p>Catch the invention urge. The episode&rsquo;s deepest warning is the summer pattern: stressed, so invent a new system, which creates more stress. When you feel the urge to redesign everything, that is your signal. Return to the standard system instead.</p>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Guided drills. Do these with your own brain before touching AI.</p>
+<p>Drill 1, write your values paragraph. Describe your roles and the values by which you try to live, in your own imperfect words. Then write this week&rsquo;s values plan: which one value needs emphasis, and what is one habit that would emphasize it. Include one mental health practice.</p>
+<p>Drill 2, build one weekly plan. Gather the four inputs: your direction for the season, your calendar, your task list, your values plan. Write the attack plan for this week in one page. If it is a light week, an exclamation point is allowed.</p>
+<p>Drill 3, trace the cascade. Pick what you do right now. Trace it upward: which daily block is it in, which weekly plan chose that block, which strategic plan shaped the week, which value sits at the top. If the chain breaks anywhere, write the missing link. That gap is where your system leaks.</p>
+<p>Drill 4, audit your capture. For one day, write down every obligation that crosses your mind on a single sheet. At day&rsquo;s end, count how many have a trusted home in a system and how many live only in your head. The second number is your anxiety inventory.</p>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Write a root document that summarizes your entire planning system on one page.</li>
+<li>Maintain core documents at three cadences: weekly values plan, weekly strategic review, semester overhaul.</li>
+<li>Build a weekly plan from the four fixed inputs, in any format the week demands.</li>
+<li>Run a daily cascade: weekly plan to time block plan to the current hour.</li>
+<li>Execute a shutdown complete ritual that separates work from the rest of the day.</li>
+<li>Implement full capture so the head holds only the present moment.</li>
+<li>Choose hard disciplines, track them with metrics during intense periods, and let the system contract during hard ones.</li>
+</ul>
+<h2 id="qa">Q&amp;A</h2>
+<p><strong>Explain this episode to me like I am new. What is the system?</strong></p>
+<p>One root document describes everything. Under it, three categories. Core documents: your values, your career and personal strategic plans, maintained weekly and overhauled each semester, plus an idea notebook. Productivity: a weekly plan built from the plans, the calendar, the task list, and the values plan. A daily time block plan on weekdays. A shutdown ritual. Full capture of every obligation. Discipline: an evolving list of hard boundaries, tracked with metrics when life is intense. The levels cascade: strategy shapes the week, the week shapes the day, the day shapes the hour. You never think about the big picture in the present moment, yet the present moment serves it.</p>
+<p><strong>Why does he call it &ldquo;rooted productivity&rdquo;?</strong></p>
+<p>Because everything grows out of one written root. The alternative he lived every summer was notes spread across many digital media and notebooks, redundant systems, overlapping lists. That is unrooted productivity, and it produced stress and lost sleep. The root document fixes the location of truth. Anything outside it sits outside the system.</p>
+<p><strong>What is a values plan, exactly?</strong></p>
+<p>Once a week he looks at his values and pulls out the emphasis for this week. Where has he fallen off a value. What habit would restore it. His example: community connection matters, so call someone every day this week. He also writes in his best practices for mental health. It is the weekly, operational form of the permanent values. Values say what matters. The values plan says what matters this week.</p>
+<p><strong>How do the strategic plans differ from the weekly plan?</strong></p>
+<p>Time horizon and stability. The strategic plans cover a semester and get overhauled at its start, with tweaks any time. The weekly plan covers seven days and is rebuilt every week from the strategic plans plus the calendar, the task list, and the values plan. Strategy is the direction. The weekly plan is the attack.</p>
+<p><strong>Why time block instead of just keeping a to-do list?</strong></p>
+<p>A to-do list says what. A time block plan says when, and it protects the when. Cal marks deep work blocks on the plan, which makes the deep-to-shallow ratio visible and measurable. More importantly, the plan is the daily form of the cascade: it translates the week&rsquo;s intentions into hours. When reality intrudes, he redraws the blocks. The plan absorbs the day instead of the day destroying the plan.</p>
+<p><strong>What does &ldquo;full capture&rdquo; actually buy him?</strong></p>
+<p>Trust, which buys calm. Every obligation gets written down and routed to a system he believes in. Because he believes the system will surface it at the right time, he does not carry it in his head. The head is then free to hold only the present moment. That is the entire stress-management mechanism: not fewer obligations, but zero floating ones.</p>
+<p><strong>Why is the system&rsquo;s ability to contract important?</strong></p>
+<p>Because life has hard periods. Burnout, despair, overwhelm. A system that only works at full intensity gets abandoned exactly when you need it most. His contracts to the basics: the values, the core things that must get done, the minimum that gets him out of the depths. The same system covers both the epic-essay weeks and the survival weeks.</p>
+<p><strong>Applied: fall arrives, summer systems are a mess, and you are stressed. What is the exact first move?</strong></p>
+<p>Do not invent a new system. That is the trap he fell into every summer. Return to the standard system. Open the root document. Check each of the three categories: are the core documents current, is there a weekly plan, are the disciplines defined. Get the standard pieces running again. The stress came from system-hopping, not from missing features.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic for the three categories: <strong>CPD</strong>. <strong>C</strong>ore documents, <strong>P</strong>roductivity, <strong>D</strong>iscipline. Say it as the three questions: what do I believe, how do I spend time, what do I never skip.</p>
+<p>Mnemonic for the cascade: <strong>SWDN</strong>. <strong>S</strong>trategy shapes the <strong>W</strong>eek, the <strong>W</strong>eek shapes the <strong>D</strong>ay, the <strong>D</strong>ay shapes <strong>N</strong>ow.</p>
+<p>Never-confuse pairs:
+- Values vs. values plan. Values are permanent. The values plan is this week&rsquo;s emphasis.
+- Weekly plan vs. time block plan. The weekly plan says how to attack the week. The time block plan assigns the hours.
+- Strategic plan vs. extended plan. The strategic plan covers a life area for a semester. The extended plan describes one big initiative, linked from it.
+- Discipline vs. habit. A discipline is a hard boundary, tracked and non-negotiable. A habit is softer.
+- Full capture vs. a to-do list. Capture is the trust that everything written will be routed and surfaced. A list is just a pile.</p>
+<p>Trap cards:
+- Inventing a new system when stressed. The stress is the signal to return to the standard system, not to redesign.
+- Polishing the root document. It is for you. Imperfect wording is fine. A beautiful document you do not trust beats nothing, but an ugly one you trust beats both.
+- Tracking disciplines forever. Track during intense periods. Release during breaks. The system breathes.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Cal Newport&rsquo;s site, with his books and essays on planning and depth: https://calnewport.com</li>
+<li>His long-running blog on focus and deep work: https://www.calnewport.com/blog</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>One root document replaces scattered notes</td>
+<td>Notes everywhere, stress, lost sleep</td>
+<td>One document, trust, calm</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Core documents run on three cadences</td>
+<td>Values, plans, ideas drift</td>
+<td>Weekly, semester, as-needed rhythms</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Strategy cascades to the present hour</td>
+<td>Big picture floats separately from today</td>
+<td>Five levels, one chain</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Full capture empties the head</td>
+<td>Obligations float in the mind</td>
+<td>Everything routed, head holds now</td>
+<td>Figure 4</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Whole chapter trade</td>
+<td>Summer drift and system-hopping</td>
+<td>One system, three categories, expands and contracts</td>
+<td>Figure 5 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 (chapter plate). The cost of system-hopping versus one rooted system. AI Podcast Curriculum, deep-questions ep02 (original toy, 2022-09-02). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invent a new system every season. Notes scatter, pieces overlap, stress and lost sleep follow. A decade of that buys nothing.</td>
+<td>The root document: core documents, productivity, discipline, on weekly and semester rhythms.</td>
+<td>Keep one system for a decade. Write it down, cascade it weekly and daily, contract it in hard times. A decade of that buys the books and the research.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: give up the fantasy that a new system will save you. Keep the boring one that already works.
+Footer: the system that survives a decade is the one you return to, not the one you invent.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=3FipKTzkTD4" target="_blank" rel="noopener">Cal Newport&#x27;s Planning System (In Detail)</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/deep-questions/ep01.html"><span class="lbl">← Previous</span>Episode 1: The Perks of Living Without Social Media</a><a href="../../tracks/deep-questions/ep03.html"><span class="lbl">Next →</span>Episode 3: Core Idea: Deep Work</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
