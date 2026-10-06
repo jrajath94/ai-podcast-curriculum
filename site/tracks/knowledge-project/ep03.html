@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 3: Bill Gurley on Systems Thinking, Bedrock, and the Edge — AI Podcast Curriculum</title>
+<meta name="description" content="Benchmark partner Bill Gurley on systems thinking, studying the history of your field, obsessive learning on the bleeding edge, AI, China open source, and the e">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="knowledge-project-ep03" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03" class="active">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">The Knowledge Project</a> / Episode 3: Bill Gurley on Systems Thinking, Bedrock, and the Edge</nav>
+      <h1>Episode 3: Bill Gurley on Systems Thinking, Bedrock, and the Edge</h1>
+      <p class="meta-line">2026-06-09 · Instructor: Bill Gurley · The Knowledge Project</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="yBBhd0-Os74"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/yBBhd0-Os74" title="Bill Gurley: The Pattern Breakers | The Knowledge Project #213" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=yBBhd0-Os74" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=yBBhd0-Os74" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Bill Gurley on systems thinking, learning investing, AI models, stablecoins, storytelling, Uber, and Benchmark's equal partnership.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Bill Gurley joined Benchmark on its third fund and became one of the most respected venture investors of his generation. This is the most recent episode in the track, recorded June 2026, and it reads like a field manual for thinking clearly in a noisy world. His method has three parts: think in systems, study the bedrock history of your field, and learn obsessively on the bleeding edge. The episode then applies that method live to AI models, China, circular deals, stablecoins, and the structure of his own firm. It sits third in the track because it turns ep01&rsquo;s models and ep02&rsquo;s first principles into a daily practice.</p>
+<h2 id="systems-thinking-the-first-mental-model">Systems thinking: the first mental model</h2>
+<h3 id="complex-systems-are-multivariable-and-nonlinear">Complex systems are multivariable and nonlinear</h3>
+<p>Shane opens by asking for the mental models Gurley keeps coming back to. His answer: systems thinking. He names the book &ldquo;Thinking in Systems,&rdquo; which he read, and notes he sits on the board of the Santa Fe Institute, which studies complexity theory.</p>
+<p>His definition: complex systems are multivariable nonlinear systems. They behave one way for a long time, then one variable switches and they behave another way. Weather. Stock markets. Consequences arrive at the first, second, and third derivative. You cannot think with a linear model or a single variable, because things go way off the path.</p>
+<p>Definition: a second-derivative effect is a consequence of a consequence. The first derivative is the direct result of your change. The second is what the direct result causes later.</p>
+<p>His example: a large dating site tested making profiles longer. Engagement rose. Simple heuristic, confirmed by test, rolled out. Many months later they discovered it was negative for conversion: when people knew more at that level, fewer converted. The first derivative looked good. The second derivative was bad. They found out way later.</p>
+<p>The discipline: be conscious of consequences beyond the first. Never get too deterministic about a single metric or a single variable. Know what is important and what sits on top.</p>
+<p>Figure 1. First, second, third derivative. AI Podcast Curriculum, ep03 (Bill Gurley, 2026-06-09). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph TD
+    A[Change: longer profiles] --> B[1st: engagement up]
+    B --> C[2nd: conversion down later]
+    C --> D[3rd: growth stalls]
+</div><pre class="mermaid-fallback"><code>graph TD
+    A[Change: longer profiles] --&gt; B[1st: engagement up]
+    B --&gt; C[2nd: conversion down later]
+    C --&gt; D[3rd: growth stalls]
+</code></pre>
+<h3 id="how-he-learned-investing-the-bedrock">How he learned investing: the bedrock</h3>
+<p>Gurley started on Wall Street, not in venture. His reading list, in order: Peter Lynch&rsquo;s &ldquo;One Up on Wall Street&rdquo; (the first investing book he read), Burton Malkiel&rsquo;s &ldquo;A Random Walk Down Wall Street,&rdquo; all the Buffett letters, then Ben Graham (&ldquo;once you read Buffett, you have to read Ben Graham&rdquo;), then Howard Marks, whom he calls &ldquo;just incredible.&rdquo;</p>
+<p>Shane&rsquo;s push: that is value investing, but Gurley does seed-stage venture. How did Buffett translate? Gurley&rsquo;s answer: a firm understanding of the bedrock is super valuable, and when you need to innovate on top of it, the foundation holds you up.</p>
+<p>Two people shaped the translation. Mike Mauboussin [transcript renders as &ldquo;Mike Moeson&rdquo;], a writer of financial books who started at First Boston a year or two ahead of him and became a lifelong friend. And Bill Miller, who ran Legg Mason through a famous 15-year run of beating the S&amp;P. Miller claimed to be a value investor while being Amazon&rsquo;s largest shareholder for a long period. His definition: value just means the asset is underpriced relative to what you think it will be worth in the future. If you believe in network effects, Amazon can grow at an unreasonable rate for a very long period, and the math works. Gurley spent a lot of time talking with Miller about network effects.</p>
+<p>His structural insight: Wall Street is the buyer of the product that venture capital creates. Liquidity comes through M&amp;A or IPO, and the price is set by that group. So even at the earliest stage, two people and a PowerPoint, he thinks about what the public-market buyer will value when the company grows up. Trajectory matters more than the starting place.</p>
+<h3 id="know-the-bedrock-of-your-industry">Know the bedrock of your industry</h3>
+<p>Shane asks what &ldquo;knowing the bedrock&rdquo; means in a world of skimmers who want the executive summary. Gurley answers with stories.</p>
+<p>His Benchmark partner Alex Balkansky once bought a dinner with John Lasseter, the creative genius behind Pixar, at an Andre Agassi charity auction in Las Vegas. At Lasseter&rsquo;s house, in his viewing room, Lasseter served a 10-course meal. Each course was tied to a classic cartoon he considered essential to the craft of animation. He showed each one and talked through it. Gurley&rsquo;s reaction: &ldquo;Holy crap, he knows more about the history.&rdquo;</p>
+<p>More data points: at a world chess event, a trivia contest about the history of chess, and Magnus Carlsen wins it. Picasso was a wildly successful realist painter by age 14, the Barcelona museum proves it, though nothing in his cubist work suggests it.</p>
+<p>The career application: imagine interviewing for a marketing job at P&amp;G or Pepsi against 20 people. You are the one who understands the masters of marketing and can bring them up. That is wildly differentiating. A friend recommends college applicants do the same: applying to study physics, write about the forefathers of physics in the admissions essay. It creates instant contrast and signals passion.</p>
+<p>His test: if studying the history of your field sounds tedious, you are probably not in the right lane. The tedium is the signal.</p>
+<h2 id="the-edge-obsessive-learning">The edge: obsessive learning</h2>
+<h3 id="the-common-trait-of-outliers">The common trait of outliers</h3>
+<p>Asked whether knowing history is the common trait of the founders he worked with, Gurley says no. The more common related trait is obsessive, constant learning. Disruptions that let startups take share from incumbents are tied to something dynamic happening on the edge. Every entrepreneur exploiting it, AI right now, goes home at night and reads everything they possibly can, because the edge moves and they need to be a top-1-percentile person on the new thing.</p>
+<p>This was true of the mobile wave: no engineers wrote mobile apps, and a few people got on the edge and figured out what it meant. It is true of AI now.</p>
+<p>The incumbent&rsquo;s problem: diving into the edge may mean giving up a previous decision or admitting you were wrong and going backward. That is the innovator&rsquo;s dilemma wearing work clothes.</p>
+<h3 id="play-with-everything">Play with everything</h3>
+<p>Gurley&rsquo;s personal practice: he plays with everything that appears. Right now he holds about five premium AI accounts because he does not want to miss something. He recommends everyone operate this way.</p>
+<p>The power move he describes: know the old stuff AND the new edge. Understand the legends and history of marketing, and also really get TikTok. That combination is a power player in any field, and for a young person it is a devastating interview differentiator.</p>
+<h2 id="ai-models-data-and-china">AI: models, data, and China</h2>
+<h3 id="how-he-actually-uses-ai">How he actually uses AI</h3>
+<p>Asked what would surprise Shane about his AI use, Gurley says people underestimate how much it can do. His technique: do not just ask for the top 10 of something and then study them yourself. Ask for the top 10, list their pros and cons, then rank-order them on one dimension, then rank-order them again on another. Build the later steps into the prompt. Early on he would ask for numbers and add them up himself, then he realized he could tell it to do that part too.</p>
+<p>His model map: ChatGPT for the project structure, and the memory feature pulls him in (it knows who he is, useful for restaurants and personal context). Gemini for restaurants, because it has Google review data: not &ldquo;which restaurants are good&rdquo; but &ldquo;what three plates do people rave about, and what do people warn against.&rdquo; He goes deep into menus. Coding people swear by Claude. A finance contact prefers Perplexity for finance, but finds Claude better for deep research on unfamiliar companies and countries. Still a mix.</p>
+<p>One model or many? He says it depends. In verticals, especially coding (the largest vertical), people already swap models, Cursor lets the user pick. Price optimization is not the objective function now, but it will be in a few years, and then swapping increases. The counterforce: if regulation gets extremely difficult and expensive, it could produce oligopoly instead. Some players know this and plead for regulation as a protective moat, especially against Chinese open-source models.</p>
+<h3 id="chinas-open-source-system">China&rsquo;s open-source system</h3>
+<p>China has about ten open-source models that are really good (Shane says four, Gurley corrects to ten). Gurley calls this a perfect systems-thinking question.</p>
+<p>The competitive dynamic in China is more intense because everyone chose open source. That creates a system capable of innovating far faster than the Western system. All the models learn from one another. A model can train another model or test another model. They publish not just weights but how they figured things out: new techniques.</p>
+<p>His metaphor: two agricultural societies. In one, farmers come to market, sell each other goods, and go home. In the other, farmers are forced to share best practices with all the other farmers. Which evolves faster?</p>
+<p>The irony: startups all over Silicon Valley are quietly forking these models. He calls it a quiet secret: from a volume standpoint, companies use these models everywhere, though you will not read it on the front page of the journal. Whether regulation stomps this out is an open question.</p>
+<h3 id="will-the-models-hit-an-asymptote">Will the models hit an asymptote?</h3>
+<p>On AI investing, the open question: if models become near-sentient, no vertical model is needed, one model does everything. Gurley comes down on the other side. Workflows and data moats matter: legal AI startups spending all their time ingesting case law and understanding legal processes will not simply be replaced by a general chatbot climbing the stack. Though the labs talk about going after verticals, so it is to be determined. He cites Microsoft: starting with the OS, then moving up the stack past Lotus 1-2-3 and WordPerfect. That could happen here.</p>
+<p>On training limits: data may run out. He calls it &ldquo;painting in the corners&rdquo;: everything is filled in. One powerful solution: hire experts at thousands of dollars an hour to ask very hard questions and fine-tune on them, but there has to be a limit at the edge of human knowledge.</p>
+<p>Yann LeCun&rsquo;s side: the next AI is not LLMs, LLMs will hit an asymptote because they are language-based and language cannot capture everything, which is partly why they are not great with math and numbers. The famous AlphaGo move (the move number escapes him) is cited as proof models can innovate beyond their training, the counter is that Go is a constrained game where the computer can search a possibility field no human can, while the real world has effectively infinite paths. AlphaGo is not LLM-based anyway. Tesla full self-driving is also a constrained environment: inputs are visual data, outputs are brake, steering wheel, gas pedal. He would now sit comfortably in the back seat, but the corner cases of the random real world, humans who find it fun to test the cars by jumping in front of them, are impossible to fully fathom.</p>
+<h2 id="money-circular-deals-tokenization-stablecoins">Money: circular deals, tokenization, stablecoins</h2>
+<h3 id="circular-deals-inflate-everything">Circular deals inflate everything</h3>
+<p>On whether the AI buildout is overfunded: five years ago he did not believe the Mag 7 would reach 3 trillion dollars and then take free cash flow from 50 to 100 billion a year down near zero to spend it all on capex. The investor community absorbed the lesson of increasing returns and power laws: once startups prove they can grow as a function of size, Google to Amazon to Meta, they end up worth far more than anyone thought. So investors invest &ldquo;on the come&rdquo; and take more risk. A chart shared with him that morning showed losses before going cash-flow positive: Amazon 2 to 3 billion, Uber about 15 billion, and the current AI companies far bigger.</p>
+<p>Then the circular deals. At the DealBook conference, Dario (Anthropic&rsquo;s CEO) was asked about them. Gurley&rsquo;s retelling: imagine you are a cloud provider and Anthropic wants to build a model costing maybe 5 billion dollars, but they do not have the money. So you give them the money so they can spend it back on your services. &ldquo;If you did not give it to them, they would not spend it.&rdquo; The growth of everything is enhanced because you fund spending that would not otherwise happen. You inflate what happens, push further ahead faster, and extend the time before any correction. A correction would weed out weak competitors, but circularity delays it.</p>
+<p>Burn rate as risk: ten years ago, burning a million a month was super risky. Today companies burn five billion a year, a hundred million a month or more. At that aggression, he says, it is really hard to know what your unit economics are. That goes back to the financial bedrock.</p>
+<p>Figure 2. A circular deal: the money loop. AI Podcast Curriculum, ep03 (Bill Gurley, 2026-06-09). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Cloud provider] -->|Gives $5B| B[AI lab]
+    B -->|Spends back on cloud| A
+    A --> C[Books revenue]
+    B --> D[Books capability]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Cloud provider] --&gt;|Gives $5B| B[AI lab]
+    B --&gt;|Spends back on cloud| A
+    A --&gt; C[Books revenue]
+    B --&gt; D[Books capability]
+</code></pre>
+<h3 id="tokenization-versus-the-ipo-machine">Tokenization versus the IPO machine</h3>
+<p>He calls the IPO process &ldquo;insanely unfair&rdquo; to companies: bankers pick the price and pick the shareholders. His thought experiment: give a freshman computer science student and a freshman finance student the problem of taking a company public. They would match supply and demand anonymously, like an auction, exactly the way an ICO works. Nobody would invent cherry-picking best customers for a sweetheart price. Direct listings used the auction mechanism, Wall Street went back to the controlled oligopoly because it cannot let go of the power grab.</p>
+<p>Tokenization could disrupt the allocation step first. The risk: retail speculation and manipulation on assets without financial-disclosure regulation. GameStop and Palantir show how retail love can take valuations where institutions cannot follow. Robinhood&rsquo;s tokenization plans drew legal threats from the companies. One reason companies stay private: they negotiate liquidity-event prices one-on-one with trusted investors instead of living with wild public fluctuations. He notes the underlying asset moves around a lot anyway, private markets just never record it, which spares employees the chaos.</p>
+<h3 id="stablecoins-versus-the-25-percent-tax">Stablecoins versus the 2.5 percent tax</h3>
+<p>Most of the developed world built instant bank-to-bank transfer: UK Faster Payments did it 20 years ago, Argentina did it in the past six years and it quickly became 60 to 70 percent of transactions. The US never did, because of regulatory capture: banks pushed back in Washington, so the FedNow project stalled. Result: credit cards charging 2 to 2.5 percent, with a whole ecosystem living under that umbrella.</p>
+<p>A stablecoin, for the naive: USDC is a cryptocurrency where the company holds a dollar-for-dollar backing in US Treasuries for each coin. Because it runs on crypto rails that are fast, global, and immediate, you can transfer a dollar to anyone within seconds for pennies. Contrast the US status quo: ACH takes three days, a same-day wire costs 25 dollars plus a page of forms.</p>
+<p>Visa and Mastercard, he says, will be heavily threatened. The two companies have roughly 60 percent operating margins, among the highest in the history of business. They are a duopoly created by the banks, which hold stakes. The whole industry makes a lot of money because it is this way, but there is zero reason it should cost 2 or 3 percent. China shows the alternative: the government made transfer easy, and Alibaba and Tencent built WeChat Pay and Alipay on top. Walk around China and you scan a QR code for everything, from a street vendor&rsquo;s hat to a car. Their payment system innovated further because the base layer was fixed. His prediction: stablecoins get to instant transfer in the US faster than the government will.</p>
+<p>Figure 3. Moving one dollar: the rails compared. AI Podcast Curriculum, ep03 (Bill Gurley, 2026-06-09). Shell 2. Count or score the toy. Source: original toy, from episode claims.
+| Rail | Speed | Cost |
+|&mdash;|&mdash;|&mdash;|
+| US bank transfer (ACH) | 3 days | Not in source |
+| US same-day wire | Same day | $25 plus a page of forms |
+| US card payment | Instant | 2 to 3 percent |
+| USDC stablecoin | Seconds | Pennies |</p>
+<h2 id="judgment-moats-index-funds-and-storytelling">Judgment: moats, index funds, and storytelling</h2>
+<h3 id="moodys-and-the-proxy-advisor-heist">Moody&rsquo;s and the proxy-advisor heist</h3>
+<p>AI can already do the analysis Moody&rsquo;s sells. Moody&rsquo;s power, he argues, comes from being the trusted standard, the watermark everyone accepts. It could use AI on the back end and keep the standard. But everything is up for grabs.</p>
+<p>Proxy advisors like ISS, which tell shareholders how to vote, are in his words &ldquo;more of a heist than anything else.&rdquo; Index funds own so much stock but lack the time to evaluate each vote, so they rely on these services. The services score companies with a black box: they do not tell you how they score you. Guess how you learn more? You hire them. Paid on both sides.</p>
+<p>Worse, they drifted from shareholder interest into risk mitigation and box-ticking. His example: the Tesla pay package for Elon. It basically says you make nothing unless the stock goes way up, and if it does, you make an obscene amount. He has said publicly he would agree to that deal for every company he ever worked with, most CEOs would not take it. The ISS-style evaluators opposed it, looking at the headline number instead of what it requires. They started from corporate governance as fraud prevention, and that legacy misfires on incentives that align pay with shareholder gains.</p>
+<p>Second-order effects of passive indexing: one fix would be passive funds not voting at all, so active shareholders decide, or forcing them to vote in the same proportion as direct holders. Meanwhile, public investors got scared of deviating from the index and fell into closet indexing. Paradoxically, with so few active investors left, the edge may now be bigger. He is not sure he believes it. The buy side is a very hard job: QQQ has probably outperformed 80 or 90 percent of venture funds.</p>
+<h3 id="storytelling-as-a-founder-trait">Storytelling as a founder trait</h3>
+<p>Shane notes Gurley wrote about loving the craft of storytelling. Gurley traces his reading life: before business school he barely read, something flipped there. Business books first, then personal development (Dale Carnegie, &ldquo;Seven Habits&rdquo;), then biographies, then long-form nonfiction that reads like fiction: Malcolm Gladwell, Michael Lewis, John Krakauer. He even read the books about that art: &ldquo;the new journalism&rdquo; and &ldquo;the new new journalism.&rdquo;</p>
+<p>Two uses of writing. First, the memo does the thinking: to make it stand alone and cogent, you work through the corner cases. That is why Bezos demands the six-page narrative at Amazon instead of PowerPoint. Second, writing is a calling card: a founder who does not know you reads your knowledge of their business and reaches out. A magnet for deal flow.</p>
+<p>Storytelling ranks in his top three founder traits because a founder sells all the time: recruiting employees and executives, raising money, closing customers and partnerships. &ldquo;Selling all the damn time.&rdquo; The best are gifted at describing what they try to do. Listen to any Tobi Lütke podcast, he says, of course the world follows Daniel Ek the same way.</p>
+<p>The other traits he names: product instincts (it took his whole career to learn how hard it is to hire someone not product-first and make them good at it, 5 percent or less succeed), and determination. He once asked Jeff Bezos how his angel portfolio succeeded with no free time. Bezos: &ldquo;When I meet an entrepreneur, there&rsquo;s only one thing I ask myself. Is this person gonna do this no matter what? Come hell or high water, they do this.&rdquo; That level of determination is present in all great founders.</p>
+<h3 id="uber-no-case-study-no-mentor">Uber: no case study, no mentor</h3>
+<p>The Uber lesson you will not find in an HBS case study: everyone knew the category had winner-take-all dynamics and network effects, so investors funded it ad nauseam. One firm raises a billion, the rival gets handed three billion, and the only way to compete is to spend it. Burn rates exceeded anything any public company would spend attacking a new category.</p>
+<p>The moment that horrified him: realizing no case study existed. Take the board members of Walmart, Costco, GM, GE, the top ten best companies: none had ever been in this situation. There was no one to call, no mentor to find. Now, he says, all the AI companies are in that situation. Uber was the first in mega-burn (Amazon had a big burn before, Uber took it to a new level), AI added a zero.</p>
+<h3 id="the-equal-partnership">The equal partnership</h3>
+<p>Benchmark&rsquo;s structure came from its founders&rsquo; experience at hierarchical firms, where senior patriarchs took too much money and credit without doing the imperative work. They made it equal: no lead partner, no king, no president, five equal partners. Gurley joined on the third fund.</p>
+<p>Second and third-order consequences, mostly positive. Recruiting: exceptional talent leaves hierarchical firms for the equal deal, matching offers on the way out prove the old firm never meant it. Development: you take an equal part of newcomers&rsquo; success, so you invest in making them successful, in an up-or-out firm it feels lonely and competitive. Sharing: if one partner&rsquo;s company needs a CFO another partner knows, it gets shared immediately, one company&rsquo;s success is no different from another&rsquo;s. Politics: no annual comp review, no recutting the pie, the overhead just goes away.</p>
+<p>The one huge negative: with no CEO, it is hard to scale and hard to start new initiatives. Nobody owns the orphan work. The website was the running joke: Matt Cohler built a complicated site with founders connected to partners, people complained, and one day Mac took it all down and put up a splash page. That was about 15 years ago, Benchmark still has a single page today. Gurley adds the honest caveat: plenty of highly successful firms are not structured this way. It is not the only way.</p>
+<p>Figure 4. Benchmark&rsquo;s equal partnership: before and after. AI Podcast Curriculum, ep03 (Bill Gurley, 2026-06-09). Shell 3. Apply the one rule. Source: original toy, from episode claims.
+| Mechanism | Hierarchical firm | Equal partnership |
+|&mdash;|&mdash;|&mdash;|
+| Leadership | Senior patriarch, the king | No lead partner, five equals |
+| Compensation | Recut yearly, top-heavy | Equal shares, no comp review |
+| Talent | Stays inside the hierarchy | Leaves for the equal deal |
+| Sharing | Hoarded: my win is mine | Automatic: one win is every win |
+| New people | Up-or-out, lonely | Developed: you share their upside |
+| Orphan work | Owned by the CEO | No owner: the 15-year splash page |</p>
+<p>Why founders choose a firm like Benchmark: success compounds into a stamp of approval that carries weight. Some call venture the only investing category with network effects: reputation becomes an unfair advantage in deal flow. Underneath, founders want to be around people who understand their craft and are excited by it. That is also how young people break in: they are the founder&rsquo;s age, they live inside the new technology. It would be easy for a young VC who spends 100 percent of their time on YouTube to know more about YouTube success than John Doerr, Mike Moritz, or Gurley himself. The industry bends toward youth because it is a hustle business: there is always a rock nobody checked, and age brings children, homes, and responsibilities that end the 80-hour study weeks.</p>
+<h3 id="success-redefined">Success, redefined</h3>
+<p>The closing question: what is success? It changed over time. Looking back on venture capital, he made a specific decision to say &ldquo;I am done,&rdquo; and he would not have done that if work remained. It was his dream job, he often said that in a socialist society where everyone worked for free, he would still take it.</p>
+<p>The next chapter comes from Arthur Brooks&rsquo;s &ldquo;From Strength to Strength&rdquo;: take the techniques that made him successful in venture, mostly the blog, understanding problems, and synthesizing, and apply them to bigger, broader problems in society. Dent the universe a little.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>Q1: Explain this episode to me like I am new. What is Gurley&rsquo;s message?</strong>
+Three practices. Think in systems: every change has second and third-order consequences, so never trust a single metric. Study the bedrock: learn the history of your field so deeply it differentiates you, if that sounds tedious, change fields. Learn obsessively on the edge: play with every new tool, hold five AI accounts if you must, and be a top-1-percentile student of whatever moves. Then apply the same lens to markets: follow where value actually flows.</p>
+<p><strong>Q2: What is the dating-site story really teaching?</strong>
+That the first derivative lies by omission. Longer profiles raised engagement, the measured metric, and the change shipped. Months later, conversion fell: informed browsers converted less. The lesson is procedural: when you test a change, ask what the second derivative could be, wait long enough to see it, and distrust any single metric that declares victory early. Systems thinking is mostly this discipline repeated.</p>
+<p><strong>Q3: Applied: I want to &ldquo;know the bedrock&rdquo; of my field. What do I do this month?</strong>
+Pick your field&rsquo;s equivalent of Lasseter&rsquo;s cartoons. List the ten classic works, deals, or products everyone references but few studied. Study one per week: the original, not the summary. Write a one-page note on each: what it did, why it worked, what it teaches now. Then use one in your next interview or meeting and watch the room change. If week two feels tedious, take Gurley&rsquo;s test seriously and reconsider the field.</p>
+<p><strong>Q4: How does his AI prompting advice work?</strong>
+Push the work forward into the prompt. Do not ask for a list and then do the analysis yourself. Ask for the top 10, their pros and cons, and rank-orderings on each dimension you care about, all in one prompt. Then tell it to do the arithmetic too. His rule: you underestimate what it can do, so keep moving steps you planned to do later into the prompt until it breaks. Match the model to the job: ChatGPT projects and memory, Gemini for review-grounded local questions, Claude for code and deep company research, Perplexity for finance.</p>
+<p><strong>Q5: Explain the farmers-market metaphor for China&rsquo;s open source.</strong>
+Two farming societies come to market. In one, farmers sell goods and go home. In the other, every farmer must share best practices with all the others. The second evolves faster. China&rsquo;s AI labs, all open source, are the second society: models learn from each other, weights and techniques publish openly, and the competitive intensity compounds. The West&rsquo;s closed labs are the first society. His uncomfortable conclusion: the forced-sharing system innovates faster, and Silicon Valley startups are quietly forking the shared work.</p>
+<p><strong>Q6: What is a circular deal, and why does it delay the correction?</strong>
+A cloud provider gives a model lab 5 billion dollars that the lab immediately spends back on the provider&rsquo;s cloud. Without the gift, the spending would not happen. Growth numbers inflate on both sides: the provider books revenue, the lab books capability. Corrections normally arrive when spending must justify itself, circularity removes the justification step, so the weak survive longer and the eventual culling is bigger. His investor&rsquo;s rule: when growth is funded by the vendor, discount it.</p>
+<p><strong>Q7: Why does he think stablecoins threaten Visa and Mastercard?</strong>
+The comparison is brutal. USDC: a dollar backed dollar-for-dollar by Treasuries, transferable globally in seconds for pennies. The US status quo: ACH takes three days, wires cost 25 dollars plus forms, and cards take 2 to 2.5 percent. Visa and Mastercard earn roughly 60 percent operating margins as a bank-created duopoly. The UK built instant transfer 20 years ago, Argentina did it in six years to 60 to 70 percent of transactions. China built WeChat Pay and Alipay on the same idea. His prediction: stablecoins deliver instant transfer in America before the government does.</p>
+<p><strong>Q8: What does the Benchmark equal partnership actually cause?</strong>
+Second-order effects, good and bad. Good: recruits top talent from hierarchical firms, makes partners develop newcomers (equal share of their success), makes sharing automatic (your CFO introduction costs you nothing), and deletes comp-review politics. Bad: no CEO means orphan work has no owner, the website became a 15-year splash page. His honest caveat: many great firms are hierarchical. Structure is not destiny, it is a set of incentives. Pick the incentives that produce the behavior you want.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic: <strong>S-B-E</strong>: Systems (derivatives), Bedrock (history), Edge (obsessive learning).</p>
+<p>Never-confuse pairs:
+- First derivative versus second derivative: the measured result versus the consequence of the result. Optimize for the second.
+- Value versus price: Miller&rsquo;s definition: value is worth relative to the future, not cheapness today. Amazon looked expensive and was value.
+- Storytelling versus story-spinning: clarity that survives the details versus polish that hides them. His writing test: does it work through the corner cases?
+- Open versus closed innovation: the farmers market that shares best practices evolves faster than the one that only sells goods.</p>
+<p>Trap cards:
+- Trap: &ldquo;The metric went up, so the change worked.&rdquo; Reality: wait for the second derivative. The dating site learned this months late.
+- Trap: &ldquo;I know my field, I read the summaries.&rdquo; Reality: Lasseter watched the actual cartoons. Study the originals.
+- Trap: &ldquo;AI does my job, so I will use one model for everything.&rdquo; Reality: match the model to the job, the mix still wins.
+- Trap: &ldquo;Growth is growth.&rdquo; Reality: check whether the vendor funded it. Circular growth inflates and delays.</p>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ol>
+<li>The second-derivative habit. For one week, every time a metric improves, write down the likely second-order consequence before celebrating. Revisit each prediction a month later. Observable change: fewer early victories, fewer late surprises.</li>
+<li>Bedrock study. Pick your field. List its ten classics. Study one original per week and write the one-page note. Observable change: you cite originals, not summaries, within a month.</li>
+<li>The five-account rule. Sign up for the best tools in your field, even the paid ones, and play with each weekly. Log one surprising capability per tool. Observable change: you stop being surprised by what the tools can do.</li>
+<li>Prompt forward. Take one analysis you do regularly. Rewrite the prompt to include every step you currently do by hand: rank-orderings, arithmetic, comparisons. Observable change: the output arrives finished.</li>
+<li>The circularity check. Next time impressive growth numbers appear, trace who funded the spending. If the vendor funded it, discount the growth. Observable change: fewer inflated stories survive your first question.</li>
+<li>The equal-partnership audit. Look at your team&rsquo;s incentives. Find the one that punishes sharing or honesty. Propose the structural fix. Observable change: collaboration stops depending on goodwill.</li>
+</ol>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Harder than ep02. Work without AI first.</p>
+<p><strong>Drill 1: derivative mapping.</strong> Pick a recent change in your life or work (a new tool, a policy, a habit). Write the first-derivative effect (what you measured). Write two candidate second-derivative effects (what the first effect might cause). Write one third-derivative effect. For each, name how you would detect it and when. This is the dating-site discipline.</p>
+<p><strong>Drill 2: bedrock interview.</strong> Imagine you interview for your dream job against 20 equals. Write the three historical masters of your field you would cite and the one insight from each you would bring up. Now check: have you actually studied the originals, or only summaries? Close the gap on one this week.</p>
+<p><strong>Drill 3: edge report.</strong> Pick the fastest-moving edge in your field. Spend five hours this week as the obsessive learner: primary sources only. Write a one-page brief: what moved, what it means, what to watch. Grade yourself: could you defend it against a top-1-percentile student of the edge?</p>
+<p><strong>Drill 4: the farmers-market test.</strong> Pick a competitive situation you are in (market, team, industry). Ask: is this the sharing society or the selling society? Which side are you on? Write what changes if you switch sides. Be specific about what you would share and what it costs.</p>
+<p><strong>Drill 5: circularity hunt.</strong> Find a growth story in the news. Trace the money: who paid whom? Draw the flow. If money circles back to the funder, mark it circular and write the discounted version of the story. Compare with the headline version.</p>
+<p><strong>Drill 6: structure design.</strong> Describe a team or partnership you are part of. List its hierarchy and comp structure. Write the second-order effects: what does it encourage, what does it punish? Design one structural change toward the equal-partnership model (shared economics, no comp politics). Name the one thing that would get worse, honestly.</p>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Map first, second, and third-derivative consequences of any change.</li>
+<li>Study a field&rsquo;s bedrock from originals and convert it into interview differentiation.</li>
+<li>Run the obsessive-learning protocol on a moving edge.</li>
+<li>Push multi-step analysis into AI prompts, and match the model to the job.</li>
+<li>Detect circular deals by tracing who funded the spending.</li>
+<li>Explain why stablecoins threaten card networks, with the numbers.</li>
+<li>Design team structures by their second-order incentive effects.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The episode itself: https://www.youtube.com/watch?v=yBBhd0-Os74</li>
+<li>&ldquo;Thinking in Systems&rdquo;: the book Gurley names as his systems-thinking source.</li>
+<li>Farnam Street&rsquo;s podcast archive: https://fs.blog/podcast/ (HTTP 200, verified 2026-10-06)</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit id</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure id</th>
+<th>Medium</th>
+<th>Source</th>
+<th>Four tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Derivative effects of a change</td>
+<td>Single-metric thinking</td>
+<td>First, second, third derivative mapped</td>
+<td>fig1</td>
+<td>mermaid</td>
+<td>episode claims</td>
+<td>T1: 4-node chain of consequences / T2: flow of a change forces mermaid / T3: none, static plate / T4: the derivative chain, reused in Drill 1</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Circular deal mechanics</td>
+<td>Growth read at face value</td>
+<td>Money loops back to the funder</td>
+<td>fig2</td>
+<td>mermaid</td>
+<td>episode claims</td>
+<td>T1: 4-node loop with two booking nodes / T2: a circular move forces mermaid / T3: none, static plate / T4: the $5B loop arrow, reused in Q6</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Stablecoin versus card rails</td>
+<td>One price for moving money</td>
+<td>Seconds-for-pennies versus 2 to 3 percent</td>
+<td>fig3</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 4-row speed and cost table / T2: comparison of values forces a table / T3: none, static plate / T4: the seconds-for-pennies row, reused in Q7</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Equal partnership architecture</td>
+<td>Hierarchical firm assumed</td>
+<td>Equal shares reshape incentives</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+<td>T1: 6-row before-and-after table / T2: architecture comparison forces a table / T3: none, static plate / T4: the equal-share row, reused in Q8</td>
+</tr>
+</tbody>
+</table>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=yBBhd0-Os74" target="_blank" rel="noopener">Bill Gurley: The Pattern Breakers | The Knowledge Project #213</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/knowledge-project/ep02.html"><span class="lbl">← Previous</span>Episode 2: Chamath Palihapitiya on Truth, Freedom, and First Principles</a><a href="../../tracks/knowledge-project/ep04.html"><span class="lbl">Next →</span>Episode 4: William Irvine on Stoicism as a User Manual for Life</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
