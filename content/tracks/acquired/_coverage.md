@@ -14,7 +14,7 @@ Every major claim or topic from each episode transcript mapped to `chapter:line`
 | 40+ direct reports, no 1:1s, "mission is the boss" | ep01:168-172 |
 | Mellanox acquisition (data-center networking) | ep01:136-142 |
 | Zero-billion-dollar markets; 1000x market flip | ep01:154-156, ep01:219 |
-| Moat-as-network (developers); will the moat persist (Dwarkesh's question) | ep01:162-166 |
+| Moat-as-network (developers); will the moat persist (Ben's question) | ep01:162-166 |
 | Don Valentine / Sequoia "if you lose my money I will kill you"; VCs on board 30 years | ep01:188 |
 | Denny's founding lore (Dwarkesh's hypothetical question) | ep01:— (covered via ep09:47; interview frames it as lore, not a retold story) |
 
@@ -102,7 +102,7 @@ Unmapped: sponsor reads, intro/outro.
 | ATT (App Tracking Transparency) | ep07:133-163 |
 | Reality Labs $60B hedge math | ep07:169-175 |
 
-Unmapped: sponsor reads, intro/outro. Note: chapter still contains transcript-artifact typos ("path Matos," "stevik," "microsof Ian," stray "横跨") — flagged for cleanup pass.
+Unmapped: sponsor reads, intro/outro. Note: the transcript-artifact typos ("path Matos," "stevik," "microsof Ian," stray "横跨") were re-checked against ep07.md and are absent — cleanup already applied.
 
 ## ep08 — Nvidia: The Machine Learning Company 2006–2022 (`xU_rLZqlca4`) → ep08.md
 
@@ -195,7 +195,7 @@ Unmapped: carve-outs (Alias binge, Moana), LP Show/Slack promos, outro (chunks 2
 
 Not episode-mapped. Grounded in [E] episode claims (ep08/ep10: H100 price, DGX pricing, CUDA moat, Mellanox, "more you buy the more you save," cluster-is-the-computer) plus [S] verified 2026 sources:
 
-- [S] NVIDIA H100 product page (https://www.nvidia.com/en-us/data-center/h100/?ref=hackernoon.com): 80GB HBM3, 3.35 TB/s, NVLink 900 GB/s, 700W TDP, FP8 3,958 TFLOPS, MIG, Transformer Engine — ep11:44-66
+- [S] NVIDIA H100 product page (https://www.nvidia.com/en-us/data-center/h100/?ref=hackernoon.com): 80GB HBM3, 3.35 TB/s, NVLink 900 GB/s, 700W TDP, FP8 3,958 TFLOPS, Transformer Engine — ep11:44-66
 - [S] NVIDIA DGX H100 User Guide (https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html): 8x H100, 640GB, 32 PFLOPS FP8, 10.2 kW, 6x 3.3kW PSUs, 8x ConnectX-7 400Gb/s, 8U, 287.6 lbs — ep11:76-93
 - Every claim tagged [E] or [S]; source key at ep11:35-40; no untagged claims.
 
@@ -205,5 +205,5 @@ Not episode-mapped. Grounded in [E] episode claims (ep08/ep10: H100 price, DGX p
 - A few dense chunks per episode unread (e.g., ep08 chunks 10–12 on the "three foundations" framing beyond drivers; ep10 chunks 46/53 partial). If a claim was not read, it is not in a chapter — nothing was invented to fill gaps.
 - ep01: "nine months" phrasing for RIVA 128 comes from ep09's transcript, not the Jensen interview; ep01's interview describes the emulator at one frame per hour and a single tape-out.
 - ep06: IBM-deal arithmetic mismatch flagged [uncertain], not resolved.
-- ep07: transcript-artifact typos ("path Matos," "stevik," "microsof Ian," stray "横跨") still in chapter text — cleanup pass needed.
+- ep07: transcript-artifact typos ("path Matos," "stevik," "microsof Ian," stray "横跨") re-checked against ep07.md and confirmed absent — no cleanup outstanding.
 - Go-deeper links: verified HTTP 200 via curl for the two [S] synthesis sources (2026-10-06); episode YouTube links are the canonical uploads from episodes.json (oEmbed-verified 9/10; `nFB-AILkamw` check was pending at build time — see final report).
