@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 5: Peter Thiel on Stagnation — AI Podcast Curriculum</title>
+<meta name="description" content="The 2015 interview: atoms versus bits, the $100K to $1B gap, hysteresis, vertical progress, Japan, company names, inequality, and substance over status.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="conversations-with-tyler-ep05" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05" class="active">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Conversations with Tyler</a> / Episode 5: Peter Thiel on Stagnation</nav>
+      <h1>Episode 5: Peter Thiel on Stagnation</h1>
+      <p class="meta-line">2015-04-02 · Instructor: Peter Thiel · Conversations with Tyler</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="i_yJTCDU4uE"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/i_yJTCDU4uE" title="Peter Thiel: Technology, Innovation, and the Great Stagnation | Conversations with Tyler" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=i_yJTCDU4uE" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=i_yJTCDU4uE" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Tyler interviews Peter Thiel on stagnation, progress, and talent in the first Conversations with Tyler.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the WATCHING GREAT MINDS chapter on the great stagnation, and it is the founding episode of the whole Conversations with Tyler series. Tyler calls Thiel &ldquo;one of the greatest and most important public intellectuals of our entire time&rdquo; and inaugurates the show with him. You get Thiel&rsquo;s complete production function in 2015 form: find the distortion, name the conformity, bet on the margin. The numbers are hand-workable throughout: $100,000 versus $1 billion, 10,000 to 1.</p>
+<h2 id="the-two-track-stagnation">The two-track stagnation</h2>
+<p>Tyler opens with Thiel&rsquo;s famous line: they promised flying cars and we got 140 characters. How do we get out?</p>
+<p>Thiel: separate three things, and start with stagnation as a two-track story. The world of bits got computers, the internet, mobile internet. The world of atoms got little: no supersonic travel, no space travel, no new energy, no new medicine or devices. First cut at the cause: &ldquo;we lived in a world in which bits were unregulated and atoms were regulated.&rdquo;</p>
+<p>The hand-worked number: starting a software company costs maybe $100,000. Getting a new drug through the FDA costs on the order of $1 billion. The ratio is 10,000 to 1. Thiel&rsquo;s thought experiment: if the FDA regulated video games, demanding double-blind studies proving games were not addictive or brain-damaging, software would stagnate too. Overdetermined, many causes, but the regulatory asymmetry is the first cut.</p>
+<p>His strategy is not to beg regulators in DC. It is &ldquo;to try to find ways for people to succeed at the margins.&rdquo;</p>
+<h3 id="hysteresis">Hysteresis</h3>
+<p>The second cause: hysteresis. A history of failure discourages, so failure begets failure. &ldquo;No halfway sane parent would encourage their kids to study nuclear engineering today,&rdquo; while crowds go into software. Success in software draws more people and more innovation. Failure elsewhere repels. The hope: signal successes in atoms flip the vicious cycle into a virtuous one. Precedent is the mechanism.</p>
+<p>Tyler asks for the pick. Thiel: the boundary of bits and atoms. AI feels slightly overhyped. Biotech could do a lot but is heavily regulated. Self-driving cars sit at the intersection: significant, margin-changing, with regulatory challenges. The natural hope is IT broadening into atoms. Then the race: does technology outpace politics or vice versa?</p>
+<p>Tyler asks for the indicator, the number to watch while taking a long nap. Thiel rejects the premise. The future is not a fixed thing that exists. &ldquo;I always believe in human agency.&rdquo; Kurzweil&rsquo;s Singularity is Near offers accelerating charts where you sit back, eat popcorn, and watch the movie of the future. Thiel rejects both the optimism and the passivity: &ldquo;If you take a nap, if you encourage everybody else to take a nap, then the great stagnation is never going to end.&rdquo;</p>
+<p>Figure 1. The two-track stagnation. AI Podcast Curriculum, ep05 (Peter Thiel 2015 interview, 2015-04-02). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>World of bits</th>
+<th>World of atoms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Innovation</td>
+<td>Computers, internet, mobile</td>
+<td>Little: no supersonic, no space, no new energy</td>
+</tr>
+<tr>
+<td>Regulation</td>
+<td>Unregulated</td>
+<td>Regulated</td>
+</tr>
+<tr>
+<td>Entry cost</td>
+<td>About $100,000</td>
+<td>About $1,000,000,000</td>
+</tr>
+<tr>
+<td>Ratio</td>
+<td>1</td>
+<td>10,000</td>
+</tr>
+<tr>
+<td>Talent flow</td>
+<td>Crowds enter</td>
+<td>Parents warn away</td>
+</tr>
+<tr>
+<td>Cycle</td>
+<td>Success begets success</td>
+<td>Failure begets failure</td>
+</tr>
+</tbody>
+</table>
+<h3 id="government-cannot-do-apollo">Government cannot do Apollo</h3>
+<p>Tyler: maybe the cause is intellectual, the decline of mainline Protestantism, the unwillingness to repeat Manhattan or Apollo. A permanent downward spiral?</p>
+<p>Thiel: possible, but the margins always offer something. He is pessimistic about government as the reversal site: &ldquo;a letter from Einstein to the White House would get lost in the mail room today. You could not even do Apollo.&rdquo; The SDI debate of the 1980s was first-strike weapon versus great defensive technology. Today people call SDI fictional, unworkable. Expectations collapsed.</p>
+<p>The private alternative: coordinate at scale without the state. Silicon Valley startups do it small. Elon Musk, his PayPal colleague, built SpaceX and Tesla as &ldquo;extremely charismatic businesses&rdquo; doing larger-scale complex coordination. Not as big as a functioning government could do, but that is not realistic.</p>
+<p>On fracking and low energy prices: $450 billion went into fracking over four or five years. At $50-a-barrel oil, can it earn a positive return? The tell: even in summer 2014 at $100-plus oil, with both the Silicon Valley IT boom and the fracking boom running, the fracking fortunes were strikingly smaller. That suggested fracking was the lesser innovation, more marginal, harder to make work.</p>
+<h2 id="original-sin-lives-in-society">Original sin lives in society</h2>
+<p>Tyler offers his mental model of Thiel: original sin taken seriously, not necessarily theologically. Tocqueville&rsquo;s America sliding into complacent conformist mediocrity. Girard-like mimetic pressure punishing deviants. A gnostic theology where a few see through the distortions and build or tell truth.</p>
+<p>Thiel&rsquo;s correction: theologically he places original sin in society, not individuals. Society is real, powerful, and &ldquo;on the whole quite problematic.&rdquo; Awareness alone may not fix it. His exhibit: many successful entrepreneurs show a mild form of Asperger&rsquo;s, &ldquo;missing the imitation, socialization gene.&rdquo; That is a plus for innovation and an indictment of society: what is wrong with a world where the non-Asperger&rsquo;s majority gets talked out of original ideas before they form, and retreats to the safe restaurant everyone understands, hypercompetitive and mediocre?</p>
+<p>His own story: Northern California hyper-tracking. Eighth-grade yearbook: a friend predicted Stanford in four years. Then Stanford, Stanford Law, a big Manhattan law firm. &ldquo;From the outside, it was a place where everybody wanted to get in. On the inside, it was a place where everybody wanted to get out.&rdquo; He left after seven months and three days. A colleague called it great to see him leave: &ldquo;I had no idea it was possible to escape from Alcatraz.&rdquo;</p>
+<p>What he learned: he was deeply prone to social convention. The religious term is a quasi-conversion: the value system was corrupt and needed questioning. Two routes out: the Asperger&rsquo;s way, vague oblivion to convention, or the aware way, seeing how conventional the conventions are and thinking for yourself indirectly.</p>
+<p>Tyler: is the world getting weirder as conformity piles up elsewhere, with neurodiverse movers making each change stranger than 1957&rsquo;s white-shirt men? Thiel worries the other way: conformity is more acute than in the 50s and 60s. The eccentric scientist, even the eccentric professor, &ldquo;is a species that is steadily going extinct&rdquo; because research universities leave less space than they used to. Change still comes from idiosyncratic people with strong convictions convincing others over time, through nonconventional channels. Politics by pollster is the conventional method that works fairly well but never really changes the system.</p>
+<h2 id="talent-the-175-degree-opposites">Talent: the 175-degree opposites</h2>
+<p>Tyler: for Thiel Fellowships or companies, what undervalued trait does Thiel look for?</p>
+<p>Thiel: no single trait. Zen-like opposites, &ldquo;maybe not 180 degrees opposite, but like 175 degrees.&rdquo; Stubborn and open-minded. Idiosyncratic and team-working. Get unusual ideas plus the ability to function socially and execute. The teamwork test: what is the prehistory of the company? How did the founders meet, how long have they worked together? Long prehistory is good.</p>
+<p>Tyler: the Straussian reading of Zero to One is &ldquo;do not be an entrepreneur.&rdquo; Yet everyone piles into conservative career tracks. What reconstruction gets people out?</p>
+<p>Thiel: &ldquo;entrepreneur&rdquo; is a vague empty term, like &ldquo;I want to be rich.&rdquo; He is skeptical of it. The Straussian reading has an adverb: perhaps you should not be an entrepreneur. Every chapter can be read as discouragement. Start a monopoly business, which discourages everyone without a monopoly idea. His view: more good businesses, fewer bad ones, not more startups in the abstract. No tech bubble like 1999-2000. The public is not involved the same way.</p>
+<p>The zero-marginal-product worker question: no general answer exists, because a general answer everyone follows becomes the wrong answer. Two safe specifics: IT still has a strange shortage, and coding training takes a fairly short time. Petroleum engineering, amazingly under-subscribed despite a decade-long boom.</p>
+<p>On cultural stagnation: hard to measure, but Hollywood makes fewer great movies than 20 to 40 years ago. TV compensates: &ldquo;crazy schlocky stuff like Game of Thrones.&rdquo;</p>
+<p>Figure 2. Vertical versus horizontal progress. AI Podcast Curriculum, ep05 (Peter Thiel 2015 interview, 2015-04-02). Shell 1. Show the toy. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Horizontal progress</th>
+<th>Vertical progress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direction</td>
+<td>1 to n</td>
+<td>0 to 1</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Globalization</td>
+<td>Technology</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Copy what works, mechanically</td>
+<td>No formula, deeply unscientific</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>China copying industry</td>
+<td>The next Zuckerberg does not do social networks</td>
+</tr>
+<tr>
+<td>Recipe</td>
+<td>Scientific</td>
+<td>Idiosyncratic: passion plus skill plus the undone</td>
+</tr>
+</tbody>
+</table>
+<h2 id="japan-the-least-imitative-country">Japan: the least imitative country</h2>
+<p>Tyler asks about Thiel&rsquo;s Japan trip. The contrarian answer he gave there, flattering and disturbing: everyone thinks of Japan as hyper-imitative, noncreative, extreme conformity. &ldquo;My suggestion is that perhaps at this point, Japan is the least conformist, the least imitative country in the world.&rdquo; Interesting aesthetic culture, successful businesses, innovation in food production.</p>
+<p>The indictment of the West: this is no longer the Meiji Japan of the 1870s or the cheap-plastic-toy Japan of the 1950s. Japan no longer thinks it can gain much by copying the West. Outside narrow IT interest, it copies the US and Western Europe less and less. People learn less English than 15 or 20 years ago. Golf courses get shut down and converted to solar farms. &ldquo;We need to take this as a real critique of our society, very seriously, that they find less worth imitating in the US or Western Europe.&rdquo;</p>
+<h2 id="overrated-and-underrated">Overrated and underrated</h2>
+<ul>
+<li>Keynes: still massively overrated, though less than before.</li>
+<li>New York City: massively overrated. The 25-year finance boom ran 1982 to 2007 and now ebbs into regulation. The trade: long California, short New York. Long Texas, short Virginia. Texas and California are inward-focused. New York finance and DC geopolitics are levered to globalization. &ldquo;I would bet on globalization slowly being in abeyance.&rdquo; With hindsight, 2007 was the peak year of the finance boom and of globalization, &ldquo;like maybe 1913.&rdquo; Tyler confirms the trade data: pre-2007 trade grew at three times world GDP. After the crisis, about the same rate.</li>
+<li>China: hard to evaluate. Export-linked but capital-controlled. In 2005 everyone asked when China overtakes the US. A decade later, closer to the date, the question is rarer. &ldquo;I suspect we underestimate China, but it may be very hard to invest.&rdquo; Only well-connected Party members could really play the boom.</li>
+<li>Brazil: relatively inward-looking. His metric: which countries Facebook conquered first. It started in the US, then English-speaking countries, then small English-fluent European countries. The hardest were separate language groups. Brazil was much harder than the rest of Latin America: a self-contained Portuguese world. But four hyper-bullish moments, pre-WWI, the 50s-60s, the 70s, recent years, all turned out false dawns, all tied to globalization linkage. OGX: the founder worth $30 billion in 2011, now worth minus $1 billion, with a McLaren parked in his villa&rsquo;s living room. Offshore concessions, no Brazilian oil service companies to develop them, maybe no oil at all, maybe fraud. Optimism tracks integration hopes. Reality sets back in.</li>
+</ul>
+<p>Figure 3. Two globalization peaks. AI Podcast Curriculum, ep05 (Peter Thiel 2015 interview, 2015-04-02). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1913</th>
+<th>2007</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What peaked</td>
+<td>Globalization, first wave</td>
+<td>Globalization and the finance boom, second wave</td>
+</tr>
+<tr>
+<td>Trade vs GDP</td>
+<td>Trade far outpacing</td>
+<td>Trade at 3x GDP before, 1x after</td>
+</tr>
+<tr>
+<td>Aftermath then</td>
+<td>World war</td>
+<td>No world war, &ldquo;at least not yet&rdquo;</td>
+</tr>
+<tr>
+<td>Thiel&rsquo;s bet</td>
+<td>History rhymes</td>
+<td>Inward places over globalized ones</td>
+</tr>
+</tbody>
+</table>
+<h2 id="company-names-predict">Company names predict</h2>
+<p>Tyler: how important is a company&rsquo;s name? Thiel: &ldquo;the names of companies are often very predictive of future failure or success.&rdquo;</p>
+<p>PayPal was friendly: the friend that helps you pay. Napster was bad: you nap music, you nap a kid. No wonder the government shut it down within a few years. Airbnb beats Uber: Airbnb sounds innocent, a light nonthreatening virtual bed and breakfast. Uber &ldquo;sounds like a bad name from Germany sometime in the 1930s.&rdquo; &ldquo;What are you exactly above? Maybe the law?&rdquo; From a regulatory perspective, Airbnb is vastly the better name.</p>
+<p>Facebook beat MySpace, and the product arc was implicit in the names. Social networks involve reading and writing, but unlike real life you must write before you read: first you write about yourself, then you read about others. Over time reading dominates writing. Facebook was about learning about real people around you, real Harvard identities. MySpace started with wannabe LA actors inventing fictional narratives about themselves. Reading dominates writing, so Facebook dominates MySpace.</p>
+<p>The United States as a name: he is sympathetic to the 19th-century lowercase-u spelling. Chess: D4 is marginally better now given the Berlin defense, but he still plays E4, the attacking move, to raise risk and volatility below world-champion level.</p>
+<p>Figure 4. Company names as forecasts. AI Podcast Curriculum, ep05 (Peter Thiel 2015 interview, 2015-04-02). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Implied story</th>
+<th>Forecast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PayPal</td>
+<td>The friend that helps you pay</td>
+<td>Friendly, survives</td>
+</tr>
+<tr>
+<td>Napster</td>
+<td>You nap music, you nap a kid</td>
+<td>The government shuts it down</td>
+</tr>
+<tr>
+<td>Airbnb</td>
+<td>Innocent virtual bed and breakfast</td>
+<td>Light, nonthreatening, regulator-safe</td>
+</tr>
+<tr>
+<td>Uber</td>
+<td>The overman, Germany in the 1930s</td>
+<td>&ldquo;What are you above? Maybe the law?&rdquo;</td>
+</tr>
+<tr>
+<td>Facebook</td>
+<td>Real identities, learn about people</td>
+<td>Reading dominates writing, so it wins</td>
+</tr>
+<tr>
+<td>MySpace</td>
+<td>Fictional narratives, wannabe actors</td>
+<td>Fiction loses to reality</td>
+</tr>
+</tbody>
+</table>
+<h2 id="germany-california-and-the-average">Germany, California, and the average</h2>
+<p>Thiel spoke German at home for the first 12 years. No TV until age 12, then English overtook everything. California and Germany are opposites: California optimistic and desperate, 20,000 people a year moving to LA for stardom, maybe 20 making it. Tyler: Beach Boys music, optimistic surface, deeply sad underneath. Germany: incredibly pessimistic but very comfortable. German pessimism corrects Silicon Valley hyper-optimism.</p>
+<p>The rule: extreme pessimism and extreme optimism are both unhealthy, because &ldquo;extreme pessimism tells you there is no point in doing anything. Extreme optimism tells you there is no need to do anything. They converge on doing nothing.&rdquo; Health is mild: mild optimism, mild pessimism. He averages to the middle from extreme components.</p>
+<p>Maximum-likelihood death age: life expectancy rose 2.2 to 2.5 years per decade since 1840. Straight-line extrapolation puts him in his early to mid-90s. Add 10 for the upper case: 100 to 110. Tyler notes early gains came from the young, so 80-year-olds gained little. Thiel: true for the first half of the 20th century, but recent decades&rsquo; gains come from the 60s and 70s living longer. Infant mortality has little left to give.</p>
+<p>Favorite novel: Lord of the Rings, and for the intellectual pick, Bulgakov&rsquo;s The Master and Margarita: the devil shows up in Stalinist Russia, succeeds, gives everybody what they want, and everything goes haywire, because nobody believes he is real. New Testament over Old: Christ is complex and ambiguous, speaking in parabolic, indirect, Straussian modalities, because directness was dangerous. Locke&rsquo;s Reasonableness of Christianity: Christ had to mislead people or the authorities would kill him.</p>
+<h2 id="advice-and-the-audience">Advice and the audience</h2>
+<p>To Mercatus as a startup: &ldquo;I would always be long substance, short status.&rdquo; Academia tempts toward respectability, which always costs edge-softening. Substance over status as the single theme.</p>
+<p>Vertical progress tips: no formula. Globalization has one: copy mechanically. Technology does not. &ldquo;Science starts with the number two&rdquo;: every moment happens once. Line up passion, skill, and the undone.</p>
+<p>Nonprofits: fund unpopular causes. Popular causes are funded. The contrarian nonprofit question: what great causes are deeply unpopular? The Zen paradox: impact comes from pushing good unpopular causes, but marketing them is brutally hard. Keep a counterfactual sense of mission: if we were not doing this, nobody would. And distinguish &ldquo;social&rdquo;: good for society versus good as seen by society. The second meaning always wins, producing &ldquo;me too, lemming-like, sheep-like clones.&rdquo;</p>
+<p>Modest ability: the average plumber makes about as much as the average doctor. Vocational careers are underexplored and unfashionable. Smarter people are more trapped by fashion because they read cues better.</p>
+<p>Private cities: needs a sub-$50 billion budget, ideally a convincing $50 million path. Romer&rsquo;s Africa city-states were prohibitively expensive. Tyler: truly independent private cities are cruise ships, and he worries about the liberties you sign away aboard.</p>
+<p>Democracy update to the 2009 Cato piece: &ldquo;it is not at all clear that we live in anything resembling a democracy.&rdquo; A representative republic modified by courts, superseded by unelected technocratic agencies. &ldquo;We are actually a state that is dominated by these very unelected, technocratic agencies.&rdquo; Small countries are underrated: adaptability, culture, size. In a deglobalizing world, go far from the Middle East: New Zealand over Tahiti.</p>
+<p>Government as investor: the 1930s-40s had real technocratic competence. The signal break was Nixon&rsquo;s war on cancer in the 1970s. Minimum criterion: understand the thing. Two-thirds of Congress are lawyers. By generous count no more than 35 of 535 have science or engineering degrees, about 6.5 percent. Solyndra: a cylinder&rsquo;s surface area is 2 pi r versus 2 r for a flat panel, so by ninth-grade geometry it was 1-over-pi as efficient, never commercially viable. A Nobel laureate ran Energy and could not use ninth-grade geometry. &ldquo;That sort of a government&hellip; should not be allowed to make any investments in these areas whatsoever.&rdquo;</p>
+<p>Money: microregulations matter more than money. Given the choice, kill the regulations and keep the Fed. Focus on atoms, the real economy, not the virtual bits of money. Link money to something real, as gold did, maybe equity markets.</p>
+<p>Indonesia: decentralize across 200-plus islands. The security-versus-privacy tradeoff is fake, NSA versus ACLU. Real innovation is more with less: more security with fewer privacy invasions.</p>
+<p>Life extension: no mission required. Death is bad in itself. We handle mortality with &ldquo;schizophrenic&rdquo; acceptance plus denial, which converges on inaction. Fight it for its own sake.</p>
+<p>Inequality: three separate questions. One, is it going up? In the US yes, globally unclear. Two, why? More globalization than technology, overdetermined. Three, what to do? Remedies are worse than the disease. Higher marginal rates breed loopholes and hurt the middle class. Redistributionist rhetoric correlates with static societies. Effective redistribution needs Cuba or the USSR, not France. The real issue is stagnation, not inequality. In San Francisco the variable is rents: &ldquo;the unholy alliance between urban slumlords and pseudo-environmentalists&rdquo; blocking development.</p>
+<p>Science: Gresham&rsquo;s law. Grant-writing nimbleness drove out eccentric scientists. The 1930s-60s money politicized the ecosystem. &ldquo;When you use the word science it is often a tell, like in poker. It signals a bluff.&rdquo; Physics and chemistry never need the word. &ldquo;Political science&rdquo; and &ldquo;social science&rdquo; do.</p>
+<p>Super-rich happiness: probably the wrong metric entirely.</p>
+<p>Figure 5. Inequality&rsquo;s three questions. AI Podcast Curriculum, ep05 (Peter Thiel 2015 interview, 2015-04-02). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Thiel&rsquo;s answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is it going up?</td>
+<td>US yes, world unclear</td>
+</tr>
+<tr>
+<td>Why?</td>
+<td>Globalization more than technology, overdetermined</td>
+</tr>
+<tr>
+<td>What to do?</td>
+<td>Cures worse than disease, real redistribution needs the USSR</td>
+</tr>
+<tr>
+<td>The real problem</td>
+<td>Stagnation, not inequality. In SF the issue is rents.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain the 10,000-to-1 ratio and what it proves.</div><div class="a"><p>Software company: $100,000. New drug through the FDA: $1,000,000,000. The ratio is 10,000 to 1. It proves the regulatory asymmetry between bits and atoms. Run the thought experiment: put video games through double-blind addiction trials and software stagnates too. The stagnation is not in the physics. It is in the permission structure.</p><div class="followup"><strong>Follow-up:</strong> What is Thiel&#x27;s move? Not lobbying. Find margins where people can succeed, get signal successes, and flip hysteresis from vicious to virtuous.</div></div></div>
+<div class="qa"><div class="q">What is hysteresis in this episode?</div><div class="a"><p>Failure begets failure through discouragement. No sane parent pushes nuclear engineering. Crowds push software. Talent follows precedent. A few visible wins in atoms would reverse the flow, because talent follows precedent in both directions.</p><div class="followup"><strong>Follow-up:</strong> Where else does hysteresis rule? Academic fields, cities, industries. Map the discouragement before you propose the fix.</div></div></div>
+<div class="qa"><div class="q">Why does Thiel reject the nap, the indicator, and Kurzweil?</div><div class="a"><p>All three assume the future is fixed and watchable. Thiel says the future is made by agency. Kurzweil&rsquo;s charts invite popcorn. The nap invites permanent stagnation. The indicator invites passivity. The only indicator that matters is whether people act.</p><div class="followup"><strong>Follow-up:</strong> What is the practical version? Never ask what will happen. Ask what you will do at the margin.</div></div></div>
+<div class="qa"><div class="q">Walk me through the Japan inversion.</div><div class="a"><p>Step one: the stereotype, hyper-imitative conformist Japan. Step two: the observation, least imitative country now, innovating in food, aesthetics, business. Step three: the cause, Japan stopped believing copying the West pays. Step four: the indictment, the West offers less worth copying, down to golf courses becoming solar farms and English declining.</p><div class="followup"><strong>Follow-up:</strong> Apply the inversion to yourself. What do you copy that stopped paying? What would the least imitative version of you do?</div></div></div>
+<div class="qa"><div class="q">How do company names predict outcomes?</div><div class="a"><p>Names set the regulatory and social frame. PayPal the friend beats Napster the thief. Airbnb the innocent B&amp;B beats Uber the 1930s German overman. Facebook the real identities beats MySpace the fictional narratives, because reading dominates writing and reality dominates fiction. The product arc hides inside the name.</p><div class="followup"><strong>Follow-up:</strong> Test it. Take three startups you know. Write each name&#x27;s implied story in one sentence. Ask which story the regulator hears.</div></div></div>
+<div class="qa"><div class="q">Why is stagnation a bigger issue than inequality, in Thiel&#x27;s account?</div><div class="a"><p>Three questions, separated. Going up? US yes, world unclear. Why? Globalization more than technology. What to do? Cures beat the disease: loopholes, middle-class pain, static societies. Real redistribution needs the USSR. Meanwhile living standards stall. Fix the stall: in San Francisco that means housing, breaking the slumlord-pseudo-environmentalist alliance.</p><div class="followup"><strong>Follow-up:</strong> What is the trap? Treating distribution as the problem licenses the cures. Treating production as the problem licenses building.</div></div></div>
+<div class="qa"><div class="q">What does &quot;long substance, short status&quot; mean operationally?</div><div class="a"><p>Respectability always prices in edge-softening. Academia wants status and pays with modulation. The trade is explicit: be long substance, short status. For Mercatus, for a startup, for a career, the question is what you refuse to soften.</p><div class="followup"><strong>Follow-up:</strong> Audit yourself. Name one edge you softened for respectability this year. Price it.</div></div></div>
+<div class="qa"><div class="q">What is the 175-degree rule for talent?</div><div class="a"><p>Look for Zen opposites: stubborn and open-minded, idiosyncratic and team-capable. One end alone gets it completely wrong. Then check the prehistory: how the founders met, how long they worked together. Unusual ideas plus social function plus shared history.</p><div class="followup"><strong>Follow-up:</strong> Apply it to yourself. Which end do you over-index? Who supplies your other 175 degrees?</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The ratio: $100K to $1B, 10,000 to 1, bits to atoms.</li>
+<li>The line: flying cars promised, 140 characters delivered.</li>
+<li>Hysteresis: failure begets failure, precedent flips it.</li>
+<li>The nap: popcorn futures never end stagnation.</li>
+<li>The mailroom: Einstein&rsquo;s letter lost, Apollo unthinkable.</li>
+<li>The $450B: fracking&rsquo;s expensive lesson at $50 oil.</li>
+<li>Alcatraz: seven months and three days, then escape.</li>
+<li>The 175 degrees: stubborn plus open, weird plus team.</li>
+<li>The Straussian reading: perhaps do not be an entrepreneur.</li>
+<li>Japan: least imitative now, golf courses to solar farms.</li>
+<li>The peaks: 1913 and 2007, trade at 3x GDP then 1x.</li>
+<li>OGX: $30B to minus $1B, McLaren in the living room.</li>
+<li>The names: PayPal friend, Napster thief, Airbnb innocent, Uber 1930s.</li>
+<li>Reading dominates writing: Facebook over MySpace.</li>
+<li>The average: mild optimism, mild pessimism, extremes do nothing.</li>
+<li>The 2.2 to 2.5: years per decade since 1840, upper case 100 to 110.</li>
+<li>The 35: science degrees in Congress, about 6.5 percent.</li>
+<li>The cylinder: 2 pi r, ninth-grade geometry, Solyndra.</li>
+<li>The plumber: paid like the doctor, unfashionable on purpose.</li>
+<li>Substance over status: the single theme.</li>
+<li>Never-confuse pair: vertical versus horizontal. Zero to one has no formula. One to n does.</li>
+<li>Never-confuse pair: stagnation versus inequality. Fix the stall, not the spread.</li>
+<li>Trap card: &ldquo;The future is fixed, watch the indicator.&rdquo; The future is made. Naps do not end stagnation.</li>
+<li>Trap card: &ldquo;More startups.&rdquo; More good businesses, fewer bad ones.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: find your $100K-versus-$1B asymmetry. One domain where permission costs 10,000x another. Ask what you would build in the cheap domain that attacks the expensive one at the boundary.</li>
+<li>Catch yourself: the next time you cite the future as fixed (&ldquo;AI will&hellip;&rdquo;), rewrite the sentence with agency (&ldquo;we will&hellip;&rdquo;). Note what changes.</li>
+<li>Catch yourself: the next time you soften an edge for respectability, name the price. Write the unsoftened version in a private file.</li>
+<li>Behavior change per major idea:</li>
+<li>Margins: list three margins where you could post a signal success this quarter. Pick the smallest one and start.</li>
+<li>Conformity: identify one convention you follow that you never chose. Run the Alcatraz test: do you want in or out? Date your answer.</li>
+<li>Talent: for your next hire or collaborator, score the 175-degree pairs separately. Refuse the single-trait hire.</li>
+<li>Names: rename one project with the regulator in mind. Write the implied story in one sentence.</li>
+<li>Status: audit your calendar for status-seeking versus substance. Move one hour from the first to the second.</li>
+<li>Monthly: check your own globalization exposure. What in your work depends on the world staying open? What thrives if it closes? Rebalance toward the second.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Fermi and journaling with less scaffolding. No answers shown.</p>
+<ol>
+<li>Fermi: the FDA path costs $1B, the software path $100K. Estimate the cost of permission in your own industry: the fully loaded cost of one regulated launch versus one unregulated experiment. What is your ratio?</li>
+<li>Journal: write your Alcatraz. Name the prestigious place you wanted in and now want out of, or vice versa. What did the inside teach you that the outside could not?</li>
+<li>Take the three inequality questions to a distribution debate you care about. Separate going up, why, and what to do. Where does the usual argument smuggle the three together?</li>
+<li>Run the Solyndra test on a funded project you know: the ninth-grade-geometry check. What is the one simple calculation nobody was allowed to do? Do it.</li>
+<li>Design your 175-degree hire: write the two opposite traits, the prehistory test, and the execution test for one real role.</li>
+<li>Pick a name: yours, your project&rsquo;s, your company&rsquo;s. Write the regulator&rsquo;s story and the customer&rsquo;s story in one sentence each. Do they match? If not, rename.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Compute regulatory asymmetry ratios and find the margin.</li>
+<li>Flip hysteresis: design signal successes that reverse talent flow.</li>
+<li>Reject fixed futures: replace prediction with agency.</li>
+<li>Run the 175-degree talent screen with the prehistory check.</li>
+<li>Read company names as regulatory forecasts.</li>
+<li>Separate inequality&rsquo;s three questions before prescribing.</li>
+<li>Audit gates and permissions with ninth-grade geometry.</li>
+<li>Go long substance, short status, and price the trade.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official Conversations with Tyler episode page for this interview: https://www.youtube.com/watch?v=i_yJTCDU4uE</li>
+<li>Thiel&rsquo;s Zero to One, Chapter 1 (vertical vs horizontal progress) and Chapter 9 (definite optimism): check your library catalog for the 2014 Crown Business edition.</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Stagnation is two-track</td>
+<td>&ldquo;Tech slowed&rdquo;</td>
+<td>Bits vs atoms, 10,000:1</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Progress has two directions</td>
+<td>&ldquo;Innovate more&rdquo;</td>
+<td>0-to-1 vs 1-to-n</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Globalization peaked twice</td>
+<td>Still rising</td>
+<td>1913 and 2007</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Names predict outcomes</td>
+<td>Names are decoration</td>
+<td>Regulatory forecast</td>
+<td>Figure 4</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Stagnation beats inequality</td>
+<td>Fix distribution</td>
+<td>Fix production</td>
+<td>Figure 5</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Whole chapter trade</td>
+<td>Fixed future</td>
+<td>Agency at the margin</td>
+<td>Chapter plate</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 6 (chapter plate). The margin beats the average. AI Podcast Curriculum, ep05 (original toy, 2015-04-02). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The fixed future: popcorn, naps, indicators, more startups, status-seeking, the safe restaurant everyone understands.</td>
+<td>The margin: $100K experiments, signal successes, 175-degree talent, unpopular causes, substance.</td>
+<td>Agency at the edge: hysteresis flipped, names chosen, gates audited, stagnation attacked where permission is cheap.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: the margin is small and unfashionable, which is why the talented avoid it and why the returns concentrate there.
+Footer: Thiel&rsquo;s 2015 production function is the margin against the average.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=i_yJTCDU4uE" target="_blank" rel="noopener">Peter Thiel: Technology, Innovation, and the Great Stagnation | Conversations with Tyler</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/conversations-with-tyler/ep04.html"><span class="lbl">← Previous</span>Episode 4: Peter Thiel on Political Theology</a><a href="../../tracks/conversations-with-tyler/ep06.html"><span class="lbl">Next →</span>Episode 6: Jhumpa Lahiri on Translation, Blindness, and Belonging</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
