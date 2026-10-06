@@ -48,6 +48,21 @@ The DeepSeek story is the proof. DeepSeek trained on H800 GPUs, a China-export-c
 
 For inference, the binding vector flips. In #459, the H20 (another export-compliant chip) is described as better for reasoning inference than the H800, because inference is memory-bandwidth bound: the chip spends its time loading the KV cache, not computing. The H20 has more memory bandwidth per dollar. The decision rule: training wants flops plus interconnect. Inference wants memory bandwidth. Buy the vector your workload is bound by.
 
+| Vector | Measures | Training needs it for | Inference needs it for | Episode proof |
+|---|---|---|---|---|
+| Flops | Raw math speed | Compute per step | Less critical | H800 kept most of the flops |
+| Memory bandwidth | Data-feeding speed | Feeding the math | Loading the KV cache per token | H20 beats H800 for serving. MLA cut the cache 80 to 90 percent. |
+| Interconnect | GPU-to-GPU talk speed | Gradient exchange every step | Less critical | Export controls cut it. DeepSeek innovated around it. |
+
+*Figure 1. The three vectors of GPU competition. AI Podcast Curriculum, ep11 (Lex Fridman Podcast #459, 2026-10-06). Shell 1. Name the toy: three vectors, two workloads. Training is interconnect-bound. Inference is memory-bandwidth-bound. Source: original table.*
+
+| Chip | What changed against the H100 | Why | Best workload |
+|---|---|---|---|
+| H800 | Flops kept, interconnect cut | Export-compliant chip for China | Training, with software workarounds |
+| H20 | More memory bandwidth per dollar, modest flops | Export-compliant chip for China | Serving reasoning models |
+
+*Figure 2. The export-control chips read through the three vectors. AI Podcast Curriculum, ep11 (Lex Fridman Podcast #459, 2026-10-06). Shell 3. Apply the one rule: the controls cut the interconnect vector, so buy the vector your workload is bound by. Source: original table.*
+
 ### [Episode] The CUDA moat is software, not silicon
 
 In #459, Patel says AMD's hardware is in some ways better than Nvidia's, but AMD's software is far behind, and the gap is not closing fast enough. The mechanism: CUDA (Nvidia's GPU programming platform) is a 20-year accumulation of libraries, kernels, tools, and programmer habits. Every AI researcher writes CUDA. Every framework targets CUDA first. A competitor must replicate not a chip but an ecosystem.
@@ -98,6 +113,8 @@ In #459, Patel explains the TPU paradox. Google has the biggest AI cluster on Ea
 
 The GB200 NVL72 connects 72 Blackwell GPUs through 9 NVSwitch boards in a fully non-blocking NVLink 5.0 fabric, presenting 13.5 TB of unified HBM3e memory and about 130 petaFLOPS of FP4 compute as one machine. Eight 400-gigabit InfiniBand links connect the rack to the cluster. The PCB complexity is extreme: 32 to 40+ layer boards for the NVSwitch, versus 16 to 20 for Hopper-era baseboards. The mechanism: at this scale, the rack is the computer. The data center is a building full of rack-computers wired together.
 
+![The NVL72 rack: 72 GPUs acting as one logical GPU](assets/nvl72-rack.svg "Figure 3. The NVL72 rack: 72 GPUs acting as one logical GPU. AI Podcast Curriculum, ep11 (Lex Fridman Podcast #459, 2026-10-06). Shell 4. Show the new symbol: the rack as one logical GPU. Source: original plate (numbers from the chapter).")
+
 ## Part C: Building an AI cluster
 
 ### [Episode] The scale ladder: from GPT-4 to Stargate
@@ -105,6 +122,14 @@ The GB200 NVL72 connects 72 Blackwell GPUs through 9 NVSwitch boards in a fully 
 In #459, Patel lays out the cluster scale ladder. GPT-4 trained on about 20,000 A100 GPUs: roughly 15 to 20 megawatts, a standard large data-center size, but unprecedented as a single training run (a couple hundred million dollars, "a YOLO run"). Meta went from 16,000 to 24,000 GPUs (only 16,000 usable at once, because GPUs are unreliable and spares are mandatory) to about 100,000-128,000 GPUs for Llama 4: roughly 140 to 150 megawatts, a 10x jump in two years.
 
 Then xAI's Memphis cluster: 200,000 GPUs (100,000 H100s plus 100,000 H200s) in a converted appliance factory. Then Stargate: the Abilene, Texas site at 2.2 gigawatts of power in, about 1.8 gigawatts delivered to chips. The mechanism of the ladder: each generation needs roughly 10x the power of the last, because model scale and training ambition grow faster than efficiency.
+
+```mermaid
+flowchart LR
+    A[GPT-4: 20 MW] -->|10x per generation| B[Llama 4: 150 MW]
+    B -->|10x per generation| C[Stargate: 1.8 GW]
+```
+
+*Figure 4. The cluster power ladder. AI Podcast Curriculum, ep11 (Lex Fridman Podcast #459, 2026-10-06). Shell 2. Count the ladder: 20 MW, 150 MW, 1.8 GW. Change the 10x multiplier and the 2028 rung moves. Source: original toy (episode numbers).*
 
 **[Added 2026]** As of March 2026, Oracle and OpenAI scrapped the planned expansion of the Abilene campus from 1.2 GW to 2 GW after financing talks stalled and OpenAI's demand forecasts shifted. A winter cooling outage that took buildings offline for days strained the partnership. Nvidia reportedly paid operator Crusoe a $150 million deposit to hold the site and is courting Meta as a replacement tenant. The existing campus (eight buildings, Blackwell GPUs, planned for up to 450,000 GB200s) continues toward mid-2026 completion, and the broader Stargate portfolio (about 7 GW across Texas, New Mexico, Ohio, Wisconsin) proceeds. The lesson: gigawatt-scale commitments are volatile. Tenants' demand shifts faster than construction timelines.
 
