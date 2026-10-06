@@ -39,13 +39,13 @@ Nothing here is invented. When a number has no tag, the tag of its paragraph app
 
 ## Part A: why NVIDIA is so expensive, the episode account [E]
 
-Before opening the hardware, the answer in one paragraph, all from the episodes. An H100 sells for $40,000 **[E ep10]**. You are paying for three layers: the silicon (a quarter trillion transistors, ~20,000 cores, 9x the training throughput of the A100) **[E ep10]**; the software (it runs the entire CUDA ecosystem on day one, 4 million developers' code just works) **[E ep10]**; and scarcity (advanced packaging capacity at TSMC is finite and largely reserved by NVIDIA) **[E ep10]**. On top of the chip, NVIDIA sells the solution: eight $40,000 GPUs become a $500,000 DGX box, roughly $180,000 of extra margin for integration **[E ep10]**. Gross margin climbed from 24 percent in the commoditized era to 70+ percent **[E ep10]**. Expensive is the moat, monetized.
+Before opening the hardware, the answer in one paragraph, all from the episodes. An H100 sells for $40,000 **[E ep10]**. You are paying for three layers. The silicon (a quarter trillion transistors, ~20,000 cores, 9x the training throughput of the A100) **[E ep10]**. The software (it runs the entire CUDA ecosystem on day one, 4 million developers' code just works) **[E ep10]**. And scarcity (advanced packaging capacity at TSMC is finite and largely reserved by NVIDIA) **[E ep10]**. On top of the chip, NVIDIA sells the solution: eight $40,000 GPUs become a $500,000 DGX box, roughly $180,000 of extra margin for integration **[E ep10]**. Gross margin climbed from 24 percent in the commoditized era to 70+ percent **[E ep10]**. Expensive is the moat, monetized.
 
 ## Part B: inside the H100 [S]
 
 Start with the smallest unit and build up. All specs in this section are **[S]** from NVIDIA's H100 product page unless tagged [E].
 
-**The transistor.** One H100 carries roughly 250 billion transistors **[E ep10]**, built on TSMC's N4 process. Transistors are switches; everything else is organization.
+**The transistor.** One H100 carries roughly 250 billion transistors **[E ep10]**, built on TSMC's N4 process. Transistors are switches. Everything else is organization.
 
 **The core.** The H100 has about 18,500 CUDA cores **[E ep10]**, simple cores that run the same operation on different data simultaneously (rendering pixels, multiplying matrices). Organized above them: 80 streaming multiprocessors (SMs), each a neighborhood of CUDA cores with shared fast memory, and 640 tensor cores, hardware units specialized for one job, matrix multiplication, the beating heart of neural networks **[E ep10]**.
 
@@ -53,7 +53,7 @@ Start with the smallest unit and build up. All specs in this section are **[S]**
 
 **Memory: HBM3.** 80 GB of high-bandwidth memory at 3.35 TB/s **[S]**. HBM stacks memory dies vertically next to the GPU instead of spreading them around a board, shorter wires, enormous bandwidth. Memory bandwidth, not raw compute, is usually the bottleneck in training **[S]**. (The H200, same architecture, upgrades this to 141 GB of HBM3e at 4.8 TB/s **[S]**.)
 
-**Interconnect: NVLink.** 900 GB/s GPU-to-GPU bandwidth on the SXM variant, versus 128 GB/s over PCIe Gen5 **[S]**. This 7x gap is why the form factor matters: the SXM version (700W TDP, liquid-cooled) is the training chip; the PCIe version (350W, air-cooled) is for inference and single-GPU work **[S]**.
+**Interconnect: NVLink.** 900 GB/s GPU-to-GPU bandwidth on the SXM variant, versus 128 GB/s over PCIe Gen5 **[S]**. SXM is NVIDIA's soldered server GPU board form factor, used in place of PCIe add-in cards. This 7x gap is why the form factor matters. The SXM version (700W TDP, liquid-cooled) is the training chip. TDP means thermal design power: the maximum heat the cooling system must remove. The PCIe version (350W, air-cooled) is for inference and single-GPU work **[S]**.
 
 **Power.** Up to 700W per GPU **[S]**, roughly a microwave oven, concentrated in a chip the size of your palm. Power, not lithography, is now the binding constraint on each generation **[E ep10]**.
 
@@ -67,9 +67,11 @@ Inside one H100 (small to big)
           -> 700W TDP: a microwave in your palm
 ```
 
+Figure 1. Inside one H100 (small to big). AI Podcast Curriculum, ep11 synthesis; built from [S] specs verified live against NVIDIA's H100 product page.
+
 ## Part B continued: inside the DGX H100 rack [S]
 
-Eight H100s do not make a computer; the DGX H100 system does. Specs **[S]** from NVIDIA's DGX H100 user guide:
+Eight H100s do not make a computer. The DGX H100 system does. Specs **[S]** from NVIDIA's DGX H100 user guide. Three terms in the table need definitions first. NDR is an InfiniBand speed grade, 400 Gb/s per port. PSU means power supply unit. 8U means eight rack units tall. One rack unit (U) is 1.75 inches, so the box is 14 inches high.
 
 | Component | Spec |
 |---|---|
@@ -113,11 +115,13 @@ Add ~30% for networking, cooling, overhead -> ~1.7 MW facility
 Cooling:     must hold every rack between 5 and 30 C
 ```
 
+Figure 2. A 1,000-GPU training cluster (Fermi estimate). AI Podcast Curriculum, ep11 synthesis; built from [S] specs verified live against NVIDIA's DGX H100 user guide.
+
 1.7 megawatts is a small factory's power draw, and it must never blink: a power dip mid-training can waste weeks of a run. This is why the episode's cloud-rental math exists, $100/hour for 8 H100s **[E ep10]**, and why DGX Cloud's ~6-month capex payback **[E ep10]** is possible: the barrier is not the GPUs, it is the building around them.
 
 **Step 4, software.** The box ships with DGX OS and NVIDIA Base Command for orchestration, scheduling, and cluster management **[S]**. But the real software story is [E]: every developer you have runs CUDA on day one **[E ep10]**, and the cluster is programmable through the same stack as a single GPU. That continuity, laptop to DGX to SuperPOD, one programming model, is the 10,000 person-year moat expressed as a product **[E ep10]**.
 
-**Step 5, the economics check.** Revisit Jensen's line: "the more you buy, the more you save" **[E ep10]**. At cluster scale it becomes literal: a Fortune 500 company building generative AI on its own infrastructure pays more in time, energy, and integration than buying the SuperPOD and being live in a month **[E ep10]**. The cluster is not expensive relative to the alternative; the alternative is expensive relative to the cluster.
+**Step 5, the economics check.** Revisit Jensen's line: "the more you buy, the more you save" **[E ep10]**. At cluster scale it becomes literal: a Fortune 500 company building generative AI on its own infrastructure pays more in time, energy, and integration than buying the SuperPOD and being live in a month **[E ep10]**. The cluster is not expensive relative to the alternative. The alternative is expensive relative to the cluster.
 
 ```mermaid
 graph TD
@@ -128,16 +132,18 @@ graph TD
     E --> F[One programming model<br/>CUDA everywhere]
 ```
 
+Figure 3. From transistor to one programming model. AI Podcast Curriculum, ep11 synthesis; toy built from [E] ep10 claims and [S] specs.
+
 ## Questions and answers
 
 > [!QA]
 > **Q1: Why is memory bandwidth (3.35 TB/s) more important than FLOPS for training? [S]**
-> A: Training moves model weights and activations to the cores constantly; if the cores wait for data, FLOPS sit idle. HBM3's 3.35 TB/s exists to keep ~20,000 cores fed. A chip with double the FLOPS but half the bandwidth trains slower on memory-bound workloads. Always read bandwidth first, FLOPS second.
+> A: Training moves model weights and activations to the cores constantly. If the cores wait for data, FLOPS sit idle. HBM3's 3.35 TB/s exists to keep ~20,000 cores fed. A chip with double the FLOPS but half the bandwidth trains slower on memory-bound workloads. Always read bandwidth first. Read FLOPS second.
 > **Follow-up:** The H200 keeps the same FLOPS but raises bandwidth to 4.8 TB/s. Which workloads benefit most from an H200 over an H100, and which barely notice?
 
 > [!QA]
 > **Q2: What is the difference between scale-up (NVLink) and scale-out (InfiniBand), and why do you need both? [S/E]**
-> A: Scale-up (900 GB/s NVLink/NVSwitch) makes 8 GPUs behave as one giant GPU, needed when a single model layer does not fit on one card. Scale-out (400 Gb/s InfiniBand) connects nodes when the model or batch does not fit on eight cards. NVLink is ~2x the bandwidth because intra-node traffic is denser; InfiniBand trades bandwidth for distance. The Megatron lesson [E]: at frontier scale, the between-machine bandwidth is the constraint that decides training speed.
+> A: Scale-up (900 GB/s NVLink/NVSwitch) makes 8 GPUs behave as one giant GPU, needed when a single model layer does not fit on one card. Scale-out (400 Gb/s InfiniBand) connects nodes when the model or batch does not fit on eight cards. NVLink is ~2x the bandwidth because intra-node traffic is denser. InfiniBand trades bandwidth for distance. The Megatron lesson [E]: at frontier scale, the between-machine bandwidth is the constraint that decides training speed.
 > **Follow-up:** A model needs 1 TB of memory for weights. How many H100s (80 GB each) at minimum, and does it fit in one DGX (640 GB total)? What does your answer imply about the interconnect you need?
 
 > [!QA]
@@ -147,22 +153,22 @@ graph TD
 
 > [!QA]
 > **Q4: The episode says power is the binding constraint, not lithography. What does that mean in practice? [E/S]**
-> A: TSMC can still shrink transistors (N4 and beyond), but each generation's TDP climbs, 400W (A100) to 700W (H100) to 1,000W (B200) [S]. A rack has a fixed power and cooling budget; when the chip wants more watts than the building can remove as heat, you cannot deploy it no matter how fast it is. Data center design is now thermal design.
+> A: TSMC can still shrink transistors (N4 and beyond), but each generation's TDP climbs, 400W (A100) to 700W (H100) to 1,000W (B200) [S]. A rack has a fixed power and cooling budget. When the chip wants more watts than the building can remove as heat, you cannot deploy it no matter how fast it is. Data center design is now thermal design.
 > **Follow-up:** Your facility can cool 20 kW per rack. How many DGX H100s (10.2 kW each) fit per rack, and what does the stranded half-rack cost you per year at $100/hour per box?
 
 > [!QA]
 > **Q5: Reconcile "the more you buy, the more you save" with a $500K box. [E]**
-> A: Jensen's claim [E ep10]: a company building AI on general-purpose infrastructure pays more over time, in energy, engineering time, and delayed results, than buying the integrated system and being live in a month. The savings are in total cost and time-to-value, not in the purchase price. It is only true because the alternative (doing it yourself) is genuinely worse; that is what a real moat feels like from the inside.
+> A: Jensen's claim [E ep10]: a company building AI on general-purpose infrastructure pays more over time, in energy, engineering time, and delayed results, than buying the integrated system and being live in a month. The savings are in total cost and time-to-value, not in the purchase price. It is only true because the alternative (doing it yourself) is genuinely worse. That is what a real moat feels like from the inside.
 > **Follow-up:** Build the 3-year TCO comparison for one DGX H100: buy ($500K + power + staff) vs rent ($100/hr equivalent). At what utilization does buying win?
 
 > [!QA]
 > **Q6: If CUDA is the moat, why does NVIDIA bother with the hardware at all? Why not just sell software? [E/S]**
-> A: Because the hardware is where the margin compounds: $320K of GPUs become a $500K box [E], and the hardware refresh cycle (every ~2.5 years, 9x training gains [E]) re-sells the software moat each generation. Software alone would be licensed once; hardware+software is re-monetized every cycle. The bundle is the business model.
+> A: Because the hardware is where the margin compounds: $320K of GPUs become a $500K box [E], and the hardware refresh cycle (every ~2.5 years, 9x training gains [E]) re-sells the software moat each generation. Software alone would be licensed once. Hardware+software is re-monetized every cycle. The bundle is the business model.
 > **Follow-up:** Who captures more lifetime value from one AI cluster: the GPU vendor, the cloud renting it, or the company training the model? Defend with numbers from this chapter.
 
 > [!QA]
 > **Q7: What breaks first when you scale from 8 GPUs to 8,000? [S/E]**
-> A: In order: inter-node bandwidth (InfiniBand fabric design [S/E]), power delivery and cooling (MW scale [S]), reliability (with 8,000 GPUs, something is always failing, checkpointing becomes mandatory), and finally software (keeping 8,000 GPUs synchronized). Each order of magnitude has a different bottleneck; the skill is knowing which one you are currently hitting.
+> A: In order: inter-node bandwidth (InfiniBand fabric design [S/E]), power delivery and cooling (MW scale [S]), reliability (with 8,000 GPUs, something is always failing, checkpointing becomes mandatory), and finally software (keeping 8,000 GPUs synchronized). Each order of magnitude has a different bottleneck. The skill is knowing which one you are currently hitting.
 > **Follow-up:** Sketch the failure budget: if each GPU has a 1% daily failure probability, how many failures per day in an 8,000-GPU cluster? What does that imply for checkpoint frequency?
 
 ## Memory aids
@@ -181,7 +187,7 @@ graph TD
 
 1. **This week:** run the Fermi cluster math for a workload you care about, how many GPUs, how many DGX boxes, total power, total hardware cost. One page. You now know more about AI infrastructure economics than most people who buy it.
 2. **Read specs like an owner:** the next time you see a chip announcement, extract four numbers first, memory bandwidth, interconnect bandwidth, TDP, precision-specific FLOPS. Everything else is marketing.
-3. **Practice the bottleneck shift:** for any system you work on, name the current bottleneck and the next one after it breaks. Clusters teach this explicitly (bandwidth → power → reliability); your systems have the same chain.
+3. **Practice the bottleneck shift:** for any system you work on, name the current bottleneck and the next one after it breaks. Clusters teach this explicitly (bandwidth → power → reliability). Your systems have the same chain.
 4. **Observable behavior:** in your next cloud-bill review, separate compute cost from the implied hardware: at $100/hour per 8 H100s, compute what the provider paid and what you pay. The ratio is the integration-and-risk premium, decide consciously whether it is worth it.
 
 ## Think it yourself
