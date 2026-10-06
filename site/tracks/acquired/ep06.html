@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 6: Microsoft Volume I, Founding through Windows 95 — AI Podcast Curriculum</title>
+<meta name="description" content="How two teenagers turned a $75,000 operating system into the world&#x27;s most valuable company: the IBM deal, the clones, and zero marginal cost.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="acquired-ep06" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06" class="active">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Acquired</a> / Episode 6: Microsoft Volume I, Founding through Windows 95</nav>
+      <h1>Episode 6: Microsoft Volume I, Founding through Windows 95</h1>
+      <p class="meta-line">2024-04-22 · Instructor: Ben Gilbert and David Rosenthal · Acquired</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="ycI_xXjpElY"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/ycI_xXjpElY" title="Microsoft Volume I: The Complete History and Strategy of founding through Windows 95 (Audio)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=ycI_xXjpElY" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=ycI_xXjpElY" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">From the Altair to Windows 95: the IBM deal, the OEM machine, and the playbook behind software's best business model.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Selling software is the best business model of all time, and this is the story of the company that invented it. No other episode shows you the actual mechanics: a $180,000 revenue cap that nearly killed them, a &ldquo;best efforts&rdquo; clause written by a lawyer&rsquo;s son that saved them, a $75,000 operating system bought from a neighbor, and a fixed-fee deal with IBM that transferred the most valuable monopoly in business into their hands. The through-line: Microsoft made itself the point of integration for an entire industry, then let everyone else do the scaling.</p>
+<p>At recording (2024), Microsoft was worth over 3 trillion dollars, the most valuable company in the world, with 49 years of history. Acquired waited ten years to attempt the story.</p>
+<h2 id="the-story">The story</h2>
+<h3 id="the-household-that-bred-a-ceo">The household that bred a CEO</h3>
+<p>Bill Gates III, &ldquo;Trey,&rdquo; was born in 1955 in Seattle. His father, Bill Gates Sr., came from Bremerton, served in the Army in World War II, then earned an undergraduate and law degree at the University of Washington in four years on the GI Bill. He co-founded the firm Preston Gates and Ellis, today K&amp;L Gates, one of the world&rsquo;s largest law firms. He later joined Costco&rsquo;s board, started Seattle&rsquo;s Tech Alliance, and became a prolific angel investor.</p>
+<p>His mother, Mary Maxwell Gates, was, in the episode&rsquo;s word, a force. From a banking family (National City Bank&rsquo;s founders), she joined nonprofit boards as a young woman: the Seattle Symphony, the Chamber of Commerce, Children&rsquo;s Hospital, the United Way. She was so effective that corporate boards recruited her: First Interstate Bank, KIRO television, Pacific Northwest Bell Telephone, the University of Washington Board of Regents, the national United Way board. She never worked full-time in a corporation and became one of the most powerful business people in the Pacific Northwest.</p>
+<p>Young Bill grew up with CEOs, senators, and governors at the dinner table, absorbing business conversation nightly. At 13, he and his best friend Paul Allen discussed not whether but which company Bill would be CEO of someday. He was insanely competitive about everything.</p>
+<h3 id="lakeside-the-teletype-and-the-first-business-model">Lakeside: the teletype and the first business model</h3>
+<p>In 1968, the Lakeside mothers&rsquo; club bought the school a teletype terminal and rented time on a GE PDP-10 downtown. Bill and Paul fell in. Their first venture, Traf-O-Data, analyzed traffic data. The key decision: instead of charging hourly for their time, they took a royalty on the revenue their software generated. Teenagers, inventing the software business model. They made over 10,000 dollars when average US household income was below 10,000.</p>
+<h3 id="the-altair-code-to-the-manual">The Altair: code to the manual</h3>
+<p>In 1975, Popular Electronics put the Altair 8800 on its cover: a $397 computer kit from Ed Roberts&rsquo;s MITS. The next cheapest computer anyone could buy cost around $120,000. Paul saw the cover and knew: the microcomputer era had started, and it needed software.</p>
+<p>They had no Altair. Paul wrote an emulator for the Intel 8080 chip on Harvard&rsquo;s PDP-10, working from the chip manual. Bill wrote the BASIC interpreter against the emulator in a few weeks. They were coding to a machine they had never touched, hoping the manual was right.</p>
+<p>The partnership started at 60/40 (Bill/Paul), later 64/36. Bill&rsquo;s argument: Paul had taken a job and worked on the side. Bill was all in. Paul agreed.</p>
+<p>The MITS contract had two fateful terms. First, Microsoft&rsquo;s lifetime revenue from MITS was capped at $180,000: effectively, Ed Roberts offered $180,000 for exclusive rights to everything. Second, the contract required MITS to use its &ldquo;best efforts&rdquo; to license and commercialize BASIC broadly, with failure as grounds for termination. Thank God, the hosts say, Bill&rsquo;s dad was a lawyer.</p>
+<p>Reality: 1975 revenue was $16,000. 1976 was $22,000, less than Traf-O-Data money. MITS controlled sales, sat on licensing deals with NCR, GE, and Control Data (each worth ~$100,000), and turned most away. Then in May 1977, Pertec bought MITS for $6.5 million. Pertec figured it could handle &ldquo;this kid.&rdquo; Ed Roberts later said it was like Roosevelt telling Churchill he could deal with Stalin.</p>
+<p>Microsoft invoked the best-efforts clause, won free of MITS at the end of 1977, and could finally sell. Revenue that year: $381,000, nearly all of it in the last month. Bill bought a green Porsche 911 and collected speeding tickets around Albuquerque.</p>
+<p>Figure 1. The MITS trap and escape. AI Podcast Curriculum, ep06 (Microsoft Volume I, 2024-04-22). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Term | Effect |
+|&mdash;|&mdash;|
+| Lifetime revenue cap: $180,000 | MITS owned the upside |
+| &ldquo;Best efforts&rdquo; to commercialize | The escape hatch |
+| MITS sits on deals | Microsoft starves: $22K in 1976 |
+| Arbitration victory, end of 1977 | Freedom; $381K revenue |</p>
+<h3 id="1978-1980-the-team-assembles">1978-1980: the team assembles</h3>
+<p>Revenue: $1.3 million in 1978 (13 employees), $2.4 million in 1979 (25 employees). The company moved from Albuquerque to Seattle. In 1980, two pillars arrived: Steve Ballmer joined in June as employee number 30, and Charles Simonyi, from Xerox PARC, brought structured programming discipline.</p>
+<p>Context the episode insists on: in 1980, IBM was the most valuable company in the world, worth $150 billion, bigger than all the oil companies. The IBM PC project, codenamed Project Chess, was Big Blue&rsquo;s skunkworks attempt to enter microcomputers in a year.</p>
+<p>The technical opening: Intel&rsquo;s 8086, a 16-bit processor. With 16 bits you can represent 65,536 values and pass real data around at once, enough for business software. The 8-bit 8080 had 9 pins. The 8086 was a long rectangle with around 20. Moore&rsquo;s law was compounding invisibly underneath everything.</p>
+<h3 id="the-ibm-deal-the-best-negotiation-in-business-history">The IBM deal: the best negotiation in business history</h3>
+<p>By August 1980, Microsoft and IBM were in serious talks. The whole 30-person company pivoted to Project Chess, a bigger team than IBM&rsquo;s own.</p>
+<p>Microsoft needed an operating system for the 16-bit machine and had none. Tim Paterson at nearby Seattle Computer Products had written QDOS, the &ldquo;quick and dirty operating system.&rdquo; Microsoft first licensed it, then paid another $50,000 for full rights to sell and license it indefinitely. Total changing hands: about $75,000. Microsoft did substantial work turning it into DOS, but the seed was $75,000.</p>
+<p>The IBM contract&rsquo;s shape is the whole story. IBM paid a fixed fee (the episode cites $775,000 for testing and consultation, $45,000 for DOS, and $310,000 for languages [uncertain: the episode&rsquo;s own stated total does not match these components]) with no per-copy royalties. Every copy IBM sold paid Microsoft nothing more.</p>
+<p>Then IBM&rsquo;s price sheet did Microsoft&rsquo;s work. On the IBM PC, the operating system was a menu: Pascal for an extra $450, CP/M-86 for $175, DOS for $60. DOS was built for the machine and cheapest. IBM kept the $60 as pure margin, so its incentives pointed customers at DOS. Everyone chose DOS.</p>
+<p>And the masterstroke: the deal let Microsoft license DOS to anyone else. IBM created the demand. The clone makers would let Microsoft capture the value.</p>
+<p>Figure 2. The IBM deal structure. AI Podcast Curriculum, ep06 (Microsoft Volume I, 2024-04-22). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<pre class="ascii">IBM pays:     fixed fee, no royalties per copy
+IBM charges:  DOS $60 | CP/M $175 | Pascal $450
+IBM keeps:    $60 pure margin per DOS sale -&gt; pushes DOS
+Microsoft:    free to license DOS to every clone maker
+Result:       IBM builds the market; Microsoft taxes it
+</pre>
+<p>Ben calls it arguably the single best business negotiation of all time. It created not just Microsoft&rsquo;s $3 trillion but at least twice that in value built on top.</p>
+<h3 id="the-clones-value-flows-to-software">The clones: value flows to software</h3>
+<p>Compaq was founded in 1982 by three Texas Instruments engineers who reverse-engineered the IBM PC&rsquo;s BIOS legally and sold the same machine cheaper. First-year revenue: $111 million. Public in 1983, before Microsoft. By 1994, the largest PC maker in the world, the youngest Fortune 500 entrant, the fastest to $1 billion in revenue.</p>
+<p>But hardware is a race to the bottom. Compaq&rsquo;s $111 million came with real cost of goods. Microsoft&rsquo;s revenue in the same era: $25 million in 1982, $98 million in fiscal 1984, essentially 100 percent gross margin software. Every clone sold needed DOS. Every DOS sale was nearly pure profit.</p>
+<p>The episode&rsquo;s formula: Microsoft used IBM to generate demand for its software, then used every other PC manufacturer to capture the value that demand created. The PC industry&rsquo;s profits flowed uphill to the one company with zero marginal cost.</p>
+<p>Figure 3. Where the value went. AI Podcast Curriculum, ep06 (Microsoft Volume I, 2024-04-22). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[IBM creates PC demand] --> B[Clones race to bottom]
+    B --> C[Every clone needs DOS]
+    C --> D[Microsoft: ~100% margin]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[IBM creates PC demand] --&gt; B[Clones race to bottom]
+    B --&gt; C[Every clone needs DOS]
+    C --&gt; D[Microsoft: ~100% margin]
+</code></pre>
+<h3 id="windows-the-hedge-that-won">Windows: the hedge that won</h3>
+<p>Microsoft never bet on just one future. While contractually building OS/2 with IBM, it kept building Windows. The hosts call this the key lesson: conviction that software would be huge, flexibility about the exact path, and the hedge far enough along to jump to.</p>
+<p>IBM tried to reassert control with the PC AT and the Intel 286, a chip Gates called &ldquo;brain dead&rdquo;: not powerful enough for a real graphical interface or multitasking. Windows 1.0 and 2.0 were weak, reaching only 5 percent of the DOS installed base. They were, the episode notes, an interface running on top of DOS.</p>
+<p>Windows 3.0, May 1990, changed everything. It doubled Windows penetration in six months. PC Computing wrote that May 22, 1990 marked &ldquo;the first day of the second era of IBM-compatible PCs.&rdquo; Revenue: fiscal 1990, $1.2 billion, the first software company ever past a billion. Fiscal 1991: $1.8 billion. In 1992, Microsoft won Apple&rsquo;s look-and-feel lawsuit. Apple had agreed future Windows versions could use its UI paradigms. The Supreme Court declined Apple&rsquo;s appeal. Both had borrowed from Xerox PARC&rsquo;s Alto, the 1973 machine that was, in the episode&rsquo;s phrase, &ldquo;the Mac with the monitor turned on its side&rdquo;. Fiscal 1992: $2.8 billion.</p>
+<p>Windows 95 launched August 24, 1995: 1 million copies the first week, 7 million the first month. The Rolling Stones&rsquo; &ldquo;Start Me Up&rdquo; as an operating system&rsquo;s theme song. Technically, it was the first true 32-bit Windows, with DOS only as fallback for old drivers. Brad Silverberg&rsquo;s management: lay out product principles, push responsibility down, let developers be their own PMs. Everyone felt personally responsible. Fiscal 1995: $5.9 billion. Fiscal 1996: $8.7 billion. Fiscal 1997: about $12 billion.</p>
+<p>The episode notes what did not ship: Cairo, the grand ambitious future, never arrived. Chicago (Windows 95), the concrete near-term goal you could drive to, did. Name your projects accordingly.</p>
+<p>Figure 4. The hedge: OS/2 versus Windows. AI Podcast Curriculum, ep06 (Microsoft Volume I, 2024-04-22). Shell 1. Show the toy. Source: original toy, from episode claims.
+| Axis | OS/2 (consensus bet) | Windows (independent bet) |
+|&mdash;|&mdash;|&mdash;|
+| Relationship | The IBM partnership | Independence |
+| Early state | The respectable choice | Weak, 5 percent of the DOS base |
+| Outcome | The world did not choose it | 3.0 and 95 won the platform |</p>
+<h3 id="capital-efficiency-the-49-percent-company">Capital efficiency: the 49-percent company</h3>
+<p>The cap table is unlike anything today. The partnership became a corporation in 1981. Ballmer got about 8.75 percent in 1980. The venture firm TVI invested $1 million for 5 percent ($20 million post). The employee option pool was created late, yet produced 10,000 Seattle-area millionaires. At the 1986 IPO ($750 million market cap on $200 million of trailing revenue, growing 100 percent), Gates still owned 49 percent, Allen 28 percent, Ballmer 7.5 percent, TVI about 6 percent.</p>
+<p>The hosts&rsquo; point: not a single dollar of investment was ever actually needed. The 1986 raise ($45 million) was never spent. Free cash flow exceeded it that year. Microsoft went public because option grants were about to breach the SEC&rsquo;s 500-shareholder rule, and because a company negotiating with Fortune 500 CEOs and governments needed to be public.</p>
+<p>Why it worked: software&rsquo;s zero marginal cost met a moment when the minimum investment to compete was two founders&rsquo; time. Nobody else could write language interpreters. The skill was unbuyable. Moore&rsquo;s law compounded underneath. The episode frames it as two freak laws of nature multiplying: Moore&rsquo;s law and zero marginal cost.</p>
+<p>Figure 5. Ownership at the 1986 IPO. AI Podcast Curriculum, ep06 (Microsoft Volume I, 2024-04-22). Shell 2. Count the toy. Source: original toy, from episode claims.
+| Holder | Share at IPO |
+|&mdash;|&mdash;|
+| Bill Gates | 49 percent |
+| Paul Allen | 28 percent |
+| Steve Ballmer | 7.5 percent |
+| TVI (venture firm) | About 6 percent |
+| Employee option pool | Created late; 10,000 Seattle-area millionaires |</p>
+<p>The tailwind stat: from 1975 to 1986, PCs grew from 4,000 units a year to 9 million, a 98 percent compound annual growth rate. &ldquo;You can almost not mess up&rdquo; with that behind you, if you are the lynchpin.</p>
+<p>Figure 6. Revenue, 1975-1997. AI Podcast Curriculum, ep06 (Microsoft Volume I, 2024-04-22). Shell 2. Count the toy. Source: original toy, from episode claims.
+| Year | Revenue | Note |
+|&mdash;|&mdash;|&mdash;|
+| 1975 | $16,000 | Altair BASIC |
+| 1976 | $22,000 | MITS strangles sales |
+| 1977 | $381,000 | Free of MITS |
+| 1978 | $1.3M | 13 employees |
+| 1979 | $2.4M | Move to Seattle |
+| 1982 | $25M | IBM PC + clones |
+| FY1984 | $98M | Clone wave |
+| FY1990 | $1.2B | First software $1B (Win 3.0) |
+| FY1992 | $2.8B | Lawsuit won |
+| FY1995 | $5.9B | Pre-Win 95 |
+| FY1997 | ~$12B | Post-Win 95 |</p>
+<h3 id="the-playbook">The playbook</h3>
+<p>Capital efficiency buys founder control. Owning 49 percent at IPO meant Gates could make audacious pivots no hired CEO could. The hosts contrast founder-CEOs (Zuckerberg&rsquo;s metaverse bet, Jensen&rsquo;s AI bet) with professional CEOs (Cook, Pichai). You cannot hedge and pivot like Microsoft did without control.</p>
+<p>Hedge, then read the world. Conviction about the direction (software eats everything), flexibility about the path (OS/2 and Windows both). Keep the hedge alive enough to jump.</p>
+<p>Platform shifts move the point of integration. Mainframes: IBM owned it. PCs: whoever owned the operating system owned it. New generations let outsiders seize the choke point. But incumbents die slowly: IBM&rsquo;s revenue did not peak until 2012, and Microsoft did not pass IBM&rsquo;s revenue until 2015. &ldquo;Over&rdquo; in the press and over in the accounts are decades apart.</p>
+<p>Scale through others. The Windows OEM team was about 20 people. HP, Compaq, Dell, and Gateway did the scaling, like Visa&rsquo;s banks. Apple, building everything itself, was structurally niche.</p>
+<p>Go international early. Country subsidiaries with local owners, real localization treated as a strategic pillar, not an afterthought. Every product after that inherited global readiness, and development costs amortized across every country.</p>
+<p>Copy without shame, win on the platform shift. Microsoft was rarely first: Multiplan lost to Lotus 1-2-3 until the graphical paradigm let Excel win. It kept Lotus&rsquo;s keyboard shortcuts so switching was painless. First versions were bad. Third versions were good. The strategy: no market risk (you know what works), just execution risk, and be positioned when the paradigm shifts.</p>
+<p>Software is never done. Hardware companies ship and move on. Microsoft shipped and kept shipping: versions, patches, Office every three years (a 6,000-person org hitting an RTM date set three years in advance). The hosts note Apple still ships yearly, which they call ridiculous, while Microsoft went continuous. &ldquo;Software is never done&rdquo; is now the industry&rsquo;s water.</p>
+<h3 id="the-seven-powers">The seven powers</h3>
+<p>The episode runs Hamilton Helmer&rsquo;s framework. Microsoft 1975-1995 scores all seven:</p>
+<ul>
+<li>Counter-positioning: no hardware baggage. Microsoft could be the ecosystem&rsquo;s point of integration by shipping bits. Gates&rsquo;s line: the ecosystem around you should generate more revenue than you take.</li>
+<li>Scale economies: one Excel feature&rsquo;s dev cost amortized over tens of millions of users.</li>
+<li>Switching costs: &ldquo;there is nothing to switch to.&rdquo;</li>
+<li>Network economies: developers, OEMs, applications, and file formats. Word documents were a network effect before networks.</li>
+<li>Process power: weakest early, real later. Office&rsquo;s three-year RTM discipline is the exhibit.</li>
+<li>Branding: &ldquo;nobody gets fired for buying Microsoft,&rdquo; plus the Windows 95 consumer brand. The power they relied on least.</li>
+<li>Cornered resource: DOS. Not born cornered. IBM&rsquo;s distribution made it so.</li>
+</ul>
+<p>The takeaway the hosts cannot shake: Microsoft figured out how to take someone else&rsquo;s dominance and transfer it wholesale into dominance for the next generation. Project Chess&rsquo;s irony is the epitaph: IBM played checkers. Bill played chess.</p>
+<p>Figure 7. The seven powers, 1975-1995. AI Podcast Curriculum, ep06 (Microsoft Volume I, 2024-04-22). Shell 2. Count the toy. Source: original toy, from episode claims.
+| Power | Microsoft&rsquo;s exhibit |
+|&mdash;|&mdash;|
+| Counter-positioning | No hardware baggage; the ecosystem&rsquo;s point of integration |
+| Scale economies | One Excel feature&rsquo;s cost over tens of millions of users |
+| Switching costs | &ldquo;There is nothing to switch to&rdquo; |
+| Network economies | Developers, OEMs, applications, file formats |
+| Process power | Office&rsquo;s three-year RTM discipline |
+| Branding | &ldquo;Nobody gets fired for buying Microsoft&rdquo; |
+| Cornered resource | DOS, made cornered by IBM&rsquo;s distribution |</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Why was the IBM deal the best negotiation in business history?</div><div class="a"><p>Microsoft bought an operating system for about $75,000, got IBM to pay a fixed fee with no per-copy royalties, got IBM&rsquo;s price sheet ($60 DOS vs $175 CP/M vs $450 Pascal) to push every buyer to DOS, and kept the right to license DOS to every clone maker. IBM built the market. Microsoft taxed it forever. The deal created trillions in value.</p><div class="followup"><strong>Follow-up:</strong> What did IBM get wrong? It optimized for control of the hardware and treated software as a component. The component became the platform. Never let the complement become the point of integration.</div></div></div>
+<div class="qa"><div class="q">How did the clones make Microsoft rich instead of killing it?</div><div class="a"><p>Clones commoditized hardware, which is exactly what a software monopolist wants. Every clone needed DOS, and DOS had ~100 percent margins. Compaq did $111M in year one with real costs. Microsoft&rsquo;s $25M was nearly pure profit. The race to the bottom in hardware was a race to the top for the software tax.</p><div class="followup"><strong>Follow-up:</strong> When does commoditization of your complement help you? When you own the scarce layer. If hardware had stayed scarce and software abundant, the value would have flowed the other way.</div></div></div>
+<div class="qa"><div class="q">What saved Microsoft from the MITS contract?</div><div class="a"><p>A &ldquo;best efforts&rdquo; clause requiring MITS to commercialize BASIC broadly. When MITS sat on deals and starved Microsoft ($22K revenue in 1976), Microsoft invoked the clause and won free. The lesson the hosts draw: the founders were teenagers, and the lawyer&rsquo;s son still got the contract term that saved the company.</p><div class="followup"><strong>Follow-up:</strong> What is your &quot;best efforts&quot; clause? Name the one term in your most important agreement that lets you leave if the other side stops trying. If you cannot name it, you are in the MITS position.</div></div></div>
+<div class="qa"><div class="q">Why did Microsoft hedge with both OS/2 and Windows?</div><div class="a"><p>Conviction about the destination (software wins), flexibility about the path. OS/2 was the IBM relationship bet. Windows was the independence bet. When the world chose Windows, the hedge was far enough along to become the strategy. Hedging is not indecision. It is keeping two futures alive until the world votes.</p><div class="followup"><strong>Follow-up:</strong> What makes a hedge real versus theater? It must be staffed, shipping, and close enough to win if called. Windows 1.0 was weak but real. A slide deck is not a hedge.</div></div></div>
+<div class="qa"><div class="q">How did 20 people sell Windows to the world?</div><div class="a"><p>They did not. HP, Compaq, Dell, and Gateway did. Microsoft&rsquo;s OEM team just kept the partners aligned, like Visa&rsquo;s banks each scaling independently. Twenty people at the center, thousands of salespeople at the edges, all paid by someone else. That is what a platform go-to-market looks like.</p><div class="followup"><strong>Follow-up:</strong> Map your own distribution. How many people sell your product who do not work for you? If the answer is zero, you do not have a platform. You have a sales team.</div></div></div>
+<div class="qa"><div class="q">Why does &quot;software is never done&quot; matter?</div><div class="a"><p>Hardware companies ship and move on. The sale is the end. Microsoft learned that shipping is the beginning: versions, patches, feedback, the next release. Competitors who thought software was done (Lotus, WordPerfect) optimized for a single release and lost to a machine that never stopped. In the cloud and AI era, the company that ships continuously compounds against the company that ships versions.</p><div class="followup"><strong>Follow-up:</strong> Where in your work do you still think in shipments? Find one &quot;done&quot; deliverable and convert it to a living system with a next version date.</div></div></div>
+<div class="qa"><div class="q">What do the seven powers tell a founder today?</div><div class="a"><p>That defensibility is a portfolio, not a feature. Microsoft had all seven by 1995: counter-positioning, scale, switching costs, network effects, process, brand, and DOS as a cornered resource. Audit your own company against the seven. Most startups have one, maybe two. The gaps are the strategy.</p><div class="followup"><strong>Follow-up:</strong> Which power is cheapest to buy early? Counter-positioning: choose the business model the incumbent cannot copy without hurting itself. It costs nothing but clarity.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>$75,000: the price of an empire&rsquo;s seed (QDOS).</li>
+<li>$180,000: the cap that nearly killed them. &ldquo;Best efforts&rdquo; was the escape.</li>
+<li>$60 vs $175 vs $450: the price sheet that chose DOS for everyone.</li>
+<li>49%: Gates&rsquo;s ownership at IPO. Control is a strategy.</li>
+<li>98%: PC unit CAGR 1975-1986. The tailwind you cannot mess up.</li>
+<li>Never-confuse pair: Project Chess (IBM&rsquo;s code name, and they played checkers) versus the chess Bill played (fixed fee, no royalties, license to clones).</li>
+<li>Trap card: &ldquo;Microsoft won because DOS was the best technology.&rdquo; It was not. It was the cheapest on IBM&rsquo;s price sheet, and Microsoft could license it to everyone. Distribution and licensing beat technology.</li>
+<li>The number: 10,000 millionaires from a late-created option pool. Generosity after victory compounds loyalty.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: find your &ldquo;best efforts&rdquo; clause. Read your most important contract or agreement and find the exit term. If there is none, you have learned what to negotiate next time.</li>
+<li>Catch yourself: the next time you feel certain about the path (not the destination), ask what your Windows is while you build your OS/2. Name the hedge out loud.</li>
+<li>Behavior change per major idea:</li>
+<li>The IBM deal: before your next negotiation, list what the other party&rsquo;s price sheet makes customers choose. Structure the deal so their incentives sell your product.</li>
+<li>Clones: identify who commoditizes your complement. If nobody does, ask whether you are the complement being commoditized.</li>
+<li>49 percent: compute your real ownership of your most important project (time, credit, control). If it is low, you cannot pivot it. Fix that before you need to.</li>
+<li>Copy without shame: find the best idea in your field built by someone else. Copy the mechanism, keep their shortcuts (the Lotus keys), and win on the next platform shift.</li>
+<li>Never done: pick one &ldquo;finished&rdquo; work product and schedule its next version. Put the date on the calendar.</li>
+<li>Monthly: score yourself on the seven powers. One sentence each. The lowest score is next month&rsquo;s project.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<ol>
+<li>Fermi: Microsoft did $25M in 1982 and $98M in FY1984 on ~100% margin software. Compaq did $111M in year one on hardware. If hardware gross margin was 30% and Microsoft&rsquo;s was 95%, compute each company&rsquo;s gross profit. Who actually made more money &ldquo;winning&rdquo; the PC? What does that tell you about where to compete?</li>
+<li>Argue both sides: IBM should have bought DOS outright instead of licensing it. Argue IBM was rational (software was a component, and $75K proved it). Argue it was the worst non-decision in business history. What single belief would have flipped it?</li>
+<li>Journal: &ldquo;What is my OS/2, and what is my Windows?&rdquo; Write about the respectable consensus bet you are making versus the independent hedge. Which one gets your best hours? Be honest.</li>
+<li>First principles: derive the clone dynamic. You own the scarce software layer. Hardware is abundant. Sketch who captures value as hardware prices fall 20% a year. Now invert it. You own scarce hardware. Software is abundant. Who wins now? (This is the Nvidia vs hyperscaler question wearing a 1982 costume.)</li>
+<li>Observe: find a modern &ldquo;Project Chess&rdquo;: an incumbent&rsquo;s skunkworks that created a market it failed to capture. Who played chess and who played checkers? Write the transfer in three sentences.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Structure a platform deal: fixed fee plus freedom to license broadly beats royalties from one partner. Optimize for the right to sell to everyone.</li>
+<li>Read a price sheet strategically: whoever sets the menu chooses the winner. Get your product to be the cheapest good option.</li>
+<li>Hedge like Microsoft: keep the consensus bet and the independent bet both alive, staffed, and shippable until the world votes.</li>
+<li>Score any business on the seven powers: counter-positioning, scale, switching costs, network, process, brand, cornered resource. The missing ones are the plan.</li>
+<li>Exploit a tailwind honestly: compute the market&rsquo;s CAGR, admit how much is the wave versus you, and use the wave&rsquo;s duration to set your ambition&rsquo;s size.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Bill Gates&rsquo;s memos (the hosts note how many leaked and how well he writes): search for the &ldquo;Internet Tidal Wave&rdquo; memo, the subject of Microsoft Volume II.</li>
+<li>The LGR YouTube channel (Ben&rsquo;s carve-out): retro PC restorations that make this era tangible: https://www.youtube.com/@LGR</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>MITS contract trapped then freed Microsoft</td>
+<td>$180K cap, starved</td>
+<td>Best-efforts escape, $381K</td>
+<td>fig1</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>IBM deal transferred the monopoly</td>
+<td>IBM dominant, $150B</td>
+<td>Fixed fee, clones taxed by MS</td>
+<td>fig2</td>
+<td>ascii</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Clones enriched the software layer</td>
+<td>Hardware profits</td>
+<td>~100% margin software wins</td>
+<td>fig3</td>
+<td>mermaid</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Windows was the hedge that won</td>
+<td>OS/2 the consensus</td>
+<td>Windows 3.0/95 the platform</td>
+<td>fig4</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>49% ownership enabled pivots</td>
+<td>Normal dilution</td>
+<td>Founder control at IPO</td>
+<td>fig5</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u06</td>
+<td>Seven powers all present</td>
+<td>One moat</td>
+<td>Portfolio of seven</td>
+<td>fig7</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u07</td>
+<td>Revenue compounded on zero marginal cost</td>
+<td>$16K in 1975</td>
+<td>~$12B in FY1997</td>
+<td>fig6</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 7 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=ycI_xXjpElY" target="_blank" rel="noopener">Microsoft Volume I: The Complete History and Strategy of founding through Windows 95</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/acquired/ep05.html"><span class="lbl">← Previous</span>Episode 5: Google Part I, Origins of Search</a><a href="../../tracks/acquired/ep07.html"><span class="lbl">Next →</span>Episode 7: Meta</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
