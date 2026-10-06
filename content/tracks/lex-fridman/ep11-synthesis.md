@@ -50,7 +50,7 @@ For inference, the binding vector flips. In #459, the H20 (another export-compli
 
 ### [Episode] The CUDA moat is software, not silicon
 
-In #459, Patel says AMD's hardware is in some ways better than Nvidia's, but AMD's software is far behind, and the gap is not closing fast enough. The mechanism: CUDA is a 20-year accumulation of libraries, kernels, tools, and programmer habits. Every AI researcher writes CUDA. Every framework targets CUDA first. A competitor must replicate not a chip but an ecosystem.
+In #459, Patel says AMD's hardware is in some ways better than Nvidia's, but AMD's software is far behind, and the gap is not closing fast enough. The mechanism: CUDA (Nvidia's GPU programming platform) is a 20-year accumulation of libraries, kernels, tools, and programmer habits. Every AI researcher writes CUDA. Every framework targets CUDA first. A competitor must replicate not a chip but an ecosystem.
 
 Nvidia's culture, in #459's telling (citing "The Nvidia Way"), is built bottom-up to serve external developers: the CUDA teams ship libraries for new kinds of high-performance computing as fast as researchers invent them. Google's JAX/XLA teams, by contrast, serve internal customers (Search, DeepMind), not external developers. The mechanism of the moat: Nvidia's software org treats the world's researchers as its customers. Google's treats its own product teams as customers. Ecosystems compound. Internal tools do not.
 
@@ -62,13 +62,13 @@ In #459, Lambert describes the cost-per-intelligence curve: GPT-3-level capabili
 
 The market's reaction to DeepSeek is the lesson. Nvidia's stock fell on the theory that cheaper models mean less GPU spending. In #459, both guests call this wrong, and cite Jevons paradox: when a resource gets more efficient, total consumption rises. Their evidence: AWS raised H100 prices after DeepSeek's V3 launch, H20 chips sold out, and getting 16 to 32 H100s on short notice became hard. Cheaper intelligence means more intelligence demanded, which means more GPUs. The decision rule: never confuse unit cost with total spend. Efficiency grows markets.
 
-### [Episode] The $5.6 million training cost, honestly accounted
+### [Episode] The 5 million dollar training cost, honestly accounted
 
-In #459, the guests dissect DeepSeek's famous "$5.6 million to train" claim. What it excludes: research salaries, the 2 to 4 times multiplier for research runs and ablations (failed and exploratory runs), post-training, and inference costs. Nobody has spent more than 1 billion dollars on a single public model run. GPT-4 cost a couple hundred million including the surrounding work. The mechanism of the misunderstanding: the $5.6M figure counts the final training run's GPU-hours, not the program that produced it. The decision rule: when a lab quotes a training cost, ask what is excluded. The answer is usually most of it.
+In #459, the guests dissect DeepSeek's famous 5 million dollar training claim (the episode's figure, widely reported as 5.6 million). What it excludes: research salaries, the 2 to 4 times multiplier for research runs and ablations (failed and exploratory runs), post-training, and inference costs. Nobody has spent more than 1 billion dollars on a single public model run. GPT-4 cost a couple hundred million including the surrounding work. The mechanism of the misunderstanding: the 5 million figure counts the final training run's GPU-hours, not the program that produced it. The decision rule: when a lab quotes a training cost, ask what is excluded. The answer is usually most of it.
 
 ### [Added 2026] What a Blackwell rack costs and why
 
-A GB200 NVL72 rack (72 Blackwell GPUs in one rack, acting as a single logical GPU) costs roughly 3.0 to 3.4 million dollars per rack, about 3.9 million all-in with networking and storage, per 2025-2026 industry reporting. Rental alternatives in 2026 run roughly 10 to 18 dollars per GPU-hour for GB200 capacity. The mechanism of the price: you are not buying chips. You are buying 72 GPUs, 9 NVSwitch boards, 36 Grace CPUs, 13.5 terabytes of HBM3e, 2 miles of copper cabling, liquid cooling, and the NVLink fabric that makes it one machine. The rack is the product. The chip is a component.
+A GB200 NVL72 rack (72 Blackwell GPUs in one rack, acting as a single logical GPU) costs roughly 3.0 to 3.4 million dollars per rack, about 3.9 million all-in with networking and storage, per 2025-2026 industry reporting. Rental alternatives in 2026 run roughly 10 to 18 dollars per GPU-hour for GB200 capacity. The mechanism of the price: you are not buying chips. You are buying 72 GPUs, 9 NVSwitch boards, 36 Grace CPUs, 13.5 terabytes of HBM3e (HBM, High Bandwidth Memory, is fast memory stacked next to the GPU chip), 2 miles of copper cabling, liquid cooling, and the NVLink fabric that makes it one machine. The rack is the product. The chip is a component.
 
 ## Part B: Inside the GPU and the rack
 
@@ -165,7 +165,7 @@ Step 1: classify the workload. Training or fine-tuning: buy flops + interconnect
 ## How to imbibe this
 
 1. **This week: find your binding vector.** Pick your most expensive compute workload (or your team's). Determine: is it flops-bound, memory-bound, or interconnect-bound? (Rule of thumb: training large models: interconnect. Serving chatbots: memory bandwidth. Dense math: flops.) Write the answer and what you would buy differently.
-2. **Price one AI thing honestly.** Take a quoted AI cost (an API bill, a training quote). List what the quote excludes: retries, research runs, power, people. Multiply accordingly. This is the $5.6M exercise.
+2. **Price one AI thing honestly.** Take a quoted AI cost (an API bill, a training quote). List what the quote excludes: retries, research runs, power, people. Multiply accordingly. This is the 5 million dollar exercise.
 3. **Map a constraint chain.** For anything you are building, list inputs in scarcity order (Episode 1's STE: silicon, transformers, electricity). Put your next hour into the scarcest input.
 4. **Run the Jevons test.** Find something that got cheaper in your work. Did total use rise or fall? If it rose, plan capacity for the rise, not the savings.
 5. **Design the hell first.** For the most powerful tool you use or build, write its abuse case (Grimes's rule, Episode 10) and the prevention. Hardware people do this with export controls. Do it for your software too.
