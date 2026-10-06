@@ -3,7 +3,9 @@
 #   1. ~/workspace/stanford-frontier-ai/build/MASTER_BRIEF.md
 #   2. ~/workspace/stanford-frontier-ai/build/REJECTIONS.md
 #   3. ~/workspace/stanford-frontier-ai/build/PIPELINE.md
-# Figure law for THIS project: ~/workspace/stanford-frontier-ai/build/VISUAL_SYSTEM.md
+# Figure law for THIS project: ~/workspace/ai-podcast-curriculum/build/VISUAL_SYSTEM_GENERIC.md
+# (Raj's binding visual spec — wins over any other prompt on pictures.
+# The old ~/workspace/stanford-frontier-ai/build/VISUAL_SYSTEM.md is superseded.)
 # (generic spec — captions name the PROJECT "AI Podcast Curriculum", never a course).
 
 ## Your assignment
@@ -100,6 +102,21 @@ sources:
   sitting. Define every term at first use, but never repeat teaching: each
   paragraph must add new information. If a later paragraph restates an
   earlier one, cut it or compress it to a cross-reference.
+
+## Figure law (binding — Raj's spec wins on pictures)
+Follow ~/workspace/ai-podcast-curriculum/build/VISUAL_SYSTEM_GENERIC.md exactly.
+Draw ONLY on state change (count, merge, score, mask, move, new symbol) — the
+two-paragraph rule is a ceiling, not a quota. Every figure must pass the four
+tests (what it looks like, why the rule forces the shape, what one number the
+reader can change, what symbol the next page reuses). One shell per figure
+(russian-doll shells 0–5). Medium ladder: table → equation → ASCII → mermaid →
+SVG → canvas → three.js → Manim → Hyperframes; use the first that passes.
+Code pipeline ONLY — no AI image generation, never the OpenRouter key. Exact
+palette (#F7F4EE background, #1B2838 ink, etc.), 8px grid, exact shape radii
+(pill 999px, rectangle 12px, square 8px). Captions name the PROJECT
+("AI Podcast Curriculum") + shell + source. Per-page audit table, no blank
+figure cells. Reject list enforced. Lesson plates (one claim each) + one
+chapter plate per concept. No decorative figures.
 
 ## Hardware chapters (Acquired track especially)
 Three angles are non-negotiable: (a) why Nvidia is so expensive
