@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 8: Mark Zuckerberg — Llama 3, $10B models, Caesar Augustus, &amp; 1 GW datacenters — AI Podcast Curriculum</title>
+<meta name="description" content="Zuckerberg on open-sourcing Llama, the path to $10B training runs, 1GW datacenters, and what Caesar Augustus teaches about power.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="dwarkesh-patel-ep08" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08" class="active">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Dwarkesh Patel</a> / Episode 8: Mark Zuckerberg — Llama 3, $10B models, Caesar Augustus, &amp; 1 GW datacenters</nav>
+      <h1>Episode 8: Mark Zuckerberg — Llama 3, $10B models, Caesar Augustus, &amp; 1 GW datacenters</h1>
+      <p class="meta-line">2024-04-18 · Instructor: Mark Zuckerberg · Dwarkesh Patel</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="bc6uFV9CJGg"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/bc6uFV9CJGg" title="Mark Zuckerberg - Llama 3, $10B Models, Caesar Augustus, &amp; 1 GW Datacenters" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=bc6uFV9CJGg" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=bc6uFV9CJGg" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Zuckerberg explains why Meta open-sourced Llama, how training runs scale to $10B, what 1GW datacenters require, and the Augustus theory of power.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the track&rsquo;s scale episode: what it actually takes to build at the frontier. Zuckerberg gives you the numbers no one else gives: the path from millions to $10B training runs, what a 1GW datacenter requires, and why Meta open-sourced Llama when everyone else was closing. It is also the oldest episode in the track (April 2024), which makes it a time capsule: read it as a prediction from 2024 about 2026, then check it against the later episodes. And it contains the track&rsquo;s most unexpected segment: Caesar Augustus, and a theory of power that explains Meta&rsquo;s strategy better than any business analysis.</p>
+<h2 id="the-story">The story</h2>
+<h3 id="why-open-source-llama">Why open-source Llama?</h3>
+<p>The strategic logic, as Zuckerberg presents it. Meta is not a model vendor. It is a product company that uses models. Open-sourcing Llama commoditizes the layer Meta does not monetize (the model) and strengthens the layers it does (the products, the ecosystem). Every developer building on Llama is building on Meta&rsquo;s stack, finding its bugs, extending its reach.</p>
+<p>The deeper logic: open source creates the ecosystem that closed models cannot buy. Researchers, startups, and tinkerers improve the commons. Meta harvests the improvements. It is the Android strategy applied to AI: commoditize your complement.</p>
+<p>Figure 1. Open or closed: ask what you monetize. AI Podcast Curriculum, ep08 (Mark Zuckerberg episode, 2024-04-18). Shell 3. Apply the one rule: open the complement, monetize the product. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>You monetize</th>
+<th>Strategy</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The model</td>
+<td>close: protects revenue</td>
+<td>closed labs</td>
+</tr>
+<tr>
+<td>Products built on models</td>
+<td>open: commoditizes costs, recruits improvers</td>
+<td>Meta: Llama open, Instagram closed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-path-to-10b-models">The path to $10B models</h3>
+<p>The episode traces the scaling of training runs: from millions to hundreds of millions to billions, and the trajectory toward $10B runs. The drivers:</p>
+<ul>
+<li>Compute: more GPUs, longer runs, bigger clusters.</li>
+<li>Data: more tokens, better quality, the scaling laws holding.</li>
+<li>The economics: each generation costs an order of magnitude more and produces a qualitatively better model, which justifies the next order of magnitude.</li>
+</ul>
+<p>The $10B number is not a boast. It is a planning figure. If you believe the scaling laws, you plan the infrastructure for the next zero.</p>
+<p>Figure 2. The path to $10B training runs. AI Podcast Curriculum, ep08 (Mark Zuckerberg episode, 2024-04-18). Shell 2. Count the toy: each generation costs 10x. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Generation</th>
+<th>Training-run cost</th>
+<th>The rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>millions</td>
+<td>the starting point</td>
+</tr>
+<tr>
+<td>2</td>
+<td>hundreds of millions</td>
+<td>10x</td>
+</tr>
+<tr>
+<td>3</td>
+<td>billions</td>
+<td>10x</td>
+</tr>
+<tr>
+<td>4 (planning figure)</td>
+<td>$10B</td>
+<td>10x: plan for the next zero</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-gw-datacenters">1 GW datacenters</h3>
+<p>A gigawatt datacenter is a power plant with computers in it. The episode covers what this requires:</p>
+<ul>
+<li>Power: 1GW of reliable electricity, which constrains where you can build (near generation, with grid capacity).</li>
+<li>Cooling: at gigawatt scale, cooling is a first-order engineering problem.</li>
+<li>Networking: the cluster must act as one machine (connecting to ep07&rsquo;s factory thesis).</li>
+<li>The supply chain: GPUs, power equipment, construction, all on timelines measured in years.</li>
+</ul>
+<p>This is the physical reality behind the abstract &ldquo;compute&rdquo; of the other episodes. Compute is electricity, concrete, and cooling.</p>
+<p>Figure 3. What a 1GW datacenter requires. AI Podcast Curriculum, ep08 (Mark Zuckerberg episode, 2024-04-18). Shell 2. Count the toy: power, cooling, networking, supply chain. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Scale</th>
+<th>Constraint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power</td>
+<td>1 GW continuous</td>
+<td>Generation + grid capacity nearby</td>
+</tr>
+<tr>
+<td>Cooling</td>
+<td>Gigawatt-scale heat rejection</td>
+<td>First-order engineering</td>
+</tr>
+<tr>
+<td>Networking</td>
+<td>Cluster as one machine</td>
+<td>NVLink/InfiniBand fabric (see ep07)</td>
+</tr>
+<tr>
+<td>Supply chain</td>
+<td>GPUs, power gear, construction</td>
+<td>Multi-year timelines</td>
+</tr>
+</tbody>
+</table>
+<h3 id="llama-3">Llama 3</h3>
+<p>The episode covers Llama 3&rsquo;s release: the model, the capabilities, the open weights. The technical details matter less than the strategic pattern: each Llama release raises the floor for the whole industry, which is exactly what a commoditize-your-complement strategy wants. The better the open models, the less pricing power the closed labs have, and the more value accrues to the products built on top.</p>
+<h3 id="caesar-augustus">Caesar Augustus</h3>
+<p>The unexpected segment, and it is about open source, not Rome. Zuckerberg&rsquo;s
+point: Augustus became emperor and tried to establish peace, but at the time
+there was no real conception of peace. People&rsquo;s understanding of peace was
+&ldquo;the temporary time between when your enemies inevitably attack you.&rdquo; A short
+rest. Augustus&rsquo;s novel idea was changing the economy &ldquo;from being something
+mercenary and militaristic to this actually positive-sum thing.&rdquo;</p>
+<p>The general principle Zuckerberg draws: &ldquo;the bounds on what people can
+conceive of at the time as rational ways to work.&rdquo; That applies directly to
+the metaverse and to AI. Investors cannot wrap their heads around
+open-sourcing Llama: &ldquo;I don&rsquo;t understand, it&rsquo;s open source. That must just
+be the temporary time between which you&rsquo;re making things proprietary, right?&rdquo;
+The zero-sum frame is the same one Augustus faced. Zuckerberg&rsquo;s reply, in
+effect: &ldquo;I think there are more reasonable things than people think.&rdquo;</p>
+<p>Dwarkesh adds his own read, flagged as &ldquo;probably totally off&rdquo;: maybe it is
+about being 19. Caesar Augustus was 19 and already one of the most important
+people in Roman politics, leading battles and forming the Second Triumvirate.
+Maybe the 19-year-old Mark thought, &ldquo;I can do this because Caesar Augustus
+did this.&rdquo; His gloss: the Picasso line, &ldquo;all children are artists and the
+challenge is to remain an artist as you grow up.&rdquo; When you are young, wild
+ideas are easier. There are analogies to the innovator&rsquo;s dilemma in a life
+and in a company. The open question he puts to Zuckerberg: how do you stay
+dynamic?</p>
+<p>Zuckerberg then grounds the open-source philosophy in Meta&rsquo;s history. The
+biggest example: the Open Compute Project. Meta open-sourced its server,
+network switch, and data center designs. The industry standardized on them.
+Supply chains built out around Meta&rsquo;s design. Volumes went up, costs fell
+for everyone, and it &ldquo;saved us billions of dollars.&rdquo; The pattern he names:
+open-source the complement (infrastructure, and now models), monetize the
+product. He is explicit about the boundary: &ldquo;We don&rsquo;t take the code for
+Instagram and make it open source.&rdquo; Products stay closed. The layers
+underneath get opened when opening them makes the ecosystem, and Meta,
+stronger.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>1. Why did Meta open-source Llama instead of selling it?</strong></p>
+<p>Commoditize your complement. Meta monetizes products, not models. Open weights build the ecosystem (developers, researchers, startups) that improves the commons Meta harvests. Every Llama builder strengthens Meta&rsquo;s stack and weakens closed labs&rsquo; pricing power. It is Android applied to AI.</p>
+<p><strong>2. What does the path to $10B training runs look like?</strong></p>
+<p>Each generation costs ~10x more: millions → hundreds of millions → billions → $10B. The drivers are compute (bigger clusters, longer runs), data (more tokens, scaling laws holding), and economics (each generation&rsquo;s quality jump justifies the next 10x). Plan infrastructure for the next zero.</p>
+<p><strong>3. What does a 1GW datacenter actually require?</strong></p>
+<p>A gigawatt of power (constraining location to generation + grid), gigawatt-scale cooling, cluster-as-one-machine networking, and a multi-year supply chain for GPUs, power equipment, and construction. Compute is electricity, concrete, and cooling.</p>
+<p><strong>4. How does this connect to ep07 (Nvidia)?</strong></p>
+<p>Ep07 explains why the GPUs cost what they cost (the full stack). Ep08 explains what you build with them (the gigawatt factory) and what the training runs cost ($10B). Supplier economics → factory economics → model economics. One chain.</p>
+<p><strong>5. Applied: our company is deciding open vs closed for our AI work. What do we take from this?</strong></p>
+<p>Ask what you monetize. If you monetize the model, closing protects revenue. If you monetize products built on models, opening commoditizes your costs and recruits the world to improve your inputs. Most companies are Meta-like (products), not lab-like (models). Act accordingly.</p>
+<p><strong>6. What is the Augustus theory of power?</strong></p>
+<p>Reframe zero-sum as positive-sum. Augustus faced a world where peace meant only &ldquo;the temporary time between when your enemies inevitably attack you.&rdquo; His move was redefining the economy from mercenary and militaristic to positive-sum. Zuckerberg&rsquo;s general principle: &ldquo;the bounds on what people can conceive of at the time as rational ways to work.&rdquo; Investors cannot conceive of open-sourcing Llama as rational — the same zero-sum frame. The Meta parallel: open-source the complement (Open Compute Project saved billions; now Llama), monetize the product.</p>
+<p><strong>7. This episode is from April 2024. How do I read it?</strong></p>
+<p>As a prediction. Check its claims against the 2025-2026 episodes: did training runs hit the projected scales? Did open models raise the floor as predicted? The time capsule is the feature: it lets you score a 2024 forecast with 2026 data.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>Commoditize your complement: open the layer you do not monetize. Strengthen the layers you do.</li>
+<li>$10B: the planning figure. Each generation 10x. Plan for the next zero.</li>
+<li>1GW = power plant with computers: power, cooling, networking, multi-year supply chain.</li>
+<li>Llama raises the floor: each release weakens closed pricing power.</li>
+<li>Augustus: reframe zero-sum as positive-sum. Find the &ldquo;temporary time between attacks&rdquo; in your world.</li>
+<li>2024 → 2026: read as prediction, score against later episodes.</li>
+<li>Never-confuse pair: &ldquo;open source as charity&rdquo; (wrong) vs &ldquo;open source as strategy&rdquo; (right).</li>
+<li>Trap card: &ldquo;Meta open-sourced because it couldn&rsquo;t compete closed.&rdquo; The episode&rsquo;s logic is the opposite: opening is the weapon.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: identify your complement. What layer do you not monetize that you could commoditize to strengthen what you do monetize? Write the Android analogy for your business.</li>
+<li>Catch yourself: the next time you see &ldquo;open vs closed&rdquo; debated morally, reframe it strategically. Who monetizes what? The answer predicts the position.</li>
+<li>Behavior change per major idea:</li>
+<li>Complement: map your stack. Mark the monetized layers and the commoditizable ones. Consider opening one.</li>
+<li>Scale planning: for your biggest compute bet, write the next-zero figure. What breaks at 10x?</li>
+<li>Augustus: find one thing in your work that everyone treats as zero-sum (&ldquo;the temporary time between attacks&rdquo;) and reframe it as positive-sum. What would the Augustus move be? What stops people from seeing it?</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Unaided reasoning.</p>
+<ol>
+<li>Score the prediction: this episode is April 2024. Using the 2025-2026 episodes in this track, grade its forecasts: training-run scale, open-model floor, datacenter scale. What did it get right? What missed?</li>
+<li>Strategy: steelman the case that Meta should have kept Llama closed. Under what conditions is that right?</li>
+<li>Physics: a 1GW datacenter needs 1GW of power and rejects ~1GW of heat. Where in the world can you build one? List the constraints and name three viable regions.</li>
+<li>Augustus: find one thing in your work that everyone treats as zero-sum (&ldquo;the temporary time between attacks&rdquo;) and reframe it as positive-sum. What would the Augustus move be? What stops people from seeing it?</li>
+<li>Complement: name a company that should open-source its complement but has not. What is stopping it?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Apply commoditize-your-complement to any platform decision.</li>
+<li>Plan infrastructure for the next order of magnitude (the next zero).</li>
+<li>Decompose a datacenter into power, cooling, networking, supply chain.</li>
+<li>Read old predictions as scored forecasts against new data.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Llama&rsquo;s home: https://llama.com</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Open or closed depends on what you monetize</td>
+<td>Open source as charity</td>
+<td>Open the complement, monetize the product</td>
+<td>fig1</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Training runs scale 10x per generation</td>
+<td>Costs as trivia</td>
+<td>Millions to $10B: plan the next zero</td>
+<td>fig2</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>1GW datacenter requirements</td>
+<td>Compute as abstraction</td>
+<td>Power, cooling, network, supply chain</td>
+<td>fig3</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 3 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=bc6uFV9CJGg" target="_blank" rel="noopener">Mark Zuckerberg - Llama 3, $10B Models, Caesar Augustus, &amp; 1 GW Datacenters</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/dwarkesh-patel/ep07.html"><span class="lbl">← Previous</span>Episode 7: Jensen Huang — Will Nvidia&#x27;s moat persist?</a><a href="../../tracks/dwarkesh-patel/ep09.html"><span class="lbl">Next →</span>Episode 9: Richard Sutton — Father of RL thinks LLMs are a dead end</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
