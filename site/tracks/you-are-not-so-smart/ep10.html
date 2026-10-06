@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 10: The Self with Bruce Hood — AI Podcast Curriculum</title>
+<meta name="description" content="The finale: the debugger is constructed too. The self as an experience that is not what it seems, the half-second delay in willing, and why the machine that deb">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="you-are-not-so-smart-ep10" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10" class="active">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">You Are Not So Smart with David McRaney</a> / Episode 10: The Self with Bruce Hood</nav>
+      <h1>Episode 10: The Self with Bruce Hood</h1>
+      <p class="meta-line">2012-07-01 · Instructor: Bruce Hood · You Are Not So Smart</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>Nine chapters debugged the mind&rsquo;s lies. This one debugs the debugger. If the self, the thing doing the catching, is itself a construction, then every instrument from episodes 1 through 9 is held by a narrator the brain invented. That sounds like despair. Hood&rsquo;s version is stranger and more useful: the illusion is real in the brain, it does real work, and knowing it is an illusion changes how you operate it. The track ends here because there is nowhere deeper to go.</p>
+<h2 id="the-definition-an-experience-that-is-not-what-it-seems">The definition: an experience that is not what it seems</h2>
+<h3 id="what-illusion-means">What &ldquo;illusion&rdquo; means</h3>
+<p>Hood&rsquo;s first move is definitional, because &ldquo;illusion&rdquo; misleads. He does not mean the self does not exist. He means: &ldquo;an experience that is not what it seems.&rdquo; The experience of having a self is real. What it seems to be is not.</p>
+<p>The components of the seeming: you inhabit your body, you are coherent across time, you are an individual, you have free will. Hood&rsquo;s claim: science shows each of these is illusory to some degree. The visual analogy: two lines that look different measure identical. The brain registers the nonexistent square so strongly that neurons fire for it. Illusions are not failures to perceive. They are perceptions with a loose relationship to what is there.</p>
+<h3 id="the-half-second-delay">The half-second delay</h3>
+<p>The flagship demonstration: Benjamin Libet&rsquo;s finding that the conscious experience of willing an action, moving your arm, arrives about half a second after the brain has already prepared the movement. The conscious self does not initiate. It arrives late and claims authorship.</p>
+<p>Hood is careful: not every action works this way. But the disconnect is enough to break the naive model. The feeling &ldquo;I decided, then it happened&rdquo; reverses the order. The machinery moved. The narrator caught up and took credit.</p>
+<h3 id="blind-for-hours">Blind for hours</h3>
+<p>The visual system proves the narrator edits heavily. You process only the central visual field in detail. You carry two blind spots the size of tennis balls. Every eye movement switches vision off, or the world would smear like a panning camera. Add it up: you are blind for about 2 to 3 hours of every waking day, and you never notice.</p>
+<p>The mirror test: look in a mirror, shift your gaze from one eye to the other. You cannot see your own eyes move. Watch someone else do it and you see the motion clearly. Your brain deletes your own saccades to preserve the coherent world. The self that &ldquo;sees everything&rdquo; is a curated feed.</p>
+<p>Figure 1. The half-second delay. AI Podcast Curriculum, ep10 (Bruce Hood interview, 2012-07-01). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Order of events</th>
+<th>Who acts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The seeming</td>
+<td>I will, then the arm moves</td>
+<td>The conscious self</td>
+</tr>
+<tr>
+<td>The measurement</td>
+<td>Brain prepares, 0.5 s later the will is felt</td>
+<td>Unconscious processes. The narrator arrives late</td>
+</tr>
+<tr>
+<td>The toy</td>
+<td>1 arm, 1 will</td>
+<td>The will is the press release, not the decision</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-duplicator-natural-dualism">The duplicator: natural dualism</h2>
+<h3 id="the-hamster-experiment">The hamster experiment</h3>
+<p>Hood&rsquo;s team built two scientific-looking boxes, lights and buzzers, and convinced 5-year-olds it was a duplicating machine. A toy went in one box. An identical toy appeared in the other. The children accepted it: a photocopier for objects. &ldquo;Are they the same?&rdquo; &ldquo;Yes, absolutely identical.&rdquo;</p>
+<p>Then the pet hamster. The team gave it physical states (a marble in its tummy, a broken tooth) and mental states (a whispered name, a shown picture). Into the machine it went. A sibling hamster appeared in the other box. &ldquo;Does this hamster have the same physical attributes? Does it have the same mind?&rdquo; By age 5 or 6, children said: same body, different mind. The effect strengthened when the first hamster had a name, an identity.</p>
+<p>Adults share the intuition. Physical things may duplicate. Minds may not. Hood&rsquo;s name for it: mind-body dualism, Descartes&rsquo; old doctrine, alive as a natural intuition in preschoolers. The thought experiments behind it run from Derek Parfit to Star Trek transporters. The finding: dualism is not taught. It is the default.</p>
+<h3 id="i-versus-me">I versus me</h3>
+<p>William James&rsquo;s distinction, which Hood adopts: the I and the me. The I is conscious awareness itself: you hearing these words right now, appraising. The me is the autobiographical memory: where you were born, what you had for lunch yesterday, the story of who you are.</p>
+<p>Hood&rsquo;s developmental claim: babies have the I almost immediately, the raw awareness of a perceptual world. They do not have the me. How could they, minutes old? Infantile amnesia confirms the timeline: almost nobody recalls anything before age two. The me is constructed later, narrated into existence.</p>
+<p>The cultural proof: ask a Westerner &ldquo;tell me about yourself&rdquo; and you get attributes and possessions. Ask in a collectivist culture and you get relationships and communal activities. Same brains, different narration software. And the narration changes memory itself: Eastern children recall early childhood better, because parents narrate the child&rsquo;s day back to them earlier, scaffolding the me sooner.</p>
+<p>Figure 2. The duplicator. AI Podcast Curriculum, ep10 (Bruce Hood interview, 2012-07-01). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Object duplicated</th>
+<th>Children&rsquo;s verdict: same body?</th>
+<th>Children&rsquo;s verdict: same mind?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Toy</td>
+<td>Yes</td>
+<td>Not asked. No mind assumed</td>
+</tr>
+<tr>
+<td>Hamster, unnamed</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Hamster, named</td>
+<td>Yes</td>
+<td>Stronger no</td>
+</tr>
+<tr>
+<td>The count</td>
+<td>3 duplications</td>
+<td>0 duplicated minds. Identity blocks it</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-the-illusion-exists">Why the illusion exists</h2>
+<h3 id="the-i-keeps-the-books">The I keeps the books</h3>
+<p>Hood&rsquo;s functional account of the I: conscious awareness tracks the outcomes of the unconscious processes driving behavior. You feel authorship of actions. Underneath, countless hidden processes feed every decision. The feeling of &ldquo;I chose&rdquo; is the summary line on a ledger you never see. That summary tells you what you like, what you prefer, what to avoid. Without it, the multitude of influences would be unmanageable.</p>
+<h3 id="the-me-runs-the-social-game">The me runs the social game</h3>
+<p>The me, the narrative, exists because humans are ultra-social. A characterization of who you are lets you plan, interact, and predict others. We have the longest childhood of any animal, Hood argues, precisely to learn to become selves: to absorb the shared information, imitation, instruction, and norms that build the narrative. The self is socially constructed because the species is socially constructed.</p>
+<h3 id="the-reflected-self">The reflected self</h3>
+<p>Hood&rsquo;s strongest formulation: the self exists as the reflection the world holds up to us. Evidence: ostracism research. Excluded people become obsequious, doing anything to reingratiate. The need to be accepted is near-universal. The hermits are the weirdos. Public speaking terrifies because it is evaluation made visible. Happiness tracks the reflection.</p>
+<p>Hence multiple selves: the characterization shifts by context, and the shifts explain the anomalies. People plead they were &ldquo;not themselves&rdquo; last night, or blame the wine. Wine does not talk. What happened: behavior broke the characterization, so the narrator issued a correction to protect continuity. The excuses are the illusion maintaining itself.</p>
+<h3 id="the-regrets-of-the-dying">The regrets of the dying</h3>
+<p>Bronnie Ware, an Australian palliative nurse, interviewed the terminally ill about their regrets. The number one regret, by far: people felt they were not themselves, that they lived lives shaped by others&rsquo; expectations. At the clarity of death&rsquo;s approach, the reflected self stands revealed: a life spent curating the reflection instead of authoring the character.</p>
+<p>Figure 3. The reflected self. AI Podcast Curriculum, ep10 (Bruce Hood interview, 2012-07-01). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Old model</th>
+<th>Hood&rsquo;s model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Who am I</td>
+<td>An inner essence</td>
+<td>The reflection the world holds up</td>
+</tr>
+<tr>
+<td>Ostracism</td>
+<td>A social event</td>
+<td>An identity threat. Triggers ingratiation</td>
+</tr>
+<tr>
+<td>&ldquo;Not myself&rdquo;</td>
+<td>An exception</td>
+<td>The narrator patching continuity</td>
+</tr>
+<tr>
+<td>The one rule</td>
+<td>The self is authored inside</td>
+<td>The self is negotiated outside</td>
+</tr>
+</tbody>
+</table>
+<h2 id="materialism-and-the-meat-machine">Materialism and the meat machine</h2>
+<h3 id="no-pixie-dust-required">No pixie dust required</h3>
+<p>Hood is a materialist: the mind is the product of a complex biological computer, the brain. Change the brain and you change the self. Dementia&rsquo;s progressive erasure of the person is the terrible proof. No reliable evidence exists for souls or spirits, and the patterns the brain can form are near-infinite.</p>
+<p>The consequence he embraces: a sufficiently sophisticated artificial system could become self-aware. Otherwise you need non-materialism, &ldquo;pixie dust and spooks.&rdquo; He credits the &ldquo;meat machine&rdquo; phrase to Marvin Minsky. Reductionism sounds bleak until you add the social part: we are meat machines that evolved in a sea of meat machines, sharing information, which is why the machine runs a self in the first place.</p>
+<h3 id="twins-and-the-50-percent">Twins and the 50 percent</h3>
+<p>The nature-nurture accounting: identical twins, same genes, score no more than about 50 percent alike on personality measures. Genes and temperament set the starting conditions. The social environment does the rest. The self is neither essence nor blank slate. It is biology playing out in a hall of mirrors.</p>
+<h3 id="rebuilt-every-morning">Rebuilt every morning</h3>
+<p>Sleep, anesthesia, drunkenness: the characterization switches off and the brain rebuilds it on waking. Wake in a strange place and the anxiety you feel is the narrator without its cues. The continuity you experience across decades is partly real and partly maintained by bias: cognitive dissonance reframes the failures (the job was unwanted anyway, the other person was a jerk) to keep the story coherent. The self is a ship rebuilt nightly, and the crew insists it never changed.</p>
+<p>Figure 4. The nightly rebuild. AI Podcast Curriculum, ep10 (Bruce Hood interview, 2012-07-01). Shell 4. Show the new symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>The characterization</th>
+<th>Continuity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Awake</td>
+<td>Full narrator online</td>
+<td>Feels continuous</td>
+</tr>
+<tr>
+<td>Asleep, anesthetized</td>
+<td>Switched off</td>
+<td>None felt</td>
+</tr>
+<tr>
+<td>Waking</td>
+<td>Rebuilt from cues</td>
+<td>Restored, feels untouched</td>
+</tr>
+<tr>
+<td>Decades</td>
+<td>Slowly rewritten</td>
+<td>Dissonance patches the edits</td>
+</tr>
+<tr>
+<td>The new symbol</td>
+<td>The self is a maintained story</td>
+<td>Maintenance is the mechanism</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-this-means-for-the-track">What this means for the track</h2>
+<h3 id="the-debugger-is-the-deepest-bug">The debugger is the deepest bug</h3>
+<p>Every instrument from episodes 1 through 9 is held by the narrator. The double curse judges with a constructed self. Naive realism&rsquo;s &ldquo;objective&rdquo; viewer is the I taking itself at face value. The hero maker of episode 3 is the me defending its story. Bayes&rsquo; sliders are set by a narrator with interests. The arguer&rsquo;s lawyer is the self&rsquo;s press secretary.</p>
+<p>Hood does not offer an exit from the construction. He offers a different relationship to it. Knowing the self is &ldquo;an experience that is not what it seems&rdquo; does not delete the experience. It demotes the narrator from author to instrument. You still use the self. You stop obeying it blindly.</p>
+<h3 id="operating-the-instrument">Operating the instrument</h3>
+<p>Three operating rules fall out of the episode. One, distrust authorship feelings: the half-second delay means &ldquo;I decided&rdquo; is a press release. Check decisions against outcomes, not against the feeling of having chosen. Two, expect the reflection: your self-estimates track your audience. Change the audience and watch the self change. That is data about the instrument. Three, maintain the story deliberately: since dissonance will patch continuity anyway, choose the patches. The dying regret living by others&rsquo; reflections. Author the reflection you want to meet.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">What does Hood mean by &quot;illusion,&quot; exactly?</div><div class="a"><p>&ldquo;An experience that is not what it seems.&rdquo; The experience of selfhood is real. Its apparent nature is not. You seem to inhabit your body as a coherent individual with free will. Each component is illusory to some degree. Like the square your neurons fire for though nothing is there, the self is registered firmly and corresponds loosely.</p><div class="followup"><strong>Follow-up:</strong> Why does the distinction matter? &quot;No self&quot; invites nihilism and is false. &quot;Misdescribed self&quot; invites better operation and is true. You keep the instrument and lose the worship.</div></div></div>
+<div class="qa"><div class="q">What does the Libet half-second prove and not prove?</div><div class="a"><p>It proves the conscious will arrives about half a second after the brain prepares the movement: the narrator is late. It does not prove no action is ever consciously initiated. Hood explicitly limits the claim. What breaks is the universal naive model: decide, then act, always, in that order.</p><div class="followup"><strong>Follow-up:</strong> What is the practical takeaway? Treat &quot;I decided&quot; as a press release. Audit decisions by their outcomes, not by the vividness of the choosing. The feeling of authorship is the least reliable part of the process.</div></div></div>
+<div class="qa"><div class="q">What does the hamster experiment show about dualism?</div><div class="a"><p>Five-year-olds accept duplicated toys as identical but insist a duplicated hamster has a different mind, more strongly when it is named. Physical duplication is fine. Mental duplication is rejected. Dualism is not a taught doctrine. It is the natural intuition, present before schooling, matching Descartes.</p><div class="followup"><strong>Follow-up:</strong> Why does the name strengthen the effect? Identity is the me under construction. A named hamster has a story. Duplicating the story feels wrong in a way duplicating the body does not. The intuition tracks narrative, not physics.</div></div></div>
+<div class="qa"><div class="q">What is the I versus the me?</div><div class="a"><p>James&rsquo;s distinction: the I is raw conscious awareness, the appraising presence hearing these words. The me is the autobiographical narrative: birthplace, yesterday&rsquo;s lunch, the life story. Babies have the I. The me arrives years later, which is why nobody remembers being two. Culture writes the me&rsquo;s software: attributes in the West, relationships in the East.</p><div class="followup"><strong>Follow-up:</strong> What is the memory evidence? Eastern children recall early childhood better because parents narrate their days back to them earlier. The me is scaffolded by storytelling. More scaffolding, earlier me.</div></div></div>
+<div class="qa"><div class="q">Why did the self evolve, in Hood&#x27;s account?</div><div class="a"><p>The I tracks the outcomes of hidden processes: the authorship feeling summarizes what the unconscious decided, which tells you your preferences. The me enables the social game: a stable characterization lets you plan, coordinate, and predict. The long human childhood exists to install it. The species is ultra-social, so the brain runs a social interface.</p><div class="followup"><strong>Follow-up:</strong> What is the &quot;meat machine&quot; point? Minsky&#x27;s phrase, adopted by Hood: we are complex biological computers in a sea of the same. No souls required, and a sophisticated enough artificial system could in principle run a self. The wonder is not the stuff. It is the shared information.</div></div></div>
+<div class="qa"><div class="q">What is the reflected self?</div><div class="a"><p>The self as the reflection the world holds up: your identity is negotiated with your audience, not authored inside. Ostracism triggers desperate ingratiation because exclusion threatens the identity itself. &ldquo;not myself&rdquo; pleas and wine-blame are the narrator patching continuity when behavior breaks character. The number-one deathbed regret: a life lived by others&rsquo; reflections.</p><div class="followup"><strong>Follow-up:</strong> How do you operate this? Expect your self-estimates to track your audience. Treat audience-change as instrument data. And since dissonance patches continuity anyway, choose your patches deliberately instead of inheriting them.</div></div></div>
+<div class="qa"><div class="q">What does the nightly rebuild imply?</div><div class="a"><p>Sleep and anesthesia switch the characterization off. Waking rebuilds it from cues, and it feels untouched. Over decades, dissonance reframes failures to preserve continuity. The self is maintained, not given. The maintenance is invisible, which is why the continuity feels like essence.</p><div class="followup"><strong>Follow-up:</strong> What is the twins&#x27; 50 percent doing here? Identical genes, half the personality shared. The rest is the hall of mirrors: the environment, the reflections, the maintained story. Neither essence nor blank slate.</div></div></div>
+<div class="qa"><div class="q">How does this chapter close the track?</div><div class="a"><p>It turns the instruments on their holder. The double curse, naive realism, the hero maker, the sliders, the lawyer: all are operated by the narrator this chapter describes. There is no exit from the construction, only a better relationship to it: use the self as an instrument, stop obeying it as an author. The track&rsquo;s final skill: hold the debugger lightly.</p><div class="followup"><strong>Follow-up:</strong> What are the three operating rules? Distrust authorship feelings (audit by outcomes). Expect the reflection (change the audience, watch the self move). Maintain the story deliberately (choose your patches. Do not inherit the crowd&#x27;s).</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The definition: &ldquo;an experience that is not what it seems.&rdquo; Real experience, loose correspondence.</li>
+<li>The half-second: the will is the press release, not the decision.</li>
+<li>The blind hours: 2 to 3 hours of every waking day, deleted to keep the feed coherent.</li>
+<li>The duplicator: same body, different mind. Identity blocks the copy.</li>
+<li>I versus me: the appraiser versus the autobiography. One is early, one is built.</li>
+<li>The reflected self: identity is negotiated outside, not authored inside.</li>
+<li>The rebuild: switched off nightly, restored by morning, patched for decades.</li>
+<li>The regret: the dying wish to be themselves, not the reflection.</li>
+<li>Never-confuse pair: illusion versus nonexistence. The experience is real. The description is wrong. Operate the instrument. Do not worship or discard it.</li>
+<li>Never-confuse pair: the I versus the me. The I cannot be doubted while it appraises. The me is a story and can be rewritten. Debug the me. Leave the I alone.</li>
+<li>Trap card: &ldquo;I decided, then I acted.&rdquo; Libet: the brain prepared first. The order in the feeling is reversed.</li>
+<li>Trap card: &ldquo;I am the same person I was at ten.&rdquo; The ship was rebuilt nightly and patched for decades. Continuity is maintenance, not essence.</li>
+<li>Trap card: &ldquo;Knowing this frees me from the self.&rdquo; There is no exit. There is only a better relationship: instrument, not author.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: run the authorship audit. Pick three recent decisions. For each, write the outcome and what actually caused it, ignoring the feeling of having chosen. Where the feeling and the causes diverge, the press release lied. Log the divergences.</li>
+<li>Catch yourself: the next time you plead &ldquo;not myself&rdquo; or blame the wine, the tiredness, the mood, stop. Write what the characterization protected by saying that. Name the patch.</li>
+<li>Behavior change per major idea:</li>
+<li>Half-second: for one week, delay no decision but audit every outcome against the process. Build the habit of grading by results, not by the vividness of choosing.</li>
+<li>Reflected self: change one audience this week (a new group, a hard conversation). Watch your self-estimates move. Log the movement as instrument data, not as truth.</li>
+<li>The me: write your autobiography in one page, then rewrite it with the opposite moral (the same events, the villain and hero swapped). Both are constructible. Choose which one you operate.</li>
+<li>Dissonance patches: catch one reframe in the wild (the &ldquo;unwanted anyway&rdquo; move). Write the unpatched version next to it. Keep both visible for a day.</li>
+<li>The regret: ask Ware&rsquo;s question now, not at the end: where are you living by others&rsquo; reflections? Name one place and change one behavior there this week.</li>
+<li>Monthly: reread your one-page autobiography. Note the edits the month forced. The me is under maintenance. Take the maintenance contract yourself.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Unaided reasoning from first principles. No scaffolding. Your brain only.</p>
+<ol>
+<li>From the half-second delay alone, derive the strongest and weakest conclusions a careful thinker may draw. State exactly where the derivation stops being licensed. Then do the same for the 2-to-3 blind hours.</li>
+<li>The duplicator: a perfect physical copy of you is made while you sleep. It wakes with your memories. Argue, from Hood&rsquo;s materialism, that it is you. Then argue, from the children&rsquo;s intuition, that it is not. Identify the premise the two arguments do not share. Which premise would you bet your life on, and why?</li>
+<li>Reconstruct the track&rsquo;s full arc from first principles: if the self is constructed (ep10), the judge is broken (ep01), objectivity is felt not earned (ep02), beliefs are keystones (ep03), reason is social (ep04), confidence should be numeric (ep05), knowledge is outsourced (ep06), minds change from inside (ep07), communities funnel motives (ep08), and tribes tax truth (ep09), what single daily practice best honors all ten? Defend it against the strongest objection you can make.</li>
+<li>Design the experiment that would falsify Hood&rsquo;s reflected-self claim. What would have to be true of hermits, of feral children, of the ostracism findings? Be specific about the control groups.</li>
+<li>Take your most confident belief about yourself (&ldquo;I am X&rdquo;). Apply, in order: the double curse (what instrument judges this?), the two-worlds test (how likely is the evidence if you are not X?), the keystone test (what falls if you are not X?), and the reflection test (who is the audience for this X?). Write the composite verdict in three sentences.</li>
+<li>Ware&rsquo;s regret: &ldquo;I wish I lived as myself.&rdquo; Using only this track&rsquo;s instruments, define &ldquo;myself&rdquo; without circularity. If you cannot, state what that failure proves about the question.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>State the self illusion precisely: real experience, misdescribed nature.</li>
+<li>Distrust authorship feelings. Audit decisions by outcomes.</li>
+<li>Separate the I from the me. Rewrite the me deliberately.</li>
+<li>Spot narrator patches (wine-blame) in yourself and others.</li>
+<li>Treat audience-shifts as data about the instrument.</li>
+<li>Choose your dissonance patches instead of inheriting them.</li>
+<li>Hold the whole track&rsquo;s toolkit as instruments of a constructed operator, used lightly.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official episode page with audio and transcript links: https://youarenotsosmart.com/2012/07/03/yanss-podcast-episode-four/</li>
+<li>Hood&rsquo;s book The Self Illusion and his Royal Institution Christmas Lectures develop the episode&rsquo;s arguments at length. Search the exact titles [uncertain: direct links were not verifiable from this machine. Confirm the landing page before citing.]</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>The will arrives late</td>
+<td>Decide, then act</td>
+<td>Brain acts, will follows</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Minds do not duplicate</td>
+<td>Copy the body, copy the mind</td>
+<td>Copy the body. The mind refuses</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>The self is negotiated</td>
+<td>Authored inside</td>
+<td>Reflected outside</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>The self is maintained</td>
+<td>Given once</td>
+<td>Rebuilt nightly, patched for decades</td>
+<td>Figure 4</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u05</td>
+<td>Whole track trade</td>
+<td>Obey the narrator</td>
+<td>Operate the instrument</td>
+<td>Figure 5 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 (chapter plate). The cost of obeying the narrator. AI Podcast Curriculum, ep10 (original toy, 2012-07-01). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nine chapters of instruments held by an unexamined narrator. The press releases believed. The reflections mistaken for essence. The dying regret, earned daily.</td>
+<td>Three operating rules: audit by outcomes not authorship-feelings, read audience-shifts as instrument data, choose your continuity patches deliberately.</td>
+<td>The debugger held lightly. The me rewritten on purpose. The reflection authored instead of inherited.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: give up the comfort of being the author, to gain the use of the instrument.
+Footer: the self is an experience. Operate it like one.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://youarenotsosmart.com/2012/07/03/yanss-podcast-episode-four/" target="_blank" rel="noopener">004 - The Self</a></li><li><span class="src-tag">TRANSCRIPT</span><a href="https://youarenotsosmart.com/transcripts/transcript-interview-with-bruce-hood-from-episode-004/" target="_blank" rel="noopener">Transcript: Interview with Bruce Hood</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/you-are-not-so-smart/ep09.html"><span class="lbl">← Previous</span>Episode 9: Tribal Psychology with Lilliana Mason and Dan Kahan</a><a href="../../tracks/you-are-not-so-smart/cheatsheet.html"><span class="lbl">Next →</span>You Are Not So Smart with David McRaney: Cheatsheet</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
