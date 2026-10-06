@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 5: Practical wisdom with Barry Schwartz — AI Podcast Curriculum</title>
+<meta name="description" content="Barry Schwartz on the limits of rational choice theory, why counting replaces thinking, the Kahneman-Klein debate on intuition, and the components of practical ">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="clearer-thinking-ep05" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05" class="active">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Clearer Thinking with Spencer Greenberg</a> / Episode 5: Practical wisdom with Barry Schwartz</nav>
+      <h1>Episode 5: Practical wisdom with Barry Schwartz</h1>
+      <p class="meta-line">2025-10-27 · Instructor: Barry Schwartz · Clearer Thinking with Spencer Greenberg</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="KhGNvSD7WLs"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/KhGNvSD7WLs" title="Beyond the assumption that humans are rational (with Barry Schwartz)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=KhGNvSD7WLs" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=KhGNvSD7WLs" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Schwartz critiques expected-utility decision theory, explains when intuition deserves trust, and breaks practical wisdom into trainable components.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This track teaches rationality as a set of tools. This episode asks whether the toolbox is the wrong shape. Schwartz&rsquo;s target is rational choice theory, the expected-utility spreadsheet that economics treats as the definition of good deciding. His critique is not that people fail at the spreadsheet. It is that the spreadsheet fails at life: values that cannot be numbered, frames that change the answer, preferences that form during the choosing. The episode then builds the alternative: practical wisdom, with components you can actually train.</p>
+<h2 id="the-spreadsheet-and-its-failures">The spreadsheet and its failures</h2>
+<h3 id="rational-choice-theory">Rational choice theory</h3>
+<p>Definition: rational choice theory says a good decision means listing your options, assigning each a probability and a utility, multiplying, and picking the highest expected utility. It is the spreadsheet model of the mind.</p>
+<p>The theory needs three things to work. Complete options: you can list everything that matters. Measurable values: you can put numbers on every outcome. Stable preferences: your values stay put while you measure them. The episode argues that real decisions routinely lack all three.</p>
+<h3 id="counting-replaces-thinking">Counting replaces thinking</h3>
+<p>Schwartz&rsquo;s central complaint: the spreadsheet does not just measure values. It replaces judgment with arithmetic. Once everything has a number, people stop asking whether the numbers capture what matters. The quantification feels rigorous, so the thinking stops.</p>
+<p>This is not an argument against numbers. It is an argument against letting the measurable drive out the important. A decision procedure that cannot represent a value will silently optimize against it.</p>
+<h3 id="incommensurable-values">Incommensurable values</h3>
+<p>Some values cannot be priced. How much is your integrity worth in dollars? How much is a friendship worth against a promotion? Forcing such trade-offs into a common currency does not make them clearer. It distorts them.</p>
+<p>The practical point: when a decision involves values with no common measure, the spreadsheet is the wrong tool. You need judgment, conversation, and time, the materials of wisdom rather than calculation.</p>
+<p>Figure 1. What the spreadsheet needs versus what decisions offer. AI Podcast Curriculum, ep05 (Barry Schwartz interview, 2025-10-27). Shell 1. Show the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>The spreadsheet needs</th>
+<th>Real decisions offer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complete list of options</td>
+<td>Options discovered during deciding</td>
+</tr>
+<tr>
+<td>Numbers on every outcome</td>
+<td>Values with no common measure</td>
+</tr>
+<tr>
+<td>Stable preferences</td>
+<td>Preferences that form as you choose</td>
+</tr>
+<tr>
+<td>One right answer</td>
+<td>Trade-offs with no common currency</td>
+</tr>
+</tbody>
+</table>
+<h3 id="frames-change-the-answer">Frames change the answer</h3>
+<p>Definition: a frame is the description of a choice, and different descriptions of the same choice produce different decisions.</p>
+<p>The episode&rsquo;s example, via Michael Pollan: the price of beef at the counter excludes the externalities, the environmental and health costs paid elsewhere. Frame the choice as &ldquo;cheap beef versus expensive beef&rdquo; and you buy the cheap. Frame it as &ldquo;beef with hidden costs versus beef without them&rdquo; and the decision changes. The beef did not change. The frame did.</p>
+<p>The COVID example scales this up. Policy framed the choice narrowly around one metric, case counts, and the narrow frame hid the broader costs: closed schools, lost livelihoods, mental health. Narrow frames are not lies. They are spotlights. Everything outside the beam disappears from the decision.</p>
+<p>Figure 2. The frame changes the choice. AI Podcast Curriculum, ep05 (Barry Schwartz interview, 2025-10-27). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<div class="mermaid">graph LR
+    A[Same beef] --> B{Frame}
+    B -->|Counter price| C[Cheap beef: buy]
+    B -->|Full costs| D[Costly beef: reconsider]
+</div><pre class="mermaid-fallback"><code>graph LR
+    A[Same beef] --&gt; B{Frame}
+    B --&gt;|Counter price| C[Cheap beef: buy]
+    B --&gt;|Full costs| D[Costly beef: reconsider]
+</code></pre>
+<h3 id="preferences-are-constructed">Preferences are constructed</h3>
+<p>The deepest cut: preferences do not sit inside you waiting to be measured. They form during elicitation. Ask someone what they want and the asking shapes the answer. Change the order of questions, the available options, the default, and the &ldquo;preference&rdquo; moves.</p>
+<p>If preferences are constructed, the spreadsheet measures something the measuring creates. This does not make choice impossible. It makes the fantasy of revealed preference, that decisions uncover pre-existing values, untenable. Choosing well means choosing in a way that constructs preferences you can endorse on reflection.</p>
+<h2 id="system-1-system-2-and-when-to-think">System 1, System 2, and when to think</h2>
+<h3 id="the-interplay">The interplay</h3>
+<p>The episode uses Kahneman&rsquo;s two systems. System 1 is fast, intuitive, associative. System 2 is slow, deliberate, analytical. Schwartz&rsquo;s point is about their interplay, not their ranking. Good deciding is not System 2 suppressing System 1. It is the knowledge of which system to trust when.</p>
+<h3 id="the-kahneman-klein-debate">The Kahneman-Klein debate</h3>
+<p>The key evidence comes from the adversarial collaboration between Daniel Kahneman and Gary Klein. Klein studied firefighters who make life-or-death decisions in seconds and get them right. He argued intuition is real expertise. Kahneman argued intuition is unreliable. They worked together and converged.</p>
+<p>The resolution: intuition deserves trust under two conditions. The environment must be sufficiently regular for patterns to exist, and the decision-maker must get fast, unambiguous feedback. Firefighting qualifies: fires behave lawfully and feedback is immediate. Stock picking mostly does not: the environment is noisy and feedback is slow and ambiguous.</p>
+<p>Figure 3. When to trust intuition. AI Podcast Curriculum, ep05 (Barry Schwartz interview, 2025-10-27). Shell 3. Apply the one rule. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Firefighting</th>
+<th>Stock picking</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Environment regular enough for patterns</td>
+<td>Yes, fire behaves lawfully</td>
+<td>Mostly no, dominated by noise</td>
+</tr>
+<tr>
+<td>Feedback fast and unambiguous</td>
+<td>Yes, immediate</td>
+<td>No, slow and ambiguous</td>
+</tr>
+<tr>
+<td>Intuition trustworthy</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tell-me-when-to-think">Tell me when to think</h3>
+<p>The chess version: Magnus Carlsen was asked how he thinks during games, and the wisdom distilled to this: know when to think. Most positions play themselves through pattern recognition. A few are critical, and those deserve the clock. The skill is not harder thought everywhere. It allocates thought where it pays.</p>
+<p>This reframes the rationality project of this track. The goal is not to run System 2 on everything. That is impossible and would paralyze. The goal is the meta-skill: recognize the positions that deserve the clock.</p>
+<h2 id="practical-wisdom">Practical wisdom</h2>
+<h3 id="what-wisdom-is">What wisdom is</h3>
+<p>Definition: practical wisdom is the capacity to make good decisions in complex, value-laden situations where no procedure suffices. Aristotle&rsquo;s phronesis. Rules need judgment to apply, and judgment is the thing no rulebook contains.</p>
+<p>The episode breaks wisdom into components, each trainable:</p>
+<p>Reflect on aspirations: know what you are actually aiming at. Most bad decisions start from unexamined goals.</p>
+<p>Fit across life: a good decision in one domain that wrecks the others is not good. Wisdom checks the fit across work, relationships, health, and meaning.</p>
+<p>Judgment: the trained ability to weigh incommensurables, the thing the spreadsheet cannot do.</p>
+<p>Openness: the willingness to be wrong, to hear the case against your plan. This is the scout mindset from ep06, as a virtue.</p>
+<p>&ldquo;It depends&rdquo;: context sensitivity. The wise answer to most hard questions starts here, and the skill is to name what it depends on.</p>
+<h3 id="the-three-bricklayers">The three bricklayers</h3>
+<p>The classic parable: three bricklayers do the same work. Asked about their work, the first says laying bricks. The second says building a wall. The third says building a cathedral. Same motions, different meanings.</p>
+<p>The parable is about work orientation: job, career, or calling. But the episode uses it for decisions too. Two people can make the same choice with different understandings of what the choice means. Wisdom includes the cathedral view: seeing what your decisions are actually building.</p>
+<h3 id="rules-need-judgment">Rules need judgment</h3>
+<p>The closing argument: every decision procedure, including every tool in this track, needs judgment to apply. Expected utility needs judgment to set the utilities. Noise audits need judgment to pick the cases. Premortems need judgment to read the room. There is no procedure that removes the need for wisdom, because applying a procedure is itself a judgment.</p>
+<p>This does not defeat the track. It bounds it. Use the tools. But train the hand that holds them.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Explain the whole chapter like I am new. What is wrong with the spreadsheet?</div><div class="a"><p>The spreadsheet model says good decisions maximize expected utility: list options, number the outcomes, pick the biggest. It fails three ways. Real options are discovered while deciding, not listed upfront. Real values often have no common measure, so numbering distorts them. Real preferences form during the choosing, so the spreadsheet measures what the measuring creates. The alternative is practical wisdom: judgment for the parts no procedure covers.</p><div class="followup"><strong>Follow-up:</strong> When is the spreadsheet fine? When options are known, values share a measure like money, and preferences are stable. That is real, and it is narrower than economics pretends.</div></div></div>
+<div class="qa"><div class="q">What does &quot;counting replaces thinking&quot; mean? Give me a test for it.</div><div class="a"><p>Once everything has a number, people stop asking whether the numbers capture what matters. The quantification feels rigorous, so inquiry stops. The test: ask what the numbers leave out. If the answer is &ldquo;the most important things,&rdquo; counting replaced thinking.</p><div class="followup"><strong>Follow-up:</strong> Apply it to your own work. What metric do you optimize that leaves out what matters most? What would you measure if honesty beat convenience?</div></div></div>
+<div class="qa"><div class="q">Walk me through the framing example with the beef.</div><div class="a"><p>The counter price of beef excludes externalities: environmental damage, health costs, paid by others later. Framed as cheap versus expensive beef, you buy cheap. Framed as beef with hidden costs versus without, the decision shifts. Same beef, different frame, different choice. The COVID version: framing policy around case counts hid school closures and lost livelihoods from the decision.</p><div class="followup"><strong>Follow-up:</strong> What is the defense? Reframe every important decision twice before you decide. If the answer changes, the frame did the work.</div></div></div>
+<div class="qa"><div class="q">When should I trust my gut, according to Kahneman and Klein?</div><div class="a"><p>When the environment is regular enough for patterns to exist and you get fast, unambiguous feedback. Firefighters qualify. Stock pickers mostly do not. The question is never &ldquo;is intuition good.&rdquo; It is &ldquo;is this domain one where intuition learned anything.&rdquo;</p><div class="followup"><strong>Follow-up:</strong> Audit one domain where you trust your gut. Does it pass both conditions? If not, you mistake confidence for expertise.</div></div></div>
+<div class="qa"><div class="q">What does &quot;tell me when to think&quot; mean in practice?</div><div class="a"><p>Most situations play themselves through pattern recognition. A few are critical and deserve deliberate thought. The meta-skill tells the difference: it allocates your System 2 clock to the positions that pay. Thinking harder everywhere is paralysis, not rationality.</p><div class="followup"><strong>Follow-up:</strong> Try it today. Before each decision, ask: is this a pattern position or a clock position? Log your calls and review weekly.</div></div></div>
+<div class="qa"><div class="q">Break down the components of practical wisdom and tell me how to train each.</div><div class="a"><p>Reflect on aspirations: write your actual goals quarterly and check decisions against them. Fit across life: review big decisions for spillover into other domains. Judgment: practice weighing incommensurables explicitly, in writing. Openness: run the steelman drill from ep02 monthly. &ldquo;It depends&rdquo;: for every strong opinion, list what it depends on.</p><div class="followup"><strong>Follow-up:</strong> Which component is your weakest? Train that one first. Wisdom is a portfolio, and the weakest holding drags the rest.</div></div></div>
+<div class="qa"><div class="q">What is the three-bricklayers parable doing in a chapter on decisions?</div><div class="a"><p>It shows that identical actions carry different meanings. Laying bricks, building a wall, building a cathedral: same motions. Decisions work the same way. Two people can choose identically with different understandings of what they chose. Wisdom includes seeing the cathedral: what your decisions are actually building over time.</p><div class="followup"><strong>Follow-up:</strong> Which bricklayer are you at work right now? Answer honestly. Then ask what would change if you decided to be the third.</div></div></div>
+<div class="qa"><div class="q">Does this chapter argue against everything else in the track?</div><div class="a"><p>No. It bounds the tools. Every procedure needs judgment to apply: setting utilities, picking audit cases, reading the premortem room. The tools work, and the hand that holds them matters more than the tools. Train both.</p><div class="followup"><strong>Follow-up:</strong> What is the failure mode of this chapter? Using &quot;wisdom&quot; as an excuse to ignore the procedures. The bound runs both ways: judgment without hygiene is just noise with confidence.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The spreadsheet needs three things: complete options, numbered values, stable preferences. Real decisions offer none of the three.</li>
+<li>Counting replaces thinking: numbers feel rigorous, so inquiry stops. Ask what the numbers leave out.</li>
+<li>Incommensurable values: no common currency. Forcing one distorts the trade-off.</li>
+<li>Frames: same beef, different description, different choice. Reframe twice before deciding.</li>
+<li>Constructed preferences: the asking shapes the answer. Choose so you can endorse the construction.</li>
+<li>Trust intuition when: regular environment plus fast feedback. Fire yes, stocks no.</li>
+<li>Tell me when to think: pattern positions play themselves. Spend the clock on the critical few.</li>
+<li>Wisdom components: aspirations, fit, judgment, openness, it-depends. Train the weakest first.</li>
+<li>Three bricklayers: bricks, wall, cathedral. Same work, different meaning. See the cathedral.</li>
+<li>Rules need judgment: applying a procedure is itself a judgment. No procedure removes the need for wisdom.</li>
+<li>Never-confuse pair: the spreadsheet versus wisdom. The spreadsheet optimizes the measurable. Wisdom judges the rest. You need both, in that order of operations.</li>
+<li>Trap card: &ldquo;I quantified it, so it is rigorous.&rdquo; Rigor in, rigor out. Garbage utilities give garbage maxima.</li>
+<li>Trap card: &ldquo;My gut is expert because I have experience.&rdquo; Experience without regularity and feedback is just seniority. Check both conditions.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: take one pending decision and reframe it twice, in writing. If the answer changes across frames, the frame decided, not you. Decide only after the third frame.</li>
+<li>Catch yourself: the next time you reach for a spreadsheet, stop and list what the numbers leave out. If the list holds the most important things, put the spreadsheet down and think first.</li>
+<li>Behavior change per major idea:</li>
+<li>Counting versus thinking: audit one metric you optimize. Write what it excludes. Decide whether the exclusion is acceptable.</li>
+<li>Incommensurables: for your next value trade-off, refuse the common currency. Write the trade-off in its own terms and sit with the discomfort.</li>
+<li>Framing: reframe every consequential choice twice before deciding, for one month.</li>
+<li>Constructed preferences: notice when a question shapes your answer. Ask how the answer moves with the question order.</li>
+<li>Intuition trust: list three domains where you trust your gut. Score each on regularity and feedback speed. Demote the failures.</li>
+<li>Clock allocation: label decisions as pattern or clock positions for one week. Review whether the clock went to the right places.</li>
+<li>Wisdom components: score yourself 1 to 10 on each of the five. Train the lowest for a month.</li>
+<li>Monthly: review your big decisions. For each, ask: did the procedure serve the judgment, or replace it? Adjust the balance.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Harder drills. Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Fermi: you make roughly 35,000 decisions a day by some counts, most trivial. If 1 percent deserve the clock and each takes 10 minutes of System 2, how many hours is that? (Answer: 350 decisions times 10 minutes is about 58 hours, impossible. Now ask: what does that imply about the real job of &ldquo;tell me when to think&rdquo;?)</li>
+<li>Argue both sides: &ldquo;Incommensurable values are just unpriced externalities waiting for better measurement.&rdquo; Steelman it: everything trades off against everything, so a common currency must exist. Rebut it: where does the argument break? Write the break as a principle.</li>
+<li>Journal: &ldquo;When did counting replace my thinking?&rdquo; Write one real case where a metric drove out judgment. What did the numbers leave out? What did it cost?</li>
+<li>First principles: derive the Kahneman-Klein conditions from scratch. Why should regularity plus feedback produce trustworthy intuition? What kind of learning could happen with regularity but no feedback? With feedback but no regularity?</li>
+<li>Observe: for one week, catch frames in the wild: headlines, prices, policy pitches. For each, write the reframe that flips the choice. How many of your own recent decisions were frame-driven?</li>
+<li>Design: you must choose between two job offers with incommensurable values: money versus meaning, prestige versus freedom. Write the decision procedure that refuses the spreadsheet. What does it do instead, step by step?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Test any decision procedure against the three spreadsheet requirements.</li>
+<li>Detect when counting replaced thinking, and name what the numbers leave out.</li>
+<li>Reframe consequential choices twice before deciding.</li>
+<li>Score intuition trust by environment regularity and feedback speed.</li>
+<li>Allocate deliberation to clock positions, not everywhere.</li>
+<li>Train the five wisdom components, weakest first.</li>
+<li>Apply any procedure with judgment, never instead of judgment.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Barry Schwartz&rsquo;s work on choice and wisdom: https://en.wikipedia.org/wiki/Barry_Schwartz_(psychologist)</li>
+<li>Clearer Thinking&rsquo;s free tools for better decisions: https://www.clearerthinking.org</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Spreadsheet demands the impossible</td>
+<td>Decisions are calculations</td>
+<td>Needs complete options, measures, stable prefs</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Frames decide</td>
+<td>Choices reveal prefs</td>
+<td>Same choice, different frame, different answer</td>
+<td>Figure 2</td>
+<td>mermaid</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Intuition has conditions</td>
+<td>Gut is good or bad</td>
+<td>Regularity plus feedback decides</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Wisdom bounds the tools</td>
+<td>Tools suffice</td>
+<td>Judgment applies every procedure</td>
+<td>Figure 4 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 4 (chapter plate). Practical wisdom on one page. AI Podcast Curriculum, ep05 (original toy, 2025-10-27). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spreadsheets optimizing the measurable. Frames unexamined. Gut trusted in noisy domains. Clock spent everywhere.</td>
+<td>The three spreadsheet requirements plus intuition conditions plus the wisdom components, on one index card.</td>
+<td>Decisions reframed twice. Intuition audited by domain. Clock on critical positions. Weakest wisdom component in training.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: pay the effort of judgment to apply the tools, instead of paying the price of the tools applied blindly.
+Footer: the tools work. The hand matters more.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=KhGNvSD7WLs" target="_blank" rel="noopener">Practical wisdom with Barry Schwartz</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/clearer-thinking/ep04.html"><span class="lbl">← Previous</span>Episode 4: Noise with Daniel Kahneman</a><a href="../../tracks/clearer-thinking/ep06.html"><span class="lbl">Next →</span>Episode 6: The scout mindset with Julia Galef</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
