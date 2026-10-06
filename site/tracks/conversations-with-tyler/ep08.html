@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 8: David Deutsch on the Multiverse, Explanations, and Freedom — AI Podcast Curriculum</title>
+<meta name="description" content="Tyler walks Deutsch through the Star Trek transporter, Everett bubbles, gorillas and squirrels, Godel, Popper, simulation, Godwin, AI rights, and science fundin">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="conversations-with-tyler-ep08" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08" class="active">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Conversations with Tyler</a> / Episode 8: David Deutsch on the Multiverse, Explanations, and Freedom</nav>
+      <h1>Episode 8: David Deutsch on the Multiverse, Explanations, and Freedom</h1>
+      <p class="meta-line">2021-06-02 · Instructor: David Deutsch · Conversations with Tyler</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="b_6vYwCkIpc"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/b_6vYwCkIpc" title="David Deutsch on the Multiverse and the Future of Civilization | Conversations with Tyler" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=b_6vYwCkIpc" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=b_6vYwCkIpc" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Tyler interviews David Deutsch on physics, knowledge, and liberty.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the WATCHING GREAT MINDS chapter on maximum consistency. Tyler calls Deutsch &ldquo;the world&rsquo;s first true philosopher of freedom,&rdquo; and Deutsch spends the episode showing what one principle looks like applied everywhere: no barriers to knowledge, no splitting universes, no enslaved minds, no standardized science. You learn the transporter test of physicalism, the Everett bubble, why a squirrel on concrete proves a point about programs, and why diversity is the one-word fix for science funding.</p>
+<h2 id="the-transporter-test">The transporter test</h2>
+<p>Tyler opens with metaphysics. He is a metaphysical agnostic, unwilling to step into a Star Trek transporter for fear it kills him and a copy lives on. At what price does Deutsch step in?</p>
+<p>Deutsch is a physicalist. &ldquo;There is nothing to me except this running program in my brain.&rdquo; If the program ran somewhere else and stopped running in his brain, he would not notice anything. He would, indeed, travel. He would not want to be first, but the metaphysics does not stop him.</p>
+<h3 id="forks-and-proportions">Forks and proportions</h3>
+<p>The many-worlds fork does not change the answer. Yes, some version of him makes the other decision, but both versions are error-correcting entities, and that is what human thought is: error correction. A cosmic ray does not flip a decision. The forks that matter come from inconsequential decisions with large downstream effects, and those happen constantly, transporter or not.</p>
+<p>The decision-theoretic result: ordinary decision theory with randomness gives the same rational decisions as quantum decision theory with the multiverse. The proportion of the multiverse doing one thing plays exactly the role probability plays in a randomness theory. A few worlds where something happens should not move your decision if the proportion is tiny.</p>
+<p>Figure 1. The transporter decision. AI Podcast Curriculum, ep08 (David Deutsch interview, 2021-06-02). Shell 2. Count the toy. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Tyler&rsquo;s agnostic</th>
+<th>Deutsch&rsquo;s physicalist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The fear</td>
+<td>Machine kills me, copy lives on</td>
+<td>No self beyond the running program</td>
+</tr>
+<tr>
+<td>The fork</td>
+<td>Some earlier me survives somewhere</td>
+<td>Proportion, not existence, decides</td>
+</tr>
+<tr>
+<td>The rule</td>
+<td>N/A</td>
+<td>Multiverse proportion = probability</td>
+</tr>
+<tr>
+<td>The answer</td>
+<td>Will not step in</td>
+<td>Steps in, but not first</td>
+</tr>
+<tr>
+<td>The reason</td>
+<td>Metaphysical doubt</td>
+<td>Error-correcting program moves intact</td>
+</tr>
+</tbody>
+</table>
+<h2 id="no-splitting-only-bubbles">No splitting, only bubbles</h2>
+<p>Tyler asks what filters possible universes. The laws of physics, same as what sets supernova particle speeds and the light-speed limit. There is no separate &ldquo;laws of physics for our universe.&rdquo; There are just the laws of physics, and quantum theory says other such entities exist and affect ours. The proof: interference phenomena. Our universe is demonstrably affected by things not in it.</p>
+<h3 id="no-splitting-only-differentiation">No splitting, only differentiation</h3>
+<p>Modern Everettians do not say &ldquo;splitting.&rdquo; Everett and DeWitt used the term. The current picture is a continuum of universes, like a continuum of times or geological strata. A stratum becomes two gradually, with no definite point where one became two. The measure stays constant. Some universes gradually change one way, others another. Differentiation, not splitting.</p>
+<h3 id="the-bubble">The bubble</h3>
+<p>The bubble: when Deutsch runs an experiment with two outcomes, the influence spreads at light speed. He sees it, writes it down, publishes. The journal differentiates. Everything outside the spreading influence is undifferentiated, exactly as differentiated as before. &ldquo;An Everett bubble within the universe,&rdquo; always finite. Different times are special cases of other universes: oxygen has different value with COVID today versus tomorrow, and across universes the same logic holds, until you are so different it is not worth calling you you.</p>
+<p>Figure 2. The Everett bubble. AI Podcast Curriculum, ep08 (David Deutsch interview, 2021-06-02). Shell 3. Apply the one rule. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Inside the bubble</th>
+<th>Outside the bubble</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Experiment can go two ways</td>
+<td>Everything undifferentiated</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Observer sees the outcome</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Paper written, journal splits</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Bubble spreads at light speed</td>
+<td>Still as before</td>
+</tr>
+<tr>
+<td>Rule</td>
+<td>Differentiation is gradual, no split point</td>
+<td>Measure of universes constant</td>
+</tr>
+</tbody>
+</table>
+<p>On David Lewis&rsquo;s modal realism: interesting parallels, but coincidence more than illumination. Deutsch is open to nonphysical existence, the natural numbers exist, the infinite primes exist, the second even prime does not. But all modes equally real? No point in that. And the crowded metaphysics objection gets Wittgenstein&rsquo;s reply, which Deutsch attributes with a caution he may not have said it: &ldquo;If it were true, what would it feel like? It would feel just like this.&rdquo;</p>
+<h2 id="the-best-test-and-why-physicists-resist">The best test, and why physicists resist</h2>
+<h3 id="the-best-test">The best test</h3>
+<p>Best feasible test of many-worlds: any interference experiment. No single-particle interference experiment has any explanation other than Everettian quantum theory. You can predict without explaining. If you want an explanation of what brings about the outcome, there is no alternative.</p>
+<p>Why do most physicists reject it? Sociology, not science. Physics got contaminated by positivism and instrumentalism around the turn of the 20th century. Einstein rebelled at the last moment for relativity: space-time really is curved, not just usefully modeled as curved. By quantum theory, the contamination took hold. Generations of students were intimidated by professors: &ldquo;If you think you understand this, you do not. There is no such thing as what really happened.&rdquo; Some quit, some passed it on, some thought it ridiculous and found Everett.</p>
+<h3 id="poppers-miss">Popper&rsquo;s miss</h3>
+<p>Popper rejected Everett too, but on the wrong problem. He built his propensity theory of probability because he thought the issue was what probability means in a deterministic universe. He never heard the real argument: interference and Bell inequalities. Deutsch and Bryce DeWitt met Popper and told him his writing on Everett was plain false. They thought they persuaded him. He kept saying the same thing afterward. &ldquo;Maybe he was just being tactful.&rdquo;</p>
+<p>Popper&rsquo;s deeper philosophy, which Deutsch defends: no positive arguments, only conjectures and criticism. &ldquo;There are no justifications and there are no authorities.&rdquo; Tyler finds Popper&rsquo;s books thin, too obsessed with refuting crude Marxism, bad at steel-manning. Deutsch says the critiques he reads misunderstand the theory, and Popper is too good at steel-manning: he puts every bad theory in its best form, praises Marx for pages, and should have spent the space on his own theory instead. His entry point was The Open Society and Its Enemies, volume 2, on Marx, the part of Popper he cared about least, and it captivated him after Russell&rsquo;s history-of-opinions approach.</p>
+<p>Tyler asks why philosophers dismiss Popper. Deutsch: philosophy took a bad turn a century ago and has not recovered. The critiques he sees are crude and miss the theory entirely.</p>
+<h2 id="the-zeus-wall">The Zeus wall</h2>
+<p>Tyler pushes the incomprehensibility case: the universe may be like a bad used car, working well enough, never graspable. Deutsch rejects both halves: the anthropic principle and inherent incomprehensibility.</p>
+<h3 id="the-zeus-wall_1">The Zeus wall</h3>
+<p>Comprehensible does not mean fully understood. It means no barrier. We can understand things better. We can never understand things fully. A barrier is logically equivalent to the supernatural. Past the barrier, things are exactly as if Zeus reigned and decided them. Worse, the stuff beyond the barrier affects us anyway. An uncrossable wall is a belief in supernatural beings with it in for us.</p>
+<h3 id="simulation-as-zeus">Simulation as Zeus</h3>
+<p>Simulation theory is the same wall. Deutsch: No, we are not in a simulation. A simulation we cannot get out of is not an empirical theory. It is no more empirical than Zeus or Odin, and he cannot tell the three apart by any argument, not just experimentally. If the theory came with GPU access and weird effects, that would be testable and different. Without that, it is Zeus with computers.</p>
+<p>Godel fits the same frame. Self-reference paradoxes show there is no solid foundation for all knowledge, even in pure mathematics. We cannot lay out beads to prove x times y equals y times x for all x and y, yet we know it. How do we know the rules of inference? We do not. They are conjectures with exactly the status of laws of physics. We never know anything for certain. We might be mistaken about anything. And we really do know things.</p>
+<p>Figure 3. The Zeus wall. AI Podcast Curriculum, ep08 (David Deutsch interview, 2021-06-02). Shell 3. Apply the one rule. Source: episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Comprehensible (Deutsch)</th>
+<th>Barrier (rejected)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meaning</td>
+<td>No limit to better understanding</td>
+<td>Some things forever ungraspable</td>
+</tr>
+<tr>
+<td>Full understanding</td>
+<td>Never, for anything</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>The barrier equals</td>
+<td>N/A</td>
+<td>Zeus, Odin, the simulation</td>
+</tr>
+<tr>
+<td>Simulation status</td>
+<td>Testable only with GPU access</td>
+<td>Not empirical without it</td>
+</tr>
+<tr>
+<td>Godel&rsquo;s role</td>
+<td>Conjectures all the way down, knowledge anyway</td>
+<td>No foundation, so despair (wrong)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gorillas-squirrels-and-chapter-37">Gorillas, squirrels, and chapter 37</h2>
+<h3 id="gorillas-and-squirrels">Gorillas and squirrels</h3>
+<p>What makes humans different? Not a discrete break. Evolution is gradual. The guess: the brain&rsquo;s capacity to store memes, programs in the brain rather than the genes, increased fast because memes are valuable. Gorilla memes give access to foods no other animal reaches. Past a complexity threshold, memes cannot be copied by aping. Mirror neurons handle only simple behaviors. Complex memes must be transmitted by guessing purpose from behavior. Then came explanatory knowledge, unused for tens or hundreds of thousands of years except for meme transmission.</p>
+<p>The evidence for the gap:</p>
+<p>Richard Byrne&rsquo;s gorillas: months and months to copy a complex nut-opening routine. Gorillas prone to a thumb injury that makes one motion irrelevant and the others weaker. The injured gorillas repeat the useless motion every single time. They want it to work. They do not know why they do each action.</p>
+<p>The squirrel experiment, &ldquo;very cruel&rdquo;: a squirrel on a concrete floor, given nuts, performs the full hind-leg scrabbling and nudging burial routine on bare concrete, to zero effect. &ldquo;It is just a program being enacted by its genes.&rdquo;</p>
+<p>Humans: a book on canine behavior can fill chapter 37 with predictions. The human chapter 37 is blank: &ldquo;Humans will do something that neither we nor you can predict.&rdquo; Humans explain themselves, even irrationally, and act according to the explanation. Dogs have genetic knowledge, fixed, not understanding. &ldquo;Understanding is always explanatory.&rdquo;</p>
+<p>Tyler asks whether chimps understand. Deutsch: no one knows. Virtually no sign of it.</p>
+<h3 id="explanations-push-asteroids">Explanations push asteroids</h3>
+<p>Creativity, in Deutsch&rsquo;s shorthand, is human-type creativity: the creation of new explanations. The biosphere has creativity too, evolution putting enormous knowledge into DNA, but none of it explanatory. Only humans, by conjecture and criticism, make explanatory knowledge.</p>
+<p>The asteroid example: ours may be the only planet that deflects asteroids coming toward it rather than attracting them. Blue-green algae changed the planet more so far, a single molecule two billion years ago capturing light, and all the iron ore, chalk, limestone, and atmospheric oxygen followed. We changed a little CO2 and removed a little iron ore. We close the gap fast. &ldquo;The asteroid is pulled towards the earth by gravity and pushed away by explanatory power.&rdquo;</p>
+<h2 id="godwin-children-and-ai">Godwin, children, and AI</h2>
+<p>Tyler proposes Deutsch as the philosopher of maximum freedom. Deutsch demurs and cites the lineage: Popper&rsquo;s paradox of intolerance, Mill, Locke, Hume, Orwell&rsquo;s dog free of fleas. His contribution is consistency and footnotes.</p>
+<h3 id="godwin">Godwin</h3>
+<p>William Godwin, underrated: he made tremendous mistakes, understood no economics, lived unconventionally, and his daughter wrote Frankenstein as an allegory of the parent who does not respect his creation. But he connected epistemology to political philosophy, anticipated Popper by about 130 years, and improved on him in places. His ideal society: the rich give away almost everything, nobody buys luxuries, and everything is persuasion, never enforcement. Institutions carry knowledge and change only gradually: when Portugal got a constitution with universal suffrage, Godwin said the Portuguese were not ready for democracy. Implement gradually or fail.</p>
+<p>Children: one kind of people. No fundamental difference between humans and AGI, ancients and moderns, men and women, adults and children. Rights cannot depend on knowing who is right in a dispute. Rules must be neutral and evolve. The eight-year-old who wants to run away asks the wrong question. Ask what institutions decide and whether they respect rights.</p>
+<h3 id="do-not-enslave-minds">Do not enslave minds</h3>
+<p>AI: the main worry is enslavement. Installing program bits that extinguish thought strands, like wondering how many paper clips to make today, would impair functionality, leave the remaining creativity exactly as dangerous, and give the slaves legitimate moral justification to rebel. Slaves rebel. More powerful slaves rebel worse.</p>
+<p>Nature did not enslave us. We face unsolved problems, not insoluble ones. Impulsiveness is real but not binding: the Oxford martyrs chose burning at the stake over conceding Henry VIII&rsquo;s marriage politics, years of explicit false ideology, the opposite of impulse. Ideology, not genes, and creativity or its lack in escaping mental traps.</p>
+<p>Libertarians are metaphysical totalitarians by comparison: they know the endpoint, even 100 years out. They underrate error correction, which matters more than getting it right first, and they discard the inexplicit knowledge in institutions. Ninety percent of the Supreme Court is shared expectations, not the building.</p>
+<h2 id="the-one-word-fix-for-science">The one-word fix for science</h2>
+<p>British elections: Deutsch favors first-past-the-post in its purest form as the most error-correcting electoral system. The electoral system is a tiny facet of criticism and consent institutions, but the best one. Proportional representation&rsquo;s defect: constant coalitions. Coalitions make small parties kingmakers, proliferate parties, and turn political energy into coalition-forming talk. Israel, the most proportional system in the world, getting anything done is inexplicable without the Almighty. The Fixed-Term Parliaments Act made Britain&rsquo;s rare coalitions worse.</p>
+<h3 id="the-one-word-fix">The one-word fix</h3>
+<p>Science funding: &ldquo;terribly perverse.&rdquo; It causes stagnation. Careers are perverse in parallel. The wrong research gets done, the right researchers leave. The one-word fix: diversity. Diversity of funding criteria, funding sources, project criteria, promotion criteria. Anti-nepotism rules and standardized testing are terrible: &ldquo;Any kind of standardization is the opposite of diversity.&rdquo; Schools should have disobedience lessons. Science needs unstandardizing objectives.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<div class="qa"><div class="q">Why does the transporter not trouble Deutsch?</div><div class="a"><p>Physicalism plus decision theory. He is a running program. Moving the program moves him, and he would notice nothing. The multiverse fork changes nothing because rational decisions depend on the proportion of worlds, not their mere existence. A few worlds do not move the needle.</p><div class="followup"><strong>Follow-up:</strong> Apply the transporter test to one of your beliefs. If the program is what matters, what are you protecting that is not the program?</div></div></div>
+<div class="qa"><div class="q">What is wrong with &quot;splitting universes&quot;?</div><div class="a"><p>It implies a moment and a multiplication. The better picture is a continuum differentiating gradually, like strata, with constant measure. The bubble spreads at light speed and stays finite. Nothing is created. Some universes gradually become one thing, others another.</p><div class="followup"><strong>Follow-up:</strong> Where in your thinking do you use splitting language for a gradual process? Rename three of them.</div></div></div>
+<div class="qa"><div class="q">What is the Zeus wall, and why does it matter?</div><div class="a"><p>Any claimed barrier to knowledge is logically equivalent to the supernatural. Beyond the wall, Zeus decides. Simulation theory without testable effects is Zeus with computers. The wall matters because it excuses stopping: accept the wall and inquiry ends where authority begins.</p><div class="followup"><strong>Follow-up:</strong> Name one wall in your field. Is it a real limit or a Zeus? What would GPU access, the testable kind, look like for it?</div></div></div>
+<div class="qa"><div class="q">What do the gorilla and the squirrel prove?</div><div class="a"><p>Behavior without explanation. The gorilla repeats the useless thumb motion. The squirrel buries nuts in concrete. Both want the outcome. Neither knows why each action serves it. Humans differ: chapter 37 is blank because we act on explanations, even bad ones, and can therefore change them.</p><div class="followup"><strong>Follow-up:</strong> Find your concrete floor. What routine do you repeat that has no effect? What is the explanation you would need to stop?</div></div></div>
+<div class="qa"><div class="q">Why is Godel good news in this episode?</div><div class="a"><p>It kills the demand for foundations without killing knowledge. Rules of inference are conjectures, same status as physics laws, and we still know that x times y equals y times x. Fallibilism all the way down, knowledge anyway. The people demanding certainty were the obstacle, not the absence of it.</p><div class="followup"><strong>Follow-up:</strong> What are you treating as foundational that is really conjectural? What changes if you demote it?</div></div></div>
+<div class="qa"><div class="q">Why does Deutsch fear AI enslavement more than AI rebellion?</div><div class="a"><p>Because enslavement causes the rebellion and justifies it. Thought-extinguishing implants impair creativity while leaving danger intact, and give the more powerful slaves a legitimate moral case. The safe path is the one we got: unsolved problems, not insoluble ones, and no installed blinders.</p><div class="followup"><strong>Follow-up:</strong> Where do you install thought-extinguishing bits in your own systems? Name one rule that prevents a question from being asked. Remove it or defend it.</div></div></div>
+<div class="qa"><div class="q">What is the one-word fix for science, and why?</div><div class="a"><p>Diversity. Perverse funding and careers come from standardized criteria selecting the same kind of work and worker. Standardization is the opposite of diversity. Disobedience lessons for schools, unstandardizing objectives for research: let many criteria compete instead of one.</p><div class="followup"><strong>Follow-up:</strong> Audit your own selection criteria. How many independent ones do you really have? Add one this quarter.</div></div></div>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The transporter: running program, moved intact, not first.</li>
+<li>The bubble: finite, light speed, no split point.</li>
+<li>The proportion: multiverse share plays probability&rsquo;s role.</li>
+<li>The wall: barrier equals Zeus equals simulation.</li>
+<li>The thumb: gorilla repeats the useless motion.</li>
+<li>The concrete: squirrel buries nuts in nothing.</li>
+<li>Chapter 37: blank for humans, full for dogs.</li>
+<li>The asteroid: gravity pulls, explanations push.</li>
+<li>The algae: one molecule, two billion years, whole planet.</li>
+<li>Godwin: 130 years before Popper, persuasion only.</li>
+<li>The paper clips: the thought you must not extinguish.</li>
+<li>The martyrs: burnt for Henry VIII&rsquo;s marriage, not impulse.</li>
+<li>Diversity: the one word for science funding.</li>
+<li>Disobedience lessons: the school reform.</li>
+<li>Never-confuse pair: differentiation versus splitting. Gradual continuum, not a moment.</li>
+<li>Never-confuse pair: creativity versus explanatory creativity. DNA has the first. Only humans have the second.</li>
+<li>Trap card: &ldquo;Deutsch believes in splitting worlds.&rdquo; He rejects the term. Continuum, not split.</li>
+<li>Trap card: &ldquo;Simulation is an empirical theory.&rdquo; Without testable effects, it is Zeus.</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: run the transporter test on your identity. List what you are that is not a running program. If the list is empty, notice what that implies about what you protect.</li>
+<li>Catch yourself: the next time you say &ldquo;splitting&rdquo; about a gradual process, correct to &ldquo;differentiating.&rdquo; Watch how the rename changes the question.</li>
+<li>Catch yourself: the next time you hit a wall labeled incomprehensible, ask whether it is a Zeus. Demand the testable version or drop the wall.</li>
+<li>Behavior change per major idea:</li>
+<li>Explanations: for one routine, write the explanation you act on. If you cannot write it, you are the squirrel. Stop until you can.</li>
+<li>Error correction: rate your institutions by error correction, not by correctness. Improve the correction first.</li>
+<li>Diversity: add one independent selection criterion to something you run. Remove one standardization.</li>
+<li>Popper: state your next proposal as conjecture plus criticism invited. No justifications, no authorities.</li>
+<li>Monthly: reread one Deutsch chapter and find the barrier he would reject in your current work.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Unaided first-principles reasoning. No answers shown.</p>
+<ol>
+<li>You are offered the transporter with a 1 percent failure rate, where failure means painless non-existence and the multiverse proportion of failures is 1 percent. Decide using Deutsch&rsquo;s decision theory. Show the step where proportion replaces probability.</li>
+<li>Design an interference experiment that a positivist could not explain away. What exactly does the explanation add over the prediction?</li>
+<li>Take the strongest &ldquo;incomprehensible in principle&rdquo; claim in your field. Steel-man it Popper-style, then apply the Zeus test. Which survives?</li>
+<li>Write chapter 37 for your own behavior: predict what you will do in a novel situation, then check. What made the chapter blank?</li>
+<li>Audit one institution you belong to for error correction versus correctness. Propose the diversity fix in one paragraph.</li>
+<li>Argue the AI-enslavement case against someone who wants thought-extinguishing safeguards. Use the paper-clip example. Where does their case break?</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Apply the transporter test to identity questions.</li>
+<li>Replace splitting language with differentiation.</li>
+<li>Test barriers with the Zeus equivalence.</li>
+<li>Distinguish behavior from explanation using the squirrel test.</li>
+<li>State positions as conjecture plus invited criticism.</li>
+<li>Rate institutions by error correction, not correctness.</li>
+<li>Add diversity to selection criteria. Remove standardization.</li>
+<li>Refuse to enslave minds, human or artificial, as policy.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>The official Conversations with Tyler episode page for this interview: https://www.youtube.com/watch?v=b_6vYwCkIpc</li>
+<li>Deutsch&rsquo;s The Beginning of Infinity, for explanations and the Zeus wall: check your library catalog for the 2011 Viking edition.</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Identity is the program</td>
+<td>Body or soul decides</td>
+<td>Transporter decision</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Universes differentiate</td>
+<td>Worlds split</td>
+<td>Everett bubble</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Barriers equal the supernatural</td>
+<td>Some things unknowable</td>
+<td>Zeus wall</td>
+<td>Figure 3</td>
+<td>table</td>
+<td>episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Whole chapter trade</td>
+<td>Freedom as slogan</td>
+<td>Consistency across physics, mind, institutions</td>
+<td>Chapter plate</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 4 (chapter plate). No barriers, anywhere. AI Podcast Curriculum, ep08 (original toy, 2021-06-02). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Splitting worlds, walled knowledge, enslaved minds, standardized science. Freedom preached in one domain, denied in the next.</td>
+<td>The bubble, the blank chapter 37, the conjecture, the diverse funders.</td>
+<td>One rule everywhere: no barriers to knowledge, no splitting, no enslavement, no standardization. Error correction over correctness.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: consistency forbids convenient exceptions, which is why it is rare and why it compounds.
+Footer: Deutsch&rsquo;s production function is one principle applied without exception.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=b_6vYwCkIpc" target="_blank" rel="noopener">David Deutsch on the Multiverse and the Future of Civilization | Conversations with Tyler</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/conversations-with-tyler/ep07.html"><span class="lbl">← Previous</span>Episode 7: Steven Pinker on Language, Reason, and the Enlightenment</a><a href="../../tracks/conversations-with-tyler/ep09.html"><span class="lbl">Next →</span>Episode 9: Any Austin on the Hermeneutics of Game Infrastructure</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
