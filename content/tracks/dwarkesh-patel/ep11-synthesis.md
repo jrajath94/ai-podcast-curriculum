@@ -42,7 +42,7 @@ What none of the episodes open: the GPU itself, the rack that holds eight of the
 A datacenter GPU (H100/H200/GB200 generation) is a small city of parallel arithmetic:
 
 - Streaming multiprocessors (SMs): ~144 on an H100, each with tensor cores for matrix math. The tensor cores are the AI: they do the multiply-accumulate operations that neural networks are made of, at low precision (FP8/FP16), very fast.
-- High-bandwidth memory (HBM): stacked memory dies sitting next to the compute, ~80GB on an H100, with ~3TB/s of bandwidth. The bottleneck in AI is usually moving data, not computing; HBM is the answer.
+- High-bandwidth memory (HBM): stacked memory dies sitting next to the compute, ~80GB on an H100, with ~3TB/s of bandwidth. The bottleneck in AI is usually moving data, not computing. HBM is the answer.
 - NVLink: high-speed interconnects between GPUs, so eight GPUs in a server act as one bigger GPU.
 - The die is huge (~800mm² on 4nm-class process), which is why yields and cost are what they are [episode-adjacent: this is the physical reason behind ep07's silicon layer].
 
@@ -55,9 +55,9 @@ The DGX / HGX unit: 8 GPUs in one server chassis, connected by NVLink/NVSwitch s
 - 8× GPUs with NVLink: the compute.
 - CPUs: the coordinators (data loading, orchestration).
 - Networking: InfiniBand or Ethernet to connect servers.
-- Power: tens of kilowatts per rack; cooling to match.
+- Power: tens of kilowatts per rack. Cooling to match.
 
-The rack is the smallest unit that trains real models. One GPU is a toy; eight is a workstation; the rack is where distributed training begins.
+The rack is the smallest unit that trains real models. One GPU is a toy. Eight is a workstation. The rack is where distributed training begins.
 
 ### Building the cluster [added]
 
@@ -69,7 +69,7 @@ From racks to the 1GW datacenter of ep08:
 
 The failure math: at thousands of GPUs, something is always broken. Cluster software must route around dead GPUs, checkpoint constantly, and restart. This is the operational reality behind "the factory": it is not 10,000 working GPUs, it is 10,000 GPUs with a few always broken and the system not caring.
 
-Figure 1. The stack, from die to datacenter. Source: synthesis ([episode] claims from the track; [added] from verified 2026 sources).
+Figure 1. The stack, from die to datacenter. AI Podcast Curriculum, ep11 (synthesis chapter, 2026-10-06). Shell 4. Show the new symbol: the five-layer stack. Source: synthesis table ([episode] claims and [added] verified 2026 sources).
 
 | Layer | Unit | What it does | Source |
 |---|---|---|---|
@@ -79,6 +79,14 @@ Figure 1. The stack, from die to datacenter. Source: synthesis ([episode] claims
 | Cluster | Thousands of GPUs | One machine via fabric | [episode: ep07 factory] |
 | Datacenter | ~330K GPUs ≈ 1GW | The AI factory | [episode: ep01, ep08] |
 
+Figure 2. What breaks at each scale. AI Podcast Curriculum, ep11 (synthesis chapter, 2026-10-06). Shell 2. Count the toy: the failure regime changes with scale. Source: synthesis table ([episode] claims and [added] verified 2026 sources).
+
+| Scale | Failure regime | The ops answer |
+|---|---|---|
+| 1 GPU | a toy: nothing breaks that matters | none needed |
+| 8 GPUs | a workstation | none needed |
+| Thousands of GPUs | something is always broken | checkpoint, route around, restart |
+
 ### The cross-link
 
 The Acquired track in this curriculum built a fuller version of this chapter (their ep11-synthesis covers H100 internals, the DGX rack, and a worked 1,000-GPU cluster build). This chapter is the Dwarkesh-grounded compact version: the same physical facts, anchored to what this track's guests actually said. For the deeper worked build, see the Acquired track's synthesis.
@@ -87,15 +95,15 @@ The Acquired track in this curriculum built a fuller version of this chapter (th
 
 **1. What is a tensor core? [added]**
 
-A specialized arithmetic unit that does matrix multiply-accumulate very fast at low precision. Neural networks are mostly matrix multiplications; tensor cores are the hardware that makes them economical. The rest of the GPU exists to feed them.
+A specialized arithmetic unit that does matrix multiply-accumulate very fast at low precision. Neural networks are mostly matrix multiplications. Tensor cores are the hardware that makes them economical. The rest of the GPU exists to feed them.
 
 **2. Why does HBM matter more than raw compute? [added]**
 
-Because AI is bottlenecked by moving data, not by arithmetic. HBM stacks memory next to the compute die for ~3TB/s of bandwidth. A GPU with infinite FLOPs and slow memory starves; HBM keeps it fed.
+Because AI is bottlenecked by moving data, not by arithmetic. HBM stacks memory next to the compute die for ~3TB/s of bandwidth. A GPU with infinite FLOPs and slow memory starves. HBM keeps it fed.
 
 **3. Why 8 GPUs per server? [added]**
 
-NVLink connects 8 GPUs at high enough bandwidth that they share memory effectively, acting as one bigger GPU. Beyond 8, the interconnect physics gets harder; the datacenter fabric (InfiniBand) takes over between servers.
+NVLink connects 8 GPUs at high enough bandwidth that they share memory effectively, acting as one bigger GPU. Beyond 8, the interconnect physics gets harder. The datacenter fabric (InfiniBand) takes over between servers.
 
 **4. What breaks at cluster scale? [added]**
 
@@ -115,7 +123,7 @@ The rack (8 GPUs) for development, the cluster (thousands) for training, the dat
 - Tensor cores: the AI. HBM: the food. NVLink: the glue.
 - 8 GPUs: one bigger machine. Thousands: one machine via fabric.
 - Something is always broken: checkpoint, route around, restart.
-- [episode] vs [added]: the guests priced the stack; this chapter opens it.
+- [episode] vs [added]: the guests priced the stack. This chapter opens it.
 - Cross-link: Acquired track ep11 for the full worked 1,000-GPU build.
 
 ## How to imbibe this
@@ -145,6 +153,7 @@ The rack (8 GPUs) for development, the cluster (thousands) for training, the dat
 
 | Unit | Claim | Before | After | Figure | Medium | Source |
 |---|---|---|---|---|---|---|
-| u01 | Five-layer hardware stack | Priced but unopened | Die to datacenter decomposed | fig1 | table | synthesis |
+| u01 | Five-layer hardware stack | Priced but unopened | Die to datacenter decomposed | fig1 | table | synthesis table ([episode] + [added]) |
+| u02 | Failure regime changes with scale | Working hardware assumed | Something always broken: checkpoint, route around, restart | fig2 | table | synthesis table ([episode] + [added]) |
 
-All 1 units mapped. No blank cells.
+All 2 units mapped. No blank cells.
