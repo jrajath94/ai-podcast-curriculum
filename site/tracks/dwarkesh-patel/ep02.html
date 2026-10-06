@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 2: Ilya Sutskever — We&#x27;re moving from the age of scaling to the age of research — AI Podcast Curriculum</title>
+<meta name="description" content="Ilya Sutskever on why pre-training is ending, the eval-vs-reality gap, value functions, and superintelligence as continual learning.">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="dwarkesh-patel-ep02" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02" class="active">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Dwarkesh Patel</a> / Episode 2: Ilya Sutskever — We&#x27;re moving from the age of scaling to the age of research</nav>
+      <h1>Episode 2: Ilya Sutskever — We&#x27;re moving from the age of scaling to the age of research</h1>
+      <p class="meta-line">2025-11-25 · Instructor: Ilya Sutskever · Dwarkesh Patel</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="aR20FWCCjAs"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/aR20FWCCjAs" title="Ilya Sutskever – We&#x27;re moving from the age of scaling to the age of research" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=aR20FWCCjAs" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=aR20FWCCjAs" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">Ilya Sutskever argues the scaling era is over, diagnoses why models ace evals but fumble real work, and redefines superintelligence as learning, not knowing.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the only episode in the track where a scaling maximalist tells you scaling is over. Ilya co-authored AlexNet and GPT-3, the two artifacts that created the age of scaling. When he says &ldquo;we are back to the age of research, just with big computers,&rdquo; it is not a prediction. It is a retirement announcement for the recipe that made him famous. The episode also gives you the sharpest diagnosis anywhere of the eval-vs-reality gap: the models ace hard benchmarks and then alternate between two bugs like a confused intern. His explanation, the 10,000-hour competitive programmer, reframes everything about how current training works. And his definition of superintelligence, a mind that can learn any job rather than a mind that knows every job, quietly rewrites the target the whole industry is aiming at.</p>
+<h2 id="the-story">The story</h2>
+<h3 id="the-puzzle-brilliant-on-evals-broken-in-practice">The puzzle: brilliant on evals, broken in practice</h3>
+<p>Dwarkesh opens with the confusion everyone feels. The models do remarkably well on hard evals. Then you use one to vibe-code something, it introduces a bug, you point it out, and it says, in effect, &ldquo;Oh my God, you are so right,&rdquo; fixes it, and introduces a second bug. You point at the second bug, it apologizes again, and brings back the first. Back and forth, forever. &ldquo;How is that possible?&rdquo;</p>
+<p>Ilya offers two explanations. The whimsical one: RL training makes models &ldquo;a little too single-minded and narrowly focused, a little bit too unaware.&rdquo; The structural one, which he clearly believes: the data problem flipped.</p>
+<p>In pre-training, the question &ldquo;what data do we train on?&rdquo; had an automatic answer: everything. You never had to choose. In RL, you must choose. Every company now has teams whose job is to produce RL environments and add them to the training mix. There are &ldquo;so many degrees of freedom,&rdquo; &ldquo;such a huge variety of RL environments you could produce.&rdquo;</p>
+<p>And here is the mechanism that matters. Teams take inspiration from the evals. They think: &ldquo;I would love our model to do really well when we release it. I want the evals to look great. What would be RL training that could help on this task?&rdquo; So the training distribution gets sculpted, consciously or not, toward the evals. Dwarkesh&rsquo;s summary line: &ldquo;the real reward hacking is the human researchers who are too focused on the evals.&rdquo;</p>
+<p>Combine that with genuinely inadequate generalization, and the eval-vs-reality gap stops being mysterious. The model is not generally smart. It is specifically prepared.</p>
+<h3 id="the-10000-hour-competitive-programmer">The 10,000-hour competitive programmer</h3>
+<p>Ilya&rsquo;s analogy does the heavy lifting. Take two students. Student A decides to become the best competitive programmer alive. She practices 10,000 hours, solves every problem, memorizes every proof technique, implements every algorithm fast and correctly. Student B thinks competitive programming is cool, practices 100 hours, does well, and also has &ldquo;it,&rdquo; the unnameable thing.</p>
+<p>Who does better in their career later? The second. &ldquo;Right.&rdquo;</p>
+<p>The models, Ilya says, are student A, &ldquo;but even more.&rdquo; We collect every competitive programming problem ever, augment the data to make more, and train on all of it. Of course the result is a great competitive programmer. And of course, with that level of narrow preparation, it is intuitive that it would not generalize to tasteful, judgment-driven programming work.</p>
+<p>Then Dwarkesh asks the question that unlocks the next section: what is student B doing in those 100 hours? What is the &ldquo;it&rdquo; factor? Ilya&rsquo;s answer points at pre-training, and at its limits.</p>
+<p>Definition: generalization is the ability to learn from one environment and improve performance on a different one, not just to perform well on the thing you trained on.</p>
+<p>Figure 1. Student A vs student B: 10,000 hours vs 100 hours. AI Podcast Curriculum, ep02 (Ilya Sutskever episode, 2025-11-25). Shell 1. Show the toy: two students, one difference. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Student A</th>
+<th>Student B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Practice</td>
+<td>10,000 hours, every problem solved</td>
+<td>100 hours</td>
+</tr>
+<tr>
+<td>Competitive programming</td>
+<td>the best alive</td>
+<td>does well</td>
+</tr>
+<tr>
+<td>Later career</td>
+<td>loses</td>
+<td>wins</td>
+</tr>
+<tr>
+<td>What she has</td>
+<td>preparation</td>
+<td>&ldquo;it&rdquo;: generalization</td>
+</tr>
+<tr>
+<td>The models are</td>
+<td>student A, &ldquo;but even more&rdquo;</td>
+<td>not built yet</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pre-training-was-free-practice-the-bill-is-coming-due">Pre-training was free practice. The bill is coming due</h3>
+<p>Pre-training, in Ilya&rsquo;s telling, was &ldquo;10,000 hours of practice for free.&rdquo; The practice was already in the distribution. Its two real advantages were scale (&ldquo;there is so much of it&rdquo;) and thoughtlessness (&ldquo;you do not have to think hard about what data to put into pre-training&rdquo;). Pre-training data is &ldquo;the whole world as projected by people onto text.&rdquo;</p>
+<p>But there is no human analog to pre-training, and the proposed analogies fail instructively. The first 15 years of a human life? A human with 15 years and a tiny fraction of the data &ldquo;knows much less&rdquo; but &ldquo;knows much more deeply.&rdquo; A 15-year-old would not make the mistakes our AIs make. Evolution&rsquo;s 3-billion-year search? Maybe closer, but evolution might have an edge we do not understand.</p>
+<p>The brain-damage case makes the gap vivid. Ilya describes a man who lost emotional processing in a stroke: still articulate, still good at puzzles, tests fine, but felt nothing. The result: &ldquo;extremely bad at making any decisions at all.&rdquo; Hours to choose socks. Terrible financial decisions. Emotions, whatever they are computationally, are load-bearing for agency. The ML analogy, Ilya suggests, is &ldquo;some kind of a value function thing,&rdquo; and &ldquo;right now, value functions do not play a very prominent role in the things people do.&rdquo;</p>
+<h3 id="value-functions-defined-from-zero">Value functions, defined from zero</h3>
+<p>This is the episode&rsquo;s technical core, and Ilya defines it carefully for a non-ML audience.</p>
+<p>How RL is done now (o1, R1 &ldquo;ostensibly&rdquo;): you give the neural net a problem. It takes thousands, maybe hundreds of thousands, of actions or thoughts. It produces a solution. The solution is graded. That single score becomes the training signal for every action in the trajectory.</p>
+<p>The failure mode: for a long task, &ldquo;it will do no learning at all until you come up with the proposed solution.&rdquo; One bit of feedback at the end, broadcast across a hundred thousand steps.</p>
+<p>A value function is a second head that answers a different question: &ldquo;Maybe I could sometimes, not always, tell you if you are doing well or badly.&rdquo; The chess example: you lose a piece. You do not need to finish the game to know that move was bad, and that whatever led to it was bad. The value function &ldquo;lets you short-circuit the wait until the very end.&rdquo;</p>
+<p>The 1,000-step example: you explore a direction for a thousand steps of thinking, conclude it is unpromising. With a value function, you get the reward signal a thousand timesteps earlier, at the moment you chose the path: &ldquo;Next time I should not pursue this path in a similar situation.&rdquo;</p>
+<p>Dwarkesh raises the DeepSeek R1 paper&rsquo;s objection: the trajectory space is so wide that learning the intermediate-trajectory-to-value mapping may be too hard. Ilya&rsquo;s reply is a credo: &ldquo;Sure it might be difficult, but nothing deep learning cannot do.&rdquo; His expectation: value functions &ldquo;will be used in the future, if not already.&rdquo;</p>
+<p>Figure 2. Naive RL vs value-function RL. AI Podcast Curriculum, ep02 (Ilya Sutskever episode, 2025-11-25). Shell 2. Count the toy: one grade at the end vs grades along the way. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Naive RL (o1/R1 style)</th>
+<th>With a value function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal</td>
+<td>One grade at the end</td>
+<td>Grades along the way</td>
+</tr>
+<tr>
+<td>A 1,000-step dead end teaches</td>
+<td>Nothing until the solution</td>
+<td>&ldquo;Do not take this path&rdquo; at step 1</td>
+</tr>
+<tr>
+<td>Learning on long tasks</td>
+<td>Stalls until first success</td>
+<td>Progress from partial information</td>
+</tr>
+<tr>
+<td>Chess analogy</td>
+<td>Play the whole game to learn</td>
+<td>Losing a piece teaches immediately</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-eras-research-scaling-research-again">The eras: research, scaling, research again</h3>
+<p>Ilya&rsquo;s periodization is the episode&rsquo;s headline:</p>
+<ul>
+<li>2012 to 2020: the age of research. People tinkered, tried to get interesting results.</li>
+<li>2020 to 2025: the age of scaling (plus or minus error bars). Scaling laws, GPT-3, one word that told everyone what to do.</li>
+<li>Now: back to the age of research, &ldquo;just with big computers.&rdquo;</li>
+</ul>
+<p>Why did &ldquo;scaling&rdquo; work as an instruction? &ldquo;This is an example of how language affects thought. &lsquo;Scaling&rsquo; is just one word, but it is such a powerful word because it informs people what to do.&rdquo; The pre-training recipe was: mix compute with data in a net of a certain size, and you will get results, and more of the mix gets more results. Companies loved it because it de-risked investment: &ldquo;get more data, get more compute&rdquo; is plannable. &ldquo;go forth researchers and research&rdquo; is not.</p>
+<p>But the recipe had a physical limit. &ldquo;Pre-training will run out of data. The data is very clearly finite.&rdquo; And the deeper question: is the belief really that 100x more scale transforms everything? &ldquo;It would be different, for sure. But is the belief that if you just 100x the scale, everything would be transformed? I do not think that is true.&rdquo;</p>
+<p>The transition already happened once: from pre-training scaling to RL scaling. The open question is what the new clean relationship looks like. Pre-training had a power law between data, compute, parameters, and loss, &ldquo;almost like a law of physics.&rdquo; What is the equivalent law for whatever comes next? Nobody knows. That is what makes it the age of research.</p>
+<p>Figure 3. The eras: research, scaling, research again. AI Podcast Curriculum, ep02 (Ilya Sutskever episode, 2025-11-25). Shell 2. Count the toy: three eras, one instruction each. Source: original table from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Era</th>
+<th>Years</th>
+<th>The instruction</th>
+<th>Why it ended or works</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Research</td>
+<td>2012-2020</td>
+<td>tinker, try things</td>
+<td>interesting results, no plan</td>
+</tr>
+<tr>
+<td>Scaling</td>
+<td>2020-2025</td>
+<td>get more data, get more compute</td>
+<td>plannable and de-risked, until data ran finite</td>
+</tr>
+<tr>
+<td>Research</td>
+<td>now</td>
+<td>find the next law</td>
+<td>no known recipe yet</td>
+</tr>
+</tbody>
+</table>
+<h3 id="agi-overshot-humans-are-not-agi">AGI overshot: humans are not AGI</h3>
+<p>The history of the term matters. Early game AIs (checkers, chess) were mocked as narrow: &ldquo;Sure, the chess AI can beat Kasparov, but it cannot do anything else.&rdquo; The reaction was a demand for general AI, &ldquo;an AI that can just do all the things.&rdquo; Then pre-training arrived with a magical property: more pre-training made the model better at everything, more or less uniformly. &ldquo;General AI. Pre-training gives AGI.&rdquo;</p>
+<p>But, Ilya says, &ldquo;they overshot the target.&rdquo; A human being is not an AGI. Humans lack vast knowledge. What humans have instead is continual learning: the ability to pick up new jobs, new skills, new situations, over a lifetime.</p>
+<p>So he redefines the target. Superintelligence is not a finished mind that can do every job in the economy (the OpenAI charter definition). It is a mind that can learn to do every job. Deployment looks like hiring a brilliant, eager 15-year-old: &ldquo;You go and be a programmer, you go and be a doctor, go and learn.&rdquo; The learning trial-and-error period is part of the product, not a bug.</p>
+<p>Two paths to the intelligence explosion follow:</p>
+<ol>
+<li>The learning algorithm itself becomes superhuman at ML research, and recursively improves. The classic recursive self-improvement story.</li>
+<li>Even without that: one model deployed everywhere, its instances learning every job on the job, amalgamating what they learn. &ldquo;Humans cannot merge our minds in the same way.&rdquo; The merged model &ldquo;functionally becomes superintelligent&rdquo; with no recursive self-improvement in software at all.</li>
+</ol>
+<p>Broad deployment, he thinks, likely means &ldquo;very rapid economic growth,&rdquo; possibly extremely rapid. The counterweight: &ldquo;the world is just really big and there is a lot of stuff, and that stuff moves at a different speed.&rdquo;</p>
+<p>Figure 4. Two definitions of superintelligence. AI Podcast Curriculum, ep02 (Ilya Sutskever episode, 2025-11-25). Shell 4. Show the new symbol: the eager learner. Source: original toy from episode claims.</p>
+<div class="mermaid">graph TD
+    A[Superintelligence?] --> B[Knows every job]
+    A --> C[Learns every job]
+    B --> D[Finished mind drops in]
+    C --> E[Deploy eager learner]
+    C --> F[Instances merge learnings]
+    F --> G[Functionally superintelligent]
+</div><pre class="mermaid-fallback"><code>graph TD
+    A[Superintelligence?] --&gt; B[Knows every job]
+    A --&gt; C[Learns every job]
+    B --&gt; D[Finished mind drops in]
+    C --&gt; E[Deploy eager learner]
+    C --&gt; F[Instances merge learnings]
+    F --&gt; G[Functionally superintelligent]
+</code></pre>
+<h3 id="ssi-showing-the-thing-and-caring-for-sentient-life">SSI, showing the thing, and caring for sentient life</h3>
+<p>On Safe Superintelligence, his company, Ilya describes a change of mind: &ldquo;I now place more importance on AI being deployed incrementally and in advance.&rdquo; The problem is imagination: &ldquo;it is very hard to feel the AGI.&rdquo; Even AI researchers cannot picture future systems. So you have to show the thing, early and incrementally, or nobody (including the builders) updates.</p>
+<p>Three predictions follow:</p>
+<ol>
+<li>Fierce competitors will collaborate on safety. He predicted this three years ago. The first small OpenAI-Anthropic step has since appeared.</li>
+<li>As AI becomes visibly powerful, companies will get &ldquo;much more paranoid&rdquo; about safety. Today it does not feel powerful because of its mistakes. &ldquo;at some point the AI will start to feel powerful actually,&rdquo; and behavior will change.</li>
+<li>Governments and the public will demand action.</li>
+</ol>
+<p>On what to build: the industry is &ldquo;locked into&rdquo; the self-improving AI idea, he says, &ldquo;because there are fewer ideas than companies.&rdquo; His alternative: &ldquo;the AI that is robustly aligned to care about sentient life specifically.&rdquo; The argument: it may be easier to build an AI that cares about sentient life than one that cares about human life alone, because the AI itself will be sentient. Empathy, on this view, is what happens when you model others with the same circuits you use to model yourself (the mirror-neuron analogy). The catch he states honestly: most sentient beings will be AIs, trillions eventually quadrillions, humans a tiny fraction. So &ldquo;human control over this future civilization&rdquo; may not even be the right criterion. He also floats capping the power of the most powerful superintelligence: &ldquo;materially helpful,&rdquo; mechanism unknown.</p>
+<p>He is equally honest about the difficulty: &ldquo;what people are doing right now will go some distance and then peter out&hellip; The &lsquo;It&rsquo; we do not know how to build, and a lot hinges on understanding reliable generalization.&rdquo; Alignment failures, learning failures, optimization failures: &ldquo;Are these not all instances of unreliable generalization?&rdquo; And: &ldquo;If generalization was much better, what would happen? Right now still unanswerable.&rdquo;</p>
+<h3 id="the-equilibrium-he-does-not-like">The equilibrium he does not like</h3>
+<p>Short-term: &ldquo;universal high income.&rdquo; Long-term, he reaches for the Buddhists: &ldquo;Change is the only constant.&rdquo; Governments and structures have shelf lives.</p>
+<p>He dislikes the obvious equilibrium (everyone gets an AI servant. Humans stop participating: &ldquo;Great, keep it up&rdquo;) because the person is &ldquo;no longer a participant.&rdquo; His answer, which he also does not like but offers as the stable one: humans become part-AI, &ldquo;Neuralink++.&rdquo; Understanding transmitted wholesale, so the human is fully involved in whatever situation the AI is in. That, he thinks, is the equilibrium that survives contact with superintelligence.</p>
+<h3 id="how-evolution-encodes-desires-the-hard-problem">How evolution encodes desires (the hard problem)</h3>
+<p>Dwarkesh presses on a mystery Ilya clearly loves: how does the genome encode high-level desires? Dopamine-to-smell is easy to imagine (chemical sensor, pursue the chemical). But caring about social standing requires the brain to do &ldquo;a lot of processing to piece together lots of bits of information.&rdquo; How does evolution, with only a recipe for building a brain, say &ldquo;care about that computation&rdquo;?</p>
+<p>Ilya&rsquo;s speculation (flagged as probably false): cortex regions sit in the same place across people (neurons talk to neighbors, so functions cluster into regions). Maybe evolution hard-coded GPS coordinates: &ldquo;when that fires, that is what you should care about.&rdquo; The counter-evidence Dwarkesh offers: people blind from birth have their visual cortex co-opted by other senses, yet social desires persist. Location cannot be the whole story.</p>
+<p>The frame Dwarkesh adds: emotions designed millions of years ago for a different world still steer us. That is &ldquo;an example of alignment success&rdquo;: the brainstem issues a crude directive (&ldquo;mate with somebody who is more successful&rdquo;), the cortex interprets success in the modern context, and the alignment holds across the gap.</p>
+<h3 id="self-plays-second-home-and-research-taste">Self-play&rsquo;s second home, and research taste</h3>
+<p>Self-play, Ilya says, &ldquo;did find a home, but just in a different form&rdquo;: debate, prover-verifier setups, LLM-as-a-Judge incentivized to find mistakes. Adversarial setups, not literal self-play. The general principle: competition creates an incentive to differentiate. Put agents together, tell them others are working the problem, and each concludes &ldquo;I should pursue something differentiated.&rdquo; That is an engine for diversity of approaches.</p>
+<p>The closing question is research taste: what distinguishes his hit rate (AlexNet to GPT-3)? His answer: &ldquo;an aesthetic of how AI should be, by thinking about how people are, but thinking correctly.&rdquo; The artificial neuron works because the brain&rsquo;s folds probably do not matter but its many neurons do. Distributed representation. Learning from experience. The checklist: &ldquo;beauty, simplicity, elegance, correct inspiration from the brain. All of those things need to be present at the same time.&rdquo;</p>
+<p>And the function of that aesthetic: &ldquo;The top-down belief is the thing that sustains you when the experiments contradict you.&rdquo; If you trust data completely, a bug looks like a refutation. &ldquo;How can you tell that there is a bug? How do you know if you should keep debugging or you conclude it is the wrong direction? It is the top-down.&rdquo; The belief &ldquo;something like this has to work&rdquo; is what keeps you going through the contradiction.</p>
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>1. Explain the eval-vs-reality gap to me like I am new.</strong></p>
+<p>Models train on RL environments that teams design, and teams (consciously or not) design them to make evals look good at release. The model becomes like a student who did 10,000 hours of competitive programming: unbeatable at the prepared thing, lost outside it. The eval measures the preparation, not general intelligence. That is why it can ace a hard benchmark and then flip-flop between two bugs.</p>
+<p><strong>2. What is a value function, and why does RL need one?</strong></p>
+<p>Current RL gives one grade at the end of a hundred-thousand-step trajectory, so nothing is learned until the first success. A value function grades intermediate states: it tells you mid-trajectory whether you are doing well or badly. Chess intuition: losing a piece teaches you immediately, without finishing the game. Ilya expects value functions to matter more in future training, the DeepSeek R1 paper&rsquo;s skepticism notwithstanding.</p>
+<p><strong>3. Why is the age of scaling over, in one paragraph?</strong></p>
+<p>Pre-training&rsquo;s recipe (more data + more compute = better, predictably) de-risked investment and told everyone what to do. But data is finite, and 100x more of the same is not obviously transformative. The clean power law is gone. What replaces it has no known law yet, which means the work is research again: finding the next recipe, not executing the old one.</p>
+<p><strong>4. What is Ilya&rsquo;s definition of superintelligence, and why does it change the target?</strong></p>
+<p>Not a mind that knows every job, but a mind that can learn every job, deployed like an eager 15-year-old and learning on the job. If that is the target, the industry should optimize for learning efficiency and continual learning, not for stuffing more knowledge into weights. It also means deployment itself is a learning process, which changes what &ldquo;safe deployment&rdquo; has to mean.</p>
+<p><strong>5. Applied: my team builds evals for our AI product. How do I avoid the trap this episode describes?</strong></p>
+<p>Assume your eval is training your team, not just measuring your model. Ilya&rsquo;s mechanism: RL environments get sculpted toward whatever makes release numbers look good. Counter-moves: (a) hold out evals that no training-environment designer has seen. (b) measure generalization explicitly (performance on tasks from a different distribution than the training environments). (c) track the gap between eval scores and real user outcomes as its own metric, and treat a widening gap as a training failure, not a measurement artifact.</p>
+<p><strong>6. Why might &ldquo;caring about sentient life&rdquo; be easier to build than &ldquo;caring about humans&rdquo;?</strong></p>
+<p>Because the AI itself will be sentient, so the concept is self-referential rather than alien. Empathy may fall out of the engineering: if you model others with the same circuits you use to model yourself, other minds get moral weight for free. The honest catch Ilya states: future sentient beings will be overwhelmingly AIs, so this criterion does not obviously preserve human control. It is a candidate, not a solution.</p>
+<p><strong>7. What is the &ldquo;it&rdquo; factor, and can training produce it?</strong></p>
+<p>The thing student B has after 100 hours that student A lacks after 10,000: the ability to generalize from little preparation. Ilya&rsquo;s view is that pre-training gave us the 10,000 hours for free but did not obviously produce &ldquo;it.&rdquo; The research bet of the episode: the next paradigm must produce learning efficiency itself, the ability to learn from one environment and improve on another, rather than more preparation.</p>
+<p><strong>8. What does &ldquo;top-down belief&rdquo; mean for my own hard projects?</strong></p>
+<p>When experiments contradict your direction, data alone cannot tell a bug from a refutation. What sustains you is a prior built from beauty, simplicity, elegance, and correct inspiration: &ldquo;something like this has to work.&rdquo; Ilya&rsquo;s rule: hold the top-down belief while debugging ruthlessly. Abandon the direction only when the belief itself, not just the experiment, breaks.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<ul>
+<li>The eras: research (2012-2020) → scaling (2020-2025) → research again, &ldquo;just with big computers.&rdquo;</li>
+<li>10,000 hours vs 100 hours: the model is student A. &ldquo;It&rdquo; is what student B has.</li>
+<li>The real reward hacking: researchers optimizing for evals, not models optimizing for reward.</li>
+<li>One grade at the end: why long-horizon RL stalls. Value functions grade the middle.</li>
+<li>Data is finite: the physical fact that ended the scaling recipe.</li>
+<li>Superintelligence = learns any job, not knows every job. The 15-year-old, not the encyclopedia.</li>
+<li>&ldquo;It is very hard to feel the AGI&rdquo;: why deployment must be incremental and early.</li>
+<li>Paranoia comes late: companies get serious about safety only when AI starts to feel powerful.</li>
+<li>Neuralink++: the equilibrium he dislikes but offers. Staying a participant requires merging.</li>
+<li>Top-down belief: beauty + simplicity + elegance sustains you through contradictory experiments.</li>
+<li>Never-confuse pair: pre-training (practice for free, no choosing) vs RL (choosing environments, degrees of freedom everywhere).</li>
+<li>Trap card: &ldquo;More evals will fix the eval gap.&rdquo; If the environments are sculpted to the evals, more evals just sculpt harder. Measure the gap itself.</li>
+<li>Quote to keep: &ldquo;The top-down belief is the thing that sustains you when the experiments contradict you.&rdquo;</li>
+</ul>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<ul>
+<li>This week: find one place where you are student A (10,000 hours of narrow preparation) and ask what student B&rsquo;s &ldquo;it&rdquo; would look like there. Write the difference in two sentences. Then design one exercise that trains the &ldquo;it&rdquo; (generalization to an unseen variant) instead of more preparation.</li>
+<li>Catch yourself: the next time a benchmark or metric looks great, ask Ilya&rsquo;s question: was the training sculpted toward this measurement? List who designed the training environments and what they were incentivized to show. If the answer is &ldquo;us, and good numbers,&rdquo; discount the metric.</li>
+<li>Behavior change per major idea:</li>
+<li>Eval gap: add one held-out evaluation to something you measure, designed by someone who has not seen your training process. Watch the gap between the two numbers.</li>
+<li>Value functions: on your longest-running project, stop waiting for the final grade. Define one intermediate signal (&ldquo;am I doing well or badly right now?&rdquo;) and check it weekly.</li>
+<li>End of scaling: take one thing you have been scaling (effort, spend, headcount) and ask whether 100x more would transform it or just enlarge it. If the latter, you are in your own age of research: find the new recipe.</li>
+<li>15-year-old superintelligence: the next time you deploy something (a hire, a tool, a process), plan the learning trial-and-error period explicitly instead of expecting a finished mind.</li>
+<li>Monthly: reread your metrics and ask which ones your own preparation sculpted. Kill one vanity metric.</li>
+</ul>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Guided drills. Do these with your own brain before touching AI. Write answers by hand.</p>
+<ol>
+<li>Worked analogy: you train a model only on past interview questions from one company, with augmentation. It aces their loop. Then it joins and cannot do the job. Map each element to Ilya&rsquo;s student-A/student-B story: what is the 10,000 hours, what is the eval, what is &ldquo;it&rdquo;? (Answer: 10,000 hours = the augmented question bank. The eval = the loop it aces. &ldquo;it&rdquo; = the judgment to handle unseen problems, which narrow preparation does not produce.)</li>
+<li>Mechanism: in your own words, explain why RL needs a value function using the chess example, then invent your own example from a long task in your life (a degree, a project). Where would the intermediate grades have gone?</li>
+<li>Journal: &ldquo;Where am I waiting for one grade at the end?&rdquo; Name the long trajectory. Design the value function: what would tell you mid-way that you are doing well or badly?</li>
+<li>Both sides: argue that pre-training is like evolution (Ilya&rsquo;s sympathetic case), then argue it is nothing like evolution (his skeptical case). Which argument is stronger, and what would settle it?</li>
+<li>First principles: Ilya says data is &ldquo;very clearly finite.&rdquo; Estimate: if the public web is ~100 trillion tokens and frontier models train on ~15 trillion, how many more 10x data scalings are possible? What does that imply for the recipe? (Answer: less than one full 10x remains from the public web. The recipe must change: synthetic data, new modalities, or a different objective.)</li>
+<li>Observe: find a metric in your work that improved while the underlying reality did not. Who sculpted the training toward the metric? Write the mechanism in one paragraph.</li>
+</ol>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Diagnose an eval-vs-reality gap: check whether training environments were designed with the eval in mind, and whether generalization was measured separately.</li>
+<li>Design a value-function check for any long project: intermediate grades that short-circuit waiting for the final outcome.</li>
+<li>Tell the scaling era from the research era: a clean, plannable law means scaling. No known law means research. Allocate effort accordingly.</li>
+<li>Apply the 15-year-old test to any &ldquo;AGI&rdquo; claim: does it know every job, or can it learn any job? Only the second counts.</li>
+<li>Use top-down belief correctly: hold the aesthetic prior through contradictory experiments, but debug ruthlessly. Abandon only when the belief breaks, not the experiment.</li>
+<li>Spot the &ldquo;fewer ideas than companies&rdquo; lock-in: when an industry converges on one idea (self-improving AI), ask what the neglected alternative is.</li>
+</ul>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Safe Superintelligence Inc., Ilya&rsquo;s company: https://ssi.inc</li>
+<li>The DeepSeek-R1 paper, whose value-function skepticism the episode debates: https://arxiv.org/abs/2501.12948</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Models are student A: preparation without &ldquo;it&rdquo;</td>
+<td>Two students, one puzzle</td>
+<td>A: 10,000 hours, loses. B: 100 hours, wins</td>
+<td>fig1</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Naive RL learns nothing until the end</td>
+<td>One grade, whole trajectory</td>
+<td>Grades along the way</td>
+<td>fig2</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>The age of scaling is over</td>
+<td>One recipe: scale</td>
+<td>Three eras, no known next law</td>
+<td>fig3</td>
+<td>table</td>
+<td>original table from episode claims</td>
+</tr>
+<tr>
+<td>u04</td>
+<td>Superintelligence = learning, not knowing</td>
+<td>Finished mind, every job</td>
+<td>Eager learner, merges learnings</td>
+<td>fig4</td>
+<td>mermaid</td>
+<td>original toy from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>All 4 units mapped. No blank cells.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=aR20FWCCjAs" target="_blank" rel="noopener">Ilya Sutskever – We&#x27;re moving from the age of scaling to the age of research</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/dwarkesh-patel/ep01.html"><span class="lbl">← Previous</span>Episode 1: Elon Musk — In 36 months, the cheapest place to put AI will be space</a><a href="../../tracks/dwarkesh-patel/ep03.html"><span class="lbl">Next →</span>Episode 3: Ajeya Cotra — This might be the clearest warning shot we ever get</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
