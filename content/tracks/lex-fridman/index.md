@@ -36,9 +36,13 @@ Across this track, the "Think it yourself" drills escalate deliberately:
 - **Episodes 1-3 (guided):** every drill ships with scaffolding. Fermi problems show the arithmetic setup. Argue-both-sides gives the topic. Toys are fully worked examples (the vector-correlation toy, the database toy, the reward-model toy). The reader learns the *moves* of reasoning: Fermi estimation, steelmanning, toy models, journaling.
 - **Episodes 4-6 (guided with transfer):** scaffolding remains, but drills ask the reader to transfer the move to a new domain (the decoder toy, the residual toy, the exploit hunt). The reasoning move must now survive contact with unfamiliar material.
 - **Episodes 7-8 (half-guided):** drills give the setup and withhold the conclusion (the consent drill, the quiet-moments log, the patch toy). The reader produces the insight. The chapter only frames the question.
-- **Episodes 9-11 (unaided):** drills state the question and stop. The proxy toy, the thresholds exercise, the 2030 cluster sketch, and the three-vector hardware analysis require reasoning from first principles with no worked example. By Episode 11, the reader sizes a 100,000-GPU cluster's power bill from scratch.
+- **Episodes 9-11 (toward unaided):** scaffolding shrinks but does not vanish. The proxy toy, the thresholds exercise, the 2030 cluster sketch, and the three-vector hardware analysis push the reader toward reasoning from first principles, though some drills still carry guidance and embedded answers. By Episode 11, the reader sizes a 100,000-GPU cluster's power bill from scratch.
 
 The arc trains one ability: thinking without the machine. Each chapter's "How to imbibe this" converts ideas into weekly practices. Each "Think it yourself" removes one more crutch. The curriculum informs, but its purpose is the reader's own cognition, reclaimed.
+
+## A note on method (applies to every chapter)
+
+Each chapter is built so that reading it equals watching the whole episode. Every substantive claim, number, story, and argument from the transcript appears in its chapter. The method is shared. Chapters paraphrase with "In the episode, [guest] says…" rather than quoting, because the transcripts are YouTube's captions, not verbatim records. Where a number or claim is stated, the number is the claim. Anything a chapter cannot verify is marked [uncertain]. Claims about internal state, plans, or products are the guest's statements at the recording date, reported as such.
 
 ## How to use this track
 
