@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Episode 3: Core Idea: Deep Work — AI Podcast Curriculum</title>
+<meta name="description" content="What deep work is (focus without distraction on a cognitively demanding task), why it is the work that moves the needle, and how to get more of it: define, meas">
+<link rel="stylesheet" href="../../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="deep-questions-ep03" class="page-lesson">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    <h3>Lex Fridman</h3><ul>
+<li><a href="../../tracks/lex-fridman/index.html" data-page="lex-fridman-index">Track Index</a></li>
+<li><a href="../../tracks/lex-fridman/ep01.html" data-page="lex-fridman-ep01">Ep 1 · Elon Musk on War, Grok, and Civilization</a></li>
+<li><a href="../../tracks/lex-fridman/ep02.html" data-page="lex-fridman-ep02">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot</a></li>
+<li><a href="../../tracks/lex-fridman/ep03.html" data-page="lex-fridman-ep03">Ep 3 · Sam Altman on GPT-4 and the Road to AGI</a></li>
+<li><a href="../../tracks/lex-fridman/ep04.html" data-page="lex-fridman-ep04">Ep 4 · Neuralink and the Brain-Computer Interface</a></li>
+<li><a href="../../tracks/lex-fridman/ep05.html" data-page="lex-fridman-ep05">Ep 5 · Mark Zuckerberg on the Metaverse and Presence</a></li>
+<li><a href="../../tracks/lex-fridman/ep06.html" data-page="lex-fridman-ep06">Ep 6 · Andrej Karpathy on Neural Nets and Software 2.0</a></li>
+<li><a href="../../tracks/lex-fridman/ep07.html" data-page="lex-fridman-ep07">Ep 7 · Zuckerberg&#x27;s Metaverse Interview: Avatars and AI</a></li>
+<li><a href="../../tracks/lex-fridman/ep08.html" data-page="lex-fridman-ep08">Ep 8 · Sam Altman on the Board Saga, Sora, and Compute</a></li>
+<li><a href="../../tracks/lex-fridman/ep09.html" data-page="lex-fridman-ep09">Ep 9 · Eliezer Yudkowsky on the Alignment Problem</a></li>
+<li><a href="../../tracks/lex-fridman/ep10.html" data-page="lex-fridman-ep10">Ep 10 · Grimes on Music, AI, and Homo Techno</a></li>
+<li><a href="../../tracks/lex-fridman/ep11-synthesis.html" data-page="lex-fridman-ep11">Ep 11 · Synthesis: How AI Hardware Actually Works</a></li>
+<li><a href="../../tracks/lex-fridman/cheatsheet.html" data-page="lex-fridman-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Dwarkesh Patel</h3><ul>
+<li><a href="../../tracks/dwarkesh-patel/index.html" data-page="dwarkesh-patel-index">Dwarkesh Patel</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep01.html" data-page="dwarkesh-patel-ep01">Ep 1 · Elon Musk</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep02.html" data-page="dwarkesh-patel-ep02">Ep 2 · Ilya Sutskever</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep03.html" data-page="dwarkesh-patel-ep03">Ep 3 · Ajeya Cotra</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep04.html" data-page="dwarkesh-patel-ep04">Ep 4 · Andrej Karpathy</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep05.html" data-page="dwarkesh-patel-ep05">Ep 5 · Dario Amodei</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep06.html" data-page="dwarkesh-patel-ep06">Ep 6 · The OpenAI/Hugging Face Attack</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep07.html" data-page="dwarkesh-patel-ep07">Ep 7 · Jensen Huang</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep08.html" data-page="dwarkesh-patel-ep08">Ep 8 · Mark Zuckerberg</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep09.html" data-page="dwarkesh-patel-ep09">Ep 9 · Richard Sutton</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep10.html" data-page="dwarkesh-patel-ep10">Ep 10 · Ilya Sutskever (2023)</a></li>
+<li><a href="../../tracks/dwarkesh-patel/ep11-synthesis.html" data-page="dwarkesh-patel-ep11">Ep 11 · Synthesis: GPU and Rack Internals</a></li>
+<li><a href="../../tracks/dwarkesh-patel/cheatsheet.html" data-page="dwarkesh-patel-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Acquired</h3><ul>
+<li><a href="../../tracks/acquired/index.html" data-page="acquired-index">Track index</a></li>
+<li><a href="../../tracks/acquired/ep01.html" data-page="acquired-ep01">Ep 1 · Jensen Huang</a></li>
+<li><a href="../../tracks/acquired/ep02.html" data-page="acquired-ep02">Ep 2 · Morris Chang</a></li>
+<li><a href="../../tracks/acquired/ep03.html" data-page="acquired-ep03">Ep 3 · Zuckerberg</a></li>
+<li><a href="../../tracks/acquired/ep04.html" data-page="acquired-ep04">Ep 4 · Google AI</a></li>
+<li><a href="../../tracks/acquired/ep05.html" data-page="acquired-ep05">Ep 5 · Google Origins</a></li>
+<li><a href="../../tracks/acquired/ep06.html" data-page="acquired-ep06">Ep 6 · Microsoft I</a></li>
+<li><a href="../../tracks/acquired/ep07.html" data-page="acquired-ep07">Ep 7 · Meta</a></li>
+<li><a href="../../tracks/acquired/ep08.html" data-page="acquired-ep08">Ep 8 · Nvidia II</a></li>
+<li><a href="../../tracks/acquired/ep09.html" data-page="acquired-ep09">Ep 9 · Nvidia I</a></li>
+<li><a href="../../tracks/acquired/ep10.html" data-page="acquired-ep10">Ep 10 · Nvidia III</a></li>
+<li><a href="../../tracks/acquired/ep11-synthesis.html" data-page="acquired-ep11-synthesis">Ep 11 · Hardware synthesis</a></li>
+<li><a href="../../tracks/acquired/cheatsheet.html" data-page="acquired-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>The Knowledge Project</h3><ul>
+<li><a href="../../tracks/knowledge-project/index.html" data-page="knowledge-project-index">Track index</a></li>
+<li><a href="../../tracks/knowledge-project/ep01.html" data-page="knowledge-project-ep01">Ep 1 · Naval Ravikant</a></li>
+<li><a href="../../tracks/knowledge-project/ep02.html" data-page="knowledge-project-ep02">Ep 2 · Chamath Palihapitiya</a></li>
+<li><a href="../../tracks/knowledge-project/ep03.html" data-page="knowledge-project-ep03">Ep 3 · Bill Gurley</a></li>
+<li><a href="../../tracks/knowledge-project/ep04.html" data-page="knowledge-project-ep04">Ep 4 · William Irvine</a></li>
+<li><a href="../../tracks/knowledge-project/ep05.html" data-page="knowledge-project-ep05">Ep 5 · Robert Greene</a></li>
+<li><a href="../../tracks/knowledge-project/ep06.html" data-page="knowledge-project-ep06">Ep 6 · Jim Collins</a></li>
+<li><a href="../../tracks/knowledge-project/ep07.html" data-page="knowledge-project-ep07">Ep 7 · Ray Dalio</a></li>
+<li><a href="../../tracks/knowledge-project/ep08.html" data-page="knowledge-project-ep08">Ep 8 · Seth Godin</a></li>
+<li><a href="../../tracks/knowledge-project/ep09.html" data-page="knowledge-project-ep09">Ep 9 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/knowledge-project/ep10.html" data-page="knowledge-project-ep10">Ep 10 · Howard Marks</a></li>
+<li><a href="../../tracks/knowledge-project/cheatsheet.html" data-page="knowledge-project-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Clearer Thinking with Spencer Greenberg</h3><ul>
+<li><a href="../../tracks/clearer-thinking/index.html" data-page="clearer-thinking-index">Track index</a></li>
+<li><a href="../../tracks/clearer-thinking/ep01.html" data-page="clearer-thinking-ep01">Ep 1 · Andy Matuschak</a></li>
+<li><a href="../../tracks/clearer-thinking/ep02.html" data-page="clearer-thinking-ep02">Ep 2 · Tyler Cowen</a></li>
+<li><a href="../../tracks/clearer-thinking/ep03.html" data-page="clearer-thinking-ep03">Ep 3 · David McRaney</a></li>
+<li><a href="../../tracks/clearer-thinking/ep04.html" data-page="clearer-thinking-ep04">Ep 4 · Daniel Kahneman</a></li>
+<li><a href="../../tracks/clearer-thinking/ep05.html" data-page="clearer-thinking-ep05">Ep 5 · Barry Schwartz</a></li>
+<li><a href="../../tracks/clearer-thinking/ep06.html" data-page="clearer-thinking-ep06">Ep 6 · Julia Galef</a></li>
+<li><a href="../../tracks/clearer-thinking/ep07.html" data-page="clearer-thinking-ep07">Ep 7 · Uri Bram</a></li>
+<li><a href="../../tracks/clearer-thinking/ep08.html" data-page="clearer-thinking-ep08">Ep 8 · Robin Hanson</a></li>
+<li><a href="../../tracks/clearer-thinking/ep09.html" data-page="clearer-thinking-ep09">Ep 9 · Marcus Davis</a></li>
+<li><a href="../../tracks/clearer-thinking/ep10.html" data-page="clearer-thinking-ep10">Ep 10 · Anna Riedl</a></li>
+<li><a href="../../tracks/clearer-thinking/cheatsheet.html" data-page="clearer-thinking-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Conversations with Tyler</h3><ul>
+<li><a href="../../tracks/conversations-with-tyler/index.html" data-page="conversations-with-tyler-index">Track index</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep01.html" data-page="conversations-with-tyler-ep01">Ep 1 · Malcolm Gladwell</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep02.html" data-page="conversations-with-tyler-ep02">Ep 2 · Camille Paglia</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep03.html" data-page="conversations-with-tyler-ep03">Ep 3 · Stephen Kotkin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep04.html" data-page="conversations-with-tyler-ep04">Ep 4 · Peter Thiel I</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep05.html" data-page="conversations-with-tyler-ep05">Ep 5 · Peter Thiel II</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep06.html" data-page="conversations-with-tyler-ep06">Ep 6 · Jhumpa Lahiri</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep07.html" data-page="conversations-with-tyler-ep07">Ep 7 · Steven Pinker</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep08.html" data-page="conversations-with-tyler-ep08">Ep 8 · David Deutsch</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep09.html" data-page="conversations-with-tyler-ep09">Ep 9 · Any Austin</a></li>
+<li><a href="../../tracks/conversations-with-tyler/ep10.html" data-page="conversations-with-tyler-ep10">Ep 10 · Niall Ferguson</a></li>
+<li><a href="../../tracks/conversations-with-tyler/cheatsheet.html" data-page="conversations-with-tyler-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Hidden Brain</h3><ul>
+<li><a href="../../tracks/hidden-brain/index.html" data-page="hidden-brain-index">Track index</a></li>
+<li><a href="../../tracks/hidden-brain/ep01.html" data-page="hidden-brain-ep01">Ep 1 · Subtraction Neglect</a></li>
+<li><a href="../../tracks/hidden-brain/ep02.html" data-page="hidden-brain-ep02">Ep 2 · The Divided Brain</a></li>
+<li><a href="../../tracks/hidden-brain/ep03.html" data-page="hidden-brain-ep03">Ep 3 · Resilience</a></li>
+<li><a href="../../tracks/hidden-brain/ep04.html" data-page="hidden-brain-ep04">Ep 4 · Courage</a></li>
+<li><a href="../../tracks/hidden-brain/ep05.html" data-page="hidden-brain-ep05">Ep 5 · Forgetting</a></li>
+<li><a href="../../tracks/hidden-brain/ep06.html" data-page="hidden-brain-ep06">Ep 6 · Memorability</a></li>
+<li><a href="../../tracks/hidden-brain/ep07.html" data-page="hidden-brain-ep07">Ep 7 · Choking Under Pressure</a></li>
+<li><a href="../../tracks/hidden-brain/cheatsheet.html" data-page="hidden-brain-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>You Are Not So Smart with David McRaney</h3><ul>
+<li><a href="../../tracks/you-are-not-so-smart/index.html" data-page="you-are-not-so-smart-index">Track index</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep01.html" data-page="you-are-not-so-smart-ep01">Ep 1 · Dunning-Kruger</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep02.html" data-page="you-are-not-so-smart-ep02">Ep 2 · Naive Realism</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep03.html" data-page="you-are-not-so-smart-ep03">Ep 3 · Belief</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep04.html" data-page="you-are-not-so-smart-ep04">Ep 4 · Arguing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep05.html" data-page="you-are-not-so-smart-ep05">Ep 5 · Bayes&#x27; Theorem</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep06.html" data-page="you-are-not-so-smart-ep06">Ep 6 · Search Effect</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep07.html" data-page="you-are-not-so-smart-ep07">Ep 7 · Deep Canvassing</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep08.html" data-page="you-are-not-so-smart-ep08">Ep 8 · QAnon</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep09.html" data-page="you-are-not-so-smart-ep09">Ep 9 · Tribal Psychology</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/ep10.html" data-page="you-are-not-so-smart-ep10">Ep 10 · The Self</a></li>
+<li><a href="../../tracks/you-are-not-so-smart/cheatsheet.html" data-page="you-are-not-so-smart-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Deep Questions with Cal Newport</h3><ul>
+<li><a href="../../tracks/deep-questions/index.html" data-page="deep-questions-index">Track index</a></li>
+<li><a href="../../tracks/deep-questions/ep01.html" data-page="deep-questions-ep01">Ep 1 · Perks of No Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep02.html" data-page="deep-questions-ep02">Ep 2 · Cal&#x27;s Planning System</a></li>
+<li><a href="../../tracks/deep-questions/ep03.html" data-page="deep-questions-ep03" class="active">Ep 3 · Core Idea: Deep Work</a></li>
+<li><a href="../../tracks/deep-questions/ep04.html" data-page="deep-questions-ep04">Ep 4 · Digital Minimalism</a></li>
+<li><a href="../../tracks/deep-questions/ep05.html" data-page="deep-questions-ep05">Ep 5 · Core Idea: Slow Productivity</a></li>
+<li><a href="../../tracks/deep-questions/ep06.html" data-page="deep-questions-ep06">Ep 6 · The Slope of Terribleness</a></li>
+<li><a href="../../tracks/deep-questions/ep07.html" data-page="deep-questions-ep07">Ep 7 · Learning vs. Social Media</a></li>
+<li><a href="../../tracks/deep-questions/ep08.html" data-page="deep-questions-ep08">Ep 8 · The 5-Step Productivity System</a></li>
+<li><a href="../../tracks/deep-questions/cheatsheet.html" data-page="deep-questions-cheatsheet">Cheatsheet</a></li>
+</ul>
+<h3>Test Track</h3><ul>
+<li><a href="../../_test/index.html" data-page="test-index">Index</a></li>
+</ul>
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../../index.html">Home</a> / <a href="#">Deep Questions with Cal Newport</a> / Episode 3: Core Idea: Deep Work</nav>
+      <h1>Episode 3: Core Idea: Deep Work</h1>
+      <p class="meta-line">2022-02-14 · Instructor: Cal Newport · Deep Questions with Cal Newport</p>
+      <div class="progress-row"><button class="mark-done">☐ <span>Mark as complete</span></button><div class="progress-bar"><i></i></div><span class="pct"></span></div><div class="video-block" data-vid="xJYlhhT7hyE"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/xJYlhhT7hyE" title="Core Idea: Deep Work" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="video-blocked" hidden><p>Video blocked (ad-blocker or local file mode).</p><a class="watch-btn" href="https://www.youtube.com/watch?v=xJYlhhT7hyE" target="_blank" rel="noopener">Watch on YouTube</a></div></div><p class="video-fallback">Video not loading? <a href="https://www.youtube.com/watch?v=xJYlhhT7hyE" target="_blank" rel="noopener">Watch on YouTube</a></p><p class="video-cap">The definition of deep work, why it moves the needle in knowledge work, and the five moves that increase it.</p></div><h2 id="why-this-episode-matters">Why this episode matters</h2>
+<p>This is the engine of the entire track. Every other episode is either clearing the road for deep work (remove the phone, plan the week, slow the pace) or explaining why the road got blocked (distraction, overload). This episode defines the thing itself. If you learn one definition from this track, learn this one, because every later chapter assumes it.</p>
+<h2 id="background-the-book-that-grew-quietly">Background: the book that grew quietly</h2>
+<p>Cal published Deep Work in 2016. The launch was quiet. It was a Wall Street Journal bestseller for about a week, riding on his email list audience, and then it went under the radar.</p>
+<p>Then something unusual happened. About a year later, people kept buying it, at a higher rate than before. It never had a gangbusters week. It never hit number two on the Amazon charts. It never had the Mark Manson or James Clear moment. But it kept selling, steadily, for years.</p>
+<p>The numbers tell the story. The book is now in almost 40 languages. There is a Mongolian version. There is a French-speaking Africa version. In English alone it has sold more than a million units. Quiet, global, durable. Cal tells this story to make a point about the idea itself. Deep work spreads the way deep work works: slowly, without spectacle.</p>
+<h2 id="what-deep-work-is">What deep work is</h2>
+<h3 id="the-definition-in-two-parts">The definition, in two parts</h3>
+<p>People stretch the definition of deep work to cover whole lifestyles and value systems. Cal refuses the expansion. Deep work is a humble description of one specific activity. Deep work happens when you focus without distraction on a cognitively demanding task.</p>
+<p>The definition has two parts. The easy part is &ldquo;cognitively demanding.&rdquo; You work on something hard and think hard about it. There is a hard thing, and hard thought goes into it.</p>
+<p>The harder part is &ldquo;without distraction.&rdquo; Technically, Cal means this: the work happens in the absence of context shifts.</p>
+<p>Definition: a context shift is when you turn the focus of your attention from one cognitive context to another. For a session to count as deep work, those switches must stay at zero.</p>
+<h3 id="three-kinds-of-sessions">Three kinds of sessions</h3>
+<p>The definition sorts every work session into one of three buckets. Cal gives a concrete test case. You write a strategy memo. It is hard. You must think about what you aim to say and say it just right. That is cognitively demanding.</p>
+<p>Now add one behavior. Every five to six minutes you quick-check your email inbox and glance at your phone. The work is still hard, but the session no longer counts as deep work. Those switches significantly degrade your cognitive effectiveness. You operate at a fraction of your capability for clean thought.</p>
+<p>The three buckets:
+- Deep work: cognitively demanding, no context shifts.
+- Shallow work: not cognitively demanding, whatever the focus. Formatting a chart in PowerPoint is the episode&rsquo;s example.
+- Pseudo-deep work: cognitively demanding but full of context shifts. The strategy memo with the email checks. This is the trap, because it feels like deep work while delivering a fraction of it.</p>
+<p>Figure 1 (lesson plate, Shell 2). The three session types, scored on a 60-minute strategy memo. AI Podcast Curriculum, deep-questions ep03 (original toy, 2022-02-14). Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Session type</th>
+<th>What happens in 60 minutes</th>
+<th>Effective depth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deep work</td>
+<td>60 minutes on the memo, zero switches</td>
+<td>Full capability, clean thought</td>
+</tr>
+<tr>
+<td>Pseudo-deep work</td>
+<td>60 minutes on the memo, email check every 5 to 6 minutes, about 10 switches</td>
+<td>A fraction of capability, degraded by every switch</td>
+</tr>
+<tr>
+<td>Shallow work</td>
+<td>60 minutes formatting the PowerPoint chart, no switches needed</td>
+<td>Full capability, but nothing cognitively demanding</td>
+</tr>
+</tbody>
+</table>
+<p>Footer: the memo is hard in all three cases. Only the first case is deep work. Switches are the difference.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<h3 id="no-moral-hierarchy">No moral hierarchy</h3>
+<p>Cal is explicit. There is no moral ranking here. Deep work is not the only work that matters. Almost every professional context depends on other efforts that are critical.</p>
+<p>His first example is the invoice. If you run a business and you do not bill your clients properly, you get no money and the business dies. Invoicing is not deep. It is still critical.</p>
+<p>His second example comes from his own life. He once served as director of graduate studies for the computer science department at Georgetown. Every spring the role required building a budget: for every doctoral student, where the money comes from for tuition, the research assistantship, the teaching assistantship, health insurance. Untangling which dollars came from which grant, fellowship, or department fund was a huge pain and completely un-deep. It was also critically important. Without it, the students do not get paid.</p>
+<h3 id="deep-work-moves-the-needle-shallow-work-keeps-the-lights-on">Deep work moves the needle, shallow work keeps the lights on</h3>
+<p>The core claim of the book: in many professional contexts, deep efforts are what move the needle. They produce the value that lets you keep your role, get promoted, and grow the company. Shallow efforts keep the lights on. Deep efforts move the needle. Both matter. Only one creates the value.</p>
+<p>In knowledge work the case is sharpest. Knowledge work means sitting at a computer screen all day. Nobody pays your company for how fast you answer email. Nobody pays because you attend Zoom meeting after Zoom meeting. Nobody pays because you jump on calls or shoot PowerPoint decks around at speed. They pay for adding value to information. That is almost always an effort of deep work: skilled thought on something. If the thought were not skilled or difficult, it would be easily replicable, and its value would plummet.</p>
+<p>Cal gives three quick proofs. The ad agency does many things to keep the lights on, but it gets paid for coming up with really good ad campaigns. The tech company does many things to release code properly, but it stays in business by writing fantastic code that makes a stable product. A book&rsquo;s marketing takes many forms, but none of it matters if the book is not fantastic.</p>
+<p>Outside knowledge work the pattern is even clearer. The athlete&rsquo;s deep training and deep performance. The elite woodworker&rsquo;s beautifully made, well-constructed artifacts. The deep effort is what matters most.</p>
+<h3 id="we-forgot-the-distinction-and-that-is-an-opportunity">We forgot the distinction, and that is an opportunity</h3>
+<p>The premise of the book was a problem. We forgot the distinction between deep and shallow. Digital developments pushed us there: low-friction communication like email and Slack, highly distracting entertainment like YouTube and social media, Zoom and PowerPoint and jumping on calls, work growing more ambiguous about what exactly we do.</p>
+<p>In that environment we fell into a mode where you can go through most of a day never concentrating hard without distraction. Calls, emails, Zoom, changing fonts, fixing the chart. We patted ourselves on the back for being busy. We felt unstoppable. But we forgot the underlying deep activities that would keep the company existing and keep us employed.</p>
+<p>Cal&rsquo;s image: we were on the deck of the Titanic sending Instagram pictures of our deck chair arrangements, not realizing the ship underneath it sank.</p>
+<p>But the same scarcity is an opportunity. Deep work grows rarer. If you are one of the few people or organizations to prioritize it, you get a disproportionate competitive advantage. Prioritize depth in an increasingly shallow world and you are wildly, disproportionately rewarded. His analogy: you do not have to be faster than the bear. You just have to be faster than the person standing next to you. The bear gets him first.</p>
+<h2 id="how-to-do-more-of-it">How to do more of it</h2>
+<h3 id="1-define-it">1. Define it</h3>
+<p>Just having the terminology is the first move. Without the words deep and shallow, the only knob you can turn is &ldquo;work harder&rdquo;: stay up later, answer email the moment the plane lands. With the words, you can see what you are actually trying to improve. Naming the thing is at the core of any change.</p>
+<h3 id="2-measure-the-deep-to-shallow-ratio">2. Measure the deep-to-shallow ratio</h3>
+<p>Cal calls this one of the most important ideas in the book. For your particular position, figure out the ideal ratio of deep work hours to non-deep hours in a standard week. It differs by job. You should know your number. If you work for someone else, have the conversation with your supervisor. Here is what deep work is. Here is what shallow work is. Both matter. The invoices must go out. But if I am not producing good ad copy, we get no more money. What ratio best serves this company?</p>
+<p>Then measure. If you already time block plan, you can read the ratio straight off the weekly plan by counting the blocks marked as deep work.</p>
+<p>His example makes the mechanism clear. Suppose you agree with your boss that 50-50 best serves the company. Then you look at last week and find two hours of deep work. Remember, it does not count unless it is hard and undistracted. Now you face a clear number. You agreed on 50-50. You are nowhere near it. Either the boss says deep work does not matter, which is absurd since that is what creates the value, or something changes. Culture changes. Workload changes. The number drives the change from a place of positivity.</p>
+<h3 id="3-schedule-it">3. Schedule it</h3>
+<p>Do not wait for the mood to strike. You will never feel like doing deep work when you have nothing else to do. If that happens, you are not working hard enough. Get it on the calendar one way or another. Treat it like any other meeting. The time is protected. It cannot be overscheduled.</p>
+<p>Have a philosophy for the scheduling. Same time on the same days every week. Or a bespoke fit during the weekly plan. Or one day a week that is all deep work and the other days are not. Any philosophy works. The point is that there is one, it is scheduled, and it is protected.</p>
+<h3 id="4-build-rituals-around-the-sessions">4. Build rituals around the sessions</h3>
+<p>Rituals help the mind slip into deep mode. Cal does the same walk. He goes to the same secondary office space. He makes the same cup of coffee in the same cup. The ritual tells the brain: it is time for deep work. Same cues, same state, on demand.</p>
+<h3 id="5-train-the-ability">5. Train the ability</h3>
+<p>Concentration is trainable, and most of us are out of shape. If you check your phone in every moment of downtime, you are a cognitive slob. Handing that person a two-hour deep work window is like taking someone in terrible shape and telling them to run stadiums. It will go badly. They will sweat and suffer. That does not mean deep work is impossible. It means they have not trained.</p>
+<p>Training means spending regular time free from distractions. Read books, which force the mind to concentrate. Do productive meditation: work on a professional problem purely in your head while you walk. Play board games or strategy games that demand hard thought. Take up complicated hobbies, manual or physical, that require real focus and skill. Get the mind in shape first, then ask it to do deep work.</p>
+<p>Figure 2 (lesson plate, Shell 3). The five moves, from naming to the training step. AI Podcast Curriculum, deep-questions ep03 (original toy, 2022-02-14). Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Move</th>
+<th>What you do</th>
+<th>What it buys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Define</td>
+<td>Learn the words deep, shallow, pseudo-deep</td>
+<td>You can see what to improve</td>
+</tr>
+<tr>
+<td>Measure</td>
+<td>Set the role&rsquo;s deep-to-shallow ratio, count it weekly</td>
+<td>A number that drives change</td>
+</tr>
+<tr>
+<td>Schedule</td>
+<td>Put deep blocks on the calendar, protect them</td>
+<td>Depth happens instead of being wished for</td>
+</tr>
+<tr>
+<td>Ritualize</td>
+<td>Same walk, same place, same coffee</td>
+<td>The brain enters deep mode on cue</td>
+</tr>
+<tr>
+<td>Train</td>
+<td>Books, productive meditation, strategy games, hard hobbies</td>
+<td>The capacity to concentrate at all</td>
+</tr>
+</tbody>
+</table>
+<p>Footer: naming makes the target visible. Measuring makes the gap undeniable. Scheduling, ritual, and training close it.</p>
+<h3 id="a-note-on-tone">A note on tone</h3>
+<p>The episode closes with a joke. Cal advises working the word &ldquo;deep&rdquo; into everyday conversation as much as possible, as a prefix and an adjective, so people know you are awesome. Deep Monday. Deep coffee break. Fist bumps and &ldquo;stay deep.&rdquo; It is a joke about guru culture, told by the guru. The book&rsquo;s advice is the serious part. The prefix is the wink.</p>
+<h2 id="how-to-imbibe-this">How to imbibe this</h2>
+<p>Label your sessions for one week. At the end of each work block, write one of three words: deep, shallow, pseudo-deep. Be strict. The memo with the email checks is pseudo-deep, no matter how hard the memo was. At week&rsquo;s end, count the hours in each bucket. This single audit usually changes behavior without any further intervention.</p>
+<p>Set your ratio. Write down the deep-to-shallow ratio your role actually needs. If you have a boss, have the conversation the episode scripts for you. Then measure one real week against the target. If you got two hours against a 50-50 target, you now have the number that starts the change.</p>
+<p>Schedule one protected block this week. Ninety minutes, on the calendar, treated like a meeting with your most important client. Phone in another room. One hard task. Notice what the first 20 minutes feel like. That discomfort is the training data.</p>
+<p>Start one ritual. Pick the smallest repeatable version: the same drink, the same playlist, the same five-minute walk before the block. Run it before every deep session this week. You give your brain a cue.</p>
+<p>Train outside work. Read one book this month that forces concentration. Take one walk per week doing productive meditation: one professional problem, in your head, no phone, no input. Log how long you last before the mind rebels. Watch the number grow.</p>
+<h2 id="think-it-yourself">Think it yourself</h2>
+<p>Guided drills. Do these with your own brain before touching AI.</p>
+<p>Drill 1, the session sorter. List everything you did yesterday at work. Label each block deep, shallow, or pseudo-deep, using the episode&rsquo;s strict definitions. Total the three columns. What is your actual ratio? Which bucket stole the most hours?</p>
+<p>Drill 2, the value proof. Pick your job. Write down what the customer or the company actually pays for, in one sentence. Now list your last five workdays&rsquo; activities. Draw a line from each activity to the sentence, or mark it as lights-on work. What fraction of your week touched the sentence?</p>
+<p>Drill 3, the switch count. Work one 60-minute block on something hard with a tally sheet beside you. Mark every context switch: every glance at the phone, every inbox check, every tab that is not the work. At the end, count. Now answer honestly: was that block deep work?</p>
+<p>Drill 4, the Titanic audit. List the three busiest-looking activities of your last week. For each, ask: was I arranging deck chairs, or was the ship moving? Write what the deep version of each activity would be.</p>
+<h2 id="skills-you-can-now-use">Skills you can now use</h2>
+<ul>
+<li>Define deep work precisely and sort any session into deep, shallow, or pseudo-deep.</li>
+<li>Identify context shifts as the specific mechanism that destroys depth.</li>
+<li>Argue the value case: deep work moves the needle, shallow work keeps the lights on, with examples from your own job.</li>
+<li>Set and measure a deep-to-shallow ratio for a role, and use the number to drive change.</li>
+<li>Schedule and protect deep work blocks, build entry rituals, and train concentration deliberately.</li>
+</ul>
+<h2 id="qa">Q&amp;A</h2>
+<p><strong>Explain this episode to me like I am new. What is deep work and why should I care?</strong></p>
+<p>Deep work is focus without distraction on a cognitively demanding task. Two conditions, both required. The task must be hard, and you must not switch contexts while you do it. You should care because of the value argument. In knowledge work, nobody pays for fast email or great Zoom attendance. They pay for skilled thought applied to hard problems. Deep work is the name for that activity. As it gets scarcer, the people who protect it get disproportionately rewarded.</p>
+<p><strong>What is a context shift, exactly?</strong></p>
+<p>It is the moment you turn your attention from one cognitive context to another. Writing the strategy memo, then checking email, then back to the memo: that is two shifts. Cal&rsquo;s technical point is that a session with these switches does not count as deep work, no matter how hard the underlying task is. The switches significantly degrade your cognitive effectiveness.</p>
+<p><strong>What is the difference between shallow work and pseudo-deep work?</strong></p>
+<p>Shallow work is not cognitively demanding. Formatting the chart is shallow even with perfect focus. Pseudo-deep work is cognitively demanding but interrupted. The strategy memo with email checks every five minutes is pseudo-deep. The distinction matters because pseudo-deep feels productive while delivering a fraction of deep work&rsquo;s output. It is the most expensive bucket to be stuck in.</p>
+<p><strong>Why does Cal insist there is no moral hierarchy?</strong></p>
+<p>Because the claim would be false and would discredit the real argument. Invoicing clients is not deep, and skipping it kills the business. His graduate-studies budget was not deep, and skipping it meant students did not get paid. Deep work is not the only work that matters. It is the work that creates the distinctive value. Keeping the lights on is still keeping the lights on.</p>
+<p><strong>How does measuring the ratio actually change anything?</strong></p>
+<p>It replaces a vague feeling with a confrontable number. You and your boss agree the role needs 50-50. You measure last week and find two hours of deep work. Now neither of you can pretend. Either deep work does not matter for the role, which contradicts the value argument, or the workload, the culture, or the schedule has to change. The number forces the conversation that busyness avoids.</p>
+<p><strong>Why schedule deep work instead of waiting until you feel like it?</strong></p>
+<p>Because the feeling never arrives on its own. If you wait for a free moment and the sudden urge to concentrate hard, you do not work hard enough for that moment to exist. Deep work competes with everything easy and urgent. Unscheduled, it loses every time. Scheduled and protected like a meeting, it happens.</p>
+<p><strong>What counts as training concentration?</strong></p>
+<p>Anything that forces sustained focus without distraction. Reading books. Productive meditation: holding a professional problem in your head while walking. Board games and strategy games. Complicated hobbies, manual or physical. The principle is progressive: you rebuild the capacity that constant phone-checking destroyed. Do not expect a two-hour deep session to work before the training does.</p>
+<p><strong>Applied: my team lives on Slack and my calendar is all meetings. How do I start?</strong></p>
+<p>Start with definition, because it is the cheapest move. Teach the three buckets in one team conversation. Then propose the ratio question for each role: what mix best serves the team. Measure one week honestly from everyone&rsquo;s calendars. The number will show the gap. Then protect one recurring deep block per person per week and defend it like a client meeting. Rituals and training come after the schedule exists.</p>
+<h2 id="memory-aids">Memory aids</h2>
+<p>Mnemonic for the definition: <strong>HAD</strong>. <strong>H</strong>ard task, <strong>A</strong>bsence of switches, <strong>D</strong>eep work. If either condition fails, it is not deep.</p>
+<p>Mnemonic for the five moves: <strong>DMSRT</strong>. <strong>D</strong>efine, <strong>M</strong>easure, <strong>S</strong>chedule, <strong>R</strong>itualize, <strong>T</strong>rain. Say it as &ldquo;deep work demystified, really trained.&rdquo;</p>
+<p>Never-confuse pairs:
+- Deep vs. pseudo-deep. Same hard task. The switches are the entire difference.
+- Shallow vs. unimportant. Shallow means not cognitively demanding. Invoicing is shallow and critical.
+- Context shift vs. multitasking. A context shift is one turn of attention between cognitive contexts. Multitasking is the folk name for doing it constantly.
+- Measuring vs. judging. The ratio is a diagnostic number, not a moral grade.</p>
+<p>Trap cards:
+- &ldquo;I worked ten hours, so I did deep work.&rdquo; Hours are not depth. Ten hours of pseudo-deep is ten hours at a fraction of capability.
+- &ldquo;This task is hard, so this session counts.&rdquo; Hard plus switching equals pseudo-deep. Both conditions are required.
+- &ldquo;I will do deep work when things calm down.&rdquo; Things never calm down. That is why it must be scheduled.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Cal Newport&rsquo;s site, with his books and essays on focus: https://calnewport.com</li>
+<li>His long-running blog on deep work: https://www.calnewport.com/blog</li>
+</ul>
+<h2 id="figure-audit">Figure audit</h2>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Claim</th>
+<th>Before</th>
+<th>After</th>
+<th>Figure</th>
+<th>Medium</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u01</td>
+<td>Sessions sort into deep, shallow, pseudo-deep</td>
+<td>&ldquo;I worked hard&rdquo; as one blob</td>
+<td>Three buckets scored on a 60-minute memo</td>
+<td>Figure 1</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u02</td>
+<td>Five moves increase deep work</td>
+<td>Depth left to chance</td>
+<td>Define, measure, schedule, ritualize, train</td>
+<td>Figure 2</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+<tr>
+<td>u03</td>
+<td>Whole chapter trade</td>
+<td>Busy on a sinking ship</td>
+<td>Depth prioritized in a shallow world</td>
+<td>Figure 3 (chapter plate)</td>
+<td>table</td>
+<td>original toy, from episode claims</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 3 (chapter plate). The cost of forgetting depth versus the reward of prioritizing it. AI Podcast Curriculum, deep-questions ep03 (original toy, 2022-02-14). Shell 5. Name the next page that reuses the symbol. Source: original toy, from episode claims.</p>
+<table>
+<thead>
+<tr>
+<th>Left: cost without the rule</th>
+<th>Center: the stored object</th>
+<th>Right: cost with the rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Days of calls, email, and font-fixing. Busy, praised, and pseudo-deep. The deep activities that keep the enterprise alive get zero hours.</td>
+<td>Deep work: focus without distraction on a cognitively demanding task, protected by ratio, schedule, ritual, and training.</td>
+<td>Fewer, deeper hours. The scarce resource commands a premium. Faster than the person next to you is faster than the bear.</td>
+</tr>
+</tbody>
+</table>
+<p>Tradeoff: give up the appearance of busyness. Keep the hours that actually move the needle.
+Footer: depth grows scarcer. Scarcity is the opportunity.</p>
+      <section class="sources"><h2>Sources</h2><ul><li><span class="src-tag">EPISODE</span><a href="https://www.youtube.com/watch?v=xJYlhhT7hyE" target="_blank" rel="noopener">Core Idea: Deep Work</a></li></ul></section>
+      <nav class="pager"><a href="../../tracks/deep-questions/ep02.html"><span class="lbl">← Previous</span>Episode 2: Cal Newport&#x27;s Planning System (In Detail)</a><a href="../../tracks/deep-questions/ep04.html"><span class="lbl">Next →</span>Episode 4: Digital Minimalism with Cal Newport</a></nav>
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../../assets/vendor/katex.min.js"></script>
+<script src="../../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../../";</script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
