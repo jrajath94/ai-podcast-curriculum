@@ -187,3 +187,40 @@
     parallax();
   }
 })();
+
+/* ---- YouTube speed bar (0.5x-2x) ---- */
+(function () {
+  var blocks = document.querySelectorAll('.video-block[data-vid]');
+  if (!blocks.length) return;
+  var players = {};
+  window.onYouTubeIframeAPIReady = function () {
+    blocks.forEach(function (block, i) {
+      var iframe = block.querySelector('iframe');
+      if (!iframe) return;
+      try {
+        players[i] = new YT.Player(iframe, {
+          events: {
+            onReady: function () { wireSpeed(block, players[i]); }
+          }
+        });
+      } catch (e) { /* API unavailable; speed bar stays inert */ }
+    });
+  };
+  function wireSpeed(block, player) {
+    var btns = block.querySelectorAll('.speed-bar button');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var s = parseFloat(btn.getAttribute('data-speed'));
+        try { player.setPlaybackRate(s); } catch (e) { return; }
+        btns.forEach(function (b) { b.classList.remove('on'); });
+        btn.classList.add('on');
+      });
+    });
+    var one = block.querySelector('.speed-bar button[data-speed="1"]');
+    if (one) one.classList.add('on');
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var first = document.getElementsByTagName('script')[0];
+  first.parentNode.insertBefore(tag, first);
+})();
