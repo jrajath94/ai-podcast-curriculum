@@ -1,7 +1,0 @@
-# Naval Ravikant — research notes (2026-10-06)
-
-1. Official feed is the "Naval and Nivi" YouTube channel (UCh_dVD10YuSghle8g6yjePg, 175 videos); https://www.youtube.com/@naval 404s. All view counts verified per-video via yt-dlp on Oct 6, 2026 — never estimated. The channel is mostly short clips (1–7 min); the two long-form episodes are "How to Get Rich" (3.6 h) and "Happiness" (27 min).
-2. YouTube throttled caption downloads mid-run (bot-check/429 after ~30 requests). Recovered 5 transcripts from YouTube captions; the other 5 come from the official nav.al podcast site (nav.al/rich, nav.al/happiness), which publishes the same episodes' full transcripts — marked per-episode in episodes.json.
-3. Original #6 by views, "Spend More Time Making the Big Decisions" (VGOH2uPqNPQ, 111,777 views), was replaced by #11 "Judgment Is the Decisive Skill" (eoLAIDGM4zI, 66,952) per procedure: its captions exist but were unretrievable under throttling and nav.al has no transcript for it. #2 "Happiness" and #9 "Making Money Isn't About Luck" have no YouTube captions at all; their nav.al transcripts were used instead of replacing them.
-4. "How to Get Rich" (13.5M views) and "Happiness" (628K) dwarf everything else; ranks 3–10 sit between 177K and 67K. Guest on all episodes is co-host Babak Nivi, except "Your desires are not yours." (Naval monologue).
-5. No Rogan/secondary appearances used — all 10 are from the official Naval podcast feed.
