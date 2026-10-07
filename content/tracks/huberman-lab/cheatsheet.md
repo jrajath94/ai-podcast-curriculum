@@ -89,3 +89,5 @@ summary: "Every key fact, number, name, and decision rule from the eight episode
 - Neuralink reconnects limbs today: today is the cursor. A little alcohol is safe: the line starts at zero. (Ep6)
 - Sora understands cats: statistics, not anatomy. AI learns your memories: the gray cup stays private. (Ep7)
 - Essentials is new: it is a cut. Perfection connects: vulnerability does. (Ep8)
+- Creativity is catching, not forcing: ideas vanish if not caught. The body is a sensor. Four phases of work. (Ep9)
+- Switching has a tax: pseudo-productivity is motion without depth. Pull-based workload, multiscale planning, shutdown ritual. (Ep10)
