@@ -100,3 +100,5 @@ offering: "Deep Questions with Cal Newport"
 - If stressed about systems, return to the standard one. Do not invent a new one.
 - If an obligation has no single home, it lives in your head and charges rent.
 - If the week has no seasonality, add it at the smallest scale first.
+- Mastery is stair-step: time invested, not brain power. Three note systems: fleeting, project, permanent. (Ep9)
+- Repair attention in two steps: add high-quality leisure first, then declutter. 4-hour social cap. Home base for tools. (Ep10)
