@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Podcast Deep Dive — AI Podcast Curriculum</title>
+<meta name="description" content="Skill: Podcast Deep Dive">
+<link rel="stylesheet" href="../assets/vendor/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-skill">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <div class="topbar-search">
+    <input id="searchBox" type="search" placeholder="Search lessons, concepts, papers…" autocomplete="off" aria-label="Search">
+    <div id="searchResults" class="search-results" hidden></div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Course navigation">
+    
+  </nav>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../index.html">Home</a> / Skills / Podcast Deep Dive</nav>
+      <h1>Podcast Deep Dive</h1>
+      
+      <h1>Podcast Deep Dive</h1>
+<h2>Purpose</h2>
+<p>Turn a podcast show into research-grade source material: the top N most-viewed episodes on a topic, with verified view counts and full plain-text transcripts, plus a topic/claim extraction per episode.</p>
+<h2>Workflow</h2>
+<ol>
+<li>Resolve the show&rsquo;s official YouTube channel URL. Verify it loads (<code>python3 -m yt_dlp --flat-playlist --print "%(id)s" "&lt;channel&gt;/videos" | head -3</code>). Never guess video IDs.</li>
+<li>Dump the catalog: <code>python3 -m yt_dlp --flat-playlist --print "%(id)s\t%(title)s" "&lt;channel&gt;/videos" &gt; catalog.txt</code>.</li>
+<li>Filter to topic-relevant episodes by title keywords (and known guests). Keep the filter broad; rank later.</li>
+<li>Verify metadata per candidate — view counts must come from YouTube, never estimated:
+   <code>python3 -m yt_dlp --skip-download --print "%(id)s\t%(title)s\t%(view_count)s\t%(upload_date)s\t%(duration)s" "https://www.youtube.com/watch?v=&lt;id&gt;"</code></li>
+<li>Rank by view_count descending, take the top N. Record: title, URL, video_id, view_count, upload_date, guest, duration_s.</li>
+<li>Fetch transcripts with <code>bin/fetch_transcript.py &lt;video_id&gt; &lt;out.txt&gt;</code> (tries manual subs, falls back to auto-subs; exits 1 with NO_CAPTIONS if none exist — replace that episode with the next-ranked).</li>
+<li>For each episode, read the transcript and write: 3–6 topic tags + the 5–10 substantive claims worth teaching (with approximate position in the episode, e.g. &ldquo;early/middle/late&rdquo;, never invented timestamps).</li>
+<li>Save <code>episodes.json</code> (schema in references/episodes-schema.md) + a short research-notes.md with data-quality caveats.</li>
+</ol>
+<h2>Output Contract</h2>
+<ul>
+<li><code>episodes.json</code>: ranked array, every number verified from tool output.</li>
+<li><code>transcripts/&lt;video_id&gt;.txt</code>: clean plain text, one directory per show.</li>
+<li><code>research-notes.md</code>: replacements, missing captions, anomalies.</li>
+</ul>
+<h2>Operating Rules</h2>
+<ul>
+<li>View counts, dates, guests: verified from YouTube output only. No estimates, no memory.</li>
+<li>If a channel URL 404s, find the correct official channel before proceeding.</li>
+<li>Mandatory-inclusion episodes (user-named) outrank pure view ranking; note the override in research-notes.md.</li>
+<li>Transcripts are the source of truth for claims. Quote verbatim or paraphrase with attribution; mark synthesis as synthesis.</li>
+</ul>
+      
+      
+    </article>
+    <footer class="pagefoot">
+      <p>Reconstructed from public podcast episodes for study. Sources are listed above. Content is study material, not affiliated with the shows or hosts.</p>
+    </footer>
+  </main>
+</div>
+<script src="../assets/vendor/katex.min.js"></script>
+<script src="../assets/vendor/mermaid.min.js"></script>
+<script>window.SITE_ROOT = "../";</script>
+<script src="../assets/app.js"></script>
+</body>
+</html>
