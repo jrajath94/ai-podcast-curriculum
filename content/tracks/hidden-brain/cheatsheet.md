@@ -109,6 +109,25 @@ date: 2026-10-06
 - Blocks are not weakness.
 - Mnemonic: STORE (Small store, Tenant = worry, Occupy deliberately, Relabel arousal, Expertise automates).
 
+## Ep 8 · The Real Reason You Cannot Focus (Gloria Mark)
+
+- 47 seconds: average screen time before switching (median 40s); down from 150s in 2004 (69% drop).
+- You interrupt yourself more than your phone does. Each self-interruption costs ~25 min refocus.
+- 6 interruptions = 150 min refocus debt per morning.
+- Design days around attention rhythms, not against them.
+
+## Ep 9 · Why Your Brain Sabotages Happiness (Dave Evans)
+
+- Arrival fallacy: achievement does not satisfy; the brain moves the goalpost.
+- Four hidden traps (named in episode description; details marked honest gap).
+- Designing Your Life reframes: prototype, don't plan; curiosity over passion.
+
+## Ep 10 · How to Stop Overthinking (Ethan Kross)
+
+- Chatter: the inner voice that loops and sabotages.
+- Distanced self-talk: use your own name ("you") instead of "I" to gain perspective.
+- The stroke story: perspective shifts under extreme stakes.
+
 ## Cross-track numbers to keep
 
 - 17% / 83% (essay add-vs-subtract) · 2 of 90 (recipe) · 98 vs 47 (Klotz exam) · 750 ideas <10% subtractive · 30,000/year catheter deaths → 5 steps
@@ -118,10 +137,3 @@ date: 2026-10-06
 - Sept 30 1998 (Jill's weather) · 89% vs 29% (grades) · 5 ingredients (Meng Po soup)
 - 40 images (visual Mandela) · 10,000 faces · ResMem 0 to 1
 - 24.17s (Cate Beijing) · 6th place Rio · 7624 / 589743 / 910482 reversed · 35 oath words
-
-## Missing (no transcripts, no chapters)
-
-- Rank 1: Gloria Mark, "The Real Reason You Can't Focus" (54,278 views)
-- Rank 2: Dave Evans, "Why Your Brain Sabotages Your Own Happiness" (21,802 views)
-- Rank 8: Ethan Kross, "How to Stop Overthinking" (7,463 views)
-- Cause: YouTube timedtext HTTP 429 on every attempt (4 retry rounds). Ranking kept intact, nothing built from titles alone.
