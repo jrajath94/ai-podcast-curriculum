@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk: Dwarkesh Patel Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Dwarkesh Patel's interview with Elon Musk: space compute, solar math, Grok, Optimus, and the method.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-bottom:10px}
+  .tag.source{background:#e3ecdc;color:#3c5a2e;border:1px solid #b9cba6}
+  .tag.interp{background:#f3e9d6;color:#8f3f14;border:1px solid #dcc9a3}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:20px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:22px;font-weight:800;margin:12px 0 4px}
+  .toy .tnote{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-style:italic}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .legend{border:1px dashed var(--line);padding:14px 16px;margin:26px 0;font-family:var(--sans);font-size:13px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dwarkesh Patel · Track Companion</a>
+  <span class="sub">Mark Zuckerberg · Ep 8</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Dwarkesh Patel · Ep 8 · Companion</p>
+      <h1>Mark Zuckerberg</h1>
+      <p class="dek">Llama 3, $10 billion models, and the gigawatt datacenter no one has built yet. Zuckerberg on open source as strategy, the $1 billion he refused in 2006, and why Caesar Augustus at nineteen is the role model. This companion follows the full conversation in order.</p>
+      <figure>
+        <img src="assets/ep08-scale.webp" alt="Watercolor illustration of a gigantic data center the size of a city block at dusk">
+        <p class="caption"><b>Illustration.</b> The gigawatt datacenter: a city block of compute at dusk. AI-generated watercolor made for this page.</p>
+      </figure>
+      <div class="legend"><b>How to read this page.</b> <span class="tag source">Source fact</span> marks a claim made on the episode. <span class="tag interp">Interpretation</span> marks builder analysis built on top of it. Section labels (§1 to §8) follow the transcript in order. The episode publishes no chapter marks.</div>
+      <div class="stats">
+        <div class="stat"><div class="n">405B</div><div class="l">Parameters in the dense Llama 3 flagship, still training at episode time. 70B already at 82 MMLU.</div><div class="s">Episode transcript §1</div></div>
+        <div class="stat"><div class="n">1 GW</div><div class="l">The datacenter scale no one has built yet: a single gigawatt training cluster.</div><div class="s">Episode transcript §2</div></div>
+        <div class="stat"><div class="n">$10B</div><div class="l">The coming model cost Dwarkesh asks about: would Meta open source it?</div><div class="s">Episode transcript §3</div></div>
+        <div class="stat"><div class="n">200M</div><div class="l">Creators on Meta's platforms, the distribution for Meta AI.</div><div class="s">Episode transcript §6</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/bc6uFV9CJGg" title="Dwarkesh Patel interviews Mark Zuckerberg (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Ship three sizes at once</a></li>
+          <li><a href="#nugget-2">Name the scale: gigawatt</a></li>
+          <li><a href="#nugget-3">Open source the $10 billion model?</a></li>
+          <li><a href="#nugget-4">Refuse $1 billion, think in trillions</a></li>
+          <li><a href="#nugget-5">Coding was the surprise</a></li>
+          <li><a href="#nugget-6">Learn from Augustus at nineteen</a></li>
+          <li><a href="#nugget-7">Industrial-scale intelligence</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-llama3" data-time="§1" data-title="Llama 3">
+      <p class="ch-time">§1 · The models</p>
+      <h2>Llama 3: Three Sizes at Once</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <figure>
+        <img src="assets/mark-zuckerberg-photo.jpg" alt="Photograph of Mark Zuckerberg">
+        <p class="caption"><b>Photo.</b> Mark Zuckerberg. Source: Wikimedia Commons.</p>
+      </figure>
+      <p>Meta trains three Llama 3 versions: 8 billion parameters, 70 billion, and a 405 billion dense model still training. The 8B and 70B release now, leading for their scale. The 70B sits around 82 MMLU with leading math and reasoning scores. The 405B, mid-training, already reads around 85 MMLU.</p>
+      <p>The striking comparison: the smallest Llama 3, at 8B, is nearly as powerful as the biggest Llama 2. One generation collapsed the frontier into the pocket model.</p>
+      <div class="chart" id="chart-llama">
+        <h4>Llama 3: parameters and MMLU</h4>
+        <p class="csub">Hover any bar for detail. Log scale on parameters.</p>
+        <svg viewBox="0 0 640 360" role="img" aria-label="Bar chart of Llama 3 model sizes">
+          <rect class="bar alt" x="80" y="220" width="80" height="60" data-tip="Llama 3 8B: nearly as powerful as the biggest Llama 2"></rect>
+          <rect class="bar" x="250" y="160" width="80" height="120" data-tip="Llama 3 70B: around 82 MMLU, leading math and reasoning"></rect>
+          <rect class="bar dark" x="420" y="100" width="80" height="180" data-tip="Llama 3 405B dense: still training, around 85 MMLU so far"></rect>
+          <text class="vallab" x="120" y="212" text-anchor="middle">8B</text>
+          <text class="vallab" x="290" y="152" text-anchor="middle">70B</text>
+          <text class="vallab" x="460" y="92" text-anchor="middle">405B</text>
+          <text class="axis" x="120" y="300" text-anchor="middle">~Llama 2 max</text>
+          <text class="axis" x="290" y="300" text-anchor="middle">82 MMLU</text>
+          <text class="axis" x="460" y="300" text-anchor="middle">85 MMLU*</text>
+          <text class="axis" x="320" y="326" text-anchor="middle">*mid-training figure</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Mark Zuckerberg, episode transcript §1. MMLU figures are Zuckerberg's stated numbers.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Product</p>
+        <h4>Ship three sizes at once</h4>
+        <p><span class="lbl">What happened. </span>Meta released 8B and 70B together while 405B still trained, covering pocket, server, and frontier in one launch.</p>
+        <p><span class="lbl">Why it matters. </span>One model serves one user. A ladder of sizes serves every user, and each rung markets the next.</p>
+        <p><span class="lbl">The principle. </span>Launch the ladder, not the rung. Cover the whole price-performance curve on day one.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gigawatt" data-time="§2" data-title="Gigawatt">
+      <p class="ch-time">§2 · Datacenters</p>
+      <h2>The Gigawatt No One Has Built</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="pull">
+        <blockquote>no one has built a single Gigawatt data center yet</blockquote>
+        <p class="who">Mark Zuckerberg on training clusters · Episode transcript §2</p>
+      </div>
+      <p>Zuckerberg walks the scale ladder: 300 megawatts, 500 megawatts, a gigawatt. Each step breaks something new. To put it in perspective, he says a gigawatt is the size of a meaningful nuclear power plant, only dedicated to one training run. No one has built a single gigawatt training cluster yet.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Scale</p>
+        <h4>Name the scale: gigawatt</h4>
+        <p><span class="lbl">What happened. </span>Zuckerberg named the next unit of competition: not the model, the gigawatt, a nuclear plant per training run.</p>
+        <p><span class="lbl">Why it matters. </span>Whoever names the unit sets the game. The gigawatt reframes AI competition as power competition.</p>
+        <p><span class="lbl">The principle. </span>Find the unit your industry will be measured in next, and say it first. Units are strategy.</p>
+      </div>
+      <div class="toy" id="toy-power">
+        <h4>Toy: the datacenter scale slider</h4>
+        <p class="tsub">Drag from megawatts to gigawatts. Compare against Zuckerberg's nuclear-plant yardstick.</p>
+        <label for="mwRange">Training cluster size: <b id="mwVal">300 MW</b></label>
+        <input type="range" id="mwRange" min="100" max="1000" step="50" value="300">
+        <div class="out" id="mwOut">0.3× a nuclear plant</div>
+        <p class="tnote">Yardstick: 1 GW ≈ one meaningful nuclear power plant, per Zuckerberg on the episode. Homes figure uses ~1.2 kW average per US home.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-opensource" data-time="§3" data-title="Open source">
+      <p class="ch-time">§3 · Strategy</p>
+      <h2>Would You Open Source the $10 Billion Model?</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="pull">
+        <blockquote>Would you open source the $10 billion model?</blockquote>
+        <p class="who">Dwarkesh Patel's question · Episode transcript §3</p>
+      </div>
+      <p>Zuckerberg's answer is conditional and strategic: as long as open sourcing helps Meta, yes. The logic is the classic commoditize-your-complement play. Meta's business is not model sales. It trades in attention and distribution around models. Open weights commoditize the model layer and grow the ecosystem Meta monetizes.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>The $10 billion figure matters because it tests the strategy's limit. Open sourcing gets more expensive as models do. The answer reveals where Meta draws the line: at the point open weights stop helping.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Strategy</p>
+        <h4>Open source the $10 billion model?</h4>
+        <p><span class="lbl">What happened. </span>Asked about open sourcing a $10B model, Zuckerberg said yes, conditionally: as long as it helps Meta.</p>
+        <p><span class="lbl">Why it matters. </span>Open source is not ideology here. It is a pricing play: commoditize the layer you do not monetize.</p>
+        <p><span class="lbl">The principle. </span>Give away the complement, sell the core. But reprice the gift as the gift gets expensive.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-2006" data-time="§4" data-title="2006">
+      <p class="ch-time">§4 · The refusal</p>
+      <h2>The $1 Billion He Refused</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dwarkesh goes back to 2006, when Zuckerberg did not sell for $1 billion. The follow-up: at what price would he have sold? Zuckerberg's answer reframes the question entirely. If someone offered $5 trillion, of course he would have sold. The point is not the number. It is that no offer on the table priced what the company could become.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>The $5 trillion is not a valuation. It is a way of saying the decision was never about price. It was about whether any buyer could see the same future, and none could.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Decisions</p>
+        <h4>Refuse $1 billion, think in trillions</h4>
+        <p><span class="lbl">What happened. </span>A $1 billion offer in 2006 looked like a fortune. Zuckerberg measured it against a future no buyer could price.</p>
+        <p><span class="lbl">Why it matters. </span>Acquisition offers price the present. Founders price the future. The gap is the whole negotiation.</p>
+        <p><span class="lbl">The principle. </span>When an offer arrives, ask what future it assumes. If the buyer cannot see yours, there is no price.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-fair" data-time="§5" data-title="FAIR">
+      <p class="ch-time">§5 · Research</p>
+      <h2>FAIR at Ten, and the Coding Surprise</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Meta started FAIR about 10 years ago, on the thesis that open research on the road to general intelligence would pay off. It did, in an unexpected direction. The surprise of the last 18 months: coding turned out to matter for far more domains than anyone planned. During Llama 2, the team did not even prioritize coding, assuming Meta AI users would not ask for it. They were wrong, and the correction shaped Llama 3.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Research</p>
+        <h4>Coding was the surprise</h4>
+        <p><span class="lbl">What happened. </span>A decade-old research bet paid off sideways: code capability lifted everything, not just coding.</p>
+        <p><span class="lbl">Why it matters. </span>The highest-return research is often the kind whose applications you cannot name in advance.</p>
+        <p><span class="lbl">The principle. </span>Fund the capability, not the use case. General tools find their markets.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-creators" data-time="§6" data-title="Creators">
+      <p class="ch-time">§6 · Distribution</p>
+      <h2>200 Million Creators</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>About 200 million creators live on Meta's platforms, and nearly all of them follow the same pattern: make things, reach people, repeat. Meta AI slots into that loop as the assistant layer. The distribution is the product strategy: the models matter because billions of people already live where they will run.</p>
+      <p>On inference economics, Zuckerberg thinks in industrial units: $10Bs of inference today, $100Bs eventually. Intelligence at that scale stops being a product and becomes a utility, priced like power.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Scale</p>
+        <h4>Industrial-scale intelligence</h4>
+        <p><span class="lbl">What happened. </span>Inference spend moves from billions to hundreds of billions. Intelligence gets priced like electricity.</p>
+        <p><span class="lbl">Why it matters. </span>Utilities compete on cost and reliability, not features. The winners own generation and distribution.</p>
+        <p><span class="lbl">The principle. </span>When your product becomes a utility, build like a utility: massive capacity, ruthless unit cost.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-augustus" data-time="§7" data-title="Augustus">
+      <p class="ch-time">§7 · Role models</p>
+      <h2>Caesar Augustus at Nineteen</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dwarkesh asks about role models, and Zuckerberg reaches for Rome. Caesar Augustus, by nineteen, was already one of the most important people in Roman politics, leading at an age when most people choose majors. The young Zuckerberg's thought, as Dwarkesh frames it: I can do this because Caesar Augustus did this.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>The example works quietly. Augustus did not wait for permission or credentials. He acted at scale while young, and the empire followed. It is a founder's mirror, not a historian's.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Ambition</p>
+        <h4>Learn from Augustus at nineteen</h4>
+        <p><span class="lbl">What happened. </span>Zuckerberg's role model took power at nineteen. The lesson he took: youth is not a waiting period.</p>
+        <p><span class="lbl">Why it matters. </span>Role models set the clock. Pick one who moved early and the timeline compresses.</p>
+        <p><span class="lbl">The principle. </span>Choose exemplars who started before they were ready. Their calendar becomes yours.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-llama10" data-time="§8" data-title="Llama-10">
+      <p class="ch-time">§8 · The end case</p>
+      <h2>Llama-10 and the End Case</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dwarkesh pushes to the end case: Llama-10. What does the world look like when the models are that good and that cheap? Zuckerberg is measured: progress is progressive, each generation compounding, and a lot is already baked into the trajectory. He does not claim to see the endpoint clearly.</p>
+      <p>What he does claim: the efficient model matters as much as the frontier one. If the world runs $10Bs to $100Bs of inference, the winner is the intelligence that is cheapest to serve at industrial scale, not just smartest in the lab.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Llama 3 ships as a ladder: 8B near Llama 2 max, 70B at 82 MMLU, 405B still climbing.</li>
+          <li>The next unit of competition is the gigawatt. No one has built one yet.</li>
+          <li>Open source is strategy, not ideology: give away the complement, sell the core.</li>
+          <li>Refusing $1 billion in 2006 was never about price. No buyer priced the future.</li>
+          <li>FAIR's decade bet paid off sideways: coding lifted everything.</li>
+          <li>Two hundred million creators are the distribution. Intelligence becomes a utility.</li>
+          <li>Augustus moved at nineteen. Pick role models who started before they were ready.</li>
+        </ol>
+        <p class="src">Distilled from Dwarkesh Patel's interview with Mark Zuckerberg (video id bc6uFV9CJGg). All figures are the guest's statements from the episode transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates Dwarkesh Patel's interview with Mark Zuckerberg (video id bc6uFV9CJGg). All facts and figures come from the episode transcript. Section labels (§1 to §8) follow the transcript in order. The episode publishes no chapter marks, so no timestamps are claimed. The illustration is an AI-generated watercolor made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 18 words: the gigawatt pull quote (10 words) and the open-source pull quote (8 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+  var gr = document.getElementById('gpuRange'), gv = document.getElementById('gpuVal'), mo = document.getElementById('mwOut');
+  if(gr){
+    gr.addEventListener('input', function(){
+      var n = parseInt(gr.value, 10);
+      gv.textContent = n.toLocaleString('en-US');
+      mo.textContent = '\u2248 ' + Math.round(n / 110000 * 300).toLocaleString('en-US') + ' MW all-in';
+    });
+  }
+
+  /* ---------- toy: datacenter scale slider ---------- */
+  (function(){
+    var r = document.getElementById('mwRange'), v = document.getElementById('mwVal'), o = document.getElementById('mwOut');
+    if(!r) return;
+    function upd(){
+      var mw = parseInt(r.value, 10);
+      v.textContent = mw >= 1000 ? '1 GW' : mw + ' MW';
+      var plants = (mw / 1000).toFixed(1).replace(/\.0$/, '');
+      var homes = Math.round(mw * 1000 / 1.2).toLocaleString('en-US');
+      o.textContent = plants + 'x a nuclear plant ~ ' + homes + ' homes';
+    }
+    r.addEventListener('input', upd); upd();
+  })();
+
+})();
+</script>
+</body>
+</html>
