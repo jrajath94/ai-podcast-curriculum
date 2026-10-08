@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn to Sell, Learn to Build: Naval Ravikant Episode Companion</title>
+<meta name="description" content="The two-skill thesis: building the product and selling the vision, the cofounder pair that built Apple and Microsoft, why one person with both is unst">
+<style>
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;
+    margin:0 6px 8px 0}
+  .tag.src{background:#e8f0e4;color:#3d6b34;border:1px solid #c4d8bb}
+  .tag.int{background:#efe6f5;color:#5f3f7a;border:1px solid #d8c4e8}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted)}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--mono);font-size:15px;color:var(--accent-ink);margin-top:10px}
+  .toy button{font-family:var(--sans);font-size:13px;padding:8px 14px;background:var(--ink);
+    color:#fff;border:none;border-radius:4px;cursor:pointer;margin:6px 6px 0 0}
+  .toy button:hover{background:#3a3226}
+  .toy label{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Naval Ravikant &middot; Track Companion</a>
+  <span class="sub">Ep 6 of 10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Naval Ravikant · The Skill Stack · Companion</p>
+      <h1>Learn to Sell, Learn to Build</h1>
+      <p class="dek">The two-skill thesis: building the product and selling the vision, the cofounder pair that built Apple and Microsoft, why one person with both is unstoppable, and why you should learn building first and selling second.</p>
+      <img src="assets/ep06-learn-to-sell-learn-to-build/illustration-hammer-pen.webp" alt="Watercolor illustration of a hammer crossed with a fountain pen">
+      <p class="caption"><b>Illustration.</b> The hammer and the pen: the two tools of the unstoppable. AI-generated watercolor made for this page.</p>
+      <div class="legend"><span class="tag src">Source fact</span><span style="align-self:center">A claim from the episode itself.</span><span class="tag int">Interpretation</span><span style="align-self:center">My reading of what it means for you.</span></div>
+      <div class="stats">
+        <div class="stat"><div class="n">2</div><div class="l">Skills in the stack: build and sell</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">Founder pairs named: Jobs-Wozniak, Gates-Allen, Larry-Sergey</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">Solo dual-threats named: Musk, Jobs, Ellison, Andreessen</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">1</div><div class="l">Right sequence: build first, sell second</div><div class="s">Episode</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/L39Gbm_GaAA" title="Naval Ravikant — Learn to Sell, Learn to Build (official Naval podcast)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Naval podcast episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Name your category honestly</a></li>
+          <li><a href="#nugget-2">Redefine selling until it fits</a></li>
+          <li><a href="#nugget-3">Pair the missing half</a></li>
+          <li><a href="#nugget-4">Become the pair</a></li>
+          <li><a href="#nugget-5">Sequence it: build first, sell second</a></li>
+          <li><a href="#nugget-6">Let the career have seasons</a></li>
+        </ol>
+      </div>
+    </div>
+
+<section class="chapter" id="ch-tweet" data-time="00:00" data-title="Two broad categories">
+<p class="ch-time">00:00</p>
+<h2>Two broad categories</h2>
+<p>Nivi opens with the tweet: "learn to sell, learn to build, if you can do both, you will be unstoppable". Naval calls them two broad categories, each with many definitions.</p>
+<p>Building the product is hard and multivariate: design, development, manufacturing, logistics, procurement, even designing and operating a service. In tech the builder is the CTO or the engineer. In a laundry business it is whoever makes the trains run on time and gets every garment to the right place at the right time.</p>
+<div class="nugget reveal" id="nugget-1"><p class="eyebrow">Wisdom nugget 1</p><span class="tag src">Source fact</span><h4>Name your category honestly</h4><p><b>What happened.</b> Naval defines building and selling as umbrella categories that exist in every industry, not just tech.</p><p><b>Why it matters.</b> People mislabel themselves. A laundry operator who perfects the route is a builder. A coder who only demos is not.</p><p><b>Principle.</b> Write down which category pays you today. Then write down which one you avoid, and why.</p></div>
+</section>
+<section class="chapter" id="ch-sell" data-time="00:02" data-title="Selling is also broad">
+<p class="ch-time">00:02</p>
+<h2>Selling is also broad</h2>
+<p>Selling is not just closing customers. The umbrella covers marketing, communicating, recruiting, raising money, inspiring people, PR. Anything where you move other humans toward your idea counts.</p>
+<p>This breadth is the point. You do not need to become a cold-caller. A builder who learns to write well learned to sell. A builder who learns to recruit learned to sell.</p>
+<figure class="reveal"><img src="assets/ep06-learn-to-sell-learn-to-build/illustration-hammer-pen.webp" alt="Watercolor illustration of a blacksmith hammer crossed with a fountain pen on a desk"><p class="caption"><b>Illustration.</b> The hammer and the pen: the two tools of the unstoppable. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-2"><p class="eyebrow">Wisdom nugget 2</p><span class="tag src">Source fact</span><h4>Redefine selling until it fits</h4><p><b>What happened.</b> Naval stretches selling to cover writing, recruiting, fundraising, and inspiration, so builders can enter through their own door.</p><p><b>Why it matters.</b> Builders reject selling because they picture the worst version of it. The broad definition removes the excuse.</p><p><b>Principle.</b> Pick the selling flavor closest to your nature: writing, one-on-one, or stage. Then train that one deliberately.</p></div>
+</section>
+<section class="chapter" id="ch-model" data-time="00:04" data-title="The Silicon Valley model">
+<p class="ch-time">00:04</p>
+<h2>The Silicon Valley model</h2>
+<p>The most common winning pattern: two founders, one world-class at selling, one world-class at building. Steve Jobs and Steve Wozniak at Apple. Gates and Allen in the early Microsoft years. Larry and Sergey at Google, roughly along the same lines, though the product was so technical the split looked different.</p>
+<p>Venture investors are trained to look for the combo. It is the magic combination because the company can both make the thing and make the world want the thing.</p>
+<div class="chart reveal" id="c-matrix-chart"><h4>The builder-seller matrix</h4>
+<p class="csub">The episode's map of who wins. One skill is good. Both is superpowers.</p>
+<svg viewBox="0 0 680 320" width="100%" role="img" aria-label="Two by two matrix of build skill versus sell skill">
+<text x="340" y="24" text-anchor="middle" class="vallab">SELL SKILL →</text>
+<text x="30" y="170" text-anchor="middle" class="vallab" transform="rotate(-90 30 170)">BUILD SKILL ↓</text>
+<g data-tip="Weak builder, weak seller: no leverage in either direction.">
+<rect x="120" y="50" width="220" height="110" fill="#f5f0e6" stroke="#8a7c66" stroke-width="2" rx="8"/>
+<text x="230" y="95" text-anchor="middle" class="axis">weak build</text>
+<text x="230" y="118" text-anchor="middle" class="axis">weak sell</text>
+<text x="230" y="141" text-anchor="middle" class="axis">commodity labor</text></g>
+<g data-tip="Strong builder, weak seller: the engineer with no distribution. Great product, no audience.">
+<rect x="360" y="50" width="220" height="110" fill="#fbf9f3" stroke="#b4531f" stroke-width="2" rx="8"/>
+<text x="470" y="95" text-anchor="middle" class="axis">strong build</text>
+<text x="470" y="118" text-anchor="middle" class="axis">weak sell</text>
+<text x="470" y="141" text-anchor="middle" class="axis">Wozniak alone</text></g>
+<g data-tip="Weak builder, strong seller: the hustler with nothing to back it up. Loud, then forgotten.">
+<rect x="120" y="180" width="220" height="110" fill="#fbf9f3" stroke="#b4531f" stroke-width="2" rx="8"/>
+<text x="230" y="225" text-anchor="middle" class="axis">weak build</text>
+<text x="230" y="248" text-anchor="middle" class="axis">strong sell</text>
+<text x="230" y="271" text-anchor="middle" class="axis">hustler, no product</text></g>
+<g data-tip="Strong builder, strong seller: unstoppable. Musk, Jobs, Ellison, Andreessen territory.">
+<rect x="360" y="180" width="220" height="110" fill="#e8f0e4" stroke="#3d6b34" stroke-width="3" rx="8"/>
+<text x="470" y="225" text-anchor="middle" class="vallab">strong build</text>
+<text x="470" y="248" text-anchor="middle" class="vallab">strong sell</text>
+<text x="470" y="271" text-anchor="middle" class="vallab">UNSTOPPABLE</text></g>
+</svg>
+<p class="csub"><b>Source.</b> Diagram of the episode's argument. The examples in the boxes are the episode's own.</p></div><div class="nugget reveal" id="nugget-3"><p class="eyebrow">Wisdom nugget 3</p><span class="tag src">Source fact</span><h4>Pair the missing half</h4><p><b>What happened.</b> Naval names the builder-seller cofounder pair as the repeating pattern behind Apple, Microsoft, and Google.</p><p><b>Why it matters.</b> Solo founders usually lack one half. The pair is not about friendship. It is about covering both categories.</p><p><b>Principle.</b> If you are a builder, your most important hire or cofounder is a seller, and the reverse. Do not pair with your clone.</p></div>
+</section>
+<section class="chapter" id="ch-both" data-time="00:06" data-title="Do both and you are unstoppable">
+<p class="ch-time">00:06</p>
+<h2>Do both and you are unstoppable</h2>
+<p>The ultimate is one person who does both. That is when you get true superpowers, people who create entire industries. The living example is Elon Musk: he may not weld the rockets, but he understands the technology deeply enough to make real technical contributions, and nobody can snow him on it.</p>
+<p>Steve Jobs grew enough product skill to operate in both domains. Larry Ellison started as a programmer, wrote the first version of Oracle or was deeply involved in it. Marc Andreessen wrote Netscape Navigator, or a big chunk of it. The pattern holds: the real giants in any field master both.</p>
+<div class="pull reveal"><blockquote>The real giants in any field are the people who can both build and sell.</blockquote><p class="who">Naval Ravikant, from the episode</p></div><figure class="reveal"><img src="assets/ep06-learn-to-sell-learn-to-build/illustration-fork.webp" alt="Watercolor illustration of a path forking toward a workshop and a market square, rejoining at a sunrise"><p class="caption"><b>Illustration.</b> The fork that rejoins: build and sell as two roads to the same sunrise. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-4"><p class="eyebrow">Wisdom nugget 4</p><span class="tag src">Source fact</span><h4>Become the pair</h4><p><b>What happened.</b> Naval argues that individuals who master both categories, Musk, Jobs, Ellison, Andreessen, operate at a different level than any pair.</p><p><b>Why it matters.</b> Pairs have coordination cost. One person with both skills has none, and investors know it.</p><p><b>Principle.</b> Treat the second skill as a ten-year project. You do not need both today. You need a plan to own both eventually.</p></div>
+</section>
+<section class="chapter" id="ch-teach" data-time="00:08" data-title="Teach the engineer marketing">
+<p class="ch-time">00:08</p>
+<h2>Teach the engineer marketing</h2>
+<p>Building is the harder half to add late. It takes too much focused time, and a salesperson cannot pick it up mid-career. But a builder can pick up selling later, especially with some natural communication wiring. Naval quotes the Bill Gates line: "I’d rather teach an engineer marketing, than a marketer engineering."</p>
+<p>The selling you learn does not have to be hand-to-hand. A builder who writes well becomes an online communicator. A builder who is good one-on-one aims at recruiting and fundraising. Match the medium to your nature.</p>
+<div class="toy reveal" id="toy-stack">
+  <h4>Toy: the skill-stack checker</h4>
+  <p class="csub">Rate yourself 1 to 10 on each skill. The episode says the combination matters more than either peak.</p>
+  <label>Build skill: <b>5</b></label>
+  <input type="range" id="stack-build" min="1" max="10" value="5">
+  <label>Sell skill: <b>5</b></label>
+  <input type="range" id="stack-sell" min="1" max="10" value="5">
+  <p class="out" id="stack-out"></p>
+</div><div class="nugget reveal" id="nugget-5"><p class="eyebrow">Wisdom nugget 5</p><span class="tag src">Source fact</span><h4>Sequence it: build first, sell second</h4><p><b>What happened.</b> Naval says building must come first because it cannot be added late, while selling can be layered on by a builder with time and focus.</p><p><b>Why it matters.</b> Young builders who chase sales polish too early trade the hard asset for the soft one.</p><p><b>Principle.</b> Front-load the building years. Add the selling layer through writing, then recruiting, then fundraising, in that order of difficulty.</p></div>
+</section>
+<section class="chapter" id="ch-which" data-time="00:10" data-title="If you must pick one">
+<p class="ch-time">00:10</p>
+<h2>If you must pick one</h2>
+<p>Nivi forces the choice: if you could only pick one, which? Naval's answer starts with building. When you are unknown, building stands out, because the world is full of hustlers with nothing to back them up. A real thing cuts through noise.</p>
+<p>Later, the math flips. Building is a focus job. It exhausts, and younger people arrive with newer tools and more hours. Selling scales better with age. A reputation for building great products gets re-validated on every launch, but a reputation for being persuasive and good to do business with becomes almost self-fulfilling. His cop-out, which he calls the right answer: start with building, then move into sales.</p>
+<div class="nugget reveal" id="nugget-6"><p class="eyebrow">Wisdom nugget 6</p><span class="tag src">Source fact</span><h4>Let the career have seasons</h4><p><b>What happened.</b> Naval says building wins early because it signals through noise, while selling wins late because reputation compounds and focus fades.</p><p><b>Why it matters.</b> Careers have seasons. Fighting the season, selling when unknown or grinding code at 60, wastes your edge.</p><p><b>Principle.</b> In your building season, ship. In your selling season, connect. Plan the handoff before the season changes.</p></div>
+</section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Naval podcast episode "Learn to Sell, Learn to Build" (YouTube L39Gbm_GaAA), from the full official transcript at nav.al/rich. Timestamps are proportional estimates. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 40 words: "learn to sell, learn to build, if you can do both, you will be unstoppable" (15 words), the "The real giants in any field are the people who can both build and sell." pull quote (15 words), and the Bill Gates line "I’d rather teach an engineer marketing, than a marketer engineering." (10 words). The Gates line keeps its original contraction. It is verbatim. Each quotation was verified by search against the official transcript. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+
+
+/* ---------- toy: skill-stack checker ---------- */
+(function(){
+  var b = document.getElementById('stack-build'),
+      s = document.getElementById('stack-sell'),
+      out = document.getElementById('stack-out');
+  if(!b) return;
+  function upd(){
+    var bv = parseInt(b.value, 10), sv = parseInt(s.value, 10);
+    b.previousElementSibling.querySelector('b').textContent = bv;
+    s.previousElementSibling.querySelector('b').textContent = sv;
+    var msg;
+    if(bv >= 7 && sv >= 7) msg = 'Dual threat (' + bv + '/' + sv + '). Unstoppable territory. Protect both.';
+    else if(bv >= 7) msg = 'Builder (' + bv + '/' + sv + '). Your next hire is a seller. Start writing in public.';
+    else if(sv >= 7) msg = 'Seller (' + bv + '/' + sv + '). Pair with a builder, or start building now while you can.';
+    else msg = 'Developing (' + bv + '/' + sv + '). Pick one, push it past 7, then stack the second.';
+    out.textContent = msg;
+  }
+  b.addEventListener('input', upd); s.addEventListener('input', upd); upd();
+})();
+
+</script>
+</body>
+</html>
