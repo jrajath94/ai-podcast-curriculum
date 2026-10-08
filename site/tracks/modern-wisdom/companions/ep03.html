@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beauty Standards, Twitter and AI Girlfriends: Modern Wisdom Companion</title>
+<meta name="description" content="A comedian and a host walk through concept creep, forced virtue, and the prestige problem of AI girlfriends. Funny on the surface, load-bearing underneath: what">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fa8; --accent-ink:#174a85; --soft:#e6eef7;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bcd6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#c9d8ea}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .gridln{stroke:#e4e9f0;stroke-width:1}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{border:1px dashed var(--line);padding:16px 18px;margin:26px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .srctag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:6px}
+  .srctag.src{background:#dce8f7;color:#174a85}
+  .srctag.int{background:#f3e9d6;color:#8f5a14}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="../index.html">Modern Wisdom · Track Companion</a><span class="sub">Beauty Standards, Twitter and AI Girlfriends · Mark Normand · 2023</span></header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+<nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+<main id="main">
+<div class="hero">
+<p class="kicker">Modern Wisdom · 2023 · Episode 3 · Companion</p>
+<h1>Beauty Standards, Twitter and AI Girlfriends</h1>
+<p class="dek">A comedian and a host walk through concept creep, forced virtue, and the prestige problem of AI girlfriends. Funny on the surface, load-bearing underneath: what AI can and cannot fake.</p>
+<img src="assets/illustration-ep03-hero.webp" alt="Watercolor illustration of an empty comedy club stage with a single vintage microphone under a warm spotlight">
+<p class="caption"><b>Illustration.</b> The moat is context: why the episode bets comedy survives the machines a while longer. AI-generated watercolor made for this page.</p>
+<div class="stats">
+<div class="stat"><div class="n">480K</div><div class="l">Episode views, per the track index</div><div class="s">Modern Wisdom, 2023</div></div>
+<div class="stat"><div class="n">300</div><div class="l">Dates on the tour the episode discusses</div><div class="s">Tour life, per the episode</div></div>
+<div class="stat"><div class="n">$21B</div><div class="l">WWE-UFC merger value discussed in the episode</div><div class="s">Showmanship eats sport</div></div>
+<div class="stat"><div class="n">74%</div><div class="l">Of girls who feel unrepresented in video games, per the Dove ad cited</div><div class="s">Representation debate</div></div>
+</div>
+<div class="video"><div class="frame">
+<iframe src="https://www.youtube-nocookie.com/embed/FeQkIgRAB0k" title="Modern Wisdom episode video: Beauty Standards, Twitter and AI Girlfriends" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="caption"><b>Watch.</b> The official Modern Wisdom episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p></div>
+<div class="wisdom" id="wisdom-index"><h3>The Wisdom Index: every nugget in this companion</h3><ol>
+<li><a href="#nugget-1">Distrust the highlight reel</a></li>
+<li><a href="#nugget-2">Watch for concept creep</a></li>
+<li><a href="#nugget-3">Forced virtue backfires</a></li>
+<li><a href="#nugget-4">Audit deeds, not posts</a></li>
+<li><a href="#nugget-5">Post and ghost</a></li>
+<li><a href="#nugget-6">Prestige needs selection</a></li>
+<li><a href="#nugget-7">Context is the moat</a></li>
+</ol></div>
+<div class="legend"><b>How to read this companion.</b> <span class="srctag src">Source</span> marks claims taken straight from the episode. <span class="srctag int">Interpretation</span> marks analysis that goes beyond the episode. Every chart carries its source line. Brief quoted phrases are counted in the footer.</div>
+</div>
+<section class="chapter" id="ch-1" data-time="Ch 1" data-title="The tour life illusion">
+<p class="ch-time">Chapter 1</p>
+<h2>The tour life illusion</h2>
+<p>The episode opens on the road. Tom Segura has just finished a 300-date tour, and Normand maps the two poles of comedian travel: Segura, the disciplined athlete with a trainer at 8 a.m., and Bert Kreischer, the party animal.</p>
+<p>Normand places himself closer to the party pole and jokes that he is worried about it. The glamour shots lie. Real tour life is airports in foreign languages, packing, hotels, and a blur like the Fight Club montage.</p>
+<p>The ideal, both agree, is the weekend run: out Friday, back Sunday, a built-in break from your apartment, your city, and your relationship. Escape with a return ticket.</p>
+<p>The chapter sets the episode tone. Nothing here is quite what it looks like from the outside, and that gap between image and reality becomes the theme.</p>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 · Image vs reality</p>
+<h4>Distrust the highlight reel</h4>
+<p><span class="lbl">What happened · </span>Tour looks like jets and arenas on Instagram. It feels like logistics, exhaustion, and loneliness with applause in the middle.</p>
+<p><span class="lbl">Why it matters · </span>Every industry sells the highlight version of itself. Decisions made from the highlight version misfire.</p>
+<p><span class="lbl">Transferable principle · </span>Before envying a life, price the unphotographed 90 percent.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-2" data-time="Ch 2" data-title="Concept creep">
+<p class="ch-time">Chapter 2</p>
+<h2>Concept creep</h2>
+<p>The first big idea arrives via a CNN piece on digital blackface: the claim that white people posting memes of Black people express strong emotion through a modern minstrelsy.</p>
+<p>The host answers with an economic frame. When the demand for racism outstrips the supply, the definition must expand to keep the supply up. A friend gave him the term for it: concept creep.</p>
+<p>Normand agrees and adds the career logic. A reporter who covers racism needs a daily story. Digital blackface fills the slot. The dilution is not an accident. It is inventory management.</p>
+<p>Their joint conclusion is wry. If you must stretch this far to find racism, that stretch is itself evidence that the blatant kind has shrunk.</p>
+<div class="pull">
+<blockquote>concept creep is when the demand for racism outstrips the supply of racism</blockquote>
+<p class="who">Chris Williamson, in the episode</p>
+</div>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 · Concept creep</p>
+<h4>Watch for concept creep</h4>
+<p><span class="lbl">What happened · </span>When demand for a problem exceeds its supply, definitions stretch to manufacture more of it.</p>
+<p><span class="lbl">Why it matters · </span>Stretched definitions protect careers and narratives, but they spend down the moral capital of the original concept.</p>
+<p><span class="lbl">Transferable principle · </span>When a category keeps expanding, ask who needs the expansion and what it costs the category.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-3" data-time="Ch 3" data-title="Forced virtue and the Dove ad">
+<p class="ch-time">Chapter 3</p>
+<h2>Forced virtue and the Dove ad</h2>
+<p>Next up is a Dove campaign for women in gaming. A superheroine sheds her armor, grows larger, and keeps fighting. The cited stat: 74 percent of girls feel unrepresented in video games.</p>
+<p>Both hosts support the goal and distrust the execution. The ad feels contrived, and contrived virtue reads as marketing. Woke washing, in the host phrase, lets brands monetize virtue signaling while hiding less altruistic business practices.</p>
+<p>They run the same test on Nike and Kaepernick, on Bud Light and Dylan Mulvaney. The pattern: a brand borrows a moral cause to distract from its own supply chain or to chase a trend, and the audience smells the calculation.</p>
+<p>The deeper objection is about originality. When every brand zags the same way, the zag stops being brave and grows dull. The audience punishes boredom dressed as courage.</p>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 · Forced virtue</p>
+<h4>Forced virtue backfires</h4>
+<p><span class="lbl">What happened · </span>Campaigns that feel focus-grouped trigger skepticism even when the underlying cause is just.</p>
+<p><span class="lbl">Why it matters · </span>People can smell the difference between conviction and positioning. Positioning spends trust it did not earn.</p>
+<p><span class="lbl">Transferable principle · </span>If the virtue needs a campaign, check whether the virtue or the campaign came first.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+<div class="chart" id="chart-rep">
+<h4>Two numbers from the culture war</h4>
+<p class="csub">Share of respondents, per sources cited in the episode</p>
+<svg viewBox="0 0 640 340" role="img" aria-label="Two numbers from the culture war">
+<line x1="56" x2="620" y1="276.0" y2="276.0" class="gridln"/>
+<text x="48" y="280.0" text-anchor="end" class="axis">0%</text>
+<line x1="56" x2="620" y1="215.7" y2="215.7" class="gridln"/>
+<text x="48" y="219.7" text-anchor="end" class="axis">20%</text>
+<line x1="56" x2="620" y1="155.3" y2="155.3" class="gridln"/>
+<text x="48" y="159.3" text-anchor="end" class="axis">40%</text>
+<line x1="56" x2="620" y1="95.0" y2="95.0" class="gridln"/>
+<text x="48" y="99.0" text-anchor="end" class="axis">60%</text>
+<line x1="56" x2="620" y1="34.7" y2="34.7" class="gridln"/>
+<text x="48" y="38.7" text-anchor="end" class="axis">80%</text>
+<rect x="165.0" y="52.8" width="64" height="223.2" class="bar" data-tip="74 percent of girls feel unrepresented in video games, per the Dove material cited in the episode"/>
+<text x="197.0" y="42.8" text-anchor="middle" class="vallab">74%</text>
+<text x="197.0" y="300.0" text-anchor="middle" class="axis">Girls feeling unrepresented in games</text>
+<rect x="447.0" y="95.0" width="64" height="181.0" class="bar" data-tip="60 percent of teenage girls report persistent or regular feelings of hopelessness, per the episode"/>
+<text x="479.0" y="85.0" text-anchor="middle" class="vallab">60%</text>
+<text x="479.0" y="300.0" text-anchor="middle" class="axis">Teen girls with persistent hopelessness</text>
+</svg>
+<p class="csrc">Source: Modern Wisdom episode 3. The 74 percent figure comes from the Dove campaign discussed in the episode. The 60 percent figure is the episode’s citation of teen hopelessness data.</p>
+</div>
+</section>
+<section class="chapter" id="ch-4" data-time="Ch 4" data-title="Opinions and deeds, further apart than ever">
+<p class="ch-time">Chapter 4</p>
+<h2>Opinions and deeds, further apart than ever</h2>
+<p>The episode sharpest insight concerns hypocrisy at scale. On Twitter, your opinions are carved in stone and your deeds are invisible. Nobody checks how the performative ally behaves at home.</p>
+<p>Normand notes the asymmetry cuts both ways. Genuine care also gets frisked at the door, because the audience got burned so often that it treats all virtue as positioning. That chills real altruism.</p>
+<p>Two guest phrases nail the platform. Sam Harris calls Twitter the most malignant form of telepathy, a window into only the worst of other minds. Colin Quinn calls it giving yourself schizophrenia: eight million opinions absorbed at once.</p>
+<p>Then the scale numbers land. Only about 10 percent of Americans even have a Twitter account, and within that slice, a tiny fraction of users produce about 95 percent of tweets. The loudest room in the country is also the least representative.</p>
+<div class="pull">
+<blockquote>the most malignant form of telepathy ever</blockquote>
+<p class="who">Sam Harris, quoted in the episode, on Twitter</p>
+</div>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 · Opinions vs deeds</p>
+<h4>Audit deeds, not posts</h4>
+<p><span class="lbl">What happened · </span>Social platforms record every stated opinion and hide every real action, so status flows to performance over practice.</p>
+<p><span class="lbl">Why it matters · </span>A system that rewards stated virtue and never checks lived virtue will manufacture cynicism as a byproduct.</p>
+<p><span class="lbl">Transferable principle · </span>When judging people or brands, weight what they do when nobody posts about it.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-5" data-time="Ch 5" data-title="The cynicism prophylactic">
+<p class="ch-time">Chapter 5</p>
+<h2>The cynicism prophylactic</h2>
+<p>How does Normand stay out of the pit? His method is post and ghost: publish, then leave. Never read the replies. His friend in Louis CK orbit goes further and blocks liberally until the noise floor drops.</p>
+<p>He admits the method leaks. Some weeks bring sleepless nights when one comment finds the exact insecurity you already had and sets up camp in your shower thoughts.</p>
+<p>The host counters with the long view. Michael Malice book on Russia argues the worst century in history still ended with the good guys winning, which makes hope rational even when the timeline insults you.</p>
+<p>They also run a generational thought experiment. Someone born in 1920 got the Depression then the draft. Someone born in 1930 got the boom. Your birth year deals your hand. The current hand includes the internet, and the task is to play it rather than curse the dealer.</p>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 · Post and ghost</p>
+<h4>Post and ghost</h4>
+<p><span class="lbl">What happened · </span>Normand publishes and leaves. He never reads replies, which starves the outrage loop of its fuel: his attention.</p>
+<p><span class="lbl">Why it matters · </span>You cannot win a fight with eight million voices. You can only decline the invitation.</p>
+<p><span class="lbl">Transferable principle · </span>Ship your work, then exit the arena. Attention is the prize. Stop awarding it to hecklers.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-6" data-time="Ch 6" data-title="AI girlfriends and the prestige problem">
+<p class="ch-time">Chapter 6</p>
+<h2>AI girlfriends and the prestige problem</h2>
+<p>The episode turns to AI companions. Amouranth, a top streamer, launched an AI version of herself that chats, answers questions, and sends voice notes to fans.</p>
+<p>The host brings in his friend William Costello, an evolutionary psychologist. The argument: an AI girlfriend can never carry prestige, because prestige requires selection. Anyone with the price of a cheeseburger per month can subscribe, so it proves nothing.</p>
+<p>Costello adds the white pill. AI companions may comfort the lonely without replacing real relationships, exactly because no selection took place. The lack of status is a feature: it keeps the real market intact.</p>
+<p>Normand tests the comedy angle. A comic performed one joke he wrote and one joke AI wrote in his voice. The room could tell. His joke won by a mile, which suggests context and lived experience still separate the human from the model.</p>
+<div class="pull">
+<blockquote>the price of a spare cheeseburger per month</blockquote>
+<p class="who">Chris Williamson, in the episode, on why a subscription cannot confer status</p>
+</div>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 · Prestige needs selection</p>
+<h4>Prestige needs selection</h4>
+<p><span class="lbl">What happened · </span>Status comes from being chosen through a difficult filter. A product anyone can buy cannot confer it.</p>
+<p><span class="lbl">Why it matters · </span>This is the load-bearing wall the episode finds. AI can fake beauty, attention, and conversation, but it cannot fake having picked you.</p>
+<p><span class="lbl">Transferable principle · </span>When evaluating what AI threatens, ask what part of the value comes from selection. That part survives.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+<div class="chart" id="chart-budlight">
+<h4>The cost of misreading the room</h4>
+<p class="csub">Bud Light year-on-year sales change after the Dylan Mulvaney campaign</p>
+<svg viewBox="0 0 640 340" role="img" aria-label="The cost of misreading the room">
+<line x1="56" x2="620" y1="265.1" y2="265.1" class="gridln"/>
+<text x="48" y="269.1" text-anchor="end" class="axis">-22%</text>
+<line x1="56" x2="620" y1="243.4" y2="243.4" class="gridln"/>
+<text x="48" y="247.4" text-anchor="end" class="axis">-20%</text>
+<line x1="56" x2="620" y1="221.7" y2="221.7" class="gridln"/>
+<text x="48" y="225.7" text-anchor="end" class="axis">-18%</text>
+<line x1="56" x2="620" y1="199.9" y2="199.9" class="gridln"/>
+<text x="48" y="203.9" text-anchor="end" class="axis">-16%</text>
+<line x1="56" x2="620" y1="178.2" y2="178.2" class="gridln"/>
+<text x="48" y="182.2" text-anchor="end" class="axis">-14%</text>
+<line x1="56" x2="620" y1="156.4" y2="156.4" class="gridln"/>
+<text x="48" y="160.4" text-anchor="end" class="axis">-12%</text>
+<line x1="56" x2="620" y1="134.7" y2="134.7" class="gridln"/>
+<text x="48" y="138.7" text-anchor="end" class="axis">-10%</text>
+<line x1="56" x2="620" y1="113.0" y2="113.0" class="gridln"/>
+<text x="48" y="117.0" text-anchor="end" class="axis">-8%</text>
+<line x1="56" x2="620" y1="91.2" y2="91.2" class="gridln"/>
+<text x="48" y="95.2" text-anchor="end" class="axis">-6%</text>
+<line x1="56" x2="620" y1="69.5" y2="69.5" class="gridln"/>
+<text x="48" y="73.5" text-anchor="end" class="axis">-4%</text>
+<line x1="56" x2="620" y1="47.7" y2="47.7" class="gridln"/>
+<text x="48" y="51.7" text-anchor="end" class="axis">-2%</text>
+<line x1="56" x2="620" y1="26.0" y2="26.0" class="gridln"/>
+<text x="48" y="30.0" text-anchor="end" class="axis">0%</text>
+<rect x="165.0" y="26.0" width="64" height="1.5" class="bar" data-tip="Baseline: the prior year sales level"/>
+<text x="197.0" y="16.0" text-anchor="middle" class="vallab">0%</text>
+<text x="197.0" y="300.0" text-anchor="middle" class="axis">Baseline year</text>
+<rect x="447.0" y="26.0" width="64" height="250.0" class="bar" data-tip="Bud Light sales down 23 percent year on year, per the episode"/>
+<text x="479.0" y="294.0" text-anchor="middle" class="vallab">-23%</text>
+<text x="479.0" y="300.0" text-anchor="middle" class="axis">After the campaign</text>
+</svg>
+<p class="csrc">Source: Modern Wisdom episode 3. The episode cites a 23 percent year-on-year sales drop.</p>
+</div>
+</section>
+<section class="chapter" id="ch-7" data-time="Ch 7" data-title="What the machine cannot do yet">
+<p class="ch-time">Chapter 7</p>
+<h2>What the machine cannot do yet</h2>
+<p>The closing argument is about comedy as the hard case. A joke is setup, twist, and punch, but the laugh also depends on the room, the bomb before it, and the person telling it.</p>
+<p>Normand cites a perfect test. AI will know a joke is fully conscious, he jokes, when it walks off stage regretting the funnier thing it should have said. Regret needs a self.</p>
+<p>The episode grants AI the middle of the labor market: thumbnail designers, middling legal work, routine radiology. Comedy survives because the audience buys the person, not just the punchline.</p>
+<p>It ends where it began, on the road. Normand plugs his tour and his special, and the host signs off. The serious point hides inside the jokes: selection and presence are the two things no model can counterfeit.</p>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 · Context is the moat</p>
+<h4>Context is the moat</h4>
+<p><span class="lbl">What happened · </span>A joke that kills in one room dies in another. The comedian reads the room in real time and adjusts.</p>
+<p><span class="lbl">Why it matters · </span>Models optimize text. Humans optimize the moment, the relationship, and the shared history in the room.</p>
+<p><span class="lbl">Transferable principle · </span>Build your moat from context: the room, the relationship, the timing. Text alone is now cheap.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<div class="takeaways"><h3>Takeaways</h3><ol>
+<li>Concept creep: when demand for a problem outstrips supply, definitions stretch to fill the gap.</li>
+<li>Forced virtue backfires. Audiences punish positioning dressed as conviction.</li>
+<li>Opinions and deeds have never been further apart, because platforms publish the first and hide the second.</li>
+<li>Post and ghost: ship the work, skip the replies, starve the outrage loop.</li>
+<li>Prestige requires selection. Anything anyone can buy cannot confer status, which limits what AI companions can take.</li>
+<li>Comedy survives on context, timing, and the person in the room. Text generation alone does not threaten it.</li>
+</ol></div>
+<footer>
+<p><b>Sources.</b> This companion narrates the Modern Wisdom episode with Mark Normand (2023, 480K views per the track index), sourced from the episode transcript on file. All facts and figures come from the episode. Claims the episode attributes to studies, ads, or third parties are presented as the episode’s claims. The illustration is an AI-generated watercolor made for this page. No real photographs are used.</p>
+<p><b>On quotes.</b> Brief quoted phrases in this companion total 28 words (13-words pull quote, 7-words pull quote, 8-words pull quote). Every quoted phrase is a verbatim string from the episode transcript, verified by search before publication.</p>
+<p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+<p><b>Honesty notes.</b> The transcript is a raw caption file with phonetic spellings and profanity. This companion paraphrases it throughout and quotes only short clean phrases. The 74 percent and 60 percent figures are the episode’s citations, not independently verified numbers. The William Costello segment previews ideas explored in depth in the Episode 8 companion. No timestamps are shown because the transcript carries none. Chapters follow the episode order.</p>
+</footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.textContent = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
