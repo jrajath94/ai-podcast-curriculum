@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk on SpaceX, Mars, Tesla Autopilot, and Optimus · Lex Fridman Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Lex Fridman's third Elon Musk interview: SpaceX, Mars, Tesla Autopilot, Optimus, and the meaning of it all.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .crumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .crumb a{color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Lex Fridman &middot; Track Companion</a>
+  <span class="sub">Ep 2 · Elon Musk on SpaceX, Mars, and Autopilot · Dec 2021</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="crumb"><a href="../index.html">Lex Fridman track index</a> / Companion</p>
+      <p class="kicker">Lex Fridman Podcast · Episode 2 · Companion</p>
+      <h1>Elon Musk on SpaceX, Mars, Tesla Autopilot, and Optimus</h1>
+      <p class="dek">Crew Dragon and a prayer, the Raptor engine past the Russian record, pricing a ticket to Mars from a billion dollars a ton, garbage collection for laws, Autopilot's latency budget, and the four-word life advice. The full conversation in order.</p>
+      <img src="assets/illustration-ep02.webp" alt="Watercolor illustration of a rocket rising toward Earth over a red Martian horizon, with a car tracing a glowing road">
+      <p class="caption"><b>Illustration.</b> The two frontiers: a rocket for Mars, a car that sees. AI-generated watercolor.</p>
+      <figure>
+        <img src="assets/photo-elon-musk.jpg" alt="Photograph of Elon Musk">
+        <p class="caption"><b>Photo.</b> Elon Musk, in his third appearance on the podcast. Photo by Gage Skidmore, CC BY-SA 4.0, via Wikimedia Commons.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">11.2M</div><div class="l">YouTube views on this episode</div><div class="s">Track index, Oct 2026</div></div>
+        <div class="stat"><div class="n">3rd</div><div class="l">Musk's third appearance on the podcast</div><div class="s">Episode opening</div></div>
+        <div class="stat"><div class="n">$1B→$1M</div><div class="l">Cost per ton to Mars, today vs the target</div><div class="s">Episode ~00:34</div></div>
+        <div class="stat"><div class="n">300 bar</div><div class="l">Raptor chamber pressure, past the RD record</div><div class="s">Episode ~00:12</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/DxREm3s1scA" title="Lex Fridman Podcast: Elon Musk (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Prototypes are easy. Production is hard.</a></li>
+          <li><a href="#nugget-2">Think in the limit</a></li>
+          <li><a href="#nugget-3">Insure against the certain</a></li>
+          <li><a href="#nugget-4">Garbage-collect your rules</a></li>
+          <li><a href="#nugget-5">Try to be useful</a></li>
+          <li><a href="#nugget-6">Love is the engine</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
+    </div>
+    <section class="chapter" id="ch-dragon" data-time="~00:00" data-title="The prayer before Demo-2">
+      <p class="ch-time">~00:00</p>
+      <h2>The Prayer Before Demo-2</h2>
+      <p><span class="tag fact">Source fact</span> This is Musk's third appearance on the podcast. The talk opens on May 30, 2020, when SpaceX flew humans to orbit for the first time.</p>
+      <p>Crew Dragon Demo-2 was extremely stressful. Musk says he racked his brain, NASA racked its brain, and neither could find one more way to raise the odds. Then they launched. He is not a religious man. He got on his knees and prayed anyway.</p>
+      <p>Success brought relief, not elation. Later missions were easier to enjoy. Inspiration4, the first all-civilian orbit, flew higher than any human mission in 30 to 40 years. Only a Hubble servicing flight went higher since Apollo. Musk calls Apollo a possible high watermark for humanity and finds that thought tragic.</p>
+      <p>It is now 49 years since the last moon mission. His answer: build a science base on the moon, like the one in Antarctica, then go to Mars.</p>
+    </section>
+
+    <section class="chapter" id="ch-starship" data-time="~00:09" data-title="Starship: production is the hard part">
+      <p class="ch-time">~00:09</p>
+      <h2>Starship: Production Is the Hard Part</h2>
+      <p><span class="tag fact">Source fact</span> Musk is the chief engineer of SpaceX. When he watches a launch, he does not see beauty. He sees a list of risks.</p>
+      <p>Starship's hardest problem is not the design. It is engine production. Raptor is a full-flow staged-combustion engine running at 300 bar of chamber pressure, past the Russian RD record near 267 bar. The difficulty climbs faster than the pressure: 10 percent more pressure means roughly 50 percent more pain. SpaceX had to invent new alloys that did not exist.</p>
+      <div class="chart" id="chart-pressure">
+        <h4>Chamber pressure: past the Russian record</h4>
+        <p class="csub">Hover any bar. Higher pressure means higher power density, and much higher pain.</p>
+        <svg viewBox="0 0 640 280" role="img" aria-label="Bar chart comparing RD and Raptor chamber pressure">
+          <rect class="bar alt" x="140" y="80" width="320" height="40" data-tip="Russian RD engine: about 267 bar. The long-standing operational record."></rect>
+          <rect class="bar" x="140" y="150" width="360" height="40" data-tip="SpaceX Raptor: 300 bar, possibly higher. Full-flow staged combustion. 10% more pressure runs about 50% more difficult."></rect>
+          <text class="vallab" x="468" y="105">267 bar</text>
+          <text class="vallab" x="508" y="175">300 bar</text>
+          <text class="axis" x="132" y="105" text-anchor="end">RD record</text>
+          <text class="axis" x="132" y="175" text-anchor="end">Raptor</text>
+        </svg>
+        <p class="csrc">Source: Lex Fridman Podcast, Elon Musk episode, ~00:12. Both figures are Musk's statements in the episode.</p>
+      </div>
+      <p>The prize is full and rapid reusability, the holy grail of rocketry. No orbital rocket has ever done it. The plan: catch the booster with the launch tower's chopstick arms to save the weight of landing legs. Musk is confident it can work now. The physics pencils out. For a long stretch he was not sure success was even in the set of possible outcomes.</p>
+      <div class="pull">
+        <blockquote>the physics pencils out</blockquote>
+        <p class="who">Elon Musk on Starship's feasibility · ~00:18</p>
+      </div>
+      <p>Asked for his source of strength, he rejects the question. He does not need one. Quitting is not in his nature. He does not care about optimism or pessimism. The job gets done.</p>
+      <p>His method gets its clearest statement here. First, check physics: energy and momentum must balance or the idea dies. Second, think in the limit. Ask what a part costs at a million units a year. If it stays expensive, volume is not the problem, the design is. Third, price the raw materials. A pile of aluminum, steel, and copper sets the floor for what a rocket can cost. Everything above that floor is the cost of shaping atoms.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Building</p>
+        <h4>Prototypes are easy. Production is hard.</h4>
+        <p><span class="lbl">What happened. </span>Raptor beats every engine on paper, but the design is not the battle. Building thousands of identical, reliable engines is.</p>
+        <p><span class="lbl">Why it matters. </span>Most ambitious projects die between the demo and the factory. The demo proves physics. The factory proves the business.</p>
+        <p><span class="lbl">The principle. </span>Judge a plan by its hardest step, not its cleverest one. If production is the wall, start there.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Thinking</p>
+        <h4>Think in the limit</h4>
+        <p><span class="lbl">What happened. </span>Musk prices every part twice: at today's volume and at a million units a year. He also prices the raw atoms, the magic-wand number no design can beat.</p>
+        <p><span class="lbl">Why it matters. </span>Limits expose the true cost driver. If the price survives scale, the design is wrong, not the volume.</p>
+        <p><span class="lbl">The principle. </span>For any expensive thing, ask what it costs at huge scale and what its atoms cost. The gap between those numbers is your real problem.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-mars" data-time="~00:30" data-title="Pricing the road to Mars">
+      <p class="ch-time">~00:30</p>
+      <h2>Pricing the Road to Mars</h2>
+      <p><span class="tag fact">Source fact</span> Musk's estimate for landing humans on Mars: best case five years, worst case ten. The real optimization is cost per ton to the Martian surface.</p>
+      <p>Today one ton to Mars costs on the order of a billion dollars. No amount of money can buy a ticket. To build a self-sustaining city, the cost must fall by a factor of a thousand, to about a million dollars a ton, ideally less. The city needs at least a million tons of cargo: factories, refineries, chip fabs, everything.</p>
+      <div class="chart" id="chart-marscost">
+        <h4>The cost of one ton on Mars</h4>
+        <p class="csub">Hover any bar. The axis is logarithmic: each step is 10x.</p>
+        <svg viewBox="0 0 640 280" role="img" aria-label="Log scale bar chart of Mars transport cost per ton">
+          <rect class="bar dark" x="140" y="80" width="380" height="40" data-tip="Today: about $1 billion per ton to the surface of Mars. No ticket exists at any price."></rect>
+          <rect class="bar" x="140" y="150" width="200" height="40" data-tip="Target: about $1 million per ton, a factor of 1,000 lower. The threshold where a self-sustaining city becomes affordable."></rect>
+          <text class="vallab" x="528" y="105">~$1B</text>
+          <text class="vallab" x="348" y="175">~$1M</text>
+          <text class="axis" x="132" y="105" text-anchor="end">today</text>
+          <text class="axis" x="132" y="175" text-anchor="end">target</text>
+        </svg>
+        <p class="csrc">Source: Lex Fridman Podcast, Elon Musk episode, ~00:34. Both figures are Musk's statements in the episode.</p>
+      </div>
+      <p>The great filter is self-sufficiency. The city counts as a pass only if it survives when ships from Earth stop coming, for any reason. Miss one critical input and it dies, like a crew without vitamin C.</p>
+      <p>The deadline is the sun. Earth spans 4.5 billion years. In about 500 million more, the sun will make Earth too hot for life. That span is only 10 percent longer than Earth's whole age. Stephen Hawking put the civilizational risk at about 1 percent per century. Musk frames Mars as insurance:</p>
+      <div class="pull">
+        <blockquote>life insurance for life</blockquote>
+        <p class="who">Elon Musk on why Mars matters · ~00:38</p>
+      </div>
+      <p>On the launch economics, Falcon 9 is the only reusable rocket flying. The booster and fairing return, but the upper stage does not, at ten million dollars or more each. Marginal cost per flight runs 15 to 20 million dollars. Starship aims for one to two million per launch with over 100 tons to orbit. No new physics is required. Only brutal engineering.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Deadlines</p>
+        <h4>Insure against the certain</h4>
+        <p><span class="lbl">What happened. </span>Musk treats Mars as life insurance. The sun will end Earthly life on a known schedule, and smaller disasters can strike at any time.</p>
+        <p><span class="lbl">Why it matters. </span>People discount slow certainties and overweight fast risks. A deadline 500 million years out still beats every quarterly target for importance.</p>
+        <p><span class="lbl">The principle. </span>Separate probability from importance. Buy insurance for the important, even when the probable looks safe.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gov" data-time="~01:02" data-title="Laws, money, and garbage collection">
+      <p class="ch-time">~01:02</p>
+      <h2>Laws, Money, and Garbage Collection</h2>
+      <p><span class="tag fact">Source fact</span> For a Mars government, Musk suggests direct democracy: people vote on laws themselves, laws stay short enough to understand, and every vote is transparent.</p>
+      <p>Then his sharper point: rules need garbage collection. The Constitution is like C, with no built-in cleanup, and he wants Java-style collection. Laws should die on their own unless actively defended. Removing a law should be easier than adding one: 60 percent to pass, 40 percent to repeal. Without this, rules pile up until civilization is Gulliver tied down by a thousand strings.</p>
+      <p>Money gets the same systems treatment. Money is a database for resource allocation across time and space. Banks still run it on old mainframes in batch mode, and governments hold editing privileges they use to print more, a quiet tax. Crypto is an attempt to cut that error. Bitcoin is too slow for daily use. Dogecoin moves more volume with lower fees, and its fixed yearly issuance means inflation fades over time. He is not Satoshi Nakamoto, and credits Nick Szabo for the ideas behind Bitcoin.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Systems</p>
+        <h4>Garbage-collect your rules</h4>
+        <p><span class="lbl">What happened. </span>Musk argues that laws are immortal while humans are not, so rules only accumulate. Mars should give every law a sunset and a repeal threshold below the passing threshold.</p>
+        <p><span class="lbl">Why it matters. </span>Every system with creation and no deletion becomes bloatware. The same rot hits codebases, companies, and countries.</p>
+        <p><span class="lbl">The principle. </span>Build deletion into anything that accumulates: laws, code, commitments. Make removal cheaper than addition.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-autopilot" data-time="~01:14" data-title="Autopilot: photons in, vectors out">
+      <p class="ch-time">~01:14</p>
+      <h2>Autopilot: Photons In, Vectors Out</h2>
+      <p><span class="tag fact">Source fact</span> Tesla's self-driving effort started on Mobileye, then went fully from scratch on hardware and software. Musk thought it would be very hard. It was way harder than that.</p>
+      <p>The problem is to recreate human driving in silicon. Eyes become cameras. The biological net becomes neural nets. The core task is perception: turn a flood of photons into a compact vector space of cars, people, lane lines, and lights. Once that space is accurate, control is like a video game. Hard, but not the hard part.</p>
+      <p>Humans underrate their own vision. The brain paints color into the periphery where the eye has few receptors. It fills the blind spot. Then it forgets almost everything, distilling the scene to the smallest useful set of objects. Tesla must copy all of it, including object permanence: the kids behind the truck are still there when you cannot see them.</p>
+      <p>The engineering goes deep. Eight cameras feed raw photon counts, skipping the image processor entirely, which saves 13 milliseconds of latency. Total pipeline latency runs about 150 milliseconds, but jitter hurts more than latency: 100 milliseconds of timing slop can throw control off by a fifth of a second. Auto-labeling multiplies human labelers' output by a hundred times or more.</p>
+      <p>FSD beta disengagements per million miles fall fast. Musk's bar for release: not human-level, but two to three times safer than the average human.</p>
+      <div class="chart" id="chart-latency">
+        <h4>The latency budget</h4>
+        <p class="csub">Hover any bar. Jitter, the unpredictable part, is the real enemy.</p>
+        <svg viewBox="0 0 640 280" role="img" aria-label="Bar chart of Autopilot latency components">
+          <rect class="bar alt" x="140" y="70" width="60" height="40" data-tip="13 ms recovered by skipping the image signal processor: raw photon counts instead of pretty pictures."></rect>
+          <rect class="bar" x="140" y="130" width="300" height="40" data-tip="About 150 ms from photon to actuator command. Fixed latency can be predicted and compensated."></rect>
+          <rect class="bar dark" x="140" y="190" width="200" height="40" data-tip="Up to 100 ms of jitter on top. Random timing slop cannot be predicted, so it must be eliminated."></rect>
+          <text class="vallab" x="208" y="95">13 ms</text>
+          <text class="vallab" x="448" y="155">~150 ms</text>
+          <text class="vallab" x="348" y="215">~100 ms</text>
+          <text class="axis" x="132" y="95" text-anchor="end">saved</text>
+          <text class="axis" x="132" y="155" text-anchor="end">latency</text>
+          <text class="axis" x="132" y="215" text-anchor="end">jitter</text>
+        </svg>
+        <p class="csrc">Source: Lex Fridman Podcast, Elon Musk episode, ~01:30. All three figures are Musk's statements in the episode.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-optimus" data-time="~01:49" data-title="Optimus and the adorable robot">
+      <p class="ch-time">~01:49</p>
+      <h2>Optimus and the Adorable Robot</h2>
+      <p><span class="tag fact">Source fact</span> Tesla's humanoid robot, codenamed Optimus, reuses the Autopilot inference computer and training. A decent prototype was expected toward the end of the next year.</p>
+      <p>The first jobs are the ones humans avoid: dangerous, boring, or injury-prone work. Musk pairs that future with some form of universal basic income. More Tesla Bots than Tesla cars is possible one day.</p>
+      <p>Then a turn Lex pushes: companionship. Musk admits he had not thought about it, but sees it. A home robot can be flawed for a long while and stay lovable. R2-D2 and C-3PO won hearts because of their quirks, not despite them. Imperfections mapped to the owner's own quirks could make an incredible buddy. Driving allows no mistakes. Home allows many.</p>
+    </section>
+
+    <section class="chapter" id="ch-history" data-time="~02:01" data-title="History, Putin, and Soviet rockets">
+      <p class="ch-time">~02:01</p>
+      <h2>History, Putin, and Soviet Rockets</h2>
+      <p><span class="tag fact">Source fact</span> Musk calls Dan Carlin's Hardcore History the greatest podcast ever. He once recorded an episode with Carlin on how fast-moving technology decides wars.</p>
+      <p>History's lesson, to him: the line between good and evil runs through every human heart. All of us can do either. One book defeated him: The Court of the Red Tsar, on Stalin. He had to stop reading. Too dark.</p>
+      <p>Asked if he would join a Lex interview with Vladimir Putin, he says yes without hesitation. On Soviet engineering, he voices admiration: some of the most impressive rocketry in history came from the USSR. Reading Russian test-stand data, with methalox engines near 380 seconds of specific impulse, helped push SpaceX toward methane for Raptor.</p>
+    </section>
+
+    <section class="chapter" id="ch-memes" data-time="~02:15" data-title="Meme review: nuclear, hunger, and museums">
+      <p class="ch-time">~02:15</p>
+      <h2>Meme Review: Nuclear, Hunger, and Museums</h2>
+      <p><span class="tag fact">Source fact</span> In a meme review, Musk rates nuclear power highly, gives the Laika meme an 11 out of 10, and scores a Sistine Chapel meme a 9.</p>
+      <p>On nuclear: he favors it where natural disasters are not extreme, and calls the fear overblown. After Fukushima he flew there, donated a solar system for a water treatment plant, and ate locally grown vegetables on television. Coal plants, he says, are 100 to 1,000 times worse for health than nuclear plants.</p>
+      <p>On world hunger: six billion dollars cannot end it. The world grows more food than it can consume. Hunger comes from war and strife, not from a lack of money. On the British Museum: empires did what empires did, and judging 300-year-old acts by today's morals fails everyone. The museum keeps artifacts accessible, which he calls a net good.</p>
+    </section>
+
+    <section class="chapter" id="ch-meaning" data-time="~02:34" data-title="Try to be useful">
+      <p class="ch-time">~02:34</p>
+      <h2>Try to Be Useful</h2>
+      <p><span class="tag fact">Source fact</span> Asked for life advice, Musk's answer is four words:</p>
+      <div class="pull">
+        <blockquote>try to be useful</blockquote>
+        <p class="who">Elon Musk's advice to the young · ~02:36</p>
+      </div>
+      <p>Contribute more than you consume. Aim for positive net contribution to society. Do not chase leadership for its own sake. The best leaders are often the reluctant ones.</p>
+      <p>Grow the pie instead of fighting over it. A zero-sum mindset makes taking from others the only path up. The economic pie grew enormously, so the real game is to add to it. He praises Joe Rogan for celebrating others instead of competing with them.</p>
+      <p>On learning: read broadly, build a rough map of all knowledge, then find the overlap of what you are good at, what you like, and what helps. As a kid he read the encyclopedia straight through.</p>
+      <p>On love: it is the foundation under everything. He wants humanity multiplanetary because he loves humanity, dark chapters included. The meaning of life earns the Hitchhiker's answer: the universe is the answer, and the hard part is to find the right questions to ask about it. Expand consciousness, biological and silicon, to get better at asking.</p>
+      <div class="pull">
+        <blockquote>when something is important enough you do it even if the odds are not in your favor</blockquote>
+        <p class="who">Elon Musk, closing line of the episode · ~02:44</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Purpose</p>
+        <h4>Try to be useful</h4>
+        <p><span class="lbl">What happened. </span>Asked what young people should do with their lives, Musk skips status and passion. The test is net contribution: give more than you take.</p>
+        <p><span class="lbl">Why it matters. </span>Usefulness compounds. Status does not. A useful life stays a good life even with nobody watching.</p>
+        <p><span class="lbl">The principle. </span>Measure weeks by net contribution. Grow the pie for everyone instead of slicing it thinner.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Motive</p>
+        <h4>Love is the engine</h4>
+        <p><span class="lbl">What happened. </span>Musk says the Mars mission runs on love of humanity. Without that love, none of the engineering would matter to him.</p>
+        <p><span class="lbl">Why it matters. </span>Motives set the ceiling. A mission built on love survives the decades that a mission built on ego cannot.</p>
+        <p><span class="lbl">The principle. </span>Check the motive behind your biggest goal. If it is not love of something real, find a better goal.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Lex Fridman Podcast episode with Elon Musk, published December 28, 2021 (episode 252, ~2.8 hours, 11.2M views per the track index). Facts, figures, and quoted phrases from the conversation come from the episode's auto-generated caption transcript on file (transcripts/DxREm3s1scA.txt). Publish dates, episode numbers, and view counts come from the video and track metadata. Each chart names its episode section. Times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 29 words: four pull quotes, each verbatim from the episode transcript with speaker and episode-time attribution: “the physics pencils out” (4 words), “life insurance for life” (4 words), “try to be useful” (4 words), and “when something is important enough you do it even if the odds are not in your favor” (17 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(scope){
+    scope.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+  window.__bindTips = bindTips;
+  window.__showTip = showTip;
+  window.__hideTip = hideTip;
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+
+})();
+</script>
+</body>
+</html>
