@@ -448,7 +448,7 @@ span.ptag, .ptag {
 <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
 </div>
 <p class="legend src-legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a chess knight before a dusk sky split between storm and amber light, with a rocket and city skyline" class="base" fetchpriority="high" src="assets/illustration-ep01.webp"/></div></div><figcaption><b>Illustration.</b> War, curiosity, and the long view: a knight, a storm, and a rocket. AI-generated watercolor.</figcaption></figure><figure class="photo wide" data-hero="1">
+</div><figure data-phase2="1" data-scene="ep01-elon-musk-war-grok-hero" class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a chess knight before a dusk sky split between storm and amber light, with a rocket and city skyline" class="base" fetchpriority="high" src="assets/illustration-ep01.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/ep01-elon-musk-war-grok-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div><figcaption><b>Illustration.</b> War, curiosity, and the long view: a knight, a storm, and a rocket. AI-generated watercolor.</figcaption></figure><figure class="photo wide" data-hero="1">
 <img alt="Photograph of Elon Musk" fetchpriority="high" src="assets/photo-elon-musk.jpg"/>
 <figcaption><b>Photo.</b> Elon Musk, in his fourth appearance on the podcast. Photo by Gage Skidmore, CC BY-SA 4.0, via Wikimedia Commons.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="~00:00" data-title="War, peace, and the physics of power" id="ch-war"><div class="ch-head"><div><p class="ch-meta"><span class="ts">~00:00</span> · War, peace, and the physics of power</p><h2>War, Peace, and the Physics of Power</h2></div></div>
@@ -527,7 +527,7 @@ span.ptag, .ptag {
 <p class="csrc">Source: Lex Fridman Podcast, Elon Musk episode, ~00:42. Bottleneck order and timing are Musk's statements.</p>
 </div>
 <p>The same physics-first mind meets its opposite in regulation. Tesla answers to over 100 regulatory agencies. Starship's launch license waited on Fish and Wildlife. Musk jokes about needing a fish license, a Monty Python nod, and tells the seal story: to prove sonic booms would not harm seal breeding near Vandenberg, SpaceX staff strapped a seal to a board, put headphones on it, and played boom sounds. Twice. The seal stayed calm.</p>
-<aside class="tag" data-chapter="ch-compute" data-sign-label="Aisle" data-sign-num="4" id="nugget-5"><div class="tag-price"><span class="tag-big">5</span><span class="tag-unit">Map the constraint chain</span></div><div class="tag-body"><div class="tag-title">Map the constraint chain</div><div class="tag-eye">The lesson</div><p><b>What happened. </b>Musk lists AI's limits in sequence: chips, then transformers, then power. Each bottleneck hides behind the last.</p><p><b>Why it matters. </b>Solving today's constraint just reveals the next one. Plans that ignore the chain break at the second link.</p><p><b>The principle. </b>For any scaling plan, name the next three constraints in order. Work the chain, not the link.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 04</span></div></div></aside>
+<aside class="tag" data-chapter="ch-compute" data-sign-label="Aisle" data-sign-num="4" id="nugget-5"><div class="tag-price"><span class="tag-big">3</span><span class="tag-unit">constraints in the AI chain: chips, transformers, power</span></div><div class="tag-body"><div class="tag-title">Map the constraint chain</div><div class="tag-eye">The lesson</div><p><b>What happened. </b>Musk lists AI's limits in sequence: chips, then transformers, then power. Each bottleneck hides behind the last.</p><p><b>Why it matters. </b>Solving today's constraint just reveals the next one. Plans that ignore the chain break at the second link.</p><p><b>The principle. </b>For any scaling plan, name the next three constraints in order. Work the chain, not the link.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 04</span></div></div></aside>
 </section>
 <section class="chapter col" data-chapter="1" data-time="~00:51" data-title="Open source and the OpenAI break" id="ch-opensource"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">5</span></div><div><p class="ch-meta"><span class="ts">~00:51</span> · Open source and the OpenAI break</p><h2>Open Source and the OpenAI Break</h2></div></div>
 <p><span class="tag fact">Source fact</span> Grok trained on 8,000 H100 GPUs at peak efficiency. xAI plans to more than double its compute every couple of months. Musk favors open-sourcing models, perhaps with a six-month delay.</p>
@@ -1302,5 +1302,19 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('ep01-elon-musk-war-grok-hero',{
+ init:function(F,FX){
+  F._m=FX.motes(F.stage,F.W,F.H,24,7);
+  F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.5,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];
+ },
+ pose:function(S,FX){
+  var F=S.F;F._m.tick(S.t);
+  F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);
+  return {'hero-subject':{x:7*Math.sin(S.t*0.6),y:5*Math.sin(S.t*0.83+1),r:0,s:1,o:1}};
+ } });
+})();
+</script>
+</body>
 </html>
