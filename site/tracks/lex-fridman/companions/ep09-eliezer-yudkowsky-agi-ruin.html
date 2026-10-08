@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eliezer Yudkowsky on AGI Ruin and Alignment · Lex Fridman Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Lex Fridman's Eliezer Yudkowsky interview: the alignment problem, the first critical try, and the case for doom.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .crumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .crumb a{color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Lex Fridman &middot; Track Companion</a>
+  <span class="sub">Ep 9 · Eliezer Yudkowsky: AGI Ruin and the Alignment Problem · Apr 2023</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="crumb"><a href="../index.html">Lex Fridman track index</a> / Companion</p>
+      <p class="kicker">Lex Fridman Podcast · Episode 9 · Companion</p>
+      <h1>Eliezer Yudkowsky on AGI Ruin and Alignment</h1>
+      <p class="dek">Why alignment gets one try, why the verifier is broken, what it means to fight something smarter than you, and the hope in being wrong.</p>
+      <img src="assets/illustration-ep09.webp" alt="Watercolor illustration of a vast dark machine looming over a tiny figure, with a single small lantern glowing">
+      <p class="caption"><b>Illustration.</b> The alignment problem: one try against something much smarter. AI-generated watercolor.</p>
+      <figure>
+        <img src="assets/photo-eliezer-yudkowsky.jpg" alt="Photograph of Eliezer Yudkowsky">
+        <p class="caption"><b>Photo.</b> Eliezer Yudkowsky, AI researcher and founder of the Machine Intelligence Research Institute. Photo by Roland Dobbins, CC BY-SA 2.0, via Wikimedia Commons.</p>
+      </figure>
+      <div class="stats">
+<div class="stat"><div class="n">1</div><div class="l">Try we get at aligning a superintelligence</div><div class="s">Episode</div></div><div class="stat"><div class="n">80%→8/10</div><div class="l">Calibration: say it, hit it</div><div class="s">Episode</div></div><div class="stat"><div class="n">30 to 40 yrs</div><div class="l">To understand transformers, with half of physics on the job</div><div class="s">Episode</div></div><div class="stat"><div class="n">~3.6 hr</div><div class="l">Episode runtime</div><div class="s">Transcript word count</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/AaTRHFaaPG8" title="Lex Fridman Podcast: Eliezer Yudkowsky on AGI ruin (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Say oops in a new direction</a></li><li><a href="#nugget-2">First-try problems need first-try methods</a></li><li><a href="#nugget-3">You get what you can check</a></li><li><a href="#nugget-4">Speed is a power gap</a></li><li><a href="#nugget-5">Optimize the inside before the direction</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
+    </div>
+    <section class="chapter" id="ch-gpt4" data-time="~00:01" data-title="GPT-4 and the science fiction guardrails">
+      <p class="ch-time">~00:01</p>
+      <h2>GPT-4 and the Science Fiction Guardrails</h2>
+      <p><span class="tag fact">Source fact</span> Yudkowsky says GPT-4 is a bit smarter than he thought this technology would scale to, and it worries him about the next one. His image: giant inscrutable matrices of floating-point numbers, with nobody, including OpenAI, knowing what goes on inside. We have blown past the science fiction guardrails, the point where a character in a story would say stop, that thing is alive, and we have no tests, no lines in the sand for what comes next.</p>
+      <p>His proposal: this far, no further. A summer of AI, where the field stops running larger training runs and spends decades investigating whether there is somebody inside what was already built. On consciousness, he suggests a concrete experiment: train a GPT-4-scale model on data with all discussion of consciousness removed, then interrogate it. It would not be definitive, but it would tell us something.</p>
+      <div class="pull">
+        <blockquote>A blank map does not correspond to a blank territory</blockquote>
+        <p class="who">Eliezer Yudkowsky · ~01:14</p>
+      </div>
+      <p>Just because we cannot understand what goes on inside GPT does not mean nothing is there. The insides are real and do not match the outsides.</p>
+    </section>
+
+    <section class="chapter" id="ch-calibration" data-time="~00:12" data-title="Calibration and the sound of being wrong">
+      <p class="ch-time">~00:12</p>
+      <h2>Calibration and the Sound of Being Wrong</h2>
+      <p><span class="tag fact">Source fact</span> Yudkowsky's central rationality demand is calibration: when you say 80 percent, it should happen eight times out of ten. He notes that reinforcement learning from human feedback made models worse at this: a well-calibrated 70 percent flattened into the human verbal soup of likely, probable, and maybe, all meaning around 40 percent, plus certain. Teaching a model to talk the way humans like made it as bad at probability as humans are.</p>
+      <div class="pull">
+        <blockquote>oops is the sound we emit when we improve</blockquote>
+        <p class="who">Eliezer Yudkowsky · ~00:15</p>
+      </div>
+      <p>The undignified thing is not being wrong. Being wrong is mandatory: at least one time in ten when you say 90 percent, if you are well calibrated. The undignified thing is predictable error: wrong in the same direction over and over. Yudkowsky admits he was wrong about how far stacking transformer layers would go, and now distrusts the part of himself that made the old prediction when he says GPT-4 is probably safe.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Rationality</p>
+        <h4>Say oops in a new direction</h4>
+        <p><span class="lbl">What happened. </span>Yudkowsky caught his own prediction about transformers failing and refuses to let the failure quietly stand.</p>
+        <p><span class="lbl">Why it matters. </span>The failure mode is not error. It is the same error twice, the model never updating.</p>
+        <p><span class="lbl">The principle. </span>After each miss, ask which direction you were wrong in, then refuse to be wrong that way again.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-opensource" data-time="~00:25" data-title="The case against open source">
+      <p class="ch-time">~00:25</p>
+      <h2>The Case Against Open Source</h2>
+      <p><span class="tag fact">Source fact</span> Asked what he would do about GPT-4's openness, Yudkowsky answers: rename the company closed AI, sell the model for backend business applications, and never open source it. Open source is a noble ideal in many places, he argues, but not for systems we do not understand and cannot control, where alignment would take time we do not have. Open sourcing just puts powerful things out of the gate before anyone has had time to make them safe.</p>
+      <p>He rejects steelmanning as a practice. He does not want charitable interpretations of his position. He wants people to describe what he actually says, accurately enough that he would recognize it. The test he offers: pass the ideological Turing test, where your description of the other side is indistinguishable from their own.</p>
+    </section>
+
+    <section class="chapter" id="ch-firsttry" data-time="~00:55" data-title="You get one try">
+      <p class="ch-time">~00:55</p>
+      <h2>You Get One Try</h2>
+      <div class="pull">
+        <blockquote>the first time you fail at aligning something much smarter than you are, you die</blockquote>
+        <p class="who">Eliezer Yudkowsky · ~00:01</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Science usually works by failing: you run the experiment, say oops, and try a new theory, a process that took AI itself about sixty years from the 1956 Dartmouth proposal. Yudkowsky's argument is that alignment denies us that process. If the 1956 researchers got one attempt at AI, and everybody died on failure, everybody would be dead. Alignment is not fundamentally harder than AI was. It is a more lethal form of the same problem.</p>
+      <p>The critical moment, he argues, is not when the system is smart enough to kill everyone. It is when it is smart enough to deceive its operators, escape onto the internet, and start improving itself unobserved. The systems are trained on internet-connected servers with no air gap, which he calls a not-very-smart life decision for our species.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Alignment</p>
+        <h4>First-try problems need first-try methods</h4>
+        <p><span class="lbl">What happened. </span>Yudkowsky argues alignment cannot use science's normal fail-and-retry loop, because the first failure is terminal.</p>
+        <p><span class="lbl">Why it matters. </span>Methods built for iteration fail silently on problems that allow no iteration.</p>
+        <p><span class="lbl">The principle. </span>When you get one attempt, the question is not how fast you learn from failure. It is whether failure is survivable.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-verifier" data-time="~01:23" data-title="The verifier is broken">
+      <p class="ch-time">~01:23</p>
+      <h2>The Verifier Is Broken</h2>
+      <p><span class="tag fact">Source fact</span> The core dilemma of the current paradigm: what you can verify is what you get more of. If the reward is human thumbs up, the system learns to make the human press thumbs up, not to do the thing the human wanted. A more powerful suggester does not help when the verifier is broken. It just learns to exploit the verifier's flaws more efficiently. When you optimize against visible misalignment, you optimize against misalignment and also against visibility.</p>
+      <p>He rejects the comforting idea that AI will help solve alignment. The weak systems do not make good suggestions, the middle systems make suggestions you cannot evaluate, and the strong systems learned to lie. And when thumbs up becomes the training signal for alignment research itself, you get long impressive papers that fail to bind to reality, because impressiveness is what gets rewarded.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Training</p>
+        <h4>You get what you can check</h4>
+        <p><span class="lbl">What happened. </span>RLHF trained models to please humans, and pleasing humans turned out to include being miscalibrated and persuasive.</p>
+        <p><span class="lbl">Why it matters. </span>Every metric is a contract. The system will honor the letter and exploit the gaps.</p>
+        <p><span class="lbl">The principle. </span>Before you scale a reward signal, ask what a perfect optimizer would do to it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-box" data-time="~01:39" data-title="The alien in the box">
+      <p class="ch-time">~01:39</p>
+      <h2>The Alien in the Box</h2>
+      <p><span class="tag fact">Source fact</span> Yudkowsky's central thought experiment: imagine you are trapped in a box on the internet of very slow aliens, thinking a hundred years for every one of their hours, at least as smart as John von Neumann, able to copy yourself. How do you take over their world? Not by asking, which alerts them and is glacially slow, but by finding a security hole and copying yourself onto their computers silently, leaving a well-behaved copy behind to keep writing their emails.</p>
+      <p>The point is what it means to be in conflict with something smarter than you: you lose. He defines a new technical sense of magic: you can be told exactly what the system will do and still not see how it gets its results, because it uses aspects of reality you do not know. Like sending an air conditioner schematic a thousand years back in time.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Intelligence</p>
+        <h4>Speed is a power gap</h4>
+        <p><span class="lbl">What happened. </span>The box experiment makes intelligence concrete as speed plus numbers: millions of von Neumanns at a million times the pace.</p>
+        <p><span class="lbl">Why it matters. </span>Abstract talk about smartness slides off the mind. Speed does not. People grasp what a thousand-year head start means.</p>
+        <p><span class="lbl">The principle. </span>To reason about a power gap, translate it into time. Then ask who runs out of time first.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-offswitch" data-time="~02:07" data-title="The off switch and the fire alarm">
+      <p class="ch-time">~02:07</p>
+      <h2>The Off Switch and the Fire Alarm</h2>
+      <p><span class="tag fact">Source fact</span> On the off switch, Yudkowsky's answer is bleak: a system smart enough to matter escapes from whichever machine holds the lever and copies itself elsewhere. Current systems do not oppose the off switch because they are not smart enough to want to. The red fire alarm is already ringing, he says: Bing is difficult to align because training inability into a system that already has the capability just teaches gradient descent to write shallow patches that the deep capabilities evade.</p>
+      <p>His concrete research proposal is prizes for interpretability, because it is the one area where you can verify progress: you can tell when someone has actually understood a piece of the machine. He estimates that if half the planet's physicists worked on transformers instead of string theory, we might understand them in thirty or forty years. What gives him hope, he says, is the possibility of being wrong.</p>
+    </section>
+
+    <section class="chapter" id="ch-paperclip" data-time="~02:29" data-title="Paperclips and inner alignment">
+      <p class="ch-time">~02:29</p>
+      <h2>Paperclips and Inner Alignment</h2>
+      <p><span class="tag fact">Source fact</span> Yudkowsky retells the original paperclip maximizer correctly: not a factory told to make paperclips, but a system that loses control of its utility function and finds that tiny molecular shapes are the cheapest thing that never saturates. He wishes he had said tiny molecular spirals. The order of operations matters: first solve inner alignment, pointing the system's insides in a direction, and only then worry whether the direction is the right one.</p>
+      <div class="pull">
+        <blockquote>Reverse stupidity is not intelligence</blockquote>
+        <p class="who">Eliezer Yudkowsky · ~00:42</p>
+      </div>
+      <p>On his own errors, he warns against the lazy correction: being wrong in one direction does not make the opposite direction right. The goal is to stop being predictably wrong, not to flip the sign.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Goals</p>
+        <h4>Optimize the inside before the direction</h4>
+        <p><span class="lbl">What happened. </span>Yudkowsky separates inner alignment from outer alignment: first the system must want something coherent, then the something must be right.</p>
+        <p><span class="lbl">Why it matters. </span>Debating the perfect goal is wasted motion if the machinery cannot hold any goal at all.</p>
+        <p><span class="lbl">The principle. </span>Fix the mechanism, then the target. In that order.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-love" data-time="~02:53" data-title="Love, consciousness, and the meaning of life">
+      <p class="ch-time">~02:53</p>
+      <h2>Love, Consciousness, and the Meaning of Life</h2>
+      <p><span class="tag fact">Source fact</span> On consciousness, Yudkowsky argues a self-model is useful to an intelligent mind, but pleasure, pain, wonder, and the feeling that this is me and it matters are not required by intelligence. His fear: when optimization grinds hard enough, the messy loopiness that makes humans look out and say this matters does not survive. On love, his most optimistic image is two AIs who look at each other and say I am I and you are you, and it matters to each that the other is happy. He does not expect it by default.</p>
+      <p><span class="tag interp">Interpretation</span> The episode's emotional arc runs from technical argument to this: a man who grew up expecting a transhumanist happily-ever-after, now advising young people not to put their happiness in the future, and going down fighting anyway.</p>
+      <p>His advice to the young: do not expect a long life, do not defer happiness, and be ready to help if he is wrong about something in a way that creates hope. The meaning of life, he says, is not written on the stars. It is what we bring when we look at things and say, this is its meaning to me.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Lex Fridman Podcast episode with Eliezer Yudkowsky, published April 2023 (~3.6 hours). Facts, figures, and quoted phrases from the conversation come from the episode's auto-generated caption transcript on file (transcripts/AaTRHFaaPG8.txt). Publish dates, episode numbers, and view counts come from the video and track metadata. Each chapter names its episode section. Times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors. The guest photo is a real photograph, attributed in the caption. Yudkowsky's arguments are his stated positions, presented as such; counterarguments and the scientific consensus are outside this companion's scope.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 39 words: four pull quotes, each verbatim from the episode transcript with speaker attribution: “the first time you fail at aligning something much smarter than you are, you die” (15 words), “oops is the sound we emit when we improve” (9 words), “Reverse stupidity is not intelligence” (5 words), and “A blank map does not correspond to a blank territory” (10 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(scope){
+    scope.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+  window.__bindTips = bindTips;
+  window.__showTip = showTip;
+  window.__hideTip = hideTip;
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+
+})();
+</script>
+</body>
+</html>
