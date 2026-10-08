@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta: Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Acquired's Meta episode: the growth machine, the mobile near-death, the 2012 acquisition email, and the $60 billion Reality Labs hedge.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 7 &middot; Meta &middot; Fall 2024</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 7 &middot; Companion</p>
+      <h1>Meta</h1>
+      <p class="dek">Four billion monthly users, half of humanity. The growth discipline Facebook invented, the mobile transition that nearly killed it, the acquisition playbook from a 2012 email, and the $60 billion hedge. This companion follows the episode chapter by chapter.</p>
+      <figure>
+        <img src="assets/ep07/illustration-half-humanity.webp" alt="Watercolor illustration of Earth at night with one glowing hemisphere">
+        <p class="caption"><b>Illustration.</b> Half of humanity, connected. AI-generated watercolor.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">4B</div><div class="l">Monthly active users across Meta's apps, about half of all humans</div><div class="s">Episode ~00:02</div></div>
+        <div class="stat"><div class="n">$17.68</div><div class="l">The stock's 2012 bottom, down 53.5% from the $38 IPO price</div><div class="s">Episode ~03:28</div></div>
+        <div class="stat"><div class="n">$60B</div><div class="l">Reality Labs operating losses since 2019, the platform hedge</div><div class="s">Episode ~04:55</div></div>
+        <div class="stat"><div class="n">$11&rarr;$227</div><div class="l">US and Canada revenue per user, from IPO to today</div><div class="s">Episode ~05:06</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/CS2Lqdwja8o" title="Acquired: Meta (official episode audio)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Listen.</b> The official Acquired episode audio (about 6 hr). Times below are proportional estimates from the transcript, which carries no timestamps.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Half of humanity is the frame</a></li>
+          <li><a href="#nugget-2">The turn-based strategist</a></li>
+          <li><a href="#nugget-3">Keep the board, sell less</a></li>
+          <li><a href="#nugget-4">Users hate it, then cannot live without it</a></li>
+          <li><a href="#nugget-5">The failure that built the ads business</a></li>
+          <li><a href="#nugget-6">Growth is product, not marketing</a></li>
+          <li><a href="#nugget-7">Confess the weakness in the S1</a></li>
+          <li><a href="#nugget-8">What you are really buying is time</a></li>
+          <li><a href="#nugget-9">The square empties, the private rooms fill</a></li>
+          <li><a href="#nugget-10">The profitable AI lab</a></li>
+          <li><a href="#nugget-11">The 1 percent hedge</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps.</p>
+    </div>
+    <section class="chapter" id="ch-scale" data-time="~00:02" data-title="Half of Humanity">
+      <p class="ch-time">~00:02</p>
+      <h2>Half of Humanity</h2>
+      <p><span class="tag fact">Source fact</span> Ben opens with the numbers because nothing else frames it. Meta has 4 billion monthly active users, and daily active users are over 3 billion. There are only 8 billion humans on Earth. The Roman Empire at its peak reached only 40 percent of humans, and the British Empire about 23 percent, though the data from those periods is hard to pin down. No government, no religion, no company has ever addressed this share of the species.</p>
+      <div class="chart" id="chart-species">
+        <h4>Share of the species</h4>
+        <p class="csub">Peak share of all humans reached. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of share of humanity">
+          <rect class="bar alt" x="110" y="100" width="100" height="160" data-tip="British Empire: about 23% of humans at its peak."></rect>
+          <rect class="bar" x="280" y="60" width="100" height="200" data-tip="Roman Empire: about 40% of humans at its peak, the largest share before Meta."></rect>
+          <rect class="bar dark" x="450" y="20" width="100" height="240" data-tip="Meta (2024): about 50%. 4B monthly users of 8B humans."></rect>
+          <text class="vallab" x="160" y="92" text-anchor="middle">23%</text>
+          <text class="vallab" x="330" y="52" text-anchor="middle">40%</text>
+          <text class="vallab" x="500" y="12" text-anchor="middle">~50%</text>
+          <text class="axis" x="160" y="282" text-anchor="middle">British Empire</text>
+          <text class="axis" x="330" y="282" text-anchor="middle">Roman Empire</text>
+          <text class="axis" x="500" y="282" text-anchor="middle">Meta 2024</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Meta, ~00:02. Empires per the episode. Meta per company reporting.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Scale</p>
+        <h4>Half of humanity is the frame</h4>
+        <p><span class="lbl">What happened. </span>Meta serves 4 billion monthly users, half of the 8 billion humans alive. Rome peaked at 40 percent, Britain at 23 percent. The episode opens here because every later decision reads differently at this scale.</p>
+        <p><span class="lbl">Why it matters. </span>At planetary scale, product decisions are civilization decisions. Content moderation, privacy defaults, and ad targeting affect more humans than any government policy. The frame changes the ethics and the strategy at once.</p>
+        <p><span class="lbl">The principle. </span>State the true scale of your work before analyzing it. Numbers that big reframe every choice downstream.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-kid" data-time="~00:07" data-title="The Kid: Civilization, Code, Classics">
+      <p class="ch-time">~00:07</p>
+      <h2>The Kid: Civilization, Code, Classics</h2>
+      <figure>
+        <img src="assets/ep07/kirkland-house.jpg" alt="Photograph of Kirkland House courtyard at Harvard University">
+        <p class="caption"><b>Photo.</b> Kirkland House, Harvard, where thefacebook.com was built in suite H33 in February 2004. Source: Wikimedia Commons.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Mark Elliot Zuckerberg was born in May 1984 in Dobbs Ferry, New York, the second of four children. His mother Karen is a psychologist. His father Ed, the son of Jewish immigrants, studied dentistry at NYU and practiced as a dentist. A classic American leveling-up story: grandparents sacrificed, parents became professionals, the kids got to explore.</p>
+      <p>Mark's three passions, in order: turn-based strategy games, programming, and ancient Greek and Latin. Civilization, released in September 1991 when he was 7, defined the 4X genre: explore, expand, exploit, exterminate. The episode keeps returning to it: the turn-based strategist who gets more turns and learns more per turn is the same kid who later ran Meta as a turn-based strategy game.</p>
+      <p>Harvard, fall 2003. Sophomore year, Kirkland House suite H33: Zuckerberg, Chris Hughes, Dustin Moskovitz, and Billy Olsen. Mark built Facemash, then thefacebook.com in February 2004. Eduardo Saverin, a fraternity brother in the investing club, put in $1,000 for servers. Mark added $1,000. The split: Mark two-thirds, Eduardo one-third.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Founders</p>
+        <h4>The turn-based strategist</h4>
+        <p><span class="lbl">What happened. </span>Mark's first passion was Civilization, the turn-based strategy game. He later ran Meta the same way: take more turns than anyone, learn more from each turn, compound the learning.</p>
+        <p><span class="lbl">Why it matters. </span>Childhood play becomes management philosophy. The "learn faster than every other company" loop from the Zuckerberg interview episode is a 4X strategy applied to a company. Knowing the source explains the persistence.</p>
+        <p><span class="lbl">The principle. </span>Ask what game your strategy is. Then play it deliberately: more turns, more learning per turn.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-money" data-time="~00:44" data-title="From $2,000 to $104 Billion">
+      <p class="ch-time">~00:44</p>
+      <h2>From $2,000 to $104 Billion</h2>
+      <p><span class="tag fact">Source fact</span> The angel round: Peter Thiel led $500,000 at a $5 million pre-money valuation ($5.5 million post). Reid Hoffman and Mark Pincus each put in $37,500. Then $600,000 of venture debt from Western Technology Investment, with warrants the episode calls the greatest venture debt deal of all time. Series A, spring 2005: Accel led $12.7 million at a $98 million post-money valuation, wild for the time, with Mark keeping board control and selling under 20 percent when the norm was 25 to 30 percent. Jim Breyer personally put in $1.1 million at 4.5 cents a share. At $600 a share that is a 13,000x return. The round was supposed to be Don Graham of the Washington Post at $60 million. Accel topped it, and $3 million went to Mark, Dustin, and Sean as a secondary.</p>
+      <p>Sean Parker's fingerprints are on the early company: he negotiated the facebook.com domain purchase for $200,000, a huge chunk of the angel money. In 2007, Microsoft invested $240 million at a $15 billion valuation, with an ad partnership making Microsoft the exclusive third-party ad network worldwide, thirteen months after the failed $1 billion Yahoo bid. The $240 million later became $8 billion. The IPO priced at $38, the top of the range, raising $16 billion at a $104 billion market cap.</p>
+      <div class="chart" id="chart-ladder">
+        <h4>The funding ladder</h4>
+        <p class="csub">Valuation at each step, $ millions (log scale). Hover for detail.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of funding round valuations">
+          <g id="ladder-bars"></g>
+        </svg>
+        <p class="csrc">Source: Acquired, Meta, ~00:44. From founders’ $2K to the $104B IPO.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Fundraising</p>
+        <h4>Keep the board, sell less</h4>
+        <p><span class="lbl">What happened. </span>At a $98 million Series A, Mark kept board control and sold under 20 percent when the norm was 25 to 30 percent. Control, negotiated early, compounded for two decades.</p>
+        <p><span class="lbl">Why it matters. </span>Every later audacious move, the mobile rewrite, the $19 billion WhatsApp deal, the $60 billion Reality Labs spend, was possible because the founder could not be fired. The Series A term sheet was the real founding document.</p>
+        <p><span class="lbl">The principle. </span>Negotiate control when you need money least. The terms you accept early decide what you are allowed to do late.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-growth" data-time="~01:37" data-title="The Growth Machine">
+      <p class="ch-time">~01:37</p>
+      <h2>The Growth Machine</h2>
+      <p><span class="tag fact">Source fact</span> By November 2005, Facebook hit 230 million daily page views, passing Google, a company started six years earlier. Two product earthquakes defined the era. News Feed launched September 5, 2006, to everyone at once, no opt-in. Users hated it: 30,000 angry support emails on day one, and 10 percent of the entire user base joined a protest group. It was a total paradigm shift. Social networks were profiles you visited. Now the updates came to you. The episode's verdict: users always hate the change, then cannot live without it.</p>
+      <p>Platform launched at f8 on May 24, 2007: apps inside Facebook, natively, part of Mark's original 2005 product roadmap. For four years (2007-2011), platform was the company's core belief about the future. FarmVille and Zynga rode it to hundreds of millions of users.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Product</p>
+        <h4>Users hate it, then cannot live without it</h4>
+        <p><span class="lbl">What happened. </span>News Feed shipped to everyone with no opt-in. Day one brought 30,000 angry emails and a protest group holding 10 percent of users. The paradigm shifted anyway: profiles you visited became updates that came to you.</p>
+        <p><span class="lbl">Why it matters. </span>Outrage at launch is not signal. It is the sound of a mental model breaking. The question is whether the new model is better, not whether the transition is comfortable.</p>
+        <p><span class="lbl">The principle. </span>When users revolt at a real improvement, hold the line. Measure the new behavior, not the old complaints.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-beacon" data-time="~02:37" data-title="Beacon: The Failure That Built the Ads Business">
+      <p class="ch-time">~02:37</p>
+      <h2>Beacon: The Failure That Built the Ads Business</h2>
+      <p><span class="tag fact">Source fact</span> Mark thought ads were gross and wanted to outsource monetization to Microsoft while he focused on product. But Facebook also tried its own "native" ad idea: Beacon, led by Chamath Palihapitiya. Advertisers embedded JavaScript that published your off-Facebook purchases into your friends' News Feeds. A diamond ring purchase could spoil an engagement. Users revolted, advertisers were confused about what was even an ad, and credibility burned everywhere.</p>
+      <p>The failure was productive. Mark's takeaway: maybe he did not understand advertising as well as he thought. Enter Sheryl Sandberg, who joined Google in 2001 as AdWords took shape and built its self-serve business. The deal: Mark owns product and engineering. Sheryl owns ads and operations. Their first exercise: should Facebook even be in the ads business? Answer: yes, it is a media business, and it should build the best targeting engine in the world, which its social data uniquely enables.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Failure</p>
+        <h4>The failure that built the ads business</h4>
+        <p><span class="lbl">What happened. </span>Beacon published purchases into feeds and revolted everyone. The disaster taught Mark he could not engineer around advertising, which led to Sheryl Sandberg joining and the honest build of the targeting engine.</p>
+        <p><span class="lbl">Why it matters. </span>The clever ad format failed before the obvious one shipped. The failure bought the humility to hire the expert and do the unglamorous version. The ads business exists because Beacon did not work.</p>
+        <p><span class="lbl">The principle. </span>Ship the obvious version before the clever one. When the clever one fails, hire the person who knows the obvious cold.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-growthteam" data-time="~02:45" data-title="The Growth Team: A Discipline Is Invented">
+      <p class="ch-time">~02:45</p>
+      <h2>The Growth Team: A Discipline Is Invented</h2>
+      <p><span class="tag fact">Source fact</span> After Beacon, Chamath needed a new job. At most companies he would lose his job. Facebook's "move fast and break things" culture found him the right seat instead. User growth stalled, and Chamath built the first growth team in the industry's history: himself, Alex Schultz, Naomi Gleit, and Javi Olivan. Growth is not marketing. Marketing and product both touch customers but never talk to each other. The growth team unified them inside product, on the principle that the product itself is the best growth lever.</p>
+      <p>Their methods: obsessive analytics to find where users got value and where they got confused. Crowdsourced translation, which seeded power users who felt ownership and captured local nuance no agency could. People You May Know, still a core surface. The famous finding: a new user's odds of becoming engaged tracked how many friends they added in the first day or two. Alex Schultz's gloss: it is linear, not magic. More friends faster is just better.</p>
+      <p>Results: 100 million users in August 2008 to 150 million by year end, 50 percent growth in four months, then 250 percent in 2009 to 350 million. Revenue: $280 million (2008), about $800 million (2009), $2 billion (2010), $3.7 billion (2011). Users: 600 million (2010), 850 million (2011).</p>
+      <div class="chart" id="chart-growth">
+        <h4>The growth-team years</h4>
+        <p class="csub">Users in millions. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of user growth 2008 to 2011">
+          <rect class="bar alt" x="100" y="232" width="90" height="28" data-tip="Aug 2008: 100M users."></rect>
+          <rect class="bar" x="230" y="188" width="90" height="72" data-tip="End 2008: 150M users, 50% growth in four months."></rect>
+          <rect class="bar" x="360" y="76" width="90" height="184" data-tip="End 2009: 350M users, up 250% in the year."></rect>
+          <rect class="bar dark" x="490" y="20" width="90" height="240" data-tip="2011: 850M users. Revenue $3.7B, up nearly 100%."></rect>
+          <text class="vallab" x="145" y="224" text-anchor="middle">100M</text>
+          <text class="vallab" x="275" y="180" text-anchor="middle">150M</text>
+          <text class="vallab" x="405" y="68" text-anchor="middle">350M</text>
+          <text class="vallab" x="535" y="12" text-anchor="middle">850M</text>
+          <text class="axis" x="145" y="282" text-anchor="middle">2008</text>
+          <text class="axis" x="275" y="282" text-anchor="middle">end 2008</text>
+          <text class="axis" x="405" y="282" text-anchor="middle">2009</text>
+          <text class="axis" x="535" y="282" text-anchor="middle">2011</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Meta, ~02:50.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Growth</p>
+        <h4>Growth is product, not marketing</h4>
+        <p><span class="lbl">What happened. </span>The first growth team lived inside product, not marketing, and changed the product instead of the message. Analytics found the friction. The product removed it. Friends added in the first day or two predicted engagement, linearly.</p>
+        <p><span class="lbl">Why it matters. </span>No amount of marketing beats the product doing the right thing for the right user at the right time. The discipline Facebook invented in 2008 is now the industry's standard playbook.</p>
+        <p><span class="lbl">The principle. </span>When growth stalls, move the lever inside the product. Optimize the slope, not the step: linear beats magic.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-mobile" data-time="~03:08" data-title="The Mobile Crisis: Five Ways to Die">
+      <p class="ch-time">~03:08</p>
+      <h2>The Mobile Crisis: Five Ways to Die</h2>
+      <p><span class="tag fact">Source fact</span> By 2011, everything Facebook had built assumed the open web. Mobile broke every assumption, in five ways. One, closed platforms: iOS and Android are proprietary ecosystems Facebook does not control, while the web was the only open platform in history. Two, platform dies: apps cannot run inside apps on mobile, so Facebook Platform, half the company's imagined future value, switches off permanently. Three, no mobile revenue: the S1 admitted it, and the hosts read the line as a quote: <q>we do not currently directly generate any meaningful revenue from the use of Facebook mobile products</q>. Desktop ads lived in the right-hand column. Phones have no right-hand column, only the feed, which had never carried ads. Four, no code velocity: on the web, push anytime. On mobile, a two-week App Store review, and Apple can reject you. Five, competitive reset: on the web, Facebook absorbed every new social mechanic. On mobile, it is one icon among many, and single-purpose apps peel off use cases.</p>
+      <p>The platform war had a human prologue. Mark and Steve Jobs had a genuine relationship: Jobs reached out in 2007, and in 2008 Facebook pitched bringing its platform into iOS. The answer was cordial and final: Apple would not let somebody else build a platform on top of its platform.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Honesty</p>
+        <h4>Confess the weakness in the S1</h4>
+        <p><span class="lbl">What happened. </span>Facebook went public with 425 million mobile monthly users and, in its own S1, admitted it generated no meaningful mobile revenue and that its ability to do so was unproven. It listed the weakness in the document meant to sell the stock.</p>
+        <p><span class="lbl">Why it matters. </span>Naming the existential risk publicly focuses the whole company on it. The mobile rewrite, feed ads, and app-install ads all trace back to the sentence everyone had to read.</p>
+        <p><span class="lbl">The principle. </span>Write your biggest weakness into the plan, not the appendix. A confessed risk becomes a roadmap.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ipo" data-time="~03:26" data-title="The IPO and the Underwater Years">
+      <p class="ch-time">~03:26</p>
+      <h2>The IPO and the Underwater Years</h2>
+      <p><span class="tag fact">Source fact</span> They went public into the crisis. The IPO priced at $38, top of the range, raising $16 billion at a $104 billion market cap. Nine days earlier, during the quiet period, Facebook bought Instagram for $1 billion, its previous largest acquisition having been $70 million. The stock closed day one at $38.23 only because the underwriting banks bought to support it. It fell 9 of the next 13 sessions, bottomed at $17.68 on September 4, 2012, down 53.5 percent, and stayed underwater for 16 months. Anyone who bought at the IPO lost half their money within five months.</p>
+      <p>The turnaround: a full native rewrite, then the invention that saved the company, honest-to-God native ads in the News Feed, built under the project name Whale Shark, plus app-install ads, which made Facebook the front end for App Store discovery. Q4 2013 earnings popped the stock 75 percent above the IPO price, to about $175 billion.</p>
+      <div class="chart" id="chart-ipo">
+        <h4>The underwater years</h4>
+        <p class="csub">Stock price around the IPO. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Chart of the IPO drawdown">
+          <rect class="bar alt" x="140" y="60" width="110" height="200" data-tip="May 2012: IPO at $38, top of the range. $16B raised at $104B."></rect>
+          <rect class="bar" x="295" y="168" width="110" height="92" data-tip="Sept 4, 2012: bottom at $17.68, down 53.5%. Underwater for 16 months."></rect>
+          <rect class="bar dark" x="450" y="20" width="110" height="240" data-tip="Q4 2013: earnings pop the stock 75% above the IPO price, to ~$175B. Native feed ads did it."></rect>
+          <text class="vallab" x="195" y="52" text-anchor="middle">$38</text>
+          <text class="vallab" x="350" y="160" text-anchor="middle">$17.68</text>
+          <text class="vallab" x="505" y="12" text-anchor="middle">+75%</text>
+          <text class="axis" x="195" y="282" text-anchor="middle">IPO 2012</text>
+          <text class="axis" x="350" y="282" text-anchor="middle">bottom</text>
+          <text class="axis" x="505" y="282" text-anchor="middle">Q4 2013</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Meta, ~03:28. Fell 9 of the first 13 sessions.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-acquire" data-time="~03:53" data-title="The Acquisition Playbook: Buying Time">
+      <p class="ch-time">~03:53</p>
+      <h2>The Acquisition Playbook: Buying Time</h2>
+      <figure>
+        <img src="assets/ep07/illustration-buying-time.webp" alt="Watercolor illustration of an hourglass pouring tiny glowing app icons">
+        <p class="caption"><b>Illustration.</b> The acquisition playbook: buying time, one mechanic at a time. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> In 2013, Facebook bought Onavo, an Israeli VPN and data-compression app. It let Facebook see mobile app usage trends the way Apple and Google could, and it tipped them off to WhatsApp and Snap. Mark's actual strategy surfaced in a February 28, 2012 email to his CFO, revealed in court. The plan: buy companies, keep them running independently, and integrate the social mechanics they invented into Facebook's core products over 12 to 24 months. <q>What we're really buying is time.</q> Network effects plus a finite number of social mechanics to invent: once someone wins a mechanic, others cannot supplant them without something different. Buy the mechanic, deploy it at your scale before anyone else can, and you win whether the original product or your copy wins. Usually both win.</p>
+      <p>Instagram ($1 billion, April 2012): the mechanic was filtered photo sharing. WhatsApp ($19 billion, February 2014): not a competitor, a different use case, private messaging, the living-room shift. Oculus ($2 billion, March 2014, 34 days after WhatsApp): a research lab for the next platform, the way FAIR was for AI. Snapchat would not sell, so Facebook copied Stories, and the copy was better in one specific way: Instagram launched Stories as an algorithmically ranked row of faces, powered by the News Feed ranking expertise Snap did not have. Copying well means deploying the mechanic with your superior distribution and algorithms.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Acquisitions</p>
+        <h4>What you are really buying is time</h4>
+        <p><span class="lbl">What happened. </span>Mark's 2012 email: buy the company, keep it running, integrate its mechanics into your core within 12 to 24 months. The finite set of inventable social mechanics means the winner of a mechanic is hard to dislodge. Deploy it at your scale first.</p>
+        <p><span class="lbl">Why it matters. </span>The purchase is not the asset. It is the year-plus head start to integrate the mechanic before anyone else can. You win if the original wins, you win if your copy wins. Usually both.</p>
+        <p><span class="lbl">The principle. </span>When acquiring anything, write the "what we are really buying is time" memo. Name the mechanic, the integration timeline, and the scale advantage.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-privateroom" data-time="~04:05" data-title="Town Square to Private Rooms">
+      <p class="ch-time">~04:05</p>
+      <h2>Town Square to Private Rooms</h2>
+      <figure>
+        <img src="assets/ep07/illustration-town-square.webp" alt="Watercolor illustration of an empty town square beside a warm small private room">
+        <p class="caption"><b>Illustration.</b> From the town square to private rooms: sharing moves private. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Mark's 2019 strategic frame: social shifted from the Town Square, public, permanent, performative, the classic Facebook feed and early Instagram, to the private room, small, private, ephemeral, messaging, Stories, groups. As the town square stage got bigger, people only took it for major announcements. Sharing moved private. In the early 2010s, Facebook answered the breakout single-purpose apps by copying them, building a constellation of its own: Slingshot, Poke, Messenger, Paper, Rooms, Riff, Camera. The strategy contradicted Facebook's own value, which came from bundling use cases so they compound. The constellation asked users to unbundle Facebook itself.</p>
+      <p>The second-order effect nobody predicted: once social moves to private rooms, media can divorce from social entirely. TikTok is not social media. It is media. Your graph does not matter. The AI does. In your first ten videos, the algorithm learns what engages you, and none of it comes from friends. Facebook's durable advantage, the authenticated network, became irrelevant to the engagement at hand. All that was left was the habit of tapping the app, and habits break. TikTok also broke the organizational model: ByteDance is an AI company that ships products as deployment vectors for its AI, organized around centers of excellence. Meta reorganized to look like ByteDance.</p>
+      <p>The response: Reels, built fast enough to stem the bleeding, aiming for stalemate. It worked because of FAIR. The episode's line: the AI lab made the counterattack possible.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Shifts</p>
+        <h4>The square empties, the private rooms fill</h4>
+        <p><span class="lbl">What happened. </span>Sharing moved from public broadcast to private small groups. The emptied town square became free for pure media, and TikTok filled it with AI-picked video, no social graph at all.</p>
+        <p><span class="lbl">Why it matters. </span>The shift Meta identified created the opening Meta did not see. Your durable advantage can become irrelevant to the engagement at hand while you are still winning on it. Watch the mechanic, not the app.</p>
+        <p><span class="lbl">The principle. </span>Track where sharing moves: public to private, permanent to ephemeral. Position before the mechanic migrates, not after.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-fair" data-time="~04:16" data-title="FAIR: The Profitable AI Lab">
+      <p class="ch-time">~04:16</p>
+      <h2>FAIR: The Profitable AI Lab</h2>
+      <p><span class="tag fact">Source fact</span> In 2013, with mobile finally stabilizing, Mark and Mike Schroepfer asked when the tiger would jump next. They started FAIR (Facebook AI Research) by recruiting Yann LeCun in summer 2013. LeCun's terms: stay in New York, keep teaching at NYU, publish everything. Facebook, built on the LAMP stack and already open-sourcing Cassandra and React, said yes to all of it. The key design choice: focused research, not blue-sky. The mission was explicit: AI that ships into products. It paid off in two years, not ten. The payoffs: immediate, wildly profitable application to feed ranking and ad targeting, since every improvement makes ads and engagement more valuable. It is a chess piece for whatever platform comes next. It is also the weapon against TikTok: Reels.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Research</p>
+        <h4>The profitable AI lab</h4>
+        <p><span class="lbl">What happened. </span>FAIR was designed as AI that ships into products, not blue-sky research. It paid off in two years: feed ranking, ad targeting, and later Reels. Every improvement carried guaranteed ROI because the use case was already the business.</p>
+        <p><span class="lbl">Why it matters. </span>Most AI companies spend hoping the use case materializes. Meta’s use case is proven and profitable, a decade old. An AI assistant is a nice-to-have. The recommender is the business.</p>
+        <p><span class="lbl">The principle. </span>Attach research to a proven, profitable use case first. Let the lab earn its blue sky from shipped wins.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-fall" data-time="~04:28" data-title="2016-2018: The Fall">
+      <p class="ch-time">~04:28</p>
+      <h2>2016-2018: The Fall</h2>
+      <p><span class="tag fact">Source fact</span> Content moderation at planetary scale broke the company politically. Then the 2016 election and Cambridge Analytica. The episode reconstructs what happened, carefully. A quiz app harvested profile data under the old permissive platform API: authorizing an app exposed your data and your friends' data. The developer violated terms of service by keeping and repurposing it. About 320,000 people took the quiz. The surface area reached 87 million profiles. Cambridge Analytica got derivative psychographic labels, not raw Facebook data. Facebook demanded deletion in 2015. The UK investigation was skeptical the methodology even worked, with internal communications showing doubt about the models' real-world accuracy.</p>
+      <p>The brand impact dwarfed the facts. Hundreds of millions of people believed Facebook data had swung the election. The episode's diagnosis: Facebook earned the distrust through years of prioritizing growth over caution, and the town-square-to-living-room shift made old permissiveness look grotesque through new expectations. The FTC settlement: $5 billion and 20 years of monitoring. In July 2018, the privacy-focused earnings call wiped $119 billion in a day, the largest single-day loss in history at the time.</p>
+    </section>
+
+    <section class="chapter" id="ch-apple" data-time="~04:40" data-title="Apple: The Platform War">
+      <p class="ch-time">~04:40</p>
+      <h2>Apple: The Platform War</h2>
+      <p><span class="tag fact">Source fact</span> Apple then did what platforms do. In 2021, iOS 14.5 and 14.6 shipped App Tracking Transparency: apps must ask permission to track, in aggressive language. Most users said no. Facebook's off-app targeting picture collapsed. In February 2022, Meta said ATT would cost about $10 billion in 2022 revenue. The stock fell 26 percent in a day, losing $232 billion, a new record. It was also the first quarter-over-quarter user decline, with TikTok compounding. By Halloween 2022, the stock was down 72 percent from February, after trading down 46 percent by April 27.</p>
+      <p>The episode's judgment: the real threat was TikTok (users), not ATT (monetization efficiency). A founder-led company reacted to both at once, cannibalizing its own feed revenue to push Reels while absorbing the ATT hit. A professional CEO would wait out ATT first. Mark could not be fired, so he did the right painful thing immediately. The stock is up roughly 5x from the bottom.</p>
+      <p>The aftermath vindicated scale: Meta built Advantage Plus on first-party signals, advertisers kept spending because budgets must go somewhere, and smaller competitors without Meta's data and engineers could not adapt at all. ATT destroyed value overall. The dollars did not move to Apple. Targeting just got worse for everyone.</p>
+    </section>
+
+    <section class="chapter" id="ch-rl" data-time="~04:55" data-title="Reality Labs: The $60 Billion Hedge">
+      <p class="ch-time">~04:55</p>
+      <h2>Reality Labs: The $60 Billion Hedge</h2>
+      <p><span class="tag fact">Source fact</span> February 2014: $19 billion for WhatsApp. Thirty-four days later: $2 billion for Oculus. Mark tried the demo and found it the most credible future he had ever seen. Treat Oculus as a research lab purchase, like FAIR. Since 2019, Reality Labs has lost about $60 billion in reported operating losses.</p>
+      <p>The episode does the math two ways. The product math: to earn back $60 billion, Reality Labs must become the most successful consumer product in history. Napkin math: if Orion glasses launched tomorrow and grew exactly like the iPhone with an Apple-sized services business attached, Meta's cumulative Reality Labs cash flow stays negative until at least 2035. Anything less is incineration. The hedge math: Apple erased $10 billion of revenue with one policy change and could, in theory, remove Meta from the App Store entirely. Expected value of that risk, some small probability times a $1.5 trillion market cap, is still an enormous number. Spending $15-20 billion a year, about 1 percent of enterprise value, to buy a chance at platform independence is rational insurance. Plus the upside: owning the next platform means millions of developers building on you.</p>
+      <div class="toy" id="toy-hedge">
+        <h4>Toy: price your platform risk</h4>
+        <p class="tsub">The Reality Labs hedge as arithmetic. Set the chance a platform owner removes you and your company's value, and see what annual insurance spend the expected value justifies. Illustrative model.</p>
+        <label for="risk">Annual probability of platform removal (%) <span class="tval" id="risk-v">2</span></label>
+        <input type="range" id="risk" min="0.5" max="20" value="2" step="0.5">
+        <label for="ev">Enterprise value at risk ($B) <span class="tval" id="ev-v">1500</span></label>
+        <input type="range" id="ev" min="100" max="3000" value="1500" step="50">
+        <div class="verdict" id="hedge-verdict"></div>
+      </div>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 &middot; Hedges</p>
+        <h4>The 1 percent hedge</h4>
+        <p><span class="lbl">What happened. </span>Meta spends about 1 percent of its $1.5 trillion enterprise value a year on Reality Labs. The product math only works if it becomes the most successful consumer device ever. The hedge math works now: it insures against platform owners who already cost $10 billion with one policy.</p>
+        <p><span class="lbl">Why it matters. </span>A bet that looks insane as a product can be rational as insurance. The honest answer is both: the math only works as insurance plus a platform dream.</p>
+        <p><span class="lbl">The principle. </span>Price your biggest platform risk as expected value: probability times enterprise value. If the insurance costs 1 percent, buy it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-today" data-time="~05:04" data-title="The Business Today">
+      <p class="ch-time">~05:04</p>
+      <h2>The Business Today</h2>
+      <p><span class="tag fact">Source fact</span> The numbers at recording: 3.3 billion daily actives across the family of apps, up 7 percent year over year, about $12 revenue per person. Facebook alone: 2.1 billion daily, 3.1 billion monthly. WhatsApp and Instagram: about 2 billion monthly each. 2023: $135 billion revenue, $47 billion operating income (35 percent margin), $28 billion capex, a hyperscaler-sized data center footprint consumed internally. $50 billion cash ($58 billion with securities), 71,000 employees, $1.5 trillion market cap, up from $230 billion in October 2022.</p>
+      <p>Two observations the hosts find insane. First, every product's engagement grows over time: the growth function is a purpose-built heat-seeking missile of attention and metrics, a process, not a fluke. Second, monetization: US and Canada average revenue per user went from $11 at IPO to $227. Global is $44. Of 5.4 billion humans online per the UN, Meta serves 4 billion outside China.</p>
+      <div class="chart" id="chart-arpu">
+        <h4>The monetization missile: $11 to $227</h4>
+        <p class="csub">US and Canada average revenue per user. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of ARPU growth">
+          <rect class="bar alt" x="140" y="248" width="110" height="12" data-tip="IPO (2012): $11 average revenue per user in the US and Canada."></rect>
+          <rect class="bar dark" x="390" y="40" width="110" height="220" data-tip="Today: $227 in the US and Canada. $44 globally."></rect>
+          <text class="vallab" x="195" y="240" text-anchor="middle">$11</text>
+          <text class="vallab" x="445" y="32" text-anchor="middle">$227</text>
+          <text class="axis" x="195" y="282" text-anchor="middle">2012 IPO</text>
+          <text class="axis" x="445" y="282" text-anchor="middle">today</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Meta, ~05:06. Global ARPU: $44.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Half of humanity is the frame. Everything reads differently at that scale.</li>
+          <li>Growth is a product discipline, not a marketing function.</li>
+          <li>Ship the obvious ad format before the clever one.</li>
+          <li>Confess the existential weakness in the S1. Then fix it.</li>
+          <li>Acquisitions buy time. Name the mechanic and the integration clock.</li>
+          <li>Watch where sharing moves. The square empties, the private rooms fill.</li>
+          <li>Price platform risk as expected value. A 1 percent hedge is cheap.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, Meta, Fall 2024. Full episode: youtube.com/watch?v=CS2Lqdwja8o. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="~05:50" data-title="Outro">
+      <p class="ch-time">~05:50</p>
+      <h2>Outro</h2>
+      <p><span class="tag fact">Source fact</span> The episode closes with the sign-off, who got the truth, and the hosts' takeaways from six weeks of research with everyone involved.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "Meta" (Fall 2024, about 6 hr). All facts and figures come from the episode transcript (research/acquired/transcripts/CS2Lqdwja8o.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 41 words: the S1 mobile-revenue confession (16 words), Zuckerberg's 2012 acquisition-email line (6 words), the email line echoed in a nugget principle (7 words), "move fast and break things" (5 words), "learn faster than every other company" (6 words), and the scare-quoted "native" (1 word). The quotations carry episode-time attribution. Everything else is original paraphrase and analysis. One STE note: the email quote keeps the transcript's verbatim contraction, preserved as spoken.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+
+  /* ---------- toy: the hedge calculator ---------- */
+  (function(){
+    var risk = document.getElementById('risk'), ev = document.getElementById('ev');
+    var riskV = document.getElementById('risk-v'), evV = document.getElementById('ev-v');
+    var out = document.getElementById('hedge-verdict');
+    function upd(){
+      var r = +risk.value / 100, v = +ev.value;
+      riskV.textContent = risk.value; evV.textContent = ev.value;
+      var fair = r * v;
+      out.textContent = 'Expected loss: ' + r * 100 + '% x $' + v + 'B = $' + fair.toFixed(1) +
+        'B a year. Any annual hedge spend below that is rational insurance.';
+      out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f';
+    }
+    risk.addEventListener('input', upd); ev.addEventListener('input', upd); upd();
+  })();
+
+  /* ---------- chart: funding ladder ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var data = [
+      ['founders','$2K',2000,'Mark 2/3, Eduardo 1/3.'],
+      ['angel','$5.5M',5500000,'Thiel leads $500K at $5M pre.'],
+      ['Series A','$98M',98000000,'Accel $12.7M. Mark keeps board control.'],
+      ['Microsoft','$15B',15000000000,'$240M investment. Later worth $8B.'],
+      ['IPO','$104B',104000000000,'$38 a share, $16B raised.']
+    ];
+    var g = document.getElementById('ladder-bars');
+    var maxL = Math.log10(104000000000);
+    data.forEach(function(d, i){
+      var x = 30 + i * 120;
+      var h = Math.max(8, (Math.log10(d[2]) / maxL) * 250);
+      var y = 290 - h;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', x); r.setAttribute('y', y);
+      r.setAttribute('width', 90); r.setAttribute('height', h);
+      r.setAttribute('rx', 3);
+      r.setAttribute('fill', i === 4 ? '#3d352a' : (i > 1 ? '#1f5fb0' : '#ccd6e8'));
+      r.setAttribute('data-tip', d[0] + ': ' + d[1] + ' valuation. ' + d[3]);
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x', x + 45); t.setAttribute('y', 312);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = d[0];
+      g.appendChild(t);
+      var v = document.createElementNS(svgNS,'text');
+      v.setAttribute('x', x + 45); v.setAttribute('y', y - 8);
+      v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+      v.setAttribute('font-size','10');
+      v.textContent = d[1];
+      g.appendChild(v);
+      r.addEventListener('mousemove', function(ev){ showTip(d[0] + ': ' + d[1] + ' valuation. ' + d[3], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
