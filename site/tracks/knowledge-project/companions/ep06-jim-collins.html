@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jim Collins: Good to Great: The Knowledge Project Companion</title>
+<meta name="description" content="Jim Collins spent decades studying why some companies become great and others decline. This companion follows the full episode and pulls out the ideas on luck, Level 5 leadership, the flywheel, the 20-mile march, and the five stages of decline.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">The Knowledge Project · Track Companion</a>
+  <span class="sub">Jim Collins · Episode 6</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">The Knowledge Project · Episode 6 · Companion</p>
+      <h1>Jim Collins</h1>
+      <p class="dek">Jim Collins spent decades studying why some companies become great and others decline. This companion follows the full episode and pulls out the ideas on luck, Level 5 leadership, the flywheel, the 20-mile march, and the five stages of decline.</p>
+      <img src="assets/ep06-collins-illustration.webp" alt="Watercolor illustration of a giant stone flywheel turned by small determined figures">
+      <p class="caption"><b>Illustration.</b> The flywheel. Steady pushes compound. Lurching destroys momentum. AI-generated watercolor made for this page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">1988</div><div class="l">Collins meets a 30-year-old Steve Jobs, three years after Apple fired him</div><div class="s">Episode transcript</div></div>
+        <div class="stat"><div class="n">25 +/- 15</div><div class="l">Company A growth rate, steady</div><div class="s">Episode transcript</div></div>
+        <div class="stat"><div class="n">45 +/- 115</div><div class="l">Company B growth rate, volatile</div><div class="s">Episode transcript</div></div>
+        <div class="stat"><div class="n">5</div><div class="l">Stages of decline in the framework</div><div class="s">Episode transcript</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/7xIrgD6NxHI" title="Jim Collins on Good to Great (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Prepare for bad luck, ignore good luck</a></li>
+          <li><a href="#nugget-2">Study leaders at the bottom</a></li>
+          <li><a href="#nugget-3">March twenty miles every day</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-luck" data-time="Part 1" data-title="Luck is asymmetric">
+      <p class="ch-time">Part 1</p>
+      <h2>Luck Is Asymmetric</h2>
+      <p>Collins opens with his most quoted finding. Luck does not work the same in both directions:</p>
+      <div class="pull">
+        <blockquote>luck is asymmetric as a cause bad luck can kill you but good luck cannot make you great</blockquote>
+        <p class="who">Jim Collins on luck, in the episode</p>
+      </div>
+      <p>Bad luck can end a company. Good luck never builds one. The great firms in his research were not luckier. They were better at turning luck, good and bad, into results.</p>
+      <div class="chart" id="chart-luck">
+        <h4>Asymmetric luck</h4>
+        <p class="csub">Hover any bar for detail. A visual model of the episode's claim.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of luck asymmetry">
+          <rect class="bar" x="120" y="60" width="180" height="170" data-tip="Bad luck: can kill a company outright"></rect>
+          <rect class="bar alt" x="400" y="180" width="180" height="50" data-tip="Good luck: cannot make a company great on its own"></rect>
+          <text class="vallab" x="210" y="52" text-anchor="middle">can kill</text>
+          <text class="vallab" x="490" y="172" text-anchor="middle">cannot build</text>
+          <text class="axis" x="210" y="252" text-anchor="middle">bad luck</text>
+          <text class="axis" x="490" y="252" text-anchor="middle">good luck</text>
+        </svg>
+        <p class="csrc">Source: episode transcript. Collins states that bad luck can kill while good luck cannot make great.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Luck</p>
+        <h4>Prepare for bad luck, ignore good luck</h4>
+        <p><span class="lbl">What happened. </span>Collins found the great companies were not luckier than the comparisons. They handled luck better.</p>
+        <p><span class="lbl">Why it matters. </span>Leaders credit good luck and excuse bad luck. Both habits blind them to what they control.</p>
+        <p><span class="lbl">The principle. </span>Build buffers against bad luck. Treat good luck as noise, not skill.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-jobs" data-time="Part 2" data-title="Steve Jobs, 1988">
+      <p class="ch-time">Part 2</p>
+      <h2>Steve Jobs, 1988</h2>
+      <p>In 1988 Collins spent two hours with Steve Jobs. Jobs was thirty, flat on his back three years after Apple fired him, sitting cross-legged on the floor. This was Jobs 1.0, before the return.</p>
+      <p>Collins argues you learn the most about leaders at their lowest point. The 1988 Jobs had no power and no aura. Watching him then explained the Jobs 2.0 who later built the greatest wealth machine in history.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Leaders</p>
+        <h4>Study leaders at the bottom</h4>
+        <p><span class="lbl">What happened. </span>Collins met Jobs in 1988, exiled and powerless, and saw the raw material before the legend.</p>
+        <p><span class="lbl">Why it matters. </span>Success hides character. Failure reveals it, because there is nothing left to hide behind.</p>
+        <p><span class="lbl">The principle. </span>Judge people when they have nothing. That is the person who will act when they have everything.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-framework" data-time="Part 3" data-title="Disciplined people, thought, action">
+      <p class="ch-time">Part 3</p>
+      <h2>Disciplined People, Thought, Action</h2>
+      <p>Collins lays out his framework in stages. Stage one is disciplined people: get the right people on the bus first. Stage two is disciplined thought: confront the brutal facts. Stage three is disciplined action, which produces the flywheel.</p>
+      <p>Level 5 leadership sits at the center. The best leaders blend personal humility with indomitable will, and channel their ambition into a cause bigger than themselves.</p>
+    </section>
+
+    <section class="chapter" id="ch-flywheel" data-time="Part 4" data-title="The flywheel">
+      <p class="ch-time">Part 4</p>
+      <h2>The Flywheel</h2>
+      <p>Good-to-great companies turn a flywheel. Each push adds a little momentum, and the wheel moves slowly at first. Then it spins on its own. There is no single push that did it, which is why outsiders keep asking what the breakthrough moment was.</p>
+      <p>His example is the UCLA basketball team under John Wooden, which ran off ten championships. Outsiders saw a sudden dynasty. The program saw years of pushes nobody noticed.</p>
+      <p>The opposite is the doom loop: lurching from program to program, each new direction bleeding the momentum of the last.</p>
+      <div class="chart" id="chart-flywheel">
+        <h4>Flywheel versus doom loop</h4>
+        <p class="csub">A visual model of the episode's contrast. No numbers, just the motion.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Diagram of flywheel and doom loop">
+          <circle cx="170" cy="150" r="90" fill="none" stroke="#b4531f" stroke-width="10"/>
+          <text class="vallab" x="170" y="145" text-anchor="middle">flywheel</text>
+          <text class="axis" x="170" y="165" text-anchor="middle">steady pushes</text>
+          <text class="axis" x="170" y="270" text-anchor="middle">momentum compounds</text>
+          <path d="M 420 60 L 560 60 L 490 150 L 560 240 L 420 240 L 490 150 Z" fill="none" stroke="#d8c9a8" stroke-width="10"/>
+          <text class="vallab" x="490" y="145" text-anchor="middle">doom</text>
+          <text class="vallab" x="490" y="165" text-anchor="middle">loop</text>
+          <text class="axis" x="490" y="270" text-anchor="middle">lurching kills momentum</text>
+        </svg>
+        <p class="csrc">Source: episode transcript. Collins contrasts the flywheel's steady pushes with the doom loop's lurching.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-march" data-time="Part 5" data-title="The 20-mile march">
+      <p class="ch-time">Part 5</p>
+      <h2>The 20-Mile March</h2>
+      <p>The 20-mile march means hitting a steady target in good years and bad. Collins compares two companies. Company A grows at twenty-five percent, plus or minus fifteen. Company B grows at forty-five percent, plus or minus one hundred fifteen.</p>
+      <p>Company A wins over time. The wild swings of Company B destroy more in bad years than they gain in good ones. Discipline beats intensity.</p>
+      <div class="chart" id="chart-march">
+        <h4>Steady beats spectacular</h4>
+        <p class="csub">Hover any bar for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart comparing steady and volatile growth">
+          <rect class="bar" x="120" y="140" width="140" height="100" data-tip="Company A: 25 percent growth, plus or minus 15"></rect>
+          <rect class="bar alt" x="380" y="60" width="140" height="180" data-tip="Company B: 45 percent growth, plus or minus 115"></rect>
+          <line x1="120" y1="140" x2="260" y2="140" stroke="#3d352a" stroke-width="3"/>
+          <line x1="380" y1="60" x2="520" y2="60" stroke="#3d352a" stroke-width="3"/>
+          <text class="vallab" x="190" y="132" text-anchor="middle">25 ± 15</text>
+          <text class="vallab" x="450" y="52" text-anchor="middle">45 ± 115</text>
+          <text class="axis" x="190" y="262" text-anchor="middle">steady</text>
+          <text class="axis" x="450" y="262" text-anchor="middle">volatile</text>
+          <text class="axis" x="320" y="292" text-anchor="middle">the lines show the swing range</text>
+        </svg>
+        <p class="csrc">Source: episode transcript. Company A at 25 plus or minus 15 beats Company B at 45 plus or minus 115.</p>
+      </div>
+      <p>He pairs the march with bullets then cannonballs. Fire small test shots first, like the iPod as a bullet, then fire the cannonball once a bullet hits. Big bets without calibration are just gambling.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Discipline</p>
+        <h4>March twenty miles every day</h4>
+        <p><span class="lbl">What happened. </span>Collins shows the steady company beating the volatile one, and pairs it with small calibrated bets before big ones.</p>
+        <p><span class="lbl">Why it matters. </span>Bad years destroy more than good years create. Survival is a growth strategy.</p>
+        <p><span class="lbl">The principle. </span>Set a pace you can hold in any weather. Test with bullets, then fire cannonballs.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-decline" data-time="Part 6" data-title="Decline and leadership">
+      <p class="ch-time">Part 6</p>
+      <h2>Decline and Leadership</h2>
+      <p>Collins maps five stages of decline and prescribes productive paranoia as the defense. Stay paranoid while things work, or the stages will find you.</p>
+      <p>His years at West Point, holding the chair for the study of leadership, sharpened his definition. He borrows Eisenhower's line: leadership is the art of getting people to want to do what must be done.</p>
+      <div class="chart" id="chart-decline">
+        <h4>Five stages of decline</h4>
+        <p class="csub">Hover any step for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Five descending steps of decline">
+          <rect class="bar alt" x="70" y="40" width="100" height="36" data-tip="Stage 1 of the five stages of decline"></rect>
+          <rect class="bar alt" x="180" y="86" width="100" height="36" data-tip="Stage 2 of the five stages of decline"></rect>
+          <rect class="bar alt" x="290" y="132" width="100" height="36" data-tip="Stage 3 of the five stages of decline"></rect>
+          <rect class="bar" x="400" y="178" width="100" height="36" data-tip="Stage 4 of the five stages of decline"></rect>
+          <rect class="bar" x="510" y="224" width="100" height="36" data-tip="Stage 5 of the five stages of decline"></rect>
+          <text class="axis" x="120" y="62" text-anchor="middle">1</text>
+          <text class="axis" x="230" y="108" text-anchor="middle">2</text>
+          <text class="axis" x="340" y="154" text-anchor="middle">3</text>
+          <text class="axis" x="450" y="200" text-anchor="middle">4</text>
+          <text class="axis" x="560" y="246" text-anchor="middle">5</text>
+        </svg>
+        <p class="csrc">Source: episode transcript. Collins describes five stages of decline. Productive paranoia keeps companies out of them.</p>
+      </div>
+      <div class="takeaways">
+        <h3>Takeaways</h3>
+        <ol>
+          <li>Bad luck can kill you. Good luck cannot make you great. Plan accordingly.</li>
+          <li>Study leaders at their lowest point. That is the real person.</li>
+          <li>Turn the flywheel with steady pushes. Never lurch.</li>
+          <li>March twenty miles in every weather. Fire bullets before cannonballs.</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates The Knowledge Project episode with Jim Collins on Good to Great (Episode 6). All facts and figures come from the episode transcript. Each chart names its episode source. The transcript had timestamps stripped, so chapter markers show episode order, not clock times. The decline chart shows the five stages without names, because the episode does not name them. Illustrations are AI-generated watercolors made for this page. No photographs are used.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 18 words: "luck is asymmetric as a cause bad luck can kill you but good luck cannot make you great" (18 words). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+</script>
+
+</body>
+</html>
