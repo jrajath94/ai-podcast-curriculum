@@ -445,7 +445,7 @@ span.ptag, .ptag {
 <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
 </div>
 <p class="legend src-legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a musician at a glowing console under a vast starry sky with a rising sun" class="base" fetchpriority="high" src="assets/illustration-ep10.webp"/></div></div><figcaption><b>Illustration.</b> Homo techno: the species that programs itself. AI-generated watercolor.</figcaption></figure><figure class="paint wide" data-entrance="bloom" data-hero="1">
+</div><figure data-phase2="1" data-scene="ep10-grimes-art-ai-future-hero" class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a musician at a glowing console under a vast starry sky with a rising sun" class="base" fetchpriority="high" src="assets/illustration-ep10.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/ep10-grimes-art-ai-future-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div><figcaption><b>Illustration.</b> Homo techno: the species that programs itself. AI-generated watercolor.</figcaption></figure><figure class="paint wide" data-entrance="bloom" data-hero="1">
 <div class="frame"><div class="stage"><img alt="Photograph of Grimes" class="base" fetchpriority="high" src="assets/photo-grimes.png"/></div></div>
 <figcaption><b>Photo.</b> Grimes, musician and producer. Photo by Jordan Uhl, CC BY 2.0, via Wikimedia Commons.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="~00:03" data-title="The name C and the render rate" id="ch-c"><div class="ch-head"><div><p class="ch-meta"><span class="ts">~00:03</span> · The name C and the render rate</p><h2>The Name C and the Render Rate</h2></div></div>
@@ -1229,5 +1229,19 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('ep10-grimes-art-ai-future-hero',{
+ init:function(F,FX){
+  F._m=FX.motes(F.stage,F.W,F.H,24,7);
+  F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.5,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];
+ },
+ pose:function(S,FX){
+  var F=S.F;F._m.tick(S.t);
+  F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);
+  return {'hero-subject':{x:7*Math.sin(S.t*0.6),y:5*Math.sin(S.t*0.83+1),r:0,s:1,o:1}};
+ } });
+})();
+</script>
+</body>
 </html>
