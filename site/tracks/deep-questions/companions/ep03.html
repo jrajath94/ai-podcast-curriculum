@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Core Idea: Deep Work: Deep Questions Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Deep Questions episode on deep work: the definition, why depth moves the needle, and the four moves that build it.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Deep Questions · Track Companion</a>
+  <span class="sub">Core Idea: Deep Work</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Deep Questions · Companion · 17 min</p>
+      <h1>Core Idea: Deep Work</h1>
+      <p class="dek">The engine of the track: the two-part definition, why depth moves the needle while shallowness keeps the lights on, and the moves that increase it.</p>
+<style>
+.tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.tag.sf{background:#e3f0e6;color:#1d5c2e;border:1px solid #bcd8c2}
+.tag.it{background:#fdf3e3;color:#8a5a12;border:1px solid #ecd9ac}
+.legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:24px 0;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.legend .k{font-weight:700;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+</style>
+      <img src="assets/cal-newport.jpg" alt="Portrait photograph of Cal Newport">
+      <p class="caption"><b>Cal Newport.</b> Photo: robertglazer.com (Elevate Podcast). Deep Work, his 2016 book, is the topic he is best known for.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">2016</div><div class="l">Published</div><div class="s">Deep Work had a quiet launch, then kept selling</div></div>
+        <div class="stat"><div class="n">~40</div><div class="l">Languages</div><div class="s">including Mongolian and French-speaking Africa editions</div></div>
+        <div class="stat"><div class="n">1M+</div><div class="l">English units</div><div class="s">sold quietly, with no gangbusters week</div></div>
+        <div class="stat"><div class="n">16:51</div><div class="l">Runtime</div><div class="s">what it is, why it matters, how to do it better</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/xJYlhhT7hyE" title="Deep Questions: Core Idea, Deep Work (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The quiet launch</a></li>
+          <li><a href="#nugget-2">The context shift</a></li>
+          <li><a href="#nugget-3">Pseudo-deep work</a></li>
+          <li><a href="#nugget-4">Moves the needle</a></li>
+          <li><a href="#nugget-5">The Titanic test</a></li>
+          <li><a href="#nugget-6">The 50:50 ratio</a></li>
+          <li><a href="#nugget-7">Rituals for depth</a></li>
+          <li><a href="#nugget-8">Train the muscle</a></li>
+        </ol>
+      </div>
+      <div class="legend">
+        <span class="k">How to read this companion.</span>
+        <span class="tag sf">Source fact</span> marks claims stated in the episode.
+        <span class="tag it">Interpretation</span> marks analysis and transferable lessons drawn from those facts.
+        Every chart names its episode source. Illustrations are AI-generated watercolors made for this page.
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-book" data-time="Part 1" data-title="The quiet book">
+      <p class="ch-time">Part 1</p>
+      <h2>The Quiet Book</h2>
+      <p>Newport opens with the story of Deep Work, the 2016 book that made his name. It had a quiet launch: a Wall Street Journal bestseller for a week or so, powered only by his email list audience at the time. Then it went under the radar.</p>
+      <p>A year or so later, something started to happen. People kept buying it, at a higher rate than before. The book never had a gangbusters week. It never hit number two on the Amazon charts. It never had a Mark Manson or James Clear moment. But it quietly moved into almost 40 languages. There is a Mongolian version. There is a French-speaking Africa version. In English alone it has sold more than a million units.</p>
+      <p>The book's own history mirrors its thesis: slow, deep compounding beats loud bursts.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The compounding</p>
+        <h4>The quiet launch</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Deep Work launched quietly in 2016, spent a week as a Wall Street Journal bestseller, then sold steadily for years: almost 40 languages, more than a million English units, no breakout week ever.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The book's sales curve is its own argument. Depth compounds slowly and then keeps compounding.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Do not optimize for the launch week. Optimize for the book people still buy in year ten.</p>
+      </div>
+      <div class="chart" id="chart-book">
+        <h4>A book that never spiked</h4>
+        <svg viewBox="0 0 680 240" role="img" aria-label="Timeline of Deep Work: 2016 quiet launch, one week as a bestseller, rising sales a year later, almost 40 languages, over a million English units">
+          <line x1="40" y1="130" x2="640" y2="130" stroke="#8a7c66" stroke-width="2"/>
+          <circle cx="90" cy="130" r="10" fill="#b4531f" data-tip="2016: quiet launch. A Wall Street Journal bestseller for a week or so, off the email list audience."/>
+          <text x="90" y="170" text-anchor="middle" class="axis">2016</text>
+          <text x="90" y="188" text-anchor="middle" class="axis">Quiet launch</text>
+          <circle cx="250" cy="130" r="10" fill="#b4531f" data-tip="A year or so later: people kept buying it, at a higher rate than before."/>
+          <text x="250" y="170" text-anchor="middle" class="axis">2017</text>
+          <text x="250" y="188" text-anchor="middle" class="axis">Sales rise</text>
+          <circle cx="410" cy="130" r="10" fill="#1f6f8b" data-tip="Almost 40 languages, from Mongolian to a French-speaking Africa edition."/>
+          <text x="410" y="170" text-anchor="middle" class="axis">~40</text>
+          <text x="410" y="188" text-anchor="middle" class="axis">Languages</text>
+          <circle cx="570" cy="130" r="10" fill="#1f6f8b" data-tip="More than a million units sold in English. Never a gangbusters week."/>
+          <text x="570" y="170" text-anchor="middle" class="axis">1M+</text>
+          <text x="570" y="188" text-anchor="middle" class="axis">English units</text>
+          <text x="340" y="60" text-anchor="middle" class="vallab">Never number two on Amazon. Never a breakout moment.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Core Idea: Deep Work, the book backstory. Timeline labels are paraphrase.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-what" data-time="Part 2" data-title="What deep work is">
+      <p class="ch-time">Part 2</p>
+      <h2>What Deep Work Is</h2>
+      <p>Newport keeps the definition humble. Deep work is not a lifestyle or a value system. It is a specific activity: focusing without distraction on a cognitively demanding task.</p>
+      <p>Unpack the two parts. Cognitively demanding is the easy part: the work is hard and you think hard about it. Without distraction is the demanding part. Technically, it means working in the absence of context shifts. A context shift turns your attention from one cognitive context to another.</p>
+      <p>His example: writing a strategy memo is hard, so it could be deep work. But if you check email every five to six minutes and glance at your phone while writing, the session does not count. The switches degrade your cognitive effectiveness. You land in one of two lesser modes: shallow work, which is not cognitively demanding at all, or pseudo-deep work, where the task is hard but the switching leaves you at a fraction of your capability for clean thought.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · The switch</p>
+        <h4>The context shift</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport defines a context shift as turning attention from one cognitive context to another, and says a session with regular shifts, like email checks every five to six minutes, cannot count as deep work.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Most failed focus is not failed effort. It is hard work with the switches left on.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Judge a session by its switches, not its intentions. Zero shifts is the whole game.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The fraction</p>
+        <h4>Pseudo-deep work</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport names the trap: pseudo-deep work is a hard task done with constant context switching, which leaves you producing clean thought at a fraction of your capability.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> This is the most expensive mode because it feels like deep work while delivering shallow results.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Hard plus distracted is not deep. It is the worst of both worlds, billed as the best.</p>
+      </div>
+      <div class="chart" id="chart-modes">
+        <h4>Which mode are you in?</h4>
+        <svg viewBox="0 0 680 280" role="img" aria-label="Decision diagram: a cognitively demanding task with no context shifts is deep work; a hard task with shifts is pseudo-deep work; an easy task is shallow work">
+          <text x="340" y="26" text-anchor="middle" class="vallab">Is the task cognitively demanding?</text>
+          <line x1="200" y1="40" x2="120" y2="80" stroke="#8a7c66" stroke-width="2"/>
+          <line x1="480" y1="40" x2="560" y2="80" stroke="#8a7c66" stroke-width="2"/>
+          <text x="160" y="66" text-anchor="middle" class="axis">No</text>
+          <text x="520" y="66" text-anchor="middle" class="axis">Yes</text>
+          <rect x="30" y="82" width="180" height="60" rx="8" fill="#e8e0cf" data-tip="Shallow work: not cognitively demanding. Necessary, but not deep."/>
+          <text x="120" y="118" text-anchor="middle" class="axis">Shallow work</text>
+          <text x="340" y="106" text-anchor="middle" class="vallab">Any context shifts?</text>
+          <line x1="270" y1="120" x2="200" y2="160" stroke="#8a7c66" stroke-width="2"/>
+          <line x1="410" y1="120" x2="480" y2="160" stroke="#8a7c66" stroke-width="2"/>
+          <text x="232" y="146" text-anchor="middle" class="axis">Yes</text>
+          <text x="448" y="146" text-anchor="middle" class="axis">No</text>
+          <rect x="110" y="162" width="180" height="60" rx="8" fill="#b4531f" data-tip="Pseudo-deep work: hard task plus switching. A fraction of your capability for clean thought."/>
+          <text x="200" y="198" text-anchor="middle" fill="#fff" font-size="14">Pseudo-deep work</text>
+          <rect x="390" y="162" width="180" height="60" rx="8" fill="#1f6f8b" data-tip="Deep work: hard task, zero shifts. Full capability for clean thought."/>
+          <text x="480" y="198" text-anchor="middle" fill="#fff" font-size="14">Deep work</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Core Idea: Deep Work, the definition section. Diagram labels are paraphrase.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-why" data-time="Part 3" data-title="Why it matters">
+      <p class="ch-time">Part 3</p>
+      <h2>Why It Matters</h2>
+      <p>First, a correction: there is no moral hierarchy here. Deep work is not the only work that matters. Newport gives two examples from his own life. Invoicing clients is not deep, but skip it and the business dies. As director of graduate studies for Georgetown's computer science department, he built a spring budget tracing every doctoral student's tuition, research assistantship, TA ship, and health insurance to its funding source. Complicated, critical, and not deep at all. Without it, students do not get paid.</p>
+      <p>The claim is narrower and stronger: deep efforts move the needle. In most professional contexts, the activity that produces the value, the work that gets you promoted and grows the company, rests on a foundation of deep work.</p>
+      <p>This is clearest in knowledge work. Nobody pays your company for fast email replies. Nobody pays for back-to-back Zoom meetings or rapid PowerPoint decks. They pay for skilled thought applied to information, the kind that cannot be easily replicated. The ad agency lives or dies on great campaigns, not on inbox speed. The tech company lives or dies on fantastic code. The author lives or dies on a fantastic book. Shallow efforts keep the lights on. Deep work moves the needle.</p>
+      <img src="assets/dq-ep03-craftsman.webp" alt="Watercolor illustration of a craftsperson at a workbench, fully absorbed in shaping a piece of wood">
+      <p class="caption"><b>Illustration.</b> The deep effort: full attention on one demanding task. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · The value claim</p>
+        <h4>Moves the needle</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues there is no moral hierarchy of work, but that deep efforts are what move the needle: ad campaigns, code, books, the core value in knowledge work, training and performance in athletics, craft in skilled trades.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Teams that treat all work as equal starve the work that actually creates value while feeding the work that only signals busyness.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Protect the needle-movers first. The lights stay on by themselves once the value exists.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-titanic" data-time="Part 4" data-title="The Titanic and the bear">
+      <p class="ch-time">Part 4</p>
+      <h2>The Titanic and the Bear</h2>
+      <p>Then came the forgetting. Email, Slack, YouTube, social media, Zoom, PowerPoint, and ever more ambiguous work blurred the line between deep and shallow. We fell into a mode where a whole day could pass without a single stretch of hard, undistracted concentration: calls, emails, Zooms, fonts, charts. We patted ourselves on the back for how busy we were.</p>
+      <p>Newport's image for this is brutal: we were on the deck of the Titanic sending Instagram pictures of our deck chair arrangements, not noticing the ship sinking underneath us.</p>
+      <div class="pull">
+        <blockquote>on the deck of the Titanic sending Instagram pictures of our deck chair arrangements</blockquote>
+        <p class="who">Cal Newport on busywork without depth · Deep Questions</p>
+      </div>
+      <p>But the same scarcity is an opportunity. If deep work is valuable and getting rarer, the few who prioritize it win a disproportionate competitive advantage. His version of the old joke: you do not have to outrun the bear, only the person next to you. Prioritize depth in an increasingly shallow world and the rewards are large.</p>
+      <img src="assets/dq-ep03-titanic.webp" alt="Watercolor illustration of a grand ship deck with neatly arranged deck chairs, a small figure photographing them with a phone">
+      <p class="caption"><b>Illustration.</b> Busy on deck while the ship sinks: activity without depth. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · The image</p>
+        <h4>The Titanic test</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport says modern knowledge workers forgot the deep-shallow distinction and now spend days in calls, email, and slides, feeling productive while the core value-creating work goes undone.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Busyness is a feeling, not a measurement. The Titanic test asks: is the ship moving, or are the chairs just tidy?</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Audit your week for depth, not hours. A busy week with zero deep hours is a week the ship stood still.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-better1" data-time="Part 5" data-title="Define it and measure it">
+      <p class="ch-time">Part 5</p>
+      <h2>Do It Better, Part One: Define and Measure</h2>
+      <p>How do you get more deep work into a working life? Newport offers four moves. First, define it. Terminology sits at the core of any change. Once you can name deep work as distinct from shallow work, you can aim at the right thing. Without the words, the only knob you have is work harder: stay up later, answer email the moment the plane lands.</p>
+      <p>Second, measure it and set goals. His key concept is the deep-shallow work ratio: for your role, what is the ideal split of deep hours to non-deep hours in a standard week? Figure out the number, and if you have a boss, agree on it together. Both kinds matter. The invoices must go out. But if nobody writes good ad copy, no more money comes in.</p>
+      <p>Then track it. If you time-block plan, the count is easy: look at the week's blocks marked deep. Now you can have an honest conversation. We agreed on 50:50. Last week I got two hours of deep work. Either deep work does not matter here, which is absurd, or something has to change. The number drives change from a place of positivity: culture, flexibility, workload.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · The number</p>
+        <h4>The 50:50 ratio</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport proposes agreeing on an ideal deep-to-shallow ratio per role, measuring actual deep hours from the time-block plan, and confronting the gap: 50:50 agreed versus two deep hours delivered.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Vague guilt about focus changes nothing. A ratio turns depth into a negotiable, trackable commitment.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> What gets measured gets defended. Put a number on depth or watch it lose to email.</p>
+      </div>
+      <div class="chart" id="chart-ratio">
+        <h4>The ratio conversation</h4>
+        <svg viewBox="0 0 680 260" role="img" aria-label="Bar comparison: agreed ratio of 50 percent deep work versus 2 actual deep hours last week">
+          <text x="340" y="26" text-anchor="middle" class="vallab">Agreed: 50:50. Delivered: 2 deep hours.</text>
+          <text x="150" y="60" text-anchor="middle" class="axis">Agreed deep share</text>
+          <rect x="40" y="70" width="220" height="44" rx="6" fill="#1f6f8b" data-tip="The agreed ideal: half the week on deep work."/>
+          <text x="150" y="98" text-anchor="middle" fill="#fff" font-size="14">50%</text>
+          <text x="150" y="140" text-anchor="middle" class="axis">of a 40-hour week: 20 hours</text>
+          <text x="530" y="60" text-anchor="middle" class="axis">Actual deep hours last week</text>
+          <rect x="480" y="70" width="22" height="44" rx="6" fill="#b4531f" data-tip="The measured reality: two deep hours last week. The gap is the conversation."/>
+          <text x="560" y="98" text-anchor="middle" class="axis">2 hours</text>
+          <text x="530" y="140" text-anchor="middle" class="axis">Gap: 18 hours. Something has to change.</text>
+          <text x="340" y="200" text-anchor="middle" class="axis">Measure from the time-block plan. Confront the number together.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Core Idea: Deep Work, the ratio example (50:50, two hours). The 40-hour week is illustrative arithmetic.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-better2" data-time="Part 6" data-title="Schedule it and ritualize it">
+      <p class="ch-time">Part 6</p>
+      <h2>Do It Better, Part Two: Schedule and Ritualize</h2>
+      <p>Third, schedule deep work. Do not wait for the mood to strike. It never will, and if it does you are not working hard enough. Get it on the calendar and treat it like any other meeting: protected time that cannot be over-scheduled.</p>
+      <p>Have a philosophy for the scheduling. Same time on the same days each week. A bespoke fit during the weekly plan. One full deep day with the rest shallow. Any philosophy works if it is explicit and defended.</p>
+      <p>Fourth, build rituals around the sessions. Rituals help the mind slip into deep mode. Newport's own: the same walk, the same secondary office space, the very same cup of coffee in the same cup. The brain learns the cues. Oh, it is time to do deep work.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · The cues</p>
+        <h4>Rituals for depth</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport schedules deep work like a meeting and wraps sessions in fixed rituals: same walk, same secondary office, same cup of coffee in the same cup.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Willpower is unreliable at session start. Rituals outsource the transition to habit.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Do not negotiate with the moment. Let the ritual decide that depth starts now.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-train" data-time="Part 7" data-title="Train it">
+      <p class="ch-time">Part 7</p>
+      <h2>Train It</h2>
+      <p>Finally, train the ability itself. Concentration is hard, and most of us are out of shape. If your phone fills every scrap of downtime, Newport says, you are a cognitive slob. Handing such a mind a two-hour deep window is like taking someone in terrible shape and telling them to run stadiums. It will go badly. That is not failure. It is lack of training.</p>
+      <p>Training means regular time free from distraction. Read books, which force sustained concentration. Try productive meditation: work a professional problem in your head while walking. Play board games and strategy games. Take up complicated hobbies, manual or physical, that demand real focus and skill. Get the mind in shape and deep work becomes possible.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · The conditioning</p>
+        <h4>Train the muscle</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport compares an untrained mind given a two-hour deep window to an unfit person told to run stadiums, and prescribes training: books, productive meditation, strategy games, demanding hobbies.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> People quit deep work because the first sessions feel awful, then conclude they cannot focus. The truth is they have not trained.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Treat focus like fitness. Short, regular, distraction-free reps before you attempt the marathon.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-coda" data-time="Part 8" data-title="Deeper meeple">
+      <p class="ch-time">Part 8</p>
+      <h2>Coda: Deeper Meeple</h2>
+      <p>Newport closes with a joke that is also a tactic. Once you do the work, work the word deep into everyday conversation as a prefix and adjective, as much as possible. Deep Monday. Deep coffee break. Deep conference room. People will know you are awesome, he deadpans. He and Jesse seal it with their fist bump: deeper meeple.</p>
+      <div class="pull">
+        <blockquote>deeper meeple</blockquote>
+        <p class="who">The Newport-Jesse fist bump · Deep Questions</p>
+      </div>
+      <p>Beneath the joke sits a serious point from the episode's opening move. Defining the thing, naming it out loud, is where every change starts.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Deep work is focus without distraction on a cognitively demanding task. Nothing more, nothing less.</li>
+          <li>Hard plus distracted is pseudo-deep work: a fraction of your capability, disguised as effort.</li>
+          <li>There is no moral hierarchy, but deep efforts are what move the needle.</li>
+          <li>Busyness without depth is deck chairs on the Titanic. Audit for depth, not hours.</li>
+          <li>Define the ratio, measure the hours, confront the gap. Numbers drive change.</li>
+          <li>Schedule depth like a meeting and ritualize the start: same walk, same cup.</li>
+          <li>Train concentration like fitness. The awful first sessions mean untrained, not unable.</li>
+        </ol>
+        <p class="src">Distilled from Deep Questions, Core Idea: Deep Work (February 2022, 16:51). Video: youtube.com/watch?v=xJYlhhT7hyE.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Deep Questions episode "Core Idea: Deep Work" (February 2022, 16:51). All facts and figures come from the episode transcript or the episode itself at youtube.com/watch?v=xJYlhhT7hyE. Each chart names its episode source. The portrait photograph is real, with attribution in its caption. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 16 words: two pull quotes ("on the deck of the Titanic sending Instagram pictures of our deck chair arrangements", 14 words, and "deeper meeple", 2 words). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+
+</script>
+</body>
+</html>
