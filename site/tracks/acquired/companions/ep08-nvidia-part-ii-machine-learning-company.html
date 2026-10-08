@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA Part II: The Machine Learning Company, Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Acquired's NVIDIA Part II: the CUDA bet, the 80 percent collapse, AlexNet, and the data center pivot.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 8 &middot; NVIDIA II &middot; Apr 2022</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 8 &middot; Companion</p>
+      <h1>NVIDIA Part II: The Machine Learning Company</h1>
+      <p class="dek">The most extreme patience story in business. NVIDIA bets everything on CUDA years before anyone wants it, survives an 80 percent collapse, waits a decade, and gets rescued by AlexNet. This companion follows the episode chapter by chapter, 2006 to 2022.</p>
+      <figure>
+        <img src="assets/ep08/illustration-cuda-field.webp" alt="Watercolor illustration of an empty field with a half-built highway at dawn">
+        <p class="caption"><b>Illustration.</b> The CUDA bet: building the road before anyone arrives. AI-generated watercolor.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">-80%</div><div class="l">Stock drawdown from the 2007 peak, while Jensen kept building CUDA</div><div class="s">Episode ~00:25</div></div>
+        <div class="stat"><div class="n">25&rarr;15%</div><div class="l">ImageNet error: AlexNet's 10-point margin over the best prior entry</div><div class="s">Episode ~00:46</div></div>
+        <div class="stat"><div class="n">$3&rarr;$10.5B</div><div class="l">Data center revenue, 3X in two years, dethroning gaming</div><div class="s">Episode ~01:14</div></div>
+        <div class="stat"><div class="n">$500B</div><div class="l">Market cap at recording, eighth largest company in the world</div><div class="s">Episode ~01:25</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/xU_rLZqlca4" title="Acquired: Nvidia Part II (official episode audio)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Listen.</b> The official Acquired episode audio (about 2 hr 20 min). Times below are proportional estimates from the transcript, which carries no timestamps.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">If we do not build it, they cannot come</a></li>
+          <li><a href="#nugget-2">The driver team became the CUDA team</a></li>
+          <li><a href="#nugget-3">80 percent down, still building</a></li>
+          <li><a href="#nugget-4">The clown-car detour</a></li>
+          <li><a href="#nugget-5">Twenty-five to fifteen</a></li>
+          <li><a href="#nugget-6">The market takes a decade to believe</a></li>
+          <li><a href="#nugget-7">Three rushes, one shovel</a></li>
+          <li><a href="#nugget-8">You cannot rack this</a></li>
+          <li><a href="#nugget-9">The card with no video out</a></li>
+          <li><a href="#nugget-10">A billion versus thirty billion</a></li>
+          <li><a href="#nugget-11">One percent of a hundred trillion</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps.</p>
+    </div>
+
+    <section class="chapter" id="ch-foundations" data-time="~00:07" data-title="Three Foundations from Part I">
+      <p class="ch-time">~00:07</p>
+      <h2>Three Foundations from Part I</h2>
+      <figure>
+        <img src="assets/ep08/geforce-8800-ultra.jpg" alt="Photograph of the NVIDIA GeForce 8800 Ultra board">
+        <p class="caption"><b>Photo.</b> The GeForce 8800 Ultra board, a card from the GeForce 8800 line of the CUDA era. Source: Wikimedia Commons, public domain.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> David picks up in 2004-2005 with three carryovers from the first decade. First, the six-month ship cadence: GeForce 256 in fall 1999, GeForce 2 in spring 2000, GeForce 2 Ultra in fall 2000, GeForce 3 in spring 2001 with programmable shaders. Competitors shipped on 18-month to two-year cycles. David compares Intel's architecture changes to new car body styles arriving every five or six years. NVIDIA shipped fundamentally new architectures at warp speed.</p>
+      <p>Second, the detail the previous episode missed: NVIDIA wrote its own drivers. Every other graphics card company let downstream partners write drivers. NVIDIA said no, we control this, so gamers get a good experience on any system. Ben calls it an Apple-esque view: accept the short-term pain of a bigger fixed cost base, employing all those driver engineers, for the long-term benefit of a great user experience.</p>
+      <p>Third, the position: after the tech crash the stock climbed from a sub-billion-dollar market cap to $5-6 billion in 2004-2005, just under $20 billion by mid-2007. Gaming alone looked like a great wave to surf.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Preparation</p>
+        <h4>The driver team became the CUDA team</h4>
+        <p><span class="lbl">What happened. </span>NVIDIA employed a large base of low-level software engineers because it wrote its own drivers, an Apple-esque cost everyone else skipped. That base became the team that built CUDA.</p>
+        <p><span class="lbl">Why it matters. </span>A cost center looked like discipline and quietly became the platform team. Nobody planned it. The decision that built the capability predated the opportunity by a decade.</p>
+        <p><span class="lbl">The principle. </span>Own the layer everyone outsources. The engineers you hire for quality today are the platform team you need tomorrow.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cuda" data-time="~00:18" data-title="The CUDA Bet: Build It Before Anyone Can Come">
+      <p class="ch-time">~00:18</p>
+      <h2>The CUDA Bet: Build It Before Anyone Can Come</h2>
+      <p><span class="tag fact">Source fact</span> In 2006, 2007, and 2008, NVIDIA pours resources into what becomes CUDA: a way for developers to program the GPU for general-purpose computing, not just graphics. There is no clear market for it. The psychology, in the episode's telling, is twofold. Jensen is enamored with hardware that accelerates specific use cases. And the pitch inverts the movie line <q>If we build it, they will come</q>: if we do not build it, developers cannot possibly come. Whether they will come is unknown. The capability has to exist first.</p>
+      <p>The scale: Ben searched LinkedIn for NVIDIA employees with CUDA in their title and found 1,100 people dedicated to the CUDA platform. David jokes he is surprised it is not 11,000.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Conviction</p>
+        <h4>If we do not build it, they cannot come</h4>
+        <p><span class="lbl">What happened. </span>NVIDIA funded a general-purpose GPU platform with no visible market. The logic was one step removed from the Field of Dreams: not that they would come, only that they could not come without it.</p>
+        <p><span class="lbl">Why it matters. </span>David's three-question test for platform plays (where is the market, at what scale, at what cost) returns a verdict of unknown markets, enormous scale, and huge cost. That screens out everyone except the unreasonable founder.</p>
+        <p><span class="lbl">The principle. </span>Some capabilities must exist before demand can form. Fund those with the cash cow, and measure in developers, not quarters.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-collapse" data-time="~00:25" data-title="The 80 Percent Collapse">
+      <p class="ch-time">~00:25</p>
+      <h2>The 80 Percent Collapse</h2>
+      <p><span class="tag fact">Source fact</span> Wall Street mostly ignores the CUDA spend in 2006-2008 because gaming still grows. Then two things hit. AMD acquires ATI (announced 2006, closed 2007), so NVIDIA's remaining gaming competitor now has AMD's full resources. NVIDIA takes its eye off gaming, CUDA drives no revenue yet, and mid-2008 the company whiffs on earnings. From the ~$20 billion peak, the stock drops 80 percent. The financial crisis finishes the job.</p>
+      <div class="chart" id="chart-drawdown">
+        <h4>The pain sequence</h4>
+        <p class="csub">Market cap and stock, 2007 to 2022. Hover for detail.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Timeline of NVIDIA drawdowns and recovery">
+          <g id="dd-bars"></g>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part II, ~00:25. Recovery of the $20B peak took until 2016.</p>
+      </div>
+      <div class="toy" id="toy-drawdown">
+        <h4>Toy: the drawdown test</h4>
+        <p class="tsub">NVIDIA fell 80 percent and stayed down for years. Set a drawdown and a recovery growth rate to see the math. Illustrative model.</p>
+        <label for="dd">Drawdown from peak (%) <span class="tval" id="dd-v">80</span></label>
+        <input type="range" id="dd" min="10" max="90" value="80" step="5">
+        <label for="gr">Annual recovery growth (%) <span class="tval" id="gr-v">30</span></label>
+        <input type="range" id="gr" min="5" max="60" value="30" step="5">
+        <div class="verdict" id="dd-verdict"></div>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Discipline</p>
+        <h4>80 percent down, still building</h4>
+        <p><span class="lbl">What happened. </span>Any normal CEO calls Goldman Sachs and starts chopping. Jensen kept building CUDA through the 80 percent collapse and the 2011 50 percent drawdown.</p>
+        <p><span class="lbl">Why it matters. </span>The decision was funded by the gaming cash cow and protected by founder control. Drawdowns test conviction. This one tested it for eight years.</p>
+        <p><span class="lbl">The principle. </span>Decide the drawdown rule while calm. If the capability still compounds while the price falls, keep building.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-tegra" data-time="~00:36" data-title="The Tegra Detour">
+      <p class="ch-time">~00:36</p>
+      <h2>The Tegra Detour</h2>
+      <p><span class="tag fact">Source fact</span> In the penalty box, NVIDIA feels it must show shareholders something commercial. Mobile is hot, so in 2008 NVIDIA launches Tegra, a chip platform for phones. David calls it a clown-car detour. It is not what saves the company. Through the late 2000s and early 2010s the company goes sideways: some years grow 10 percent, some are flat, and in 2011 NVIDIA whiffs on earnings again and the stock takes another 50 percent drawdown. David's verdict: everybody else would quit. Not them.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Failure</p>
+        <h4>The clown-car detour</h4>
+        <p><span class="lbl">What happened. </span>Tegra chased the hot market to please shareholders. It failed. The decade's winner was the unglamorous platform nobody wanted in 2008.</p>
+        <p><span class="lbl">Why it matters. </span>The drawdown test needs a companion: distinguish a broken thesis from a delayed one. Tegra was broken. CUDA was delayed. The test is whether the underlying capability still compounds.</p>
+        <p><span class="lbl">The principle. </span>Never build the hot thing to escape the penalty box. Escape by building the right thing longer.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-alexnet" data-time="~00:46" data-title="AlexNet: The Big Bang">
+      <p class="ch-time">~00:46</p>
+      <h2>AlexNet: The Big Bang</h2>
+      <figure>
+        <img src="assets/ep08/illustration-alexnet-bigbang.webp" alt="Watercolor illustration of a runner breaking a light ribbon ahead of a dark field">
+        <p class="caption"><b>Illustration.</b> AlexNet's 10-point upset: like breaking the four-minute mile. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> In 2000, Princeton professor Fei-Fei Li starts ImageNet, inspired by the 1980s WordNet project that classified words: a database of millions of labeled images. In the 2012 ImageNet competition, a University of Toronto team submits AlexNet and wins by a lot. The measure: of 100 percent of the images, what percentage did you get wrong. AlexNet scored around 15 percent error. The best previous entries were around 25 percent. A ten-point margin in a field measured in single points. Ben: like breaking the four-minute mile, arguably more impressive, because they did not brute-force it, they tried a completely different approach. The network trained on NVIDIA GPUs, using CUDA. David calls it the big bang of artificial intelligence, and NVIDIA and CUDA were right there.</p>
+      <div class="chart" id="chart-alexnet">
+        <h4>AlexNet's margin</h4>
+        <p class="csub">ImageNet error rates, 2012. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of ImageNet error rates">
+          <rect class="bar alt" x="150" y="60" width="110" height="180" data-tip="Best previous entries: about 25% error."></rect>
+          <rect class="bar" x="400" y="132" width="110" height="108" data-tip="AlexNet: about 15% error, a ten-point margin. Trained on NVIDIA GPUs with CUDA."></rect>
+          <text class="vallab" x="205" y="52" text-anchor="middle">~25%</text>
+          <text class="vallab" x="455" y="124" text-anchor="middle">~15%</text>
+          <text class="axis" x="205" y="262" text-anchor="middle">best prior</text>
+          <text class="axis" x="455" y="262" text-anchor="middle">AlexNet 2012</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part II, ~00:46. A 10-point margin where single points mattered.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Luck</p>
+        <h4>Twenty-five to fifteen</h4>
+        <p><span class="lbl">What happened. </span>A Toronto neural network won ImageNet 2012 by ten points, trained on NVIDIA GPUs with CUDA. The market noticed years later. The platform was ready the day the miracle arrived.</p>
+        <p><span class="lbl">Why it matters. </span>NVIDIA did not predict deep learning. It built general-purpose parallel compute with no market in mind, and AI arrived. The episode's trap card: preparation, not prediction.</p>
+        <p><span class="lbl">The principle. </span>Build general capabilities for a decade. When the specific use case arrives, be the only one ready.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-disbelief" data-time="~00:55" data-title="The Decade of Disbelief">
+      <p class="ch-time">~00:55</p>
+      <h2>The Decade of Disbelief</h2>
+      <div class="pull">
+        <blockquote>&ldquo;Every single one effectively comes in building on NVIDIA's platforms.&rdquo;</blockquote>
+        <p class="who">Marc Andreessen, 2016 interview, as quoted on the episode (~00:55). Deep-learning startups were building on NVIDIA the way a generation built on Windows, then the iPhone.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Even after AlexNet, the market takes years to believe. Andreessen's 2016 line lands like the Windows analogy. Yet from 2012 to 2015, NVIDIA stock does not trade above $5 a share. At recording it is around $220, with a past-year high over $300. There was a crypto-driven run to about $65 in 2018, then a crash to $34 at the start of 2019. It takes until 2016 to get back to the $20 billion peak of 2007, when NVIDIA was just a gaming company. Almost ten years to recover the peak, because the market refused to believe a gaming chip company had become the foundation of AI. Jensen was on stage and on earnings calls saying this was the future. People stayed skeptical.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Markets</p>
+        <h4>The market takes a decade to believe</h4>
+        <p><span class="lbl">What happened. </span>AlexNet in 2012. Andreessen's blessing in 2016. The $20 billion peak not recovered until 2016. The stock sat under $5 from 2012 to 2015 while the AI foundation was already built.</p>
+        <p><span class="lbl">Why it matters. </span>Narratives lag technology by roughly a decade. The skeptics needed revenue proof, the data center 3X, not earnings-call claims.</p>
+        <p><span class="lbl">The principle. </span>When the technology is obviously working, check the revenue line, not the story. Numbers convert skeptics. Stories do not.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-crypto" data-time="~00:57" data-title="Crypto: The Third Application">
+      <p class="ch-time">~00:57</p>
+      <h2>Crypto: The Third Application</h2>
+      <figure>
+        <img src="assets/ep08/illustration-picks-shovels.webp" alt="Watercolor illustration of one merchant handing the same shovel to gamers, AI researchers, and miners">
+        <p class="caption"><b>Illustration.</b> Three rushes, one shovel: gaming, neural networks, crypto mining. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> In 2018, a third class of embarrassingly parallel problems arrives: cryptocurrency mining. People buy consumer NVIDIA cards and build mining rigs. When the crypto winter hits in 2018, mining demand collapses, and crypto had grown so big for NVIDIA that revenue actually declines. The technical point: mining is trial and error with 10,000 parallel attempts, and it is matrix math. Same chips, third application in one decade: gaming, neural networks, crypto. One set of parallel cores, three gold rushes.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Platforms</p>
+        <h4>Three rushes, one shovel</h4>
+        <p><span class="lbl">What happened. </span>One chip architecture served gaming, neural networks, and crypto mining. All three are massively parallel problems built on matrix math. The applications were discovered, not designed.</p>
+        <p><span class="lbl">Why it matters. </span>The picks-and-shovels strategy only works if the shovel is genuinely general. GPUs turned out to be the universal substrate for parallel work.</p>
+        <p><span class="lbl">The principle. </span>Sell the substrate, not the application. The rush changes. The parallel cores do not.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-datacenter" data-time="~01:14" data-title="The Data Center Pivot">
+      <p class="ch-time">~01:14</p>
+      <h2>The Data Center Pivot</h2>
+      <p><span class="tag fact">Source fact</span> Data center GPUs are a different product from gaming cards. The A100 has no video out. It literally cannot drive a monitor, as a Linus Tech Tips video demonstrated. The RTX 3090, the most expensive consumer card, sold for $3,000 (later ~$2,000). The H100 sells for $20,000 to $30,000. NVIDIA walls the segments off: you cannot rack GeForces into a home data center rig.</p>
+      <p>In 2020, NVIDIA acquired Mellanox, an Israeli data-center networking company, for about $7 billion. Networking matters because a rack of GPUs is useless if they cannot talk to each other at speed. The revenue flip: two years before recording, the data center segment did about $3 billion, roughly half of gaming’s ~$6 billion after years sitting flat. Then it 3X'd in two years to over $10.5 billion a year. Gaming, king from 2006 through 2020 at nearly $6 billion, was dethroned.</p>
+      <div class="chart" id="chart-dc">
+        <h4>The data-center 3X</h4>
+        <p class="csub">Annual revenue in billions. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of data center versus gaming revenue">
+          <rect class="bar alt" x="90" y="188" width="100" height="72" data-tip="~2020 data center: about $3B, half of gaming, flat."></rect>
+          <rect class="bar" x="230" y="20" width="100" height="240" data-tip="2022 data center: over $10.5B, 3X in two years."></rect>
+          <rect class="bar dark" x="370" y="92" width="100" height="168" data-tip="Gaming ~2020: nearly $6B, king since 2006, now dethroned."></rect>
+          <text class="vallab" x="140" y="180" text-anchor="middle">$3B</text>
+          <text class="vallab" x="280" y="12" text-anchor="middle">$10.5B</text>
+          <text class="vallab" x="420" y="84" text-anchor="middle">$6B</text>
+          <text class="axis" x="140" y="282" text-anchor="middle">DC ~2020</text>
+          <text class="axis" x="280" y="282" text-anchor="middle">DC 2022</text>
+          <text class="axis" x="420" y="282" text-anchor="middle">gaming</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part II, ~01:14. 3X growth, about 87% a year compounded.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Pricing</p>
+        <h4>You cannot rack this</h4>
+        <p><span class="lbl">What happened. </span>NVIDIA physically and legally walls off its segments: the A100 cannot drive a monitor, and GeForces cannot go into data center racks. The same silicon sells for $3,000 to consumers and $20,000 to $30,000 to data centers.</p>
+        <p><span class="lbl">Why it matters. </span>Price discrimination is a product decision, not a price list. Segmentation captured the AI surplus that commodity pricing would have left on the table.</p>
+        <p><span class="lbl">The principle. </span>Wall off the segments. Price the value of the use case, not the cost of the silicon.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Systems</p>
+        <h4>The card with no video out</h4>
+        <p><span class="lbl">What happened. </span>The A100 has no video output. The data center product is not a graphics card at all. It is compute that happens to come from a graphics lineage.</p>
+        <p><span class="lbl">Why it matters. </span>The product definition changed while the brand stayed. Let the form follow the workload, not the company history.</p>
+        <p><span class="lbl">The principle. </span>When the workload moves, redesign the artifact. Keep the name. Drop the ports.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-today" data-time="~01:25" data-title="The 2022 Numbers and the Trillion-Dollar Pitch">
+      <p class="ch-time">~01:25</p>
+      <h2>The 2022 Numbers and the Trillion-Dollar Pitch</h2>
+      <p><span class="tag fact">Source fact</span> At recording: about 20,000 employees, $27 billion in annual revenue, roughly $8 billion of free cash flow a year, $21 billion in cash, a ~$500 billion market cap, the eighth largest company in the world. Growth: 60 percent revenue growth last year at a 30-year-old company, versus Google's 40 percent and Microsoft's 10-20 percent. Valuation: roughly three times Apple's price-to-sales ratio and nearly twice Microsoft's. Google did $257 billion in revenue with AdWords alone at $43 billion in Q4 2021, so NVIDIA's revenue is an order of magnitude smaller than the FAANGs. The multiple bets that the revenue arrives.</p>
+      <p>The bull case comes from NVIDIA's own investor day: serve customers representing a $100 trillion opportunity and capture 1 percent of it. Automotive alone is pitched as a $300 billion piece of the TAM, against current automotive revenue of around $1 billion, barely growing, noted with skepticism. The bear case: Cerebras sells a $2 million hyper-specialized training chip versus NVIDIA's $20-30K chip. Google keeps making noise about its own silicon. The CUDA amortization only works if the 3 million developers keep growing.</p>
+      <div class="chart" id="chart-capex">
+        <h4>Fabless capital efficiency</h4>
+        <p class="csub">Annual CapEx in billions. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of capital expenditure">
+          <rect class="bar" x="80" y="252" width="100" height="8" data-tip="NVIDIA: about $1B. Fabless: TSMC builds the chips."></rect>
+          <rect class="bar alt" x="225" y="228" width="100" height="32" data-tip="Apple: about $10B."></rect>
+          <rect class="bar alt" x="370" y="148" width="100" height="112" data-tip="Microsoft and Google: about $25B each."></rect>
+          <rect class="bar dark" x="515" y="116" width="100" height="144" data-tip="TSMC: about $30B. NVIDIA depends on these fabs."></rect>
+          <text class="vallab" x="130" y="244" text-anchor="middle">$1B</text>
+          <text class="vallab" x="275" y="220" text-anchor="middle">$10B</text>
+          <text class="vallab" x="420" y="140" text-anchor="middle">$25B</text>
+          <text class="vallab" x="565" y="108" text-anchor="middle">$30B</text>
+          <text class="axis" x="130" y="282" text-anchor="middle">NVIDIA</text>
+          <text class="axis" x="275" y="282" text-anchor="middle">Apple</text>
+          <text class="axis" x="420" y="282" text-anchor="middle">MSFT/GOOG</text>
+          <text class="axis" x="565" y="282" text-anchor="middle">TSMC</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part II, ~01:25. Fabless keeps the platform economics, and the dependency.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Capital</p>
+        <h4>A billion versus thirty billion</h4>
+        <p><span class="lbl">What happened. </span>NVIDIA spends about $1 billion a year on CapEx. TSMC spends $30 billion. Being fabless means NVIDIA keeps the platform economics without the fab bill.</p>
+        <p><span class="lbl">Why it matters. </span>Capital efficiency funds R&amp;D, software, and acquisitions instead of concrete. The mirror risk is total dependence on TSMC's fabs.</p>
+        <p><span class="lbl">The principle. </span>Outsource the commodity layer, own the platform layer. Know exactly who can shut you down.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 &middot; Pitches</p>
+        <h4>One percent of a hundred trillion</h4>
+        <p><span class="lbl">What happened. </span>NVIDIA's investor day pitch: a $100 trillion opportunity, capture 1 percent. At $27 billion in revenue and a $500 billion market cap, the multiple prices in a future that must arrive.</p>
+        <p><span class="lbl">Why it matters. </span>The hosts stay skeptical where the hosts should: automotive is pitched at $300 billion against $1 billion of actual revenue. TAM is not revenue. Believe the 3X that printed, not the 1 percent that is a pitch.</p>
+        <p><span class="lbl">The principle. </span>Grade a pitch by what already printed. The credible number is the one with a revenue line behind it.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>If we do not build it, they cannot come. Fund the capability before the market.</li>
+          <li>Own the layer everyone outsources. The driver team becomes the CUDA team.</li>
+          <li>Decide the drawdown rule while calm. 80 percent down is a test, not a verdict.</li>
+          <li>Never confuse prediction with preparation. AlexNet was luck met by readiness.</li>
+          <li>Narratives lag technology by a decade. Check the revenue line.</li>
+          <li>Wall off the segments. Price the use case, not the silicon.</li>
+          <li>Grade the pitch by what printed. $10.5 billion beats $100 trillion.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, NVIDIA Part II, April 2022. Full episode: youtube.com/watch?v=xU_rLZqlca4. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="~02:10" data-title="Outro">
+      <p class="ch-time">~02:10</p>
+      <h2>Outro</h2>
+      <p><span class="tag fact">Source fact</span> The episode closes with the sign-off, who got the truth, and the hosts' takeaways from the middle act of the NVIDIA story.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "Nvidia: The Machine Learning Company (2006-2022)" (April 20, 2022, about 2 hr 20 min). All facts and figures come from the episode transcript (research/acquired/transcripts/xU_rLZqlca4.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 27 words: the Field of Dreams inversion the episode references (7 words), the Marc Andreessen line from his 2016 interview, as quoted on the episode (10 words), and the Andreessen line repeated once more in the body (10 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+
+  /* ---------- toy: drawdown math ---------- */
+  (function(){
+    var dd = document.getElementById('dd'), gr = document.getElementById('gr');
+    var ddV = document.getElementById('dd-v'), grV = document.getElementById('gr-v');
+    var out = document.getElementById('dd-verdict');
+    function upd(){
+      var d = +dd.value / 100, g = +gr.value / 100;
+      ddV.textContent = dd.value; grV.textContent = gr.value;
+      var years = Math.log(1 / (1 - d)) / Math.log(1 + g);
+      out.textContent = 'A ' + dd.value + '% drawdown leaves ' + Math.round((1-d)*100) +
+        '% of value. At ' + gr.value + '% a year, recovery takes ' + years.toFixed(1) +
+        ' years. NVIDIA took 8.';
+    }
+    dd.addEventListener('input', upd); gr.addEventListener('input', upd); upd();
+  })();
+
+  /* ---------- chart: drawdown timeline ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var data = [
+      ['2007 peak','$20B',20,'Market cap just under $20B. Gaming alone, flying.'],
+      ['2008','-80%',4,'Earnings whiff plus financial crisis. Down 80%.'],
+      ['2011','-50%',2,'Another earnings whiff. Another 50% drawdown.'],
+      ['2012-15','<$5',1,'Stock under $5 a share. Market disbelieves.'],
+      ['2016','$20B',20,'Back to the 2007 peak. Ten years.'],
+      ['2022','$500B',50,'Eighth largest company in the world.']
+    ];
+    var g = document.getElementById('dd-bars');
+    var maxV = 50;
+    data.forEach(function(d, i){
+      var x = 14 + i * 103;
+      var hh = Math.max(10, (d[2] / maxV) * 260);
+      var y = 286 - hh;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', x); r.setAttribute('y', y);
+      r.setAttribute('width', 86); r.setAttribute('height', hh);
+      r.setAttribute('rx', 3);
+      r.setAttribute('fill', i === 5 ? '#3d352a' : (i < 4 ? '#ccd6e8' : '#1f5fb0'));
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x', x + 43); t.setAttribute('y', 308);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = d[0];
+      g.appendChild(t);
+      var v = document.createElementNS(svgNS,'text');
+      v.setAttribute('x', x + 43); v.setAttribute('y', y - 8);
+      v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+      v.setAttribute('font-size','10');
+      v.textContent = d[1];
+      g.appendChild(v);
+      r.addEventListener('mousemove', function(ev){ showTip(d[0] + ': ' + d[1] + '. ' + d[3], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
