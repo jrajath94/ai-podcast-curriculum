@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Desires Are Not Yours: Naval Ravikant Episode Companion</title>
+<meta name="description" content="A two-minute monologue with no co-host and no mercy: your desires are copied, your needs are tiny, your mind is a monkey. Sit down, turn off the light">
+<style>
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;
+    margin:0 6px 8px 0}
+  .tag.src{background:#e8f0e4;color:#3d6b34;border:1px solid #c4d8bb}
+  .tag.int{background:#efe6f5;color:#5f3f7a;border:1px solid #d8c4e8}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted)}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--mono);font-size:15px;color:var(--accent-ink);margin-top:10px}
+  .toy button{font-family:var(--sans);font-size:13px;padding:8px 14px;background:var(--ink);
+    color:#fff;border:none;border-radius:4px;cursor:pointer;margin:6px 6px 0 0}
+  .toy button:hover{background:#3a3226}
+  .toy label{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Naval Ravikant &middot; Track Companion</a>
+  <span class="sub">Ep 5 of 10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Naval Ravikant · The Monologue · Companion</p>
+      <h1>Your Desires Are Not Yours</h1>
+      <p class="dek">A two-minute monologue with no co-host and no mercy: your desires are copied, your needs are tiny, your mind is a monkey. Sit down, turn off the lights, and watch the thing run out of control.</p>
+      <img src="assets/ep05-your-desires-are-not-yours/illustration-mirrors.webp" alt="Watercolor illustration of an endless corridor of mirrors with an empty chair">
+      <p class="caption"><b>Illustration.</b> The corridor of mirrors: desires copied from reflections. AI-generated watercolor made for this page.</p>
+      <div class="legend"><span class="tag src">Source fact</span><span style="align-self:center">A claim from the episode itself.</span><span class="tag int">Interpretation</span><span style="align-self:center">My reading of what it means for you.</span></div>
+      <div class="stats">
+        <div class="stat"><div class="n">~2 min</div><div class="l">Naval monologue, the shortest of the ten, no co-host</div><div class="s">Transcript length</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">True needs named: food, water, a place to rest</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">Years old: the age of the unconditioned, present mind</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">0</div><div class="l">Techniques sold. The path is personal</div><div class="s">Episode</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/gSHJXCngrWI" title="Naval Ravikant — Your desires are not yours (official Naval podcast)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Naval podcast episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Audit the source of every want</a></li>
+          <li><a href="#nugget-2">Know your floor</a></li>
+          <li><a href="#nugget-3">Observe before you obey</a></li>
+          <li><a href="#nugget-4">No method, just attention</a></li>
+        </ol>
+      </div>
+    </div>
+
+<section class="chapter" id="ch-copied" data-time="00:00" data-title="Your desires are secondhand">
+<p class="ch-time">00:00</p>
+<h2>Your desires are secondhand</h2>
+<p>"most of our desires are picked up through Society": what friends do, what the brother does, what classmates do, what the wife wants. We copy those desires, install them as our own, and drive forward. The monologue is short and unsparing: almost nothing you chase started with you.</p>
+<p>Deep down, he says, nobody does it for themselves. Everyone believes they fight for a cause, for the downtrodden, for family. Strip it back and the real list is tiny.</p>
+<figure class="reveal"><img src="assets/ep05-your-desires-are-not-yours/illustration-mirrors.webp" alt="Watercolor illustration of an endless corridor of mirrors reflecting each other with an empty chair"><p class="caption"><b>Illustration.</b> The corridor of mirrors: desires copied from reflections of reflections. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-1"><p class="eyebrow">Wisdom nugget 1</p><span class="tag src">Source fact</span><h4>Audit the source of every want</h4><p><b>What happened.</b> Naval says desires are copied from the people around us and then mistaken for our own.</p><p><b>Why it matters.</b> A borrowed desire can never satisfy, because it was never yours. You can achieve it and feel nothing.</p><p><b>Principle.</b> For each big want, name the person you copied it from. If you can name them, it is not yours.</p></div>
+</section>
+<section class="chapter" id="ch-needs" data-time="00:01" data-title="What you actually need">
+<p class="ch-time">00:01</p>
+<h2>What you actually need</h2>
+<p>The true list, in his words: "a little bit of food a little bit of water a little bit of place to put your head". Everything above that line is a construct we built on top, copied from each other, layer on layer.</p>
+<p>This is not an argument for poverty. It is a calibration tool. When you know the floor, you can see how much of your striving is decoration.</p>
+<figure class="reveal"><img src="assets/ep05-your-desires-are-not-yours/illustration-empty-bowl.webp" alt="Watercolor illustration of a simple empty clay bowl, a cup of water, and a folded cloth in morning light"><p class="caption"><b>Illustration.</b> What you actually need: a little food, a little water, a place to rest. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-2"><p class="eyebrow">Wisdom nugget 2</p><span class="tag src">Source fact</span><h4>Know your floor</h4><p><b>What happened.</b> Naval reduces true need to food, water, and shelter, and calls everything else a copied construct.</p><p><b>Why it matters.</b> The floor is the reference point. Without it, every desire feels like survival.</p><p><b>Principle.</b> Price your actual needs once a year. Everything you earn above that is optionality, not oxygen.</p></div>
+</section>
+<section class="chapter" id="ch-watch" data-time="00:02" data-title="Watch the monkey">
+<p class="ch-time">00:02</p>
+<h2>Watch the monkey</h2>
+<p>The practice: sit down sometime, close the door, turn off the lights, and sit by yourself and watch your mind. Do not judge it, do not argue with it, do not fight it. Simply watch it spin out of control.</p>
+<p>The image he uses is deliberately crude: the mind as a monkey flinging waste and throwing bananas. It is impossible to control. The question is how you became like that, because a 2-year-old is not like that. A 2-year-old lives in the moment, with no constant uncontrollable thoughts about past or future, and that is what keeps the child happy.</p>
+<div class="pull reveal"><blockquote>Your mind is like a monkey that's running around flinging feces and throwing bananas everywhere.</blockquote><p class="who">Naval Ravikant, from the episode</p></div><div class="chart reveal" id="c-desires-chart"><h4>Where your desires come from</h4>
+<p class="csub">The episode's model: almost everything you want was installed by someone else.</p>
+<svg viewBox="0 0 680 260" width="100%" role="img" aria-label="Diagram of borrowed versus true desires">
+<text x="170" y="30" text-anchor="middle" class="vallab">BORROWED (almost all)</text>
+<g data-tip="Borrowed desires: friends, brother, classmates, wife, society at large.">
+<rect x="40" y="45" width="260" height="170" fill="#f7ecec" stroke="#8f3f14" stroke-width="2" rx="8"/>
+<text x="170" y="85" text-anchor="middle" class="axis">friends</text>
+<text x="170" y="115" text-anchor="middle" class="axis">brother, classmates</text>
+<text x="170" y="145" text-anchor="middle" class="axis">wife, colleagues</text>
+<text x="170" y="175" text-anchor="middle" class="axis">society, ads, feeds</text></g>
+<text x="510" y="30" text-anchor="middle" class="vallab">TRUE (very few)</text>
+<g data-tip="True needs: a little food, a little water, a place to put your head.">
+<rect x="380" y="45" width="260" height="170" fill="#eef3e6" stroke="#3d6b34" stroke-width="2" rx="8"/>
+<text x="510" y="95" text-anchor="middle" class="axis">a little food</text>
+<text x="510" y="130" text-anchor="middle" class="axis">a little water</text>
+<text x="510" y="165" text-anchor="middle" class="axis">a place to rest</text></g>
+</svg>
+<p class="csub"><b>Source.</b> Diagram of the episode's argument. The two lists are the episode's own examples.</p></div><div class="toy reveal" id="toy-timer">
+  <h4>Toy: the 60-second mind watch</h4>
+  <p class="csub">The episode's exercise: sit, close the door, turn off the lights, and watch your mind run out of control without judging it.</p>
+  <div style="font-size:44px;font-family:var(--mono);color:var(--accent-ink)" id="timer-disp">1:00</div>
+  <button id="timer-start">Start</button>
+  <button id="timer-reset">Reset</button>
+  <p class="out" id="timer-out">Do not judge it. Do not argue with it. Just watch.</p>
+</div><div class="nugget reveal" id="nugget-3"><p class="eyebrow">Wisdom nugget 3</p><span class="tag src">Source fact</span><h4>Observe before you obey</h4><p><b>What happened.</b> Naval prescribes silent self-observation and contrasts the noisy adult mind with the present 2-year-old.</p><p><b>Why it matters.</b> You cannot uncondition what you will not watch. Attention is the prerequisite to change.</p><p><b>Principle.</b> Spend time daily watching your mind without interference. The watching itself is the practice.</p></div>
+</section>
+<section class="chapter" id="ch-uncondition" data-time="00:03" data-title="Unconditioning is possible">
+<p class="ch-time">00:03</p>
+<h2>Unconditioning is possible</h2>
+<p>Can you uncondition the noise? He says it is possible, but different for everybody. There is no technique sold here, no five-step plan. The monologue ends where it must: with the honest admission that the path is personal.</p>
+<p>What is not personal is the diagnosis. The desires are borrowed, the needs are tiny, the mind is loud, and the way back starts with watching.</p>
+<div class="nugget reveal" id="nugget-4"><p class="eyebrow">Wisdom nugget 4</p><span class="tag src">Source fact</span><h4>No method, just attention</h4><p><b>What happened.</b> Naval closes by saying unconditioning is possible but individual, refusing to sell a universal method.</p><p><b>Why it matters.</b> Honesty about limits is the point. A guru with a method for everyone sells the borrowed-desire game again.</p><p><b>Principle.</b> Borrow the diagnosis, not a method. Build your own practice from watching your own mind.</p></div>
+</section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Naval podcast monologue "Your desires are not yours." (YouTube gSHJXCngrWI), from its caption transcript. It is the only episode of the ten without a co-host. Timestamps are proportional estimates. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 43 words: "most of our desires are picked up through Society" (9 words), "a little bit of food a little bit of water a little bit of place to put your head" (19 words), and the "Your mind is like a monkey that's running around flinging feces and throwing bananas everywhere." pull quote (15 words). Each is a verbatim string from the caption transcript, verified by search. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+
+
+/* ---------- toy: 60-second mind watch ---------- */
+(function(){
+  var disp = document.getElementById('timer-disp'),
+      out = document.getElementById('timer-out');
+  if(!disp) return;
+  var total = 60, left = total, iv = null;
+  function fmt(s){ return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2); }
+  function tick(){
+    left--;
+    disp.textContent = fmt(Math.max(0, left));
+    if(left <= 0){
+      clearInterval(iv); iv = null;
+      out.textContent = 'Done. Notice how little of that noise was yours.';
+    }
+  }
+  document.getElementById('timer-start').addEventListener('click', function(){
+    if(iv) return;
+    out.textContent = 'Do not judge it. Do not argue with it. Just watch.';
+    iv = setInterval(tick, 1000);
+  });
+  document.getElementById('timer-reset').addEventListener('click', function(){
+    if(iv){ clearInterval(iv); iv = null; }
+    left = total; disp.textContent = fmt(total);
+    out.textContent = 'Do not judge it. Do not argue with it. Just watch.';
+  });
+})();
+
+</script>
+</body>
+</html>
