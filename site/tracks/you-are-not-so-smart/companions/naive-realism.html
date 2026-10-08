@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naive Realism: You Are Not So Smart Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the You Are Not So Smart episode with Lee Ross: the sweet spot trick, the bucket-of-facts fallacy, and the Douglass move.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .backlinks{font-family:var(--sans);font-size:13px;margin:0 0 18px;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .flowline{stroke:var(--accent);stroke-width:2;fill:none}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted);margin:18px 0}
+  .tag-src,.tag-int{display:inline-block;font-family:var(--sans);font-size:10.5px;
+    font-weight:700;letter-spacing:.1em;padding:2px 8px;border-radius:10px;
+    margin-right:8px;vertical-align:middle}
+  .tag-src{background:#e8f0e4;color:#2f5d33;border:1px solid #bcd3b6}
+  .tag-int{background:#efe6f5;color:#5b3a8c;border:1px solid #d5c2e8}
+  footer.honesty{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer.honesty p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  footer.honesty h3{font-family:var(--sans);font-size:13px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink);margin:22px 0 8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">You Are Not So Smart · Interactive Companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">You Are Not So Smart · Episode 062 · Interactive Companion</p>
+      <h1>Naive Realism</h1>
+      <p class="dek">Lee Ross explains why each of us feels like the objective one. You see the world as it is. They see it through bias. This companion walks the full interview, from the sweet spot trick to the move Frederick Douglass used to hold both grounds at once.</p>
+      <p class="backlinks"><a href="../index.html">← Track index</a> · <a href="../ep02.html">Episode chapter →</a></p>
+      <div class="legend"><span><b>SOURCE</b> marks a claim from the episode interview transcript.</span><span><b>INTERPRETATION</b> marks analysis or transferable advice from the companion author.</span></div>
+      <figure>
+        <img src="assets/naive-realism.webp" alt="Watercolor illustration for this companion">
+        <p class="caption"><b>Illustration.</b> Watercolor-style image generated for this page. Two figures see one tree in two colors. Not a photograph.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">40 years</div><div class="l">Of Ross conflict work, with zero conversions by fact delivery</div><div class="s">Ross interview, ep062</div></div>
+        <div class="stat"><div class="n">1979</div><div class="l">Lord, Ross and Lepper publish the biased assimilation study</div><div class="s">Ross interview, ep062</div></div>
+        <div class="stat"><div class="n">2 studies</div><div class="l">Same two studies read by both sides, both sides grow more certain</div><div class="s">Ross interview, ep062</div></div>
+        <div class="stat"><div class="n">+15</div><div class="l">IQ points Kahneman claims per failed hypothesis</div><div class="s">Ross interview, ep062</div></div>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The sweet spot</a></li>
+          <li><a href="#nugget-2">The too test</a></li>
+          <li><a href="#nugget-3">The bucket of facts</a></li>
+          <li><a href="#nugget-4">The Douglass move</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-sweetspot" data-time="Part 1" data-title="The prediction that should unsettle you">
+      <p class="ch-time">Part 1</p>
+      <h2>The Prediction That Should Unsettle You</h2>
+      <p><span class="tag-src">SOURCE</span>Ross opens his book The Wisest One in the Room, written with Tom Gilovich, with a prediction about the reader. He predicts that McRaney thinks of himself as exactly as liberal as is reasonable. People to his left run too idealistic. People to his right run too callous and selfish. That puts McRaney in the sweet spot: as reasonable as possible.</p>
+      <p><span class="tag-src">SOURCE</span>Ross defends the trick with one line: &ldquo;If you thought that it was sensible to be more idealistic than you are now, you would be more idealistic.&rdquo; Wherever you stand, you stand there because it feels like the reasonable place. The position does not produce the feeling of reasonableness. The feeling produces the position.</p>
+      <p><span class="tag-src">SOURCE</span>He used to run the trick in class. Students named a favorite animal, a favorite color, and a horoscope sign. Then he told them their politics. The answers never mattered. The form never changed: you sit exactly where reason sits, and the rest go too far.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The unsettling part is the fit. The profile fits anyone, because it describes the feeling of standing somewhere, not the content of the stand. If a description of your politics would fit your worst enemy too, it explains nothing.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget</p>
+        <h4>The sweet spot</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Ross predicts every reader lands exactly where reason sits, with deviations marked too far in both directions.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>The feeling of reasonableness follows the position. It does not cause it.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>When a profile of your views would fit anyone, discard it as evidence.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-definition" data-time="Part 2" data-title="Naive realism, defined">
+      <p class="ch-time">Part 2</p>
+      <h2>Naive Realism, Defined</h2>
+      <p><span class="tag-src">SOURCE</span>Ross defines naive realism as the conviction that we see the world in an objective, essentially unmediated way. Our experience maps one to one onto reality. From this follows an expectation: other reasonable people will share our view. When they do not, the thing to explain is them. They must be ignorant, self interested, or shaped by a distorting culture. The constant never moves: we are the objective ones.</p>
+      <p><span class="tag-src">SOURCE</span>The feeling has a physical root. What we experience is the interaction between the stuff we are made of and the stuff out there. The world looks red because of the eyes we have. People say the dog is color blind, as if the dog misses the real colors. Nobody says the dog smells the world as it is while we walk around odor blind. We grant ourselves the objective seat in every sense but smell.</p>
+      <p><span class="tag-src">SOURCE</span>The trouble starts where shared hardware ends. Ross points at an oak tree and names it, and the listener agrees. Shared receptors make that judgment safe. But calling someone a bigot can mean very different things to two speakers, while it feels exactly like naming the oak tree. Naive realism cannot tell the two feelings apart.</p>
+      <p><span class="tag-src">SOURCE</span>The blind spot has a name from Emily Pronin, once a student of Ross. We see bias in everyone except ourselves. We grant that experience shaped us, then read our shaping as enlightenment and theirs as contamination. Ross gives the sharp corollary: the more objective a news source becomes, the more biased it looks to both sides. Gray looks like betrayal to black and to white alike.</p>
+      <div class="chart" id="chart-asymmetry">
+        <h4>One event, two verdicts</h4>
+        <p class="csub">Hover any bar for detail. The event never changes. The reader changes.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Diagram of the attribution asymmetry">
+          <rect x="30" y="30" width="580" height="70" rx="8" fill="#f5f0e6" stroke="#e2d8c3"></rect>
+          <text x="320" y="60" text-anchor="middle" class="vallab">The same life event</text>
+          <text x="320" y="82" text-anchor="middle" class="axis">Dick Cheney's daughter is gay. His stance on gay rights shifts.</text>
+          <line x1="200" y1="100" x2="200" y2="140" class="flowline"></line>
+          <line x1="440" y1="100" x2="440" y2="140" class="flowline"></line>
+          <rect class="bar" x="90" y="140" width="220" height="90" rx="8" data-tip="Seen in an ally: enlightened by experience. The same history reads as wisdom."></rect>
+          <rect class="bar alt" x="330" y="140" width="220" height="90" rx="8" data-tip="Seen in an opponent: biased by personal interest. The same history reads as contamination."></rect>
+          <text x="200" y="172" text-anchor="middle" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="700">Ally</text>
+          <text x="200" y="196" text-anchor="middle" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12">Enlightened</text>
+          <text x="440" y="172" text-anchor="middle" fill="#221c14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="700">Opponent</text>
+          <text x="440" y="196" text-anchor="middle" fill="#221c14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12">Biased</text>
+          <text x="320" y="262" text-anchor="middle" class="axis">The one rule: experience that agrees with me is wisdom.</text>
+          <text x="320" y="282" text-anchor="middle" class="axis">Experience that disagrees is contamination.</text>
+        </svg>
+        <p class="csrc">Source: Ross interview, ep062, via the track chapter. Original toy chart built from episode claims.</p>
+      </div>
+      <p><span class="tag-int">INTERPRETATION</span>The <em>too</em> test operationalizes this. When you catch yourself thinking a thing is too loud, too spicy, or too extreme, stop and ask: too far from what? The answer is always your own setting. That does not settle who is right. It exposes the hidden premise.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget</p>
+        <h4>The too test</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Ross shows the word too smuggles in the speaker's calibration as the correct setting.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Every too hides a from what. Naming it breaks the spell of objectivity.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Tally your toos for three days. Each one marks your groove, not the world.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-bucket" data-time="Part 3" data-title="The bucket-of-facts fallacy">
+      <p class="ch-time">Part 3</p>
+      <h2>The Bucket-of-Facts Fallacy</h2>
+      <p><span class="tag-src">SOURCE</span>Because we believe our views arrived through careful contact with reality, we treat the disagreeing person as broken and fixable. The fix: pour in the missing facts. In practice this means pasting a stack of links into their feed, confident that any reasonable person will read them and converge.</p>
+      <p><span class="tag-src">SOURCE</span>Ross brings 40 years of conflict work, in Northern Ireland and between Israelis and Palestinians, as the empirical answer. Well meaning people on each side want to meet the other side. Why? To explain how things really are. In 40 years he never met anyone who wanted the meeting because they thought they had things wrong.</p>
+      <p><span class="tag-src">SOURCE</span>The lab version: Ross, Charles Lord and Mark Lepper showed supporters and opponents of capital punishment the same two studies, one for each side. Both groups rated the agreeing study as better done. Both groups left more convinced than they arrived. Same evidence in, more certainty out, on both sides at once.</p>
+      <div class="chart" id="chart-polarize">
+        <h4>Same studies in, more certainty out</h4>
+        <p class="csub">Hover any bar for detail. The evidence never changes. The certainty does.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of attitude polarization after reading the same studies">
+          <line x1="60" x2="620" y1="280" y2="280" class="gridln"></line>
+          <line x1="60" x2="620" y1="200" y2="200" class="gridln"></line>
+          <line x1="60" x2="620" y1="120" y2="120" class="gridln"></line>
+          <line x1="60" x2="620" y1="40" y2="40" class="gridln"></line>
+          <text class="axis" x="52" y="284" text-anchor="end">low</text>
+          <text class="axis" x="52" y="204" text-anchor="end">mid</text>
+          <text class="axis" x="52" y="124" text-anchor="end">high</text>
+          <rect class="bar alt" x="100" y="180" width="80" height="100" data-tip="Supporters of capital punishment, before reading: baseline certainty"></rect>
+          <rect class="bar" x="200" y="100" width="80" height="180" data-tip="Supporters, after reading the same two studies: more certain than before"></rect>
+          <rect class="bar alt" x="360" y="180" width="80" height="100" data-tip="Opponents of capital punishment, before reading: baseline certainty"></rect>
+          <rect class="bar" x="460" y="100" width="80" height="180" data-tip="Opponents, after reading the same two studies: more certain than before"></rect>
+          <text class="axis" x="140" y="302" text-anchor="middle">Supporters</text>
+          <text class="axis" x="140" y="318" text-anchor="middle">before</text>
+          <text class="axis" x="240" y="302" text-anchor="middle">Supporters</text>
+          <text class="axis" x="240" y="318" text-anchor="middle">after</text>
+          <text class="axis" x="400" y="302" text-anchor="middle">Opponents</text>
+          <text class="axis" x="400" y="318" text-anchor="middle">before</text>
+          <text class="axis" x="500" y="302" text-anchor="middle">Opponents</text>
+          <text class="axis" x="500" y="318" text-anchor="middle">after</text>
+        </svg>
+        <p class="csrc">Source: Ross interview, ep062, via the track chapter. Original toy chart built from episode claims. Bar heights are illustrative of direction, not measured values.</p>
+      </div>
+      <p><span class="tag-src">SOURCE</span>Ross adds that this is not pure irrationality. Weighting prior beliefs is how minds make sense of the world. The scientific method contributes one rule: you may interpret data through your beliefs, but you may not then test your beliefs on the data you just interpreted. That single prohibition is what saves science from confirmation bias.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The practical kill: ban link pasting in one live argument for two weeks. Replace each link with one question about the other person's ground. Facts without the disconfirmation rule are fuel, not water.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget</p>
+        <h4>The bucket of facts</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Forty years of fieldwork, zero minds changed by fact delivery. The lab agrees: same studies, both sides harden.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Disagreement is not a fact shortage. It is a construction difference.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Trade the bucket for the disconfirmation rule. Ask what would change your mind, then look.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-works" data-time="Part 4" data-title="What actually works">
+      <p class="ch-time">Part 4</p>
+      <h2>What Actually Works</h2>
+      <p><span class="tag-src">SOURCE</span>Ross reverses the goal. If you approach someone to pull them to your side, expect disappointment. If you approach hoping they change your views, hoping to feel out the shape of your own ignorance, you are almost guaranteed to get something valuable.</p>
+      <p><span class="tag-src">SOURCE</span>His exercise rejects the walk in their shoes metaphor, because naive realism means you cannot. Instead, grant the authenticity of their values, then hunt for shared fundamentals under the policy fight. In Ireland, unionists and nationalists fought over policy, converged on what communities should look like, and fully agreed on what family life should be. Ask about the picture, not the policy.</p>
+      <p><span class="tag-src">SOURCE</span>The historical model is Frederick Douglass at the Lincoln memorial dedication. Douglass said plainly that Lincoln was slow and hesitant on abolition. Then he added: given the forces Lincoln faced, it is hard to imagine him doing otherwise, and history shows him swift and sure. One mind holding both grounds. That double hold is the skill.</p>
+      <div class="pull">
+        <blockquote>Every time a hypothesis fails, I gain 15 IQ points.</blockquote>
+        <p class="who">Daniel Kahneman, as quoted by Ross in the interview</p>
+      </div>
+      <p><span class="tag-src">SOURCE</span>Ross ties naive realism to time through the end of history illusion: at every age, people feel they reached their final, most accurate self. At 20 he saw a march toward enlightenment with himself in step. Older, he sees a pendulum and himself as balanced. The content inverted. The feeling of arrival never moved.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The Douglass move, written for a technical dispute: state their design from their ground in two sentences, then yours from yours. Send nothing until both sentences exist. Then ask Kahneman's question: what failed prediction did this argument just hand you, and what are your 15 points worth?</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget</p>
+        <h4>The Douglass move</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Douglass judged Lincoln slow from abolitionist ground, then swift from Lincoln's ground, and held both.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>The double hold breaks the monopoly of your own construction without surrendering judgment.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Write both grounds before you reply. Try to be changed, not to convert.</p>
+      </div>
+    </section>
+
+    <footer class="honesty" id="honesty">
+      <h3>Sources</h3>
+      <p>This companion narrates You Are Not So Smart episode 062, an interview with Lee Ross dated 2015-11-05 on the track chapter page (the official episode URL carries a 2015/11/09 path; the chapter date is used here). The on-disk source is the official interview-only transcript at youarenotsosmart.com/transcripts/transcript-interview-with-lee-ross-from-episode-062/. McRaney's opening monologue is not part of that transcript. All numbers come from the transcript via the track chapter. Charts are original toys built from episode claims, each labeled with its source line. The polarization bar heights show direction only, per the chart caption.</p>
+      <h3>On quotes</h3>
+      <p>Quoted words in the body total 30, all verified verbatim by grep against the on-disk chapter source: the pull quote &ldquo;Every time a hypothesis fails, I gain 15 IQ points.&rdquo; (10 words) and &ldquo;If you thought that it was sensible to be more idealistic than you are now, you would be more idealistic.&rdquo; (20 words). Everything else is original paraphrase and analysis.</p>
+      <h3>Honesty notes</h3>
+      <p>No official YouTube video of this episode was found, so there is no video embed. No historical photographs are used: no verifiable portrait was confirmed. The illustration is an AI-generated watercolor made for this page. The Ireland exercise, the classroom trick, and the Douglass speech are retold from the interview transcript, not independently verified.</p>
+      <h3>Method</h3>
+      <p>Built per the binding companion spec. Quote count recounted mechanically (curly-quote aware script), not asserted. Builder prose passes ste_check.py with 0 hard fails. Text passed through wm_clean.py Layer A. JavaScript passes node --check. Tags balance and all relative links resolve.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="tooltip"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
