@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Minimalism: Deep Questions Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Deep Questions episode on digital minimalism: why detoxes failed, the attention arms race, and the philosophy of intention.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Deep Questions · Track Companion</a>
+  <span class="sub">Digital Minimalism</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Deep Questions · Companion · 13 min</p>
+      <h1>Digital Minimalism</h1>
+      <p class="dek">The philosophy: why detoxes and app fixes failed, the attention arms race, the existential void, and values-first technology choice.</p>
+<style>
+.tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.tag.sf{background:#e3f0e6;color:#1d5c2e;border:1px solid #bcd8c2}
+.tag.it{background:#fdf3e3;color:#8a5a12;border:1px solid #ecd9ac}
+.legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:24px 0;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.legend .k{font-weight:700;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+</style>
+      <img src="assets/cal-newport.jpg" alt="Portrait photograph of Cal Newport">
+      <p class="caption"><b>Cal Newport.</b> Photo: robertglazer.com (Elevate Podcast). This episode summarizes his 2019 book Digital Minimalism.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">2019</div><div class="l">Book</div><div class="s">Digital Minimalism, summarized in 12:53</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">Failed fixes</div><div class="s">detoxes and app tweaks, both tried for years</div></div>
+        <div class="stat"><div class="n">1,600</div><div class="l">Declutterers</div><div class="s">in the 30-day experiment from the book</div></div>
+        <div class="stat"><div class="n">600M</div><div class="l">TikTok users</div><div class="s">at the time, and still not his job</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/DsGKzjyj_6Q" title="Deep Questions: Digital Minimalism with Cal Newport (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The detox trap</a></li>
+          <li><a href="#nugget-2">The fix-the-apps delusion</a></li>
+          <li><a href="#nugget-3">The arms race</a></li>
+          <li><a href="#nugget-4">The existential void</a></li>
+          <li><a href="#nugget-5">Intention, not minimization</a></li>
+          <li><a href="#nugget-6">Fences from the why</a></li>
+          <li><a href="#nugget-7">The right to miss out</a></li>
+          <li><a href="#nugget-8">Chase the positive</a></li>
+          <li><a href="#nugget-9">The 30-day declutter</a></li>
+        </ol>
+      </div>
+      <div class="legend">
+        <span class="k">How to read this companion.</span>
+        <span class="tag sf">Source fact</span> marks claims stated in the episode.
+        <span class="tag it">Interpretation</span> marks analysis and transferable lessons drawn from those facts.
+        Every chart names its episode source. Illustrations are AI-generated watercolors made for this page.
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-unease" data-time="Part 1" data-title="The uneasiness">
+      <p class="ch-time">Part 1</p>
+      <h2>The Uneasiness</h2>
+      <p>Newport starts with the inspiration for the 2019 book. Around 2016 and 2017 he noticed people growing uneasy about their phones. The complaint was specific: too much time staring at these things, and a bad feeling after each session.</p>
+      <p>People tried to solve it. Newport argues that the two big responses both failed, and understanding why they failed is the whole book.</p>
+    </section>
+
+    <section class="chapter" id="ch-failed" data-time="Part 2" data-title="Two failed fixes">
+      <p class="ch-time">Part 2</p>
+      <h2>Two Failed Fixes</h2>
+      <p>Response one was the detox. The idea: I look at this too much, so I will white-knuckle my way off it. No more Instagram, no more TikTok, no more Twitter. See the phone across the room and refuse to grab it. It rarely worked. The phone sat right there. One quick check turned into a long session, and the phone moved back into the center of life.</p>
+      <p>Response two was the delusion that we could fix the programs. Slightly better content moderation on Twitter. The right habit app, the one that grows a tree on screen the longer you wait. A few tweaks and the phone would stop making us stressed and unhappy. That did not work either. Years of trying, and everyone kept coming back to the phones.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The white knuckle</p>
+        <h4>The detox trap</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> People tried pure abstinence from their phones and apps. It rarely held, because the phone stayed within reach and one peek restarted the habit.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Willpower loses to proximity. A detox that leaves the trigger in your pocket is a plan to fail politely.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Do not fight the phone where it lives. Change what it means to you first.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · The tweak</p>
+        <h4>The fix-the-apps delusion</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> People hoped better moderation and clever habit apps would fix the unhappiness. Years of tweaks changed nothing about the underlying pull.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Tweaking the tool accepts the tool's terms. The problem was never the settings page.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> If the business model is your attention, no update will set you free.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-armsrace" data-time="Part 3" data-title="The arms race">
+      <p class="ch-time">Part 3</p>
+      <h2>The Arms Race</h2>
+      <p>Why did both responses fail? First, the engineering. These apps are too well built to resist by willpower. The interface itself is weaponized: the colors of notification badges, the pull of infinite scroll, the slot-machine refresh that asks if there is a new post to see.</p>
+      <p>Under the interface sits the algorithmic backbone. Users get reduced to vectors of numbers, processed by complex algorithms and neural networks that learn exactly what to show to earn one more scroll, one more click. Newport calls it an arms race against an incredibly well-funded enemy. Of course we lose.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The mismatch</p>
+        <h4>The arms race</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport describes users reduced to vectors of numbers, fed through algorithms and neural networks that optimize for one more scroll, backed by enormous investment.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> You are not weak. You are outgunned. Framing it as a character flaw keeps you fighting the wrong battle.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Never arm-wrestle an industry. Change the game instead.</p>
+      </div>
+      <div class="chart" id="chart-armsrace">
+        <h4>You versus the arms race</h4>
+        <svg viewBox="0 0 680 260" role="img" aria-label="Comparison: your willpower alone versus the attention industry's interface design, algorithms, and funding">
+          <text x="150" y="26" text-anchor="middle" class="vallab">Your side</text>
+          <rect x="40" y="40" width="220" height="180" rx="8" fill="#e8e0cf" data-tip="Willpower and good intentions: the detox strategy."/>
+          <text x="150" y="120" text-anchor="middle" class="axis">Willpower</text>
+          <text x="150" y="142" text-anchor="middle" class="axis">Good intentions</text>
+          <text x="150" y="164" text-anchor="middle" class="axis">A tree-growing app</text>
+          <text x="530" y="26" text-anchor="middle" class="vallab">Their side</text>
+          <rect x="420" y="40" width="220" height="180" rx="8" fill="#b4531f" data-tip="The attention industry: engineered interfaces, algorithms, neural networks, enormous funding."/>
+          <text x="530" y="100" text-anchor="middle" fill="#fff" font-size="14">Engineered interfaces</text>
+          <text x="530" y="126" text-anchor="middle" fill="#fff" font-size="14">Algorithms and neural nets</text>
+          <text x="530" y="152" text-anchor="middle" fill="#fff" font-size="14">You as a vector of numbers</text>
+          <text x="530" y="178" text-anchor="middle" fill="#fff" font-size="14">Enormous funding</text>
+          <text x="340" y="248" text-anchor="middle" class="axis">An arms race against a well-funded enemy. Of course we lose.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Digital Minimalism, the attention-engineering argument. Labels are paraphrase.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-void" data-time="Part 4" data-title="The existential void">
+      <p class="ch-time">Part 4</p>
+      <h2>The Existential Void</h2>
+      <p>The second reason the fixes failed is harder to admit. The phone filled a psychological need. It filled an existential void that people did not want to stare into: regrets, shames, anxieties, parts of life they did not want to acknowledge.</p>
+      <p>The algorithmically enhanced pacification on the glowing glass distracted just enough to keep those feelings at bay. Taking it away cold turkey, for a detox weekend or through a blocking app, felt terrifying, because the phone filled a real need. So people kept returning, kept feeling uneasy about the time, kept feeling bad after each session: one yelling match too many on Twitter, one more wave of inferiority after a curated Instagram life.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · The pacifier</p>
+        <h4>The existential void</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues the phone pacified people, keeping them from confronting regret, shame, and anxiety, which made cold-turkey removal feel terrifying.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> A habit that medicates cannot be removed by discipline alone. The underlying ache needs a better answer first.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Ask what the phone does for you before you take it away. Fill the need, then drop the tool.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-philosophy" data-time="Part 5" data-title="Intention, not minimization">
+      <p class="ch-time">Part 5</p>
+      <h2>Intention, Not Minimization</h2>
+      <p>The solution, Newport argues, is a philosophy of technology use: a coherent theory of how technology fits into a life well lived. He called it digital minimalism.</p>
+      <p>The name misleads. It is not minimization. Less is not automatically better. Newport is a computer scientist who loves technology. The philosophy is about intention. Start with a clear vision of the life you want: what you value, how you want to spend your time. Work backwards from that vision to decide which technologies serve it.</p>
+      <p>For each value, ask the best-use question: what is the best use of technology to support or amplify this thing I care about? Once you know why you use a tool, the fences write themselves. You keep the advantages and dodge the hidden traps.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · The reframe</p>
+        <h4>Intention, not minimization</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport defines digital minimalism as starting from a vision of the life you want, then choosing technology that supports each value, with clear rules around each tool.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Minimization is a diet. Intention is a cuisine. One forbids, the other designs.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Start from the life, not the tools. Every app must audition for a role in your vision.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cycling" data-time="Part 6" data-title="The cycling group">
+      <p class="ch-time">Part 6</p>
+      <h2>The Cycling Group</h2>
+      <p>His example makes the method concrete. Suppose you value social connection and exercise, and you love cycling. A Facebook group for local riders is a great use of technology: it finds you riding partners on short notice. So Facebook earns a place in your life, for that reason.</p>
+      <p>Now the fences follow from the why. Why would you also stare at the news feed? Why read your uncle's takes or your niece's politics? Those have nothing to do with cycling. So you install a browser plugin that scrapes the feed off your screen. You log in on your computer, go straight to the group, get exactly what you came for, and leave. It is not on your phone, because you never needed the feed. The technology works for you. You are not a gadget in the attention economy's machinery.</p>
+      <img src="assets/dq-ep04-fence.webp" alt="Watercolor illustration of a small garden with a neat fence, a phone resting outside the fence on a stone">
+      <p class="caption"><b>Illustration.</b> Fences from the why: the tool serves the value, and the rules keep the rest out. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · The example</p>
+        <h4>Fences from the why</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport's cycling example: keep Facebook for the local riding group, strip the news feed with a browser plugin, use it on the computer only, never on the phone.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Rules stick when they derive from purpose. Orders from nowhere fail. Reasons rooted in your why hold.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> For every tool you keep, write its job description. Everything outside the job description gets fenced off.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-missingout" data-time="Part 7" data-title="The right to miss out">
+      <p class="ch-time">Part 7</p>
+      <h2>The Right to Miss Out</h2>
+      <p>The corollary is comfort with missing out. A new tool appears. That does not make it your job to try it. Apple may be glad it invented the watch. TikTok may have 600 million users. Newport's answer: let them have their 600 million users. He knows what he is about. His rules evolve slowly.</p>
+      <div class="pull">
+        <blockquote>not my job to figure out what's on there</blockquote>
+        <p class="who">Cal Newport on TikTok's 600 million users · Deep Questions</p>
+      </div>
+      <p>The minimalist life he describes is intentional and careful, but also exuberant: focused on building the best possible life, with technology helping on his terms.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · The corollary</p>
+        <h4>The right to miss out</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport says the digital minimalist must be comfortable ignoring new tools entirely: 600 million TikTok users do not create an obligation to look.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> FOMO is a tax on the undecided. A clear vision makes "no" the default, which is the only sustainable default.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> New does not mean for you. Let the world audition. You hold the casting vote.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-positive" data-time="Part 8" data-title="Chase the positive">
+      <p class="ch-time">Part 8</p>
+      <h2>Chase the Positive</h2>
+      <p>Here is why the philosophy works where detoxes failed. Behavior change aimed at a positive vision is sustainable. When the rules serve a life you deeply want, a craving to check some off-plan service meets a committed answer: no, I am building something better.</p>
+      <p>Change aimed at avoiding a negative is not. Vowing that you spend too much time on Twitter and will try to stop collapses the moment the brain negotiates: it is not that bad, someone met a useful contact there, let us just take one peek.</p>
+      <img src="assets/dq-ep04-drawer.webp" alt="Watercolor illustration of a phone resting inside an open desk drawer while its owner reads a book by a bright window">
+      <p class="caption"><b>Illustration.</b> The positive vision first: a life full enough that the drawer stays closed. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · The direction</p>
+        <h4>Chase the positive</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues that rules serving a positive vision of life hold, while rules built on avoiding a negative collapse at the first whispered let us just peek.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Restriction without a vision is a vacuum, and vacuums get filled. Aspiration is the only durable fence.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Do not start by banning. Start by building the life that makes the ban unnecessary.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-declutter" data-time="Part 9" data-title="The 30-day declutter">
+      <p class="ch-time">Part 9</p>
+      <h2>The 30-Day Declutter</h2>
+      <p>For readers who do not yet know what they value, the book offers a starting ritual: the 30-day digital declutter. Note the word. Not detox. Declutter. Step away for 30 days from optional personal technologies: social media, online news, streaming video. During that time, aggressively reflect and experiment to rediscover what you care about and how deeper activities feel.</p>
+      <p>You emerge with self-awareness and a real answer to the question of what to return and how to use it. Newport ran 1,600 people through the process while writing the book, and the lessons filled chapters.</p>
+      <div class="chart" id="chart-declutter">
+        <h4>The 30-day declutter</h4>
+        <svg viewBox="0 0 680 280" role="img" aria-label="The declutter process: step away from optional technologies for 30 days, reflect and experiment, then return tools selectively with rules">
+          <rect x="30" y="40" width="190" height="120" rx="8" fill="#b4531f" data-tip="Step away for 30 days from optional personal technologies: social media, online news, streaming video."/>
+          <text x="125" y="88" text-anchor="middle" fill="#fff" font-size="14">Step away</text>
+          <text x="125" y="110" text-anchor="middle" fill="#fff" font-size="13">30 days, optional</text>
+          <text x="125" y="130" text-anchor="middle" fill="#fff" font-size="13">technologies only</text>
+          <line x1="220" y1="100" x2="250" y2="100" stroke="#8a7c66" stroke-width="2"/>
+          <rect x="250" y="40" width="190" height="120" rx="8" fill="#1f6f8b" data-tip="Aggressively reflect and experiment. Rediscover what you care about."/>
+          <text x="345" y="88" text-anchor="middle" fill="#fff" font-size="14">Reflect and</text>
+          <text x="345" y="110" text-anchor="middle" fill="#fff" font-size="14">experiment</text>
+          <line x1="440" y1="100" x2="470" y2="100" stroke="#8a7c66" stroke-width="2"/>
+          <rect x="470" y="40" width="180" height="120" rx="8" fill="#1f6f8b" data-tip="Bring tools back only with a clear why and clear rules."/>
+          <text x="560" y="88" text-anchor="middle" fill="#fff" font-size="14">Bring back</text>
+          <text x="560" y="110" text-anchor="middle" fill="#fff" font-size="13">with a why</text>
+          <text x="560" y="130" text-anchor="middle" fill="#fff" font-size="13">and rules</text>
+          <text x="340" y="210" text-anchor="middle" class="axis">1,600 people went through the 30-day process for the book.</text>
+          <text x="340" y="232" text-anchor="middle" class="axis">Not a detox. A declutter: step away to rebuild with intention.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Digital Minimalism, the 30-day digital declutter and the 1,600-person experiment. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · The reset ritual</p>
+        <h4>The 30-day declutter</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport prescribes 30 days away from optional personal technologies, filled with reflection and experiment, so reintroduction happens with a clear why and clear rules. 1,600 people tested it for the book.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> You cannot redesign a relationship you have never stepped outside of. Distance first, decisions second.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Remove everything optional for a month. What you genuinely miss earns its way back, on your terms.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-close" data-time="Part 10" data-title="On your terms">
+      <p class="ch-time">Part 10</p>
+      <h2>On Your Terms</h2>
+      <p>Newport closes with the stance that sums up the philosophy. He is not interested in clocking into Mark Zuckerberg's data factory. He does not see it as his job to give Elon Musk a better network graph to monetize with ads. He wants the best life possible, with technology helping on his terms.</p>
+      <div class="pull">
+        <blockquote>clocking into mark zuckerberg's data factory</blockquote>
+        <p class="who">Cal Newport on what he refuses · Deep Questions</p>
+      </div>
+      <p>If you feel uneasy about your relationship with your tools, he says, this is an idea worth considering.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Detoxes fail and app tweaks fail. Both leave the real machinery untouched.</li>
+          <li>You face an arms race: engineered interfaces, learning algorithms, enormous funding.</li>
+          <li>The phone medicates an existential void. Name the need before you remove the tool.</li>
+          <li>Digital minimalism is intention, not minimization. Start from the life you want.</li>
+          <li>Every kept tool gets a job description and fences. The why writes the rules.</li>
+          <li>You may miss out on everything else. New does not mean for you.</li>
+          <li>Chase a positive vision, then declutter for 30 days and rebuild with intention.</li>
+        </ol>
+        <p class="src">Distilled from Deep Questions, Digital Minimalism with Cal Newport (May 2022, 12:53). Video: youtube.com/watch?v=DsGKzjyj_6Q.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Deep Questions episode "Digital Minimalism with Cal Newport" (May 2022, 12:53). All facts and figures come from the episode transcript or the episode itself at youtube.com/watch?v=DsGKzjyj_6Q. Each chart names its episode source. The portrait photograph is real, with attribution in its caption. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 16 words: two pull quotes ("not my job to figure out what's on there", 9 words, and "clocking into mark zuckerberg's data factory", 6 words) plus one single-word flourish ("no", 1 word). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+
+</script>
+</body>
+</html>
