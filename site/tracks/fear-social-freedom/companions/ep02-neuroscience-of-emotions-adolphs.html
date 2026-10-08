@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuroscience of Emotions: Huberman Lab with Dr. Ralph Adolphs · Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Dr. Ralph Adolphs on the neuroscience of emotions and tools for emotion regulation.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#1f2a28; --muted:#6b7572;
+    --line:#ddd8c8; --accent:#0f766e; --accent-ink:#0b5c56; --soft:#e9f2ef;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#a9d6cf}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3a4542;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfd8d3}
+  .bar.dark{fill:#3a4542}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6;
+    border:1px dashed var(--line);padding:12px 16px;margin:26px 0}
+  .legend b{color:var(--ink)}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#eef3f1;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#a9b6b2}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Fear and Social Freedom · Track Companion</a>
+  <span class="sub">Huberman Lab · Dr. Ralph Adolphs</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode Companion</p>
+      <h1>Neuroscience of Emotions</h1>
+      <p class="dek">Dr. Ralph Adolphs, Caltech neuroscientist, joins Andrew Huberman to ask what emotions are, where they live in brain and body, and how we regulate them. The episode moves from philosophy to a famous patient with no amygdalae, and lands on practical tools: reappraisal, breathing, and the trainability of control itself.</p>
+      <img src="assets/ep02-hero-emotions.webp" alt="Watercolor illustration of a face split between storm and calm water inside the head">
+      <p class="caption"><b>Illustration.</b> Emotion as interrupt and as weather: the same head holds both. AI-generated watercolor made for this page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">early 90s</div><div class="l">Adolphs began his postdoc with Antonio Damasio, studying patient S.M.</div><div class="s">Episode ~00:45</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">Amygdala-lesion patients in the carbon-dioxide panic study</div><div class="s">Episode ~00:58</div></div>
+        <div class="stat"><div class="n">5 min/day</div><div class="l">Meditation dose that first raised anxiety before it helped</div><div class="s">Episode ~01:53</div></div>
+        <div class="stat"><div class="n">40 lb</div><div class="l">Weekly ice bags for his home ice-bath practice</div><div class="s">Episode ~00:33</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/P-h5WSQG1Sw" title="Huberman Lab: Neuroscience of Emotions with Dr. Ralph Adolphs (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Huberman Lab episode video. Use the chapter menu above to move through this companion as you listen.</p>
+      </div>
+      <div class="legend"><b>How to read this page.</b> Each nugget has three parts. <b>What happened</b> states a fact from the episode. <b>Why it matters</b> and <b>The principle</b> are my interpretation of that fact. Charts built from episode numbers name their source. Charts drawn from his descriptions are labeled schematic.</div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Words predate science</a></li>
+          <li><a href="#nugget-2">Priority interrupts</a></li>
+          <li><a href="#nugget-3">Name it without drowning in it</a></li>
+          <li><a href="#nugget-4">Train the controller</a></li>
+          <li><a href="#nugget-5">Necessary for some fears, not all</a></li>
+          <li><a href="#nugget-6">Regulation is interpersonal</a></li>
+          <li><a href="#nugget-7">Start with the breath</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-intro" data-time="~00:01" data-title="Intro: do emotions exist?">
+      <p class="ch-time">~00:01</p>
+      <h2>Intro: Do Emotions Exist?</h2>
+      <p>Huberman opens his conversation with Dr. Ralph Adolphs, a neuroscientist at Caltech who studies emotion, with a provocation. The philosopher Paul Griffith wrote a book arguing that emotions do not really exist. Survey the competing theories, from Joseph LeDoux to Lisa Feldman Barrett to Paul Ekman, and they look so different that even the experts seem unable to agree on what emotions are.</p>
+      <div class="pull">
+        <blockquote>The words we have for emotions predate modern science.</blockquote>
+        <p class="who">Dr. Ralph Adolphs · Episode ~00:06</p>
+      </div>
+      <p>Adolphs grants the confusion but rejects the conclusion. Our emotion words are old, and the concept deserves revision, but he argues that <q>everybody kind of knows what emotions are</q> and that science owes the question a straight answer. His answer: emotions are evolved functional modules, systems built to handle statistically recurring environmental challenges that share a common structure. Fear handles predators. Disgust handles contamination. Each module pairs a detection problem with a response.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Definition</p>
+        <h4>Words predate science</h4>
+        <p><span class="lbl">What happened. </span>Adolphs admits emotion words are pre-scientific and the theories conflict, then defends emotions as real: evolved functional modules for recurring environmental challenges.</p>
+        <p><span class="lbl">Why it matters. </span>The debate is not about whether you feel things. It is about what kind of thing a feeling is. His answer makes emotions engineerable: modules can be studied, mapped, and retrained.</p>
+        <p><span class="lbl">The principle. </span>When experts disagree on definitions, look for the functional question underneath. What is this system for?</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-features" data-time="~00:08" data-title="Four features of emotion">
+      <p class="ch-time">~00:08</p>
+      <h2>Four Features of Emotion</h2>
+      <p>To give the concept edges, Adolphs lists features that emotions share. First is priority: emotions take over behavior the way reflexes do. Put your hand on a hot stove and you withdraw. Meet a bear and you run or curl into a ball. He credits the Nobel laureate Herbert Simon, who noted in the 1950s or 60s that emotions work as interrupt mechanisms. Normal goal-directed behavior needs a monitor for predators, and the interrupt must win or you die.</p>
+      <p>Second is valence, the good-bad axis psychologists use to organize feelings. Third is scalability: an emotion can run from mild unease to full panic. Fourth is temporal persistence: emotions outlast the trigger, coloring the minutes or hours after.</p>
+      <div class="chart" id="chart-features">
+        <h4>The four features Adolphs names</h4>
+        <p class="csub">Schematic summary of his list. Not measured data.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Schematic of four features of emotion">
+          <rect class="bar" x="80" y="60" width="120" height="150" data-tip="Priority: emotions interrupt behavior like reflexes do; Herbert Simon called them interrupt mechanisms"></rect>
+          <rect class="bar alt" x="230" y="60" width="120" height="150" data-tip="Valence: the good-bad dimension along which feelings organize"></rect>
+          <rect class="bar alt" x="380" y="60" width="120" height="150" data-tip="Scalability: an emotion can run from mild unease to full panic"></rect>
+          <rect class="bar alt" x="530" y="60" width="90" height="150" data-tip="Temporal persistence: emotions outlast the trigger"></rect>
+          <text class="vallab" x="140" y="48" text-anchor="middle">priority</text>
+          <text class="vallab" x="290" y="48" text-anchor="middle">valence</text>
+          <text class="vallab" x="440" y="48" text-anchor="middle">scalability</text>
+          <text class="vallab" x="575" y="48" text-anchor="middle">persistence</text>
+          <text class="axis" x="140" y="232" text-anchor="middle">interrupts</text>
+          <text class="axis" x="290" y="232" text-anchor="middle">good-bad</text>
+          <text class="axis" x="440" y="232" text-anchor="middle">mild to panic</text>
+          <text class="axis" x="575" y="232" text-anchor="middle">outlasts trigger</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Neuroscience of Emotions, ~00:08. Schematic of the features Adolphs lists.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Attention</p>
+        <h4>Priority interrupts</h4>
+        <p><span class="lbl">What happened. </span>Emotions share priority with reflexes: they seize control of behavior. Simon framed them as interrupt mechanisms for goal-directed life.</p>
+        <p><span class="lbl">Why it matters. </span>You cannot schedule an emotion away. Any regulation strategy must work with an interrupt, not against a schedule.</p>
+        <p><span class="lbl">The principle. </span>Design your tools for the interrupt moment. Calm planning loses to a hijacked attention every time.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-granularity" data-time="~00:28" data-title="Granularity and reappraisal">
+      <p class="ch-time">~00:28</p>
+      <h2>Granularity and Reappraisal</h2>
+      <p>Before you can regulate an emotion, you must identify it. Adolphs credits Lisa Feldman Barrett for the main work on emotional granularity: how fine-grained your awareness of your own emotions can be. A tangled knot of confusion and frustration feels overwhelming partly because it has no edges. Naming the strands gives the regulation strategies something to grip.</p>
+      <p>Language helps, but Adolphs says it is not required. Some people think in words, some in pictures, most in a mixture. The point is discrimination, not vocabulary.</p>
+      <p>Once identified, the main strategies are cognitive reappraisal: reinterpreting the situation to change the emotion. His warning is precise. Reappraise without overthinking it. Go down the rabbit hole and you feel the emotion more, not less. Good reappraisal is light and fast, a reframe, not a rumination.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Regulation</p>
+        <h4>Name it without drowning in it</h4>
+        <p><span class="lbl">What happened. </span>Emotional granularity, from Barrett's work, lets you separate a tangled feeling into parts. Cognitive reappraisal then reframes the situation, but only if it stays light.</p>
+        <p><span class="lbl">Why it matters. </span>Granularity without reappraisal is just a finer misery. Reappraisal without granularity has nothing to work on. And heavy analysis becomes the emotion it meant to fix.</p>
+        <p><span class="lbl">The principle. </span>Separate the strands, reframe once, move on. If you are still analyzing, you are no longer regulating.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-icebath" data-time="~00:33" data-title="The ice bath experiment">
+      <p class="ch-time">~00:33</p>
+      <h2>The Ice Bath Experiment</h2>
+      <figure>
+        <img src="assets/ep02-ice-bath.webp" alt="Watercolor illustration of a person sitting calmly in a trough of ice water at dawn">
+        <p class="caption"><b>Illustration.</b> Adolphs trains his own autonomic control in a horse trough of ice. AI-generated watercolor made for this page.</p>
+      </figure>
+      <p>Regulation has two trainable parts, Adolphs says. One is the strategy itself. The other is the strength and automaticity of control, the muscle underneath every strategy. To train his, he took up ice baths on a tip from his former colleague Justin Feinstein.</p>
+      <p>The setup is gloriously unglamorous: a horse watering trough from Amazon, insulated, filled with 40-pound bags of ice every week. The first week was terrible, pure whole-body cold pain. The second week his breathing and heart rate still rose. Then, gradually, with a kind of automaticity, the pattern flipped. Now he steps in and his heart rate drops, his breathing drops, and he relaxes completely.</p>
+      <p>The training generalized. Trying to park on the street with a driver honking behind him, he felt his stress response stay flat, trained in the trough and transferred to traffic. He is careful about the claim: <q>It's an experiment of one.</q> He does not present it as a published study. He presents it as direct autonomic training with a sample size of one and a result he can feel.</p>
+      <p>He also names the strategy that comes before any other: situational avoidance, structuring the environment so you never enter the state you want to avoid. Do not rely on willpower inside the bar. Choose the restaurant without one.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Training</p>
+        <h4>Train the controller</h4>
+        <p><span class="lbl">What happened. </span>Adolphs trained autonomic control with ice baths until the stress response inverted: heart rate and breathing now drop on entry. The control transferred to unrelated stressors like traffic.</p>
+        <p><span class="lbl">Why it matters. </span>Strategies are software. Control strength is hardware. Most people debug the software while the hardware stays weak.</p>
+        <p><span class="lbl">The principle. </span>Practice voluntary stress in a safe container. The calm you build there follows you out.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-sm" data-time="~00:45" data-title="Patient S.M. and the amygdala">
+      <p class="ch-time">~00:45</p>
+      <h2>Patient S.M. and the Amygdala</h2>
+      <p>Adolphs began his career on the amygdala as a postdoc with Antonio Damasio in the early 1990s, studying a famous patient known as S.M. She had selective bilateral amygdala lesions. The first finding: she could not perceive fear in emotional facial expressions.</p>
+      <p>Years later, with Justin Feinstein as first author, the team tested whether she could feel fear at all. They took her to haunted houses, where she poked the monsters and tried to touch things. They took her to an exotic pet store with snakes and spiders. They showed her horror movies. She showed no conscious experience of fear in any of them. One patient is a big caveat, but the deficit looked specific to fear.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Lesion logic</p>
+        <h4>Necessary for some fears, not all</h4>
+        <p><span class="lbl">What happened. </span>Patient S.M., with both amygdalae lesioned, lost fear of external threats: faces, haunted houses, snakes, horror films. The deficit was specific, not a general emotional blank.</p>
+        <p><span class="lbl">Why it matters. </span>The amygdala is not the fear center. It is a module for a class of fears, which means other classes run on other hardware.</p>
+        <p><span class="lbl">The principle. </span>When a system breaks selectively, believe the selectivity. It maps the real boundaries.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-co2" data-time="~00:58" data-title="The carbon-dioxide panic">
+      <p class="ch-time">~00:58</p>
+      <h2>The Carbon-Dioxide Panic</h2>
+      <p>The S.M. story has a twist that redraws the map. Feinstein, with collaborators including Rene Hurleman in Germany, put a mask on S.M. and two or three patients with similar lesions and had them inhale carbon dioxide. CO2 changes blood pH, the brain detects suffocation, and about half the general population gets a panic attack from it. Every amygdala-lesion patient had a full-blown panic attack.</p>
+      <p>The conclusion is sharp. The amygdala is required for fear of external threats, but interoceptive fear, the alarm from inside the body, runs on different circuitry and survives without it. Two fear systems, two sets of hardware.</p>
+      <div class="chart" id="chart-sm">
+        <h4>Patient S.M.: which fears survive without amygdalae</h4>
+        <p class="csub">Direction of effect from the studies described. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Chart comparing fear responses with and without amygdalae">
+          <text class="vallab" x="170" y="34" text-anchor="middle">External threats: fear absent</text>
+          <text class="vallab" x="470" y="34" text-anchor="middle">Internal signal: panic present</text>
+          <rect class="bar alt" x="80" y="52" width="180" height="36" data-tip="Fearful faces: S.M. cannot perceive fear in facial expressions"></rect>
+          <rect class="bar alt" x="80" y="96" width="180" height="36" data-tip="Haunted houses: she poked the monsters, wanted to touch things"></rect>
+          <rect class="bar alt" x="80" y="140" width="180" height="36" data-tip="Snakes, spiders, horror movies: no conscious fear"></rect>
+          <rect class="bar" x="380" y="52" width="180" height="124" data-tip="Carbon-dioxide inhalation: full-blown panic attack in S.M. and the other amygdala-lesion patients"></rect>
+          <text class="axis" x="170" y="76" text-anchor="middle">faces</text>
+          <text class="axis" x="170" y="120" text-anchor="middle">haunted houses</text>
+          <text class="axis" x="170" y="164" text-anchor="middle">snakes, films</text>
+          <text class="axis" x="470" y="108" text-anchor="middle" fill="#fff">CO2 panic</text>
+          <text class="axis" x="470" y="128" text-anchor="middle" fill="#fff">intact</text>
+          <text class="axis" x="320" y="230" text-anchor="middle">The amygdala gates fear of the outside world.</text>
+          <text class="axis" x="320" y="250" text-anchor="middle">The suffocation alarm lives elsewhere.</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Neuroscience of Emotions, ~00:45 to ~00:58. Feinstein et al. studies as described in the episode.</p>
+      </div>
+      <p>The same section touches how emotions map onto the body. Researchers build bodily maps of emotions, charts of where people feel anger, fear, joy, and sadness in their flesh. The maps are consistent enough to study, which is one more line of evidence that emotions are whole-body events, not brain-only software.</p>
+    </section>
+
+    <section class="chapter" id="ch-regulation" data-time="~01:26" data-title="The new science of regulation">
+      <p class="ch-time">~01:26</p>
+      <h2>The New Science of Regulation</h2>
+      <p>Adolphs traces the field through James Gross, who first organized emotion regulation around basic mechanisms: suppression, reappraisal, acceptance. The field has since moved to two bigger ideas: variability and flexibility. No single skill fits all occasions. The skilled regulator holds many options and switches among them with the context.</p>
+      <p>The other big shift is interpersonal. Emotion regulation happens between people. You regulate others, you read others, and their states change yours, a bidirectional exchange. A large part of emotional intelligence is an automatic read of that exchange, tuned to context.</p>
+      <div class="chart" id="chart-gross">
+        <h4>Emotion regulation: from three mechanisms to two capacities</h4>
+        <p class="csub">Schematic of the field's movement as Adolphs describes it.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Timeline of emotion regulation science">
+          <text class="vallab" x="170" y="40" text-anchor="middle">Gross era: mechanisms</text>
+          <text class="vallab" x="470" y="40" text-anchor="middle">Today: capacities</text>
+          <rect class="bar alt" x="80" y="60" width="180" height="40" data-tip="Suppression: pushing the emotion down"></rect>
+          <rect class="bar alt" x="80" y="108" width="180" height="40" data-tip="Reappraisal: reinterpreting the situation"></rect>
+          <rect class="bar alt" x="80" y="156" width="180" height="40" data-tip="Acceptance: letting the emotion be"></rect>
+          <rect class="bar" x="380" y="60" width="180" height="64" data-tip="Variability: hold many regulation options"></rect>
+          <rect class="bar" x="380" y="132" width="180" height="64" data-tip="Flexibility: switch options with the context"></rect>
+          <text class="axis" x="170" y="86" text-anchor="middle">suppression</text>
+          <text class="axis" x="170" y="134" text-anchor="middle">reappraisal</text>
+          <text class="axis" x="170" y="182" text-anchor="middle">acceptance</text>
+          <text class="axis" x="470" y="96" text-anchor="middle" fill="#fff">variability</text>
+          <text class="axis" x="470" y="168" text-anchor="middle" fill="#fff">flexibility</text>
+          <text class="axis" x="320" y="240" text-anchor="middle">Plus the interpersonal turn: regulation happens between people,</text>
+          <text class="axis" x="320" y="260" text-anchor="middle">not just inside one head.</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Neuroscience of Emotions, ~01:26. Gross's mechanisms and the field's move to variability and flexibility, per Adolphs.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Social</p>
+        <h4>Regulation is interpersonal</h4>
+        <p><span class="lbl">What happened. </span>The modern view adds the social dimension: people regulate each other's emotions in a bidirectional exchange, and reading it automatically is a core emotional skill.</p>
+        <p><span class="lbl">Why it matters. </span>Solo techniques miss half the system. Your calm regulates the room, and the room regulates you.</p>
+        <p><span class="lbl">The principle. </span>Practice regulation with people, not just on yourself. The audience is part of the instrument.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-tools" data-time="~01:53" data-title="Tools: breath, meditation, music">
+      <p class="ch-time">~01:53</p>
+      <h2>Tools: Breath, Meditation, Music</h2>
+      <p>The episode closes its tool section with breathing. A friend asked to do coherence breathing before they sat down: slow inhales and exhales to a tone. Adolphs calls such transition exercises great, and notes they raise heart rate variability. The body is the fastest lever on the emotion because the emotion already lives there.</p>
+      <p>He adds a caution from the meditation literature. A study of five minutes of meditation per day found that people felt tremendous increases in anxiety during the initial phase, just sitting with their thoughts while everything stirred. The tool works, but the on-ramp is uncomfortable, and beginners should expect it.</p>
+      <p>Two more set pieces round out the science. Adolphs describes running 100-mile races across 30 hours as a study in sustained emotion management, the mindset work of mile 40, mile 50, mile 60. And he cites one of the earliest emotion studies, Anne Blood and Robert Sattorii in the mid-90s, who used PET, not fMRI, to watch what music does to the brain when a piece sends shivers down the spine.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Practice</p>
+        <h4>Start with the breath</h4>
+        <p><span class="lbl">What happened. </span>Coherence breathing and transition exercises raise heart rate variability and work fast. Meditation helps too, but five minutes a day first raised anxiety before it lowered it.</p>
+        <p><span class="lbl">Why it matters. </span>The breath is the shortest path to the emotion because the emotion is a body state. Expect the first sessions to feel worse. That is the stir, not the failure.</p>
+        <p><span class="lbl">The principle. </span>When in doubt, breathe first and analyze later. Judge a practice at week four, not day two.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Emotion words predate science, but emotions are real: evolved modules for recurring challenges.</li>
+          <li>Priority, valence, scalability, persistence: the four features that mark an emotion.</li>
+          <li>Granularity first, then light reappraisal. Heavy analysis becomes the feeling it meant to fix.</li>
+          <li>Train the control muscle with voluntary stress. The calm transfers.</li>
+          <li>The amygdala gates external fear. The suffocation alarm lives elsewhere.</li>
+          <li>Modern regulation is variability plus flexibility, and it happens between people.</li>
+          <li>Breathe first. Expect meditation to stir anxiety before it settles it.</li>
+        </ol>
+        <p class="src">Distilled from Huberman Lab, Neuroscience of Emotions and Tools for Improving Emotion Regulation with Dr. Ralph Adolphs (~2h10m). Full episode: youtube.com/watch?v=P-h5WSQG1Sw. Studies named: Feinstein et al. on patient S.M., the carbon-dioxide panic work with Rene Hurleman, Barrett on emotional granularity, Gross on emotion regulation, Anne Blood and Robert Sattorii's PET music study.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Huberman Lab episode Neuroscience of Emotions and Tools for Improving Emotion Regulation with Dr. Ralph Adolphs (~2h10m). All facts and figures come from the episode. Timestamps marked ~ are proportional estimates from transcript position. Each chart names its source. Illustrations are AI-generated watercolors made for this page and labeled as such.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 21 words: the pull quote (9 words) and two short phrases in quotation marks (7 and 5 words). The pull quote carries speaker and episode-timestamp attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+})();
+</script>
+</body>
+</html>
