@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn Any Hard Skill In 2024: Deep Questions Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Deep Questions episode on mastering hard skills: the stair-step model, deliberate practice, and the phone foyer.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Deep Questions · Track Companion</a>
+  <span class="sub">Learn Any Hard Skill In 2024</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Deep Questions · Companion</p>
+      <h1>Learn Any Hard Skill In 2024</h1>
+      <p class="dek">The masterclass: the wrong mental model, the stair-step climb, and where the hours come from.</p>
+<style>
+.tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.tag.sf{background:#e3f0e6;color:#1d5c2e;border:1px solid #bcd8c2}
+.tag.it{background:#fdf3e3;color:#8a5a12;border:1px solid #ecd9ac}
+.legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:24px 0;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.legend .k{font-weight:700;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+</style>
+      <img src="assets/cal-newport.jpg" alt="Portrait photograph of Cal Newport">
+      <p class="caption"><b>Cal Newport.</b> Photo: robertglazer.com (Elevate Podcast). This episode replays his January 1, 2024 masterclass on learning hard things.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">2024</div><div class="l">Jan 1</div><div class="s">the original episode, replayed as a classic</div></div>
+        <div class="stat"><div class="n">16</div><div class="l">Years old</div><div class="s">when Newport's own climb up the steps began</div></div>
+        <div class="stat"><div class="n">17</div><div class="l">Steps</div><div class="s">climbed before MIT's theory of computation course</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">Note systems</div><div class="s">working memory, obligation tracker, idea capture</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/dDV1bDiJSWE" title="Deep Questions: Learn Any Hard Skill In 2024 with Cal Newport (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The replay</a></li>
+          <li><a href="#nugget-2">The hierarchy illusion</a></li>
+          <li><a href="#nugget-3">The good news</a></li>
+          <li><a href="#nugget-4">The bad news</a></li>
+          <li><a href="#nugget-5">The stair-step model</a></li>
+          <li><a href="#nugget-6">Tractable but not trivial</a></li>
+          <li><a href="#nugget-7">The Aristotelian why</a></li>
+          <li><a href="#nugget-8">The phone foyer</a></li>
+          <li><a href="#nugget-9">The three note systems</a></li>
+          <li><a href="#nugget-10">Choose a few things</a></li>
+        </ol>
+      </div>
+      <div class="legend">
+        <span class="k">How to read this companion.</span>
+        <span class="tag sf">Source fact</span> marks claims stated in the episode.
+        <span class="tag it">Interpretation</span> marks analysis and transferable lessons drawn from those facts.
+        Every chart names its episode source. Illustrations are AI-generated watercolors made for this page.
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-replay" data-time="Part 1" data-title="The replay">
+      <p class="ch-time">Part 1</p>
+      <h2>The Replay</h2>
+      <p>Newport opens with the frame: on New Year's Day 2024 he released a detailed episode on learning hard things, and he replays it in full because it has only grown more important. The setup is the attention economy. The standard advice says to replace mindless scrolling with meaningful activities, which rewires the brain to find the phone less interesting. The catch: meaningful activities are hard, and in a world of easy dopamine we have grown bad at mastering hard things. This episode is the repair manual.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The frame</p>
+        <h4>The replay</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport replays his January 1, 2024 episode on mastering hard skills, arguing that comfort with hard things is the prerequisite for escaping easy dopamine.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The advice to do meaningful things fails without the skill of learning them. This episode supplies the missing skill.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Before you swap the habit, learn the craft of hard things.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-hierarchy" data-time="Part 2" data-title="The hierarchy illusion">
+      <p class="ch-time">Part 2</p>
+      <h2>The Hierarchy Illusion</h2>
+      <p>Newport starts by demolishing the common mental model. He draws a hierarchy of complexity: complicated math at the top, then Proust, then deep music appreciation, then following baseball, then YouTube trivia at the bottom. The common model says each person has a fixed brain limit somewhere on this ladder. You can master music but not math proofs. The PhD understands Proust because she is smarter than you. Your YouTube expertise marks you as less smart than the music lover.</p>
+      <p>This model, Newport says, is wrong. It mistakes the results of time investment for the verdict of brain power.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · The myth</p>
+        <h4>The hierarchy illusion</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport describes the folk model: a complexity hierarchy from math to YouTube, with each person's mastery level fixed by their brain.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The model is a permission slip to quit early. Declaring yourself not smart enough ends the inquiry before it starts.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Distrust any model that converts effort into destiny.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-goodnews" data-time="Part 3" data-title="The good news">
+      <p class="ch-time">Part 3</p>
+      <h2>The Good News</h2>
+      <p>The reality comes in two parts. The good news: most people are cognitively capable of learning things high up the hierarchy. You can learn complicated literature, mathematical things, deep sports or music appreciation.</p>
+      <div class="pull">
+        <blockquote>most people can learn most things</blockquote>
+        <p class="who">Cal Newport's good news about learning · Deep Questions</p>
+      </div>
+      <p>Brain differences exist, but Newport argues they matter less than we think. Adults run at different RPMs, but much of that is nurture: the heavy childhood reader trained a stronger brain, the way Arnold Schwarzenegger's childhood pushups built a stronger body by nineteen. Differences show up at the extreme upper end, almost anyone can learn calculus, even if not everyone becomes a Fields medalist, and in learning speed. Since nobody times your mastery, speed barely matters.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The capacity</p>
+        <h4>The good news</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues most people can learn most things, with brain differences mattering mainly at the extremes and in speed, and much of the difference coming from nurture rather than nature.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The ceiling is higher than you think and the floor is mostly training history.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Assume you can learn it. Let the work prove otherwise.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-badnews" data-time="Part 4" data-title="The bad news">
+      <p class="ch-time">Part 4</p>
+      <h2>The Bad News</h2>
+      <p>The bad news: you can learn almost anything, but you cannot learn everything. What mastery hides is duration. We imagine the expert picked up the math textbook a month ago and it just clicked. In reality a long climb preceded the expertise, and that climb took time. Time is finite. So only so many complicated things fit in a life.</p>
+      <div class="pull">
+        <blockquote>you can learn almost anything, but you can't learn everything</blockquote>
+        <p class="who">Cal Newport's bad news about learning · Deep Questions</p>
+      </div>
+      <p>This is the mental model shift: stop explaining mastery with brain power and start explaining it with time investment. More time, more complexity learned. Less time, less. Brain power is orthogonal.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · The constraint</p>
+        <h4>The bad news</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues that mastery hides a long time investment, time is finite, so the number of hard things you can master is limited, and complexity learned tracks time invested, not brain power.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Scarcity forces choice. The question is not whether you can, but which few you choose.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Budget mastery like money: finite, and spent on purpose.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-stairs" data-time="Part 5" data-title="The stair-step model">
+      <p class="ch-time">Part 5</p>
+      <h2>The Stair-Step Model</h2>
+      <p>Newport draws the true model: a staircase. Put the goal at the top, a music note for jazz mastery, say. You climb level by level, and from any level your brain can only take a relatively small step up. Many small steps separate knowing nothing from talking intelligently.</p>
+      <p>Each step is climbed with deliberate practice: carefully designed exercises that push understanding one level up, out of what is comfortable. There must be strain in it. The activity stretches you, and its design targets exactly the right next level. That is the deliberate piece. That is the practice piece.</p>
+      <p>His own climb shows the structure. It started at sixteen. High school to AP computer science to college courses to MIT, where he arrived having already climbed seventeen steps before taking theory of computation. By thirty-five the expertise looked effortless. It was a very long staircase.</p>
+      <img src="assets/dq-ep09-stairs.webp" alt="Watercolor illustration of a long staircase climbing toward a glowing music note, a small figure midway up">
+      <p class="caption"><b>Illustration.</b> The stair-step model: small steps, deliberately designed, all the way up. AI-generated watercolor made for this page.</p>
+      <div class="chart" id="chart-models">
+        <h4>Wrong model versus stair-step model</h4>
+        <svg viewBox="0 0 680 300" role="img" aria-label="The wrong brain-limit model versus the stair-step time-investment model">
+          <text x="170" y="30" text-anchor="middle" class="vallab">The wrong model</text>
+          <rect x="60" y="44" width="220" height="200" rx="8" fill="#b4531f" data-tip="Wrong model: a fixed brain limit on a complexity hierarchy decides what you can master."/>
+          <text x="170" y="100" text-anchor="middle" fill="#fff" font-size="14">Fixed brain limit</text>
+          <text x="170" y="124" text-anchor="middle" fill="#fff" font-size="14">on a hierarchy:</text>
+          <text x="170" y="150" text-anchor="middle" fill="#e8dcc8" font-size="13">math, Proust, music,</text>
+          <text x="170" y="172" text-anchor="middle" fill="#e8dcc8" font-size="13">baseball, YouTube</text>
+          <text x="170" y="206" text-anchor="middle" fill="#fff" font-size="13">Mastery = smartness</text>
+          <text x="510" y="30" text-anchor="middle" class="vallab">The stair-step model</text>
+          <rect x="400" y="44" width="220" height="200" rx="8" fill="#1f6f8b" data-tip="True model: small deliberate-practice steps, each tractable but not trivial, over a long time."/>
+          <text x="510" y="100" text-anchor="middle" fill="#fff" font-size="14">Small steps,</text>
+          <text x="510" y="124" text-anchor="middle" fill="#fff" font-size="14">deliberately designed</text>
+          <text x="510" y="150" text-anchor="middle" fill="#e8dcc8" font-size="13">tractable but not trivial</text>
+          <text x="510" y="172" text-anchor="middle" fill="#e8dcc8" font-size="13">strain at each level</text>
+          <text x="510" y="206" text-anchor="middle" fill="#fff" font-size="13">Mastery = time invested</text>
+          <text x="340" y="276" text-anchor="middle" class="axis">Ask not how far from the top. Ask: what is the next step?</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Learn Any Hard Skill In 2024, the two mental models. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · The mechanism</p>
+        <h4>The stair-step model</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport models learning as small deliberate-practice steps up a staircase, each step stretching past comfort, illustrated by his own seventeen-step climb to MIT's theory of computation starting at age sixteen.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The right question is local: the next step, not the summit.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Design the next step. Climb it. Repeat for years.</p>
+      </div>
+      <div class="pull">
+        <blockquote>tractable but not trivial</blockquote>
+        <p class="who">Cal Newport on designing each practice step · Deep Questions</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · The filter</p>
+        <h4>Tractable but not trivial</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport says each step's activity must be tractable but not trivial: accomplishable, yet hard enough to stretch you, which is why expert help with step design matters.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Too easy wastes the step. Too hard breaks the climber. The band in between is where growth lives.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Calibrate every practice step: hard enough to strain, easy enough to complete.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-why" data-time="Part 6" data-title="The Aristotelian why">
+      <p class="ch-time">Part 6</p>
+      <h2>The Aristotelian Why</h2>
+      <p>Is the climb worth it? Newport says yes, and reaches for Aristotle's Nicomachean Ethics. Humans alone can aim the mind at abstract ends and contemplate deeply. Dogs, cats, and parakeets cannot. That capacity may be the ultimate teleology of the human experience: what we are wired to do is use the brain in exalted ways, because that is what defines us as human.</p>
+      <p>His practical standard: everyone should have one complicated thing they do better than anyone they know, at work and in personal life. Not casual familiarity but connoisseurship: the sommelier certificate, the published film reviews, the deep understanding of movies that goes beyond theatergoing. Mastery of hard things is, in the Aristotelian sense, becoming more human.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · The purpose</p>
+        <h4>The Aristotelian why</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport cites Aristotle's Nicomachean Ethics on deep contemplation as the human teleology, and prescribes one complicated mastery each for work and personal life, at connoisseur level.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> A why this deep survives the strain that kills shallow goals.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Pick your hard things. Master them to connoisseur level.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-foyer" data-time="Part 7" data-title="The phone foyer">
+      <p class="ch-time">Part 7</p>
+      <h2>The Phone Foyer</h2>
+      <p>Where does the time come from? Newport is blunt: stop spending it on the phone. The dopamine push toward something funny or outrageous eats time after time after time. His method is the phone foyer: the phone lives plugged in, in the kitchen or the foyer. If you need it, walk there and look something up. It is not with you by default. Not on the couch, not at the dinner table, and, God forbid, not in the bathroom.</p>
+      <p>Freed, the brain wants something to do. Give it the next stair step, at work and in personal life. Newport's New Year wish: that this changes how you feel about your efficacy and your ability to do important, useful things with your brain.</p>
+      <img src="assets/dq-ep09-foyer.webp" alt="Watercolor illustration of a phone plugged in and resting on a hallway table by a front door, its owner reading in the next room">
+      <p class="caption"><b>Illustration.</b> The phone foyer: the device lives by the door, not by you. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · The funding</p>
+        <h4>The phone foyer</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport prescribes the phone foyer method: the phone stays plugged in at the kitchen or foyer, available on demand but never carried by default.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Time for mastery is not found. It is confiscated from the phone.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Park the phone at the door. Fund the staircase with the hours.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-notes" data-time="Part 8" data-title="The three note systems">
+      <p class="ch-time">Part 8</p>
+      <h2>The Three Note Systems</h2>
+      <p>The Q and A turns to note-taking, which Newport defines broadly: recording information on a durable written medium, outside your head, for later reference. Knowledge workers need three distinct systems, and mixing them up causes the trouble.</p>
+      <p>First, a working memory extender: his workingmemory.txt file, temporary capture for the day's inflow, meeting notes and inbox actions, processed out into calendars and the obligation system and reset constantly. Second, an obligation tracker: every obligation and its information in one categorized place. He uses Trello, one board per role, one column per obligation type, one card per obligation. Third, idea capture: the system most people mean by note-taking, for interesting ideas, articles, brainstorms, plans. His is a Remarkable 2 tablet.</p>
+      <div class="chart" id="chart-notes">
+        <h4>The three note systems</h4>
+        <svg viewBox="0 0 680 300" role="img" aria-label="The three note-taking systems: working memory extender, obligation tracker, idea capture">
+          <rect x="30" y="50" width="195" height="170" rx="8" fill="#1f6f8b" data-tip="Working memory extender: temporary capture, reset constantly. Newport uses workingmemory.txt."/>
+          <text x="127" y="110" text-anchor="middle" fill="#fff" font-size="15">Working memory</text>
+          <text x="127" y="134" text-anchor="middle" fill="#fff" font-size="15">extender</text>
+          <text x="127" y="164" text-anchor="middle" fill="#e8dcc8" font-size="12">temporary, reset often</text>
+          <text x="127" y="184" text-anchor="middle" fill="#e8dcc8" font-size="12">workingmemory.txt</text>
+          <rect x="242" y="50" width="195" height="170" rx="8" fill="#b4531f" data-tip="Obligation tracker: every obligation and its info, categorized. Newport uses Trello."/>
+          <text x="339" y="110" text-anchor="middle" fill="#fff" font-size="15">Obligation</text>
+          <text x="339" y="134" text-anchor="middle" fill="#fff" font-size="15">tracker</text>
+          <text x="339" y="164" text-anchor="middle" fill="#e8dcc8" font-size="12">durable, categorized</text>
+          <text x="339" y="184" text-anchor="middle" fill="#e8dcc8" font-size="12">Trello boards</text>
+          <rect x="454" y="50" width="195" height="170" rx="8" fill="#1f6f8b" data-tip="Idea capture: interesting ideas, articles, brainstorms, plans. Newport uses a Remarkable 2."/>
+          <text x="551" y="110" text-anchor="middle" fill="#fff" font-size="15">Idea capture</text>
+          <text x="551" y="140" text-anchor="middle" fill="#e8dcc8" font-size="12">ideas and plans</text>
+          <text x="551" y="164" text-anchor="middle" fill="#e8dcc8" font-size="12">Remarkable 2</text>
+          <text x="340" y="262" text-anchor="middle" class="axis">Three systems, three jobs. Do not mix them.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Learn Any Hard Skill In 2024, the three note-taking systems. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · The systems</p>
+        <h4>The three note systems</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport separates note-taking into a working memory extender (workingmemory.txt), an obligation tracker (Trello), and idea capture (Remarkable 2), each with its own lifespan and job.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> One notebook for everything becomes a notebook for nothing. Separation is the system.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Temporary, durable, and creative notes live in different homes.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · The choice</p>
+        <h4>Choose a few things</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport closes the loop: you can learn almost anything but not everything, so choose a few hard things worth learning and start climbing now.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The staircase rewards the chooser, not the dabbler.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Pick few. Climb long. Become the person who knows.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>The hierarchy is an illusion. Mastery tracks time invested, not brain power.</li>
+          <li>Good news: most people can learn most things. Bad news: not everything.</li>
+          <li>Learn by stair steps: small, deliberate, strained, tractable but not trivial.</li>
+          <li>Ask the next-step question, not the how-far-from-the-top question.</li>
+          <li>Master hard things because contemplation is the human teleology.</li>
+          <li>Fund the climb with phone-foyer hours.</li>
+          <li>Run three note systems: working memory, obligations, ideas.</li>
+        </ol>
+        <p class="src">Distilled from Deep Questions, Learn Any Hard Skill In 2024 with Cal Newport. Video: youtube.com/watch?v=dDV1bDiJSWE.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Deep Questions episode "Learn Any Hard Skill In 2024" (dDV1bDiJSWE). All facts and figures come from the episode transcript or the episode itself at youtube.com/watch?v=dDV1bDiJSWE. Each chart names its episode source. The portrait photograph is real, with attribution in its caption. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 20 words: three pull quotes ("most people can learn most things", 6 words, "you can learn almost anything, but you can't learn everything", 10 words, and "tractable but not trivial", 4 words). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+
+</script>
+</body>
+</html>
