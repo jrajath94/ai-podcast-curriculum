@@ -444,7 +444,7 @@ span.ptag, .ptag {
 </div>
 <p class="caption"><b>Watch.</b> The official Modern Wisdom episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p></div>
 <div class="legend src-legend"><b>How to read this companion.</b> <span class="srctag src">Source</span> marks claims taken straight from the episode. <span class="srctag int">Interpretation</span> marks analysis that goes beyond the episode. Every chart carries its source line. Brief quoted phrases are counted in the footer.</div>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a painter at an easel whose brush paints historical figures in absurdly mismatched modern costumes" class="base" fetchpriority="high" src="assets/illustration-ep06-hero.webp"/></div></div><figcaption><b>Illustration.</b> The alignment overcorrection: when the safety layer rewrites the picture. AI-generated watercolor made for this page.</figcaption></figure>
+</div><figure class="paint wide" data-entrance="bloom" data-hero="1" data-phase2="1" data-scene="mw-ep06-easel"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a painter at an easel whose brush paints historical figures in absurdly mismatched modern costumes" class="base" fetchpriority="high" src="assets/illustration-ep06-hero.webp"/><img class="ly mul" data-obj="hero-subject" data-depth="8" src="assets/ep06-hero-layer.png" alt="" aria-hidden="true" style="left:18%;top:6%;width:64%"/></div></div><figcaption><b>Illustration.</b> The alignment overcorrection: when the safety layer rewrites the picture. AI-generated watercolor made for this page.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="Ch 1" data-title="The image debacle" id="ch-1"><div class="ch-head"><div><p class="ch-meta"><span class="ts">Chapter 1</span> · The image debacle</p><h2>The image debacle</h2></div></div>
 <p>The episode opens on the screenshots. Users asked Gemini for images of Nazis and the founding fathers and got Black Nazis and Black founding fathers instead.</p>
 <p>Destiny reads it as a tell. The model was not hallucinating randomly. It was following an instruction to diversify outputs, applied with no sense of when diversification falsifies history.</p>
@@ -1249,5 +1249,34 @@ span.ptag, .ptag {
   });
 })();
 
+</script><script>/* Phase 2 Tier 3 scene life (builder 3) */
+(function(){var FX=window.CompanionFX;if(!FX||!FX.registerScene)return;
+FX.registerScene('mw-ep06-easel',{init:function(F,FX){F._a=FX.motes(F.stage,F.W,F.H,14,7);},pose:function(S,FX){S.F._a.tick(S.t); return {};}});
+})();</script><script>/* Phase 2 chart upgrade (builder 3) */
+
+(function(){var cid='chart-views';var root=document.getElementById(cid);if(!root)return;
+var svg=root.querySelector('svg');if(!svg)return;var NS='http://www.w3.org/2000/svg';
+var STEPS=[{"cx": 150, "cy": 164, "bx": 70, "by": 140, "cap": "Episode 1: 1.77 million views, per the track index."}, {"cx": 338, "cy": 205, "bx": 70, "by": 110, "cap": "Episode 2: 1.12 million views, per the track index."}, {"cx": 526, "cy": 255, "bx": 70, "by": 60, "cap": "This episode: 0.339 million views, per the track index."}];var groups=[];
+function ctr(el){var x=el.getAttribute('x'),y=el.getAttribute('y'),w=el.getAttribute('width'),hh=el.getAttribute('height');
+var cx=el.getAttribute('cx'),cy=el.getAttribute('cy');
+var px=cx!==null?parseFloat(cx):(x!==null?parseFloat(x)+(w?parseFloat(w)/2:0):null);
+var py=cy!==null?parseFloat(cy):(y!==null?parseFloat(y)+(hh?parseFloat(hh)/2:0):null);
+return [px,py];}
+STEPS.forEach(function(st,i){var g=document.createElementNS(NS,'g');g.setAttribute('class','p2-step');g.setAttribute('data-step',i);
+var bx=st.bx||80,by=st.by||80;
+var keep=[];Array.prototype.slice.call(svg.children).forEach(function(el){
+if(el.tagName==='line')return;var p=ctr(el);if(p[0]===null||p[1]===null)return;
+if(Math.abs(p[0]-st.cx)<=bx&&Math.abs(p[1]-st.cy)<=by)keep.push(el);});
+keep.forEach(function(el){g.appendChild(el);});svg.appendChild(g);groups.push(g);});
+var ctrl=document.createElement('div');ctrl.className='ctrl';
+ctrl.innerHTML='<button type="button" class="btn" data-n="-1">&larr; Back</button><span class="ui p2-pos">1 of N</span><button type="button" class="btn primary" data-n="1">Next &rarr;</button>';
+var cap=document.createElement('p');cap.className='fig-note p2-cap';
+root.insertBefore(ctrl,svg);root.insertBefore(cap,svg.nextSibling);
+var i=0;function show(k){i=Math.max(0,Math.min(STEPS.length-1,k));
+groups.forEach(function(g,j){g.style.opacity=j===i?'1':'0.14';g.style.transition='opacity .4s ease';});
+ctrl.querySelector('.p2-pos').textContent=(i+1)+' of '+STEPS.length;cap.textContent=STEPS[i].cap;
+svg.setAttribute('aria-label',STEPS[i].cap);}
+ctrl.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){show(i+parseInt(b.getAttribute('data-n'),10));});});
+show(0);})();
 </script></body>
 </html>
