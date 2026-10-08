@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conflict, Purpose and Drive: Lex Fridman | Huberman Lab Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Lex Fridman: generational hate, information war, the Zelensky leadership signal, and the company plan that funds the robot dream.">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f4efe3; --ink:#23201a; --muted:#6e6455;
+    --line:#e0d6c0; --accent:#2f6f8f; --accent-ink:#1f5068; --soft:#e9f1f4;
+    --warn:#8a5a1d;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0ec}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:22px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.src{background:#dff0f7;color:var(--accent-ink);border:1px solid #bcd9e4}
+  .tag.int{background:#f5e8d4;color:var(--warn);border:1px solid #e3cda1}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .gap{background:#fdf6ec;border:1px dashed #d9b98a;padding:16px 20px;margin:26px 0;
+    font-family:var(--sans);font-size:13.5px;color:#6b5636;line-height:1.6}
+  .gap b{color:#4a3a22}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Huberman Lab · Track Companion</a>
+  <span class="sub">Episode 2 · Lex Fridman · 2022-11-28</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode 2 · Companion</p>
+      <h1>Conflict, Purpose and Drive</h1>
+      <p class="dek">Days after returning from Ukraine, Lex Fridman talks about generational hate, information war, and the leadership signal of staying, then lays out his company plan: a social network that trains the robots of the future. This companion follows the conversation in order.</p>
+      <img src="assets/ep02-hero-woods.webp" alt="Watercolor illustration of a lone traveler walking a path through dark woods toward a distant light">
+      <p class="caption"><b>Illustration.</b> Miles to go: the traveler chooses the path over the comfort of the woods. Made for this page. AI-generated watercolor in a New Yorker style, made for this page. It carries no words or labels.</p>
+      <div class="legend"><b>How to read this companion.</b>
+        Claims tagged <span class="tag src">SOURCE</span> trace to the episode or its transcript.
+        Claims tagged <span class="tag int">INTERPRETATION</span> are analysis added by this companion.
+        Numbers name their source line. Anything the episode never says is marked <b>Not in source</b>.</div>
+      <div class="stats">
+<div class="stat"><div class="n">30%</div><div class="l">Zelensky's approval before the invasion, per the episode</div><div class="s">Transcript, middle section</div></div>
+        <div class="stat"><div class="n">10,000+</div><div class="l">audience questions submitted. Lex answered a handful</div><div class="s">Transcript, late section</div></div>
+        <div class="stat"><div class="n">18 h/day</div><div class="l">the coding archetype Lex names: 18 hours a day, like John Carmack</div><div class="s">Transcript, late section</div></div>
+        <div class="stat"><div class="n">0</div><div class="l">reported crime after Ukraine armed its citizens, in that one moment</div><div class="s">Transcript, middle section. Not a general claim</div></div>
+      <div class="legend"><b>Honest gap.</b> This episode is roughly 80 percent geopolitics, conflict, and personal drive, and roughly 20 percent AI and robotics. This companion covers all the AI content in full and summarizes the conflict content at the level of its transferable ideas. It does not pretend this is an AI lecture.</div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/6I5I56uVvLw" title="Huberman Lab episode 2 with Lex Fridman, official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video on youtube-nocookie, the only external dependency on this page. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Hate generalizes</a></li>
+          <li><a href="#nugget-2">The spiral works like a drug</a></li>
+          <li><a href="#nugget-3">The shill test</a></li>
+          <li><a href="#nugget-4">Staying is the signal</a></li>
+          <li><a href="#nugget-5">One moment, not a policy</a></li>
+          <li><a href="#nugget-6">The company is the lab</a></li>
+          <li><a href="#nugget-7">A calling without data</a></li>
+          <li><a href="#nugget-8">Match the work style to the discipline</a></li>
+          <li><a href="#nugget-9">Training enables bravery</a></li>
+          <li><a href="#nugget-10">Miles to go</a></li>
+        </ol>
+      </div>
+    </div>
+    <section class="chapter" id="ch-hate" data-time="Opening" data-title="War creates generational hate">
+      <p class="ch-time">Opening section</p>
+      <h2>War creates generational hate</h2>
+      <p><span class="tag src">SOURCE</span> Lex went to Ukraine in 2022, days before this recording, because half his family is from Ukraine and half from Russia. His core observation: war's second-order effect is generational hate. People think war kills soldiers and civilians. They do not think about what lasts decades: anyone who lost a father, mother, daughter, or son now hates not just the soldiers or the leaders, but the entire people.</p>
+      <p><span class="tag src">SOURCE</span> The episode’s wording is that “hate generalizes.” Lex asked people in Ukraine whether they could ever forgive Russia. Most said no, they will never forgive. The generalization extends to all Russians, including those who did nothing, because doing nothing reads as complicity.</p>
+      <p><span class="tag src">SOURCE</span> The mechanism Lex describes is a spiral. Hate escalates like a drug. People who feel it often know they should not feel it and cannot help it. They know love would help everyone, and they feel the hate anyway.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Conflict</p>
+        <h4>Hate generalizes</h4>
+        <p><span class="lbl">What happened.</span> In Ukraine, Lex heard the same answer everywhere: forgiveness is off the table, and the blame covers the whole people, not just the army. Loss is personal. Blame is easy. The two combine into collective hate.</p>
+        <p><span class="lbl">Why it matters.</span> Generational hate outlives the war that made it. It becomes the cause of the next war. Anyone who wants to end conflict must treat the generalization, not just the fighting.</p>
+        <p><span class="lbl">The principle.</span> Watch for blame sliding from a specific act to a whole group. The slide is the mechanism. Name the specific act and the slide stops.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Psychology</p>
+        <h4>The spiral works like a drug</h4>
+        <p><span class="lbl">What happened.</span> Lex describes a feedback loop: loss creates hate, hate creates division, division creates more loss. People inside the loop often know they should stop. They cannot.</p>
+        <p><span class="lbl">Why it matters.</span> Knowing the loop exists does not break it. The loop runs on feeling, not argument. Interventions must change conditions, not minds.</p>
+        <p><span class="lbl">The principle.</span> When you see a self-reinforcing loop, stop arguing with its outputs. Change an input: the loss, the division, or the contact between sides.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-infowar" data-time="Early" data-title="Propaganda is an information war">
+      <p class="ch-time">Early section</p>
+      <h2>Propaganda is an information war</h2>
+      <p><span class="tag src">SOURCE</span> Lex's second observation: in the 21st century, war is largely an information war. He saw propaganda from every side. People who use one social feed as their news source are surprised by how much misinformation exists there. Real narratives, fully manufactured, run at scale.</p>
+      <p><span class="tag src">SOURCE</span> His personal test: he receives hate mail from every side. To one side he is a Zelensky shill, to another a Putin shill, to another a NATO shill. The variable changes, the hate stays constant. That pattern is itself evidence that the information environment manufactures sides faster than people can think.</p>
+      <p><span class="tag int">INTERPRETATION</span> The episode draws the AI connection explicitly: the same recommendation machinery Lex wants for social robotics can manufacture division. The mechanism is neutral. The objective function chooses the outcome.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Information</p>
+        <h4>The shill test</h4>
+        <p><span class="lbl">What happened.</span> Lex gets accused of being a shill for every side at once. The accusations contradict each other. The contradiction is the data: no single person can serve all masters, so the environment must manufacture the sides.</p>
+        <p><span class="lbl">Why it matters.</span> Mutually exclusive accusations are a cheap detector for manufactured division. You do not need to adjudicate the claims. The contradiction does the work.</p>
+        <p><span class="lbl">The principle.</span> On any heated topic, collect the strongest accusation each side makes about the other side's messengers. If the accusations contradict each other, treat the environment as manufactured and downgrade everything in it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-zelensky" data-time="Middle" data-title="Staying as leadership">
+      <p class="ch-time">Middle section</p>
+      <h2>Staying as leadership</h2>
+      <p><span class="tag src">SOURCE</span> Before the war, Zelensky had about 30 percent approval. Many Ukrainians did not like him. When Kyiv faced invasion and encirclement, every advisor, the American military, intelligence agencies, NATO, and his own staff told him to flee. He stayed.</p>
+      <div class="chart">
+        <h4>The approval math of the stay decision</h4>
+        <p class="csub">About 30 percent approval before the invasion means about 70 percent did not approve. Worked arithmetic: 100 minus 30 equals 70.</p>
+        <svg viewBox="0 0 640 220" role="img" aria-label="Bar chart of Zelensky pre-invasion approval: 30 percent approved, 70 percent did not">
+          <title>Zelensky pre-invasion approval, worked arithmetic</title>
+          <line x1="60" y1="180" x2="620" y2="180" stroke="#3d352a" stroke-width="2"/>
+          <rect x="140" y="120" width="110" height="60" class="bar"><title>About 30 percent approval, from the episode</title></rect>
+          <rect x="390" y="40" width="110" height="140" class="bar alt"><title>About 70 percent non-approval, worked arithmetic</title></rect>
+          <text x="195" y="108" text-anchor="middle" class="vallab">30%</text>
+          <text x="445" y="28" text-anchor="middle" class="vallab">70%</text>
+          <text x="195" y="200" text-anchor="middle" class="axis">approved</text>
+          <text x="445" y="200" text-anchor="middle" class="axis">did not approve</text>
+          <text x="320" y="235" text-anchor="middle" class="axis">The stay decision flipped the coordination of a country</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, middle section. The 30 percent figure is Lex’s wording for the pre-war approval rate. The 70 percent is worked arithmetic. The episode gives no post-invasion approval number. Not in source.</p>
+      </div>
+      <p><span class="tag src">SOURCE</span> Lex treats staying as the signal that held everything together: universities, science, infrastructure, the road and food supply. The decision was legible to everyone. A leader who stays when exit is advised creates a coordination point that no speech can create.</p>
+      <p><span class="tag src">SOURCE</span> Early in the war, Ukraine gave guns to everybody, semi-automatics, and released prisoners because no staff remained to run the prisons. Lex frames it as a natural experiment: with everyone armed and the police weakened, would crime explode? Crime went to zero. Lex's interpretation: it was not hate unifying people, it was love of country and love of community. He calls it an interesting lesson from one particular case in one particular moment in human history, and does not generalize it further.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Leadership</p>
+        <h4>Staying is the signal</h4>
+        <p><span class="lbl">What happened.</span> A 30-percent-approval leader ignored every authority telling him to flee and stayed in an encircled capital. The stay was visible to the whole country and became the point around which the state kept functioning.</p>
+        <p><span class="lbl">Why it matters.</span> Costly, visible, irreversible choices coordinate people. Speeches do not. The cost is what makes the signal credible: fleeing was the safe advised option, staying risked death.</p>
+        <p><span class="lbl">The principle.</span> When you need coordination, make one costly commitment in public and do not reverse it. Watch everyone else align around it.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Honesty</p>
+        <h4>One moment, not a policy</h4>
+        <p><span class="lbl">What happened.</span> Crime went to zero in one city, in one war, in one moment, after everyone was armed. Lex reports it as a lesson from that moment only. He refuses to turn it into a general claim about guns and crime.</p>
+        <p><span class="lbl">Why it matters.</span> A striking single case tempts everyone to generalize. The honest move is to hold the boundary: this happened here, then, under these conditions. Nothing more is licensed.</p>
+        <p><span class="lbl">The principle.</span> When a vivid case tempts you to a general rule, write down the exact conditions first. If the rule needs different conditions, you do not have a rule. You have a story.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-company" data-time="Middle" data-title="The company is the lab">
+      <p class="ch-time">Middle section</p>
+      <h2>The company is the lab</h2>
+      <p><span class="tag src">SOURCE</span> The AI core of this episode is Lex's unlaunched company. The ultimate dream is the same as episode 1: robots in every home, companions, not servants. The short-term path is less obvious: launch a social media company first.</p>
+      <p><span class="tag src">SOURCE</span> The reasoning Lex gives: the algorithms that fuel effective social robotics are the same algorithms that run a social network that actually connects people. A social media company that optimizes for deep human connection instead of engagement would develop exactly the machinery social robots need: models of individuals, of relationships, of what brings people together.</p>
+      <figure>
+        <img src="assets/ep02-feed-to-robot.webp" alt="Watercolor illustration of a network of connected people converging into a robot hand">
+        <p class="caption"><b>Illustration.</b> The feed pays for the robot: connection algorithms trained on human togetherness, transferred to social robotics. AI-generated watercolor in a New Yorker style, made for this page.</p>
+      </figure>
+      <p><span class="tag src">SOURCE</span> Lex describes his pull toward robots as a calling. He cannot fully convert it into words. The test he uses: when he first interacted with sophisticated robots, he saw magic and looked around to check whether anyone else saw it. It felt like falling in love and wondering whether anyone noticed the person who walked into the room.</p>
+      <p><span class="tag src">SOURCE</span> The honest part: there is no track record proving he would be good at building this. The feeling exists without data. He trusts it anyway and names it as a gut feeling he usually does not speak about. He also notes the field's gap: the best roboticists in the world do not work on social connection. They avoid humans entirely. The big tech companies' closest product is a voice assistant that tells the weather.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Strategy</p>
+        <h4>The company is the lab</h4>
+        <p><span class="lbl">What happened.</span> Instead of building robots directly, Lex plans a social media company first. The feed trains the connection models. The models become the robots. The revenue funds the dream.</p>
+        <p><span class="lbl">Why it matters.</span> Building robots directly gives you no data on human connection at scale and no revenue engine. The indirect path solves both: the product is the research lab.</p>
+        <p><span class="lbl">The principle.</span> When the direct path lacks data and funding, find the adjacent business that generates both as a byproduct. Build that first.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Conviction</p>
+        <h4>A calling without data</h4>
+        <p><span class="lbl">What happened.</span> Lex admits he has no track record proving he can build the robot company. The pull is a feeling he cannot convert into words. He trusts it anyway and says so in public.</p>
+        <p><span class="lbl">Why it matters.</span> Most founders hide the gap between conviction and evidence. Naming it does not weaken the conviction. It prices it honestly, which is what lets others decide whether to follow.</p>
+        <p><span class="lbl">The principle.</span> State the feeling and the missing data in the same breath. Conviction without evidence is a bet. Say it is a bet.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-twenties" data-time="Late" data-title="Advice for your twenties">
+      <p class="ch-time">Late section</p>
+      <h2>Advice for your twenties</h2>
+      <p><span class="tag src">SOURCE</span> From more than 10,000 audience questions, Lex picks the career question. His advice: in your twenties, find one thing you are passionate about and work harder at it than you worked at anything else in your life. If it destroys you, it destroys you. Sacrifice toward the thing you care about.</p>
+      <p><span class="tag src">SOURCE</span> Then the correction he adds: this advice fits engineering disciplines, especially programming. In computer science, the grind often produces great work. He names the archetype: the programmers who drink soda, eat pizza, and code 18 hours a day, like John Carmack. In other disciplines, clarity of thinking and great ideas matter more than hours, and the grind does not produce great work.</p>
+      <div class="chart">
+        <h4>The grind, annualized</h4>
+        <p class="csub">18 hours a day, every day, is 6,570 hours a year. The popular 10,000-hour figure arrives in about 1.5 years at that pace. Both figures are worked arithmetic from the episode's number.</p>
+        <svg viewBox="0 0 640 220" role="img" aria-label="Bar chart comparing 6570 hours per year of coding with the 10000 hour mastery figure">
+          <title>Coding hours annualized, worked arithmetic</title>
+          <line x1="60" y1="180" x2="620" y2="180" stroke="#3d352a" stroke-width="2"/>
+          <rect x="140" y="82" width="110" height="98" class="bar"><title>6570 hours per year at 18 hours a day</title></rect>
+          <rect x="390" y="30" width="110" height="150" class="bar alt"><title>10000 hours, the popular mastery figure</title></rect>
+          <text x="195" y="70" text-anchor="middle" class="vallab">6,570</text>
+          <text x="445" y="18" text-anchor="middle" class="vallab">10,000</text>
+          <text x="195" y="200" text-anchor="middle" class="axis">hours per year</text>
+          <text x="445" y="200" text-anchor="middle" class="axis">mastery figure</text>
+          <text x="320" y="235" text-anchor="middle" class="axis">At 18 hours a day, 10,000 hours takes about 1.5 years</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, late section. The 18-hour figure is the episode’s number. The episode does not cite the 10,000-hour figure. The annualization and the 1.5-year result are worked arithmetic by this companion.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Work</p>
+        <h4>Match the work style to the discipline</h4>
+        <p><span class="lbl">What happened.</span> Lex gives the grind advice, then immediately limits it. Hours produce great work in programming. In idea-driven fields, clarity beats grind. The same intensity that builds a programmer destroys a thinker.</p>
+        <p><span class="lbl">Why it matters.</span> Generic hustle advice ignores the production function of the field. Applied to the wrong discipline, the grind burns the exact resource the work needs: clear thought.</p>
+        <p><span class="lbl">The principle.</span> Before choosing an intensity, ask what the field rewards: hours or insight. Then protect the rewarded input and ration the other.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-miles" data-time="Closing" data-title="Miles to go">
+      <p class="ch-time">Closing section</p>
+      <h2>Miles to go</h2>
+      <figure>
+        <img src="assets/ep01-lex-fridman-photo.webp" alt="Photograph of Lex Fridman">
+        <p class="caption"><b>Photograph.</b> Lex Fridman. Real photograph, Lex Fridman Podcast artwork, via stuff.tv. Used with source attribution. This is not an AI-generated image.</p>
+      </figure>
+      <p><span class="tag src">SOURCE</span> Lex noticed the morale and ferocity of Ukrainian soldiers and drew a lesson about courage. Bravery is not just a trait. Training enables you to be brave. The intensity of the fighting revealed something Lex, who describes himself as mostly anti-war, did not expect to learn: seeing what it takes to protect sovereignty changed his view of when force is necessary.</p>
+      <p><span class="tag src">SOURCE</span> Lex closes with the Robert Frost poem he returns to in dark moments. His reading: the woods are death, comfort, the easy exit. The man chooses to live. Promises to keep is the reason.</p>
+      <div class="pull reveal">
+        <blockquote>The woods are lovely, dark and deep, but I have promises to keep, and miles to go before I sleep, and miles to go before I sleep.</blockquote>
+        <p class="who">Robert Frost, recited by Lex Fridman in the closing section</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Courage</p>
+        <h4>Training enables bravery</h4>
+        <p><span class="lbl">What happened.</span> Watching Ukrainian soldiers, Lex revised his model of courage. Bravery looked less like a trait people have and more like a capacity that training builds.</p>
+        <p><span class="lbl">Why it matters.</span> If bravery is a trait, you wait to feel brave. If training enables it, you prepare before you need it. The second model gives you something to do on ordinary days.</p>
+        <p><span class="lbl">The principle.</span> Do not ask whether you are brave enough for the hard thing. Ask whether you trained for it. Then train.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Endurance</p>
+        <h4>Miles to go</h4>
+        <p><span class="lbl">What happened.</span> In his darkest moments, Lex returns to Frost: the woods are lovely, dark and deep, the easy exit, and the man chooses to keep his promises and keep walking.</p>
+        <p><span class="lbl">Why it matters.</span> A memorized poem is a portable decision procedure. When thinking fails, the rehearsed line chooses for you: keep the promises, cover the miles.</p>
+        <p><span class="lbl">The principle.</span> Pick the text you will need in the dark and memorize it in the light. Endurance is a decision you make before you need it.</p>
+      </div>
+    </section>
+
+    <div class="takeaways">
+      <h3>Takeaways</h3>
+      <ol>
+<li>War's longest effect is not the destruction. It is generational hate: loss attaches blame to the whole group, and the hate outlives the fighting by decades.</li>
+      <li>When accusations from opposing sides contradict each other, you face a manufactured information environment. Check what you know firsthand. It will be less than you thought.</li>
+      <li>A costly, visible, irreversible choice coordinates everyone watching. Zelensky's stay held a country together. The mechanism scales down to teams.</li>
+      <li>Lex's company plan: build the social network first, because connection algorithms are the same machinery social robots need. The feed pays for the robot.</li>
+      <li>Match work intensity to the discipline. Grind wins in programming. Clarity wins in idea-driven fields. The wrong style in the wrong field destroys the worker.</li>
+      </ol>
+    </div>
+    <footer>
+      <p><b>Sources.</b> This companion narrates Huberman Lab Episode 2, Navigating Conflict, Finding Purpose and Maintaining Drive with Dr. Lex Fridman (2022-11-28, video 6I5I56uVvLw). All facts and figures come from the episode transcript (cleaned captions, not verbatim-certified) and the episode page in this track. Each chart names its source line. Illustrations are AI-generated watercolors made for this page. The photograph is real, with visible attribution in its caption. Transcripts carry no timestamps, so chapters are ordered by episode progression instead of clock time.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 29 words: one pull quote of 27 words, a Robert Frost stanza recited by Lex in the closing section, and one two-word episode phrase. Both carry attribution where they appear. The pull quotes carry speaker attribution and their place in the episode. Everything else is original paraphrase and analysis. The transcript used here is cleaned captions, not a verbatim-certified record, so brief quoted phrases reproduce its wording, not necessarily the exact spoken word.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var title = ch.getAttribute('data-title') || '';
+    a.innerHTML = (t ? '<span class="t">' + t + '</span>' : '') + title;
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function onScroll(){
+    var best = null, by = 160;
+    chapters.forEach(function(ch){
+      var r = ch.getBoundingClientRect();
+      if (r.top <= by) best = ch;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', best && a.getAttribute('href') === '#' + best.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
