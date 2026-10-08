@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Belief: You Are Not So Smart Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the You Are Not So Smart episode with Will Storr: the sacred-emotion detector, the hero maker, and Lord Monckton's keystone.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .backlinks{font-family:var(--sans);font-size:13px;margin:0 0 18px;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .layer{stroke:#e2d8c3;stroke-width:1}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted);margin:18px 0}
+  .tag-src,.tag-int{display:inline-block;font-family:var(--sans);font-size:10.5px;
+    font-weight:700;letter-spacing:.1em;padding:2px 8px;border-radius:10px;
+    margin-right:8px;vertical-align:middle}
+  .tag-src{background:#e8f0e4;color:#2f5d33;border:1px solid #bcd3b6}
+  .tag-int{background:#efe6f5;color:#5b3a8c;border:1px solid #d5c2e8}
+  footer.honesty{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer.honesty p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  footer.honesty h3{font-family:var(--sans);font-size:13px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink);margin:22px 0 8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">You Are Not So Smart · Interactive Companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">You Are Not So Smart · Episode 033 · Interactive Companion</p>
+      <h1>Belief</h1>
+      <p class="dek">Will Storr spent intimate time with creationists, deniers, and past life believers, and came back with a structural finding. They are not stupid. Facts fail for a reason, and the same reason holds your own beliefs up.</p>
+      <p class="backlinks"><a href="../index.html">← Track index</a> · <a href="../ep03.html">Episode chapter →</a></p>
+      <div class="legend"><span><b>SOURCE</b> marks a claim from the episode interview transcript.</span><span><b>INTERPRETATION</b> marks analysis or transferable advice from the companion author.</span></div>
+      <figure>
+        <img src="assets/belief.webp" alt="Watercolor illustration for this companion">
+        <p class="caption"><b>Illustration.</b> Watercolor-style image generated for this page. A glowing keystone holds a stone arch. Not a photograph.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">6,000</div><div class="l">Years in the age of the earth per John Mackay</div><div class="s">Storr interview, ep033</div></div>
+        <div class="stat"><div class="n">~1,000</div><div class="l">Genes estimated to influence left-right placement</div><div class="s">Storr interview, ep033</div></div>
+        <div class="stat"><div class="n">1</div><div class="l">Question that diagnoses a keystone: what would fall if it were false</div><div class="s">Storr interview, ep033</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">DVDs in the double pack Mackay sells of his debates with scientists</div><div class="s">Storr interview, ep033</div></div>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The sacred-emotion detector</a></li>
+          <li><a href="#nugget-2">The hero maker</a></li>
+          <li><a href="#nugget-3">The Monckton keystone</a></li>
+          <li><a href="#nugget-4">The harm boundary</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-mackay" data-time="Part 1" data-title="The man the facts could not touch">
+      <p class="ch-time">Part 1</p>
+      <h2>The Man the Facts Could Not Touch</h2>
+      <p><span class="tag-src">SOURCE</span>Storr opens with John Mackay, an Australian creationist with influence across Australia, the UK, and the US. Storr met him at a town hall in remote northern Australia, selling religious items and double DVD packs of his debates with scientists. A man who debates scientists and sells the recordings behaves like somebody who wins.</p>
+      <p><span class="tag-src">SOURCE</span>Mackay was not stupid. He was not mad. He lived an orderly, successful life. He believed the earth is 6,000 years old and the devil literally exists. Storr interviewed him with basic scientific facts and simple logic questions. If Eden was perfect, with no carnivores and no disease, why does the T-Rex have huge teeth? Answer: &ldquo;So they can eat watermelons.&rdquo;</p>
+      <p><span class="tag-src">SOURCE</span>The facts landed nowhere. Mackay was impervious. And the cheap explanation died on contact with the man himself. He was intelligent and sane, which makes the question interesting, because then the same question applies to you: how do you know that you are right and they are wrong?</p>
+      <p><span class="tag-int">INTERPRETATION</span>The pivot Storr demands: stop asking what is wrong with them. Ask why facts do not work on people. The moment you grant their intelligence, the inquiry turns on your own beliefs, which is exactly where it belongs.</p>
+    </section>
+
+    <section class="chapter" id="ch-detector" data-time="Part 2" data-title="The sacred-emotion detector">
+      <p class="ch-time">Part 2</p>
+      <h2>The Sacred-Emotion Detector</h2>
+      <div class="pull">
+        <blockquote>If you want to find irrationality, then look for the things that people make sacred.</blockquote>
+        <p class="who">Jonathan Haidt, as quoted by Storr in the interview</p>
+      </div>
+      <p><span class="tag-src">SOURCE</span>Storr credits the psychologist Jonathan Haidt with the rule: irrationality lives where emotion lives. Sacred means the things that make a person emotional. Haidt accepts climate change, yet does not trust the left to tell him the truth about it, because they made it sacred and uncriticizable. He does not trust the right on the free market, sacred to their sense of self.</p>
+      <p><span class="tag-src">SOURCE</span>Storr applies the detector to himself. Thinking about the Gaza Strip makes him so emotional he wants to shout and cry. His policy: stay silent about it in public, because a spiked needle means the brain cannot report the truth. The emotion is the instrument reading. When the needle spikes, the brain is in no state to report the truth.</p>
+      <p><span class="tag-src">SOURCE</span>McRaney reports the same practice independently. He writes out the angry reply, reads it, deletes it, and moves on. Both men converged on the same tell: the urge to broadcast your view to the world is itself the warning signal. Feeling strongly enough to tell everyone is the moment to step back.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The detector, as a weekly practice: list five topics, rate your heat from 1 to 10, and for anything at 7 or above, write the policy next to it. I do not trust my brain on this. No public statements. Check the heat before you check the facts.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget</p>
+        <h4>The sacred-emotion detector</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Haidt's rule locates irrationality at the sacred: where emotion spikes, the brain cannot be trusted.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>The heat is the instrument reading. Loud certainty is data about you, not about the topic.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Above 7 on the heat scale, disqualify yourself as judge. Delete the draft. Return later.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-hero" data-time="Part 3" data-title="The hero maker">
+      <p class="ch-time">Part 3</p>
+      <h2>The Hero Maker</h2>
+      <p><span class="tag-src">SOURCE</span>Storr's central model: the brain is a hero maker. It casts you as the plucky hero struggling against great odds, then casts villains and allies around you. Who gets cast in which role bends what you believe, to an extraordinary degree. A skeptic in the skeptic tribe hears something negative about a rival and accepts it without the scrutiny they would apply to their own side. The story comes first. The evidence gets hired to play a part.</p>
+      <p><span class="tag-src">SOURCE</span>You do not choose your sacred beliefs. Storr grew up an atheist among Catholics and felt superior for it. Later he saw the flaw: he could not suddenly decide to believe in God, any more than he chose his eye color. Belief arrived unchosen. And the unchosen belief had costs he could name: believers get an invisible best friend, forgiveness on demand, and paradise ahead.</p>
+      <p><span class="tag-src">SOURCE</span>McRaney asks whether religion differs in kind from alien abductions or past lives. Storr: only in depth, not in kind. God sits at the root of a person's cause and effect network and sense of self. A UFO sighting is a shallow irrationality by comparison. Both are story mode beliefs. One is load bearing for the whole structure.</p>
+      <p><span class="tag-src">SOURCE</span>On why beliefs cluster left and right, Storr starts in genetics: researchers estimate around 1,000 genes influence whether people turn out left or right, much of it through fearfulness. A fearful brain dislikes novelty and loves structure, order, hierarchy, and tradition. Then life self reinforces the drift: the community, the papers, the schools, each confirming the setting. One trait in, a whole politics out.</p>
+      <div class="chart" id="chart-fear">
+        <h4>One trait fans out to a politics</h4>
+        <p class="csub">Hover any bar for detail. The episode's account, simplified to the causal chain.</p>
+        <svg viewBox="0 0 640 360" role="img" aria-label="Flow diagram from fearfulness to political clusters">
+          <rect x="230" y="20" width="180" height="60" rx="8" fill="#f5f0e6" stroke="#e2d8c3" data-tip="Start: fearfulness, influenced by roughly 1,000 genes per the episode's account"></rect>
+          <text x="320" y="46" text-anchor="middle" class="vallab">Fearfulness</text>
+          <text x="320" y="66" text-anchor="middle" class="axis">~1,000 genes</text>
+          <line x1="280" y1="80" x2="180" y2="120" stroke="#b4531f" stroke-width="2"></line>
+          <line x1="360" y1="80" x2="460" y2="120" stroke="#b4531f" stroke-width="2"></line>
+          <rect class="bar alt" x="60" y="120" width="240" height="100" rx="8" data-tip="High fear setting: dislikes novelty, loves structure, order, hierarchy, tradition. The conservative setting."></rect>
+          <rect class="bar" x="340" y="120" width="240" height="100" rx="8" data-tip="Low fear setting: seeks novelty, cities, exploration. The liberal setting."></rect>
+          <text x="180" y="152" text-anchor="middle" fill="#221c14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="700">Fearful setting</text>
+          <text x="180" y="176" text-anchor="middle" fill="#221c14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12">Conserves. Army, church,</text>
+          <text x="180" y="194" text-anchor="middle" fill="#221c14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12">tradition</text>
+          <text x="460" y="152" text-anchor="middle" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="700">Open setting</text>
+          <text x="460" y="176" text-anchor="middle" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12">Explores. Cities,</text>
+          <text x="460" y="194" text-anchor="middle" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12">novelty, new scenes</text>
+          <rect x="60" y="250" width="520" height="60" rx="8" fill="#f5f0e6" stroke="#e2d8c3" data-tip="The loop: you choose the matching community, papers, and schools, and each input confirms the setting"></rect>
+          <text x="320" y="276" text-anchor="middle" class="vallab">Self-reinforcing loop</text>
+          <text x="320" y="296" text-anchor="middle" class="axis">Life confirms the setting. One trait in, a whole politics out.</text>
+        </svg>
+        <p class="csrc">Source: Storr interview, ep033, via the track chapter. Original toy chart built from episode claims.</p>
+      </div>
+      <p><span class="tag-src">SOURCE</span>The same machinery explains selective skepticism: the person who doubts a birth certificate and vaccines but not Noah's Ark. Skepticism is not applied evenly. It deploys where the story needs defense and suspends where the story needs support.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The targeting is the tell. List three things you doubt and three you accept. If the doubts all flatter your hero narrative and the acceptances all flatter it too, the skepticism is selective. Aim it at your own sacred beliefs first.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget</p>
+        <h4>The hero maker</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>The brain casts you as David against Goliath daily, then hires evidence to play the parts.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Beliefs that nourish the narrative are load bearing. Facts that threaten them threaten the self.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Write your own David and Goliath story in three sentences. The beliefs it needs are your keystones.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-monckton" data-time="Part 4" data-title="Lord Monckton: the full story">
+      <p class="ch-time">Part 4</p>
+      <h2>Lord Monckton: The Full Story</h2>
+      <p><span class="tag-src">SOURCE</span>Storr's longest case study is Lord Christopher Monckton, a British aristocrat and prominent climate skeptic. Storr realized debating graphs was pointless. What mattered was the story Monckton's brain told him. So he asked for the life story.</p>
+      <p><span class="tag-src">SOURCE</span>Born to extreme wealth, schooled at Harrow when the empire still stood, raised on the promise that Harrow men would ride and rule. Then the war destroyed Britain's finances, the country begged America for loans, and much of the money went to the welfare state. In Monckton's story, the left lost the fabulous empire, the communists schemed to wreck capitalism, and the UN still fights from the KGB playbook with a secret plan to take over the world. And Monckton himself is the plucky David, flying the flag for truth against Goliath.</p>
+      <p><span class="tag-src">SOURCE</span>Storr's conclusion: no paper, no graph, no segment can move this belief, because the belief is not about climate. It is the keystone of Monckton's identity. If it changed, the entire sense of self would fall to pieces. In the face of that vivid story he lives inside, a scientific paper is noise.</p>
+      <div class="chart" id="chart-arch">
+        <h4>Beliefs are keystones, not bricks</h4>
+        <p class="csub">Hover any layer for detail. Facts attack the top layer. The arch stands on the lower ones.</p>
+        <svg viewBox="0 0 640 380" role="img" aria-label="Layered diagram of the Monckton belief arch">
+          <rect class="layer" x="120" y="30" width="400" height="80" rx="8" fill="#f5f0e6" data-tip="Layer 1, the foundation: born to rule, empire lost, the left and the communists blamed"></rect>
+          <text x="320" y="62" text-anchor="middle" class="vallab">Life story</text>
+          <text x="320" y="84" text-anchor="middle" class="axis">Born to rule. Empire lost. Villains named.</text>
+          <rect class="layer" x="120" y="120" width="400" height="80" rx="8" fill="#f5f0e6" data-tip="Layer 2, the role: plucky David against the Goliath of the UN and the scientists"></rect>
+          <text x="320" y="152" text-anchor="middle" class="vallab">Hero role</text>
+          <text x="320" y="174" text-anchor="middle" class="axis">David against Goliath, enduring mockery for truth</text>
+          <rect x="120" y="210" width="400" height="80" rx="8" fill="#b4531f" data-tip="Layer 3, the keystone: climate change is a harmless fraud. Facts aim here."></rect>
+          <text x="320" y="242" text-anchor="middle" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="700">Belief (the keystone)</text>
+          <text x="320" y="264" text-anchor="middle" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12">Climate change is a harmless fraud</text>
+          <text x="320" y="322" text-anchor="middle" class="axis">Pull the keystone and the hero, the villains,</text>
+          <text x="320" y="342" text-anchor="middle" class="axis">and the life story all fall. So the arch defends itself.</text>
+        </svg>
+        <p class="csrc">Source: Storr interview, ep033, via the track chapter. Original toy chart built from episode claims.</p>
+      </div>
+      <p><span class="tag-src">SOURCE</span>Storr draws the universal claim: &ldquo;We are all Lord Monckton to a certain extent.&rdquo; Everyone holds passionate beliefs because they nourish the sense of being a good person in a noble fight. Those are the beliefs to suspect first.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The Monckton test for the reader: can you tell a person's life story from their belief? If yes, facts will not work on it. Ask instead what would fall if the belief were false. If the answer includes identity, tribe, or life story, it is load bearing.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget</p>
+        <h4>The Monckton keystone</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>One life story fully explains one immovable belief. The belief is the keystone of the identity arch.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Facts attack the belief. Removing the belief collapses the arch. The brain defends the arch.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Diagnose keystone versus ignorance before you prescribe. Facts fill ignorance. Only a new story replaces a keystone.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-balance" data-time="Part 5" data-title="The balance: science and eccentricity">
+      <p class="ch-time">Part 5</p>
+      <h2>The Balance: Science and Eccentricity</h2>
+      <p><span class="tag-src">SOURCE</span>Storr calls science our greatest achievement, a tool we invented to save us from ourselves. Yet his book celebrates eccentricity as the richness of the species. He balances the two with law at the harm boundary. Where irrational belief harms others, hate speech, or a sick child given homeopathy instead of medicine, the law intervenes, and he would strengthen it. Where it harms no one, eccentricity stays celebrated.</p>
+      <p><span class="tag-src">SOURCE</span>His Dadaab story sets the stakes. In 2007 he spent a week in the world's largest refugee camp, on the Kenya-Somalia border, among strictly orthodox Muslims. Strict thought systems, he concluded, try to turn everybody into the same person. He sees the same conformist impulse in the most militant rationalists. A wand that made everyone rational would delete the color.</p>
+      <p><span class="tag-src">SOURCE</span>On social media, Storr argues the platform is custom designed to manufacture rows. Every exchange is public, visible to the people you admire most, and the short format strips the good manners padding that softens disagreement. McRaney's counter practice is his Bushido code: only talk about things you love, never attack what you hate. Once he engages, he ruminates for days and no facts work on either side. The code is a commitment device against his own hero maker.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The engineer's version of the balance: in code review, attack the design's harm surface with full rigor, correctness, safety, cost, and leave the harmless eccentricities alone. Rigor at the boundary, tolerance inside it.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget</p>
+        <h4>The harm boundary</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Storr draws the line at harm: law where beliefs hurt others, celebration where they hurt no one.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Not every false belief needs a fight. Save rigor for the boundary that matters.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Full science at the harm surface. Live and let live everywhere else.</p>
+      </div>
+    </section>
+
+    <footer class="honesty" id="honesty">
+      <h3>Sources</h3>
+      <p>This companion narrates You Are Not So Smart episode 033, an interview with Will Storr dated 2014-09-30. The on-disk source is the official interview-only transcript at youarenotsosmart.com/transcripts/transcript-interview-with-will-storr-from-episode-033/. McRaney's opening monologue is not part of that transcript. All numbers come from the transcript via the track chapter. Charts are original toys built from episode claims, each labeled with its source line.</p>
+      <h3>On quotes</h3>
+      <p>Quoted words in the body total 29, all verified verbatim by grep against the on-disk chapter source: the pull quote &ldquo;If you want to find irrationality, then look for the things that people make sacred.&rdquo; (15 words), &ldquo;So they can eat watermelons.&rdquo; (5 words), and &ldquo;We are all Lord Monckton to a certain extent.&rdquo; (9 words). Everything else is original paraphrase and analysis.</p>
+      <h3>Honesty notes</h3>
+      <p>No official YouTube video of this episode was found, so there is no video embed. No historical photographs are used: no verifiable portrait was confirmed. The illustration is an AI-generated watercolor made for this page. The Mackay and Monckton biographical details are retold from the interview transcript, not independently verified. The character-limit remark about the platform carries an uncertainty flag in the source chapter and is not repeated here.</p>
+      <h3>Method</h3>
+      <p>Built per the binding companion spec. Quote count recounted mechanically (curly-quote aware script), not asserted. Builder prose passes ste_check.py with 0 hard fails. Text passed through wm_clean.py Layer A. JavaScript passes node --check. Tags balance and all relative links resolve.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="tooltip"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
