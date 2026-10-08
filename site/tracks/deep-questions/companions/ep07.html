@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make Learning As Addictive As Social Media: Deep Questions Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Deep Questions episode on motivation: the dopamine system, episodic future thinking, and the real playbook.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Deep Questions · Track Companion</a>
+  <span class="sub">Make Learning As Addictive As Social Media</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Deep Questions · Companion</p>
+      <h1>Make Learning As Addictive As Social Media</h1>
+      <p class="dek">Why the dopamine game is unwinnable for learning, and the stronger system: episodic future thinking.</p>
+<style>
+.tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.tag.sf{background:#e3f0e6;color:#1d5c2e;border:1px solid #bcd8c2}
+.tag.it{background:#fdf3e3;color:#8a5a12;border:1px solid #ecd9ac}
+.legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:24px 0;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.legend .k{font-weight:700;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+</style>
+      <img src="assets/cal-newport.jpg" alt="Portrait photograph of Cal Newport">
+      <p class="caption"><b>Cal Newport.</b> Photo: robertglazer.com (Elevate Podcast). This episode takes on a viral TED talk about addictive learning apps.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">10x</div><div class="l">Engagement</div><div class="s">the estimated dopamine-hack multiplier for TikTok</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">Systems</div><div class="s">dopamine versus episodic future thinking</div></div>
+        <div class="stat"><div class="n">11 vs 6</div><div class="l">Brain regions</div><div class="s">EFT activates 11 regions. Remembering the past activates 6</div></div>
+        <div class="stat"><div class="n">4.0</div><div class="l">GPA</div><div class="s">every quarter at Dartmouth, once Newport learned to study</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/XOPBN1kj5Xc" title="Deep Questions: Make Learning As Addictive As Social Media with Cal Newport (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The TED talk's pitch</a></li>
+          <li><a href="#nugget-2">Credit where due</a></li>
+          <li><a href="#nugget-3">The dopamine system</a></li>
+          <li><a href="#nugget-4">The like-button accident</a></li>
+          <li><a href="#nugget-5">Learning requires strain</a></li>
+          <li><a href="#nugget-6">Flow is not practice</a></li>
+          <li><a href="#nugget-7">The broccoli test</a></li>
+          <li><a href="#nugget-8">Episodic future thinking</a></li>
+          <li><a href="#nugget-9">The playbook</a></li>
+          <li><a href="#nugget-10">Dylan's study machine</a></li>
+          <li><a href="#nugget-11">Model the life</a></li>
+        </ol>
+      </div>
+      <div class="legend">
+        <span class="k">How to read this companion.</span>
+        <span class="tag sf">Source fact</span> marks claims stated in the episode.
+        <span class="tag it">Interpretation</span> marks analysis and transferable lessons drawn from those facts.
+        Every chart names its episode source. Illustrations are AI-generated watercolors made for this page.
+        <span class="k">A note on names.</span> The episode transcript is auto-generated and mangles several names. This companion uses the correct public spellings: Luis von Ahn, Duolingo, Jane McGonigal, Richard Feynman, John von Neumann, Mihaly Csikszentmihalyi.
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-ted" data-time="Part 1" data-title="The TED talk's pitch">
+      <p class="ch-time">Part 1</p>
+      <h2>The TED Talk's Pitch</h2>
+      <p>The episode starts with a viral TED talk by Luis von Ahn, the co-founder of Duolingo. His pitch: Duolingo wants to give everyone equal access to education, so it moved language learning onto phones with a freemium model. To make learning engaging, the app uses the same hooks as games and social media: streaks, notifications, a fun mascot. Millions use it to learn languages, von Ahn notes, more than in all US high schools combined. His hope: these addictive techniques could spread to other subjects, like math on phones.</p>
+      <p>Newport's verdict has two parts. Von Ahn's specific claim, that we can make learning as addictive as social media, is doomed. But a deeper look at how the brain motivates behavior reveals a lasting way to make learning more appealing, even more appealing than social media. It just looks nothing like the Duolingo approach.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The setup</p>
+        <h4>The TED talk's pitch</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Von Ahn argues that streaks, notifications, and a mascot can make learning apps as addictive as social media, and hopes the techniques spread to subjects like math.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The pitch assumes addictiveness is a coating you can apply to anything. The episode argues it is a property of the activity underneath.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Before copying a tactic, check whether it fits the material.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-credit" data-time="Part 2" data-title="Credit where due">
+      <p class="ch-time">Part 2</p>
+      <h2>Credit Where Due</h2>
+      <p>Newport first gives credit. Using the internet to make information widely accessible is a genuine good. Khan Academy's easy-to-grasp visual format for mathematics did real good. And large language models like ChatGPT promise another leap: you can go back and forth with them, ask for examples, ask why a step works. Tutoring and education will change fast.</p>
+      <p>But accessibility is not addictiveness. Making knowledge available is one achievement. Making people reach for a learning app instead of TikTok is a different claim entirely, and that is where Newport gets wary.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · The distinction</p>
+        <h4>Credit where due</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport praises internet-delivered education, from Khan Academy to LLM tutoring, while separating accessibility from addictiveness.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Two different victories get blurred into one. Keep them separate or you will misdiagnose both.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Available is not the same as irresistible.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-dopamine" data-time="Part 3" data-title="The dopamine system">
+      <p class="ch-time">Part 3</p>
+      <h2>The Dopamine System</h2>
+      <p>To judge von Ahn's claim, Newport explains the first of two motivational systems: the dopamine system, the one behind the urge to pull out a phone. He draws on an article by Trevor Haynes on dopamine and smartphones. Dopamine motivates behavior. It releases for food, sex, exercise, and successful social interaction, rewarding beneficial behaviors so we repeat them.</p>
+      <p>The key mechanism is immediacy. When a stimulus reliably produces a reward, the association strengthens through long-term potentiation, wiring a stimulus-response loop. Phone in hand, tap, instant emotional reaction. Then reward prediction error encoding kicks in: dopamine neurons monitor the tight feedback loop and drive you to repeat whatever the stimulus predicted. The system is Pavlovian, fast, and now.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The machinery</p>
+        <h4>The dopamine system</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport explains the dopamine system via the Haynes article: stimulus-response associations strengthen through long-term potentiation, and reward prediction error neurons drive repetition of whatever the stimulus predicted.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> This system does not care about your goals. It cares about what worked fifteen seconds ago.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Anything that wins on immediacy wins the dopamine game. Plan accordingly.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-like" data-time="Part 4" data-title="The like-button accident">
+      <p class="ch-time">Part 4</p>
+      <h2>The Like-Button Accident</h2>
+      <p>The dopamine hack was discovered by accident at Facebook about a decade ago. Engineers added the like button for a pragmatic reason: posts drew dozens of short congratulatory comments that buried the meaningful ones. If "great!" became a tap, comments could carry real information.</p>
+      <p>Usage exploded immediately. The accumulation of likes was a positive reward signal, and the app icon became the stimulus. Tap, reward, repeat, until the association was ironclad. That accident birthed the attention-engineering era: hack the dopamine system and you can multiply engagement fivefold, sixfold, and in TikTok's case probably tenfold. More engagement means more data and more ads to sell.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · The origin</p>
+        <h4>The like-button accident</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Facebook engineers added the like button to declutter comments. The resulting reward loop multiplied engagement 5x to 6x, and perhaps 10x for TikTok, launching attention engineering.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The most powerful manipulation system of our time started as a UI convenience. Small mechanisms compound.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Watch for accidental reward loops in your own tools. They cut both ways.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-strain" data-time="Part 5" data-title="Learning requires strain">
+      <p class="ch-time">Part 5</p>
+      <h2>Learning Requires Strain</h2>
+      <p>Here is why von Ahn's plan fails. A learning app must compete for the dopamine system against TikTok, Instagram, Twitter, and mobile games, all hacking the same circuitry. To win, its reward signal must be notably stronger than theirs. And it cannot be, because learning requires strain.</p>
+      <p>Complicated skills grow through deliberate practice: straining past where you are comfortable, conceptually or physically, until the higher level becomes comfortable. Newport documented this with a professional guitar player who concentrated so hard while pushing his picking speed that he forgot to breathe, then gasped savagely as his body fought off unconsciousness. That strain is what makes you better. The same holds for Spanish or calculus.</p>
+      <div class="pull">
+        <blockquote>deliberate practice forces you to strain yourself</blockquote>
+        <p class="who">Cal Newport on how skills actually grow · Deep Questions</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · The wall</p>
+        <h4>Learning requires strain</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues that learning requires deliberate practice, straining past comfort, illustrated by the guitar player who forgot to breathe from concentration.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Strain is not a flaw in learning to be engineered away. It is the mechanism.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> If it feels easy, you maintain. If it strains, you grow.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-flow" data-time="Part 6" data-title="Flow is not practice">
+      <p class="ch-time">Part 6</p>
+      <h2>Flow Is Not Practice</h2>
+      <p>Newport addresses a common confusion. People hear strain and answer flow. He insists they are opposites. Flow, the concept studied by Mihaly Csikszentmihalyi, is self-loss in an activity: time disappears, the skier dissolves into the run. It is deeply pleasurable. Deliberate practice is never like that. You can get lost performing a song you know cold. You never get lost practicing one, because the push is so hard it turns miserable.</p>
+      <p>The confusion matters because it sells a fantasy: that learning can feel like flow the whole way. It cannot. The misery of practice is the price of the mastery that later makes flow possible.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · The confusion</p>
+        <h4>Flow is not practice</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport distinguishes Csikszentmihalyi's flow state, pleasurable self-loss in an activity, from deliberate practice, which is miserable because you push past your limits.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Chasing flow during practice is like chasing the finish line during training. Wrong phase, wrong feeling.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Practice miserable, perform in flow. Do not mix up the two.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-broccoli" data-time="Part 7" data-title="The broccoli test">
+      <p class="ch-time">Part 7</p>
+      <h2>The Broccoli Test</h2>
+      <p>Newport offers two analogies for why the dopamine game is unwinnable for learning. First, broccoli in a Happy Meal. You can wrap broccoli in a fun box with confetti, but it is still bitter, and the fries still taste better. Sitting side by side, you eat the fries. Second, TikTok versus meth. A substance crossing the blood-brain barrier delivers a stronger reward than any app. The meth user likes TikTok but prefers meth. The TikTok user may like Duolingo but reaches for TikTok. In a pure stimulus-reward contest, the purer reward wins, and learning's reward is never pure. It always carries strain.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · The contest</p>
+        <h4>The broccoli test</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues via the broccoli and meth analogies that in a pure dopamine contest, the activity with the purer reward always beats the one carrying inherent strain.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Do not enter contests you are structurally guaranteed to lose. Change the contest.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> If the game is pure reward, the fries win. Play a different game.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-eft" data-time="Part 8" data-title="Episodic future thinking">
+      <p class="ch-time">Part 8</p>
+      <h2>Episodic Future Thinking</h2>
+      <p>The different game is the brain's second motivational system: episodic future thinking, or EFT. Newport draws on an article by Jane McGonigal summarizing the neuroscience. EFT is mental time travel: the brain projects you into a vividly imagined future, then motivates present action to reach it. It differs from daydreaming about solved problems. It connects who you are today with what you might feel and do tomorrow.</p>
+      <p>The neuroscience numbers stand out. fMRI studies show EFT activates 11 distinct brain regions, versus 6 for merely remembering the past. The hippocampus, the seat of memory and learning, digs up relevant details and recombines them into the imagined scene. The ventromedial prefrontal cortex, the vmPFC, tracks goals and progress. And the motivations that surface first tend to link to your deepest values: learning, helping others, bravery, family, creativity.</p>
+      <p>Newport's caveman example: honey on the ground, and a bear nearby. Dopamine screams to eat the honey. EFT overrides it, because bears tend to eat you. That override is what lets humans rise above base instinct, invent the axe and the wheel, and pursue creative leaps. EFT is the more powerful system, and it can beat dopamine.</p>
+      <div class="pull">
+        <blockquote>your EFT system can kick your dopamine system's butt</blockquote>
+        <p class="who">Cal Newport on the stronger motivational system · Deep Questions</p>
+      </div>
+      <div class="chart" id="chart-systems">
+        <h4>Two motivational systems</h4>
+        <svg viewBox="0 0 680 300" role="img" aria-label="Comparison of the dopamine system and episodic future thinking">
+          <text x="170" y="30" text-anchor="middle" class="vallab">Dopamine system</text>
+          <rect x="40" y="44" width="260" height="200" rx="8" fill="#b4531f" data-tip="Dopamine: stimulus-response loops, reward prediction error, immediate. Powers the phone-checking urge."/>
+          <text x="170" y="100" text-anchor="middle" fill="#fff" font-size="14">Stimulus, reward,</text>
+          <text x="170" y="124" text-anchor="middle" fill="#fff" font-size="14">repeat. Immediate.</text>
+          <text x="170" y="160" text-anchor="middle" fill="#e8dcc8" font-size="13">Long-term potentiation</text>
+          <text x="170" y="182" text-anchor="middle" fill="#e8dcc8" font-size="13">Reward prediction error</text>
+          <text x="170" y="216" text-anchor="middle" fill="#fff" font-size="13">Wins on: pure reward</text>
+          <text x="510" y="30" text-anchor="middle" class="vallab">Episodic future thinking</text>
+          <rect x="380" y="44" width="260" height="200" rx="8" fill="#1f6f8b" data-tip="EFT: mental time travel across 11 brain regions, hippocampus plus vmPFC, driven by deep values. Can override dopamine."/>
+          <text x="510" y="100" text-anchor="middle" fill="#fff" font-size="14">Future projection,</text>
+          <text x="510" y="124" text-anchor="middle" fill="#fff" font-size="14">values-driven.</text>
+          <text x="510" y="160" text-anchor="middle" fill="#e8dcc8" font-size="13">11 brain regions</text>
+          <text x="510" y="182" text-anchor="middle" fill="#e8dcc8" font-size="13">Hippocampus plus vmPFC</text>
+          <text x="510" y="216" text-anchor="middle" fill="#fff" font-size="13">Wins on: meaning</text>
+          <text x="340" y="276" text-anchor="middle" class="axis">Do not fight dopamine with dopamine. Fight it with the future.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Make Learning As Addictive As Social Media, the two motivational systems. Labels are paraphrase.</p>
+      </div>
+      <img src="assets/dq-ep07-bear.webp" alt="Watercolor illustration of honey on the forest floor with a large bear shadow falling across it, a small human figure stepping back">
+      <p class="caption"><b>Illustration.</b> Honey and the bear: EFT overriding dopamine. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · The stronger system</p>
+        <h4>Episodic future thinking</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport presents EFT from McGonigal's summary: mental time travel across 11 brain regions, hippocampus plus vmPFC, surfacing motivations tied to deep values, capable of overriding dopamine, as in the honey-and-bear example.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> This is the human advantage over the house cat: a future vivid enough to beat a reward right now.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Make the future vivid, and the present urge loses its grip.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-playbook" data-time="Part 9" data-title="The playbook">
+      <p class="ch-time">Part 9</p>
+      <h2>The Playbook</h2>
+      <p>How do you weaponize EFT for learning? Two moves. First, flood the hippocampus with resonant examples: people who converted a love of learning into a life that resonates with you. Documentaries, profiles, biographies, talks, real meetings. Surround yourself with proof of the life you want.</p>
+      <p>Second, clarify your values. Name what is at stake: engaging ideas above base rancor, pushing your mind to its fullest potential for impact, a near-religious drive to understand, supporting your family through your mind. Pair vivid examples with clear values, and the EFT system fires: the projected future feels better than the TikTok hit, so you read instead, and you accept the strain of stretching your mind, owl mascot or not.</p>
+      <p>This is the same machinery as the deep life's lifestyle-centric planning: start with a clear vision of the life you want, work backwards to build it. The playbook generalizes beyond learning to anything that turns a shallow life deep.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · The method</p>
+        <h4>The playbook</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport prescribes resonant examples of learned lives plus clarified values, the same machinery as lifestyle-centric planning: vision first, work backwards.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Motivation is not found. It is constructed, from examples and values, on purpose.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Collect heroes. Name values. Let the future pull you.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-dylan" data-time="Part 10" data-title="Dylan's study machine">
+      <p class="ch-time">Part 10</p>
+      <h2>Dylan's Study Machine</h2>
+      <p>The episode's case study is Dylan, a student studying by guilt: grinding through YouTube videos until the shame lifts. Newport's diagnosis is blunt: Dylan is bad at learning, in the fixable sense. The prescription is a system. Study like Darwin: evolve the method by natural selection, keeping what works.</p>
+      <p>The method: five flashcards per topic, then one out-loud lecture per topic in your own words, check it off, move to the next. Seven topics an hour. Newport knows it works because he lived it. He arrived at Dartmouth an average student from public school, then got serious about studying how he studied. Result: a 4.0 GPA every quarter of sophomore, junior, and senior year, except one A-minus in senior spring left him at 3.96, an A away from valedictorian. He did not get smarter. He got better at studying. Total study time plummeted. No all-nighters, never past 8 p.m. He got bored during exam periods while everyone else lived in the library.</p>
+      <div class="chart" id="chart-dylan">
+        <h4>Dylan's study loop</h4>
+        <svg viewBox="0 0 680 280" role="img" aria-label="The study loop: five flashcards, one out-loud lecture, check off, next topic, seven topics per hour">
+          <rect x="30" y="50" width="140" height="110" rx="8" fill="#1f6f8b" data-tip="Five flashcards per topic. Test recall, not recognition."/>
+          <text x="100" y="96" text-anchor="middle" fill="#fff" font-size="14">5 flashcards</text>
+          <text x="100" y="118" text-anchor="middle" fill="#fff" font-size="13">per topic</text>
+          <line x1="170" y1="105" x2="200" y2="105" stroke="#8a7c66" stroke-width="2"/>
+          <rect x="200" y="50" width="140" height="110" rx="8" fill="#1f6f8b" data-tip="One out-loud lecture per topic, in your own words."/>
+          <text x="270" y="96" text-anchor="middle" fill="#fff" font-size="14">Lecture aloud</text>
+          <text x="270" y="118" text-anchor="middle" fill="#fff" font-size="13">once per topic</text>
+          <line x1="340" y1="105" x2="370" y2="105" stroke="#8a7c66" stroke-width="2"/>
+          <rect x="370" y="50" width="140" height="110" rx="8" fill="#1f6f8b" data-tip="Check it off, file it, take the next topic."/>
+          <text x="440" y="96" text-anchor="middle" fill="#fff" font-size="14">Check off,</text>
+          <text x="440" y="118" text-anchor="middle" fill="#fff" font-size="13">next topic</text>
+          <line x1="510" y1="105" x2="540" y2="105" stroke="#8a7c66" stroke-width="2"/>
+          <rect x="540" y="50" width="110" height="110" rx="8" fill="#b4531f" data-tip="Seven topics per hour. Keep what works, drop what does not."/>
+          <text x="595" y="96" text-anchor="middle" fill="#fff" font-size="14">7 topics</text>
+          <text x="595" y="118" text-anchor="middle" fill="#fff" font-size="13">per hour</text>
+          <text x="340" y="210" text-anchor="middle" class="axis">Study like Darwin: evolve the method by natural selection.</text>
+          <text x="340" y="232" text-anchor="middle" class="axis">Newport: 4.0 every quarter, 3.96 overall, no all-nighters, never past 8 p.m.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Make Learning As Addictive As Social Media, the Dylan case study and Newport's Dartmouth record. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · The case study</p>
+        <h4>Dylan's study machine</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport prescribes flashcards plus out-loud lectures, seven topics an hour, evolved by trial. His own version produced a 4.0 every quarter at Dartmouth with no all-nighters and never studying past 8 p.m.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Studying is a skill with a technique, not a virtue with a duration. Guilt is not a method.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Test the method, keep what works, and let the hours shrink.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-school" data-time="Part 11" data-title="Model the life">
+      <p class="ch-time">Part 11</p>
+      <h2>Model the Life</h2>
+      <p>A parent asks how to put a sixth grader on the path to deep work: which schools? Newport's answer: care less about the school than about what you model. Choose the school on normal common sense, convenience, friends, good programs. The advanced stuff, raising a deep thinker, comes from modeling. Kids must see that you prioritize a life of the mind: engaged with books and ideas, not on your phone all the time.</p>
+      <p>Two concrete moves. First, no unrestricted smartphone for the 12-year-old. Newport is blunt: when the kid says all my friends have one, the answer is that the parents listen to Cal Newport. Unrestricted access short-circuits everything. Second, fill the house with the life of the mind: books everywhere, talk about the great thinkers you admire. His own father admired mathematicians and theoretical physicists. The house heard constantly about Richard Feynman and John von Neumann. That is how Newport, recruited for systems work, tricked his way into MIT's theory group and made himself a theoretician.</p>
+      <div class="pull">
+        <blockquote>you don't get a smartphone</blockquote>
+        <p class="who">Cal Newport's script for parents of 12-year-olds · Deep Questions</p>
+      </div>
+      <img src="assets/dq-ep07-owl.webp" alt="Watercolor illustration of a bookshelf-lined study with an open book, a small owl figurine on the shelf, warm lamplight">
+      <p class="caption"><b>Illustration.</b> The modeled life: a house full of books. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 · The parenting</p>
+        <h4>Model the life</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport tells parents to model a life of the mind, deny the 12-year-old a smartphone, and fill the house with books and admired thinkers, citing his father's Feynman and von Neumann stories and his own path into MIT's theory group.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> You cannot engineer a deep thinker with tutoring. You can only surround one and get out of the way.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Be the example. Remove the short circuit. The rest is up to them.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>The dopamine game is unwinnable for learning: strain always loses to pure reward.</li>
+          <li>Deliberate practice is strain past comfort. Flow is the opposite of practice.</li>
+          <li>The stronger system is episodic future thinking: vivid futures beat present urges.</li>
+          <li>Build EFT with resonant examples of learned lives and clarified values.</li>
+          <li>Study like Darwin: evolve the method. Flashcards, lectures aloud, seven topics an hour.</li>
+          <li>Model the life of the mind. The phone stays out of the 12-year-old's hands.</li>
+          <li>Do not make learning addictive. Make the future more vivid than the distraction.</li>
+        </ol>
+        <p class="src">Distilled from Deep Questions, Make Learning As Addictive As Social Media with Cal Newport. Video: youtube.com/watch?v=XOPBN1kj5Xc.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Deep Questions episode "Make Learning As Addictive As Social Media" (XOPBN1kj5Xc). All facts and figures come from the episode transcript or the episode itself at youtube.com/watch?v=XOPBN1kj5Xc. Each chart names its episode source. The portrait photograph is real, with attribution in its caption. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 22 words: three pull quotes ("deliberate practice forces you to strain yourself", 7 words, "your EFT system can kick your dopamine system's butt", 9 words, and "you don't get a smartphone", 5 words) plus one single-word illustration ("great!", 1 word). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+
+</script>
+</body>
+</html>
