@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk: Dwarkesh Patel Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Dwarkesh Patel's interview with Elon Musk: space compute, solar math, Grok, Optimus, and the method.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-bottom:10px}
+  .tag.source{background:#e3ecdc;color:#3c5a2e;border:1px solid #b9cba6}
+  .tag.interp{background:#f3e9d6;color:#8f3f14;border:1px solid #dcc9a3}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:20px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:22px;font-weight:800;margin:12px 0 4px}
+  .toy .tnote{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-style:italic}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .legend{border:1px dashed var(--line);padding:14px 16px;margin:26px 0;font-family:var(--sans);font-size:13px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dwarkesh Patel · Track Companion</a>
+  <span class="sub">Dario Amodei · Ep 5</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Dwarkesh Patel · Ep 5 · Companion</p>
+      <h1>Dario Amodei</h1>
+      <p class="dek">The quantitative defense of scaling: the blob hypothesis from 2017 still holds, RL repeats the GPT-2 generalization story, and a country of geniuses in a data center is a 90 percent bet by 2035. This companion follows the full conversation in order, from compute laminarity to revenue compounding at 10x a year.</p>
+      <figure>
+        <img src="assets/ep05-blob.webp" alt="Watercolor illustration of a vast glowing blob of compute with laminar streams of light">
+        <p class="caption"><b>Illustration.</b> The big blob of compute, flowing laminar. AI-generated watercolor made for this page.</p>
+      </figure>
+      <div class="legend"><b>How to read this page.</b> <span class="tag source">Source fact</span> marks a claim made on the episode. <span class="tag interp">Interpretation</span> marks builder analysis built on top of it. Section labels (§1 to §9) follow the transcript in order. The episode publishes no chapter marks.</div>
+      <div class="stats">
+        <div class="stat"><div class="n">90%</div><div class="l">Dario's probability on a country of geniuses in a data center within ten years.</div><div class="s">Episode transcript §4</div></div>
+        <div class="stat"><div class="n">10x/yr</div><div class="l">Anthropic revenue growth: $100M to $1B to $9-10B across 2023-2025.</div><div class="s">Episode transcript §7</div></div>
+        <div class="stat"><div class="n">$50T</div><div class="l">What humanity pays itself in wages each year, the prize for automating work.</div><div class="s">Episode transcript §7</div></div>
+        <div class="stat"><div class="n">90→100%</div><div class="l">The code spectrum: models go from most code to all code.</div><div class="s">Episode transcript §5</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/n1E9IZfvGMA" title="Dwarkesh Patel interviews Dario Amodei (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Keep the 2017 hypothesis</a></li>
+          <li><a href="#nugget-2">Make the blob flow laminar</a></li>
+          <li><a href="#nugget-3">Generalization repeats</a></li>
+          <li><a href="#nugget-4">Bet 90 percent on the country of geniuses</a></li>
+          <li><a href="#nugget-5">The last 10 percent of code is the product</a></li>
+          <li><a href="#nugget-6">Two exponentials, not one</a></li>
+          <li><a href="#nugget-7">Revenue compounds at 10x</a></li>
+          <li><a href="#nugget-8">Spend a third of your time on culture</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-update" data-time="§1" data-title="The update">
+      <p class="ch-time">§1 · Three years later</p>
+      <h2>The Update: The Exponential Behaved</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <figure>
+        <img src="assets/dario-amodei-photo.jpg" alt="Photograph of Dario Amodei">
+        <p class="caption"><b>Photo.</b> Dario Amodei, CEO of Anthropic. Source: Wikimedia Commons.</p>
+      </figure>
+      <p>Three years after his last appearance, Dwarkesh asks for the biggest update. Dario's answer: the exponential of the underlying technology went about as expected, plus or minus a year or two. The direction he did not fully predict was code, which broke out harder and faster than the general trend.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>This is the rarest thing in forecasting: a bold quantitative prediction, made years out, landing inside its error bars. It earns the rest of the episode's numbers their hearing.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Forecasting</p>
+        <h4>Keep the 2017 hypothesis</h4>
+        <p><span class="lbl">What happened. </span>Dario wrote down his scaling hypothesis in 2017 and never needed to replace it. The data kept confirming the doc.</p>
+        <p><span class="lbl">Why it matters. </span>A written hypothesis compounds. Every year it survives, it gets cheaper to trust and harder to dismiss.</p>
+        <p><span class="lbl">The principle. </span>Write the prediction down with numbers and dates. Memory edits itself. Paper does not.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-blob" data-time="§2" data-title="The blob">
+      <p class="ch-time">§2 · The hypothesis</p>
+      <h2>The Big Blob of Compute Hypothesis</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="pull">
+        <blockquote>The Big Blob of Compute Hypothesis</blockquote>
+        <p class="who">Dario Amodei's 2017 hypothesis, restated · Episode transcript §2</p>
+      </div>
+      <p>The hypothesis: intelligence emerges from a vast blob of compute, shaped by the right training recipe. The engineering art lies in laminar flow, not turbulence: objective rewards for math and coding, subjective rewards for open-ended quality, and then the unglamorous sixth and seventh ingredients, normalization and conditioning, the numerical stability work that keeps the giant computation from blowing up.</p>
+      <p>Back in 2017, when Alec Radford trained GPT-1, the datasets did not represent the full distribution of text. The blob was small and the data was narrow. The hypothesis said: fix both, and watch.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Engineering</p>
+        <h4>Make the blob flow laminar</h4>
+        <p><span class="lbl">What happened. </span>The exciting ingredients get the talks. The numerical stability work, normalization and conditioning, keeps the blob from going turbulent.</p>
+        <p><span class="lbl">Why it matters. </span>At giant scale, the boring sixth ingredient decides whether the first five work at all.</p>
+        <p><span class="lbl">The principle. </span>Budget real respect for the unglamorous stabilizers. Scale punishes whatever you neglected.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-rl" data-time="§3" data-title="RL generalization">
+      <p class="ch-time">§3 · Reinforcement learning</p>
+      <h2>RL Repeats the GPT-2 Story</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dario sees the GPT-1 to GPT-2 transition replaying in RL. Training a model on math contests like AIME gives log-linear returns on training time: narrow skill, predictable curve. But training across many RL tasks, the way GPT-2 trained across the whole internet, is where generalization appears. The goal is not to teach every skill. It is to reach the point where the model generalizes across skills it was never directly taught.</p>
+      <p>The recipe has two reward flavors. Objective rewards cover math and coding, where correctness is checkable. Subjective rewards cover RLHF and its higher-order versions, where quality is judged. Both feed the same blob.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Generalization</p>
+        <h4>Generalization repeats</h4>
+        <p><span class="lbl">What happened. </span>Narrow training gave narrow gains in language, then broad training gave general intelligence. RL now walks the same road.</p>
+        <p><span class="lbl">Why it matters. </span>History rhymes at the level of mechanism. The pattern tells you what to do before the results arrive.</p>
+        <p><span class="lbl">The principle. </span>When a new domain opens, replay the last domain's winning transition first. Rhymes are research programs.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-geniuses" data-time="§4" data-title="Country of geniuses">
+      <p class="ch-time">§4 · The prediction</p>
+      <h2>A Country of Geniuses in a Data Center</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="pull">
+        <blockquote>country of geniuses in a data center</blockquote>
+        <p class="who">Dario Amodei's image of the destination · Episode transcript §4</p>
+      </div>
+      <p>On the ten-year timeline he is at 90 percent, about as certain as one can be. He calls it crazy to claim this will not happen by 2035. The irreducible uncertainty caps him near 95 percent: multiple companies, internal turmoil, and the world's habit of surprising everyone. He sketches the 5 percent worlds too, delays of a decade, even missiles, and Dwarkesh jokes that he jinxed them all.</p>
+      <div class="chart" id="chart-prob">
+        <h4>Dario's probability ladder</h4>
+        <p class="csub">Hover any bar for detail. His stated numbers, not the builder's.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of Dario Amodei probability estimates">
+          <rect class="bar alt" x="80" y="200" width="90" height="80" data-tip="2019: his first scaling call was a 50/50 thing"></rect>
+          <rect class="bar" x="240" y="120" width="90" height="160" data-tip="Today: 90 percent on a country of geniuses in a data center within ten years"></rect>
+          <rect class="bar dark" x="400" y="100" width="90" height="180" data-tip="Ceiling: about 95 percent, irreducible uncertainty about the world"></rect>
+          <text class="vallab" x="125" y="192" text-anchor="middle">50%</text>
+          <text class="vallab" x="285" y="112" text-anchor="middle">90%</text>
+          <text class="vallab" x="445" y="92" text-anchor="middle">~95%</text>
+          <text class="axis" x="125" y="300" text-anchor="middle">2019 call</text>
+          <text class="axis" x="285" y="300" text-anchor="middle">2035 bet</text>
+          <text class="axis" x="445" y="300" text-anchor="middle">ceiling</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Dario Amodei, episode transcript §4. All probabilities are Dario's stated figures.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Probability</p>
+        <h4>Bet 90 percent on the country of geniuses</h4>
+        <p><span class="lbl">What happened. </span>Dario moved from 50/50 in 2019 to 90 percent today, and named the ceiling: 95 percent, because the world is the world.</p>
+        <p><span class="lbl">Why it matters. </span>Calibrated forecasters update in public and cap their certainty. The cap is the credibility.</p>
+        <p><span class="lbl">The principle. </span>Put numbers on your beliefs and a ceiling on your confidence. Then update where everyone can see.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-code" data-time="§5" data-title="The code spectrum">
+      <p class="ch-time">§5 · Software engineering</p>
+      <h2>The Last 10 Percent of Code Is the Product</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dario frames code generation as a spectrum. At one end, the model writes 90 percent of code. At the other, it writes 100 percent. Those are worlds apart in productivity, because the last 10 percent contains the integration, the judgment, and the responsibility.</p>
+      <p>He reaches for history in "The Adolescence of Technology", his essay tracing the farming transition: the same spectrum thinking applied to an older automation. Each step along the spectrum redefines the human's job rather than deleting it.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Automation</p>
+        <h4>The last 10 percent of code is the product</h4>
+        <p><span class="lbl">What happened. </span>Ninety percent automation feels like victory. The remaining tenth holds the parts customers actually pay for.</p>
+        <p><span class="lbl">Why it matters. </span>Spectra mislead at the endpoints. The distance from 90 to 100 is longer than from 0 to 90.</p>
+        <p><span class="lbl">The principle. </span>Price the last mile separately. It is where the difficulty, and the value, concentrates.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-diffusion" data-time="§6" data-title="Diffusion">
+      <p class="ch-time">§6 · Two exponentials</p>
+      <h2>Two Exponentials, Not One</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dario's most useful frame: there are two fast exponentials. The first is model capability. The second, downstream of it, is diffusion of the model into the economy. Diffusion is not instant and not slow. It runs much faster than any previous technology's adoption, but it still takes real work, one enterprise rollout at a time.</p>
+      <p>The texture is concrete. A company decides a $50 million Claude Code spend makes sense. Then someone must explain it two levels down: here are our 3,000 developers, here is the rollout plan. Dario says Anthropic has conversations like this every day.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Adoption</p>
+        <h4>Two exponentials, not one</h4>
+        <p><span class="lbl">What happened. </span>Capability compounds in the lab. Diffusion compounds in the economy, one 3,000-developer rollout at a time.</p>
+        <p><span class="lbl">Why it matters. </span>Forecasts that track only capability arrive early. The second exponential sets the date the world changes.</p>
+        <p><span class="lbl">The principle. </span>Model the adoption curve with the same seriousness as the capability curve. The lag is the strategy.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-revenue" data-time="§7" data-title="Revenue">
+      <p class="ch-time">§7 · The business</p>
+      <h2>Revenue Compounds at 10x</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>The numbers Dario volunteers stun. Anthropic revenue: 2023, zero to $100 million. 2024, $100 million to $1 billion. 2025, $1 billion to $9-10 billion. A bizarre 10x per year, sustained three years running, and the team pushes to make it 20 or 30x instead of 10x.</p>
+      <div class="chart" id="chart-revenue">
+        <h4>Anthropic revenue, 10x per year</h4>
+        <p class="csub">Hover any bar for detail. Log scale: each bar is ten times the last.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Log scale bar chart of Anthropic revenue">
+          <rect class="bar alt" x="120" y="240" width="90" height="40" data-tip="2023: zero to $100 million"></rect>
+          <rect class="bar" x="290" y="160" width="90" height="120" data-tip="2024: $100 million to $1 billion"></rect>
+          <rect class="bar dark" x="460" y="80" width="90" height="200" data-tip="2025: $1 billion to $9-10 billion"></rect>
+          <text class="vallab" x="165" y="232" text-anchor="middle">$100M</text>
+          <text class="vallab" x="335" y="152" text-anchor="middle">$1B</text>
+          <text class="vallab" x="505" y="72" text-anchor="middle">$9-10B</text>
+          <text class="axis" x="165" y="300" text-anchor="middle">2023</text>
+          <text class="axis" x="335" y="300" text-anchor="middle">2024</text>
+          <text class="axis" x="505" y="300" text-anchor="middle">2025</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Dario Amodei, episode transcript §7. Figures are Dario's stated revenue history.</p>
+      </div>
+      <p>Then the prize that justifies the build-out: humanity pays itself upwards of $50 trillion a year in wages. Every useful worker the models replace or amplify draws from that pool. Hiring humans is already a hassle everyone accepts. Hiring models will be easier.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Business</p>
+        <h4>Revenue compounds at 10x</h4>
+        <p><span class="lbl">What happened. </span>Three straight years of 10x revenue, and the CEO's complaint is that it should be 20 or 30x.</p>
+        <p><span class="lbl">Why it matters. </span>When the product sells itself, the constraint moves to delivery: rollouts, procurement, change management.</p>
+        <p><span class="lbl">The principle. </span>In a demand-rich market, ambition is the bottleneck. Set the target above the trend and staff the diffusion.</p>
+      </div>
+      <div class="toy" id="toy-revenue">
+        <h4>Toy: the 10x projector</h4>
+        <p class="tsub">Extend Dario's 10x-per-year run. Drag to add years.</p>
+        <label for="revRange">Years of 10x growth from 2025 ($10B): <b id="revVal">0</b></label>
+        <input type="range" id="revRange" min="0" max="5" step="1" value="0">
+        <div class="out" id="revOut">$10B</div>
+        <p class="tnote">Pure extrapolation of the 2023-2025 trend, not a forecast. Dario himself targets 20-30x. This toy uses 10x.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-power" data-time="§8" data-title="Power and culture">
+      <p class="ch-time">§8 · Responsibility</p>
+      <h2>Spend a Third of Your Time on Culture</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dario is frank about concentration. The systems being built will sit beneath a large share of economic activity, and the document that guides them, Anthropic's constitution, is written by people at one company and changeable at any time. He describes three loops for setting such principles: iterate inside the lab, compete across labs and let selection work, or build broader governance.</p>
+      <p>His own allocation: about a third, maybe 40 percent, of his time guards Anthropic's culture. The mechanisms are personal and direct: a company-wide meeting with a large fraction attending, and a Slack channel where he writes and comments constantly. The constitution itself he wrote over winter break, in stolen hours.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Leadership</p>
+        <h4>Spend a third of your time on culture</h4>
+        <p><span class="lbl">What happened. </span>The CEO of the fastest-growing AI lab spends a third of his time on culture, in public, in writing, every week.</p>
+        <p><span class="lbl">Why it matters. </span>Culture is the constitution's enforcement mechanism. A document no one lives is just a document.</p>
+        <p><span class="lbl">The principle. </span>Put the value in your calendar before you put it in your handbook. Time allocation is the real constitution.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-end" data-time="§9" data-title="The end of the exponential">
+      <p class="ch-time">§9 · Closing</p>
+      <h2>Near the End of the Exponential</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>The episode's title is Dario's claim: we are near the end of the exponential, at least for the current paradigm's steepest phase. What comes after is the country of geniuses, the diffusion exponential, and the long work of getting the institutions right.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>Read against Ilya's episode, the two interviews rhyme: the scaling era ends, the research era returns, and the winners are the labs that kept a hypothesis, wrote it down, and compounded it for a decade.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>The 2017 blob hypothesis survived contact with reality. Write predictions down.</li>
+          <li>Intelligence is a big blob of compute flowing laminar, stabilized by unglamorous numerical work.</li>
+          <li>RL repeats the GPT-2 generalization story: breadth of tasks beats depth of any one task.</li>
+          <li>Ninety percent by 2035 on a country of geniuses in a data center, capped at 95 by worldly humility.</li>
+          <li>Code automation is a spectrum. The last 10 percent, 90 to 100, is the product.</li>
+          <li>Two exponentials: capability in the lab, diffusion in the economy. The second sets the date.</li>
+          <li>Revenue at 10x a year, a $50 trillion wage pool as the prize, and a third of the CEO's time on culture.</li>
+        </ol>
+        <p class="src">Distilled from Dwarkesh Patel's interview with Dario Amodei (video id n1E9IZfvGMA). All figures are the guest's statements from the episode transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates Dwarkesh Patel's interview with Dario Amodei (video id n1E9IZfvGMA). All facts and figures come from the episode transcript. Section labels (§1 to §9) follow the transcript in order. The episode publishes no chapter marks, so no timestamps are claimed. The illustration is an AI-generated watercolor made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 17 words: the blob pull quote (6 words), the geniuses pull quote (7 words), and "The Adolescence of Technology" (4 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+  var gr = document.getElementById('gpuRange'), gv = document.getElementById('gpuVal'), mo = document.getElementById('mwOut');
+  if(gr){
+    gr.addEventListener('input', function(){
+      var n = parseInt(gr.value, 10);
+      gv.textContent = n.toLocaleString('en-US');
+      mo.textContent = '\u2248 ' + Math.round(n / 110000 * 300).toLocaleString('en-US') + ' MW all-in';
+    });
+  }
+
+  /* ---------- toy: 10x revenue projector ---------- */
+  (function(){
+    var r = document.getElementById('revRange'), v = document.getElementById('revVal'), o = document.getElementById('revOut');
+    if(!r) return;
+    function fmt(n){
+      if(n >= 1e12) return '$' + (n/1e12).toFixed(n>=1e13?0:1) + 'T';
+      return '$' + (n/1e9).toFixed(0) + 'B';
+    }
+    function upd(){
+      var y = parseInt(r.value, 10);
+      v.textContent = y;
+      o.textContent = fmt(10e9 * Math.pow(10, y)) + (y>0 ? ' (extrapolated)' : '');
+    }
+    r.addEventListener('input', upd); upd();
+  })();
+
+})();
+</script>
+</body>
+</html>
