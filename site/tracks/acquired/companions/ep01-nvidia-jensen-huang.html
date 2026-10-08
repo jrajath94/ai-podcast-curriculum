@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA CEO Jensen Huang: Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Acquired interview with NVIDIA CEO Jensen Huang: bet-the-company decisions, CUDA, the data center pivot, and the founder playbook.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f7a4d; --accent-ink:#14532d; --soft:#e9f2ec;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe3cf}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdccf}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e6ece6;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 1 &middot; NVIDIA CEO Jensen Huang &middot; Oct 2023</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 1 &middot; Companion</p>
+      <h1>NVIDIA CEO Jensen Huang</h1>
+      <p class="dek">After 500 hours of research over two years, Ben and David flew to Nvidia headquarters and sat down with the man himself. What follows is not the company history. It is the decision history: how Jensen bets the company, why he prices like an intelligence company instead of a chip company, and the one org rule he refuses to bend.</p>
+      <img src="assets/ep01/jensen-huang.jpg" alt="Photograph of Jensen Huang, co-founder and CEO of Nvidia, in his leather jacket">
+      <p class="caption"><b>Photo.</b> Jensen Huang, co-founder and CEO of Nvidia. Source: dcinside Issue Feed (image search result), via https://issuefeed.dcinside.com/content/2314457</p>
+      <div class="stats">
+        <div class="stat"><div class="n">$1.1T</div><div class="l">Nvidia market value at recording, sixth most valuable company in the world</div><div class="s">Episode @00:00:41</div></div>
+        <div class="stat"><div class="n">500 hrs</div><div class="l">Research Ben and David did on Nvidia over two years before this interview</div><div class="s">Episode @00:00:41</div></div>
+        <div class="stat"><div class="n">10,000</div><div class="l">Person-years invested in CUDA before any real market existed</div><div class="s">Episode @00:17:27</div></div>
+        <div class="stat"><div class="n">40+</div><div class="l">Direct reports to Jensen, in an org with no standard chart</div><div class="s">Episode @00:27:13</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/y6NfxiemvHg" title="Acquired: NVIDIA CEO Jensen Huang (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Acquired episode video (1 hr 32 min). Chapter times below match the official YouTube chapter marks.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Bet the company only after you simulate it</a></li>
+          <li><a href="#nugget-2">Standards beat cleverness</a></li>
+          <li><a href="#nugget-3">Invest 10,000 person-years before the market</a></li>
+          <li><a href="#nugget-4">One rule: never break compatibility</a></li>
+          <li><a href="#nugget-5">Mission is the boss</a></li>
+          <li><a href="#nugget-6">Position near where the apple will fall</a></li>
+          <li><a href="#nugget-7">Buy the missing half of the future</a></li>
+          <li><a href="#nugget-8">Enter zero-billion-dollar markets</a></li>
+          <li><a href="#nugget-9">Moats are networks, not walls</a></li>
+          <li><a href="#nugget-10">Learn from everyone, adopt from no one</a></li>
+          <li><a href="#nugget-11">The entire ball of wax</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode chapter times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps.</p>
+    </div>
+    <section class="chapter" id="ch-intro" data-time="00:00:41" data-title="Intro: The Man Himself">
+      <p class="ch-time">00:00:41</p>
+      <h2>Intro: The Man Himself</h2>
+      <p><span class="tag fact">Source fact</span> Ben and David open with the stakes. They researched Nvidia for something like 500 hours over two years. Then they flew to Nvidia headquarters to sit down with Jensen himself, the founder and CEO of the company behind the AI explosion.</p>
+      <p>At recording time, October 2023, Nvidia was worth $1.1 trillion. That made it the sixth most valuable company in the entire world. Expectations sat sky high. The question that hangs over the episode: can Nvidia keep this insane prosperity for years, and can it hold its ridiculous lead as the AI market takes shape?</p>
+      <p>Jensen takes them down memory lane. He covers the path from graphics chips to the data center to AI. He describes multiple near-death moments. He shares founder advice. Near the end he shows an emotional side of the founder journey.</p>
+      <p><span class="tag interp">Interpretation</span> The three-part Nvidia series tells you what happened. This episode tells you how Jensen decided. That is the rarer asset. Strategy books describe outcomes. Here the decider narrates the decision rule, live.</p>
+    </section>
+
+    <section class="chapter" id="ch-riva" data-time="00:02:54" data-title="RIVA 128: The Bet-the-Company Chip">
+      <p class="ch-time">00:02:54</p>
+      <h2>RIVA 128: The Bet-the-Company Chip</h2>
+      <figure>
+        <img src="assets/ep01/riva-128.jpg" alt="Photograph of a Diamond Viper V330 graphics card with the NVIDIA RIVA 128 chip, 1997">
+        <p class="caption"><b>Photo.</b> A Diamond Viper V330 card built on the NVIDIA RIVA 128 chip, 1997. Source: vgamuseum.ru.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Jensen founded Nvidia in 1993 with Chris Malachowsky and Curtis Priem. He says Nvidia was the only consumer 3D graphics company created at that time. The thesis: the PC should become an accelerated PC, because Windows was still a software-rendered system.</p>
+      <p>The first architecture bet was wrong. The first chips, NV1 and NV2, used forward texture mapping. They drew curves and tessellated them, which avoided Z-buffers. A Z-buffer is memory that stores how far each pixel is, so the chip knows which surface sits in front. The skip looked clever. It was the wrong answer.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Standards</p>
+        <h4>Standards beat cleverness</h4>
+        <p><span class="lbl">What happened. </span>When Nvidia admitted the NV1 architecture was wrong, Microsoft already shipped DirectX, which was fundamentally incompatible with it. About 30 competitors already entered the field. Nvidia had months of cash left.</p>
+        <p><span class="lbl">Why it matters. </span>A technically clever design lost to the industry standard. The market did not grade on elegance. It graded on compatibility.</p>
+        <p><span class="lbl">The principle. </span>When a standard emerges, adopt it fast. Cleverness that fights the standard is just expensive delay.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> With cash running out, Nvidia made what Jensen calls probably the company's best moment. They decided not to fight DirectX. They decided to build the best chip in the world for it: the RIVA 128, the first fully hardware-accelerated 3D pipeline for a PC. Transform, projection, lighting, frame buffer: every stage in hardware.</p>
+      <p>The constraint changed everything. They could afford exactly one tape-out. Taping out means sending the final chip design to the factory. Each tape-out costs millions and takes months. A mistake means starting over.</p>
+      <p>The normal industry process meant death for them: build the chip, write the software, find the bugs, tape out again, repeat. So Jensen bought an emulator from a company called iSOS, on the day it closed its doors. He called, bought their inventory, no promises. The software team wrote the entire stack and ran it on the emulator. It rendered about one frame per hour. They sat in the lab and watched Windows paint, one frame at a time, until they believed the chip was perfect.</p>
+      <figure>
+        <img src="assets/ep01/illustration-riva-lab.webp" alt="Watercolor illustration of a lone engineer in a dark lab watching chip blueprints glow on old monitors">
+        <p class="caption"><b>Illustration.</b> The lab in 1997: one frame per hour, watched until the chip was perfect. AI-generated watercolor.</p>
+      </figure>
+      <p>Then they taped out once and went straight to production, marketing blitz, developer relations, everything. The chip came back supporting 8 of the 32 DirectX blend modes. Jensen says the lesson was to implement all 32 the next time. So they convinced the market and the developers that the other 24 did not matter.</p>
+      <div class="chart" id="chart-blend">
+        <h4>RIVA 128: 8 of 32 DirectX blend modes</h4>
+        <p class="csub">The chip shipped with one quarter of the standard. The other three quarters got sold around. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of DirectX blend modes supported by RIVA 128">
+          <rect class="bar" x="120" y="120" width="120" height="120" data-tip="RIVA 128 supported 8 of the 32 DirectX blend modes."></rect>
+          <rect class="bar alt" x="300" y="60" width="120" height="180" data-tip="The other 24 blend modes were missing. Nvidia convinced developers they did not matter."></rect>
+          <text class="vallab" x="180" y="112" text-anchor="middle">8</text>
+          <text class="vallab" x="360" y="52" text-anchor="middle">24</text>
+          <text class="axis" x="180" y="262" text-anchor="middle">supported</text>
+          <text class="axis" x="360" y="262" text-anchor="middle">missing, sold around</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA CEO Jensen Huang, @00:02:54 to @00:17:27.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-bet-rule" data-time="~00:12" data-title="The Rule: Pull the Future Forward">
+      <p class="ch-time">~00:12</p>
+      <h2>The Rule: Pull the Future Forward</h2>
+      <p><span class="tag fact">Source fact</span> Ben asks the obvious question. Jensen keeps pushing all the chips in, and it keeps working. Is the lesson just bet big? Jensen says no.</p>
+      <p>His rule: when you bet the farm, you pull everything risky from the future into the present. Everything they could prefetch, they prefetched. Everything they could simulate, they simulated. You push your chips in when you know it will work, because you already simulated it.</p>
+      <p><span class="tag interp">Interpretation</span> A bet is not brave because it is large. A bet is sound because the uncertainty left the room before the money moved. RIVA 128 was not a gamble. It was a certainty purchased with an emulator and a year of patience.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Decision rule</p>
+        <h4>Bet the company only after you simulate it</h4>
+        <p><span class="lbl">What happened. </span>Nvidia could afford one tape-out. So it bought a dying company's emulator, wrote all the software first, and watched the chip run at one frame per hour until it was perfect. Then it bet everything.</p>
+        <p><span class="lbl">Why it matters. </span>The company survived its near-death not through courage but through certainty. Simulation converted a fatal risk into a known outcome.</p>
+        <p><span class="lbl">The principle. </span>Before a big bet, drag every risk you can into the present. Prefetch what is knowable. Simulate what is testable. Only then push the chips in.</p>
+      </div>
+      <div class="toy" id="toy-bet">
+        <h4>Toy: the bet simulator</h4>
+        <p class="tsub">Jensen's rule as a machine. Set how much risk you removed before the bet, and how big the bet is. The verdict follows his logic.</p>
+        <label for="risk">Risk removed before the bet <span class="tval" id="risk-v">80%</span></label>
+        <input type="range" id="risk" min="0" max="100" value="80">
+        <label for="size">Size of the bet <span class="tval" id="size-v">90%</span></label>
+        <input type="range" id="size" min="0" max="100" value="90">
+        <div class="verdict" id="bet-verdict">Push the chips in. The risk already left the room.</div>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cuda" data-time="00:17:27" data-title="CUDA: The 10,000-Person-Year Bet">
+      <p class="ch-time">00:17:27</p>
+      <h2>CUDA: The 10,000-Person-Year Bet</h2>
+      <p><span class="tag fact">Source fact</span> After RIVA 128, Nvidia won graphics. Then Jensen made a stranger bet: CUDA, a programming model that let developers run general computation on the graphics chip. The investment reached something like 10,000 person-years, poured in before any market existed.</p>
+      <p>Why did he believe? Two reasons from the episode. First, the hardware was already right. A programmable shader is a massively parallel processor. Nvidia already put the idea to the test on CT reconstruction and image processing. Jensen calls the GPU the only processor in the world that works that way.</p>
+      <p>Second, Jensen went back to first principles after AlexNet in 2012. AlexNet was a neural network that crushed 30 years of computer vision work overnight. Jensen asked why it worked. His answer: deep learning is a universal function approximator. Give it enough example data and enough layers, and there is no reason it cannot keep getting better as data and models grow.</p>
+      <p>Then the hinge. For most valuable problems, causality does not matter. Prediction is enough. Do you care why someone prefers one toothpaste over another? No. You care that you can predict the choice. The same holds for movies, music, weather, and which item to show next in a social feed.</p>
+      <div class="chart" id="chart-emerge">
+        <h4>Scale and emergence, per the episode</h4>
+        <p class="csub">Jensen describes the first GAN as a 32 by 32 blurry cat. His question: how far can it go? Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Chart of model scale versus capability">
+          <rect class="bar alt" x="80" y="180" width="120" height="70" data-tip="Below ~10 billion parameters: models hallucinate and babble."></rect>
+          <rect class="bar alt" x="260" y="140" width="120" height="110" data-tip="~10 billion parameters: the crossover. Capabilities begin to work."></rect>
+          <rect class="bar" x="440" y="60" width="120" height="190" data-tip="~100 billion parameters: magically more accurate, more useful, more lifelike."></rect>
+          <text class="vallab" x="140" y="172" text-anchor="middle">&lt;10B</text>
+          <text class="vallab" x="320" y="132" text-anchor="middle">~10B</text>
+          <text class="vallab" x="500" y="52" text-anchor="middle">~100B</text>
+          <text class="axis" x="140" y="272" text-anchor="middle">babble</text>
+          <text class="axis" x="320" y="272" text-anchor="middle">crossover</text>
+          <text class="axis" x="500" y="272" text-anchor="middle">emergence</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA CEO Jensen Huang, @00:17:27 to @00:22:21. Parameter counts are Jensen's stated thresholds.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> The early believers were researchers. Jensen says CUDA democratized supercomputing. The first users worked on molecular dynamics, CT reconstruction, seismic processing, weather simulation, quantum chemistry. When deep learning arrived, Nvidia went to every AI researcher on the planet and asked how to help: Yann LeCun, Andrew Ng, Geoff Hinton, Ilya Sutskever. Jensen read the papers himself. Papers came every three months, then every day.</p>
+      <p>On language models, his first reaction to BERT was about how clever the trick was: mask out words, make the model guess them. Text encodes reasoning, he argues. Humans get common sense from reading. Why would a machine not learn reasoning from reading too?</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Conviction</p>
+        <h4>Invest 10,000 person-years before the market</h4>
+        <p><span class="lbl">What happened. </span>Nvidia poured roughly 10,000 person-years into CUDA while no market for it existed. The bet rested on first principles: parallel hardware plus universal function approximation.</p>
+        <p><span class="lbl">Why it matters. </span>By the time the market arrived, nobody could catch up. A decade of compound investment became an unbridgeable lead.</p>
+        <p><span class="lbl">The principle. </span>If first principles say the market must exist, build for it before it does. Time in the market beats timing the market, even in R&amp;D.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Jensen states exactly one rule that is not negotiable in the company: every accelerator Nvidia makes must be architecturally compatible with every other one. He says Nvidia is the only accelerator company on the planet where that is true. The installed base: 250 to 300 million active CUDA GPUs, all compatible. Everything else in the company is negotiable.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Platform</p>
+        <h4>One rule: never break compatibility</h4>
+        <p><span class="lbl">What happened. </span>Every Nvidia accelerator stays architecturally compatible with every other one. Two hundred fifty to 300 million active CUDA GPUs form one unbroken platform.</p>
+        <p><span class="lbl">Why it matters. </span>Developers invest years learning CUDA and writing CUDA code. If a new chip invalidates that investment, the platform dies. Compatibility turns a product line into a platform.</p>
+        <p><span class="lbl">The principle. </span>Pick the one constraint that protects your ecosystem and make it sacred. Negotiate everything else.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-org" data-time="00:27:13" data-title="Mission Is the Boss">
+      <p class="ch-time">00:27:13</p>
+      <h2>Mission Is the Boss</h2>
+      <p><span class="tag fact">Source fact</span> Jensen has more than 40 direct reports. He rejects the standard org chart. His argument: a company is the machinery for building its product, so the org should mirror the product's architecture. It makes no sense that every company's chart looks the same when they all build different things.</p>
+      <p>Instead, Nvidia wires itself like a neural network around missions. The phrase inside the company is <q>mission is the boss</q>. They define the mission, then wire the best skills and teams across the whole organization to achieve it, cutting across reporting lines. Information moves fast and flat: Jensen describes a robotics meeting with new college graduates, vice presidents, and executive staff in one room, deciding together, everyone hearing the decision at the same moment. Nobody has power from privileged information.</p>
+      <p>The price: pressure on leaders is high. In a command-and-control system, your boss has more power because they are closer to the information. At Nvidia, information is everywhere, so leaders have to actually lead.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Organization</p>
+        <h4>Mission is the boss</h4>
+        <p><span class="lbl">What happened. </span>With 40 plus direct reports, Jensen runs no standard hierarchy. Teams form around missions, drawing the best people from anywhere, and everyone hears decisions at the same moment.</p>
+        <p><span class="lbl">Why it matters. </span>Information speed becomes the advantage. When nobody hoards knowledge, the company decides at the speed of its fastest thinker, not its tallest chain.</p>
+        <p><span class="lbl">The principle. </span>Design the org around the work, not around control. Strip privileged information and leaders must earn authority through reasoning.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-datacenter" data-time="00:34:16" data-title="The Data Center: Separating Compute from the Screen">
+      <p class="ch-time">00:34:16</p>
+      <h2>The Data Center: Separating Compute from the Screen</h2>
+      <figure>
+        <img src="assets/ep01/illustration-data-center-road.webp" alt="Watercolor illustration of a long road climbing toward a glowing data center on the horizon at dawn">
+        <p class="caption"><b>Illustration.</b> The decade-long road from desktop GPUs to the data center. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> About 17 years before the interview, so around 2006, Jensen started the data center journey. His reasoning: Nvidia's technology was plugged into a computer that had to sit next to you, because it had to connect to your monitor. Desktops are a bounded market. There are only so many PCs and only so many displays to drive.</p>
+      <p>The insight: what if the computer does not have to be near the viewing device? One of his engineers showed him a demo: capture the frame buffer, encode it as video, stream it to a thin device. That became GeForce NOW, Nvidia's cloud gaming product, and a much bigger idea: compute can happen anywhere, and the screen can be anywhere else.</p>
+      <p>The physics objection is latency, specifically the speed of light. Jensen's answer: the speed of light end to end is only about 120 milliseconds across the planet. That is not that long. If you remove every other obstacle, light speed is fine. So build data centers as large as you like, and every small device instantly becomes amazing.</p>
+      <p><span class="tag fact">Source fact</span> Nvidia's first data center product, then a second for enterprise OEMs, then a third: CUDA plus GPU as a supercomputer. Jensen's point: the data center business looks like it is about AI, but that is a false equivalence. Nvidia could explode into AI only because it had spent years learning to build data center computers in smaller markets first.</p>
+      <p>His decision rule: you cannot wait until the opportunity is in front of you. Position the company near where the apple will fall, close enough to make the diving catch. You do not have to be perfect. You have to be near.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Positioning</p>
+        <h4>Position near where the apple will fall</h4>
+        <p><span class="lbl">What happened. </span>Nvidia spent years selling data center products into small markets: cloud gaming, enterprise OEM graphics, CUDA supercomputers. When AI arrived, the company was already standing where the opportunity would land.</p>
+        <p><span class="lbl">Why it matters. </span>You cannot wait until the opportunity is visible. By then the position is taken. Adjacent practice in small markets is how you earn the right to catch the big one.</p>
+        <p><span class="lbl">The principle. </span>Do not predict the future exactly. Stand close to where it must happen, and practice the catch in smaller games first.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-mellanox" data-time="00:39:31" data-title="Mellanox: The Network Is the Computer">
+      <p class="ch-time">00:39:31</p>
+      <h2>Mellanox: The Network Is the Computer</h2>
+      <figure>
+        <img src="assets/ep01/nvidia-hq.webp" alt="Photograph of the NVIDIA Endeavor building in Santa Clara at dusk">
+        <p class="caption"><b>Photo.</b> Nvidia's Endeavor building, Santa Clara. Source: wolfemechanical.com.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> In 2019 Nvidia bought Mellanox, the Israeli high-performance networking company, for about 7 billion dollars. Jensen calls it one of the best strategic decisions he ever made. The company had some 3,200 people in Israel.</p>
+      <p>His reasoning has two parts. First: a data center is not distinguished from a desktop by its processor. Desktops and data centers use nearly the same CPUs and GPUs. What makes a data center a data center is the networking and infrastructure: how computing is distributed, how security is provided, how the network moves data. Those characteristics belonged to Mellanox, not Nvidia. If Nvidia wanted to build the computers of the future, and the computers of the future are data centers, then Nvidia had to own networking.</p>
+      <p>Second: AI training is the inverse of hyperscale cloud. Hyperscale takes commodity components and virtualizes many users onto one computer. AI training takes one job and orchestrates it across millions of processors. Commodity Ethernet is fine for Hadoop and search queries. It is not fine for sharding a model across thousands of GPUs. Supercomputing-style networking, InfiniBand, is ideal for that. Jensen saw this before others because he stood near the opportunity: large language models were about to need exactly this.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Acquisitions</p>
+        <h4>Buy the missing half of the future</h4>
+        <p><span class="lbl">What happened. </span>Nvidia paid about $7 billion for Mellanox, a networking company, because the data center is defined by its network, not its processors. The 3,200-person Israel team became the fabric of Nvidia's AI systems.</p>
+        <p><span class="lbl">Why it matters. </span>The acquisition completed the machine. Chips compute, but networks turn thousands of chips into one computer. Without it, Nvidia sold parts. With it, Nvidia sells the computer.</p>
+        <p><span class="lbl">The principle. </span>Acquire the capability that completes your future product, not the one that extends your past. Buy what the next era requires.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-markets" data-time="~00:47" data-title="Zero-Billion-Dollar Markets">
+      <p class="ch-time">~00:47</p>
+      <h2>Zero-Billion-Dollar Markets</h2>
+      <p><span class="tag fact">Source fact</span> Jensen uses the phrase <q>zero billion dollar market</q> for a market with no revenue yet that he believes will exist. His definition: there is no market yet, but we believe there will be one. Nvidia positions itself in these deliberately: PC gaming, the design workstation, supercomputing, the software-defined car, Omniverse.</p>
+      <p>When Nvidia entered automotive, a CTO told him cars cannot tolerate the blue screen of death. Jensen's answer: someday every car will be software-defined, and a software-defined car needs an incredible computer. Fifteen years later, he says, they were largely right.</p>
+      <p><span class="tag fact">Source fact</span> Omniverse, at the time of the interview, had about 40 customers, including Amazon and BMW. It looked tiny. That is the point. You navigate the company toward non-consumption, places where nobody buys yet. Non-consumption means potential customers who buy nothing today because no good product exists for them yet.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Market entry</p>
+        <h4>Enter zero-billion-dollar markets</h4>
+        <p><span class="lbl">What happened. </span>Nvidia entered automotive when the market was zero, endured fifteen years of doubt, and watched software-defined cars arrive. Omniverse had only about 40 customers at recording time, and that smallness was the strategy working.</p>
+        <p><span class="lbl">Why it matters. </span>Enter before the market exists, and by the time it emerges there are few competitors shaped like you. The lonely years are the moat's foundation.</p>
+        <p><span class="lbl">The principle. </span>Navigate toward non-consumption. If everyone can see the market, the margins are already gone.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-moat" data-time="~00:51" data-title="Moats Are Networks, Not Walls">
+      <p class="ch-time">~00:51</p>
+      <h2>Moats Are Networks, Not Walls</h2>
+      <figure>
+        <img src="assets/ep01/illustration-networks-not-walls.webp" alt="Watercolor illustration of a vast glowing network outgrowing a small crumbling castle wall">
+        <p class="caption"><b>Illustration.</b> The network of networks outgrows the castle wall. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Ben asks how a company that creates a market keeps its lead. Jensen dislikes the word moat, because it frames strategy as building walls around a castle. He prefers to think in networks. If you build the product right and an ecosystem grows around it, developers and customers build on you, and that network of networks is the moat. You enjoy the market together with everyone in the network, not alone behind a wall.</p>
+      <p><span class="tag interp">Interpretation</span> This is the economics behind Nvidia's pricing power. The moat is not one chip. It is 250 to 300 million compatible GPUs, the CUDA software stack, the developers trained on it, the libraries, the Mellanox fabric tying it together, and the switching cost of rewriting all of it.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Moats</p>
+        <h4>Moats are networks, not walls</h4>
+        <p><span class="lbl">What happened. </span>Jensen rejects the castle metaphor. Nvidia's defense is an ecosystem: compatible GPUs everywhere, CUDA libraries, trained developers, networking fabric, all reinforcing each other.</p>
+        <p><span class="lbl">Why it matters. </span>Walls invite sieges. Networks invite joining. Every developer who builds on CUDA deepens the moat instead of attacking it.</p>
+        <p><span class="lbl">The principle. </span>Build the thing others build on. The moat is the crowd standing with you, not the wall standing between you.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-playbook" data-time="00:55:54" data-title="Luck, Skill, and the Founder's Playbook">
+      <p class="ch-time">00:55:54</p>
+      <h2>Luck, Skill, and the Founder's Playbook</h2>
+      <p><span class="tag fact">Source fact</span> On luck, Jensen is blunt. You can do all the right smart things and still fail. You can do dumb things, and Jensen says he did many, and still succeed. Skill matters, but circumstances have to cooperate at the important moments.</p>
+      <p>Books: Jensen says Clay Christensen's series is the best, no contest: intuitive, sensible, approachable. He also likes Andy Grove's books. His method for reading business books: enjoy them, be inspired, but never adopt. Ask what it means for you, in your context, at your company's age. Learn from everyone, including competitors and adjacent industries. Education is free. Then come back and design your own strategy.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Learning</p>
+        <h4>Learn from everyone, adopt from no one</h4>
+        <p><span class="lbl">What happened. </span>Jensen reads Christensen and Grove closely, learns from competitors and adjacent industries, and then refuses to copy any of them. He designs Nvidia's own strategy from the raw material.</p>
+        <p><span class="lbl">Why it matters. </span>Adopted playbooks produce adopted results. The value of study is not the template. It is the raw judgment you build by translating ideas into your context.</p>
+        <p><span class="lbl">The principle. </span>Read widely, copy nothing. Ask what each idea means for your company at your stage, then write your own play.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Don Valentine of Sequoia, Nvidia's first investor, told Jensen at investment time:</p>
+      <div class="pull">
+        <blockquote>if you lose my money I'll kill you</blockquote>
+        <p class="who">Don Valentine to Jensen Huang &middot; Episode @00:55:54</p>
+      </div>
+      <p>Then, over the decades that followed, Valentine mailed him newspaper clippings with good job written over them in crayon. Both founding VCs, Sutter Hill and Sequoia, were still on the board 30 years later. Jensen says that almost never happens.</p>
+      <p><span class="tag fact">Source fact</span> His greatest fear: he lets employees down. People joined because they believed in his hopes and dreams, and adopted them as their own. On time: there is plenty of time in the day if you prioritize and refuse to let Outlook control you. He admits he was late to the interview itself.</p>
+      <p>His advice on business plans: they should be much shorter. A financial forecast nobody can verify is not the point. The plan must answer: what is the true problem, what unmet need will emerge, and what will you do that is sufficiently hard that competitors cannot swarm it once they see it works.</p>
+    </section>
+
+    <section class="chapter" id="ch-future" data-time="00:59:54" data-title="Jobs, Safety, and the Thousand-Times Market">
+      <p class="ch-time">00:59:54</p>
+      <h2>Jobs, Safety, and the Thousand-Times Market</h2>
+      <p><span class="tag fact">Source fact</span> On jobs: productivity creates prosperity, and prosperous companies hire more people to expand into new areas. The failure mode in the fear is the belief that companies have no more ideas. History says otherwise: industry today is vastly larger than industry a thousand years ago because humans have infinite ambition. Net job growth does not guarantee no individual gets fired. His practical advice: you are more likely to lose your job to another human who uses AI than to an AI. Learn to use AI.</p>
+      <p>On safety, Jensen splits the problem. In robotics and self-driving: functional safety, active safety, when a human must be in the loop and when not. In information: bias, false information, artists' rights. Nvidia partnered with Getty and Shutterstock to train generative image models on licensed data instead of scraping the internet. For increasingly agentic AI: keep the human in the loop as long as it is sensible. Collect data, curate it, train, test, validate, then release. Do not let models self-learn in the wild.</p>
+      <p><span class="tag fact">Source fact</span> The last idea is the pricing key for the whole track. Jensen was told long ago that video could never be a billion-dollar market, and that no chip company could ever be that big. His answer: stop being a chip company. Nvidia manufactures intelligence now. It manufactures productive work.</p>
+      <p>His arithmetic: if you build a chip for a car, your market is the number of cars times chips per car. If you build a system that acts as a chauffeur whenever needed, your market is the value of a chauffeur for everyone who has a car. The second market is enormously larger. By building on top of the chip, Nvidia grew its opportunity by probably a thousand times.</p>
+      <div class="chart" id="chart-1000x">
+        <h4>The thousand-times market</h4>
+        <p class="csub">Jensen's arithmetic for why Nvidia stopped pricing like a chip company. The right bar is illustrative of his stated ratio. Hover for detail.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Chart comparing chip market to intelligence market">
+          <g class="axis" id="k1000-grid"></g>
+          <rect class="bar alt" x="150" y="240" width="110" height="40" data-tip="Chip company: market equals cars times chips per car. Bounded."></rect>
+          <rect class="bar" x="380" y="40" width="110" height="240" data-tip="Intelligence company: market equals the value of a chauffeur for everyone. About a thousand times larger, per Jensen."></rect>
+          <text class="vallab" x="205" y="232" text-anchor="middle">1x</text>
+          <text class="vallab" x="435" y="32" text-anchor="middle">~1,000x</text>
+          <text class="axis" x="205" y="302" text-anchor="middle">sell the chip</text>
+          <text class="axis" x="435" y="302" text-anchor="middle">sell the intelligence</text>
+          <text class="axis" x="205" y="320" text-anchor="middle">cars x chips per car</text>
+          <text class="axis" x="435" y="320" text-anchor="middle">chauffeur value x everyone</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA CEO Jensen Huang, @00:59:54. Ratio stated by Jensen as probably a thousand times.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Ben names the pattern the Moritz corollary to Moore's law, after Mike Moritz of Sequoia. When Moritz took over from Don Valentine, he looked at Sequoia's early funds, including the one with Cisco, and asked how they could ever top it. His answer: as compute gets cheaper, it reaches more of the economy, so the addressable markets get bigger. AI does the same thing.</p>
+    </section>
+
+    <section class="chapter" id="ch-people" data-time="~01:24" data-title="The Entire Ball of Wax">
+      <p class="ch-time">~01:24</p>
+      <h2>The Entire Ball of Wax</h2>
+      <p><span class="tag fact">Source fact</span> He closes with the people. Thirty years in, he is surrounded by colleagues with 25 to 30 years at the company. Not one of them ever gave up on him.</p>
+      <div class="pull">
+        <blockquote>they never one time gave up on me and that's the entire ball of wax</blockquote>
+        <p class="who">Jensen Huang on his team &middot; Episode ~01:24</p>
+      </div>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 &middot; People</p>
+        <h4>The entire ball of wax</h4>
+        <p><span class="lbl">What happened. </span>After thirty years, Jensen's inner circle still includes people from the founding era. Not one of them ever gave up on him, through near-deaths and drawdowns.</p>
+        <p><span class="lbl">Why it matters. </span>Strategy compounds, but only if the team stays. Every bet-the-company moment in this episode was survivable because the same people were still in the room.</p>
+        <p><span class="lbl">The principle. </span>The strategy is the team. Keep the people who never gave up, and be the founder nobody gives up on.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="01:27:43" data-title="Carve-Outs and Outro">
+      <p class="ch-time">01:27:43</p>
+      <h2>Carve-Outs and Outro</h2>
+      <p><span class="tag fact">Source fact</span> The episode closes with rapid personal questions. Favorite sci-fi, daily driver, favorite business book, Don Valentine stories, what he would tell his 40-year-old self, what he is afraid of, his final job, whether he would start a company in 2023, and how he thinks about market drawdowns. Then the outro: join the Slack, get the merch, and the sign-off question, who got the truth.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Simulate before you bet. RIVA 128 survived because the risk left the room before the money moved.</li>
+          <li>Adopt the standard. The NV1's clever architecture lost to DirectX compatibility.</li>
+          <li>Invest before the market. Ten thousand person-years of CUDA bought an unbridgeable lead.</li>
+          <li>Keep one rule sacred. Every accelerator stays compatible, or the platform dies.</li>
+          <li>Stand near the future. The data center pivot worked because Nvidia practiced in small markets first.</li>
+          <li>Build the network, not the wall. Ecosystems defend better than fortresses.</li>
+          <li>Price the intelligence, not the chip. The market above the silicon is a thousand times larger.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, NVIDIA CEO Jensen Huang, Oct 2023. Full episode: youtube.com/watch?v=y6NfxiemvHg. Chapter times match the official YouTube chapter marks.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "NVIDIA CEO Jensen Huang" (October 2023, 1 hr 32 min). All facts and figures come from the episode transcript (research/acquired/transcripts/y6NfxiemvHg.txt). Chapter times use the official YouTube chapter marks. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 31 words: two pull quotes plus the two short phrases in quotation marks. The pull quotes carry speaker and episode-time attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(root){
+    root.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+
+  /* ---------- toy: bet simulator ---------- */
+  (function(){
+    var risk = document.getElementById('risk'), size = document.getElementById('size');
+    var riskV = document.getElementById('risk-v'), sizeV = document.getElementById('size-v');
+    var out = document.getElementById('bet-verdict');
+    function upd(){
+      var r = +risk.value, s = +size.value;
+      riskV.textContent = r + '%'; sizeV.textContent = s + '%';
+      if(r >= 80){
+        out.textContent = 'Push the chips in. The risk already left the room.';
+        out.style.borderColor = '#1f7a4d'; out.style.color = '#14532d';
+      } else if(r >= 50){
+        out.textContent = 'Shrink the bet or simulate more. Courage is not a plan.';
+        out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14';
+      } else {
+        out.textContent = 'Do not bet. You are gambling, not deciding.';
+        out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f';
+      }
+    }
+    risk.addEventListener('input', upd); size.addEventListener('input', upd); upd();
+  })();
+
+  /* ---------- chart: 1000x gridlines ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var g = document.getElementById('k1000-grid');
+    [0,1,2,3].forEach(function(e){
+      var val = Math.pow(10, e), ypos = 280 - (e/3)*240;
+      var ln = document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',60); ln.setAttribute('x2',600);
+      ln.setAttribute('y1',ypos); ln.setAttribute('y2',ypos);
+      ln.setAttribute('class','gridln'); g.appendChild(ln);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x',52); t.setAttribute('y',ypos+4);
+      t.setAttribute('text-anchor','end'); t.setAttribute('class','axis');
+      t.textContent = ['1x','10x','100x','1,000x'][e];
+      g.appendChild(t);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
