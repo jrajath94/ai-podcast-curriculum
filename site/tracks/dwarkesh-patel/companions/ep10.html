@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk: Dwarkesh Patel Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Dwarkesh Patel's interview with Elon Musk: space compute, solar math, Grok, Optimus, and the method.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-bottom:10px}
+  .tag.source{background:#e3ecdc;color:#3c5a2e;border:1px solid #b9cba6}
+  .tag.interp{background:#f3e9d6;color:#8f3f14;border:1px solid #dcc9a3}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:20px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:22px;font-weight:800;margin:12px 0 4px}
+  .toy .tnote{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-style:italic}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .legend{border:1px dashed var(--line);padding:14px 16px;margin:26px 0;font-family:var(--sans);font-size:13px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dwarkesh Patel · Track Companion</a>
+  <span class="sub">Ilya Sutskever · Ep 10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Dwarkesh Patel · Ep 10 · Companion</p>
+      <h1>Ilya Sutskever (2023)</h1>
+      <p class="dek">The 2023 conversation with OpenAI's co-founder and chief scientist: why predicting the next token means understanding reality, why he never bets against deep learning, and the long road to reliability. Recorded before the events that made him famous. This companion follows the full conversation in order.</p>
+      <figure>
+        <img src="assets/ep10-next-token.webp" alt="Watercolor illustration of a single glowing token unfolding into a landscape of reality">
+        <p class="caption"><b>Illustration.</b> One token, unfolding into the reality behind it. AI-generated watercolor made for this page.</p>
+      </figure>
+      <div class="legend"><b>How to read this page.</b> <span class="tag source">Source fact</span> marks a claim made on the episode. <span class="tag interp">Interpretation</span> marks builder analysis built on top of it. Section labels (§1 to §8) follow the transcript in order. The episode publishes no chapter marks. No photograph of the guest was available, so this page uses illustration only.</div>
+      <div class="stats">
+        <div class="stat"><div class="n">80 hrs</div><div class="l">The work weeks Dwarkesh guesses Ilya puts in toward the grand goal.</div><div class="s">Episode transcript §6</div></div>
+        <div class="stat"><div class="n">$400</div><div class="l">Per hour a person will happily pay for reliable legal advice, Ilya's inference pricing yardstick.</div><div class="s">Episode transcript §9</div></div>
+        <div class="stat"><div class="n">1% / 99%</div><div class="l">The teaching split Ilya wants: humans do 1% of the work, AI does 99%.</div><div class="s">Episode transcript §2</div></div>
+        <div class="stat"><div class="n">2030</div><div class="l">The year Dwarkesh asks about: what percent of GDP will be AI?</div><div class="s">Episode transcript §1</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/Yf1o0TQzry8" title="Dwarkesh Patel interviews Ilya Sutskever (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Predict the token, learn the world</a></li>
+          <li><a href="#nugget-2">Never bet against deep learning</a></li>
+          <li><a href="#nugget-3">Reliability is the long road</a></li>
+          <li><a href="#nugget-4">Think out loud</a></li>
+          <li><a href="#nugget-5">Commit to the gradual path</a></li>
+          <li><a href="#nugget-6">Understand the results</a></li>
+          <li><a href="#nugget-7">Price discrimination is already here</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-intro" data-time="§0" data-title="No humility">
+      <p class="ch-time">§0 · The opening</p>
+      <h2>No Humility Allowed</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dwarkesh introduces Ilya Sutskever, co-founder and chief scientist of OpenAI, and opens with a rule: no humility allowed. Few scientists make one field-defining breakthrough. Fewer make several independent ones. Ilya has done it repeatedly, and the episode asks how he thinks, not just what he built.</p>
+      <p>The framing matters. This is a conversation about the mind behind the breakthroughs, recorded in 2023, before the world learned his name for other reasons.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Method</p>
+        <h4>Predict the token, learn the world</h4>
+        <p><span class="lbl">What happened. </span>The episode's thesis arrives early: next-token prediction is a deeper problem than it looks.</p>
+        <p><span class="lbl">Why it matters. </span>If prediction requires understanding, then scale is not memorization. It is world-modeling.</p>
+        <p><span class="lbl">The principle. </span>Simple objectives hide deep problems. Do not mistake the loss function for the lesson.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-reliability" data-time="§1" data-title="Reliability">
+      <p class="ch-time">§1 · The long road</p>
+      <h2>Reliability Is the Long Road</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>It looks like the models can do everything, Ilya says, and at the same time there is a long way to go on reliability. More work is needed to iron out the issues and make systems really good, really reliable, and well behaved. Dwarkesh asks the 2030 question: what percent of GDP will be AI? Ilya calls it very hard to answer, and works the counterfactual both ways.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>The gap between demo and deployment is the whole story of the next decade. Capability impresses. Reliability employs.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Deployment</p>
+        <h4>Reliability is the long road</h4>
+        <p><span class="lbl">What happened. </span>Capability looked complete in 2023. Ilya said reliability was the real remaining work.</p>
+        <p><span class="lbl">Why it matters. </span>Demos win attention. Reliability wins GDP. The second is slower and larger.</p>
+        <p><span class="lbl">The principle. </span>When it looks done, ask what breaks at 3 a.m. That list is the roadmap.</p>
+      </div>
+      <div class="toy" id="toy-nines">
+        <h4>Toy: the reliability ladder</h4>
+        <p class="tsub">Drag from 95% toward five nines. Watch what reliability costs in failures per day at scale.</p>
+        <label for="nineRange">Reliability: <b id="nineVal">99%</b></label>
+        <input type="range" id="nineRange" min="1" max="5" step="1" value="2">
+        <div class="out" id="nineOut">10,000 failures per million calls</div>
+        <p class="tnote">Illustrates Ilya's reliability point with the builder's arithmetic. Assumes one million model calls per day.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-token" data-time="§2" data-title="Next token">
+      <p class="ch-time">§2 · The thesis</p>
+      <h2>Predicting the Token Means Understanding Reality</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="pull">
+        <blockquote>you understand the underlying reality that led to the creation of that token</blockquote>
+        <p class="who">Ilya Sutskever on next-token prediction · Episode transcript §2</p>
+      </div>
+      <p>The full claim: predicting the next token well means understanding the underlying reality that led to the creation of that token. It is not statistics. The token is the surface. Reality is the depth. A system that predicts well must model the world that produced the text.</p>
+      <p>He pairs it with the teaching vision: a world where human teachers do 1% of the work and the AI does 99%, a human-machine collaboration rather than full automation.</p>
+      <div class="chart" id="chart-teach">
+        <h4>The teaching split</h4>
+        <p class="csub">Hover any bar for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of human versus AI teaching work">
+          <rect class="bar alt" x="120" y="120" width="10" height="60" data-tip="Human teachers: 1 percent of the work"></rect>
+          <rect class="bar" x="130" y="120" width="390" height="60" data-tip="AI: 99 percent of the work, in human-machine collaboration"></rect>
+          <text class="vallab" x="120" y="112" text-anchor="start">1%</text>
+          <text class="vallab" x="520" y="112" text-anchor="end">99%</text>
+          <text class="axis" x="320" y="200" text-anchor="middle">human teachers vs AI</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Ilya Sutskever, episode transcript §2.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Thesis</p>
+        <h4>Never bet against deep learning</h4>
+        <p><span class="lbl">What happened. </span>In 2015 Ilya made the biggest possible bet on deep learning, without knowing how it would pay off.</p>
+        <p><span class="lbl">Why it matters. </span>The bet was on the paradigm, not the product. Paradigms pay across decades.</p>
+        <p><span class="lbl">The principle. </span>Bet on the paradigm with the steepest curve. Let the applications surprise you.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-reasoning" data-time="§3" data-title="Reasoning">
+      <p class="ch-time">§3 · Thought</p>
+      <h2>Think Out Loud</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>When models are allowed to think out loud, Ilya says, they are quite good, and he expects significant improvement with better models and special training. Then the supply question: are we running out of reasoning tokens on the internet? Claims circulate that training tokens will run dry. Ilya thinks it will happen one day, and the field must plan past it.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Reasoning</p>
+        <h4>Think out loud</h4>
+        <p><span class="lbl">What happened. </span>Models that reason in the open outperform silent ones, and the supply of reasoning text is finite.</p>
+        <p><span class="lbl">Why it matters. </span>Visible thought is both the capability and the training data. Each improves the other.</p>
+        <p><span class="lbl">The principle. </span>Externalize the reasoning. The draft is where the intelligence lives.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-robotics" data-time="§4" data-title="Robotics">
+      <p class="ch-time">§4 · Robots</p>
+      <h2>Commit to the Gradual Path</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Robotics improves gradually: build more robots, they do more things, collect more data, and repeat. The catch is commitment. If you want robotics to happen, that is what you must do, deliberately, for years. Ilya believes some companies are on that path.</p>
+      <p>He is also honest about the ceiling of current understanding: our grasp of these models is still quite rudimentary. Real progress is possible. The dream is a small neural net, well understood, given the right training.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Robotics</p>
+        <h4>Commit to the gradual path</h4>
+        <p><span class="lbl">What happened. </span>Ilya described robotics as a flywheel that only turns for the committed: robots, tasks, data, repeat.</p>
+        <p><span class="lbl">Why it matters. </span>Flywheels reward duration over brilliance. The committed inherit the field.</p>
+        <p><span class="lbl">The principle. </span>Pick the gradual path and commit fully. Half-committed flywheels never spin up.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-bet" data-time="§7" data-title="The bet">
+      <p class="ch-time">§7 · 2015</p>
+      <h2>The Biggest Possible Bet</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="pull">
+        <blockquote>I just don't want to bet against deep learning.</blockquote>
+        <p class="who">Ilya Sutskever on his 2015 thinking · Episode transcript §7</p>
+      </div>
+      <p>In 2015 his thinking was simple, he says: do not bet against deep learning. Make the biggest possible bet on it. He did not know how it would pay off. It would, he trusted, figure it out. Asked whether today's capabilities match his 2015 expectations, he says it is sort of what he expected, and sort of beyond it.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>The bet was not a prediction about any product. It was a stance toward a paradigm: the curve is steep, the direction is clear, the details will surprise. That stance is replicable. The specific curve is not.</p>
+    </section>
+
+    <section class="chapter" id="ch-understand" data-time="§8" data-title="Understanding">
+      <p class="ch-time">§8 · The work</p>
+      <h2>Understand the Results</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>New ideas are a modest part of the work, Ilya says. More important: understand the results, understand the existing ideas, understand what goes on. A neural net is a very complicated system. You run it, you get behavior that is hard to understand. The work is to figure out what happened.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Science</p>
+        <h4>Understand the results</h4>
+        <p><span class="lbl">What happened. </span>Ilya ranked understanding above novelty: new ideas are a modest part, comprehension is the bulk.</p>
+        <p><span class="lbl">Why it matters. </span>Complicated systems outrun their inventors. The science is in the autopsy, not the launch.</p>
+        <p><span class="lbl">The principle. </span>When the system surprises you, study the surprise. The result is the teacher.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-price" data-time="§9" data-title="Pricing">
+      <p class="ch-time">§9 · Economics</p>
+      <h2>Price Discrimination Is Already Here</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Ilya's pricing thought experiment: a person happily spends $400 an hour for reliable legal advice. If a neural net can give advice that good at that cost, inference becomes very much non-prohibitive. The question is only whether the answer is good enough at the price.</p>
+      <p>And it is already the case today, he says. The API serves multiple neural nets of different capabilities at different prices. Price discrimination across model tiers is not a future. It is the present.</p>
+      <div class="chart" id="chart-price">
+        <h4>The $400 yardstick</h4>
+        <p class="csub">Hover any bar for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart comparing human expert cost to model inference">
+          <rect class="bar alt" x="140" y="100" width="100" height="140" data-tip="Human expert: $400 per hour for reliable legal advice"></rect>
+          <rect class="bar" x="380" y="200" width="100" height="40" data-tip="Model inference: a fraction of expert cost per hour of equivalent work"></rect>
+          <text class="vallab" x="190" y="92" text-anchor="middle">$400/hr</text>
+          <text class="vallab" x="430" y="192" text-anchor="middle">fraction</text>
+          <text class="axis" x="190" y="260" text-anchor="middle">human expert</text>
+          <text class="axis" x="430" y="260" text-anchor="middle">neural net</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Ilya Sutskever, episode transcript §9. The $400 figure is Ilya's stated yardstick. The model bar is illustrative.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Business</p>
+        <h4>Price discrimination is already here</h4>
+        <p><span class="lbl">What happened. </span>Multiple models, multiple prices, one API. The tiering Ilya described is the industry's business model.</p>
+        <p><span class="lbl">Why it matters. </span>Intelligence gets priced like everything else: by quality tier. The premium tier funds the frontier.</p>
+        <p><span class="lbl">The principle. </span>When capability stratifies, price it in strata. One price leaves money and signal on the table.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Predicting the next token well means understanding the reality behind the token.</li>
+          <li>Make the biggest possible bet on the steepest paradigm. Never bet against deep learning.</li>
+          <li>Capability looked complete in 2023. Reliability was the real work.</li>
+          <li>Let models think out loud. The reasoning is the capability.</li>
+          <li>Robotics is a flywheel for the committed: robots, tasks, data, repeat.</li>
+          <li>New ideas are a modest part. Understanding the results is the bulk.</li>
+          <li>Price intelligence in tiers. The $400-an-hour yardstick makes inference cheap.</li>
+        </ol>
+        <p class="src">Distilled from Dwarkesh Patel's 2023 interview with Ilya Sutskever (video id Yf1o0TQzry8). All figures are the guest's statements from the episode transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates Dwarkesh Patel's 2023 interview with Ilya Sutskever (video id Yf1o0TQzry8). All facts and figures come from the episode transcript. Section labels (§0 to §9) follow the transcript in order. The episode publishes no chapter marks, so no timestamps are claimed. The illustration is an AI-generated watercolor made for this page. No photograph of the guest was available for this episode.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 22 words: the next-token pull quote (13 words) and the deep-learning pull quote (9 words, kept verbatim with its contraction). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+  var gr = document.getElementById('gpuRange'), gv = document.getElementById('gpuVal'), mo = document.getElementById('mwOut');
+  if(gr){
+    gr.addEventListener('input', function(){
+      var n = parseInt(gr.value, 10);
+      gv.textContent = n.toLocaleString('en-US');
+      mo.textContent = '\u2248 ' + Math.round(n / 110000 * 300).toLocaleString('en-US') + ' MW all-in';
+    });
+  }
+
+  /* ---------- toy: reliability ladder ---------- */
+  (function(){
+    var r = document.getElementById('nineRange'), v = document.getElementById('nineVal'), o = document.getElementById('nineOut');
+    if(!r) return;
+    function upd(){
+      var n = parseInt(r.value, 10);
+      var label = n === 1 ? '95%' : '9'.repeat(n).split('').join('.') + '%';
+      if(n === 1) label = '95%';
+      else label = '9' + '.9'.repeat(n - 1) + '%';
+      v.textContent = label;
+      var failRate = n === 1 ? 0.05 : Math.pow(0.1, n);
+      var fails = Math.round(1000000 * failRate).toLocaleString('en-US');
+      o.textContent = fails + ' failures per million calls';
+    }
+    r.addEventListener('input', upd); upd();
+  })();
+
+})();
+</script>
+</body>
+</html>
