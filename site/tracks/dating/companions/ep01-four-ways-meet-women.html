@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Episode 1: Only four ways, how to meet women: Dating Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the PsycHacks dating episode with Dr Orion Taraban: the four pathways, the numbers, and the dating wisdom.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dating Instruction · Track Companion</a>
+  <span class="sub">Ep 1 · Only four ways: How to meet women</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">PsycHacks · Dating Instruction · Episode 1 · Companion</p>
+      <h1>Only four ways:<br>How to meet women</h1>
+      <p class="dek">Dr Orion Taraban ranks the only four ways to meet women, from the easiest and thinnest returns to the hardest and richest, and shows why most men starve three of the four. This companion follows the full episode, section by section.</p>
+      <img src="assets/ep01-four-paths-hero.webp" alt="Watercolor illustration of four diverging paths from a city crossroads at dusk">
+      <p class="caption"><b>Illustration.</b> Four paths from one crossroads: the app, the street, the circle, the stage. AI-generated watercolor, made for this page. No text appears in the image.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">4</div><div class="l">Pathways to meet women, ranked by effort and reward</div><div class="s">Episode transcript, opening</div></div>
+        <div class="stat"><div class="n">489,591</div><div class="l">Views on the episode video</div><div class="s">Verified 2026-10-06 via yt-dlp</div></div>
+        <div class="stat"><div class="n">~18 min</div><div class="l">Episode length, 1,069 seconds</div><div class="s">Verified 2026-10-06 via yt-dlp</div></div>
+        <div class="stat"><div class="n">6%</div><div class="l">Of YouTube channels pass 100,000 subscribers</div><div class="s">Episode transcript, social media section</div></div>
+      </div>
+      <p class="src"><b>Reading guide.</b> Each nugget separates <b>SOURCE FACT</b> (what Taraban said) from <b>INTERPRETATION</b> (why it matters, the transferable principle). Charts name their source line. Figures he states appear exactly as he states them.</p>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/XNDsRyYs6E0" title="PsycHacks: Only four ways, how to meet women (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Calibrated effort</a></li>
+          <li><a href="#nugget-2">Apps punish the average man without a system</a></li>
+          <li><a href="#nugget-3">Cold approach is a confidence skill</a></li>
+          <li><a href="#nugget-4">Attention is the currency</a></li>
+        </ol>
+      </div>
+      </div>
+
+    <section class="chapter" id="ch-four" data-time="Part 1" data-title="The four pathways">
+      <p class="ch-time">Part 1</p>
+      <h2>The Four Pathways</h2>
+      <p>Dr Orion Taraban opens with a clean frame. There are only four ways to meet women today, and they are also the only four ways to meet men. The pathways are the same for both sexes. The challenges inside each one differ sharply.</p>
+      <div class="pull">
+        <blockquote>there are only four ways to meet women today</blockquote>
+        <p class="who">Orion Taraban, PsycHacks · Episode transcript, opening</p>
+      </div>
+      <p>The four: dating apps, cold approach, social circle, social media. He ranks them from the easiest, fastest, and least successful to the hardest, slowest, and most successful. A path that is easy, fast, and highly successful would "break the sexual marketplace", in his words.</p>
+      <p>That calibration is the thesis of the whole talk. Reward tracks effort. There are no real shortcuts. The best case is to run all four at once, because most men suffer by leaning on one path, usually apps, to the exclusion of the other three.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The calibration principle</p>
+        <h4>Calibrated effort</h4>
+        <p><span class="lbl">Source fact. </span>Taraban ranks four pathways from easiest, fastest, least successful to hardest, slowest, most successful, and notes a path that is easy, fast, and highly successful would break the sexual marketplace.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Men misprice the paths. They pick the cheapest one and expect the dearest result. The rank order tells you where to put marginal effort.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Match the size of the effort to the size of the prize. When a path feels too easy for its promised reward, the reward is the lie.</p>
+      </div>
+      <div class="chart" id="chart-pathways">
+        <h4>The four pathways, ranked</h4>
+        <p class="csub">Hover any bar for detail. Taraban gives an ordinal ranking, not scores. The bars below encode his stated order from least to most effort and reward.</p>
+        <svg viewBox="0 0 640 360" role="img" aria-label="Bar chart ranking the four pathways by effort and reward">
+          <g>
+            <rect class="bar alt" x="200" y="40" width="120" height="34" data-tip="Dating apps: least effort, least reward. Taraban ranks them first, easiest and fastest."></rect>
+            <rect class="bar" x="200" y="40" width="120" height="34" data-tip="Dating apps: least effort, least reward. Taraban ranks them first, easiest and fastest."></rect>
+            <rect class="bar alt" x="200" y="110" width="220" height="34" data-tip="Cold approach: second. Real-world skill with a confidence payoff."></rect>
+            <rect class="bar" x="200" y="110" width="220" height="34" data-tip="Cold approach: second. Real-world skill with a confidence payoff."></rect>
+            <rect class="bar alt" x="200" y="180" width="320" height="34" data-tip="Social circle: third. Slow to build, strongest for long-term relationships."></rect>
+            <rect class="bar" x="200" y="180" width="320" height="34" data-tip="Social circle: third. Slow to build, strongest for long-term relationships."></rect>
+            <rect class="bar alt" x="200" y="250" width="420" height="34" data-tip="Social media: fourth. Hardest and slowest, highest ceiling. Taraban calls it the best way to meet women today."></rect>
+            <rect class="bar" x="200" y="250" width="420" height="34" data-tip="Social media: fourth. Hardest and slowest, highest ceiling. Taraban calls it the best way to meet women today."></rect>
+            <text class="axis" x="190" y="62" text-anchor="end">Dating apps</text>
+            <text class="axis" x="190" y="132" text-anchor="end">Cold approach</text>
+            <text class="axis" x="190" y="202" text-anchor="end">Social circle</text>
+            <text class="axis" x="190" y="272" text-anchor="end">Social media</text>
+            <text class="vallab" x="330" y="62" text-anchor="middle">1</text>
+            <text class="vallab" x="430" y="132" text-anchor="middle">2</text>
+            <text class="vallab" x="530" y="202" text-anchor="middle">3</text>
+            <text class="vallab" x="630" y="272" text-anchor="middle">4</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: episode transcript, opening. <b>Interpretation:</b> bar lengths encode his ordinal rank only. Taraban states no numeric scores.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-apps" data-time="Part 2" data-title="Dating apps">
+      <p class="ch-time">Part 2</p>
+      <h2>Dating Apps: Easy, Fast, Thin Returns</h2>
+      <p>Apps seduce because they make rational sense. They are convenient, cheap, low risk, and largely passive. A man can start free in about 20 minutes and, with the right system, build a steady pipeline in a couple of weeks.</p>
+      <p>The catch is the success rate. For the average man it is very low. Taraban draws two bright lines. At 8 or above in pure physical attractiveness, especially face, a man can clean up on the apps regardless of money or status. Below 6, he argues, a man will see no appreciable success. Filters add a second tax: under 5 foot 7 or over 50, and the algorithm barely shows the profile to women while still showing women to him, which feeds false hope.</p>
+      <p>The deeper point is about systems. Average men who swipe at random end up frustrated, demoralized, and hopeless. The app is not the strategy. A correct system for engaging the technology is the strategy, and most men never build one.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Apps</p>
+        <h4>Apps punish the average man without a system</h4>
+        <p><span class="lbl">Source fact. </span>Taraban states men need roughly 6 of 10 in looks for appreciable app success, 8 or above to clean up, and notes height and age filters quietly remove many profiles from view.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Random swiping converts a low-yield channel into an emotional tax. The demoralization is the product working as designed, not a personal verdict.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Never enter a filtered marketplace without a system. If you cannot beat the filter, change the channel.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cold" data-time="Part 3" data-title="Cold approach">
+      <p class="ch-time">Part 3</p>
+      <h2>Cold Approach: The Confidence Skill</h2>
+      <p>Taraban treats cold approach like hunting or self defense: a core male capability. It carries two clear edges. First, you see the woman and know you feel attraction, which no profile photo can fake. Second, you get direct access here and now, to a woman who may never appear on apps, in your circles, or in your messages.</p>
+      <p>The liabilities are real. You cannot tell if she is available. She will be at her most guarded with a stranger. You get judged on a snap read of your presentation. And it frightens most men, which is why they need a system and some accountability to push through the fear. He puts the number plainly: a few hundred approaches before a man starts to feel remotely confident, and even the best in the world convert at rates that read like baseball batting averages.</p>
+      <p>Most men approach about ten times a year, which he calls above average, then wonder why nothing compounds. Ten swipes a year would yield nothing either. The payoff for those who persist is not just dates. The skill itself gives "a plus 10 boost to their overall confidence", in his phrase, which then raises success everywhere else.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Cold approach</p>
+        <h4>Cold approach is a confidence skill</h4>
+        <p><span class="lbl">Source fact. </span>Taraban states men need a few hundred approaches to feel confident, top performers still strike out more than they hit, and most men attempt around ten approaches a year.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Ten reps a year is not a strategy, it is a wish. Skill lives on the far side of a volume most men never reach.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Pick the skill with the steepest confidence dividend and pay for it in reps. The dates are the byproduct. The confidence is the asset.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-circle" data-time="Part 4" data-title="Social circle">
+      <p class="ch-time">Part 4</p>
+      <h2>Social Circle: Slow, Safe, High Stakes</h2>
+      <p>This is how people used to meet: friends, college, church, work. It is the safest bet for long term relationships because vetting happens slowly, over group outings and long exposure. You know what awaits inside, and the connection has time to root before dating starts.</p>
+      <p>The costs are steep. It takes at least six months to make a new friend or feel belonging in a new place, and only with real effort. Optionality shrinks to whoever is in the room. Rejection here is brutal, because a no can warp the dynamic at work, church, or school, retroactively and going forward, with gossip as the garnish.</p>
+      <p>Status rules this channel, and status is contextual. You can be the top dog in one group and the low man in another. His term for the winning position is "contextual alpha": the group formally or informally looks up to you as its leader. Without that standing, he advises, find a different scene, or better, build a new scene around yourself.</p>
+    </section>
+
+    <section class="chapter" id="ch-social" data-time="Part 5" data-title="Social media">
+      <p class="ch-time">Part 5</p>
+      <h2>Social Media: The Long Game With the Highest Ceiling</h2>
+      <figure>
+        <img src="assets/ep01-attention-halo.webp" alt="Watercolor illustration of a man in a spotlight with a crowd turned toward him">
+        <p class="caption"><b>Illustration.</b> The halo effect: when millions know your face, recognition does the approaching for you. AI-generated watercolor, made for this page. No text appears in the image.</p>
+      </figure>
+      <p>Taraban calls social media far and away the best way to meet women at present, and also the slowest to pay. The most beautiful and desirable women are not on the apps, not at the dive bar, and not in your small circle. They are on social media. If you want to catch a certain type of fish, you go where they swim.</p>
+      <p>The mechanism is attention. Contrary to popular belief, he argues, "the most reinforcing resource to a woman" is not money or power. It is attention, and the ability to command it makes a man magnetic. Wealth and status are hard to read at a glance. A European noble in plain clothes is invisible. Fame is not. When millions know your face, you become recognizable in a way richer and more powerful men are not, and the halo effect can make an otherwise ordinary looking man highly desirable.</p>
+      <div class="pull">
+        <blockquote>fame is a force multiplier for men in the game of meeting and dating</blockquote>
+        <p class="who">Orion Taraban · Episode transcript, social media section</p>
+      </div>
+      <p>The honest caveats close the talk. Most channels go nowhere, and the ones that work take years of steady effort. His numbers: only 6 percent of YouTube channels pass 100,000 subscribers, against 51 million total channels, which he renders as roughly 300,000 successful creators. Note the arithmetic: 6 percent of 51 million is 3.06 million, ten times his spoken figure. The point stands either way. Rare, but not impossible. Men also face a steeper climb than women here, because male reputations grow through visible competence, and competence takes years to build before the first video ships.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Social media</p>
+        <h4>Attention is the currency</h4>
+        <p><span class="lbl">Source fact. </span>Taraban argues attention, not money or power, is the most reinforcing resource to a woman, and that fame acts as a force multiplier that makes a man recognizable and desirable.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Invisible value does not date. The market prices what it can see, so the work is to become legible, not just worthy.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Build in public. Competence that nobody witnesses is a private hobby. Competence that thousands witness is a dating asset.</p>
+      </div>
+      <div class="chart" id="chart-youtube">
+        <h4>How rare is a breakout channel</h4>
+        <p class="csub">Hover any bar for detail. Taraban states both the percentage and a headcount. The headcount does not match the percentage.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of YouTube channels over 100 thousand subscribers">
+          <rect class="bar alt" x="120" y="60" width="120" height="220" data-tip="51 million YouTube channels in total, per the episode."></rect>
+          <rect class="bar" x="360" y="196" width="120" height="84" data-tip="6% of channels pass 100,000 subscribers. That is 3.06 million by arithmetic, though Taraban says roughly 300,000."></rect>
+          <text class="vallab" x="180" y="52" text-anchor="middle">51M</text>
+          <text class="vallab" x="420" y="188" text-anchor="middle">6%</text>
+          <text class="axis" x="180" y="300" text-anchor="middle">all channels</text>
+          <text class="axis" x="420" y="300" text-anchor="middle">over 100K subs</text>
+          <text class="axis" x="420" y="318" text-anchor="middle">rare, not impossible</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, social media section. <b>Honesty note:</b> 6% of 51 million equals 3.06 million, not the roughly 300,000 Taraban states aloud. Both figures are shown so the reader can see the gap.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-close" data-time="Close" data-title="The close">
+      <p class="ch-time">Close</p>
+      <h2>The Close: Run All Four</h2>
+      <p>Taraban ends where he began. Success calibrates to time and effort. Fast and easy paths pay thin. Slow and effortful paths pay rich. The failure mode is not the choice of the wrong path. It is the choice of one path, usually the app, while the other three starve. The move is to work all four at once, each at the effort level its reward justifies.</p>
+      <div class="takeaways">
+        <h3>Takeaways</h3>
+        <ol>
+          <li>Four paths exist: apps, cold approach, social circle, social media. Rank them by effort and reward, then fund each accordingly.</li>
+          <li>On apps, the average man needs a system, not more swipes. Without one, the channel taxes morale instead of producing dates.</li>
+          <li>Cold approach is a volume skill. A few hundred reps buy confidence, and the confidence compounds everywhere.</li>
+          <li>In social circles, status is contextual. Become the contextual alpha of the room, or build a new room.</li>
+          <li>Social media has the highest ceiling because attention is the currency. It also demands years, so start now.</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the PsycHacks episode "Only four ways: How to meet women" with Dr Orion Taraban (uploaded 2025-04-21, 489,591 views, 1,069 seconds, video id XNDsRyYs6E0, numbers verified 2026-10-06 via yt-dlp). All facts and figures come from the episode transcript or from that verified metadata. Each chart names its source line. The 6 percent YouTube figure and the 51 million channel figure are Taraban's spoken numbers. The arithmetic note in the chart is the builder's own check, labeled as such.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 44 words: two pull quotes (9 and 14 words), "break the sexual marketplace" (4 words), "a plus 10 boost to their overall confidence" (8 words), "contextual alpha" (2 words), and "the most reinforcing resource to a woman" (7 words). Each was verified verbatim against the transcript. Everything else is original paraphrase and analysis.</p>
+      <p><b>On images.</b> The two illustrations are AI-generated watercolors made for this page and labeled as illustrations. No real photographs are used: the source is a contemporary podcast with no historical photographs to show.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- chart: store count ---------- */
+  (function(){
+    var pts = [
+      ['1979',3,'3 stores: two open in June, a third by year end'],
+      ['1981',4,'4 stores at the IPO'],
+      ['1984',31,'31 stores across GA, FL, TX'],
+      ['1986',60,'60 stores; $1B in sales'],
+      ['1989',118,'118 stores; passes Lowe\'s'],
+      ['2000',1100,'1,100 stores; $40B revenue'],
+      ['2006',2000,'2,000 stores under Nardelli'],
+      ['2008',2300,'2,300 stores; Blake freezes expansion'],
+      ['2026',2400,'2,400 stores today']
+    ];
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var W=680,H=360,pl=56,pr=20,pt=20,pb=44;
+    var xs = pts.map(function(p,i){ return pl + i*(W-pl-pr)/(pts.length-1); });
+    function y(v){ var max=2500; return pt + (1 - v/max)*(H-pt-pb); }
+    var grid = document.getElementById('store-grid');
+    [0,500,1000,1500,2000,2500].forEach(function(v){
+      var ln = document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',pl); ln.setAttribute('x2',W-pr);
+      ln.setAttribute('y1',y(v)); ln.setAttribute('y2',y(v));
+      ln.setAttribute('class','gridln'); grid.appendChild(ln);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x',pl-8); t.setAttribute('y',y(v)+4);
+      t.setAttribute('text-anchor','end'); t.setAttribute('class','axis');
+      t.textContent = v.toLocaleString(); grid.appendChild(t);
+    });
+    var poly = document.getElementById('store-line');
+    poly.setAttribute('points', pts.map(function(p,i){ return xs[i].toFixed(1)+','+y(p[1]).toFixed(1); }).join(' '));
+    var dots = document.getElementById('store-dots');
+    pts.forEach(function(p,i){
+      var c = document.createElementNS(svgNS,'circle');
+      c.setAttribute('cx',xs[i]); c.setAttribute('cy',y(p[1])); c.setAttribute('r',6);
+      c.setAttribute('fill','#b4531f'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','2');
+      c.setAttribute('data-tip', p[0]+': '+p[2]);
+      c.style.cursor='pointer'; dots.appendChild(c);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x',xs[i]); t.setAttribute('y',H-24);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = p[0]; dots.appendChild(t);
+      if(i%2===0){
+        var v = document.createElementNS(svgNS,'text');
+        v.setAttribute('x',xs[i]); v.setAttribute('y',y(p[1])-12);
+        v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+        v.textContent = p[1].toLocaleString(); dots.appendChild(v);
+      }
+    });
+    dots.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+    });
+  })();
+
+  /* ---------- chart: market share pie ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var data=[['Home Depot',51,'#b4531f','Home Depot: 51% of US home improvement stores'],
+              ['Lowe\'s',29,'#d8c9a8','Lowe\'s: 29%'],
+              ['Menards',5,'#8a7c66','Menards: under 5%'],
+              ['Others',15,'#e8e0cf','All others: about 15% (derived)']];
+    var g=document.getElementById('pie'), total=100, a0=-Math.PI/2, R=120;
+    data.forEach(function(d){
+      var a1=a0+(d[1]/total)*Math.PI*2;
+      var x0=R*Math.cos(a0), y0=R*Math.sin(a0), x1=R*Math.cos(a1), y1=R*Math.sin(a1);
+      var large=(a1-a0)>Math.PI?1:0;
+      var p=document.createElementNS(svgNS,'path');
+      p.setAttribute('d','M0,0 L'+x0.toFixed(1)+','+y0.toFixed(1)+' A'+R+','+R+' 0 '+large+' 1 '+x1.toFixed(1)+','+y1.toFixed(1)+' Z');
+      p.setAttribute('fill',d[2]); p.setAttribute('stroke','#fff'); p.setAttribute('stroke-width','2');
+      p.setAttribute('data-tip',d[3]); p.style.cursor='pointer';
+      g.appendChild(p); a0=a1;
+      p.addEventListener('mousemove',function(ev){showTip(d[3],ev.clientX,ev.clientY);});
+      p.addEventListener('mouseleave',hideTip);
+    });
+  })();
+
+  /* ---------- chart: home age bars ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var data=[['1980',23,'Median home age in 1980: 23 years. Postwar building kept the stock young.'],
+              ['1990',25,'1990: 25 years'],
+              ['2000',30,'2000: 30 years'],
+              ['2010',33,'2010: 33 years'],
+              ['Today',42,'Today: 42 years. Old houses need constant repair.']];
+    var g=document.getElementById('homeage-bars');
+    var W=640,H=340,pt=30,pb=60,bw=70,gap=(W-60)/data.length;
+    function y(v){ return pt+(1-v/50)*(H-pt-pb); }
+    [0,10,20,30,40,50].forEach(function(v){
+      var ln=document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',40);ln.setAttribute('x2',W-20);ln.setAttribute('y1',y(v));ln.setAttribute('y2',y(v));
+      ln.setAttribute('class','gridln');g.appendChild(ln);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',32);t.setAttribute('y',y(v)+4);t.setAttribute('text-anchor','end');
+      t.setAttribute('class','axis');t.textContent=v;g.appendChild(t);
+    });
+    data.forEach(function(d,i){
+      var x=40+i*gap+(gap-bw)/2;
+      var r=document.createElementNS(svgNS,'rect');
+      r.setAttribute('x',x);r.setAttribute('y',y(d[1]));r.setAttribute('width',bw);
+      r.setAttribute('height',H-pb-y(d[1]));r.setAttribute('class','bar');
+      r.setAttribute('data-tip',d[2]);r.style.cursor='pointer';g.appendChild(r);
+      var v=document.createElementNS(svgNS,'text');
+      v.setAttribute('x',x+bw/2);v.setAttribute('y',y(d[1])-10);v.setAttribute('text-anchor','middle');
+      v.setAttribute('class','vallab');v.textContent=d[1];g.appendChild(v);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',x+bw/2);t.setAttribute('y',H-36);t.setAttribute('text-anchor','middle');
+      t.setAttribute('class','axis');t.textContent=d[0];g.appendChild(t);
+    });
+    g.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove',function(ev){showTip(el.getAttribute('data-tip'),ev.clientX,ev.clientY);});
+      el.addEventListener('mouseleave',hideTip);
+    });
+  })();
+
+  /* ---------- chart: IPO gridlines ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var g=document.getElementById('ipo-grid');
+    [0,1,2,3,4,5,6,7].forEach(function(e){
+      var val=Math.pow(10,e)*1000, ypos=290-(e/7)*240;
+      var ln=document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',60);ln.setAttribute('x2',600);ln.setAttribute('y1',ypos);ln.setAttribute('y2',ypos);
+      ln.setAttribute('class','gridln');g.appendChild(ln);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',52);t.setAttribute('y',ypos+4);t.setAttribute('text-anchor','end');
+      t.setAttribute('class','axis');
+      t.textContent=['$1K','$10K','$100K','$1M','$10M','$100M','$1B','$10B'][e];
+      g.appendChild(t);
+    });
+  })();
+})();
+
+</script>
+</body>
+</html>
