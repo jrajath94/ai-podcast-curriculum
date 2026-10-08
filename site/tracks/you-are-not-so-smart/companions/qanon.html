@@ -442,8 +442,8 @@ span.ptag, .ptag {
 <div class="stat"><div class="n">40-50</div><div class="l">People at typical rallies. A big Washington rally: dozens</div><div class="s">Uscinski research, ep211</div></div>
 <div class="stat"><div class="n">22</div><div class="l">Violent incidents tied to believers in 3 years, none terrorism</div><div class="s">CSIS data via ep211</div></div>
 </div>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1">
-<div class="frame"><div class="stage"><img alt="Watercolor illustration for this companion" class="base" fetchpriority="high" src="assets/qanon.webp"/></div></div>
+</div><figure data-phase2="1" data-scene="qanon-hero" class="paint wide" data-entrance="bloom" data-hero="1">
+<div class="frame"><div class="stage"><img alt="Watercolor illustration for this companion" class="base" fetchpriority="high" src="assets/qanon.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/qanon-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div>
 <figcaption><b>Illustration.</b> Watercolor-style image generated for this page. Tiny figures pour through an hourglass neck. Not a photograph.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="Part 1" data-title="The redirect: believers, not beliefs" id="ch-redirect"><div class="ch-head"><div><p class="ch-meta"><span class="ts">Part 1</span> · The redirect: believers, not beliefs</p><h2>The Redirect: Believers, Not Beliefs</h2></div></div>
 <p><span class="tag-src">SOURCE</span>Uscinski's complaint: public discussion fixates on the conspiracy theory's content, the catalog of claims, the supposed evidence. That focus puts the spotlight on the theory and takes it off the believer. But the content is, in his phrase, “the least interesting and least informative thing” about conspiratorial thinking. The psychology runs the same under flat earth, moon hoaxes, and QAnon. Study the psychology and you understand all of them. Study the claims and you understand none.</p>
@@ -451,7 +451,7 @@ span.ptag, .ptag {
 <p><span class="tag-src">SOURCE</span>Uscinski's instrument is three statements, each rated 1 to 7: much of our lives runs on plots hatched in secret places. Even in a democracy, only a few people run things anyway. The people who really run the country stay unknown to the voters. Most people score in the middle: not committed, but prone under the right conditions. A small part of every population scores high on all three. They exist in every town, institution, and neighborhood.</p>
 <p><span class="tag-src">SOURCE</span>McRaney's analogy: before the internet, a Dungeons and Dragons fan in a small town might never find enough players. After the internet, finding your people became the default. High scorers can now find each other, gather where everyone strongly agrees, and form communities around the shared inclination, whatever the specific beliefs turn out to be.</p>
 <p><span class="tag-int">INTERPRETATION</span>The instrument is portable. Score yourself honestly, 1 to 7, on the three statements. Then write which conditions would push your scores up. Those conditions are your vulnerability map.</p>
-<aside class="tag" data-chapter="ch-redirect" data-sign-label="Aisle" id="nugget-1"><div class="tag-price"><span class="tag-big">•</span><span class="tag-unit">Believers, not beliefs</span></div><div class="tag-body"><div class="tag-title">Believers, not beliefs</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>The episode redirects from the claims to the psychology. The content is the least informative part.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>Theories are interchangeable. Half of JFK conspiracy believers cannot name the conspirator. The inclination is the constant.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Measure the inclination with the three questions. Argue the claims and you fight the symptom.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE</span></div></div></aside>
+<aside class="tag" data-chapter="ch-redirect" data-sign-label="Aisle" id="nugget-1"><div class="tag-price"><span class="tag-big">½</span><span class="tag-unit">of JFK conspiracy believers cannot name the conspirator</span></div><div class="tag-body"><div class="tag-title">Believers, not beliefs</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>The episode redirects from the claims to the psychology. The content is the least informative part.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>Theories are interchangeable. Half of JFK conspiracy believers cannot name the conspirator. The inclination is the constant.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Measure the inclination with the three questions. Argue the claims and you fight the symptom.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE</span></div></div></aside>
 </section>
 <section class="chapter col" data-chapter="1" data-time="Part 2" data-title="The hourglass" id="ch-hourglass"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">1</span></div><div><p class="ch-meta"><span class="ts">Part 2</span> · The hourglass</p><h2>The Hourglass</h2></div></div>
 <p><span class="tag-src">SOURCE</span>Sternisko's model pictures the process as an hourglass. The fat top holds everything a person brings: attitudes, beliefs, values, anxieties, the whole profile from nature and nurture. The bottleneck is one conspiracy theory. The fat bottom is what comes out the other side: new beliefs, attitudes, and values absorbed from inside the conspiracy, which become markers of the new group identity.</p>
@@ -1249,5 +1249,19 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('qanon-hero',{
+ init:function(F,FX){
+  F._m=FX.motes(F.stage,F.W,F.H,24,7);
+  F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.5,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];
+ },
+ pose:function(S,FX){
+  var F=S.F;F._m.tick(S.t);
+  F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);
+  return {'hero-subject':{x:7*Math.sin(S.t*0.6),y:5*Math.sin(S.t*0.83+1),r:0,s:1,o:1}};
+ } });
+})();
+</script>
+</body>
 </html>
