@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steven Pinker on Language, Reason, and the Future of Violence · Conversations with Tyler Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Conversations with Tyler episode with Steven Pinker (November 2016): irregular verbs, Chomsky, consciousness, reason, violence, and the Enlightenment.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700}
+  .deck{font-size:21px;color:var(--muted);line-height:1.5;margin:0 0 24px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--sans);
+    font-size:13px;color:var(--muted);margin-bottom:26px}
+  .meta b{color:var(--ink);font-weight:600}
+  .herofig{margin:0 0 8px}
+  .herofig img{width:100%;height:auto;display:block;border-radius:6px}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 30px}
+  blockquote.pull{margin:38px 0;padding:6px 0 6px 26px;border-left:4px solid var(--accent);
+    font-size:25px;line-height:1.45;font-style:italic;color:var(--ink)}
+  .pullattr{font-family:var(--sans);font-size:13px;color:var(--muted);
+    margin:-28px 0 38px;padding-left:30px}
+  .warnbox{background:#fdf3e7;border:1px solid #e8cda2;border-radius:8px;
+    padding:16px 20px;margin:30px 0;font-size:16px}
+  .warnbox b{font-family:var(--sans)}
+  section.chapter{margin:0;padding:34px 0;border-top:1px solid var(--line)}
+  section.chapter h2{font-size:27px;margin:0 0 6px;line-height:1.25}
+  section.chapter .ts{font-family:var(--mono);font-size:12.5px;color:var(--accent-ink);
+    letter-spacing:.04em;margin:0 0 16px}
+  section.chapter p{margin:0 0 16px}
+  .fig{margin:26px 0}
+  .fig img{width:100%;height:auto;display:block;border-radius:6px}
+  .fig .caption{margin-top:8px}
+  .chart{background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:20px;margin:26px 0}
+  .chart h3{font-family:var(--sans);font-size:14px;margin:0 0 4px}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .bar{cursor:default}
+  .chart .bar rect{fill:var(--accent)}
+  .chart .bar.alt rect{fill:#8a9a5b}
+  .chart .bar.dim rect{fill:#c9bfae}
+  .chart text{font-family:var(--sans);font-size:12px;fill:var(--ink)}
+  .chart .grid{stroke:var(--line);stroke-width:1}
+  .nuggets{background:var(--paper2);border:1px solid var(--line);border-radius:8px;
+    padding:26px 30px;margin:40px 0}
+  .nuggets h2{font-size:23px;margin:0 0 14px}
+  .nuggets ol{margin:0;padding-left:22px}
+  .nuggets li{margin:0 0 12px;font-size:16.5px}
+  footer.sources{border-top:2px solid var(--ink);margin-top:60px;padding-top:26px;
+    font-size:15px}
+  footer.sources h2{font-size:20px;margin:0 0 12px}
+  footer.sources p{margin:0 0 14px}
+  .onquotes{background:var(--soft);border-radius:8px;padding:18px 22px;margin:20px 0}
+  .vid{margin:34px 0}
+  .vid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Conversations with Tyler</a>
+  <span class="sub">Episode companion · Steven Pinker on language and reason</span>
+</header>
+<nav class="chapnav" aria-label="Chapters">
+  <a href="#ch01"><span class="t">~00:00</span>Stridden into the room</a>
+  <a href="#ch02"><span class="t">~00:03</span>A Hayekian argument</a>
+  <a href="#ch03"><span class="t">~00:05</span>Dreamt becomes dreamed</a>
+  <a href="#ch04"><span class="t">~00:07</span>Orwell's 1984</a>
+  <a href="#ch05"><span class="t">~00:09</span>Abode, chidden, holp</a>
+  <a href="#ch06"><span class="t">~00:11</span>Chomsky</a>
+  <a href="#ch07"><span class="t">~00:14</span>Modules</a>
+  <a href="#ch08"><span class="t">~00:17</span>The self</a>
+  <a href="#ch09"><span class="t">~00:22</span>Determinism</a>
+  <a href="#ch10"><span class="t">~00:24</span>The underlying unity</a>
+  <a href="#ch11"><span class="t">~00:29</span>Reason versus skepticism</a>
+  <a href="#ch12"><span class="t">~00:34</span>Underrated, overrated</a>
+  <a href="#ch13"><span class="t">~00:42</span>Biggest mistake</a>
+  <a href="#ch14"><span class="t">~00:43</span>World peace</a>
+  <a href="#ch15"><span class="t">~00:49</span>Fermi</a>
+  <a href="#ch16"><span class="t">~00:51</span>Primates and threats</a>
+  <a href="#ch17"><span class="t">~00:52</span>Ed Sullivan</a>
+  <a href="#ch18"><span class="t">~00:54</span>CRISPR</a>
+  <a href="#ch19"><span class="t">~00:57</span>The bookshelf</a>
+  <a href="#ch20"><span class="t">~00:58</span>Language death</a>
+  <a href="#ch21"><span class="t">~00:59</span>Dreams</a>
+  <a href="#ch22"><span class="t">~01:04</span>Politeness</a>
+  <a href="#ch23"><span class="t">~01:06</span>Whorf</a>
+  <a href="#ch24"><span class="t">~01:11</span>Group selection</a>
+  <a href="#ch25"><span class="t">~01:13</span>Fashion</a>
+  <a href="#ch26"><span class="t">~01:18</span>Critical periods</a>
+  <a href="#ch27"><span class="t">~01:21</span>Caplan</a>
+  <a href="#ch28"><span class="t">~01:25</span>The New Enlightenment</a>
+</nav>
+<div class="layout">
+<aside class="sidenav" aria-label="Chapters">
+  <h4>Chapters</h4>
+  <a href="#ch01"><span class="t">~00:00</span>Stridden into the room</a>
+  <a href="#ch02"><span class="t">~00:03</span>A Hayekian argument</a>
+  <a href="#ch03"><span class="t">~00:05</span>Dreamt becomes dreamed</a>
+  <a href="#ch04"><span class="t">~00:07</span>Orwell's 1984</a>
+  <a href="#ch05"><span class="t">~00:09</span>Abode, chidden, holp</a>
+  <a href="#ch06"><span class="t">~00:11</span>Chomsky</a>
+  <a href="#ch07"><span class="t">~00:14</span>Modules</a>
+  <a href="#ch08"><span class="t">~00:17</span>The self</a>
+  <a href="#ch09"><span class="t">~00:22</span>Determinism</a>
+  <a href="#ch10"><span class="t">~00:24</span>The underlying unity</a>
+  <a href="#ch11"><span class="t">~00:29</span>Reason versus skepticism</a>
+  <a href="#ch12"><span class="t">~00:34</span>Underrated, overrated</a>
+  <a href="#ch13"><span class="t">~00:42</span>Biggest mistake</a>
+  <a href="#ch14"><span class="t">~00:43</span>World peace</a>
+  <a href="#ch15"><span class="t">~00:49</span>Fermi</a>
+  <a href="#ch16"><span class="t">~00:51</span>Primates and threats</a>
+  <a href="#ch17"><span class="t">~00:52</span>Ed Sullivan</a>
+  <a href="#ch18"><span class="t">~00:54</span>CRISPR</a>
+  <a href="#ch19"><span class="t">~00:57</span>The bookshelf</a>
+  <a href="#ch20"><span class="t">~00:58</span>Language death</a>
+  <a href="#ch21"><span class="t">~00:59</span>Dreams</a>
+  <a href="#ch22"><span class="t">~01:04</span>Politeness</a>
+  <a href="#ch23"><span class="t">~01:06</span>Whorf</a>
+  <a href="#ch24"><span class="t">~01:11</span>Group selection</a>
+  <a href="#ch25"><span class="t">~01:13</span>Fashion</a>
+  <a href="#ch26"><span class="t">~01:18</span>Critical periods</a>
+  <a href="#ch27"><span class="t">~01:21</span>Caplan</a>
+  <a href="#ch28"><span class="t">~01:25</span>The New Enlightenment</a>
+</aside>
+<main id="main">
+<div class="hero">
+  <p class="kicker">Conversations with Tyler · Episode companion</p>
+  <h1>Steven Pinker on Language, Reason, and the Future of Violence</h1>
+  <p class="deck">Recorded at George Mason University in November 2016, this episode moves from irregular verbs to the fate of civilization: how language works, what consciousness is, why reason deserves defending, and whether violence is really in decline.</p>
+  <div class="meta">
+    <span><b>Episode:</b> Conversations with Tyler, Steven Pinker</span>
+    <span><b>Recorded:</b> November 2, 2016</span>
+    <span><b>Length:</b> about 86 minutes</span>
+    <span><b>Transcript:</b> about 12,700 words</span>
+  </div>
+  <figure class="herofig">
+    <img src="assets/ep07/pinker.webp" alt="Portrait of Steven Pinker">
+    <figcaption class="caption">Steven Pinker. Photo by Rose Lincoln, Harvard University, via The Observer.</figcaption>
+  </figure>
+</div>
+
+<section class="chapter" id="ch01">
+<p class="ts">~00:00</p>
+<h2>Stridden into the room</h2>
+<p>Cowen opens with Pinker's early work on irregular verbs and notes how much he thinks like an economist. Why do we have some 165 quirky exceptions, stride and strode, sing and sang, go and went? Pinker says the topic reveals the two mechanisms that make language possible. First, memory: we store arbitrary pairings of sound and meaning by brute force. The word duck looks nothing like a duck, but the memorized pairing lets him plant the thought of a duck in the room.</p>
+<p>Second, rules: we combine words into phrases with algorithms that compute the meaning of the whole from the parts. Regular and irregular forms are two ways of marking the past, and the tension between the memory system and the rule system produces the quirkiness of English.</p>
+<div class="fig">
+<img src="assets/ep07/wc-words.webp" alt="Watercolor of a child learning words from picture cards with a teacher">
+<figcaption class="caption">The memory system at work: a child learning the arbitrary pairings of sound and meaning. Watercolor illustration.</figcaption>
+</div>
+<div class="chart" id="chart-systems">
+<h3>The two systems behind language</h3>
+<p class="csrc">Pinker's account of how words and rules divide the labor.</p>
+<svg viewBox="0 0 560 150" role="img" aria-label="Diagram of memory versus rule systems">
+<g data-tip="Arbitrary pairings of sound and meaning, stored by brute force"><rect x="20" y="30" width="240" height="60" fill="#b4531f" rx="6"/><text x="34" y="56" fill="#fff">Memory system</text><text x="34" y="76" fill="#fff" font-size="11">duck, sang, went</text></g>
+<g data-tip="Algorithms that combine parts into predictable wholes"><rect x="300" y="30" width="240" height="60" fill="#8a9a5b" rx="6"/><text x="314" y="56" fill="#fff">Rule system</text><text x="314" y="76" fill="#fff" font-size="11">walk plus ed</text></g>
+<text x="20" y="120">Irregular verbs live in the tension between the two</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch02">
+<p class="ts">~00:03</p>
+<h2>A Hayekian argument</h2>
+<p>Cowen asks whether Pinker knew his verb work formed a Hayekian argument: common verbs go irregular because they are used constantly and easy to remember, while rare verbs take the regular rule, economizing on information in a decentralized way. Pinker reaches for Darwin over Hayek. An irregular verb survives only if each generation memorizes it, and memory thrives on frequency. When a verb declines in fashion, a generation fails to master it, defaults to the add-ed rule, and the verb regularizes for all generations after.</p>
+<p>Children are the filter. The stock of irregular verbs erodes as it passes through young minds, and the less frequent ones fall out. That is Darwinian, not designed.</p>
+</section>
+
+<section class="chapter" id="ch03">
+<p class="ts">~00:05</p>
+<h2>Dreamt becomes dreamed</h2>
+<p>Cowen offers the example, and Pinker confirms it:</p>
+<blockquote class="pull">Dreamt becomes dreamed.</blockquote>
+<p class="pullattr">Cowen asks, Pinker confirms · ~00:05</p>
+<p>But dreamt is prettier, Cowen protests, and Pinker agrees. That is one reason irregulars survive: poets, lyricists, and novelists prefer them when there is a choice, strided or strode, strove or strived. The irregulars fit the phonological template of a natural word. The regulars sound kludgy, a verb stem with a bit of detritus hanging off the end. Words like sixths and edited are almost unpronounceable, the price of the rule.</p>
+</section>
+
+<section class="chapter" id="ch04">
+<p class="ts">~00:07</p>
+<h2>Orwell's 1984</h2>
+<p>In 1984 the Party bans all irregular verbs, a kind of excess regulation. From a social point of view, are there too many or too few? Pinker likes the irregulars and would like more. It is sad when they are lost. Occasionally a new one gains a toehold: snuck is about 120 years old, built on the analogy of dig and dug, stink and stunk, sing and sang. What protects a verb against erosion is similarity to well-memorized neighbors, letting it parasitize their memory strength.</p>
+<p>New coinages sometimes start as jokes. Spice as the plural of spouse was cutesy. People over seventy still hear snuck as slang, while the young see no fuss. Language keeps what the young do not question.</p>
+</section>
+
+<section class="chapter" id="ch05">
+<p class="ts">~00:09</p>
+<h2>Abode, chidden, holp</h2>
+<p>Cowen confesses the verbs he is afraid to use: abide, whose past abode now reads as a noun, and abidden, which he will not touch. Pinker notes that abode dropped out centuries ago, like chid for chide and holp for help. Some survive in Appalachia and remote parts of the British Isles, resisting erosion for obscure, partly capricious reasons.</p>
+<p>One vanishing distinction genuinely saddens him: the three-way split of sink, sank, sunk and stink, stank, stunk, where the middle forms give way to the participles. English conjugation is already so depauperate, he says, that the remaining distinctions deserve defense. In his style manual he recommends hanging on to them.</p>
+</section>
+
+<section class="chapter" id="ch06">
+<p class="ts">~00:11</p>
+<h2>Chomsky</h2>
+<p>Cowen, the outsider, asks whether Chomsky's universal grammar was simply wrong, collapsing as it did into the near-tautology of recursion. Pinker says the hypothesis is hard to pin down, partly because Chomsky revises it every decade, on the principle of continuous revolution. It was never specified precisely nor tested against language variation, which he calls unfortunate for ordinary science.</p>
+<p>Still, he defends a version of the idea. The child does not record sentences verbatim. The child is biased to analyze speech in particular ways, pulling combinatorial rules out of the stream. That set of abilities, the innate structure that does the learning, is what he would call universal grammar. Languages share commonalities because each generation rebuilds language from the data of parents and peers.</p>
+</section>
+
+<section class="chapter" id="ch07">
+<p class="ts">~00:14</p>
+<h2>Modules</h2>
+<p>Jon Haidt's modules suggest political discourse is ruled by independent mind-parts. Pinker traces the metaphor to Jerry Fodor, with Howard Gardner's multiple intelligences and the evolutionary psychologists' Swiss Army knife as cousins. He finds modules too strong a metaphor, snap-in components with narrow channels, and prefers faculties, an old-fashioned word. The mind has specialization and structure without literal independence, like blood, which suffuses every tissue and cannot be carved out.</p>
+<p>He agrees with Haidt on the substance: different mindsets frame the same events, and much political disagreement is a disagreement about which frame to use.</p>
+</section>
+
+<section class="chapter" id="ch08">
+<p class="ts">~00:17</p>
+<h2>The self</h2>
+<p>What is the self for? Pinker separates self-knowledge from subjective experience, the qualia, the what-it-is-like. A robot could monitor itself with no one home. The hard problem of consciousness may be a quirk of the mind reflecting on itself: every aspect of consciousness has a physical correlate, no ESP, no soul smuggled back in, yet why it feels like something remains unanswered.</p>
+<p>He gravitates toward the mysterian view, associated with Colin McGinn: some facts about the universe are true, and we will never feel we understand them, not because science is incomplete but because our way of grasping reality makes them puzzling. Intuition hits a wall here, as it does on time, on what came before the Big Bang, on whether the universe is finite or infinite.</p>
+</section>
+
+<section class="chapter" id="ch09">
+<p class="ts">~00:22</p>
+<h2>Determinism</h2>
+<p>Are our minds fully determined? In theory, perhaps Laplace's demon could predict every choice. In practice, the system is chaotic and nonlinear, ions zigging from Brownian motion, complexity stacked like weather to several higher powers. Some true-in-theory things are so mind-bogglingly complicated they may as well not be true. There is no miracle in the brain at decision time. In that sense we are determined, and for all practical purposes we are not.</p>
+</section>
+
+<section class="chapter" id="ch10">
+<p class="ts">~00:24</p>
+<h2>The underlying unity</h2>
+<p>Cowen proposes the unity of Pinker's work: a midway position between blank-slate theorists who see no structure and over-structurers like the early Chomsky, leaving room for reason within the laws of nature, a rearticulation of the Enlightenment. Pinker accepts the shape but not the caricature. He does not split differences or hunt Goldilocks zones.</p>
+<p>The middle ground, properly done, goes down a level to finer-grained causal mechanisms. On nature versus nurture, the answer is not halfway: there is an innate structure that does the learning. What is innate is the ability to learn, and that dissolves the dichotomy rather than compromising on it.</p>
+<div class="chart" id="chart-midway">
+<h3>The midway position, properly done</h3>
+<p class="csrc">Pinker's method across debates, stylized.</p>
+<svg viewBox="0 0 560 160" role="img" aria-label="Diagram of going beneath a dichotomy">
+<g data-tip="Blank slate theories see no structure at all"><rect x="20" y="30" width="150" height="44" fill="#c9bfae" rx="6"/><text x="32" y="57" fill="#221c14">No structure</text></g>
+<g data-tip="Over-structured theories postulate too much"><rect x="390" y="30" width="150" height="44" fill="#c9bfae" rx="6"/><text x="402" y="57" fill="#221c14">Too much structure</text></g>
+<g data-tip="The answer goes beneath the dichotomy to the mechanism"><rect x="180" y="96" width="200" height="44" fill="#b4531f" rx="6"/><text x="196" y="123" fill="#fff">The mechanism below</text></g>
+<line x1="95" y1="74" x2="240" y2="96" stroke="#221c14" stroke-width="2"/>
+<line x1="465" y1="74" x2="320" y2="96" stroke="#221c14" stroke-width="2"/>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch11">
+<p class="ts">~00:29</p>
+<h2>Reason versus skepticism</h2>
+<p>Cowen confesses he believes in reason less than Pinker does, and calls himself more Hayekian: people ruled by passions, reason fairly weak. Pinker answers with a question: what are we doing here if not reasoning? The very act of posing the question commits you to reason.</p>
+<p>On Hume, he is precise. Reason as slave of the passions is not the psychological claim that people lose control. It is the conceptual point that reason cannot tell you what your goals should be. Deduction cannot produce an ought. That is compatible with people becoming more rational, through science, debate, and the exploration of implications now under way.</p>
+<p>The historical record is his exhibit. Bad ideas get dropped, not quickly, not absolutely, but we no longer practice human sacrifice or throw virgins into volcanoes to fix the weather. Hereditary monarchy is nearly gone. The frontal cortex, grafted onto the passionate brain, can count to ten, save for a rainy day, and hold its horses, often enough to celebrate.</p>
+</section>
+
+<section class="chapter" id="ch12">
+<p class="ts">~00:34</p>
+<h2>Underrated, overrated</h2>
+<p>The lightning round. Rap music: Pinker never got it, but he refuses to call it overrated.</p>
+<blockquote class="pull">I never got rap music.</blockquote>
+<p class="pullattr">Steven Pinker · ~00:34</p>
+<p>His not owning any rap is no argument about its objective merit, and he is a relativist about dialects too: there is nothing inherently to choose between the rules of Black English and any other vernacular. A standard is still worth having, for communication and efficiency. In a different history, the standard could be Black English.</p>
+<p>Aerobic exercise: underrated, he jogs and cycles. Behavioral economics: he is for it, but it dismisses classical economics too quickly, a false dichotomy. A collective enterprise running on rules can be rational even when no individual mind is, and market experience cures the lab fallacies. The passive voice: underrated. No construction survives 1,500 years without serving a purpose, and both Orwell's and Strunk and White's style guides accidentally use the passive in the very sentence that bans it. William Shatner: underrated, fellow Montreal Jew, though perhaps not his singing. Susan Sontag on photography: overrated, or at least that passage.</p>
+<blockquote class="pull">The mind is many parts.</blockquote>
+<p class="pullattr">Steven Pinker · ~00:37</p>
+<div class="warnbox"><b>Trap card.</b> Pinker's rap answer is explicit about its limits: personal taste is not an argument about merit. Do not quote him as a critic of rap. The same care applies to his relativism about dialects, which is a linguistic claim, not a cultural ranking.</div>
+<div class="chart" id="chart-scoreboard">
+<h3>The underrated versus overrated scoreboard</h3>
+<p class="csrc">Pinker's live ratings, November 2016. Not advice.</p>
+<svg viewBox="0 0 560 210" role="img" aria-label="Scoreboard of Pinker's ratings">
+<line x1="280" y1="20" x2="280" y2="185" class="grid"/>
+<text x="130" y="16">Overrated</text><text x="390" y="16">Underrated</text>
+<g data-tip="Sontag passage on photography rated overrated"><rect x="160" y="28" width="110" height="24" fill="#b4531f"/><text x="168" y="45" fill="#fff">Sontag passage</text></g>
+<g data-tip="Rap music got a personal pass, not a merit verdict"><rect x="290" y="28" width="110" height="24" fill="#c9bfae"/><text x="298" y="45" fill="#fff">Rap (no verdict)</text></g>
+<g data-tip="Aerobic exercise rated underrated"><rect x="290" y="58" width="120" height="24" fill="#8a9a5b"/><text x="298" y="75" fill="#fff">Aerobic exercise</text></g>
+<g data-tip="The passive voice rated underrated"><rect x="290" y="88" width="110" height="24" fill="#8a9a5b"/><text x="298" y="105" fill="#fff">Passive voice</text></g>
+<g data-tip="William Shatner rated underrated"><rect x="290" y="118" width="120" height="24" fill="#8a9a5b"/><text x="298" y="135" fill="#fff">William Shatner</text></g>
+<g data-tip="Behavioral economics got a yes with caveats"><rect x="290" y="148" width="150" height="24" fill="#8a9a5b"/><text x="298" y="165" fill="#fff">Behavioral econ (yes)</text></g>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch13">
+<p class="ts">~00:42</p>
+<h2>Biggest mistake</h2>
+<p>Asked for his biggest mistake, Pinker punts, cheerfully. Where to begin, he laughs, and declines to pick one, while insisting the punt should not suggest he has made none.</p>
+</section>
+
+<section class="chapter" id="ch14">
+<p class="ts">~00:43</p>
+<h2>World peace</h2>
+<p>Cowen poses the thought experiment: if $10,000 and a few months let anyone on earth build a Hiroshima-scale bomb, how long before someone does it? Pinker has no idea and refuses to prophesy. His optimism is not prediction. It is the observation that the pessimistic view is factually wrong: we are not living in unusually violent times.</p>
+<p>Cowen presses the trend argument: destructive power gets cheaper as societies get wealthier. Pinker's reply has two weak premises. First, not every curve is exponential. Air travel leveled off after 1957, and a $10,000 nuke still needs its centrifuges. Second, the rate-limiting step is desire. The violence we see is not limited by the cost of technology. It is limited by the number of people who think blowing things up for no reason is a good idea. Seventy-plus years without a wartime nuclear weapon suggests they are not terribly useful weapons: a radioactive crater is not a coherent war goal.</p>
+<div class="warnbox"><b>Trap card.</b> The $10,000 bomb is Cowen's hypothetical, not a forecast by either man. Pinker explicitly declines to predict. Do not cite this exchange as a claim about how soon such a weapon could exist.</div>
+<div class="fig">
+<img src="assets/ep07/wc-peace.webp" alt="Watercolor of a dove over a peaceful city at dawn">
+<figcaption class="caption">The Better Angels thesis: violence in long decline, a dove over the city. Watercolor illustration.</figcaption>
+</div>
+<div class="fig">
+<img src="assets/ep07/betterangels.webp" alt="Cover of The Better Angels of Our Nature by Steven Pinker">
+<figcaption class="caption">The Better Angels of Our Nature, the book at the center of the peace discussion. Cover image via ain.ua.</figcaption>
+</div>
+</section>
+
+<section class="chapter" id="ch15">
+<p class="ts">~00:49</p>
+<h2>Fermi</h2>
+<p>Cowen tries the Fermi paradox: if civilizations survive, where are they? Perhaps they destroy themselves when energy gets cheap. Pinker sees no natural arc toward self-destruction. The trajectory so far runs the other way: advancing civilizations develop mechanisms that make conflict less likely.</p>
+<blockquote class="pull">War is a pretty stupid thing to do.</blockquote>
+<p class="pullattr">Steven Pinker · ~00:49</p>
+<p>You blow things up, kill people, and gain nothing you could not get otherwise. Belligerence invites destruction. With world government or its functional equivalent, international norms and expectations, everyone lives better. It is just as plausible that civilizations make war obsolete as that they perfect it.</p>
+</section>
+
+<section class="chapter" id="ch16">
+<p class="ts">~00:51</p>
+<h2>Primates and threats</h2>
+<p>Will the other primates go extinct? Not the monkeys. Monkeys are like rats, everywhere in India. The great apes face a race between poaching and habitat destruction on one side and conservation and ecotourism on the other. They could vanish, but they do not have to.</p>
+<p>The greatest existential threats: climate change and nuclear war. Climate change would not extinguish the species, people can move and adjust, but under extreme scenarios it would be miserable and unrecognizable. Nuclear war needs no elaboration.</p>
+</section>
+
+<section class="chapter" id="ch17">
+<p class="ts">~00:52</p>
+<h2>Ed Sullivan</h2>
+<p>Favorite TV show? The Ed Sullivan Show: Italian acrobats, a Jewish comedian, the Beatles, the Supremes, another Jewish comedian, all in an hour. Sullivan was an early proponent of integration on television, booking the Supremes more than any other act in an era when America had barely started to desegregate. He also liked Hill Street Blues and Cheers, and admits he ought to watch more TV than he does.</p>
+</section>
+
+<section class="chapter" id="ch18">
+<p class="ts">~00:54</p>
+<h2>CRISPR</h2>
+<p>Should parents design smarter children? Pinker is skeptical of the premise. The 1990s hunt for single genes for traits produced false alarms. Genetic influence spreads across thousands of genes, each shifting a trait by a smidgen, many with mixed effects. There is no gene for musical ability to install. That is not how genes work.</p>
+<p>Even with big data and fifty generations, the tradeoffs are unknown: how much brainpower can you add without adding brain cancer? A denser neural network can be stupider. And every edit risks something going wrong. People will not eat a modified tomato. They will not take that risk with children. The scenario is too complicated to worry about, and probably not productive to debate.</p>
+</section>
+
+<section class="chapter" id="ch19">
+<p class="ts">~00:57</p>
+<h2>The bookshelf</h2>
+<p>The surprising book on his shelves: a big stack of bicycling magazines. He is obsessed with the weight in grams of different derailleurs and water bottle cages. Aerobic exercise, underrated once more.</p>
+</section>
+
+<section class="chapter" id="ch20">
+<p class="ts">~00:58</p>
+<h2>Language death</h2>
+<p>Are we headed for linguistic homogeneity? Almost certainly we are in a mass extinction of languages. But it will not end with everyone speaking English. Even if 90 percent of languages die, 600 remain, and no one will give up Spanish, Hindi, Russian, or Chinese soon. Translation software, national media, old-fashioned national pride, and the comfort of the mother tongue will keep many tongues alive.</p>
+</section>
+
+<section class="chapter" id="ch21">
+<p class="ts">~00:59</p>
+<h2>Dreams</h2>
+<p>Can dreams prophesy the future? No.</p>
+<blockquote class="pull">I think dreams are a kind of screen saver.</blockquote>
+<p class="pullattr">Steven Pinker · ~00:59</p>
+<p>Prophecy would violate what we know of physics. Then the euphemism treadmill: negro to black to African American, each label absorbing the taint of the last. Language does not determine attitudes, though it pushes against them. Pronouns resist engineering because they are learned early, highly frequent, and spread across millions of speakers. Deliberate redesign of grammar has never caught on.</p>
+</section>
+
+<section class="chapter" id="ch22">
+<p class="ts">~01:04</p>
+<h2>Politeness</h2>
+<p>Is public speech becoming less polite? Possibly, but Trumpism does not show attitudes changed. Search data on racist jokes shows no sudden U-turn. What changed is permission: people who kept quiet now feel the taboos are broken. Pinker hopes for a benign taboo against overtly racist, misogynistic, and homophobic language, a benevolent hypocrisy that keeps ugly things unsaid in public because saying them legitimates them.</p>
+</section>
+
+<section class="chapter" id="ch23">
+<p class="ts">~01:06</p>
+<h2>Whorf</h2>
+<p>How central is language to the human? Central to everything else. It makes cooperation possible across time: you can trade a favor now for a payback far in the future, which barter cannot do. Information is the ultimate trade good, nonrival, shareable without loss, multipliable. Language lets a discovery spare everyone else the remaking of it.</p>
+<p>But not Whorf's determinism. If we could only think thoughts we had words for, language could never originate. We had ideas before we could articulate them, and coined words for them. Language was never designed by a committee. Millions of speakers coined jargon and circumlocutions that went viral and entrenched, the spontaneous order Hayek described. Grammatical language, with unlimited combinations from arranged parts, is unique to our species. Birdsong has no semantics.</p>
+<div class="chart" id="chart-trade">
+<h3>Why language pays: the information trade</h3>
+<p class="csrc">Pinker's argument for language as the ultimate trade good, stylized.</p>
+<svg viewBox="0 0 560 150" role="img" aria-label="Diagram of information as a trade good">
+<g data-tip="Physical goods deplete when shared"><rect x="20" y="30" width="240" height="60" fill="#c9bfae" rx="6"/><text x="34" y="56" fill="#221c14">Barter: goods</text><text x="34" y="76" fill="#221c14" font-size="11">sharing depletes</text></g>
+<g data-tip="Information multiplies when shared at small cost"><rect x="300" y="30" width="240" height="60" fill="#8a9a5b" rx="6"/><text x="314" y="56" fill="#fff">Language: information</text><text x="314" y="76" fill="#fff" font-size="11">sharing multiplies</text></g>
+<text x="20" y="120">Nonrival goods make cooperation cheap</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch24">
+<p class="ts">~01:11</p>
+<h2>Group selection</h2>
+<p>Is group selection, E. O. Wilson's and Haidt's idea, the answer to the violence decline? Pinker calls it a big blunder, a bad analogy. There is no Darwinian process of differential survival that applies to groups the way it applies to genes.</p>
+<p>Are we evolving to be less violent, genetically? He doubts it, though he cannot rule it out. The evidence against: violence declines on timescales too fast for natural selection. Germany went from the most militaristic culture on earth to the most pacifist in about a generation. The American homicide rate fell in half in eight years. No generational turnover can explain that. Behavior changes fast. Genes need not be invoked.</p>
+<div class="warnbox"><b>Trap card.</b> Group selection is a live scientific controversy, and Wilson and Haidt are serious proponents. Pinker's dismissal is his strongly held position, argued at length elsewhere. Present it as his side of an open debate, not as a settled verdict.</div>
+<div class="chart" id="chart-violence">
+<h3>Too fast for genes</h3>
+<p class="csrc">Pinker's examples of rapid violence decline, as stated in conversation.</p>
+<svg viewBox="0 0 560 180" role="img" aria-label="Chart of two rapid declines in violence">
+<line x1="60" y1="30" x2="60" y2="150" class="grid"/>
+<line x1="60" y1="150" x2="530" y2="150" class="grid"/>
+<g class="bar" data-tip="Germany went from most militaristic to most pacifist in a generation"><rect x="80" y="50" width="180" height="34"/><text x="88" y="72" fill="#fff">Germany: one generation</text></g>
+<g class="bar alt" data-tip="The American homicide rate fell in half in eight years"><rect x="80" y="100" width="140" height="34"/><text x="88" y="122" fill="#fff">US homicides: 8 years, halved</text></g>
+<text x="80" y="170">Timescales no gene pool can match</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch25">
+<p class="ts">~01:13</p>
+<h2>Fashion</h2>
+<p>Language has stronger network effects than fashion, but are we headed for one global look? Pinker sees both: globalization of fashion and youth culture, baggy shorts everywhere, male elites in neckties and jackets, and constant churning underneath. The theory comes from the art historian Quentin Bell, via Veblen: elites differentiate from the rabble, sumptuous fabrics once broadcast unfakeable wealth, but cheap manufacturing killed sumptuousness as a signal.</p>
+<p>Now the signal is rarity itself. When everyone has long hair, show up with a crew cut. The elite look trickles down, lands in Target, and the elite jump to the next rarity. Like parasite-host coevolution, being rare is an advantage until it becomes common.</p>
+</section>
+
+<section class="chapter" id="ch26">
+<p class="ts">~01:18</p>
+<h2>Critical periods</h2>
+<p>Chinese infants nail tones long before consonants, while the State Department spends two years teaching adults who almost never get them. Pinker confirms sensitive periods, sharpest for phonology and accent. Vocabulary has no critical period. We learn words all our lives. Syntax sits between. His own unpublished work suggests the beginning of the end for native mastery starts around age fifteen.</p>
+<p>Younger is better, but with 6,000 languages you cannot know which one your child will need. No one can yet name the brain change behind it. We are simply ignorant of what, if anything, changes.</p>
+</section>
+
+<section class="chapter" id="ch27">
+<p class="ts">~01:21</p>
+<h2>Caplan</h2>
+<p>Bryan Caplan asks the meta question: Pinker's books show the smartest people deeply wrong about their own subjects. What is wrong with academia that there are so few Pinkers? Pinker declines the flattery and names the disease: intellectual tribalism. It is pleasurable to read what confirms you and annoying to be challenged.</p>
+<p>The cure is institutional: rules of the game that make false beliefs embarrassing to hold. Science at its best is that arena. The signs are mixed. Campus speech restrictions go the wrong way, and Greg Lukianoff's Foundation for Individual Rights in Education fights them well. The internet was supposed to break institutional barriers to the best ideas. Instead it festers conspiracy theories. How to tilt the norms so that falsehood embarrasses, he wishes he knew.</p>
+</section>
+
+<section class="chapter" id="ch28">
+<p class="ts">~01:25</p>
+<h2>The New Enlightenment</h2>
+<p>Caplan's price for the last answer: name the next book. The tentative title is The New Enlightenment: A Manifesto for Science, Reason, Humanism, and Progress. The argument: the Enlightenment philosophers got a lot right, and their dreams come true.</p>
+<p>The full conversation runs about 86 minutes, recorded before a live audience at George Mason University on November 2, 2016. The transcript carries no timestamps. The times in this companion are proportional estimates from each passage's position in the transcript.</p>
+<div class="vid">
+<iframe src="https://www.youtube-nocookie.com/embed/CVaWR8ISEd4" title="Conversations with Tyler: Steven Pinker" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</section>
+
+<div class="nuggets">
+<h2>Nuggets of wisdom</h2>
+<ol>
+<li>Language runs on two systems: memory and rules.</li>
+<li>Irregular verbs survive by frequency. Children erode the rare ones.</li>
+<li>Dreamt becomes dreamed, and that is a small sadness.</li>
+<li>Snuck is 120 years old and still sounds like slang to the old.</li>
+<li>No one designed language. It evolved by spontaneous order.</li>
+<li>The child does not record sentences. The child extracts rules.</li>
+<li>Modules are the wrong metaphor. Faculties are better.</li>
+<li>Intuition hits a wall on consciousness, time, and infinity.</li>
+<li>Determined in theory, free in practice.</li>
+<li>What is innate is the ability to learn.</li>
+<li>Reason cannot pick your goals. That is a category mistake.</li>
+<li>We no longer throw virgins into volcanoes. Progress is real.</li>
+<li>The frontal cortex can count to ten.</li>
+<li>The passive is underrated.</li>
+<li>The rate-limiting step on terror is desire, not technology.</li>
+<li>War is a pretty stupid thing to do.</li>
+<li>There is no gene for musical ability.</li>
+<li>A million speakers beat a committee.</li>
+<li>The euphemism treadmill runs on attitudes, not words.</li>
+<li>Embarrassment is the engine of truth.</li>
+</ol>
+</div>
+
+<footer class="sources">
+<h2>Sources and method</h2>
+<p><b>Transcript.</b> This companion narrates the Conversations with Tyler episode with Steven Pinker, recorded live at George Mason University and uploaded November 2, 2016. Source file: <span class="mono" style="font-family:var(--mono);font-size:13px">research/conversations-with-tyler/transcripts/CVaWR8ISEd4.txt</span> (about 12,700 words, duration about 86 minutes). The transcript carries no timestamps, so every <span class="mono" style="font-family:var(--mono);font-size:13px">~HH:MM</span> marker in this companion is a proportional estimate from the passage's character offset within the transcript, always labeled with ~.</p>
+<p><b>Trap flags.</b> Four honesty hazards are called out in-line as trap cards: (1) Pinker's rap answer is personal taste, explicitly not a merit verdict. (2) The $10,000 bomb is Cowen's hypothetical, and Pinker declines to predict. (3) Group selection is a live controversy, and Pinker's dismissal is one side of it. (4) The violence-decline thesis is Pinker's documented claim, debated by historians.</p>
+<p><b>Garble corrections.</b> None to the wording. Several passages in the transcript file repeat verbatim (transcription artifacts, for example the mysterianism paragraph and the TV-watching paragraph). Each was treated as a single occurrence.</p>
+<div class="onquotes">
+<p><b>On quotes.</b> This artifact contains <b>30 quoted words</b> by mechanical recount (the recount script at <span class="mono" style="font-family:var(--mono);font-size:13px">~/workspace/companions/tools/recount_quotes.py</span>). The method counts every word inside pull-quote markup plus every double- or single-quoted phrase in the visible body text, footer excluded, including chart data-tips and attribute-embedded quotes. The count: pull quote one, 3 words (Dreamt becomes dreamed). Pull quote two, 5 words (Pinker on rap). Pull quote three, 5 words (the mind is many parts). Pull quote four, 8 words (Pinker on war). Pull quote five, 9 words (Pinker on dreams). No quoted phrase repeats anywhere in the body. Chart data-tips contain no quotation marks.</p>
+</div>
+<p><b>Video.</b> The embedded player uses youtube-nocookie. This file is self-contained and works from file://. The only network dependency is the video embed and the locally referenced images in assets/ep07/.</p>
+<p><b>Photos.</b> Steven Pinker portrait by Rose Lincoln, Harvard University, via The Observer. The Better Angels of Our Nature cover image via ain.ua. Watercolor illustrations were generated with Muse's native image tools.</p>
+</footer>
+</main>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.chapnav a,.sidenav a'));
+  var secs=[].slice.call(document.querySelectorAll('section.chapter'));
+  function onScroll(){
+    var y=window.scrollY+120,cur=null;
+    secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id;});
+    links.forEach(function(a){
+      a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
