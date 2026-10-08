@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mark Zuckerberg Interview: Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Acquired live interview with Mark Zuckerberg at Chase Center: the learn-faster formula, open source strategy, the mobile rewrite, and the 20-year mistake.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e7ebf2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 3 &middot; The Mark Zuckerberg Interview &middot; Sep 2024</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 3 &middot; Companion</p>
+      <h1>The Mark Zuckerberg Interview</h1>
+      <p class="dek">At Chase Center on September 10, 2024, Mark Zuckerberg did an unprecedented thing: a live conversation in front of 6,000 people on Meta's strategy, early Facebook history, and the future of AI, VR, and AR. This companion follows the night chapter by chapter.</p>
+      <img src="assets/ep03/zuckerberg-chase-center.png" alt="Photograph of Mark Zuckerberg at the Chase Center Acquired live event, wearing a shirt that reads Pathé Mathos">
+      <p class="caption"><b>Photo.</b> Mark Zuckerberg at Chase Center, September 2024, in the Pathé Mathos shirt. Source: acquired.fm (official episode artwork).</p>
+      <div class="stats">
+        <div class="stat"><div class="n">6,000</div><div class="l">People in the live Chase Center audience</div><div class="s">Episode description</div></div>
+        <div class="stat"><div class="n">3.3B</div><div class="l">People who use Meta's apps daily</div><div class="s">Episode ~01:04</div></div>
+        <div class="stat"><div class="n">$100B</div><div class="l">IPO market cap in 2012, halved within three months</div><div class="s">Episode ~00:41</div></div>
+        <div class="stat"><div class="n">12</div><div class="l">Different things Mark built in school because he wanted them to exist</div><div class="s">Episode ~00:03</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/QciJ9ubeLQk" title="Acquired: The Mark Zuckerberg Interview (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Acquired episode video (1 hr 27 min). Times below are proportional estimates from the transcript.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">He did not try to start a company</a></li>
+          <li><a href="#nugget-2">Define yourself by the mission, not the app</a></li>
+          <li><a href="#nugget-3">Learn faster than everyone</a></li>
+          <li><a href="#nugget-4">Ship near embarrassment</a></li>
+          <li><a href="#nugget-5">Invention needs discovery</a></li>
+          <li><a href="#nugget-6">Open-source what is not the differentiator</a></li>
+          <li><a href="#nugget-7">The pure rewrite rule</a></li>
+          <li><a href="#nugget-8">Defeat makes the move obvious</a></li>
+          <li><a href="#nugget-9">The 20-year mistake</a></li>
+          <li><a href="#nugget-10">Control buys 20-year bets</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps.</p>
+    </div>
+    <section class="chapter" id="ch-intro" data-time="~00:03" data-title="He Did Not Try to Start a Company">
+      <p class="ch-time">~00:03</p>
+      <h2>He Did Not Try to Start a Company</h2>
+      <figure>
+        <img src="assets/ep03/illustration-arena-night.webp" alt="Watercolor illustration of a vast arena at night with one figure on stage under a spotlight">
+        <p class="caption"><b>Illustration.</b> Chase Center: one founder, six thousand people, no script. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Ben asks the Jensen question: knowing what you know now, would you still start Facebook? Mark's answer is honest. The early startup years were not fun. Everything could die at any moment. He does not wish to relive them. It is good, he says, that humans underestimate how painful things will be, or nobody would do good things.</p>
+      <p>Then the twist: he did not try to start Facebook. In school he built about 12 different things he wanted to exist. He came to Silicon Valley with Dustin Moskovitz and a handful of people because that is where startups came from. Driving down Highway 101 past eBay and Yahoo, he thought: one day maybe we will build a company like this. Facebook already had scale, and he still thought of it as a great project, not a company. He lacked the ambition to turn it into one. It just happened.</p>
+      <p>His summary line: <q>hated being a startup and wanted to stop being a startup as fast as possible</q>. He is, Ben notes, the iconic startup founder of the century, and he wanted out of startup-ness immediately. What he wanted was a going concern: cash-generative, durable, able to fund the next idea without selling the company.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Beginnings</p>
+        <h4>He did not try to start a company</h4>
+        <p><span class="lbl">What happened. </span>Mark built 12 things in school because he wanted them to exist. Facebook was a project with scale, not a company with ambition. He wanted a going concern as fast as possible, not startup life.</p>
+        <p><span class="lbl">Why it matters. </span>Wanting out of startup-ness drove every durable decision after: revenue early, control kept, 20-year bets funded from cash flow. The exit from startup mode was the strategy.</p>
+        <p><span class="lbl">The principle. </span>Build the thing you want to exist. Then convert it into a going concern fast, so the project never has to die for money.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-formula" data-time="~00:23" data-title="Why Meta Kept Winning: The Formula">
+      <p class="ch-time">~00:23</p>
+      <h2>Why Meta Kept Winning: The Formula</h2>
+      <p><span class="tag fact">Source fact</span> Ben's question for the night: why has Meta worked so spectacularly well through wave after wave that was supposed to kill it? He names them: MySpace, first-generation Twitter, Instagram, Snapchat, WhatsApp, TikTok, Apple's App Tracking Transparency, ChatGPT. Eight named waves, though Ben says that is nine. He seems to double-count Apple ATT, which he calls out as its own category.</p>
+      <p>Mark's answer has three parts.</p>
+      <p>First, identity. Meta defines itself as a technology company focused on human connection, not as a specific type of app. Building glasses that let people feel present with each other is, to him, the natural continuation of the apps. How you define yourself determines what you are allowed to become. Companies that define themselves as one thing cannot cross platforms.</p>
+      <p>Second, real technical depth. Mark was an engineer. He took systems engineering classes. He observed that most companies calling themselves technology companies were not. The CEO was not technical, the board had nobody technical, one head of engineering carried it all. At Meta, the management team is heavily technical across product groups. Friendster and MySpace died partly on graph computation: calculating who-knows-whom at scale is brutally hard. Meta held itself to a technology lead over everyone else, because the product is just an implementation on top of the foundation.</p>
+      <p>Third, the learn-faster loop. Mark's formula: <q>learn faster than every other company</q>. Ship early, get feedback, learn what people actually want, ship again. By version three, four, or five, and versions are not even discrete, they ship so often, the product is better because it absorbed more reality than any competitor's.</p>
+      <p><span class="tag interp">Interpretation</span> Ben adds the strategy gloss: Mark plays the company like a turn-based strategy game. Get more turns than anyone else. Learn more from each turn than the next player.</p>
+      <div class="chart" id="chart-waves">
+        <h4>The waves that were supposed to kill Meta</h4>
+        <p class="csub">Eight named threats, one survivor. Hover for the death sentence each one carried.</p>
+        <svg viewBox="0 0 640 420" role="img" aria-label="List of competitive waves Meta survived">
+          <g id="waves-list"></g>
+        </svg>
+        <p class="csrc">Source: Acquired, The Mark Zuckerberg Interview, ~00:23. Ben counts nine. Eight are named.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Identity</p>
+        <h4>Define yourself by the mission, not the app</h4>
+        <p><span class="lbl">What happened. </span>Meta never defined itself as a website or a social network. It defined itself as a technology company focused on human connection. Glasses, AI, and VR all fit that definition.</p>
+        <p><span class="lbl">Why it matters. </span>None of the eight waves killed Meta, because Meta was never the app under attack. It was the learning machine underneath. Identity set the boundaries of allowed moves.</p>
+        <p><span class="lbl">The principle. </span>Define the company by the human need, not the current product. The definition decides what you may become.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Speed</p>
+        <h4>Learn faster than everyone</h4>
+        <p><span class="lbl">What happened. </span>Meta's loop: ship early, absorb real feedback, ship again. Versions blur together because shipping never stops. By version five the product absorbed more reality than any competitor's.</p>
+        <p><span class="lbl">Why it matters. </span>Speed of learning beats quality of first guess. Every wave that was supposed to kill Meta lost to a company that took more turns.</p>
+        <p><span class="lbl">The principle. </span>Play the turn-based game: more turns than anyone else, more learning per turn. The fastest learner wins.</p>
+      </div>
+      <div class="toy" id="toy-turns">
+        <h4>Toy: the turns game</h4>
+        <p class="tsub">Meta's formula as a machine. Set how often you ship versus a competitor, and watch the learning gap compound over five years.</p>
+        <label for="ships">Your ships per year <span class="tval" id="ships-v">50</span></label>
+        <input type="range" id="ships" min="4" max="100" value="50">
+        <label for="rival">Rival ships per year <span class="tval" id="rival-v">12</span></label>
+        <input type="range" id="rival" min="4" max="100" value="12">
+        <div class="verdict" id="turns-verdict"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ship" data-time="~00:30" data-title="Ship Before You Are Proud">
+      <p class="ch-time">~00:30</p>
+      <h2>Ship Before You Are Proud</h2>
+      <figure>
+        <img src="assets/ep03/illustration-ship-early.webp" alt="Watercolor illustration of a ship launching tiny lantern boats into a misty sea">
+        <p class="caption"><b>Illustration.</b> Ship early, learn from the fog, ship again. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The culture behind the loop is explicit: value shipping and feedback more than praise. Mark says many internal conversations sit near the line of embarrassment about what they release. Not shipping things they think are bad. Shipping things early enough to learn what they are actually for. With AI especially, the technology is clearly transformative and the first valuable use cases are unclear, so the only way to find out is to ship and watch where it resonates.</p>
+      <p>He contrasts this with Apple: long polish cycles, ship when perfect. That works for Apple and fits its culture. It is the opposite of Meta's. The price of Meta's way is small brand damage with every early ship. The price of waiting is feedback time you can never recover.</p>
+      <p>The decision rule: if you want praise every time you ship, you will ship too late to learn.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Culture</p>
+        <h4>Ship near embarrassment</h4>
+        <p><span class="lbl">What happened. </span>Meta ships early enough to learn what a product is actually for, accepting small brand damage per ship. Apple polishes until perfect and ships late.</p>
+        <p><span class="lbl">Why it matters. </span>Learning time is the one asset you cannot buy back. Every month of polish is a month of reality absorbed by someone else.</p>
+        <p><span class="lbl">The principle. </span>Price the two errors: small embarrassment now versus lost learning forever. If you need praise per ship, you ship too late.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-invent" data-time="~00:35" data-title="Invention Versus Discovery">
+      <p class="ch-time">~00:35</p>
+      <h2>Invention Versus Discovery</h2>
+      <p><span class="tag fact">Source fact</span> David asks whether product creation is invention, you conceive it fully then build it, or discovery, the statue is inside the marble and you chip away with feedback until it appears. Mark says it is a combination, and each side alone fails.</p>
+      <p>Pure discovery, shipping only what resonates, gives you no conviction to push through hard things. Pure invention, building only your vision, never finds product-market fit because you are not focused on customers. You need values about what should exist matched against what actually resonates.</p>
+      <p>Examples: News Feed in 2006 was closer to invention. Before it, social networks were profiles. Nobody asked for a feed, and showing people updates turned out to be what they wanted. Stories was closer to discovery: Snapchat found the format, Meta learned from it and built the better version. Mark is unembarrassed about this: there are more smart people outside the company than inside it. If you do not learn from the market, you ignore free signal.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Product</p>
+        <h4>Invention needs discovery</h4>
+        <p><span class="lbl">What happened. </span>News Feed was invention: nobody asked for it. Stories was discovery: Snapchat found the format, Meta built the better version. Mark runs both halves without shame.</p>
+        <p><span class="lbl">Why it matters. </span>Invention alone never finds fit. Discovery alone has no backbone for hard things. The combination gives conviction plus reality.</p>
+        <p><span class="lbl">The principle. </span>Hold values about what should exist, then let the market correct you. Learn from everyone outside the building.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-opensource" data-time="~00:38" data-title="Open Source as Strategy">
+      <p class="ch-time">~00:38</p>
+      <h2>Open Source as Strategy</h2>
+      <p><span class="tag fact">Source fact</span> Ben proposes that Meta is the largest beneficiary of open source in the modern world. The strategic logic is second-mover logic. Google built distributed computing infrastructure first and kept it proprietary, because it was an advantage. Meta needed the same infrastructure, built it second, and realized keeping it closed bought nothing against Google. So they open-sourced it. Open Compute became the industry standard. The supply chain standardized around Meta's designs. Result: vastly more supply, cheaper hardware, higher quality, billions of dollars saved.</p>
+      <p>Llama follows the same logic. Meta wants guaranteed access to a leading AI model. Platform owners burned Meta too many times for it to depend on anyone else now. It is big enough to build its own core technology. But AI models are ecosystems, and ecosystems get better when others use them. Open-sourcing Llama builds the ecosystem around Meta's stack, exactly as Open Compute did for hardware.</p>
+      <p><span class="tag interp">Interpretation</span> The trap to avoid: open-sourcing your actual differentiator. Meta open-sources infrastructure and models, not the social graph or the ranking systems that monetize it.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Strategy</p>
+        <h4>Open-source what is not the differentiator</h4>
+        <p><span class="lbl">What happened. </span>Meta built infrastructure second, open-sourced it, and watched it become the industry standard. Suppliers standardized on Meta's designs. Costs fell by billions. Llama repeats the play for AI models.</p>
+        <p><span class="lbl">Why it matters. </span>Open-sourcing what is not your edge commoditizes your supplier's market in your favor. The standard becomes your moat's foundation.</p>
+        <p><span class="lbl">The principle. </span>Keep the differentiator closed. Open everything else, and let the ecosystem do your cost cutting.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-mobile" data-time="~00:41" data-title="The Year-and-a-Half Mistake">
+      <p class="ch-time">~00:41</p>
+      <h2>The Year-and-a-Half Mistake</h2>
+      <p><span class="tag fact">Source fact</span> In 2012, Facebook on mobile was HTML5 inside a native shell. The reasoning: Meta's culture was web iteration, ship daily. App stores meant building separately for iPhone, Android, BlackBerry, and Windows Mobile, then waiting weeks for approval. The plan: build one web platform, ship once, update everywhere daily. Velocity would beat nativeness.</p>
+      <p>They were wrong. Native integration turned out to be critical for how interactions feel. So they rewrote the apps from scratch and, crucially, paused all feature development for about a year. Mark cites Netscape: rewrites that also add features never terminate. The only safe rewrite is a pure rewrite.</p>
+      <p>The timing was brutal. Mobile grew fast and earned zero revenue. The company went public at a 100 billion dollar market cap and lost half of it in three months.</p>
+      <p>What decides, Mark says, is pain tolerance. When you lose, the right move is usually clear. The question is whether you have the pain tolerance to do it. A year and a half of pain, then they emerged in great shape. In retrospect, he says, getting cut in half for a year and a half looks quaint. Later they would lose 80 percent.</p>
+      <div class="chart" id="chart-draw">
+        <h4>Two drawdowns</h4>
+        <p class="csub">Both looked fatal at the time. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of Meta market cap drawdowns">
+          <rect class="bar alt" x="140" y="140" width="110" height="120" data-tip="2012: IPO at $100B market cap, lost half within three months during the mobile rewrite."></rect>
+          <rect class="bar" x="390" y="40" width="110" height="220" data-tip="2022: lost 80 percent of market value during the Reality Labs plus recession stretch."></rect>
+          <text class="vallab" x="195" y="132" text-anchor="middle">-50%</text>
+          <text class="vallab" x="445" y="32" text-anchor="middle">-80%</text>
+          <text class="axis" x="195" y="282" text-anchor="middle">2012</text>
+          <text class="axis" x="195" y="300" text-anchor="middle">mobile rewrite</text>
+          <text class="axis" x="445" y="282" text-anchor="middle">2022</text>
+          <text class="axis" x="445" y="300" text-anchor="middle">Reality Labs + recession</text>
+        </svg>
+        <p class="csrc">Source: Acquired, The Mark Zuckerberg Interview, ~00:41 and ~01:04.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Rewrites</p>
+        <h4>The pure rewrite rule</h4>
+        <p><span class="lbl">What happened. </span>Meta paused all feature work for about a year to rewrite mobile apps natively. Mark's rule from Netscape: rewrites that also add features never terminate. Only a pure rewrite ships.</p>
+        <p><span class="lbl">Why it matters. </span>The rewrite cost half the market cap for a year and a half. It also saved the company. Half-measures would have cost the same pain with no result.</p>
+        <p><span class="lbl">The principle. </span>When you must rewrite, freeze features and rewrite purely. Mixed rewrites never end.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Adversity</p>
+        <h4>Defeat makes the move obvious</h4>
+        <p><span class="lbl">What happened. </span>When Meta lost, the fix was clear: rewrite mobile, endure the pain. The scarce resource was not insight but pain tolerance.</p>
+        <p><span class="lbl">Why it matters. </span>It is harder to know what to do when you win. Jumping from one local hill to a taller one is culturally hard. Defeat removes the ambiguity.</p>
+        <p><span class="lbl">The principle. </span>When losing, act on the obvious move and budget the pain. When winning, manufacture the urgency losing gives you for free.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-politics" data-time="~00:46" data-title="The 20-Year Mistake">
+      <p class="ch-time">~00:46</p>
+      <h2>The 20-Year Mistake</h2>
+      <p><span class="tag fact">Source fact</span> Ben asks for the most legitimate criticism. Mark names the political miscalculation. Before 2016, outside the IPO period, public sentiment about the company was positive essentially every month. After the 2016 election, it was negative essentially every month for years.</p>
+      <p>His diagnosis: he treated a political crisis as a corporate crisis. The corporate instinct is to take ownership: something is wrong, we will fix it. But many attackers were not operating in good faith. They wanted someone to blame. Accepting responsibility for things Meta did not do became an invitation to be kicked for more.</p>
+      <div class="pull">
+        <blockquote>the political miscalculation was a 20-year mistake</blockquote>
+        <p class="who">Mark Zuckerberg &middot; Episode ~00:46</p>
+      </div>
+      <p>It started in 2016, and he estimates another 10 years to fully work through it before the brand recovers. The operational lesson: fund independent academic research before you need it. When you are accused of something, defending yourself is not credible. Third-party researchers debating the evidence is.</p>
+      <div class="chart" id="chart-mistakes">
+        <h4>Two mistakes, two timescales</h4>
+        <p class="csub">Technical mistakes heal in years. Category mistakes heal in decades. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart comparing the two mistakes by duration">
+          <rect class="bar alt" x="140" y="220" width="110" height="40" data-tip="HTML5 mobile: 1.5 years of pain. Technical, clear fix, needed pain tolerance."></rect>
+          <rect class="bar" x="390" y="40" width="110" height="220" data-tip="Political miscalculation: about 20 years. Treated politics as a corporate crisis and owned blame that was not theirs."></rect>
+          <text class="vallab" x="195" y="212" text-anchor="middle">1.5 yrs</text>
+          <text class="vallab" x="445" y="32" text-anchor="middle">~20 yrs</text>
+          <text class="axis" x="195" y="282" text-anchor="middle">mobile rewrite</text>
+          <text class="axis" x="445" y="282" text-anchor="middle">political mistake</text>
+        </svg>
+        <p class="csrc">Source: Acquired, The Mark Zuckerberg Interview, ~00:46.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Crises</p>
+        <h4>The 20-year mistake</h4>
+        <p><span class="lbl">What happened. </span>After 2016, Mark treated a political crisis as a corporate crisis and accepted blame for things Meta did not do. Each acceptance invited more kicking. He prices the recovery at 20 years.</p>
+        <p><span class="lbl">Why it matters. </span>Corporate playbooks fail in political fights. Ownership is a virtue in product crises and a vulnerability in bad-faith ones.</p>
+        <p><span class="lbl">The principle. </span>Name exactly which accusations you own and which you do not, firmly and early. Fund independent research before you need it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-control" data-time="~00:52" data-title="Control: The Yahoo Billion">
+      <p class="ch-time">~00:52</p>
+      <h2>Control: The Yahoo Billion</h2>
+      <p><span class="tag fact">Source fact</span> In 2006, Yahoo offered 1 billion dollars for Facebook. Everyone on the management team wanted to sell. The board tried to fire Mark. His failure, by his own account: he had not communicated a long-term vision, because he was not thinking in terms of a company at all. He could not articulate why turning down the money was right. Understandably, the team wanted their startup dream payout.</p>
+      <p>Afterward, he fixed the governance so it would be harder to fire him for wanting to build. Super-voting shares. Mark is explicit about what control buys: the ability to make 10-to-20-year bets that no hired CEO could survive. Reality Labs, 50 billion dollars and counting, exists because he controls the company.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Governance</p>
+        <h4>Control buys 20-year bets</h4>
+        <p><span class="lbl">What happened. </span>After the Yahoo bid and the board's attempt to fire him, Mark installed super-voting shares. No hired CEO could survive the bets control lets him make: Reality Labs at $50 billion and counting.</p>
+        <p><span class="lbl">Why it matters. </span>Ten-to-20-year bets need governance that outlasts quarterly judgment. Control is the structural permission to think in decades.</p>
+        <p><span class="lbl">The principle. </span>If your strategy needs decades, secure the governance first. Vision without control is a pitch.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-rl" data-time="~00:57" data-title="Reality Labs: Good Versus Awesome">
+      <p class="ch-time">~00:57</p>
+      <h2>Reality Labs: Good Versus Awesome</h2>
+      <p><span class="tag fact">Source fact</span> Mark draws a distinction he returns to all night. Good is useful: 3.3 billion people use Meta's apps daily because they help them stay connected, build businesses, form communities. Nobody wakes up excited about social media, but it is good. Awesome is different: uplifting, inspiring, optimistic about the future.</p>
+      <p>For the next 15 years, he wants Meta to build awesome things alongside good things. Reality Labs is the awesome bucket. The thesis: the ideal social experience is not a phone you look down at. It is glasses that see what you see and hear what you hear, acting as the perfect AI assistant with full context, projecting holograms into the world.</p>
+      <p>The engineering is brutal: a novel display stack, miniaturized chips, microphones, speakers, cameras, eye tracking, all-day batteries, new radio protocols, all in glasses that must look good. Ten years of work. Two tracks: the full holographic glasses, and the constrained version with EssilorLuxottica, the Ray-Ban. The Ray-Bans started as a practice project. Then AI transformed them: cameras plus microphones plus speakers turned out to be the perfect AI device form factor. Mark called the product lead on a Saturday from the highway: put Meta AI in the glasses, on device, and ship it. The prototype was ready Tuesday.</p>
+      <p>His market math: everyone who wears glasses today is a candidate to upgrade to AI glasses. Even that alone makes it one of the most successful products in history.</p>
+      <p>The strategic math is about control. Mark estimates Meta might be twice as profitable if it owned the platform instead of paying platform taxes: app store rules blocking ads, shipping restrictions, products it cannot build. Reality Labs is expensive because owning the next platform is worth it.</p>
+    </section>
+
+    <section class="chapter" id="ch-apple" data-time="~01:02" data-title="Apple: The Ideological Competitor">
+      <p class="ch-time">~01:02</p>
+      <h2>Apple: The Ideological Competitor</h2>
+      <figure>
+        <img src="assets/ep03/illustration-open-closed.webp" alt="Watercolor illustration of an open garden door beside a closed fortress door">
+        <p class="caption"><b>Illustration.</b> Open versus closed: the ideological battle for the next platform. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Mark says Apple is a bigger competitor than people realize. The fight is not just products. Over the next 10 to 15 years, it is an ideological battle over the architecture of the next platforms: Apple's closed, integrated model versus open platforms. Every computing generation has had both versions. The iPhone's dominance creates recency bias that closed is simply superior. Mark's counterexample: in the PC era, Windows with the open ecosystem won.</p>
+      <p>His stated goal: build the next generation of open platforms so that open platforms win, so that a kid in a dorm room can build without asking permission. Llama, the glasses, AI: all pointed at openness.</p>
+    </section>
+
+    <section class="chapter" id="ch-personal" data-time="~01:07" data-title="The Personal Layer">
+      <p class="ch-time">~01:07</p>
+      <h2>The Personal Layer</h2>
+      <p><span class="tag fact">Source fact</span> He is introverted and guards alone time. COVID gave him reflection space that led him to double down on AI infrastructure and Reality Labs. He knew investors would hate it. He did not know a recession would arrive at the same time. Losing 80 percent of the market cap taught him who he was:</p>
+      <div class="pull">
+        <blockquote>you learn who you are through challenges</blockquote>
+        <p class="who">Mark Zuckerberg &middot; Episode ~01:04</p>
+      </div>
+      <p>He renamed the company Meta not to run from the Facebook brand but to run toward the future: <q>we run towards something we don't run away from things</q>. He only rebrands when the new name is evocative of what they are building.</p>
+      <p>His daughter, after a Taylor Swift concert, said she wanted to be like Taylor Swift. Mark said that was not available to her. She thought, then said: when I grow up, I want people to want to be like August Chan Zuckerberg. His advice to founders in the audience: <q>do your own thing</q>, after learning from other people's successes and failures.</p>
+      <p><span class="tag interp">Interpretation</span> Ben and David's closing reflection: Mark is still in it. Most founders of his vintage stepped back. Mark's Blue Origin is inside Meta: Reality Labs. Meta is an amplifier that turns Mark's output up 10,000 times, and he shows no sign of being halfway done.</p>
+      <p>The gift Ben and David gave him: a custom shirt with two sets of GPS coordinates. Kirkland House, Harvard, where he wrote Facebook's first line of code. And Chase Center, where he told this story.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Build what you want to exist, then convert it into a going concern fast.</li>
+          <li>Define the company by the human need, not the current app.</li>
+          <li>Learn faster than everyone: more turns, more learning per turn.</li>
+          <li>Ship near embarrassment. Lost learning time never comes back.</li>
+          <li>Open-source what is not the differentiator. Commoditize your suppliers.</li>
+          <li>Rewrites must be pure. Features plus rewrite never terminates.</li>
+          <li>Control buys decades. Secure the governance your strategy needs.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, The Mark Zuckerberg Interview, Sep 2024. Full episode: youtube.com/watch?v=QciJ9ubeLQk. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="~01:24" data-title="Outro">
+      <p class="ch-time">~01:24</p>
+      <h2>Outro</h2>
+      <p><span class="tag fact">Source fact</span> The night closes with the full-show promise: the complete video of the whole Chase Center evening, with surprise conversations with Daniel Ek, Emily Chang, and cameo appearances from Jensen Huang and Mike Taylor, the singer of Who Got the Truth? Then the sign-off question: who got the truth?</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "The Mark Zuckerberg Interview" (September 2024, 1 hr 27 min). All facts and figures come from the episode transcript (research/acquired/transcripts/QciJ9ubeLQk.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 49 words: two pull quotes plus the four short phrases in quotation marks. The pull quotes carry speaker and episode-time attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- chart: waves list ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var waves = [
+      ['MySpace','The original social network was supposed to win.'],
+      ['Twitter gen 1','Real-time was supposed to beat the social graph.'],
+      ['Instagram','Mobile-native was supposed to kill the website.'],
+      ['Snapchat','Ephemeral was supposed to kill permanent.'],
+      ['WhatsApp','Messaging was supposed to unbundle social.'],
+      ['TikTok','The algorithmic feed was supposed to beat the friend graph.'],
+      ['Apple ATT','Privacy rules were supposed to kill the ad engine.'],
+      ['ChatGPT','AI assistants were supposed to replace apps.']
+    ];
+    var g = document.getElementById('waves-list');
+    waves.forEach(function(w, i){
+      var y = 20 + i*48;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', 10); r.setAttribute('y', y);
+      r.setAttribute('width', 620); r.setAttribute('height', 40);
+      r.setAttribute('rx', 4);
+      r.setAttribute('fill', i % 2 ? '#f5f0e6' : '#e9eff9');
+      r.setAttribute('stroke', '#e2d8c3');
+      r.setAttribute('data-tip', w[0] + ': ' + w[1]);
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t1 = document.createElementNS(svgNS,'text');
+      t1.setAttribute('x', 26); t1.setAttribute('y', y+25);
+      t1.setAttribute('class','vallab'); t1.textContent = (i+1) + '. ' + w[0];
+      g.appendChild(t1);
+      var t2 = document.createElementNS(svgNS,'text');
+      t2.setAttribute('x', 614); t2.setAttribute('y', y+25);
+      t2.setAttribute('text-anchor','end'); t2.setAttribute('class','axis');
+      t2.textContent = 'survived';
+      g.appendChild(t2);
+      r.addEventListener('mousemove', function(ev){ showTip(w[0] + ': ' + w[1], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+    });
+  })();
+
+  /* ---------- toy: the turns game ---------- */
+  (function(){
+    var ships = document.getElementById('ships'), rival = document.getElementById('rival');
+    var shipsV = document.getElementById('ships-v'), rivalV = document.getElementById('rival-v');
+    var out = document.getElementById('turns-verdict');
+    function upd(){
+      var s = +ships.value, r = +rival.value;
+      shipsV.textContent = s; rivalV.textContent = r;
+      var gap = (s - r) * 5;
+      if(gap <= 0){
+        out.textContent = 'You take ' + gap + ' extra turns in five years. The rival learns as fast as you. No edge.';
+        out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f';
+      } else if(gap < 150){
+        out.textContent = 'You take ' + gap + ' extra turns in five years. A lead, but a catchable one.';
+        out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14';
+      } else {
+        out.textContent = 'You take ' + gap + ' extra turns in five years. By version five your product has absorbed more reality than any rival can match.';
+        out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f';
+      }
+    }
+    ships.addEventListener('input', upd); rival.addEventListener('input', upd); upd();
+  })();
+})();
+</script>
+</body>
+</html>
