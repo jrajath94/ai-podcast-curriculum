@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ep05: The Biology of Social Bonding: Your Brain on Connection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--paper:#fdfbf6;--ink:#221c14;--muted:#6f6455;--line:#e6dcc8;--card:#f5f0e6;--warm:#f4ecd9;--blue:#e9eff9;--accent:#8f3f14;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.65;font-size:16.5px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+header.hero{background:var(--warm);border-bottom:1px solid var(--line);padding:64px 0 40px}
+header.hero h1{font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+header.hero .sub{font-size:18px;color:var(--muted);max-width:660px;margin-bottom:22px}
+.epmeta{font-size:14px;color:var(--muted)}
+.layout{display:flex;gap:28px;align-items:flex-start;padding-top:28px}
+.layout main{flex:1 1 0;min-width:0}
+aside.side{flex:0 0 210px;position:sticky;top:16px}
+.side h4{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px}
+.side a{display:block;padding:6px 0;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.4}
+.side a .t{color:var(--muted);font-size:12.5px;display:block}
+.side a:hover{color:var(--accent)}
+.side a.active{color:var(--accent);font-weight:700}
+#chapnav{overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:26px;position:sticky;top:0;background:var(--paper);z-index:50}
+#chapnav a{display:inline-block;margin-right:22px;font-size:13.5px;color:var(--muted);text-decoration:none;padding:4px 0}
+#chapnav a .t{display:block;font-size:11.5px}
+#chapnav a.active{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+section.chapter{margin-bottom:58px}
+.ch-time{font-size:13px;color:var(--muted);letter-spacing:1px;margin-bottom:6px}
+h2{font-size:27px;margin-bottom:16px;line-height:1.25}
+p{margin-bottom:16px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:10px}
+.fact{background:var(--blue);color:#144a8f}
+.interp{background:var(--warm);color:#6b4a12}
+.wisdom{background:var(--card);border:1px solid var(--line);padding:24px;margin:30px 0}
+.wisdom h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+.wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+@media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+.wisdom li{counter-increment:w;font-size:14px}
+.wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
+.wisdom li a:hover{border-color:var(--accent)}
+.wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;margin-right:8px}
+.legend{font-size:12.5px;color:var(--muted);margin:0 0 22px}
+figure{margin:26px 0;text-align:center}
+figure img{max-width:100%;border-radius:6px;border:1px solid var(--line)}
+.caption{font-size:13.5px;color:var(--muted);margin-top:8px}
+.caption b{color:var(--ink)}
+blockquote{font-size:21px;font-style:italic;line-height:1.5;color:#4a4136;border-left:3px solid var(--accent);padding:8px 0 8px 18px;margin:28px 0}
+p.attrline{font-size:14px;color:var(--muted);margin-top:-20px;margin-bottom:24px}
+.nugget{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin:30px 0;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.nugget.in{opacity:1;transform:none}
+.nugget .eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.nugget h4{font-size:20px;margin-bottom:12px}
+.nugget p{margin-bottom:10px}
+.nugget .lbl{font-weight:700}
+.toy{border:1px dashed var(--line);border-radius:10px;padding:24px;margin:30px 0;background:#fff}
+.toy h4{font-size:17px;margin-bottom:6px}
+.toy .tsub{font-size:14px;color:var(--muted);margin-bottom:14px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;margin:30px 0}
+.chart h4{font-size:17px;margin-bottom:4px}
+.chart .csub{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.chart .csrc{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+.chart svg{width:100%;height:auto}
+.axis{font-size:12px;fill:var(--muted)}
+.vallab{font-size:14px;fill:var(--ink);font-weight:600}
+.takeaways{background:var(--blue);border-radius:10px;padding:26px 28px;margin:40px 0}
+.takeaways h3{font-size:19px;margin-bottom:12px}
+.takeaways ol{padding-left:22px}
+.takeaways li{margin-bottom:8px}
+.takeaways .src{font-size:13px;color:var(--muted);margin-top:14px}
+footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:14px;color:var(--muted)}
+footer p{margin-bottom:12px}
+footer b{color:var(--ink)}
+.vid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid var(--line);margin:26px 0}
+.vid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+#tip{position:fixed;pointer-events:none;background:#1c1812;color:#fff;font-size:13px;padding:8px 12px;border-radius:6px;max-width:300px;opacity:0;transition:opacity .15s;z-index:100}
+.toy .row{margin-bottom:10px}
+.toy input[type=range]{width:100%}
+.toy button{font-size:15px;padding:8px 16px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+.toy button:hover{opacity:.9}
+.toy .out{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:15px}
+@media(max-width:760px){aside.side{display:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="epmeta">CHARISMA · EPISODE 5 · HUBERMAN LAB · DEC 2021</p>
+    <h1>The Biology of Social Bonding: Your Brain on Connection</h1>
+    <p class="sub">Andrew Huberman on social homeostasis, the loneliness circuit, oxytocin, dopamine, and the tools that turn isolation into connection.</p>
+    <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/RgAcOqVRfYA" title="The Science of Social Bonding" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</header>
+<div class="wrap layout">
+<aside class="side" id="sidenav"></aside>
+<main>
+<nav id="chapnav" aria-label="Chapters"></nav>
+
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Bonding is a process, not a trait</a></li>
+          <li><a href="#nugget-2">Your brain runs a social thermostat</a></li>
+          <li><a href="#nugget-3">Loneliness reports a gap, not a flaw</a></li>
+          <li><a href="#nugget-4">Dopamine is pursuit, not pleasure</a></li>
+          <li><a href="#nugget-5">People are like food to the brain</a></li>
+          <li><a href="#nugget-6">The quiet craving system is not compatibility</a></li>
+          <li><a href="#nugget-7">Shared stories synchronize bodies</a></li>
+          <li><a href="#nugget-8">Attachment lives in the body first</a></li>
+          <li><a href="#nugget-9">Feel with, and model of</a></li>
+          <li><a href="#nugget-10">Oxytocin scales with closeness, and stops at the tribe</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript or the show's published chapter list. <span class="tag interp">Interpretation</span> My read on what it means. Chapter times come from the episode's own YouTube chapter list.</p>
+
+    <section class="chapter" id="ch-verb" data-time="00:00" data-title="Bonding Is a Verb">
+      <p class="ch-time">00:00</p>
+      <h2>Bonding Is a Verb</h2>
+      <figure>
+        <img src="assets/ep05/photo-huberman.jpg" alt="Andrew Huberman, Huberman Lab">
+        <p class="caption"><b>Photo.</b> Andrew Huberman. Source: hubermanlab.com.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The central claim: bonding is a verb, a process, not a trait. The same generic neural circuit gets repurposed for every bond you form, and it stays plastic across your life. Episodes 1 through 4 taught skills. This episode explains why the skills work: the brain treats social connection like food, water, and temperature.</p>
+      <p><span class="tag fact">Source fact</span> Isolation is not neutral. It raises cortisol and adrenaline, and a molecule called tachykinin drives the irritability of the lonely. Understanding the circuit turns vague loneliness into a set of levers you can pull.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Bonding</p>
+        <h4>Bonding is a process, not a trait</h4>
+        <p><span class="lbl">What happened. </span>The same generic circuit builds every bond you ever form, and it stays plastic for life.</p>
+        <p><span class="lbl">Why it matters. </span>If bonding were a trait, you would be stuck with what you have. A process can be run on purpose.</p>
+        <p><span class="lbl">The principle. </span>Stop asking if you are a social person. Start asking whether you ran the bonding process today.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-circuit" data-time="00:13:32" data-title="Social Homeostasis">
+      <p class="ch-time">00:13:32</p>
+      <h2>Social Homeostasis: The Thermostat Underneath the Thermostat</h2>
+      <figure>
+        <img src="assets/ep05/illustration-homeostasis.webp" alt="Watercolor illustration of a brain with a glowing regulatory core">
+        <p class="caption"><b>Illustration.</b> The brain reads its social state and corrects it, like a thermostat. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Episode 1 gave you the warmth-competence thermostat for impressions. This episode gives you the deeper one. Kay Tye's social homeostasis model, presented in the episode, has four parts.</p>
+      <div class="chart" id="chart-circuit">
+        <h4>The social homeostasis circuit</h4>
+        <p class="csub">Hover each node for its role.</p>
+        <svg viewBox="0 0 640 260" role="img" aria-label="Social homeostasis circuit">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="90" width="140" height="80" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Detector: the anterior cingulate cortex and the basolateral amygdala read your current social state."></rect>
+            <text x="80" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">Detector</text>
+            <text x="80" y="144" text-anchor="middle" font-size="12" fill="#221c14">ACC + BLA</text>
+            <text x="162" y="137" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="174" y="90" width="150" height="80" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Control center: the lateral and periventricular hypothalamus, which release oxytocin, decide the correction."></rect>
+            <text x="249" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">Control</text>
+            <text x="249" y="144" text-anchor="middle" font-size="12" fill="#221c14">hypothalamus</text>
+            <text x="336" y="137" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="348" y="90" width="150" height="80" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Effector: dopamine neurons of the dorsal raphe nucleus drive you toward or away from social contact."></rect>
+            <text x="423" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">Effector</text>
+            <text x="423" y="144" text-anchor="middle" font-size="12" fill="#221c14">DRN dopamine</text>
+            <text x="510" y="137" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="522" y="90" width="108" height="80" rx="8" fill="#dcefe0" stroke="#e2d8c3" data-tip="Result: you move toward or away from people."></rect>
+            <text x="576" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">Move</text>
+            <text x="576" y="144" text-anchor="middle" font-size="12" fill="#221c14">toward / away</text>
+            <rect x="174" y="190" width="324" height="56" rx="8" fill="#f4ecd9" stroke="#e2d8c3" data-tip="Fourth element: the prefrontal cortex adds subjective labels and rank. It turns raw state into stories like I am lonely."></rect>
+            <text x="336" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">PFC: labels + rank</text>
+            <text x="336" y="232" text-anchor="middle" font-size="12" fill="#6f6455">turns state into stories</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, The Science of Social Bonding, 00:13:32. Kay Tye's model as presented on air.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Definition: homeostasis is the body's regulation of a variable around a set point. Social homeostasis regulates your level of connection the way temperature regulation handles heat.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Homeostasis</p>
+        <h4>Your brain runs a social thermostat</h4>
+        <p><span class="lbl">What happened. </span>Detector reads the state, control center decides the correction, effector drives you toward or away, and the PFC narrates the story.</p>
+        <p><span class="lbl">Why it matters. </span>You are not at the mercy of moods. Each part of the circuit is a lever.</p>
+        <p><span class="lbl">The principle. </span>When the urge hits, name the lever: detection, control, effect, or story.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-signal" data-time="00:27:00" data-title="Loneliness Is a Signal">
+      <p class="ch-time">00:27:00</p>
+      <h2>Loneliness Is a Signal, Not a Character Flaw</h2>
+      <blockquote>Loneliness is not just being isolated</blockquote>
+      <p class="attrline">Andrew Huberman, citing John Cacioppo, 00:33:54</p>
+      <p><span class="tag fact">Source fact</span> John Cacioppo's definition, cited in the episode: loneliness is the gap between the connection you want and the connection you have. It is a signal like hunger. Two people with identical social lives can feel different loneliness because their set points differ.</p>
+      <div class="toy" id="toy-gap">
+        <h4>Toy: the loneliness gap calculator</h4>
+        <p class="tsub">Rate wanted and actual connection, 1 to 10. The toy computes your gap.</p>
+        <div class="row"><label>Wanted connection: <b id="wantv">5</b></label><input type="range" id="want" min="1" max="10" value="5"></div>
+        <div class="row"><label>Actual connection: <b id="havev">5</b></label><input type="range" id="have" min="1" max="10" value="5"></div>
+        <div class="out" id="gapout">Move the sliders. The gap appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Loneliness</p>
+        <h4>Loneliness reports a gap, not a flaw</h4>
+        <p><span class="lbl">What happened. </span>Cacioppo defines loneliness as wanted minus actual connection. The same signal fires in crowded rooms and empty ones.</p>
+        <p><span class="lbl">Why it matters. </span>A signal asks for action. A character flaw asks for shame. Only one of them moves you.</p>
+        <p><span class="lbl">The principle. </span>Read the gap. Then close it with contact, not self-judgment.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-chemistry" data-time="00:33:54" data-title="Isolation Chemistry">
+      <p class="ch-time">00:33:54</p>
+      <h2>Isolation Chemistry: Acute Craving, Chronic Irritability</h2>
+      <p><span class="tag fact">Source fact</span> Isolation chemistry runs in phases. Acute isolation triggers pro-social craving: you want people more. Chronic isolation flips to antisocial: you want people less and irritability rises. The tachykinin finding names one driver: prolonged isolation raises tachykinin signaling, which produces the cranky, prickly state of the long-lonely.</p>
+      <p><span class="tag fact">Source fact</span> The Matthews and Tye paper on the dorsal raphe nucleus, cited in the episode: activating those dopamine neurons produced loneliness-like behavior, inhibiting them suppressed it, and the effect depended on social rank. The loneliness neurons are real, localizable, and rank-sensitive.</p>
+      <p><span class="tag fact">Source fact</span> Dopamine needs a correction here. Dopamine is not the feel-good molecule. It is the movement-toward molecule. It drives craving and pursuit. That is why acute isolation raises social craving through dopamine, and why the same system can drive you away when the state flips.</p>
+      <p><span class="tag fact">Source fact</span> Introverts get a reframe: they release more dopamine from less interaction. The introvert is not broken at parties. Their circuit saturates faster. Smaller doses, same chemistry.</p>
+      <div class="chart" id="chart-phases">
+        <h4>The isolation timeline</h4>
+        <p class="csub">Hover each phase for its chemistry.</p>
+        <svg viewBox="0 0 640 250" role="img" aria-label="Isolation phases">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="30" width="200" height="170" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Acute isolation, hours to days: dopamine craving rises. Behavior: pro-social, seek people."></rect>
+            <text x="110" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">Acute</text>
+            <text x="110" y="92" text-anchor="middle" font-size="13" fill="#221c14">Hours to days</text>
+            <text x="110" y="122" text-anchor="middle" font-size="13" fill="#6f6455">Dopamine craving rises</text>
+            <text x="110" y="150" text-anchor="middle" font-size="13" fill="#6f6455">Seek people</text>
+            <rect x="220" y="30" width="200" height="170" rx="8" fill="#f9e9e9" stroke="#e2d8c3" data-tip="Chronic isolation, weeks and beyond: tachykinin rises, cortisol up. Behavior: antisocial, irritable, withdrawn."></rect>
+            <text x="320" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">Chronic</text>
+            <text x="320" y="92" text-anchor="middle" font-size="13" fill="#221c14">Weeks and beyond</text>
+            <text x="320" y="122" text-anchor="middle" font-size="13" fill="#6f6455">Tachykinin rises</text>
+            <text x="320" y="150" text-anchor="middle" font-size="13" fill="#6f6455">Irritable, withdrawn</text>
+            <rect x="430" y="30" width="200" height="170" rx="8" fill="#dcefe0" stroke="#e2d8c3" data-tip="Reconnection: shared narrative and rhythm. Oxytocin rises. Bonding resumes."></rect>
+            <text x="530" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">Reconnection</text>
+            <text x="530" y="92" text-anchor="middle" font-size="13" fill="#221c14">Shared narrative</text>
+            <text x="530" y="122" text-anchor="middle" font-size="13" fill="#6f6455">Oxytocin rises</text>
+            <text x="530" y="150" text-anchor="middle" font-size="13" fill="#6f6455">Bonding resumes</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, The Science of Social Bonding, 00:33:54. Phases as presented on air.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Chemistry</p>
+        <h4>Dopamine is pursuit, not pleasure</h4>
+        <p><span class="lbl">What happened. </span>Acute isolation raises dopamine-driven social craving. Chronic isolation raises tachykinin and stress hormones, flipping you antisocial.</p>
+        <p><span class="lbl">Why it matters. </span>Craving without liking explains why you can miss people and avoid them at the same time.</p>
+        <p><span class="lbl">The principle. </span>Know your phase. In the chronic phase, start with low-demand contact: a walk, not a party.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-food" data-time="00:38:05" data-title="Your Brain Treats People Like Food">
+      <p class="ch-time">00:38:05</p>
+      <h2>Your Brain Treats People Like Food</h2>
+      <figure>
+        <img src="assets/ep05/illustration-craving.webp" alt="Watercolor illustration of a figure reaching toward warm glowing people">
+        <p class="caption"><b>Illustration.</b> Social craving runs on the same machinery as hunger. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The Saxe and Tye Nature Neuroscience study, cited in the episode: after 10 hours of isolation, images of social scenes activated the brain's craving regions the way food images do after fasting. The reverse also held: fasting made social images more rewarding. Social contact and food run on overlapping craving machinery.</p>
+      <p><span class="tag fact">Source fact</span> Comfort eating follows the same logic. The prefrontal cortex works as accelerator and brake on all of this. Huberman's cold shower example: voluntary stress trains the PFC to stay online during discomfort, which keeps the social approach system from shutting down under stress.</p>
+      <div class="toy" id="toy-phase">
+        <h4>Toy: which phase are you in</h4>
+        <p class="tsub">Enter how many days since meaningful social contact. The toy names your phase and the next move.</p>
+        <div class="row"><input type="range" id="days" min="0" max="30" value="2" style="width:100%"><label>Days alone: <b id="daysv">2</b></label></div>
+        <div class="out" id="phaseout">Move the slider. The phase appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Craving</p>
+        <h4>People are like food to the brain</h4>
+        <p><span class="lbl">What happened. </span>Ten hours of isolation made social images fire craving regions like food does after a fast.</p>
+        <p><span class="lbl">Why it matters. </span>Social hunger is as physical as stomach hunger. Ignoring it does not make it philosophical. It makes it louder.</p>
+        <p><span class="lbl">The principle. </span>Feed the craving with contact before it flips into irritability.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-love" data-time="00:42:45" data-title="Falling in Love">
+      <p class="ch-time">00:42:45</p>
+      <h2>Falling in Love: The Satiety Window</h2>
+      <p><span class="tag fact">Source fact</span> New love follows the craving logic too: the episode notes a satiety window of about 6 days to 6 months in new romance, during which the craving system is fed and quiets. Then the set point reasserts itself and the work of bonding resumes.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Romance</p>
+        <h4>The quiet craving system is not compatibility</h4>
+        <p><span class="lbl">What happened. </span>New love feeds the craving system for roughly 6 days to 6 months. Then the set point returns.</p>
+        <p><span class="lbl">Why it matters. </span>Couples who mistake the window for permanent compatibility skip building the bonding practices that carry the relationship after.</p>
+        <p><span class="lbl">The principle. </span>Use the window to build practices: shared rhythm, shared narrative, real vulnerability.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-hearts" data-time="00:45:05" data-title="Hearts Beat Together">
+      <p class="ch-time">00:45:05</p>
+      <h2>Hearts Beat Together</h2>
+      <figure>
+        <img src="assets/ep05/illustration-sync.webp" alt="Watercolor illustration of a crowd with synchronized glowing hearts">
+        <p class="caption"><b>Illustration.</b> Shared narrative aligns bodies, not just minds. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The Cell Reports study, cited in the episode: people's heartbeats synchronized when they heard the same story, even at different times. Shared narrative aligns bodies, not just minds. The concert phenomenon is the live version: thousands of strangers breathe and move together because the music gives them one shared timeline.</p>
+      <p><span class="tag fact">Source fact</span> The holiday tool applies the finding. A shared narrative is a bridge. At a tense family gathering, the story everyone tells together does more bonding work than any topic of conversation.</p>
+      <p><span class="tag fact">Source fact</span> Huberman's own practice: dancing dates with his sister. The activity is almost irrelevant. The shared rhythm is the mechanism.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Rhythm</p>
+        <h4>Shared stories synchronize bodies</h4>
+        <p><span class="lbl">What happened. </span>Heartbeats aligned to the same story across listeners, even at different times.</p>
+        <p><span class="lbl">Why it matters. </span>Bonding tools are not topics. They are shared timelines: stories, music, movement in sync.</p>
+        <p><span class="lbl">The principle. </span>At the next tense gathering, tell a shared story instead of raising a topic.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-attachment" data-time="00:53:54" data-title="Attachment">
+      <p class="ch-time">00:53:54</p>
+      <h2>Attachment: Body Before Story</h2>
+      <p><span class="tag fact">Source fact</span> Allan Schore's attachment model, cited in the episode: the right brain handles autonomic, bodily attachment, while the left brain handles narrative and prediction. The episode warns that pop left-brain right-brain myths are wrong. The real division is body versus story, not logic versus creativity.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Attachment</p>
+        <h4>Attachment lives in the body first</h4>
+        <p><span class="lbl">What happened. </span>The right brain runs autonomic, bodily attachment. The left brain runs the narrative about it.</p>
+        <p><span class="lbl">Why it matters. </span>You cannot think your way into secure attachment. The body has to feel it first.</p>
+        <p><span class="lbl">The principle. </span>Regulate the body: breath, rhythm, presence. Then let the story update.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-empathy" data-time="01:06:10" data-title="Two Kinds of Empathy">
+      <p class="ch-time">01:06:10</p>
+      <h2>Two Kinds of Empathy</h2>
+      <p><span class="tag fact">Source fact</span> Empathy splits the same way. Emotional empathy feels with the other person. Cognitive empathy models what they think. The trust-game imaging studies, cited in the episode, show both systems must run together. Feel without modeling and you drown. Model without feeling and you manipulate.</p>
+      <p><span class="tag fact">Source fact</span> Breakups hurt through both channels at once. You lose the empathy practice partner and you lose a major oxytocin and dopamine source. The craving system screams for the missing supplier.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Empathy</p>
+        <h4>Feel with, and model of</h4>
+        <p><span class="lbl">What happened. </span>Emotional empathy feels with. Cognitive empathy models thinking. Trust needs both.</p>
+        <p><span class="lbl">Why it matters. </span>Half the empathy toolkit explains both codependence and manipulation.</p>
+        <p><span class="lbl">The principle. </span>Run both channels. Check: am I feeling this, and do I understand the thinking behind it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-oxytocin" data-time="01:10:40" data-title="Oxytocin">
+      <p class="ch-time">01:10:40</p>
+      <h2>Oxytocin: The Bonding Molecule and Its Limits</h2>
+      <blockquote>the amount of oxytocin scales with how closely related one is</blockquote>
+      <p class="attrline">Andrew Huberman on Huberman Lab, 01:10:40</p>
+      <p><span class="tag fact">Source fact</span> Oxytocin's resume, from the episode: social recognition, pair bonding, milk let-down, labor contractions, a pulse after male orgasm with about a 30-minute refractory delay, and modulation by vasopressin. It scales with closeness. The honesty spray studies, cited in the episode, found oxytocin increased truth-telling in lab games.</p>
+      <p><span class="tag fact">Source fact</span> MDMA releases massive oxytocin, which is why couples trials explored it for therapy. The episode treats it as a research finding, not a recommendation.</p>
+      <div class="chart" id="chart-oxy">
+        <h4>Oxytocin's roles</h4>
+        <p class="csub">Hover each role for the episode's example.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Oxytocin roles">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="10" width="300" height="56" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Social recognition: knowing who is who."></rect>
+            <text x="26" y="44" class="vallab">Social recognition</text>
+            <rect x="330" y="10" width="300" height="56" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Pair bonding: long-term attachment."></rect>
+            <text x="346" y="44" class="vallab">Pair bonding</text>
+            <rect x="10" y="76" width="300" height="56" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Birth and nursing: labor contractions, milk let-down."></rect>
+            <text x="26" y="110" class="vallab">Birth and nursing</text>
+            <rect x="330" y="76" width="300" height="56" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Post-orgasm pulse: about a 30-minute refractory delay in males."></rect>
+            <text x="346" y="110" class="vallab">Post-orgasm pulse</text>
+            <rect x="10" y="142" width="300" height="56" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Honesty: more truth-telling in lab games with oxytocin spray."></rect>
+            <text x="26" y="176" class="vallab">Honesty</text>
+            <rect x="330" y="142" width="300" height="56" rx="4" fill="#f4ecd9" stroke="#e2d8c3" data-tip="Limit: oxytocin bonds the in-group. It can deepen us-versus-them lines."></rect>
+            <text x="346" y="176" class="vallab">In-group limit</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, The Science of Social Bonding, 01:10:40. Roles and limit as presented on air.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Limits matter. Oxytocin bonds you to your in-group. It does not automatically extend the circle. Bonding chemistry can deepen tribal lines as easily as it bridges them.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Oxytocin</p>
+        <h4>Oxytocin scales with closeness, and stops at the tribe</h4>
+        <p><span class="lbl">What happened. </span>Oxytocin runs recognition, bonding, birth, honesty, and more. But it bonds the in-group.</p>
+        <p><span class="lbl">Why it matters. </span>A trust potion for strangers does not exist. The same molecule can intensify us-versus-them.</p>
+        <p><span class="lbl">The principle. </span>Use it to deepen chosen bonds. Watch the in-group boundary.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Bonding is a verb. The circuit stays plastic for life.</li>
+          <li>The social thermostat has four parts: detector, control, effector, story.</li>
+          <li>Loneliness is the gap between wanted and actual connection.</li>
+          <li>Dopamine is pursuit, not pleasure. Acute craving flips to chronic irritability.</li>
+          <li>Your brain treats people like food. Ten hours of isolation fires craving regions.</li>
+          <li>Shared stories synchronize heartbeats. Use shared narrative as a bridge.</li>
+          <li>Oxytocin scales with closeness and stops at the tribe.</li>
+        </ol>
+        <p class="src">Distilled from Huberman Lab #51, The Science of Social Bonding, Dec 2021. Full episode: youtube.com/watch?v=RgAcOqVRfYA. Chapter times from the episode's own chapter list.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Huberman Lab episode "The Science of Social Bonding" (December 2021). All facts and figures come from the episode transcript (research/charisma/transcripts/RgAcOqVRfYA.txt). Chapter times come from the episode's own YouTube chapter list. Cited papers and researchers (Kay Tye, John Cacioppo, Saxe and Tye, Matthews and Tye, Allan Schore, Lisa Feldman Barrett, Carollo and colleagues) appear as named on air. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 17 words: two pull quotes, each carrying speaker and episode-time attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: loneliness gap ---------- */
+  (function(){
+    var want = document.getElementById('want'), have = document.getElementById('have');
+    var wantv = document.getElementById('wantv'), havev = document.getElementById('havev');
+    var out = document.getElementById('gapout');
+    function upd(){
+      var w = parseInt(want.value, 10), a = parseInt(have.value, 10);
+      wantv.textContent = w; havev.textContent = a;
+      var gap = w - a;
+      if(gap <= 0){ out.textContent = 'No gap: your set point is met. Keep the bonding process running.'; out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f'; }
+      else if(gap <= 3){ out.textContent = 'Gap of ' + gap + ': a signal, not a flaw. Schedule one low-demand contact today.'; out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14'; }
+      else { out.textContent = 'Gap of ' + gap + ': a strong signal. Plan reconnection this week: shared narrative and shared rhythm first.'; out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f'; }
+    }
+    want.addEventListener('input', upd); have.addEventListener('input', upd); upd();
+  })();
+
+  /* ---------- toy: isolation phase ---------- */
+  (function(){
+    var days = document.getElementById('days'), daysv = document.getElementById('daysv');
+    var out = document.getElementById('phaseout');
+    function upd(){
+      var d = parseInt(days.value, 10);
+      daysv.textContent = d;
+      if(d <= 2){ out.textContent = d + ' days: acute phase. Dopamine craving rises. Go toward people now, while it still feels good.'; out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f'; }
+      else if(d <= 7){ out.textContent = d + ' days: late acute. Craving may start to curdle. Choose contact before irritability sets in.'; out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14'; }
+      else { out.textContent = d + ' days: chronic phase likely. Tachykinin chemistry. Start with low-demand contact: a walk, not a party.'; out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f'; }
+    }
+    days.addEventListener('input', upd); upd();
+  })();
+})();
+</script>
+</body>
+</html>
