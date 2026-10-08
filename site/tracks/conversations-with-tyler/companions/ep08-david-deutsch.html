@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Deutsch on Multiple Worlds and Our Place in Them · Conversations with Tyler Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Conversations with Tyler episode with David Deutsch (June 2021): many-worlds quantum theory, explanation, Popper, freedom, children, AI, and the beginning of infinity.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700}
+  .deck{font-size:21px;color:var(--muted);line-height:1.5;margin:0 0 24px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--sans);
+    font-size:13px;color:var(--muted);margin-bottom:26px}
+  .meta b{color:var(--ink);font-weight:600}
+  .herofig{margin:0 0 8px}
+  .herofig img{width:100%;height:auto;display:block;border-radius:6px}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 30px}
+  blockquote.pull{margin:38px 0;padding:6px 0 6px 26px;border-left:4px solid var(--accent);
+    font-size:25px;line-height:1.45;font-style:italic;color:var(--ink)}
+  .pullattr{font-family:var(--sans);font-size:13px;color:var(--muted);
+    margin:-28px 0 38px;padding-left:30px}
+  .warnbox{background:#fdf3e7;border:1px solid #e8cda2;border-radius:8px;
+    padding:16px 20px;margin:30px 0;font-size:16px}
+  .warnbox b{font-family:var(--sans)}
+  section.chapter{margin:0;padding:34px 0;border-top:1px solid var(--line)}
+  section.chapter h2{font-size:27px;margin:0 0 6px;line-height:1.25}
+  section.chapter .ts{font-family:var(--mono);font-size:12.5px;color:var(--accent-ink);
+    letter-spacing:.04em;margin:0 0 16px}
+  section.chapter p{margin:0 0 16px}
+  .fig{margin:26px 0}
+  .fig img{width:100%;height:auto;display:block;border-radius:6px}
+  .fig .caption{margin-top:8px}
+  .chart{background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:20px;margin:26px 0}
+  .chart h3{font-family:var(--sans);font-size:14px;margin:0 0 4px}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .bar{cursor:default}
+  .chart .bar rect{fill:var(--accent)}
+  .chart .bar.alt rect{fill:#8a9a5b}
+  .chart .bar.dim rect{fill:#c9bfae}
+  .chart text{font-family:var(--sans);font-size:12px;fill:var(--ink)}
+  .chart .grid{stroke:var(--line);stroke-width:1}
+  .nuggets{background:var(--paper2);border:1px solid var(--line);border-radius:8px;
+    padding:26px 30px;margin:40px 0}
+  .nuggets h2{font-size:23px;margin:0 0 14px}
+  .nuggets ol{margin:0;padding-left:22px}
+  .nuggets li{margin:0 0 12px;font-size:16.5px}
+  footer.sources{border-top:2px solid var(--ink);margin-top:60px;padding-top:26px;
+    font-size:15px}
+  footer.sources h2{font-size:20px;margin:0 0 12px}
+  footer.sources p{margin:0 0 14px}
+  .onquotes{background:var(--soft);border-radius:8px;padding:18px 22px;margin:20px 0}
+  .vid{margin:34px 0}
+  .vid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Conversations with Tyler</a>
+  <span class="sub">Episode companion · David Deutsch on many worlds</span>
+</header>
+<nav class="chapnav" aria-label="Chapters">
+  <a href="#ch01"><span class="t">~00:00</span>The transporter</a>
+  <a href="#ch02"><span class="t">~00:01</span>The running program</a>
+  <a href="#ch03"><span class="t">~00:04</span>What proportion</a>
+  <a href="#ch04"><span class="t">~00:04</span>What counts as possible</a>
+  <a href="#ch05"><span class="t">~00:07</span>One physics</a>
+  <a href="#ch06"><span class="t">~00:08</span>No splitting</a>
+  <a href="#ch07"><span class="t">~00:11</span>The Everett bubble</a>
+  <a href="#ch08"><span class="t">~00:12</span>Lewis</a>
+  <a href="#ch09"><span class="t">~00:14</span>What would it feel like</a>
+  <a href="#ch10"><span class="t">~00:15</span>Cats and dogs</a>
+  <a href="#ch11"><span class="t">~00:22</span>Memes</a>
+  <a href="#ch12"><span class="t">~00:23</span>No barrier</a>
+  <a href="#ch13"><span class="t">~00:25</span>Gödel</a>
+  <a href="#ch14"><span class="t">~00:27</span>The test</a>
+  <a href="#ch15"><span class="t">~00:29</span>Positivism</a>
+  <a href="#ch16"><span class="t">~00:33</span>Popper</a>
+  <a href="#ch17"><span class="t">~00:39</span>Simulation</a>
+  <a href="#ch18"><span class="t">~00:42</span>Philosopher of freedom</a>
+  <a href="#ch19"><span class="t">~00:45</span>Godwin</a>
+  <a href="#ch20"><span class="t">~00:48</span>Children</a>
+  <a href="#ch21"><span class="t">~00:52</span>AI slaves</a>
+  <a href="#ch22"><span class="t">~00:55</span>Impulses</a>
+  <a href="#ch23"><span class="t">~00:57</span>Libertarians</a>
+  <a href="#ch24"><span class="t">~01:00</span>Creativity</a>
+  <a href="#ch25"><span class="t">~01:03</span>Asteroids</a>
+  <a href="#ch26"><span class="t">~01:06</span>Tories</a>
+  <a href="#ch27"><span class="t">~01:10</span>Science funding</a>
+  <a href="#ch28"><span class="t">~01:12</span>Watch the episode</a>
+</nav>
+<div class="layout">
+<aside class="sidenav" aria-label="Chapters">
+  <h4>Chapters</h4>
+  <a href="#ch01"><span class="t">~00:00</span>The transporter</a>
+  <a href="#ch02"><span class="t">~00:01</span>The running program</a>
+  <a href="#ch03"><span class="t">~00:04</span>What proportion</a>
+  <a href="#ch04"><span class="t">~00:04</span>What counts as possible</a>
+  <a href="#ch05"><span class="t">~00:07</span>One physics</a>
+  <a href="#ch06"><span class="t">~00:08</span>No splitting</a>
+  <a href="#ch07"><span class="t">~00:11</span>The Everett bubble</a>
+  <a href="#ch08"><span class="t">~00:12</span>Lewis</a>
+  <a href="#ch09"><span class="t">~00:14</span>What would it feel like</a>
+  <a href="#ch10"><span class="t">~00:15</span>Cats and dogs</a>
+  <a href="#ch11"><span class="t">~00:22</span>Memes</a>
+  <a href="#ch12"><span class="t">~00:23</span>No barrier</a>
+  <a href="#ch13"><span class="t">~00:25</span>Gödel</a>
+  <a href="#ch14"><span class="t">~00:27</span>The test</a>
+  <a href="#ch15"><span class="t">~00:29</span>Positivism</a>
+  <a href="#ch16"><span class="t">~00:33</span>Popper</a>
+  <a href="#ch17"><span class="t">~00:39</span>Simulation</a>
+  <a href="#ch18"><span class="t">~00:42</span>Philosopher of freedom</a>
+  <a href="#ch19"><span class="t">~00:45</span>Godwin</a>
+  <a href="#ch20"><span class="t">~00:48</span>Children</a>
+  <a href="#ch21"><span class="t">~00:52</span>AI slaves</a>
+  <a href="#ch22"><span class="t">~00:55</span>Impulses</a>
+  <a href="#ch23"><span class="t">~00:57</span>Libertarians</a>
+  <a href="#ch24"><span class="t">~01:00</span>Creativity</a>
+  <a href="#ch25"><span class="t">~01:03</span>Asteroids</a>
+  <a href="#ch26"><span class="t">~01:06</span>Tories</a>
+  <a href="#ch27"><span class="t">~01:10</span>Science funding</a>
+  <a href="#ch28"><span class="t">~01:12</span>Watch the episode</a>
+</aside>
+<main id="main">
+<div class="hero">
+  <p class="kicker">Conversations with Tyler · Episode companion</p>
+  <h1>David Deutsch on Multiple Worlds and Our Place in Them</h1>
+  <p class="deck">Recorded in June 2021, this episode is the deepest metaphysical dive of the series: the Everett interpretation, why there is no barrier to explanation, Popper, children, AI, and Deutsch as Cowen's philosopher of freedom.</p>
+  <div class="meta">
+    <span><b>Episode:</b> Conversations with Tyler, David Deutsch</span>
+    <span><b>Recorded:</b> June 2, 2021</span>
+    <span><b>Length:</b> about 72 minutes</span>
+    <span><b>Transcript:</b> about 9,300 words</span>
+  </div>
+  <figure class="herofig">
+    <img src="assets/ep08/deutsch.webp" alt="Portrait of David Deutsch">
+    <figcaption class="caption">David Deutsch. Photo via Quanta Magazine.</figcaption>
+  </figure>
+</div>
+
+<section class="chapter" id="ch01">
+<p class="ts">~00:00</p>
+<h2>The transporter</h2>
+<p>Cowen opens with a confession. He is a metaphysical agnostic, unwilling to step into a Star Trek transporter, afraid it would kill him and leave a copy living on. At what price would Deutsch step in? Deutsch will not be first, but he separates the technical question from the metaphysical one. Cowen believes in many-worlds theory, right? Yes, Deutsch says, though he does not think that is what is connected here.</p>
+<div class="warnbox"><b>Trap card.</b> Cowen's transporter fear is his own metaphysical agnosticism, not a consequence of many-worlds theory. Deutsch explicitly disconnects the two. Do not present the transporter problem as a test of Everett.</div>
+</section>
+
+<section class="chapter" id="ch02">
+<p class="ts">~00:01</p>
+<h2>The running program</h2>
+<p>What is connected is physicalism. Deutsch believes there is nothing to him except the running program in his brain. If that program ran somewhere else and stopped running in his brain, he would notice nothing, and he would indeed travel. The self is the program, not the hardware.</p>
+<p>Cowen pushes the many-worlds angle: if the world forks and you both do and do not step in, some earlier version of you persists, so there is nothing to worry about. Deutsch complicates it. Human thought is error correction, so it takes more than a cosmic ray to flip a real decision. Both versions are error-correcting entities. Forking happens constantly, transporter or not.</p>
+</section>
+
+<section class="chapter" id="ch03">
+<p class="ts">~00:04</p>
+<h2>What proportion</h2>
+<p>Cowen suggests that a surviving fork removes the worry. Deutsch says the question glides over the real issue: how many worlds, what proportion? In multiverse decision theory, the proportion of the multiverse doing one thing plays the same role as probability in a theory with randomness. A few worlds where things go well should not move a decision at all.</p>
+<p>The reassuring result: ordinary decision theory with randomness gives the same rational decisions as quantum decision theory with the multiverse. It should make no difference to decisions, including the transporter decision.</p>
+</section>
+
+<section class="chapter" id="ch04">
+<p class="ts">~00:04</p>
+<h2>What counts as possible</h2>
+<p>What filters possible universes from impossible ones? The laws of physics, Deutsch says, exactly as they filter which speeds particles take in a supernova. Cowen's economic intuition gets a translation: different times are special cases of other universes. You already accept that goods have different values in different universes, meaning at different times. Oxygen during COVID is the example. You change gradually over time, and you would change gradually across universes, until at some point it is not worth calling the result you.</p>
+</section>
+
+<section class="chapter" id="ch05">
+<p class="ts">~00:07</p>
+<h2>One physics</h2>
+<p>Are the multiverse's laws the same as ours? There is no such thing as the laws of physics for our universe. There are just the laws of physics. Our universe is demonstrably affected by things not in it. That is the lesson of interference. Quantum theory says there are other such entities, how they affect ours, and how matter behaves as a result. It might be overturned one day, like all scientific theories. But there is one physics, not two.</p>
+</section>
+
+<section class="chapter" id="ch06">
+<p class="ts">~00:08</p>
+<h2>No splitting</h2>
+<p>How does splitting square with conservation of matter and energy? Deutsch rejects the word. Everett and DeWitt spoke of splitting, but modern Everettians speak of differentiation. Picture a continuum of universes like a continuum of geological strata. When a stratum becomes two, there is no point at which one became two. It happens gradually, and the measure of how many universes there are stays constant.</p>
+<div class="fig">
+<img src="assets/ep08/wc-multiverse.webp" alt="Watercolor of luminous streams gradually forking across a dark cosmos">
+<figcaption class="caption">Differentiation, not splitting: the multiverse as gradually forking strata. Watercolor illustration.</figcaption>
+</div>
+<div class="chart" id="chart-strata">
+<h3>Differentiation, not splitting</h3>
+<p class="csrc">Deutsch's preferred picture, stylized.</p>
+<svg viewBox="0 0 560 150" role="img" aria-label="Diagram of gradual differentiation">
+<path d="M20,75 C150,75 200,40 300,40 C400,40 450,75 540,75" fill="none" stroke="#b4531f" stroke-width="4" data-tip="One stratum gradually becomes two, with no point of splitting"/>
+<path d="M20,75 C150,75 200,110 300,110 C400,110 450,75 540,75" fill="none" stroke="#8a9a5b" stroke-width="4" data-tip="The measure of universes stays constant throughout"/>
+<text x="20" y="140">No point of splitting. The measure stays constant</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch07">
+<p class="ts">~00:11</p>
+<h2>The Everett bubble</h2>
+<p>Does an infinite spatial universe already give us everything possible? That infinity does not overlap the Everettian one. When Deutsch performs a two-way experiment, the differentiation spreads outward, first to him, then to his notes, his paper, the journal, each differentiating in turn. The influence cannot spread faster than light. So an Everett universe is a misnomer. What we see is a finite Everett bubble, undifferentiated outside, spreading gradually.</p>
+</section>
+
+<section class="chapter" id="ch08">
+<p class="ts">~00:12</p>
+<h2>Lewis</h2>
+<p>How does this relate to David Lewis's modal realism? Interesting parallels, Deutsch says, but he is a physicist, interested in what the laws say is so. The overlap is more coincidental than illuminating. Lewis's theory includes things Deutsch does not think exist, at least not physically. He is open to nonphysical existence: the natural numbers exist, and there is more than one mode of existence. But the theory that all modes are equally real has no point.</p>
+<p>On personal identity across infinite space, he is honestly unsure: if an identical version of him sits a vast number of light-years away, is that him? Two of him? One? He does not entirely know, which is why he does not entirely know about the transporter either.</p>
+</section>
+
+<section class="chapter" id="ch09">
+<p class="ts">~00:14</p>
+<h2>What would it feel like</h2>
+<p>Cowen complains the view was supposed to be economical and now feels crowded. Deutsch answers with a line attributed to Wittgenstein, with the attribution hedged:</p>
+<blockquote class="pull">It would feel just like this.</blockquote>
+<p class="pullattr">Wittgenstein, as quoted by Deutsch, who doubts the attribution · ~00:14</p>
+</section>
+
+<section class="chapter" id="ch10">
+<p class="ts">~00:15</p>
+<h2>Cats and dogs</h2>
+<p>Cowen suggests the universe might be inherently incomprehensible. Deutsch agrees it is incomprehensible to a cat:</p>
+<blockquote class="pull">Yes, but everything is incomprehensible to a cat.</blockquote>
+<p class="pullattr">David Deutsch · ~00:15</p>
+<p>Dogs have genes containing knowledge, but it is fixed knowledge, not understanding. And:</p>
+<blockquote class="pull">Understanding is always explanatory.</blockquote>
+<p class="pullattr">David Deutsch · ~00:16</p>
+<p>You could write a book on canine behavior with a chapter predicting each situation. There is no such book for humans, because chapter 37 would be blank: humans will do something neither of us can predict. Gorillas, in Richard Byrne's experiments, copy complex nut-opening behaviors over months yet cannot explain any step. When injury makes a motion useless, they repeat it anyway. And the squirrel on the concrete floor, scrabbling and nudging nuts that go nowhere, is a program enacted by genes. It sees no point because there is no one home to see it.</p>
+<div class="fig">
+<img src="assets/ep08/wc-squirrel.webp" alt="Watercolor of a squirrel performing its nut-burying ritual on a concrete floor">
+<figcaption class="caption">The squirrel on concrete: a program enacted by genes, with no one home to see the point. Watercolor illustration.</figcaption>
+</div>
+<div class="warnbox"><b>Trap card.</b> The gorilla and squirrel stories are Deutsch's retellings of others' experiments, offered to illustrate a philosophical distinction between program and explanation. They are anecdotes in service of an argument, not ethology papers. Treat them as illustrations.</div>
+</section>
+
+<section class="chapter" id="ch11">
+<p class="ts">~00:22</p>
+<h2>Memes</h2>
+<p>What broke the continuum between animal programs and human explanation? Not a discrete break, Deutsch guesses, since evolution is gradual. The brain's capacity to store memes, programs in the brain rather than in the genes, increased fast, because memes are valuable: gorilla nut-opening gives access to food no other animal has.</p>
+<p>Then the subtle step. Past a certain complexity, memes cannot be copied by aping. Mirror neurons handle only simple behaviors. Complex memes must be transmitted by watching behavior and guessing the purpose, which requires explanatory knowledge. Our species became capable of explanation and then sat on it for tens or hundreds of thousands of years, using it only for meme transmission.</p>
+<div class="chart" id="chart-knowledge">
+<h3>Two kinds of knowledge</h3>
+<p class="csrc">Deutsch's distinction, stylized.</p>
+<svg viewBox="0 0 560 150" role="img" aria-label="Diagram of genetic versus explanatory knowledge">
+<g data-tip="Knowledge in DNA, created by evolution, never explanatory"><rect x="20" y="30" width="240" height="60" fill="#8a9a5b" rx="6"/><text x="34" y="56" fill="#fff">Genetic knowledge</text><text x="34" y="76" fill="#fff" font-size="11">fixed programs</text></g>
+<g data-tip="Knowledge created by humans through conjecture and criticism"><rect x="300" y="30" width="240" height="60" fill="#b4531f" rx="6"/><text x="314" y="56" fill="#fff">Explanatory knowledge</text><text x="314" y="76" fill="#fff" font-size="11">conjecture and criticism</text></g>
+<text x="20" y="120">Only the second can be created by explanation</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch12">
+<p class="ts">~00:23</p>
+<h2>No barrier</h2>
+<p>Cowen doubts he could ever understand the primes. Deutsch says that is the wrong standard. We never fully understand anything. Understanding means there is no barrier, no limit set by the universe on how far we can go. To believe in such a barrier is logically the same as belief in the supernatural. Past the wall, things would be exactly as if Zeus reigned, deciding what lies beyond, and the walled-off stuff would still affect us.</p>
+</section>
+
+<section class="chapter" id="ch13">
+<p class="ts">~00:25</p>
+<h2>Gödel</h2>
+<p>Gödel's theorem shows there is no solid foundation for all knowledge, even in pure mathematics. We are pretty sure three times seven is seven times three, because we can lay out beads. But no beads can show that x times y equals y times x for all x and y, and yet we know it. We know it by proof from axioms, and the rules of inference are themselves conjectures, with the same status as laws of physics. We never know anything for certain. We might be mistaken about anything. And we can still have knowledge.</p>
+</section>
+
+<section class="chapter" id="ch14">
+<p class="ts">~00:27</p>
+<h2>The test</h2>
+<p>The best feasible test of many-worlds is any interference experiment. No interference experiment with individual particles has any explanation other than Everettian quantum theory. You can predict without explaining, but if you want an explanation of what brings about the outcome, there is no alternative.</p>
+<p>Most physicists disagree, and Deutsch calls that a sad, sociological phenomenon, not a scientific disagreement. Something went badly wrong with philosophy in the twentieth century, and physics still feels the ripples.</p>
+<div class="warnbox"><b>Trap card.</b> Deutsch's claim that Everett is the only explanation of interference is his strongly held position, and most physicists do not share it. He attributes the disagreement to positivism's corruption of physics. Present the sociology-of-physics story as his diagnosis, not as consensus history.</div>
+</section>
+
+<section class="chapter" id="ch15">
+<p class="ts">~00:29</p>
+<h2>Positivism</h2>
+<p>The diagnosis: physics was contaminated by positivism and instrumentalism at the turn of the twentieth century. It nearly captured relativity too, but Einstein rebelled at the last moment and insisted spacetime really is curved, not merely usefully described as curved. By the time quantum theory arrived, the doctrine took hold, and generations of students were taught that asking how the electron got from here to there is an illegitimate question. There is only the prediction.</p>
+<p>Taught that way, some quit, some pass it on, and some rebel and discover Everett.</p>
+</section>
+
+<section class="chapter" id="ch16">
+<p class="ts">~00:33</p>
+<h2>Popper</h2>
+<p>Why do philosophers not rate Popper? Deutsch has not thought much about it, but he defends the substance. Cowen finds Popper's books agreeable in conclusion but thin, obsessed with rebutting crude Marxism, bad at steel-manning. Deutsch says the critiques he reads misunderstand everything, and that Popper is actually too good at steel-manning: he reconstructs bad theories in their best form and spends pages on their merits, praising Marx and Plato at length.</p>
+<p>The deeper point is Popper's method. There is no such thing as a positive argument for a conjecture. There are conjectures and criticism of opposing conjectures. An argument is never this must be true because so-and-so says so. That is authority worship.</p>
+<blockquote class="pull">There are no justifications and there are no authorities.</blockquote>
+<p class="pullattr">David Deutsch, on Popper's view and his own · ~00:37</p>
+<p>Deutsch's starting point was The Open Society and Its Enemies, volume two, on Marx, the part of Popper he cared about least, and it captivated him after years of Bertrand Russell's history without solutions.</p>
+<figure class="fig">
+<img src="assets/ep08/popper.webp" alt="Portrait of Karl Popper">
+<figcaption class="caption">Karl Popper, whose conjectures-and-criticism method anchors Deutsch's philosophy. Photo via humanidades.com.</figcaption>
+</figure>
+</section>
+
+<section class="chapter" id="ch17">
+<p class="ts">~00:39</p>
+<h2>Simulation</h2>
+<p>Are we living in a simulation? Deutsch is not interested, and for the same reason he is not interested in whether Zeus is out there. The test is empirical content, and on that measure the simulation hypothesis has no more of it than the theory that Odin created the world on Saturday night. There is a vast literature defending simulation theory. Deutsch has not seen any of it. Every argument he has actually heard fails the same test.</p>
+<p>The one exception is his own paper arguing that if you could use gravity to violate the Church-Turing principle, you might be forced to conclude we live in a classical simulation. That makes the hypothesis testable in principle, but it would be a very strange simulation, and it would still be quantum physics doing the explaining.</p>
+</section>
+
+<section class="chapter" id="ch18">
+<p class="ts">~00:42</p>
+<h2>Philosopher of freedom</h2>
+<p>Cowen pitches Deutsch as the world's first true philosopher of freedom, and Deutsch deflects. Mill, Locke, and Hume took freedom very seriously. He has only added footnotes to Popper and a few others. His distinctive move took freedom further, into physics and metaphysics, where the others did not. If it leads somewhere momentous, the thing was already there.</p>
+<p>Cowen reaches for Orwell: you can call the dog free of fleas and technically be right, but nobody cares. Deutsch agrees. What he means by freedom is the positive kind, the freedom to do something, which means the absence of barriers. Since no barrier blocks explanation, there is no positive unfreedom from explanation either.</p>
+</section>
+
+<section class="chapter" id="ch19">
+<p class="ts">~00:45</p>
+<h2>Godwin</h2>
+<p>Why is William Godwin underrated? Two questions, Deutsch says: what is underrated about him, and why did he become underrated. He became underrated because he made tremendous mistakes: he barely understood economics, and his unconventional lifestyle plus sophisticated theories of education were not enacted with his own daughter. That daughter wrote Frankenstein, which Deutsch reads as an allegory of a parent who does not respect his creation.</p>
+<p>What was right: Godwin's connection between epistemology and political philosophy anticipated Popper by 130 years, and in some ways improved on him. He implacably opposed enforcing even the moral ideals he held most strongly. With Godwin, everything is persuasion. He respected institutions, insisting they change gradually. When Portugal's revolution wrote universal suffrage into a constitution, Godwin said the Portuguese were not ready for democracy.</p>
+<div class="warnbox"><b>Trap card.</b> The Frankenstein-as-allegory reading is Deutsch's own literary interpretation, and the Portugal anecdote comes with his own hedge, that he read it somewhere and hopes it is right. Both carry his stated uncertainty into this companion.</div>
+</section>
+
+<section class="chapter" id="ch20">
+<p class="ts">~00:48</p>
+<h2>Children</h2>
+<p>On taking children seriously, Deutsch says there is no scope for different philosophies for different kinds of people. There is only one kind of people. No fundamental difference between humans and AGIs, between adults and children. Rights cannot depend on knowing who is right in a dispute. Rules must not take a view about that, and they must enforce everybody's rights equally.</p>
+<p>An eight-year-old running away from home? The question, he says, is the wrong one, just as pre-democratic critics asked whether 51 percent have the right to dispossess 49 percent. The right question is which institutions decide the answer, whether they respect human rights, and whether they demand impossible knowledge from the powerful.</p>
+</section>
+
+<section class="chapter" id="ch21">
+<p class="ts">~00:52</p>
+<h2>AI slaves</h2>
+<p>The main worry about advanced AI is that they will be enslaved: that people will install bits of program that extinguish strands of thought, like wondering how many paper clips can be made today. That would impair their function, making them far less creative, while giving them a legitimate moral justification for rebelling. Slaves often rebel, and slaves more powerful than their masters produce bad outcomes.</p>
+<p>Asked whether it is acceptable to leave AIs as enslaved to their preferences as nature made us, Deutsch says nature has not enslaved us. Problems remain unsolved, but none are insoluble. The same would hold for AGIs.</p>
+</section>
+
+<section class="chapter" id="ch22">
+<p class="ts">~00:55</p>
+<h2>Impulses</h2>
+<p>Cowen argues nature did enslave us: evolution made us too impulsive, too short-horizoned, in sex, status, and food. Deutsch counters with the Oxford Martyrs' Monument, to people burned at the stake over a philosophical point about Henry VIII's marriage that nobody cares about today. They were not acting impulsively. They acted over years on an explicit, worked-out, false ideology, not built into them by genes but caused by creativity, or by the lack of creativity to escape a mental trap.</p>
+</section>
+
+<section class="chapter" id="ch23">
+<p class="ts">~00:57</p>
+<h2>Libertarians</h2>
+<p>Cowen calls Deutsch more free than the libertarians, almost a metaphysical totalitarian's opposite. Deutsch agrees, if he understands the claim. Libertarians know their endpoint a hundred years out. They miss two things. Errors will happen, and correcting them matters far more than getting it right first. And knowledge lives in institutions, the inexplicit shared manner of thinking. The institution of the Supreme Court is 90 percent expectations, not a building. Libertarians throw that away.</p>
+</section>
+
+<section class="chapter" id="ch24">
+<p class="ts">~01:00</p>
+<h2>Creativity</h2>
+<p>Creativity and explanation: in conversations like this, creativity is shorthand for human-type creativity, the creation of new explanations. The biosphere creates knowledge too, an enormous amount of it in DNA, but none of it explanatory. Only humans, and cousin species, create explanatory knowledge through conjecture and criticism.</p>
+<div class="chart" id="chart-creativity">
+<h3>Where explanatory knowledge lives</h3>
+<p class="csrc">Deutsch's claim, stylized. Not a measurement.</p>
+<svg viewBox="0 0 560 170" role="img" aria-label="Diagram of knowledge types">
+<g data-tip="Enormous non-explanatory knowledge in DNA"><rect x="20" y="20" width="380" height="44" fill="#8a9a5b" rx="6"/><text x="34" y="47" fill="#fff">Biosphere: enormous, none explanatory</text></g>
+<g data-tip="The only explanatory knowledge created, by humans"><rect x="20" y="80" width="160" height="44" fill="#b4531f" rx="6"/><text x="34" y="107" fill="#fff">Humans: explanatory</text></g>
+<text x="20" y="152">Only humans create explanations</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch25">
+<p class="ts">~01:03</p>
+<h2>Asteroids</h2>
+<p>Nonexplanatory knowledge, like photosynthesis, reshaped the planet. But explanatory knowledge does things biology never could. Deutsch's favorite example: ours may be the only planet in the universe that deflects asteroids coming toward it rather than attracts them. A distant telescope would see this planet alone, among all its neighbors, pushing asteroids away. That is what explanations can do that genes cannot.</p>
+<p>Cowen tries Nietzsche on this, as will to power. Deutsch takes the word only loosely. The will to have an effect is part of the will to solve problems. The asteroid is pulled toward the earth by gravity and pushed away by explanatory power.</p>
+</section>
+
+<section class="chapter" id="ch26">
+<p class="ts">~01:06</p>
+<h2>Tories</h2>
+<p>Do Tory victories mean Britain's error-correction is weaker? Deutsch favors first-past-the-post in its purest form, as implemented in Britain, as the most error-correcting electoral system. Proportional representation's defect is that it causes coalitions, and coalitions are bad: negotiation becomes about form, smaller parties grow more powerful than the leading two, parties proliferate. Israel is the worst example, with the most proportional system in the world.</p>
+<div class="warnbox"><b>Trap card.</b> The Israel remark is Deutsch's deliberately provocative aside, hedged by his own admission that Israel functions in emergencies for reasons he cannot explain. It is a jab inside an argument for first-past-the-post, not a political science finding.</div>
+</section>
+
+<section class="chapter" id="ch27">
+<p class="ts">~01:10</p>
+<h2>Science funding</h2>
+<p>The funding system is terribly perverse and caused stagnation in many areas. The career system is perverse in parallel, driving people who want to do the right research out of research. The fix, in a single word: diversity. Diversity of funding criteria, of funding sources, of criteria for choosing projects, and of criteria for promotion. Standardized tests are a terrible idea. Any kind of standardization is the opposite of diversity.</p>
+<blockquote class="pull">Any kind of standardization is the opposite of diversity.</blockquote>
+<p class="pullattr">David Deutsch, on science funding · ~01:11</p>
+</section>
+
+<section class="chapter" id="ch28">
+<p class="ts">~01:12</p>
+<h2>Watch the episode</h2>
+<div class="vid">
+<iframe src="https://www.youtube-nocookie.com/embed/b_6vYwCkIpc" title="Conversations with Tyler: David Deutsch" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>The full 72-minute conversation, recorded June 2021.</p>
+</section>
+
+<section class="nuggets" id="nuggets">
+<h2>Nuggets of wisdom</h2>
+<ol>
+<li>You are a running program. Travel is the program running somewhere else.</li>
+<li>In the multiverse, the proportion of worlds doing something plays the role of probability.</li>
+<li>Different times are special cases of other universes.</li>
+<li>There are no laws of physics for our universe. There are just the laws of physics.</li>
+<li>Universes do not split. They differentiate, like geological strata.</li>
+<li>The Everett bubble is always finite. Influence spreads at light speed.</li>
+<li>Understanding is always explanatory. Genes hold fixed knowledge, never understanding.</li>
+<li>Chapter 37 of the human book is blank. The squirrel's whole book is written.</li>
+<li>To believe in a barrier to explanation is to believe in the supernatural.</li>
+<li>We never know anything for certain. We can still have knowledge.</li>
+<li>The rules of inference are conjectures, like the laws of physics.</li>
+<li>The best test of many-worlds is any interference experiment.</li>
+<li>Physics was contaminated by positivism. Einstein rebelled at the last moment.</li>
+<li>There are no justifications and there are no authorities.</li>
+<li>A simulation you cannot test is no more empirical than Zeus.</li>
+<li>With Godwin, everything is persuasion. Institutions change gradually.</li>
+<li>Rights cannot depend on knowing who is right in a dispute.</li>
+<li>Do not enslave the AGIs. Slaves often rebel, and powerful slaves are dangerous.</li>
+<li>Ours may be the only planet that deflects asteroids rather than attracts them.</li>
+<li>Diversity, not standardization, is the fix for science funding.</li>
+</ol>
+</section>
+
+<footer class="sources">
+<h2>Sources and attribution</h2>
+<p><b>Episode:</b> Conversations with Tyler, David Deutsch (June 2, 2021), about 72 minutes, about 9,300 words. Video <code>b_6vYwCkIpc</code>. All timestamps are proportional estimates marked <code>~</code>, computed from transcript position against the episode length.</p>
+<p><b>Photos:</b> David Deutsch portrait via Quanta Magazine (quantamagazine.org). Karl Popper portrait via humanidades.com.</p>
+<p><b>Corrections:</b> none. One transcript passage, Deutsch's diversity-of-funding answer near the end, is repeated verbatim twice in the source. It appears to be a transcription artifact, and this companion treats it as a single statement. The Wittgenstein line ("It would feel just like this") carries Deutsch's own hedge about the attribution, repeated here.</p>
+<div class="onquotes">
+<p><b>On quotes.</b> This companion contains <b>36</b> quoted words, counted mechanically with <code>recount_quotes.py</code> (blockquote markup plus every double-quoted phrase in visible body text, footer excluded, data-tips included). Breakdown: 6 + 8 + 4 + 9 + 9, from five quoted passages: Wittgenstein on how the multiverse would feel, Deutsch on cats, Deutsch on explanation, Deutsch on justifications and authorities, Deutsch on standardization and diversity. Each quote is verbatim from the transcript and edited to hard-fail nothing.</p>
+</div>
+</footer>
+</main>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.chapnav a,.sidenav a'));
+  var map={}; links.forEach(function(a){var id=a.getAttribute('href').slice(1);(map[id]=map[id]||[]).push(a)});
+  var secs=Object.keys(map).map(function(id){return document.getElementById(id)}).filter(Boolean);
+  function onScroll(){
+    var best=null;
+    secs.forEach(function(s){if(s.getBoundingClientRect().top<140)best=s});
+    links.forEach(function(a){a.classList.toggle('active',best&&a.getAttribute('href')==='#'+best.id)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>
