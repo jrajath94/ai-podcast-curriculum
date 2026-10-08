@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond Cognitive Biases: Improving Judgment by Reducing Noise with Daniel Kahneman: Clearer Thinking Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Clearer Thinking episode with Daniel Kahneman: bias versus noise, the 208-judge lottery, occasion noise, why algorithms win, decision hygiene, and the limits of predictability.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#23201a; --muted:#6e655a;
+    --line:#e3dccb; --accent:#0e6e6e; --accent-ink:#0a5454; --soft:#e8f1f0;
+    --warn:#fdf3e3; --warnline:#d9a441;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0dd}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d3830;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  figure.photo img{max-width:460px;margin:0 auto}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .warnbox{background:var(--warn);border:1px solid var(--warnline);border-left:4px solid var(--warnline);
+    padding:14px 18px;margin:22px 0;font-family:var(--sans);font-size:14px;line-height:1.6}
+  .warnbox b{color:#7a4d0a}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdcd9}
+  .bar.dark{fill:#3d3830}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e4eaea;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .curve{fill:none;stroke:var(--accent);stroke-width:3}
+  .curve2{fill:none;stroke:#b0873f;stroke-width:3;stroke-dasharray:6 4}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{font-family:var(--sans);font-size:14px;line-height:1.5;counter-increment:w}
+  .wisdom li:before{content:counter(w,decimal-leading-zero);font-family:var(--mono);
+    font-size:11px;color:var(--accent-ink);display:block;margin-bottom:2px}
+  .takeaways{background:#fff;border:1px solid var(--line);padding:22px;margin:30px 0}
+  .takeaways h3{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .takeaways ol{margin:0 0 14px;padding-left:22px}
+  .takeaways li{margin-bottom:8px}
+  .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-right:8px;white-space:nowrap}
+  .tag.fact{background:#e2efed;color:var(--accent-ink)}
+  .tag.interp{background:#efe9dc;color:#6b5320}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);border:1px dashed var(--line);
+    padding:10px 14px;margin:0 0 26px}
+  .video{margin:26px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+    border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:12px;color:var(--accent-ink)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 10px;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  footer p{margin:0 0 14px}
+  footer b{color:var(--ink)}
+  .backlink{font-family:var(--sans);font-size:13px;margin:18px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Clearer Thinking companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+
+<div class="hero">
+<p class="kicker">Clearer Thinking with Spencer Greenberg &middot; Episode 4</p>
+<h1>Beyond Cognitive Biases: Improving Judgment by Reducing Noise with Daniel Kahneman</h1>
+<p class="dek">Spencer Greenberg talks with Daniel Kahneman about the other half of error: why two judges give the same criminal sentences four years apart, why a model of a judge beats the judge, and how to wash your decisions clean.</p>
+<img src="assets/ep04/ep04-hero.webp" alt="Watercolor of an archery target seen from behind with arrows scattered widely">
+<p class="caption"><b>Illustration.</b> AI-generated watercolor made for this page: the target from behind. You cannot see the bias, but the noise is obvious.</p>
+<div class="stats">
+<div class="stat"><div class="n">75 min</div><div class="l">Episode length</div><div class="s">4519 seconds of audio</div></div>
+<div class="stat"><div class="n">~4 yrs</div><div class="l">Judge lottery</div><div class="s">Two random judges, same 7-year case</div></div>
+<div class="stat"><div class="n">52%</div><div class="l">Underwriter noise</div><div class="s">Versus 10 percent expected</div></div>
+<div class="stat"><div class="n">bias²+noise²</div><div class="l">Error equation</div><div class="s">Total error, per Gauss</div></div>
+</div></div>
+<figure class="photo"><img src="assets/ep04/daniel-kahneman.png" alt="Photograph of Daniel Kahneman"><figcaption class="caption"><b>Photograph.</b> Daniel Kahneman. Real photograph via the Alliance for Decision Education, alliancefordecisioneducation.org.</figcaption></figure>
+<div class="video"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/bEiQw3Mk0rI" title="Episode video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption"><b>Video.</b> The full episode on YouTube.</p></div>
+<section class="chapter" id="ch-measurement" data-time="~00:02" data-title="Judgment Is Measurement">
+
+<p class="ch-time">~00:02</p>
+<h2>Judgment Is Measurement</h2>
+<div class="legend"><span class="tag fact">Source fact</span> a claim traceable to the episode transcript. <span class="tag interp">Interpretation</span> the companion author's analysis or transfer, not the guest's claim.</div>
+<p><span class="tag fact">Source fact</span> Kahneman opens with a frame shift. Judgment is an operational measurement: an object, a scale, and a value assigned on the scale. A diagnosis, a sentence, a hire-or-fire call, all of these place an object on a scale. The measuring instrument is not a ruler. It is a human mind.</p>
+<div class="pull">
+<blockquote>Judgment is measurement.</blockquote>
+<p class="who">Daniel Kahneman &middot; Episode ~00:03</p>
+</div>
+<p><span class="tag fact">Source fact</span> Measurement theory, a little over 200 years old and associated with Karl Friedrich Gauss, splits error into two parts. The average error is bias: the ruler that reads long. The variability of errors is noise: the scatter. The total error follows a remarkably simple formula: error equals the square of the bias plus the square of the noise. The two terms are, in principle, equally important.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the mathematician as Karl Friedrich Gels. The name is Karl Friedrich Gauss. Corrected in this companion. Original noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> Thinking, Fast and Slow covered the bias term. The new book, Noise, covers the second term. Kahneman spent most of his career on bias and, by his own account, completely neglected the variability of judgment. The book exists because noise is the half of error nobody watches.</p>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 &middot; Error</p>
+<h4>Error has two terms, and you watch only one</h4>
+<p><span class="lbl">What happened. </span>Two centuries of measurement science say total error is bias squared plus noise squared. Judgment research spent decades on the first term and almost none on the second.</p>
+<p><span class="lbl">Why it matters. </span>Everything you know about debiasing leaves half the error untouched. Noise is the neglected term with the neglected payoff.</p>
+<p><span class="lbl">The principle. </span>When you audit a decision process, measure the scatter, not just the tilt.</p>
+</div>
+<div class="toy">
+<h4>Try it: the error equation</h4>
+<p class="csub" style="font-family:var(--sans);font-size:12.5px;color:var(--muted)">Total error equals bias squared plus noise squared. Move the sliders and watch which term dominates.</p>
+<label for="ee-bias">Bias: <span id="ee-bias-v">3</span></label>
+<input type="range" id="ee-bias" min="0" max="10" value="3">
+<label for="ee-noise">Noise: <span id="ee-noise-v">3</span></label>
+<input type="range" id="ee-noise" min="0" max="10" value="3">
+<p class="out" id="ee-out"></p>
+</div>
+<script>
+(function(){
+  var b = document.getElementById('ee-bias'), n = document.getElementById('ee-noise');
+  var bv = document.getElementById('ee-bias-v'), nv = document.getElementById('ee-noise-v');
+  var out = document.getElementById('ee-out');
+  function upd(){
+    bv.textContent = b.value; nv.textContent = n.value;
+    var total = (+b.value)*(+b.value) + (+n.value)*(+n.value);
+    var share = total ? Math.round(100*(+n.value)*(+n.value)/total) : 0;
+    out.textContent = 'Total error: ' + total + '. Noise contributes ' + share + '% of it.';
+  }
+  b.addEventListener('input', upd); n.addEventListener('input', upd); upd();
+})();
+</script>
+
+</section>
+<section class="chapter" id="ch-judges" data-time="~00:10" data-title="The 208 Judges">
+
+<p class="ch-time">~00:10</p>
+<h2>The 208 Judges</h2>
+<p><span class="tag fact">Source fact</span> Biases feed both terms of the equation. Some judges are harsher than others, each with their own bias, and the variability of those biases across judges is itself a source of noise. Then comes the study that anchors the book: 208 federal judges were shown the same 16 detailed criminal cases and asked to set sentences.</p>
+<p><span class="tag fact">Source fact</span> The variability was, in Kahneman word, horrendous. For a crime with an average sentence of seven years, two judges picked at random would differ by about four years. A defendant faces a lottery. Some of it is level noise: Southern judges run more severe than Northern ones. Some of it is pattern noise: one judge is especially severe on fraud, another on violence against the elderly. Pattern noise, the biggest source, comes from judgment personalities: different minds see the same case differently and do not know it.</p>
+<div class="chart">
+<h4>The sentencing lottery</h4>
+<p class="csub">Average sentence 7 years. Two random judges differ by about 4 years. Distribution illustrative.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Illustrative distribution of sentences around a 7 year average">
+<path class="curve" d="M 120 230 C 200 230, 240 120, 320 110 S 440 230, 520 230" data-tip="Illustrative spread of sentences for one identical case. Real shape not given on air."/>
+<line class="gridln" x1="320" y1="60" x2="320" y2="250"/>
+<circle cx="240" cy="180" r="8" class="bar" data-tip="Judge A: about 5 years on this case."/>
+<circle cx="400" cy="180" r="8" class="bar dark" data-tip="Judge B: about 9 years on the same case. Four years apart."/>
+<text class="vallab" x="320" y="45" text-anchor="middle">average: 7 years</text>
+<text class="vallab" x="240" y="205" text-anchor="middle">~5 yrs</text>
+<text class="vallab" x="400" y="205" text-anchor="middle">~9 yrs</text>
+<text class="axis" x="320" y="280" text-anchor="middle">Same crime, same defendant, different judge. The gap is noise.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Daniel Kahneman episode, ~00:12. The 208-judge study, 16 cases, 7-year average, and 4-year gap are stated figures. The curve shape is illustrative.</p>
+</div>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 &middot; Justice</p>
+<h4>The four-year lottery</h4>
+<p><span class="lbl">What happened. </span>Identical cases drew sentences four years apart depending on which judge the defendant drew. Level, pattern, and occasion noise all fed the gap.</p>
+<p><span class="lbl">Why it matters. </span>Equal cases deserve equal treatment. Noise in justice is not inefficiency. It is unfairness wearing a robe.</p>
+<p><span class="lbl">The principle. </span>Wherever humans speak for a system, check whether they speak in one voice.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-occasion" data-time="~00:16" data-title="Occasion Noise">
+
+<p class="ch-time">~00:16</p>
+<h2>Occasion Noise</h2>
+<p><span class="tag fact">Source fact</span> Noise also lives inside a single judge. Show a radiologist the same X-ray on another day and you may get a different diagnosis. Judges are more severe on hot days. Physicians prescribe more antibiotics and opioids in the afternoon than the morning, because they are tired and more likely to assent to whatever the patient asks. The defendant lottery includes the judge mood that day.</p>
+<p><span class="tag fact">Source fact</span> So there are three noises: occasion noise within a person across times, level noise in overall severity across people, and pattern noise in how different people weight different aspects of a case. Pattern noise is the largest, and the strangest: each of us is convinced we see reality as it is, and expects others to see it the same way, while inside other heads the scene looks quite different.</p>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 &middot; Variability</p>
+<h4>You are noisier than you think</h4>
+<p><span class="lbl">What happened. </span>The same expert, the same case, a different day: a different answer. Heat, fatigue, and mood all vote.</p>
+<p><span class="lbl">Why it matters. </span>We audit our biases and ignore our weather. A decision made at 4 p.m. is a different decision.</p>
+<p><span class="lbl">The principle. </span>For important judgments, fix the occasion: rested, cool, and structured, or do not judge.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-archery" data-time="~00:20" data-title="The Archery Lesson">
+
+<p class="ch-time">~00:20</p>
+<h2>The Archery Lesson</h2>
+<p><span class="tag fact">Source fact</span> Spencer offers the archery metaphor and Kahneman builds on it. Tight cluster on the bullseye: accurate. Tight cluster off-center: bias, with a causal story like a bent gunsight. Wide scatter centered on the bullseye: pure noise. Wide scatter off-center: the usual human condition, both at once.</p>
+<p><span class="tag fact">Source fact</span> Then the kicker: look at the target from behind. You cannot see the bullseye, so you know nothing about bias. But the scatter is fully visible, so you know everything about noise. In an organization, you can audit noise among forecasters without knowing the truth, because you only need the variability. Noise is much easier to measure than bias.</p>
+<div class="pull">
+<blockquote>Noise is actually a lot easier to measure than bias.</blockquote>
+<p class="who">Daniel Kahneman &middot; Episode ~00:22</p>
+</div>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 &middot; Measurement</p>
+<h4>Audit the scatter, skip the truth</h4>
+<p><span class="lbl">What happened. </span>The back of the target reveals noise with no need for the bullseye. A noise audit just compares judges to each other.</p>
+<p><span class="lbl">Why it matters. </span>Bias audits stall on what is true. Noise audits start immediately, and less noise is always better.</p>
+<p><span class="lbl">The principle. </span>Run the noise audit first. It needs no ground truth, only the courage to compare.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-underwriters" data-time="~00:24" data-title="The 52 Percent Surprise">
+
+<p class="ch-time">~00:24</p>
+<h2>The 52 Percent Surprise</h2>
+<p><span class="tag fact">Source fact</span> The book began seven years ago at an insurance company. Kahneman had 50 underwriters price the same realistic complex case. He asked the executives: pick two underwriters at random. By how much will their premiums differ? The universal answer, from executives and audiences alike: 10 percent. The measured median difference: 52 percent. Five times the expected noise.</p>
+<div class="chart">
+<h4>Expected noise versus measured noise</h4>
+<p class="csub">Fifty underwriters, one case. Everyone guessed 10 percent.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Bar chart comparing expected and actual underwriter noise">
+<rect class="bar alt" x="120" y="150" width="120" height="60" data-tip="Expected: 10 percent difference between two random underwriters."/>
+<rect class="bar" x="380" y="42" width="120" height="168" data-tip="Measured: 52 percent median difference. Five times the guess."/>
+<text class="vallab" x="180" y="135" text-anchor="middle">10%</text>
+<text class="vallab" x="440" y="30" text-anchor="middle">52%</text>
+<text class="axis" x="180" y="235" text-anchor="middle">expected</text>
+<text class="axis" x="440" y="235" text-anchor="middle">measured</text>
+<text class="axis" x="320" y="275" text-anchor="middle">The surprise, not the noise, is what justified the book.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Daniel Kahneman episode, ~00:25. The 10 percent expectation and 52 percent median are stated figures.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Everyone knows judgments are imperfect. Reasonable people disagree by definition. What nobody expects is the size of the scatter. Spencer adds a personal version: routine medical cases draw consistent opinions, but obscure ones draw wildly different ones. Kahneman agrees: difficult, multi-aspect judgments are where noise lives, and the important problems are nearly all difficult.</p>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 &middot; Surprise</p>
+<h4>Expect noise. Then multiply by five.</h4>
+<p><span class="lbl">What happened. </span>Professionals who live inside a judgment system guessed its noise at a fifth of reality. The error was not in the judging but in the imagining.</p>
+<p><span class="lbl">Why it matters. </span>You cannot fix a problem sized at 10 percent when it is 52 percent. Calibration precedes correction.</p>
+<p><span class="lbl">The principle. </span>Before reforming any judgment process, measure its noise. Expect to be shocked.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-machines" data-time="~00:30" data-title="Machines Do Not Wobble">
+
+<p class="ch-time">~00:30</p>
+<h2>Machines Do Not Wobble</h2>
+<p><span class="tag fact">Source fact</span> Seventy years of research pit human judges against simple mechanical rules, and the rules win or tie in about 50 percent of comparisons. The reason is one word: people are noisy and rules are not. Show an algorithm the same profile twice and it answers identically. No human does that, within or across people.</p>
+<p><span class="tag fact">Source fact</span> The sharpest result: train a model not on the truth but on one judge predictions, and the model can beat the judge at predicting outcomes it never saw. The model is a noise-free copy of a noisy original. Machine learning extends the same logic: it averages masses of human-labeled data toward the noise-free center.</p>
+<p><span class="tag fact">Source fact</span> On fairness, Kahneman is candid. Some past algorithms were biased by design, like predicting crime from arrest counts that already encode policing bias. That bias is detectable and fixable. The subtler issue is differential accuracy from differential data, like face recognition trained mostly on white faces. His net judgment: the bias is controllable, and the algorithms still come out ahead. Spencer adds the mirror argument: humans systematize bias too, it is just the kind you cannot measure, which people find comfortable.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the bail comparison as better than human churches. The word is judges. Corrected in this companion. Original noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> The resistance is human. Judges hate sentencing algorithms, hate guidelines, hate constraints. When guidelines were removed, noise returned and judges were happier. On the hybrid question, Kahneman recalls Garry Kasparov post-Deep Blue advocacy for human-plus-computer chess teams. Kasparov was briefly right, then wrong: the software stopped needing the human, which got in the way. When human and machine hold comparable information, Kahneman conclusion is blunt: the computer should have the last word.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the names as Gary Kasperov and deep blue. The names are Garry Kasparov and Deep Blue. Corrected in this companion. Originals noted in the footer.</div>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 &middot; Automation</p>
+<h4>A noise-free copy beats the original</h4>
+<p><span class="lbl">What happened. </span>A statistical model of one judge outperforms that judge, because it keeps the judge signal and drops the judge wobble.</p>
+<p><span class="lbl">Why it matters. </span>You do not need superhuman insight to beat humans. You only need to stop rolling the dice between readings.</p>
+<p><span class="lbl">The principle. </span>Wherever judgment repeats, replace the judge with a model of the judge first, and argue about bias second.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-predictability" data-time="~00:42" data-title="The Limits of Predictability">
+
+<p class="ch-time">~00:42</p>
+<h2>The Limits of Predictability</h2>
+<p><span class="tag fact">Source fact</span> Algorithms have a ceiling: the predictability of the environment. The Fragile Families study, published in the Proceedings of the National Academy of Sciences, asked how well life events can be predicted from the variables sociologists collect. With hundreds or a thousand data points per child, 160 experts competing, the best models moved accuracy from a 50 percent coin flip to 55, 56, 57 percent. That is the limit, not the start.</p>
+<p><span class="tag fact">Source fact</span> Spencer suggests chaos-theory reasons: one chance meeting with the wrong crowd reroutes a life, and no dataset records the day it happened. Kahneman agrees the missing information is real-time: who the child is with today, which no survey captures. Hiring has the same ceiling: most of what determines job performance does not exist yet at hiring time.</p>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 &middot; Limits</p>
+<h4>Some ceilings are real</h4>
+<p><span class="lbl">What happened. </span>One hundred sixty experts, a thousand variables per child, and the best prediction barely beat a coin flip. Life events are mostly noise no model can remove.</p>
+<p><span class="lbl">Why it matters. </span>Chasing accuracy past the predictability limit wastes money and trust. Know the ceiling before you buy the ladder.</p>
+<p><span class="lbl">The principle. </span>Ask what the best possible predictor could know. If the answer is not much, stop tuning.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-hygiene" data-time="~00:48" data-title="Decision Hygiene">
+
+<p class="ch-time">~00:48</p>
+<h2>Decision Hygiene</h2>
+<p><span class="tag fact">Source fact</span> Hygiene, not medicine: hand-washing works without knowing which germs you killed. Decision hygiene is the same idea for noise. The flagship procedure is the mediating assessments protocol. In hiring, define the attributes that matter, evaluate each one separately and independently, and delay the global judgment until every attribute is scored. Unstructured interviews do the opposite: an impression forms in two or three minutes, and the rest of the hour confirms it.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders one hiring attribute as homosexuality. The attribute is sociability. Corrected in this companion. Original noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> The same protocol fits any choice: treat each option like a candidate, score its attributes independently, delay intuition to the end. A second procedure is simply more judges: averaging keeps bias exactly as it was and shrinks noise, 100 judges cut noise to a tenth, so accuracy must improve. That is the non-intuitive payoff of the error equation.</p>
+<p><span class="tag fact">Source fact</span> But groups contaminate. Whoever speaks first anchors the room, confidence persuades more than correctness, and people edge toward each other to avoid conflict, so the true spread never surfaces. Spencer adds the false-consensus effect: the quiet dissenters leave everyone thinking all agreed. Worse, agreement polarizes: groups that lean one way end up more extreme than their average, because extreme agreement gets rewarded. Kahneman cites jury research with collaborators, more than 20 years old, on punitive damages: severe-leaning juries punished more severely than their initial average.</p>
+<div class="nugget reveal" id="nugget-8">
+<p class="eyebrow">Nugget 8 &middot; Procedure</p>
+<h4>Separate, then judge. Never together.</h4>
+<p><span class="lbl">What happened. </span>Interviews, meetings, and juries all let early impressions and loud voices contaminate independent judgment. The fix is structure: attributes scored alone, intuition delayed, votes taken before discussion.</p>
+<p><span class="lbl">Why it matters. </span>Averaging only kills noise if the judgments are independent. One shared conversation can make ten judges worse than two.</p>
+<p><span class="lbl">The principle. </span>Collect judgments in isolation. Discuss after the numbers are locked.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-why-bias" data-time="~00:58" data-title="Why We See Bias and Miss Noise">
+
+<p class="ch-time">~00:58</p>
+<h2>Why We See Bias and Miss Noise</h2>
+<p><span class="tag fact">Source fact</span> The neglect of noise is a property of the mind. We think causally, in stories about single cases, and bias looks like a cause pushing a judgment. Noise is statistical: invisible in one case, visible only across many. We are built for causes, not for distributions.</p>
+<p><span class="tag fact">Source fact</span> Stories exploit the same gap. We understand the world as an unfolding narrative: we can never predict the next line, yet nothing surprises us. That ease of hindsight breeds false confidence in foresight. The bad hire looks obvious after the fact, I missed that sign, while the five other plausible explanations go unexamined. We are much better at explaining the past than predicting the future, and the explaining feels like predicting.</p>
+<div class="nugget reveal" id="nugget-9">
+<p class="eyebrow">Nugget 9 &middot; Mind</p>
+<h4>Explanation feels like prediction</h4>
+<p><span class="lbl">What happened. </span>Hindsight turns every outcome into a story that makes sense, which we mistake for evidence of foresight.</p>
+<p><span class="lbl">Why it matters. </span>The confidence that fuels the next judgment is counterfeit. It was minted after the fact.</p>
+<p><span class="lbl">The principle. </span>Distrust any lesson that arrived only after the outcome. Ask what you predicted before it.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-crowd-within" data-time="~01:03" data-title="The Crowd Within">
+
+<p class="ch-time">~01:03</p>
+<h2>The Crowd Within</h2>
+<p><span class="tag fact">Source fact</span> Unique events still carry noise, even though you cannot measure it in one shot. Kahneman offers two handles. First, imagine people like you, with your knowledge and values, and the range of judgments they would make. Their average is probably more accurate than yours. Second, the constructive one from his collaborator Olivier Sibony: a unique event is a repeated event that happens only once. The procedures that cut noise across people also cut it in single cases.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the collaborator as Olivier Zibonin. The name is Olivier Sibony. Corrected in this companion. Original noted in the footer.</div>
+<div class="pull">
+<blockquote>A unique event is a repeated event that happens only once.</blockquote>
+<p class="who">Olivier Sibony, via Daniel Kahneman &middot; Episode ~01:04</p>
+</div>
+<p><span class="tag fact">Source fact</span> Spencer adds his favorite trick from the book: average your own judgments across time. Judge, then run a premortem, suppose this judgment turns out badly, what is the most likely reason, adjust, and average the two. Kahneman confirms it works, at about one third the value of asking another person, because your own range is narrower than the range across people.</p>
+<div class="nugget reveal" id="nugget-10">
+<p class="eyebrow">Nugget 10 &middot; Self</p>
+<h4>Ask yourself twice, average once</h4>
+<p><span class="lbl">What happened. </span>Two judgments from the same head, separated by a premortem, average into something better than either. The crowd within is worth a third of a real second opinion.</p>
+<p><span class="lbl">Why it matters. </span>You cannot always convene 100 judges. You can always judge twice.</p>
+<p><span class="lbl">The principle. </span>For one-shot decisions, make the call, argue against it, then split the difference.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-lightning" data-time="~01:08" data-title="Lightning Round">
+
+<p class="ch-time">~01:08</p>
+<h2>Lightning Round</h2>
+<p><span class="tag fact">Source fact</span> On individual debiasing, Kahneman is skeptical. Half a century studying judgment, and he does not think he improved much himself. Knowing about biases does not immunize you. Organizations can install procedures. Individuals mostly cannot sustain the discipline. Spencer frames the four-step ladder, notice the pattern, want to change, know a strategy, execute it, using the planning fallacy and reference-class forecasting as the model case. Kahneman agrees hygiene helps for important decisions, but calls it what it is: disciplined thinking, not a cure.</p>
+<p><span class="tag fact">Source fact</span> On the replication crisis, he is optimistic. The sexy, surprising findings failed to replicate at scale, but psychology adopted larger samples, preregistration, and full reporting, which cut self-deception, the real culprit. Fraud remains, but rarer and riskier. Spencer is more cynical: the advantage of publishable fakery over real discovery just moves elsewhere. Kahneman answer: procedures cannot kill fraud, but they starve self-deception, and self-deception was the crisis.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the word as more replica. The word is replicable. Corrected in this companion. Original noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> On idea generation, there is no method, only recognition. Good ideas arrive vague. The skill is to notice the glimmer and select among the many. His work with Amos Tversky was magical because Tversky understood each vague idea better than Kahneman did. The ideas themselves were often common sense the discipline ignored: losses weighing more than gains was something grandmothers knew, but grandmothers could not generate testable consequences from it.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the collaborator as Emma Stokesky. The name is Amos Tversky. Corrected in this companion. Original noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> On irrationality, he pushes back hard. He never uses the word. Rationality is a technical term from decision theory. Full rationality is infeasible for anyone, so calling people irrational says nothing. His work shows people are not fully rational in the economists sense. That is very different from unreasonable. Most judgments are correct. The errors are systematic and worth studying.</p>
+<p><span class="tag fact">Source fact</span> On Bayesianism, he endorses the norm. The strength of evidence is the likelihood ratio: how much more likely is this evidence if the hypothesis is true than if it is not. The rules for changing your mind in light of evidence are, in his words, unavoidably correct, even if applying them is technically hard.</p>
+<p><span class="tag fact">Source fact</span> The episode also carries a sponsor segment for the Uplift app and an intro note about a Thought Saver flashcard deck built from the episode takeaways.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the deck as Fot Saver. The Clearer Thinking product is Thought Saver. Corrected in this companion. Original noted in the footer.</div>
+<div class="takeaways">
+<h3>The episode in eight lines</h3>
+<ol>
+<li>Total error is bias squared plus noise squared. You audit only the first.</li>
+<li>The same case drew sentences four years apart. That gap is the lottery.</li>
+<li>Heat, fatigue, and afternoon all vote. Fix the occasion or do not judge.</li>
+<li>You can measure noise without knowing the truth. Run the audit.</li>
+<li>A model of the judge beats the judge. Noise-free wins.</li>
+<li>Predictability has a ceiling. Stop tuning past it.</li>
+<li>Score attributes separately, delay intuition, vote before discussion.</li>
+<li>Judge twice and average. The crowd within is worth a third of a colleague.</li>
+</ol>
+<p class="src">Distilled from Clearer Thinking, Beyond cognitive biases: improving judgment by reducing noise with Daniel Kahneman, 2021 podcast release, YouTube re-upload March 2023. Full episode: youtube.com/watch?v=bEiQw3Mk0rI. Times marked ~ are proportional estimates from word position.</p>
+</div>
+
+</section>
+<div class="wisdom"><h3>Nugget index</h3><ol>
+<li>Error has two terms, and you watch only one</li>
+<li>The four-year lottery</li>
+<li>You are noisier than you think</li>
+<li>Audit the scatter, skip the truth</li>
+<li>Expect noise. Then multiply by five.</li>
+<li>A noise-free copy beats the original</li>
+<li>Some ceilings are real</li>
+<li>Separate, then judge. Never together.</li>
+<li>Explanation feels like prediction</li>
+<li>Ask yourself twice, average once</li>
+</ol></div>
+<p class="backlink"><a href="../index.html">&larr; Back to the Clearer Thinking track index</a></p>
+<footer><p><b>Sources.</b> This companion narrates the Clearer Thinking episode Beyond cognitive biases: improving judgment by reducing noise with Daniel Kahneman (podcast release 2021, YouTube re-upload March 2023, 75 minutes). All facts and figures come from the episode transcript (research/clearer-thinking/transcripts/bEiQw3Mk0rI.txt), a Whisper base.en transcription of the official podcast audio. The transcript carries no timestamps. All chapter times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p><p id="on-quotes"><b>On quotes.</b> Direct quotations in this companion total 42 words: three pull quotes, each carrying speaker and proportional episode-time attribution, plus seven short quoted transcript fragments in the corrections note below. Everything else is original paraphrase and analysis.</p><p><b>On transcript corrections.</b> The transcript is a machine transcription with rough edges. Applied corrections, with originals. The mathematician is Karl Friedrich Gauss (transcript: "Karl Friedrich Gels"). The collaborator is Amos Tversky (transcript: "Emma Stokesky"). The collaborator is Olivier Sibony (transcript: "Olivier Zibonin"). The flashcard deck is Thought Saver (transcript: "Fot Saver"). The bail comparison is to human judges (transcript: "human churches"). The hiring attribute is sociability (transcript: "homosexuality"). The chess champion is Garry Kasparov (transcript: "Gary Kasperov") and the machine is Deep Blue (transcript: "deep blue"). The word is replicable (transcript: "more replica").</p><p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p></footer>
+
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var ttl = ch.getAttribute('data-title') || '';
+    a.innerHTML = '<span class="t">' + t + '</span>' + ttl;
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(txt, x, y){
+    tip.textContent = txt;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
