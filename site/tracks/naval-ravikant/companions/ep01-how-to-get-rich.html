@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Get Rich: Naval Ravikant Episode Companion</title>
+<meta name="description" content="The 3.6-hour megasode that collects the entire How to Get Rich tweetstorm, the Q and A, and unreleased bonus material. Wealth as a learnable skill: wh">
+<style>
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;
+    margin:0 6px 8px 0}
+  .tag.src{background:#e8f0e4;color:#3d6b34;border:1px solid #c4d8bb}
+  .tag.int{background:#efe6f5;color:#5f3f7a;border:1px solid #d8c4e8}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted)}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--mono);font-size:15px;color:var(--accent-ink);margin-top:10px}
+  .toy button{font-family:var(--sans);font-size:13px;padding:8px 14px;background:var(--ink);
+    color:#fff;border:none;border-radius:4px;cursor:pointer;margin:6px 6px 0 0}
+  .toy button:hover{background:#3a3226}
+  .toy label{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Naval Ravikant &middot; Track Companion</a>
+  <span class="sub">Ep 1 of 10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Naval Ravikant · The Megasode · Companion</p>
+      <h1>How to Get Rich</h1>
+      <p class="dek">The 3.6-hour megasode that collects the entire How to Get Rich tweetstorm, the Q and A, and unreleased bonus material. Wealth as a learnable skill: what wealth is, what money is, why status is a trap, how tools disconnect input from output, and how to never get ruined.</p>
+      <img src="assets/ep01-how-to-get-rich/naval-photo.jpg" alt="Photograph of Naval Ravikant leaning on a rooftop railing with the New York skyline behind him">
+      <p class="caption"><b>Photograph.</b> Naval Ravikant. Real photo via the image-search skill, source page: fundamentalsage.com Naval Ravikant profile. Verified as the episode guest before use.</p>
+      <div class="legend"><span class="tag src">Source fact</span><span style="align-self:center">A claim from the episode itself.</span><span class="tag int">Interpretation</span><span style="align-self:center">My reading of what it means for you.</span></div>
+      <div class="stats">
+        <div class="stat"><div class="n">3.6h</div><div class="l">Megasode runtime, every tweetstorm episode plus Q and A plus bonus</div><div class="s">Episode intro</div></div>
+        <div class="stat"><div class="n">44K</div><div class="l">Words in the full transcript, the longest of the ten by far</div><div class="s">Transcript file</div></div>
+        <div class="stat"><div class="n">13.5M</div><div class="l">YouTube views, the most-viewed episode on the official Naval channel</div><div class="s">Research notes, Oct 2026</div></div>
+        <div class="stat"><div class="n">3x</div><div class="l">How much better the best lumberjack is than the worst, the ceiling of work without tools</div><div class="s">Episode, tools chapter</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/1-TZqOsVCNM" title="Naval Ravikant — How to Get Rich (official Naval podcast megasode)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Naval podcast episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Wealth is a skill you can learn</a></li>
+          <li><a href="#nugget-2">Buy freedom, not things</a></li>
+          <li><a href="#nugget-3">Earn the IOU by creating value first</a></li>
+          <li><a href="#nugget-4">Quit the status game</a></li>
+          <li><a href="#nugget-5">Work where effort disconnects from output</a></li>
+          <li><a href="#nugget-6">Be so specific that competition cannot find you</a></li>
+          <li><a href="#nugget-7">Choose games that compound</a></li>
+          <li><a href="#nugget-8">Never risk ruin</a></li>
+          <li><a href="#nugget-9">Apprentice, do not lecture</a></li>
+        </ol>
+      </div>
+    </div>
+
+<section class="chapter" id="ch-intro" data-time="00:00" data-title="A tweetstorm becomes a megasode">
+<p class="ch-time">00:00</p>
+<h2>A tweetstorm becomes a megasode</h2>
+<p>Naval Ravikant wrote a tweetstorm on how to get rich without getting lucky. It struck a nerve far beyond tech. Nivi collected every episode on the topic into one giant megasode, about three and a half hours long, covering all the tweets plus Q and A plus ten minutes of never-released bonus material.</p>
+<p>The core claim is simple. Wealth is a skill. Skills can be learned. And the first step is to stop confusing the three different games people play: wealth, money, and status.</p>
+<div class="nugget reveal" id="nugget-1"><p class="eyebrow">Wisdom nugget 1</p><span class="tag src">Source fact</span><h4>Wealth is a skill you can learn</h4><p><b>What happened.</b> Naval frames the entire megasode as a learnable skill set, not a lottery ticket. He says the principles reached people outside tech, in all walks of life.</p><p><b>Why it matters.</b> If wealth comes from luck, you wait. If it comes from skill, you train. The episode is the training manual.</p><p><b>Principle.</b> Treat money-making as a craft with teachable parts: specific knowledge, accountability, tools, and judgment.</p></div>
+</section>
+<section class="chapter" id="ch-wealth" data-time="00:10" data-title="Wealth is assets that earn while you sleep">
+<p class="ch-time">00:10</p>
+<h2>Wealth is assets that earn while you sleep</h2>
+<p>Naval defines wealth as "wealth is assets that earn while you sleep": the factory with robots working through the night, the computer program serving customers at 3 a.m., money in the bank reinvested into other businesses. A house you rent out counts too, though he calls it a lower use of productivity.</p>
+<p>The purpose of wealth is freedom. Not fur coats or yachts. Freedom from the collar, from the 7 a.m. commute, from grinding your productive hours into a soulless job. You want to be a sovereign individual.</p>
+<div class="nugget reveal" id="nugget-2"><p class="eyebrow">Wisdom nugget 2</p><span class="tag src">Source fact</span><h4>Buy freedom, not things</h4><p><b>What happened.</b> Naval says the point of wealth is freedom from obligation, and that luxury goods get boring fast.</p><p><b>Why it matters.</b> A clear target changes your behavior. If the goal is freedom, you stop optimizing for display and start optimizing for ownership.</p><p><b>Principle.</b> Define wealth as control of your time, then buy assets that pay for that control while you sleep.</p></div>
+</section>
+<section class="chapter" id="ch-money" data-time="00:25" data-title="Money is how we transfer wealth">
+<p class="ch-time">00:25</p>
+<h2>Money is how we transfer wealth</h2>
+<p>"money is how we transfer wealth", he says. Money is social credit: an IOU from society for value you created in the past. The IOU gets debased when governments print extra copies and when people renege, but its job stays the same: a reliable claim on the time of other people.</p>
+<p>This reframes earning. You do not chase money. You create value, society hands you IOUs, and you move those IOUs around.</p>
+<div class="nugget reveal" id="nugget-3"><p class="eyebrow">Wisdom nugget 3</p><span class="tag src">Source fact</span><h4>Earn the IOU by creating value first</h4><p><b>What happened.</b> Naval describes money as credits and debits on the time of other people, issued by society in exchange for real value.</p><p><b>Why it matters.</b> It explains why printing money does not create wealth, and why the reliable path to money runs through value creation.</p><p><b>Principle.</b> Ask what value you created, not what money you chased. The IOUs follow the value.</p></div>
+</section>
+<section class="chapter" id="ch-status" data-time="00:40" data-title="Status is a zero-sum game">
+<p class="ch-time">00:40</p>
+<h2>Status is a zero-sum game</h2>
+<p>People play two big games, Naval says: the money game and the status game. Wealth is the positive-sum game: everyone can own a house, and the more houses get built, the easier the next one becomes. Status is the opposite, an old monkey-tribe hierarchy where number three can only rise if number two falls.</p>
+<p>Politics and sports are status games. There must be a loser. Worse, many attacks on wealth creation are really status bids: the attacker looks virtuous while climbing the hierarchy at your expense. Play status games only as a necessary evil, because they turn you into an angry, combative person.</p>
+<div class="pull reveal"><blockquote>Wealth is a very positive sum game.</blockquote><p class="who">Naval Ravikant, from the episode</p></div><div class="nugget reveal" id="nugget-4"><p class="eyebrow">Wisdom nugget 4</p><span class="tag src">Source fact</span><h4>Quit the status game</h4><p><b>What happened.</b> Naval argues that wealth compounds for everyone while status requires someone else to lose, and that status-seekers often attack wealth creators to gain rank.</p><p><b>Why it matters.</b> You cannot win both games at once. Time spent on status is time stolen from wealth, plus a personality tax.</p><p><b>Principle.</b> Notice when you perform virtue for show instead of creating value, and walk away from the status table.</p></div>
+</section>
+<section class="chapter" id="ch-tools" data-time="01:00" data-title="Pick work where inputs and outputs disconnect">
+<p class="ch-time">01:00</p>
+<h2>Pick work where inputs and outputs disconnect</h2>
+<p>Tools multiply output. That is the whole idea here, not just Wall Street debt. Compare two workers. The best lumberjack in the world, swinging an axe, reaches only about 3x the output of the worst. The gap is small because input and output stay connected.</p>
+<p>Now look at software: a single great engineer can launch a cryptocurrency and create billions of dollars of value, while another engineer can work a full year shipping code nobody wants. The input-output link is broken. That is force multiplication, and you want a career on the disconnected side.</p><figure class="reveal"><img src="assets/ep01-how-to-get-rich/illustration-sailboat.webp" alt="Watercolor illustration of a small sailboat with full sails on a vast open sea"><p class="caption"><b>Illustration.</b> The sailboat and the tanker: small steering, large payload. AI-generated watercolor made for this page.</p></figure>
+<div class="chart reveal" id="c-lev-chart"><h4>Force multiplication: the input-output disconnect</h4><p class="csub">Output per worker as skill rises. Lumberjack output caps near 3x. Tool-assisted knowledge work compounds without a visible cap.</p><p class="csub"><span style="color:#8a7c66">&#9632;</span> Lumberjack <span style="color:#b4531f">&#9632;</span> Tool-assisted engineer</p><svg viewBox="0 0 680 380" width="100%" role="img" aria-label="Force multiplication: the input-output disconnect"><g id="c-lev"><line x1="64" x2="650" y1="320.0" y2="320.0" class="gridln"/><text x="56" y="324.0" text-anchor="end" class="axis">0</text><line x1="64" x2="650" y1="229.4" y2="229.4" class="gridln"/><text x="56" y="233.4" text-anchor="end" class="axis">10</text><line x1="64" x2="650" y1="138.8" y2="138.8" class="gridln"/><text x="56" y="142.8" text-anchor="end" class="axis">20</text><line x1="64" x2="650" y1="48.1" y2="48.1" class="gridln"/><text x="56" y="52.1" text-anchor="end" class="axis">30</text><polyline points="64.0,310.9 357.0,301.9 650.0,292.8" fill="none" stroke="#8a7c66" stroke-width="3"/><circle cx="64.0" cy="310.9" r="5" fill="#8a7c66" stroke="#fff" stroke-width="2" data-tip="Baseline output: 1 unit"/><circle cx="357.0" cy="301.9" r="5" fill="#8a7c66" stroke="#fff" stroke-width="2" data-tip="Double the skill"/><circle cx="650.0" cy="292.8" r="5" fill="#8a7c66" stroke="#fff" stroke-width="2" data-tip="Best in the world: about 3x the worst"/><polyline points="64.0,310.9 357.0,274.7 650.0,48.1" fill="none" stroke="#b4531f" stroke-width="3"/><circle cx="64.0" cy="310.9" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Baseline output: 1 unit"/><circle cx="357.0" cy="274.7" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Tools multiply output"/><circle cx="650.0" cy="48.1" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="One great creation: billions in value"/><text x="64.0" y="356" text-anchor="middle" class="axis">Baseline</text><text x="357.0" y="356" text-anchor="middle" class="axis">2x skill</text><text x="650.0" y="356" text-anchor="middle" class="axis">Top of field</text></g></svg><p class="csub"><b>Source.</b> Episode: the lumberjack comparison and the one-great-engineer example. The 3x figure is from the episode. The engineer curve is illustrative.</p></div><div class="nugget reveal" id="nugget-5"><p class="eyebrow">Wisdom nugget 5</p><span class="tag src">Source fact</span><h4>Work where effort disconnects from output</h4><p><b>What happened.</b> Naval contrasts the lumberjack, capped at about 3x, with the engineer whose one creation can be worth billions.</p><p><b>Why it matters.</b> In connected work, the best you can do is a few multiples. In disconnected work, the ceiling disappears.</p><p><b>Principle.</b> Choose professions with high creativity and strong output multipliers: media, code, capital. Avoid pure labor arbitrage.</p></div>
+</section>
+<section class="chapter" id="ch-authentic" data-time="01:45" data-title="Escape competition through authenticity">
+<p class="ch-time">01:45</p>
+<h2>Escape competition through authenticity</h2>
+<p>The most quoted line in the Q and A section is the authenticity line. When you do what you love, in the way only you do it, nobody can compete with you. Competition exists because people copy each other into the same lane.</p>
+<p>Specific knowledge fits here. It cannot be trained in a classroom, or it would be mass-produced and paid at minimum wage. It comes from your DNA, your childhood, the frontier where nobody knows the answers yet, or pattern-matching inside complex environments on the job.</p>
+<div class="pull reveal"><blockquote>Escape competition through authenticity.</blockquote><p class="who">Naval Ravikant, from the episode Q and A</p></div><div class="nugget reveal" id="nugget-6"><p class="eyebrow">Wisdom nugget 6</p><span class="tag src">Source fact</span><h4>Be so specific that competition cannot find you</h4><p><b>What happened.</b> Naval says authenticity removes competition, and that specific knowledge comes from curiosity and lived experience, not from hot-job chasing.</p><p><b>Why it matters.</b> Copying the market consensus puts you in the most crowded lane. Your quirks are an uncopyable moat.</p><p><b>Principle.</b> Follow genuine curiosity until your knowledge is one of one, then charge for it at scale.</p></div>
+</section>
+<section class="chapter" id="ch-iterated" data-time="02:10" data-title="Play iterated games">
+<p class="ch-time">02:10</p>
+<h2>Play iterated games</h2>
+<p>Two tweets carry the long-game logic. First, play long repeated games: choose relationships, work, and industries where you meet the same people again, so trust compounds. Second, "all returns in life", whether in wealth, relationships, or knowledge, come from compound interest.</p>
+<p>The mirror image is the warning he loves to quote: "play stupid games win stupid prizes". Short-term status games on social media are the stupid games. The prizes are anxiety and wasted years.</p>
+<div class="chart reveal" id="c-comp-chart"><h4>Compound interest: the quiet engine</h4><p class="csub">One unit of capital compounding at 10 percent per year. The claim of the episode is that all returns in life work this way.</p><p class="csub"><span style="color:#b4531f">&#9632;</span> 10% annual</p><svg viewBox="0 0 680 380" width="100%" role="img" aria-label="Compound interest: the quiet engine"><g id="c-comp"><line x1="64" x2="650" y1="320.0" y2="320.0" class="gridln"/><text x="56" y="324.0" text-anchor="end" class="axis">0</text><line x1="64" x2="650" y1="239.4" y2="239.4" class="gridln"/><text x="56" y="243.4" text-anchor="end" class="axis">5</text><line x1="64" x2="650" y1="158.9" y2="158.9" class="gridln"/><text x="56" y="162.9" text-anchor="end" class="axis">10</text><line x1="64" x2="650" y1="78.3" y2="78.3" class="gridln"/><text x="56" y="82.3" text-anchor="end" class="axis">15</text><polyline points="64.0,303.9 259.3,278.3 454.7,211.6 650.0,38.9" fill="none" stroke="#b4531f" stroke-width="3"/><circle cx="64.0" cy="303.9" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 0: 1.00"/><circle cx="259.3" cy="278.3" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 10: 2.59"/><circle cx="454.7" cy="211.6" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 20: 6.73"/><circle cx="650.0" cy="38.9" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 30: 17.45"/><text x="64.0" y="356" text-anchor="middle" class="axis">Year 0</text><text x="259.3" y="356" text-anchor="middle" class="axis">Year 10</text><text x="454.7" y="356" text-anchor="middle" class="axis">Year 20</text><text x="650.0" y="356" text-anchor="middle" class="axis">Year 30</text></g></svg><p class="csub"><b>Source.</b> Illustrative math for the episode claim that all returns in life come from compound interest.</p></div><div class="toy reveal" id="toy-compound">
+  <h4>Toy: the compounding calculator</h4>
+  <p class="csub">Move the sliders. This is the engine behind the claim of the episode that all returns in life come from compound interest.</p>
+  <label>Years: <b>30 years</b></label>
+  <input type="range" id="toy-years" min="1" max="50" value="30">
+  <label>Annual return: <b>10%</b></label>
+  <input type="range" id="toy-rate" min="1" max="20" value="10">
+  <p class="out" id="toy-out"></p>
+</div><figure class="reveal"><img src="assets/ep01-how-to-get-rich/illustration-snowball.webp" alt="Watercolor illustration of a small snowball rolling downhill and growing enormous"><p class="caption"><b>Illustration.</b> Compound interest as a snowball: small at the top of the hill, enormous at the bottom. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-7"><p class="eyebrow">Wisdom nugget 7</p><span class="tag src">Source fact</span><h4>Choose games that compound</h4><p><b>What happened.</b> Naval ties wealth, relationships, and knowledge to the same engine: compound interest, which only works in repeated games.</p><p><b>Why it matters.</b> One-shot games reward luck and theater. Repeated games reward trust, reputation, and patience.</p><p><b>Principle.</b> Pick industries, partners, and habits you can repeat for decades. Avoid stupid games entirely.</p></div>
+</section>
+<section class="chapter" id="ch-qa" data-time="02:50" data-title="Q and A: ruin, roulette, and the orange jumpsuit">
+<p class="ch-time">02:50</p>
+<h2>Q and A: ruin, roulette, and the orange jumpsuit</h2>
+<p>The Q and A turns to risk. Naval explains ergodicity with Russian roulette: "six people who play Russian roulette once each", and each winner gets a billion dollars, leaves one person dead and five rich. One person playing six times in a row just ends up dead or at zero. Averages across populations do not describe one life lived once.</p>
+<p>The number one way people get ruined in modern business, he says, is not betting too much. It is when they cut corners, do unethical or illegal things, and end up in an "orange jumpsuit" in prison, or with a ruined reputation. Ruin is the same as zero.</p>
+<div class="nugget reveal" id="nugget-8"><p class="eyebrow">Wisdom nugget 8</p><span class="tag src">Source fact</span><h4>Never risk ruin</h4><p><b>What happened.</b> Naval uses Russian roulette to show that population averages lie about individual risk, and names unethical shortcuts as the real ruin-maker.</p><p><b>Why it matters.</b> You can survive many small losses. You cannot survive one zero. Expected value means nothing if you are dead.</p><p><b>Principle.</b> Take many small risks with capped downside. Take zero risks that can wipe you out, including ethical ones.</p></div>
+</section>
+<section class="chapter" id="ch-bonus" data-time="03:30" data-title="Bonus: rational optimists and apprentices">
+<p class="ch-time">03:30</p>
+<h2>Bonus: rational optimists and apprentices</h2>
+<p>The unreleased bonus material covers who to work with and how skill transfers. the hiring filter of Naval: "partnering with rational optimists", people with energy, integrity, and intelligence. Optimism plus rationality is rare and compounds inside an organization.</p>
+<p>On teaching skill, he is blunt: classes and talks are largely worthless for specific knowledge. All the generic advice fits in an hour. Everything after that is circumstantial. What works is apprenticeship, like his Spearhead project: real deals, office hours, learning on the job. If a skill can only be learned by doing, that is the signature of specific knowledge.</p>
+<div class="chart reveal" id="c-views-chart"><h4>Why this episode dwarfs the track</h4><p class="csub">Verified YouTube view counts for the ten episodes of the Naval track, October 2026. The megasode is the outlier by an order of magnitude.</p><svg viewBox="0 0 680 380" width="100%" role="img" aria-label="Why this episode dwarfs the track"><g id="c-views"><line x1="60" x2="650" y1="310.0" y2="310.0" class="gridln"/><text x="52" y="314.0" text-anchor="end" class="axis">0</text><line x1="60" x2="650" y1="206.3" y2="206.3" class="gridln"/><text x="52" y="210.3" text-anchor="end" class="axis">5e+06</text><line x1="60" x2="650" y1="102.6" y2="102.6" class="gridln"/><text x="52" y="106.6" text-anchor="end" class="axis">1e+07</text><rect x="93.2" y="30.0" width="81.1" height="280.0" class="bar" data-tip="13.5M views: the megasode"/><text x="133.8" y="20.0" text-anchor="middle" class="vallab">13.5M</text><text x="133.8" y="336" text-anchor="middle" class="axis">Ep 1: How to Get Rich</text><rect x="240.7" y="297.0" width="81.1" height="13.0" class="bar" data-tip="628K views: the happiness collection"/><text x="281.2" y="287.0" text-anchor="middle" class="vallab">628K</text><text x="281.2" y="336" text-anchor="middle" class="axis">Ep 2: Happiness</text><rect x="388.2" y="306.3" width="81.1" height="3.7" class="bar" data-tip="About 177K views: top of the short-form episodes"/><text x="428.8" y="296.3" text-anchor="middle" class="vallab">177K</text><text x="428.8" y="336" text-anchor="middle" class="axis">Ep 3: Wealth, Not Money or Status</text><rect x="535.7" y="308.6" width="81.1" height="1.4" class="bar" data-tip="About 67K views: the smallest of the ten"/><text x="576.2" y="298.6" text-anchor="middle" class="vallab">67K</text><text x="576.2" y="336" text-anchor="middle" class="axis">Ep 10: Judgment</text></g></svg><p class="csub"><b>Source.</b> Research notes: verified per-video via yt-dlp, October 6, 2026.</p></div><div class="nugget reveal" id="nugget-9"><p class="eyebrow">Wisdom nugget 9</p><span class="tag src">Source fact</span><h4>Apprentice, do not lecture</h4><p><b>What happened.</b> Naval says generic investing advice fits in an hour, office hours on real deals do the real teaching, and apprenticeship is the only way to transfer specific knowledge.</p><p><b>Why it matters.</b> If you want to learn a craft, a course gives you vocabulary. A master with live deals gives you judgment.</p><p><b>Principle.</b> To learn fast, get near someone doing the real thing and watch the decisions. To scale yourself, apprentice others the same way.</p></div>
+</section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Naval podcast megasode "How to Get Rich" (YouTube 1-TZqOsVCNM, about 3.6 hours), from its full caption transcript. Section timestamps marked with ~ are proportional estimates from word position, not official chapter marks. Illustrations are AI-generated watercolors made for this page. The hero photograph is real, with visible attribution in its caption. View counts come from the track research notes (verified per-video via yt-dlp, October 2026).</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 49 words: "wealth is assets that earn while you sleep" (8 words), "money is how we transfer wealth" (6 words), "wealth is a very positive sum game" as a pull quote (7 words), the "escape competition through authenticity" pull quote (4 words), "play stupid games win stupid prizes" (6 words), "all returns in life" (4 words), the Russian roulette setup "six people who play Russian roulette once each" (8 words), "orange jumpsuit" (2 words), and "partnering with rational optimists" (4 words). Each is a verbatim string from the episode transcript, verified by search. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+
+
+/* ---------- toy: compound interest calculator ---------- */
+(function(){
+  var years = document.getElementById('toy-years'),
+      rate = document.getElementById('toy-rate'),
+      out = document.getElementById('toy-out');
+  if(!years || !rate || !out) return;
+  function fmt(n){ return '$' + n.toLocaleString('en-US', {maximumFractionDigits:0}); }
+  function upd(){
+    var y = parseFloat(years.value), r = parseFloat(rate.value) / 100;
+    var v = 10000 * Math.pow(1 + r, y);
+    out.textContent = 'One $10,000 stake at ' + rate.value + '% for ' + y + ' years = ' + fmt(v) + '.';
+    years.previousElementSibling.querySelector('b').textContent = y + ' years';
+    rate.previousElementSibling.querySelector('b').textContent = rate.value + '%';
+  }
+  years.addEventListener('input', upd); rate.addEventListener('input', upd); upd();
+})();
+
+</script>
+</body>
+</html>
