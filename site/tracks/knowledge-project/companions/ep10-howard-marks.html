@@ -446,7 +446,7 @@ span.ptag, .ptag {
 </div>
 <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
 </div>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a great brass pendulum swinging over a line chart drawn in sand" class="base" fetchpriority="high" src="assets/ep10-marks-illustration.webp"/></div></div><figcaption><b>Illustration.</b> The pendulum. Markets swing on emotion. The patient investor waits for the extremes. AI-generated watercolor made for this page.</figcaption></figure>
+</div><figure data-phase2="1" data-scene="ep10-howard-marks-hero" class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a great brass pendulum swinging over a line chart drawn in sand" class="base" fetchpriority="high" src="assets/ep10-marks-illustration.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/ep10-howard-marks-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div><figcaption><b>Illustration.</b> The pendulum. Markets swing on emotion. The patient investor waits for the extremes. AI-generated watercolor made for this page.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="Part 1" data-title="September 2008" id="ch-2008"><div class="ch-head"><div><p class="ch-meta"><span class="ts">Part 1</span> · September 2008</p><h2>September 2008</h2></div></div>
 <p>Lehman Brothers failed on September 15, 2008. Panic said the financial world might end. Marks reasoned it through: if the system melts down, no preparation helps, and most of the time the world does not end. So the only choice was to invest.</p>
 <p>Oaktree put money to work at an average of six hundred fifty million dollars a week for the last fifteen weeks of 2008, ten billion in total. The world did not melt down. The courage came from decades of rehearsal in smaller crises and a partnership that never blamed anyone for a bad outcome.</p>
@@ -462,7 +462,7 @@ span.ptag, .ptag {
 <text class="axis" text-anchor="middle" x="445" y="252">15 weeks</text>
 </svg>
 <p class="csrc">Source: episode transcript. Oaktree invested an average of 650 million a week for the last 15 weeks of 2008, ten billion total.</p>
-</div>
+<div class="simrow" style="display:flex;align-items:center;gap:.7rem;margin-top:.9rem;flex-wrap:wrap"><label for="sim-wks" style="font:600 .9rem/1.4 var(--f-ui)">Weeks into the 2008 selloff</label><input aria-label="Weeks into the 2008 selloff" id="sim-wks" max="15" min="1" step="1" type="range" value="15"/><span id="sim-wks-out" role="status" style="font:600 .95rem/1.4 var(--f-ui)"></span></div></div>
 <aside class="tag" data-chapter="ch-2008" data-sign-label="Aisle" id="nugget-1"><div class="tag-price"><span class="tag-big">1</span><span class="tag-unit">Decide before the crisis what you will do in it</span></div><div class="tag-body"><div class="tag-title">Decide before the crisis what you will do in it</div><div class="tag-eye">The lesson</div><p><b>What happened. </b>Marks reasoned in advance that a meltdown cannot be prepared for, so the job was to invest through the panic.</p><p><b>Why it matters. </b>Emotion tells investors to buy high and sell low. Logic, installed beforehand, is the only counterweight.</p><p><b>The principle. </b>Write your crisis rules while calm. When fear arrives, execute the plan instead of improvising.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE</span></div></div></aside>
 </section>
 <section class="chapter col" data-chapter="1" data-time="Part 2" data-title="What risk is" id="ch-risk"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">1</span></div><div><p class="ch-meta"><span class="ts">Part 2</span> · What risk is</p><h2>What Risk Is</h2></div></div>
@@ -1219,5 +1219,11 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('ep10-howard-marks-hero',{init:function(F,FX){var i,k;F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.50,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];},pose:function(S,FX){var F=S.F;var i,k;F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);return {'hero-subject':{x:14*Math.sin(S.t*0.9),y:3*Math.sin(S.t*1.8),r:3*Math.sin(S.t*0.9),s:1,o:1}};}});
+(function(){var r=document.getElementById('sim-wks'),o=document.getElementById('sim-wks-out');if(!r||!o)return;function f(){var n=+r.value;o.textContent='Week '+n+': $'+(0.65*n).toFixed(2)+'B invested.';} r.addEventListener('input',f);f();})();
+})();
+</script>
+</body>
 </html>
