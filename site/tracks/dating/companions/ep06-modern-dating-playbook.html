@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Episode 6: The Modern Dating Playbook: Dating Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Leveling Up episode with Dr Orion Taraban: dating economics, gig relationships, negotiation, and leadership.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dating Instruction · Track Companion</a>
+  <span class="sub">Ep 6 · The Dating Playbook</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Leveling Up · Dating Instruction · Episode 6 · Companion</p>
+      <h1>Modern Dating<br>Is Impossible:<br>The Playbook</h1>
+      <p class="dek">Dr Orion Taraban brings behavioral economics to modern romance: app market failures, gig relationships, tacit negotiation, and why cowardice is the enemy. This companion follows the full episode, section by section.</p>
+      <img src="assets/ep06-scales-hero.webp" alt="Watercolor illustration of a balance scale weighing a heart against coins and clocks">
+      <p class="caption"><b>Illustration.</b> Every relationship is a negotiation, and the goods being weighed are rarely named aloud. AI-generated watercolor, made for this page. No text appears in the image.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">493,309</div><div class="l">Views on the episode video</div><div class="s">Verified 2026-10-06 via yt-dlp</div></div>
+        <div class="stat"><div class="n">~1h 49m</div><div class="l">Episode length, 6,484 seconds</div><div class="s">Verified 2026-10-06 via yt-dlp</div></div>
+        <div class="stat"><div class="n">5M / mo</div><div class="l">Views on the PsycHacks channel at recording time</div><div class="s">Episode transcript</div></div>
+        <div class="stat"><div class="n">12</div><div class="l">Different jobs in a career, the statistic behind gig relationships</div><div class="s">Episode transcript, as read by Taraban</div></div>
+      </div>
+      <p class="src"><b>Reading guide.</b> Each nugget separates <b>SOURCE FACT</b> (what Taraban said) from <b>INTERPRETATION</b> (why it matters, the transferable principle). Charts name their source line.</p>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/jEjPD_m0ecQ" title="Leveling Up: Modern Dating Is Impossible, Here's The Playbook, Dr Orion Taraban (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Price the asymmetry</a></li>
+          <li><a href="#nugget-2">Unbundle the marriage</a></li>
+          <li><a href="#nugget-3">Negotiate tacitly</a></li>
+          <li><a href="#nugget-4">Lead or lose</a></li>
+        </ol>
+      </div>
+      </div>
+
+    <section class="chapter" id="ch-problem" data-time="Part 1" data-title="The problem">
+      <p class="ch-time">Part 1</p>
+      <h2>The Problem With Dating Today</h2>
+      <p>Eric Siu opens with the resume. Dr Orion Taraban is a psychologist in private practice who spent eight years in men's mental health, then built PsycHacks to about five million views a month on long form videos. The topic: relationships in measurable decline, fewer marriages, fewer children, and what a behavioral economist would actually prescribe.</p>
+      <p>Taraban refuses the premise that a clean fix exists. On the structural problems, he says, "there are only trade-offs". No pure solutions. That sentence governs the whole episode. Every strategy that follows is a trade accepted with open eyes, not a hack that beats the market.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Trade-offs</p>
+        <h4>Price the asymmetry</h4>
+        <p><span class="lbl">Source fact. </span>Taraban argues the dating app market misprices the same goods by sex, and that no pure solution exists, only trade-offs.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Men hunt for the move that wins without cost. The market has no such move. Every edge is rented from a disadvantage somewhere else.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Name the price before you pay it. A strategy you chose with open eyes beats a hack you believed was free.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-apps" data-time="Part 2" data-title="App economics">
+      <p class="ch-time">Part 2</p>
+      <h2>Why the Apps Cannot Clear the Market</h2>
+      <p>Taraban's economic read of dating apps is the sharpest in the episode. Across the board, women's profiles say they want a serious committed relationship. He calls that the gendered equivalent of a man writing that he just wants sex. The market value of committed commitment vastly exceeds the market value of any single sexual opportunity. Sex is cheaper than commitment, in his framing.</p>
+      <p>Both sides act rationally from their own experience, and rationality is exactly the problem. He thinks he should get more for less. She thinks she should give less for more. The valuation gap on the same good widens until the two sides cannot negotiate a relationship at all. His practical advice is blunt: get off the apps, or at least stop using them for purposes they cannot serve.</p>
+      <div class="chart" id="chart-asymmetry">
+        <h4>The valuation gap</h4>
+        <p class="csub">Hover any bar for detail. Taraban's economics of the app market, drawn to scale of his argument, not to measured prices.</p>
+        <svg viewBox="0 0 640 360" role="img" aria-label="Bar chart of the valuation gap between commitment and a sexual opportunity">
+          <text class="axis" x="320" y="24" text-anchor="middle">How each side prices the trade</text>
+          <rect class="bar alt" x="140" y="60" width="180" height="40" data-tip="Her offer: a sexual opportunity, priced low because supply is abundant."></rect>
+          <rect class="bar" x="140" y="120" width="440" height="40" data-tip="Her ask: a serious committed relationship, priced very high."></rect>
+          <rect class="bar alt" x="140" y="200" width="440" height="40" data-tip="His offer: a serious committed relationship, which he prices as dear."></rect>
+          <rect class="bar" x="140" y="260" width="180" height="40" data-tip="His ask: a sexual opportunity, priced low."></rect>
+          <text class="vallab" x="330" y="86" text-anchor="start">her offer: low</text>
+          <text class="vallab" x="590" y="146" text-anchor="end">her ask: high</text>
+          <text class="vallab" x="590" y="226" text-anchor="end">his offer: high</text>
+          <text class="vallab" x="330" y="286" text-anchor="start">his ask: low</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, app economics section. <b>Interpretation:</b> bar lengths illustrate his stated asymmetry. No measured prices exist.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gig" data-time="Part 3" data-title="Gig relationships">
+      <p class="ch-time">Part 3</p>
+      <h2>Gig Relationships</h2>
+      <p>Taraban reaches for a labor market analogy. People once worked one job for life with a pension. Now the average career holds twelve different jobs, and the gig economy trades security for optionality. Nobody calls that purely good or purely bad. It is a trade-off, and relationships follow the same path.</p>
+      <p>The modern marriage, he argues, is a hyper-conflated idea: one person hired to be a legal partner, a religious commitment, a roommate, a co-parent, a passionate lover, a best friend, and for some a therapist, a parent, a chef, or a maid. That is not a partner. That is an entire village of people compressed into one hire. A century or two ago nobody expected a spouse to be the whole village.</p>
+      <p>His provocation: stop forcing individuals into a one size template and start designing arrangements around the actual needs of the people in them. He cites the shape of the crisis. Births outside marriage run near 30 percent for white women and near 70 percent for some other demographics, by his stated figures, and too many people sit in the dead zone between all and nothing: alone with outcomes that do not serve them, or quietly desperate inside marriages that never fall apart. Marriages that do not fall apart are not automatically successful.</p>
+      <div class="chart" id="chart-births">
+        <h4>Births outside marriage</h4>
+        <p class="csub">Hover any bar for detail. Taraban's stated figures for the all or nothing squeeze.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of births outside marriage by demographic">
+          <rect class="bar alt" x="160" y="120" width="150" height="44" data-tip="Almost 30% of births to white women are outside marriage, per Taraban's stated figure."></rect>
+          <rect class="bar" x="160" y="200" width="350" height="44" data-tip="Closer to 70% for some other demographics, per Taraban's stated figure."></rect>
+          <text class="vallab" x="320" y="148" text-anchor="start">~30%</text>
+          <text class="vallab" x="520" y="228" text-anchor="start">~70%</text>
+          <text class="axis" x="150" y="148" text-anchor="end">white women</text>
+          <text class="axis" x="150" y="228" text-anchor="end">some other</text>
+          <text class="axis" x="150" y="246" text-anchor="end">demographics</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, gig relationships section. Figures are Taraban's stated numbers, presented as his reading of the data.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Unbundling</p>
+        <h4>Unbundle the marriage</h4>
+        <p><span class="lbl">Source fact. </span>Taraban calls marriage a hyper-conflated idea and suggests negotiated arrangements between all and nothing.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>One template guarantees mismatch. The template gets the blame that belongs to the fit.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>List the jobs before hiring the person. Design the arrangement around real needs, not inherited forms.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-negotiation" data-time="Part 4" data-title="Negotiation">
+      <p class="ch-time">Part 4</p>
+      <h2>The Fundamental Game</h2>
+      <div class="pull">
+        <blockquote>the fundamental game of human relationships is negotiation</blockquote>
+        <p class="who">Orion Taraban · Episode transcript, negotiation section</p>
+      </div>
+      <p>No two rounds play the same, even with the same players. The negotiation never sits still because the wants keep changing. People constantly develop new needs and expect their partners to meet them, and a relationship that stops meeting them becomes expensive relative to the alternatives.</p>
+      <p>Explicit negotiation has hard limits. You cannot negotiate desire. Taraban's example: men frightened by sexless marriage statistics try to contract for frequency, and it fails, because even performed compliance kills the very desire the clause was meant to secure. Men do not want a partner who merely complies. They want a partner who enthusiastically wants them. Enthusiasm cannot be contracted, at work or at home. And the game does not run on gratitude: nothing you did twenty years ago banks credit today.</p>
+      <p>So the negotiation goes inexplicit. Subtlety and tact do the work that contracts cannot. He notes the social cost of saying this aloud. We prefer to pretend relationships run on love and altruism, and naming the machinery underneath violates the convention. The machinery runs whether named or not.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Tacit deals</p>
+        <h4>Negotiate tacitly</h4>
+        <p><span class="lbl">Source fact. </span>Taraban argues desire and enthusiasm cannot be contracted, so intimate negotiation must run inexplicit, with subtlety and tact.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Demanding the feeling destroys the feeling. The direct approach works on logistics and dies on longing.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Contract the concrete. Court the rest. Never confuse the two ledgers.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cowardice" data-time="Part 5" data-title="Cowardice and leadership">
+      <p class="ch-time">Part 5</p>
+      <h2>Cowardice, Leadership, and the Pedestal</h2>
+      <div class="pull">
+        <blockquote>his greatest enemy is cowardice</blockquote>
+        <p class="who">Orion Taraban, on man's greatest enemy in the sexual marketplace · Episode transcript</p>
+      </div>
+      <p>Asked for man's greatest enemy, Taraban answers with one word. Men grow afraid: of approaching, of being seen as predators, of being recorded and shamed, and deeper, of leading. Raised on the 50 50 ideal, men try to give women what they assume women want, which is deference: what do you want to do, let us discuss it. He argues many women want the opposite, a man who leads the relationship, because they feel safe to the extent they trust his competence to direct it.</p>
+      <p>The pedestal is the other trap. Worship puts a woman in the adored role and robs her of the adorer's experience, the feeling of being with someone she looks up to. Many women cannot stay where they are only ever looked up to.</p>
+      <div class="pull">
+        <blockquote>the fastest way to lose a woman is to make them the center of your universe</blockquote>
+        <p class="who">Orion Taraban · Episode transcript, leadership section</p>
+      </div>
+      <figure>
+        <img src="assets/ep06-instagram.webp" alt="Watercolor illustration of an attractive life seen through an arched window">
+        <p class="caption"><b>Illustration.</b> The curated peephole: a lifestyle worth watching, framed like a window. AI-generated watercolor, made for this page. No text appears in the image.</p>
+      </figure>
+      <p>He closes the loop to episode one of this track. "the best dating app in the world right now is Instagram", because a man can build a curated peephole into a lifestyle worth watching. Value made visible, attention made earned.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Leadership</p>
+        <h4>Lead or lose</h4>
+        <p><span class="lbl">Source fact. </span>Taraban names cowardice as man's greatest enemy and argues many women want a man who leads, while pedestal worship drives them away.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Deference feels safe to give and reads as drift to receive. Nobody relaxes inside someone else's hesitation.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Direct with calm. Decide, own the call, and let her trust the helm.</p>
+      </div>
+      <div class="takeaways">
+        <h3>Takeaways</h3>
+        <ol>
+          <li>Accept trade-offs. There are no pure solutions in dating, only priced choices.</li>
+          <li>Read the app market honestly. When both sides misprice the same good, get off the market.</li>
+          <li>Unbundle the marriage. List the jobs, then design the arrangement around real needs.</li>
+          <li>Negotiate the concrete in words and the intimate in tact. Desire cannot be contracted.</li>
+          <li>Stop worshipping. Lead with calm competence and keep value visible.</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Leveling Up episode "Modern Dating Is Impossible, Here's The Playbook" with Dr Orion Taraban (uploaded 2024-04-11, 493,309 views, 6,484 seconds, video id jEjPD_m0ecQ, numbers verified 2026-10-06 via yt-dlp). All facts and figures come from the episode transcript or from that verified metadata. Demographic and career figures are Taraban's stated numbers, presented as his reading. Each chart names its source line.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 44 words: three pull quotes (8, 5, and 16 words), "the best dating app in the world right now is Instagram" (11 words), and "there are only trade-offs" (4 words). Each was verified verbatim against the transcript. Lines about gratitude and desire appear in paraphrase because the transcript's exact wording uses contractions. Everything else is original paraphrase and analysis.</p>
+      <p><b>On images.</b> The two illustrations are AI-generated watercolors made for this page and labeled as illustrations. No real photographs are used: the source is a contemporary podcast with no historical photographs to show.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- chart: store count ---------- */
+  (function(){
+    var pts = [
+      ['1979',3,'3 stores: two open in June, a third by year end'],
+      ['1981',4,'4 stores at the IPO'],
+      ['1984',31,'31 stores across GA, FL, TX'],
+      ['1986',60,'60 stores; $1B in sales'],
+      ['1989',118,'118 stores; passes Lowe\'s'],
+      ['2000',1100,'1,100 stores; $40B revenue'],
+      ['2006',2000,'2,000 stores under Nardelli'],
+      ['2008',2300,'2,300 stores; Blake freezes expansion'],
+      ['2026',2400,'2,400 stores today']
+    ];
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var W=680,H=360,pl=56,pr=20,pt=20,pb=44;
+    var xs = pts.map(function(p,i){ return pl + i*(W-pl-pr)/(pts.length-1); });
+    function y(v){ var max=2500; return pt + (1 - v/max)*(H-pt-pb); }
+    var grid = document.getElementById('store-grid');
+    [0,500,1000,1500,2000,2500].forEach(function(v){
+      var ln = document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',pl); ln.setAttribute('x2',W-pr);
+      ln.setAttribute('y1',y(v)); ln.setAttribute('y2',y(v));
+      ln.setAttribute('class','gridln'); grid.appendChild(ln);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x',pl-8); t.setAttribute('y',y(v)+4);
+      t.setAttribute('text-anchor','end'); t.setAttribute('class','axis');
+      t.textContent = v.toLocaleString(); grid.appendChild(t);
+    });
+    var poly = document.getElementById('store-line');
+    poly.setAttribute('points', pts.map(function(p,i){ return xs[i].toFixed(1)+','+y(p[1]).toFixed(1); }).join(' '));
+    var dots = document.getElementById('store-dots');
+    pts.forEach(function(p,i){
+      var c = document.createElementNS(svgNS,'circle');
+      c.setAttribute('cx',xs[i]); c.setAttribute('cy',y(p[1])); c.setAttribute('r',6);
+      c.setAttribute('fill','#b4531f'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','2');
+      c.setAttribute('data-tip', p[0]+': '+p[2]);
+      c.style.cursor='pointer'; dots.appendChild(c);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x',xs[i]); t.setAttribute('y',H-24);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = p[0]; dots.appendChild(t);
+      if(i%2===0){
+        var v = document.createElementNS(svgNS,'text');
+        v.setAttribute('x',xs[i]); v.setAttribute('y',y(p[1])-12);
+        v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+        v.textContent = p[1].toLocaleString(); dots.appendChild(v);
+      }
+    });
+    dots.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+    });
+  })();
+
+  /* ---------- chart: market share pie ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var data=[['Home Depot',51,'#b4531f','Home Depot: 51% of US home improvement stores'],
+              ['Lowe\'s',29,'#d8c9a8','Lowe\'s: 29%'],
+              ['Menards',5,'#8a7c66','Menards: under 5%'],
+              ['Others',15,'#e8e0cf','All others: about 15% (derived)']];
+    var g=document.getElementById('pie'), total=100, a0=-Math.PI/2, R=120;
+    data.forEach(function(d){
+      var a1=a0+(d[1]/total)*Math.PI*2;
+      var x0=R*Math.cos(a0), y0=R*Math.sin(a0), x1=R*Math.cos(a1), y1=R*Math.sin(a1);
+      var large=(a1-a0)>Math.PI?1:0;
+      var p=document.createElementNS(svgNS,'path');
+      p.setAttribute('d','M0,0 L'+x0.toFixed(1)+','+y0.toFixed(1)+' A'+R+','+R+' 0 '+large+' 1 '+x1.toFixed(1)+','+y1.toFixed(1)+' Z');
+      p.setAttribute('fill',d[2]); p.setAttribute('stroke','#fff'); p.setAttribute('stroke-width','2');
+      p.setAttribute('data-tip',d[3]); p.style.cursor='pointer';
+      g.appendChild(p); a0=a1;
+      p.addEventListener('mousemove',function(ev){showTip(d[3],ev.clientX,ev.clientY);});
+      p.addEventListener('mouseleave',hideTip);
+    });
+  })();
+
+  /* ---------- chart: home age bars ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var data=[['1980',23,'Median home age in 1980: 23 years. Postwar building kept the stock young.'],
+              ['1990',25,'1990: 25 years'],
+              ['2000',30,'2000: 30 years'],
+              ['2010',33,'2010: 33 years'],
+              ['Today',42,'Today: 42 years. Old houses need constant repair.']];
+    var g=document.getElementById('homeage-bars');
+    var W=640,H=340,pt=30,pb=60,bw=70,gap=(W-60)/data.length;
+    function y(v){ return pt+(1-v/50)*(H-pt-pb); }
+    [0,10,20,30,40,50].forEach(function(v){
+      var ln=document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',40);ln.setAttribute('x2',W-20);ln.setAttribute('y1',y(v));ln.setAttribute('y2',y(v));
+      ln.setAttribute('class','gridln');g.appendChild(ln);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',32);t.setAttribute('y',y(v)+4);t.setAttribute('text-anchor','end');
+      t.setAttribute('class','axis');t.textContent=v;g.appendChild(t);
+    });
+    data.forEach(function(d,i){
+      var x=40+i*gap+(gap-bw)/2;
+      var r=document.createElementNS(svgNS,'rect');
+      r.setAttribute('x',x);r.setAttribute('y',y(d[1]));r.setAttribute('width',bw);
+      r.setAttribute('height',H-pb-y(d[1]));r.setAttribute('class','bar');
+      r.setAttribute('data-tip',d[2]);r.style.cursor='pointer';g.appendChild(r);
+      var v=document.createElementNS(svgNS,'text');
+      v.setAttribute('x',x+bw/2);v.setAttribute('y',y(d[1])-10);v.setAttribute('text-anchor','middle');
+      v.setAttribute('class','vallab');v.textContent=d[1];g.appendChild(v);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',x+bw/2);t.setAttribute('y',H-36);t.setAttribute('text-anchor','middle');
+      t.setAttribute('class','axis');t.textContent=d[0];g.appendChild(t);
+    });
+    g.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove',function(ev){showTip(el.getAttribute('data-tip'),ev.clientX,ev.clientY);});
+      el.addEventListener('mouseleave',hideTip);
+    });
+  })();
+
+  /* ---------- chart: IPO gridlines ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var g=document.getElementById('ipo-grid');
+    [0,1,2,3,4,5,6,7].forEach(function(e){
+      var val=Math.pow(10,e)*1000, ypos=290-(e/7)*240;
+      var ln=document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',60);ln.setAttribute('x2',600);ln.setAttribute('y1',ypos);ln.setAttribute('y2',ypos);
+      ln.setAttribute('class','gridln');g.appendChild(ln);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',52);t.setAttribute('y',ypos+4);t.setAttribute('text-anchor','end');
+      t.setAttribute('class','axis');
+      t.textContent=['$1K','$10K','$100K','$1M','$10M','$100M','$1B','$10B'][e];
+      g.appendChild(t);
+    });
+  })();
+})();
+
+</script>
+</body>
+</html>
