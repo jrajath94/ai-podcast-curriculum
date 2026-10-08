@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catching the Cloud: Rick Rubin | Huberman Lab Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Rick Rubin: the cloud rule, the body signal, the antenna, combinations, the aperture, the four phases, self-doubt, and the conveyor belt.">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f4efe3; --ink:#23201a; --muted:#6e6455;
+    --line:#e0d6c0; --accent:#2f6f8f; --accent-ink:#1f5068; --soft:#e9f1f4;
+    --warn:#8a5a1d;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0ec}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:22px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.src{background:#dff0f7;color:var(--accent-ink);border:1px solid #bcd9e4}
+  .tag.int{background:#f5e8d4;color:var(--warn);border:1px solid #e3cda1}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .gap{background:#fdf6ec;border:1px dashed #d9b98a;padding:16px 20px;margin:26px 0;
+    font-family:var(--sans);font-size:13.5px;color:#6b5636;line-height:1.6}
+  .gap b{color:#4a3a22}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Huberman Lab · Track Companion</a>
+  <span class="sub">Episode 9 · Rick Rubin · 2023-01-16</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode 9 · Companion</p>
+      <h1>Catching the Cloud</h1>
+      <p class="dek">Rick Rubin gives you a working creator's operating manual: catch every idea like weather, read the body's signal, run four phases with different rules each, and doubt your way to a masterpiece. This companion follows the conversation in order.</p>
+      <img src="assets/ep09-hero-cloud-catch.webp" alt="Watercolor illustration of a person reaching for drifting clouds while holding an open notebook">
+      <p class="caption"><b>Illustration.</b> Ideas are weather: catch them or lose them. Made for this page. AI-generated watercolor in a New Yorker style, made for this page. It carries no words or labels.</p>
+      <div class="legend"><b>How to read this companion.</b>
+        Claims tagged <span class="tag src">SOURCE</span> trace to the episode or its transcript.
+        Claims tagged <span class="tag int">INTERPRETATION</span> are analysis added by this companion.
+        Numbers name their source line. Anything the episode never says is marked <b>Not in source</b>.</div>
+      <div class="stats">
+<div class="stat"><div class="n">1 min</div><div class="l">the capture rule: log every idea within a minute</div><div class="s">Episode claim, cloud section</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">phases of work, each with its own rules</div><div class="s">Transcript, phases section</div></div>
+        <div class="stat"><div class="n">67</div><div class="l">shades of red the mantis shrimp sees per one we see</div><div class="s">Transcript, filters section</div></div>
+        <div class="stat"><div class="n">22 yrs</div><div class="l">Rubin's vegan stretch before he changed his diet</div><div class="s">Transcript, closing section</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/ycOBZZeVeAc" title="Huberman Lab episode 9 with Rick Rubin, official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video on youtube-nocookie, the only external dependency on this page. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Write it down</a></li>
+          <li><a href="#nugget-2">The cloud rule</a></li>
+          <li><a href="#nugget-3">The body signal</a></li>
+          <li><a href="#nugget-4">Tune the antenna</a></li>
+          <li><a href="#nugget-5">Originality lives in the choice</a></li>
+          <li><a href="#nugget-6">Taste cannot be taught</a></li>
+          <li><a href="#nugget-7">Change the aperture</a></li>
+          <li><a href="#nugget-8">Total focus, total distance</a></li>
+          <li><a href="#nugget-9">Four phases</a></li>
+          <li><a href="#nugget-10">Self-doubt as a tool</a></li>
+          <li><a href="#nugget-11">The conveyor belt</a></li>
+        </ol>
+      </div>
+    </div>
+<section class="chapter" id="ch-cloud">
+  <div class="chip">Opening · the capture habit</div>
+  <h2>Ideas are a cloud</h2>
+  <p><span class="tag s">SOURCE FACT</span> Huberman opens with the anchor story: the musician Joe Strummer once blurted out in an interview that if you have an idea, you have to write it down. You may end up throwing it away, but if you wait, it will be gone. Huberman built a whole capture system around that line. Rubin answers with the dream version of the same rule: dreams do not make sense, and if you start writing them down, they come back. They arrive as abstract images you may never fully understand. That is exactly how art-making works: you search for a feeling in yourself and you follow it.</p>
+  <div class="nugget" id="nugget-1">
+    <h4>Nugget 1 · Write it down</h4>
+    <p><span class="tag s">SOURCE FACT</span> An idea appears with a shape, changes shape, then is gone, usually within the hour. <span class="tag i">INTERPRETATION</span> Writing is the only part you control. Memory is not a capture system.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> The practical consequence: your phone note, a voice memo, a scrap of paper all count. The only system that fails is the one that lives in your head. Rubin adds the motive rule: he learns things because they interest him, not because he plans to use them. Most of his notes are for no one else. The interesting things find their way into projects on their own.</p>
+  <div class="nugget" id="nugget-2">
+    <h4>Nugget 2 · The cloud rule</h4>
+    <p><span class="tag s">SOURCE FACT</span> Capture within the minute, even if you throw the note away later. <span class="tag i">INTERPRETATION</span> Collect for interest, not for use. The interesting things join projects by themselves.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-body">
+  <div class="chip">Early-middle · the body's signal</div>
+  <h2>Creativity is a body signal, not a thought</h2>
+  <p><span class="tag s">SOURCE FACT</span> Rubin locates creativity in the body. When he is near something worth making, he feels it as a physical event: a surge of energy, a feeling of excitement or enthusiasm or curiosity, a leaning forward. The signal has no single location, and intellect does not generate it. Asked whether it is a thought or a sensation, he answers: “It’s a feeling in my body.”</p>
+  <div class="nugget" id="nugget-3">
+    <h4>Nugget 3 · The body signal</h4>
+    <p><span class="tag s">SOURCE FACT</span> The signal arrives as feeling first: the surge, the leaning forward. <span class="tag i">INTERPRETATION</span> If you try to think your way to a creative idea, you use the wrong organ. The thinking comes later, when you shape what you caught.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> This is why language fails the creative process. Huberman notes that words may be the wrong instrument entirely, like trying to reach prime numbers with even numbers. Rubin agrees and gives the line that organizes the whole episode:</p>
+  <blockquote>I think language is insufficient to drill down on creativity. It’s closer to magic than it is science.</blockquote>
+  <p class="attrib">Rick Rubin.</p>
+  <figure>
+    <img src="assets/ep09-antenna.webp" alt="Watercolor illustration of a meditating person as a radio antenna receiving waves from the sky">
+    <figcaption>The antenna: we cannot create the source, only receive it. Made for this page.</figcaption>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> Rubin names the larger frame: the source. The source is the organizing principle of everything: how the trees grow, why there are mountains. Every discovery, every piece of art, every new design, every machine is an outgrowth of this source energy. Our part is the antenna: we are the vehicle through which the source lets things happen in the world. Huberman adds the boundary condition: the physical world is constrained by the laws of physics, and the imagination is unconstrained. The work sits between the two.</p>
+  <div class="nugget" id="nugget-4">
+    <h4>Nugget 4 · Tune the antenna</h4>
+    <p><span class="tag s">SOURCE FACT</span> You cannot force the source. You can only tune the antenna. <span class="tag i">INTERPRETATION</span> Attention, presence, and capture are the tuning knobs.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-combinations">
+  <div class="chip">Middle · combinations and the aperture</div>
+  <h2>New ideas are new combinations</h2>
+  <p><span class="tag s">SOURCE FACT</span> Rubin rejects the romance of pure invention. The most interesting things, he says, are familiar elements joined together in a way he has never seen before. A new combination of existing ideas, presented in a new way. <span class="tag i">INTERPRETATION</span> The search space is enormous. Illustrative arithmetic on the analogy: five elements chosen from one hundred give over 75 million possible combinations. Originality is a search problem, not a creation problem. Originality lives in the choosing, not in the inventing.</p>
+  <div class="nugget" id="nugget-5">
+    <h4>Nugget 5 · Originality lives in the choice</h4>
+    <p><span class="tag s">SOURCE FACT</span> Familiar elements joined in a way never seen before. <span class="tag i">INTERPRETATION</span> Illustrative arithmetic on the analogy: 100 choose 5 gives 75,287,520 possible works. You do not need to generate matter from nothing. You need to notice combinations that have not been tried.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> Children are more creative than adults by design: open, no baggage, no belief system. They do not know how things are supposed to work, so they see what is. Adults filter the endless stream of data, then add rules about right and wrong and role models to imitate. Every rule is a filter. On taste, Huberman's mentor said the one thing he cannot teach is taste, and the one predictor of people who will never develop it is perfectionists who filter their choices through the feedback of others. Rubin's version: he makes what he likes, or what he wishes existed as a fan. If he undermined his taste for a commercial idea, the whole process would defeat its own purpose.</p>
+  <div class="nugget" id="nugget-6">
+    <h4>Nugget 6 · Taste cannot be taught</h4>
+    <p><span class="tag s">SOURCE FACT</span> Perfectionists who filter through others' feedback never develop taste. <span class="tag i">INTERPRETATION</span> Make what you like, or what you wish existed. Commercial work made to please others is a real skill, but it is a commercial endeavor, not art.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> The closest thing to a mechanism in the episode: change the aperture. When an animal narrows its visual field to eat, mate, or find water, the playbook narrows with it. To get a new creative idea, the aperture must differ from the standard setting, by broadening or by narrowing. The changed aperture lets you present something new that you already knew but did not know you knew. The comedian is the cleanest example: a comedian makes you laugh by saying something outrageous that you recognize as true. Nobody said it that way before.</p>
+  <div class="nugget" id="nugget-7">
+    <h4>Nugget 7 · Change the aperture</h4>
+    <p><span class="tag s">SOURCE FACT</span> Broaden or narrow, anything but standard. The truth was always there. The angle was new. <span class="tag i">INTERPRETATION</span> The superpower underneath: accepting that we do not know anything. When you think you know how things work, that belief limits the world to a small box.</p>
+  </div>
+  <figure class="chart">
+    <svg viewBox="0 0 640 300" role="img" aria-label="Diagram showing the aperture change from standard to new angle">
+      <text x="20" y="30" class="t">Change the aperture</text>
+      <text x="20" y="48" class="c">Same material, new angle. Episode claim.</text>
+      <circle cx="150" cy="160" r="60" class="bar" fill="#8ecae6"/>
+      <circle cx="150" cy="160" r="18" class="dot"/>
+      <text x="115" y="245" class="c">standard aperture</text>
+      <text x="110" y="265" class="c">narrow playbook</text>
+      <text x="300" y="165" class="t">change it</text>
+      <text x="300" y="185" class="c">broaden or narrow</text>
+      <circle cx="490" cy="160" r="90" class="bar" fill="#ffb703"/>
+      <circle cx="490" cy="160" r="30" class="dot"/>
+      <text x="455" y="245" class="c">changed aperture</text>
+      <text x="450" y="265" class="c">the obvious, newly seen</text>
+    </svg>
+    <div class="csrc">Source: episode claims (Huberman Lab, Rick Rubin, 2023-01-16)</div>
+    <div class="csub">Stylized diagram. The rule is change from standard, not change in one direction.</div>
+  </figure>
+</section>
+
+<section class="chapter" id="ch-process">
+  <div class="chip">Middle-late · engagement and the four phases</div>
+  <h2>Total focus, then total distance</h2>
+  <p><span class="tag s">SOURCE FACT</span> Rubin's daily process has two halves with opposite rules. During engagement, he gives the project all of himself for the period, whether twenty minutes or five hours, with no outside distraction. When he leaves, he disengages completely: no materials come home, he does not listen to works in progress during the day, and he fills the gap with a different project that gets all of himself. The reason: to stew over a problem is not the way to solve a problem. Hold problems lightly. The subconscious keeps working while you are gone.</p>
+  <div class="nugget" id="nugget-8">
+    <h4>Nugget 8 · Total focus, total distance</h4>
+    <p><span class="tag s">SOURCE FACT</span> Engagement: total attention, 20 minutes to 5 hours. Disengagement: zero materials home, a different project. <span class="tag i">INTERPRETATION</span> One exception: when something good starts, glance at the technical side to capture the take, because that take may never happen again. Once the flow is on, never break it.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> Every project starts with anxiety. Rubin is blunt: he is always anxious at the start because he has no idea what will happen, and he knows he cannot make it happen. And it has never not come. Once the first thread appears, the map forms. Rubin calls it the your-location mark: you still cannot see the directions, but knowing where you are feels okay. Rubin reverse-engineered his career into four phases with different rules. Seed collecting is always on, no deadlines: anything that interests you. Experimentation: plant the seed, water it, wait. You cannot make it grow. There are no deadlines. Crafting: trim, combine, shape. Near the end you can see the finish and even dictate it. Completion: the final edit you can share. Deadlines are allowed here: internal only, never public, because a public deadline traps you if a late discovery would make the work much better.</p>
+  <div class="nugget" id="nugget-9">
+    <h4>Nugget 9 · Four phases</h4>
+    <p><span class="tag s">SOURCE FACT</span> Seeds, experiments, craft, completion: deadlines go from never to internal-only. <span class="tag i">INTERPRETATION</span> The phases interleave and you never leave phase one. The next project is the finishing engine: wanting it pulls the current one across the line.</p>
+  </div>
+  <figure class="chart">
+    <svg viewBox="0 0 640 320" role="img" aria-label="Chart showing the four phases of work with deadline rules">
+      <text x="20" y="30" class="t">The four phases, each with its own rules</text>
+      <text x="20" y="48" class="c">Treating all phases alike is how projects run years late. Episode claim.</text>
+      <text x="20" y="90" class="t">1. SEED COLLECTING</text>
+      <text x="20" y="112" class="c">notice and gather what interests you</text>
+      <text x="20" y="132" class="c">deadline: never</text>
+      <text x="330" y="90" class="t">2. EXPERIMENTATION</text>
+      <text x="330" y="112" class="c">set the stage, wait, watch it grow</text>
+      <text x="330" y="132" class="c">deadline: never</text>
+      <text x="20" y="180" class="t">3. CRAFTING</text>
+      <text x="20" y="202" class="c">trim, combine, shape the material</text>
+      <text x="20" y="222" class="c">deadline: emerging</text>
+      <text x="330" y="180" class="t">4. COMPLETION</text>
+      <text x="330" y="202" class="c">final edit, ship the version</text>
+      <text x="330" y="222" class="c">deadline: yes, internal only</text>
+      <rect x="20" y="250" width="600" height="26" class="bar" fill="#8ecae6"/>
+      <text x="35" y="268" class="c">phase one never ends. The next project pulls the current one finished</text>
+    </svg>
+    <div class="csrc">Source: episode claims (Huberman Lab, Rick Rubin, 2023-01-16)</div>
+    <div class="csub">Stylized phase map. The bar shows the through-line: you never leave phase one.</div>
+  </figure>
+</section>
+
+<section class="chapter" id="ch-doubt">
+  <div class="chip">Late · doubt, attention, and the filters</div>
+  <h2>Self-doubt is a tool, not a flaw</h2>
+  <p><span class="tag s">SOURCE FACT</span> Huberman reads the first sentence of the book's chapter on self-doubt: self-doubt lives in all of us, and while we may wish it was gone, it is there to serve us. Rubin treats doubt as a balancing instrument. Used well, it keeps you honest: is this the best it can be? His line: “You can doubt your way to a great work, to a masterpiece.” Used badly, it stops you from making anything, and that is the failure mode to avoid. Success mirrors the problem: some feel pressure to repeat, others get arrogant and stop applying themselves.</p>
+  <div class="nugget" id="nugget-10">
+    <h4>Nugget 10 · Self-doubt as a tool</h4>
+    <p><span class="tag s">SOURCE FACT</span> Doubt used well asks whether this is the best it can be. Doubt used badly paralyzes or, after success, becomes arrogance. <span class="tag i">INTERPRETATION</span> Confidence applies itself and still doubts. Arrogance assumes it comes easily and stops working.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> On whether you need to be happy to create, Rubin redirects: what matters most is the ability to stay present in the work. How you feel is less of an issue, unless how you feel gets in the way of feeling how the work makes you feel. Attention beats happiness. The episode's most unsettling section follows: perception is limited (the mantis shrimp sees 67 shades of red for every one we see), the brain works in symbols, and memory is confabulated. Rubin's summary, from a text he once sent Huberman: it is all lies, back to nature, the only truth. His point is not that people lie: everyone reports what they see, and what they see is low-resolution, so the report is made up without anyone intending to deceive.</p>
+  <p><span class="tag s">SOURCE FACT</span> The book's standing instruction: entertain the idea of the opposite being true. The nervous system already works this way: color exists only by contrast, night exists only against day. Force the eyes to hold still and the image disappears. Sit in a chair and you stop feeling your thighs. Walk into a room and the smell fades within minutes. The neurons keep firing. You go blind and deaf to it.</p>
+</section>
+
+<section class="chapter" id="ch-closing">
+  <div class="chip">Closing · belief, advice, and the conveyor belt</div>
+  <h2>The conveyor belt and the clues</h2>
+  <p><span class="tag s">SOURCE FACT</span> Three closing principles. Belief is a tool: people who believe they can make something great raise their chances. Advice is autobiography: an experienced person's advice is built from their data points, not yours. Gatekeepers protect the current story: every field is run by a small cabal with an investment in keeping things as they are. Rubin's response is empiricism: try any idea that sounds interesting, and if it fails, try something else. He likes the more unrealistic-seeming ideas best, because those may sit closest to something somebody does not want known.</p>
+  <p><span class="tag s">SOURCE FACT</span> The closing image: everything is here, we get to pick and choose. A conveyor belt goes by with little gifts on it. First you notice there is a belt. Then you notice the gifts. Then you feel empowered to grab one, open it, and see what is inside. The operational version is the book's chapter on looking for clues: a phrase triggers a thought, someone recommends something, three people recommend the same thing. Huberman's lab-wall version, attributed to Strummer: no input, no output. You cannot sit in an empty room and create. The world has to come in first.</p>
+  <div class="nugget" id="nugget-11">
+    <h4>Nugget 11 · The conveyor belt</h4>
+    <p><span class="tag s">SOURCE FACT</span> The belt goes by with gifts. Notice the belt, notice the gifts, grab one, open it. <span class="tag i">INTERPRETATION</span> You cannot command ideas to arrive. You can command yourself to be ready.</p>
+  </div>
+</section>
+
+    <div class="takeaways">
+      <h3>Takeaways</h3>
+      <ol>
+<li>Ideas are a cloud: write them down the moment they appear. Memory is not a capture system.</li>
+      <li>The creative signal is a body feeling, not a thought. Language arrives after the feeling.</li>
+      <li>Run the four phases: collect seeds, experiment, craft, complete. Each phase has its own deadline rules.</li>
+      <li>Self-doubt is a tool: use it to ask whether this is the best it can be, never to stop making.</li>
+      <li>Consider the inverse, distrust your certainty, and finish by letting the next project pull you across the line.</li>
+      </ol>
+    </div>
+    <footer>
+      <p><b>Sources.</b> This companion narrates Huberman Lab Episode 9, How to Access Your Creativity with Rick Rubin (2023-01-16, video ycOBZZeVeAc), centered on his book The Creative Act. All facts and figures come from the episode transcript (cleaned captions, not verbatim-certified) and the episode page in this track. Each chart names its source line. Illustrations are AI-generated watercolors made for this page. No real photograph of the guest could be verified from an authoritative source, so this companion uses illustrations only. Transcripts carry no timestamps, so chapters are ordered by episode progression instead of clock time.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 36 words: one pull quote of 18 words on language and creativity, plus two short episode phrases of six and twelve words. All carry attribution where they appear. The pull quotes carry speaker attribution and their place in the episode. Everything else is original paraphrase and analysis. The transcript used here is cleaned captions, not a verbatim-certified record, so brief quoted phrases reproduce its wording, not necessarily the exact spoken word.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var title = ch.getAttribute('data-title') || '';
+    a.innerHTML = (t ? '<span class="t">' + t + '</span>' : '') + title;
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function onScroll(){
+    var best = null, by = 160;
+    chapters.forEach(function(ch){
+      var r = ch.getBoundingClientRect();
+      if (r.top <= by) best = ch;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', best && a.getAttribute('href') === '#' + best.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
