@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA Part III: The Dawn of the AI Era, Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Acquired's NVIDIA Part III: ChatGPT detonates, the H100 baseball card, the quantified CUDA moat, and the trillion-dollar question.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 10 &middot; NVIDIA III &middot; Sep 2023</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 10 &middot; Companion</p>
+      <h1>NVIDIA Part III: The Dawn of the AI Era</h1>
+      <p class="dek">The payoff of the trilogy. ChatGPT detonates, data center revenue jumps from $4 billion to $10 billion in quarters, NVIDIA crosses $1 trillion, and the episode asks the hardest question: does the moat persist? This companion follows the episode chapter by chapter, 2022 to 2023.</p>
+      <figure>
+        <img src="assets/ep10/illustration-ai-detonation.webp" alt="Watercolor illustration of a small spark erupting into a bloom of light">
+        <p class="caption"><b>Illustration.</b> The detonation: the AI heard around the world. AI-generated watercolor.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">$1T</div><div class="l">Market cap crossed in 2023, from under $300B a year earlier</div><div class="s">Episode ~01:39</div></div>
+        <div class="stat"><div class="n">$13.5B</div><div class="l">Q2 revenue, up 88% quarter over quarter, data center $10.3B</div><div class="s">Episode ~01:39</div></div>
+        <div class="stat"><div class="n">4M</div><div class="l">Registered CUDA developers by May 2023</div><div class="s">Episode ~02:17</div></div>
+        <div class="stat"><div class="n">70&rarr;72%</div><div class="l">Gross margin last quarter, forecasting next, versus 24% pre-CUDA</div><div class="s">Episode ~01:39</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/nFB-AILkamw" title="Acquired: Nvidia Part III (official episode audio)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Listen.</b> The official Acquired episode audio (about 3 hr 15 min). Times below are proportional estimates from the transcript, which carries no timestamps.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">They never said "generative"</a></li>
+          <li><a href="#nugget-2">The AI heard around the world</a></li>
+          <li><a href="#nugget-3">The scaling ladder</a></li>
+          <li><a href="#nugget-4">Training once, inference forever</a></li>
+          <li><a href="#nugget-5">The baseball card</a></li>
+          <li><a href="#nugget-6">The more you buy, the more you save</a></li>
+          <li><a href="#nugget-7">You say solution, I hear gross margin</a></li>
+          <li><a href="#nugget-8">The detonation quarter</a></li>
+          <li><a href="#nugget-9">Ten thousand person-years</a></li>
+          <li><a href="#nugget-10">The replication test</a></li>
+          <li><a href="#nugget-11">The flank or nothing</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps.</p>
+    </div>
+
+    <section class="chapter" id="ch-bleak" data-time="~00:02" data-title="The Bleakest Moment">
+      <p class="ch-time">~00:02</p>
+      <h2>The Bleakest Moment</h2>
+      <p><span class="tag fact">Source fact</span> Rewind to 2022. Financial markets fall off a cliff: rapid rate rises, the crypto and web3 bubble bursts, banks fail. NVIDIA takes a massive inventory write-off for over-ordering. In the hosts' April 2022 episodes, the word "generative" is never spoken once.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Timing</p>
+        <h4>They never said "generative"</h4>
+        <p><span class="lbl">What happened. </span>In April 2022, recording Parts I and II, the hosts never said the word "generative" once. Eighteen months later, NVIDIA crossed $1 trillion. The bleakest moment sat directly beside the detonation.</p>
+        <p><span class="lbl">Why it matters. </span>Narratives turn faster than anyone expects, twice. Nobody priced in the winter or the spring.</p>
+        <p><span class="lbl">The principle. </span>Write down your bleakest-moment thesis. Date it. Then watch how fast the story can invert.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-runway" data-time="~00:15" data-title="The 70-Year Runway">
+      <p class="ch-time">~00:15</p>
+      <h2>The 70-Year Runway</h2>
+      <p><span class="tag fact">Source fact</span> The episode rewinds through AI history to show this was not overnight. For decades, AI meant narrow tasks: the Google Brain team redoing the YouTube algorithm around 2013-2014, turning a money-losing acquisition into a juggernaut. AI-powered feed recommendations turned Instagram into a $100-500 billion asset for Meta. Real dollars, narrow models. Then two breakthroughs. First, data and algorithms at internet scale. Second, in 2017, Google Brain publishes "Attention Is All You Need", the Transformer. Machine learning on language had meant autocorrect and translation. The Transformer opened something new.</p>
+      <p>Then the scaling discovery: GPT-1 at about 120 million parameters, GPT-2 at 1.5 billion, GPT-3 at 175 billion, GPT-4 rumored at about 1.72 trillion. More parameters plus more data equals better next-word prediction, with a weird emergent property: models below about 10 billion parameters hallucinate and babble, past about 100 billion, they start to work. Transformer models scale well precisely because of parallelism: throw more data at training, and you can throw more parallel compute at it too. Parallelism is NVIDIA's home turf, twenty years in the making.</p>
+      <div class="chart" id="chart-scale">
+        <h4>The scaling ladder</h4>
+        <p class="csub">Parameters, log scale. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of GPT parameter counts">
+          <g id="scale-bars"></g>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part III, ~00:15. GPT-4 count is rumored.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Scaling</p>
+        <h4>The scaling ladder</h4>
+        <p><span class="lbl">What happened. </span>GPT-1: 120 million parameters. GPT-2: 1.5 billion. GPT-3: 175 billion. GPT-4: rumored 1.72 trillion. Each rung multiplied parameters by roughly ten, and capability jumped at each one.</p>
+        <p><span class="lbl">Why it matters. </span>Scaling is the whole story of 2017-2023. And transformers scale through parallelism, which is exactly NVIDIA's twenty-year-old home turf.</p>
+        <p><span class="lbl">The principle. </span>When a field's progress reduces to one input, own that input. NVIDIA owned parallel compute.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-funnel" data-time="~00:40" data-title="The OpenAI-Microsoft Funnel">
+      <p class="ch-time">~00:40</p>
+      <h2>The OpenAI-Microsoft Funnel</h2>
+      <p><span class="tag fact">Source fact</span> 2019: OpenAI converts to for-profit. Microsoft invests $1 billion and becomes the exclusive cloud provider. June 2020: GPT-3. September 2020: Microsoft licenses exclusive commercial use. 2021: GitHub Copilot. Microsoft invests another $2 billion. November 30, 2022: ChatGPT. January 2023: Microsoft invests another $10 billion, integrates GPT into everything. May 2023: GPT-4. Every step of this runs on NVIDIA GPUs in Microsoft's data centers, which is why the exclusive-cloud clause matters so much to NVIDIA's revenue line.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Economics</p>
+        <h4>Training once, inference forever</h4>
+        <p><span class="lbl">What happened. </span>Training happens once. Inference runs forever. The episode's analogy: training is like compressing a 3-gigabyte Photoshop file into a JPEG, the whole internet of text compressed into weights. The JPEG is far more useful per byte, but you can never get the layers back, so compress it right the first time.</p>
+        <p><span class="lbl">Why it matters. </span>The bear case lives in this distinction. NVIDIA dominates training. Inference is the perpetual workload, and it is more contested.</p>
+        <p><span class="lbl">The principle. </span>Split any compute market by phase: the one-time build and the forever run. The economics differ completely.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-detonation" data-time="~00:52" data-title="The AI Heard Around the World">
+      <p class="ch-time">~00:52</p>
+      <h2>The AI Heard Around the World</h2>
+      <div class="pull">
+        <blockquote>The AI heard around the world.</blockquote>
+        <p class="who">Jensen Huang's phrase for November 30, 2022, as quoted on the episode (~00:52).</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> November 30, 2022: ChatGPT launches. The fastest product in history to 100 million users, reached in January 2023. Jensen's phrase for the date: <q>the AI heard around the world</q>.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Moments</p>
+        <h4>The AI heard around the world</h4>
+        <p><span class="lbl">What happened. </span>ChatGPT hit 100 million users faster than any product in history. The spark landed on sixteen years of CUDA fuel: the 2006 every-GPU decision, the developer base, the booked supply chain.</p>
+        <p><span class="lbl">Why it matters. </span>Do not give ChatGPT alone the credit for NVIDIA's win. ChatGPT was the spark. Sparks do not compound. Fuel does.</p>
+        <p><span class="lbl">The principle. </span>When a miracle lands on your platform, credit the fuel, not the spark. Then keep buying fuel.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-h100" data-time="~01:22" data-title="The H100 Baseball Card">
+      <p class="ch-time">~01:22</p>
+      <h2>The H100 Baseball Card</h2>
+      <figure>
+        <img src="assets/ep10/h100.png" alt="Photograph of an NVIDIA H100 GPU">
+        <p class="caption"><b>Photo.</b> The H100, the $40,000 chip. Source: Wikimedia Commons, CC BY 3.0.</p>
+      </figure>
+      <figure>
+        <img src="assets/ep10/illustration-chip-weight.webp" alt="Watercolor illustration of a person straining to lift a huge chip">
+        <p class="caption"><b>Illustration.</b> The 70-pound baseball card: a quarter trillion transistors. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> In September 2022 NVIDIA splits its architectures: Hopper, named for Grace Hopper, for the data center H100, and Lovelace, Ada Lovelace, for consumer RTX 40xx cards. The H100 numbers: $40,000 per GPU, the price to Amazon, Google, Meta. 30x faster than the A100, only about 2.5 years older. 9x faster specifically for AI training, purpose-built for training LLMs. 18,500 CUDA cores, 640 tensor cores specialized for matrix multiplication, 80 streaming multiprocessors, close to 20,000 unique cores on one chip. A quarter trillion transistors across 35,000 parts. Weight: 70 pounds, Jensen jokes every keynote that he can barely lift it. It requires robots to assemble, and NVIDIA uses AI to design the chips themselves. Power: meaningfully higher energy usage than the A100. Each generation pushes the edge of physics and is constrained by physics.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Pricing</p>
+        <h4>The baseball card</h4>
+        <p><span class="lbl">What happened. </span>One H100: $40,000, 70 pounds, a quarter trillion transistors, about 20,000 cores, 9x the A100 at training. The episode prices the chip down to the transistor.</p>
+        <p><span class="lbl">Why it matters. </span>You do not pay for silicon. You pay for compute, compatibility with 4 million developers' code, and availability. In that order of negotiability.</p>
+        <p><span class="lbl">The principle. </span>Price any expensive tool in three layers: silicon, software, scarcity. The sticker price is the smallest of the three stories.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-bundle" data-time="~01:25" data-title="Bundle Economics: The DGX Stack">
+      <p class="ch-time">~01:25</p>
+      <h2>Bundle Economics: The DGX Stack</h2>
+      <div class="pull">
+        <blockquote>The more you buy, the more you save.</blockquote>
+        <p class="who">Jensen Huang's pitch line, as quoted on the episode (~01:25).</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> NVIDIA does not just sell chips. A DGX box, eight H100s with an ARM CPU and NVIDIA's networking, sells for $150,000-$300,000. A top-of-line DGX H100 system starts at $500,000. The hosts do the math: 8 x $40,000 = $320,000 in GPUs, so roughly $180,000 of the $500,000 is extra margin from selling the solution. Every bundling step up adds margin: the chips have margin, the system has margin on top. Then the DGX GH200 SuperPOD: 256 Grace Hopper DGX racks in one wall, "the AI wall," sold as the first turnkey AI data center. Pricing is "call us." The hosts estimate hundreds of millions of dollars. DGX Cloud rents it back: starting at $37,000 a month for an A100-based system. A listener estimated the build cost of an equivalent A100 DGX at about $120,000, rented at $37K a month. Public cloud pricing at recording: about $30 an hour for eight A100s, about $100 an hour for eight H100s.</p>
+      <p>Why customers accept it: buy the solution and every developer you already have runs CUDA on day one. "You say solution, I hear gross margin." Jensen's argument: yes, the hardware takes a ton of energy, but the alternative, doing the same work on general-purpose infrastructure, takes even more energy, more time, and more money. If the workloads happen anyway, accelerated computing is the energy-saving path.</p>
+      <div class="toy" id="toy-dgx">
+        <h4>Toy: the bundle margin</h4>
+        <p class="tsub">Do the DGX math the hosts did. Set the GPU price and the box price to see the integration margin. Illustrative model.</p>
+        <label for="gpu">Price per H100 ($) <span class="tval" id="gpu-v">40000</span></label>
+        <input type="range" id="gpu" min="20000" max="60000" value="40000" step="5000">
+        <label for="box">DGX box price ($) <span class="tval" id="box-v">500000</span></label>
+        <input type="range" id="box" min="300000" max="800000" value="500000" step="50000">
+        <div class="verdict" id="dgx-verdict"></div>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Pitches</p>
+        <h4>The more you buy, the more you save</h4>
+        <p><span class="lbl">What happened. </span>Jensen's pitch line reframes the most expensive chips on Earth as the energy-saving path: the alternative costs more time, more energy, more money. Buy the solution, and every developer runs CUDA on day one.</p>
+        <p><span class="lbl">Why it matters. </span>The reframe turns sticker shock into TCO logic. Customers do not buy chips. They buy the cheapest way to finish the workload.</p>
+        <p><span class="lbl">The principle. </span>Never defend the price. Defend the total cost of the alternative.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Margins</p>
+        <h4>You say solution, I hear gross margin</h4>
+        <p><span class="lbl">What happened. </span>Eight H100s cost $320,000. The DGX H100 box sells from $500,000. About $180,000 of pure integration margin, about 36 percent, for networking, software, and the removal of integration risk.</p>
+        <p><span class="lbl">Why it matters. </span>NVIDIA earns margin at every bundling step because each step delivers real value and there is no credible alternative bundle. The solution is the margin.</p>
+        <p><span class="lbl">The principle. </span>Bundle up the stack where you remove risk. Price the risk removed, not the parts included.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-earnings" data-time="~01:39" data-title="The Earnings Detonation">
+      <p class="ch-time">~01:39</p>
+      <h2>The Earnings Detonation</h2>
+      <p><span class="tag fact">Source fact</span> May 2023, Q1 FY24: revenue $7.2 billion, up 19 percent quarter over quarter, good, especially after the terrible end of 2022. Then the bombshell: forecasting Q2 at $11 billion on unprecedented generative-AI data center demand, up 53 percent quarter over quarter, 65 percent year over year. The stock pops 25 percent after hours. Context: $660 billion market cap in April 2022, crashed below $300 billion, now back over $1 trillion.</p>
+      <p>August 2023, Q2: total revenue $13.5 billion, up 88 percent quarter over quarter and over 100 percent year over year. Data center: $10.3 billion of the $13.5 billion, up 141 percent from Q1, up 171 percent year over year, for a segment that barely existed five years earlier. The hosts call it one of the most incredible earnings releases by any scaled public company ever. In three months they grew from about $4 billion to $10 billion of data center revenue. Revenue only happens when products ship to customers: this is not pre-orders, this is delivered product paid for.</p>
+      <p>Two structural details matter. First, concentration: about half of data-center revenue comes from cloud service providers, then consumer internet companies, then enterprises. Five to eight companies drive the number. NVIDIA owns the developer relationship through CUDA, but the customer relationship is intermediated by clouds. DGX Cloud, virtualized DGX rented through Azure, Oracle, and Google, with Hugging Face integration and an about 6-month capex payback, exists to fix exactly that. Second, the pitch got reframed: instead of 1 percent of a $100 trillion TAM, Jensen now points at $1 trillion of hard assets sitting in data centers worldwide, growing at $250 billion of annual capex, and NVIDIA as the most coherent platform for what those data centers become. Gross margin completes the story: 70 percent last quarter, forecasting 72 percent next, versus 24 percent in the pre-CUDA commoditized era.</p>
+      <div class="chart" id="chart-detonation">
+        <h4>The detonation quarter</h4>
+        <p class="csub">Revenue in billions. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of the earnings detonation">
+          <rect class="bar alt" x="80" y="160" width="100" height="100" data-tip="Q1 FY24 (May 2023): $7.2B, up 19% quarter over quarter."></rect>
+          <rect class="bar" x="225" y="104" width="100" height="156" data-tip="Q2 guide: $11B, up 53% quarter over quarter, 65% year over year. Stock pops 25% after hours."></rect>
+          <rect class="bar dark" x="370" y="44" width="100" height="216" data-tip="Q2 actual (Aug 2023): $13.5B, up 88% quarter over quarter. Data center $10.3B of it."></rect>
+          <rect class="bar" x="515" y="96" width="100" height="164" data-tip="Data center in Q2: $10.3B, up 141% from Q1, 171% year over year."></rect>
+          <text class="vallab" x="130" y="152" text-anchor="middle">$7.2B</text>
+          <text class="vallab" x="275" y="96" text-anchor="middle">$11B</text>
+          <text class="vallab" x="420" y="36" text-anchor="middle">$13.5B</text>
+          <text class="vallab" x="565" y="88" text-anchor="middle">$10.3B</text>
+          <text class="axis" x="130" y="282" text-anchor="middle">Q1</text>
+          <text class="axis" x="275" y="282" text-anchor="middle">Q2 guide</text>
+          <text class="axis" x="420" y="282" text-anchor="middle">Q2</text>
+          <text class="axis" x="565" y="282" text-anchor="middle">DC Q2</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part III, ~01:39. Data center went from about $4B to $10B in one quarter.</p>
+      </div>
+      <div class="chart" id="chart-mcap">
+        <h4>The market-cap arc</h4>
+        <p class="csub">Billions of dollars. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of market cap">
+          <rect class="bar alt" x="150" y="92" width="110" height="148" data-tip="April 2022: $660B. Before the detonation."></rect>
+          <rect class="bar" x="305" y="184" width="110" height="56" data-tip="Late 2022: under $300B. The bleakest moment."></rect>
+          <rect class="bar dark" x="460" y="40" width="110" height="200" data-tip="2023: over $1T. The detonation repriced it."></rect>
+          <text class="vallab" x="205" y="84" text-anchor="middle">$660B</text>
+          <text class="vallab" x="360" y="176" text-anchor="middle">&lt;$300B</text>
+          <text class="vallab" x="515" y="32" text-anchor="middle">$1T+</text>
+          <text class="axis" x="205" y="262" text-anchor="middle">Apr 2022</text>
+          <text class="axis" x="360" y="262" text-anchor="middle">late 2022</text>
+          <text class="axis" x="515" y="262" text-anchor="middle">2023</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part III, ~01:39.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Earnings</p>
+        <h4>The detonation quarter</h4>
+        <p><span class="lbl">What happened. </span>$7.2 billion in revenue, a guide to $11 billion, then $13.5 billion actual. Data center: $10.3 billion, up 141 percent in one quarter. The stock popped 25 percent after hours.</p>
+        <p><span class="lbl">Why it matters. </span>Revenue only happens when products ship to customers. This was delivered product, paid for, not pre-orders. The hosts call it one of the most incredible earnings releases ever.</p>
+        <p><span class="lbl">The principle. </span>Judge a detonation by delivered revenue, not guidance. Shipments convert skeptics. Announcements do not.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-moat" data-time="~02:17" data-title="The Moat, Quantified">
+      <p class="ch-time">~02:17</p>
+      <h2>The Moat, Quantified</h2>
+      <figure>
+        <img src="assets/ep10/illustration-moat-castle.webp" alt="Watercolor illustration of a castle across a wide moat with a tiny figure at the edge">
+        <p class="caption"><b>Illustration.</b> The quantified moat: a decade deep, still compounding. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Three quantifications. One, CUDA developers. Released 2006. Four years to the first 100,000 developers. 1 million by 2016. 2 million just two years later. 3 million in 2022. 4 million registered developers by May 2023. The curve goes vertical exactly when AI does. Two, person-years. Ben estimates CUDA headcount per year since 2006 and integrates: approximately 10,000 person-years of engineering have gone into CUDA. The iOS-vs-Android analogy: Apple had an 18-month lead and Android nearly caught up. NVIDIA has a 10-to-15-year lead with thousands of engineers still compounding it. Three, installed base. The 2006 decision that every GPU shipping would be fully CUDA-capable means 500 million CUDA-capable GPUs in the world for developers to target. A scale economy feeding a network economy.</p>
+      <div class="chart" id="chart-devs">
+        <h4>The CUDA developer curve</h4>
+        <p class="csub">Registered developers. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of CUDA developer growth">
+          <g id="dev-bars"></g>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part III, ~02:17. The curve goes vertical exactly when AI does.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Moats</p>
+        <h4>Ten thousand person-years</h4>
+        <p><span class="lbl">What happened. </span>Ben integrates his estimated CUDA headcount since 2006: about 10,000 person-years of engineering. With thousands of engineers still compounding it, the lead is a 10-to-15-year one.</p>
+        <p><span class="lbl">Why it matters. </span>Catching up is not a money problem. It is a time problem. Even with unlimited budget, you cannot hire 10,000 experienced GPU-software engineers instantly, and their work compounds.</p>
+        <p><span class="lbl">The principle. </span>Quantify moats in person-years, not adjectives. Vague moat claims die on contact with three numbers.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Defense</p>
+        <h4>The replication test</h4>
+        <p><span class="lbl">What happened. </span>To match NVIDIA a competitor must book TSMC's advanced CoWoS packaging capacity, 10-15 percent of TSMC's total capacity, custom-built, years to add, most of it reserved, reproduce 10,000 person-years of CUDA-quality software, and survive the years that takes while NVIDIA keeps shipping.</p>
+        <p><span class="lbl">Why it matters. </span>The moat is denominated in person-years, developer count, and booked supply-chain capacity. None of those can be bought quickly. Money is the least of the blockers.</p>
+        <p><span class="lbl">The principle. </span>Run the replication test on any dominant supplier: money cost, time cost, supply-chain bookings. Find the true blocker.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-china" data-time="~02:45" data-title="China and Export Controls">
+      <p class="ch-time">~02:45</p>
+      <h2>China and Export Controls</h2>
+      <p><span class="tag fact">Source fact</span> Mainland China was 25 percent of NVIDIA's revenue: hyperscalers like Baidu, Alibaba, Tencent. In September 2022 the Biden administration's export controls barred sales of H100s and A100s to China, so NVIDIA created detuned variants, the A800. Geopolitics is now a first-order variable in the bull and bear math. It also showed pricing power: customers accepted lesser chips because even detuned NVIDIA beats the alternative.</p>
+    </section>
+
+    <section class="chapter" id="ch-bearbull" data-time="~03:00" data-title="Bear vs Bull: The Flank or Nothing">
+      <p class="ch-time">~03:00</p>
+      <h2>Bear vs Bull: The Flank or Nothing</h2>
+      <p><span class="tag fact">Source fact</span> The episode steelmans both sides. Bear case one, the prize invites attack: data-center GPUs are a ~$30 billion-a-year market heading to ~$50 billion. Too many margin dollars for giants to ignore. Every moat is tested when the castle gets rich. Bear case two, the inference shift: models train once, then run forever. If compute shifts from training, where NVIDIA dominates, to inference, where it is less differentiated, the moat narrows. The bull case: Andreessen was right in 2015-2016. Data center is ~$10.3B of $13.5B quarterly revenue. NVIDIA's share of data-center spend, about 20 percent of a $50B+ run-rate, can keep creeping up. And the replication test is the real bull case: the moat is denominated in person-years, developer count, and booked capacity.</p>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 &middot; Risk</p>
+        <h4>The flank or nothing</h4>
+        <p><span class="lbl">What happened. </span>The hosts' conclusion: disruption comes, if it comes, either from an unseen flank attack or from a future that is not accelerated computing, "which seems very unlikely." The frontal assault is accounted for: better chips need booked capacity, better software needs a decade.</p>
+        <p><span class="lbl">Why it matters. </span>The strongest bull case is stated as risk analysis. When every frontal path is blocked, the remaining risks are orthogonal and judged unlikely.</p>
+        <p><span class="lbl">The principle. </span>Stress-test from the flank, not the front. If the front is impenetrable, price the orthogonal risks honestly.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>They never said "generative." Narratives turn faster than anyone expects.</li>
+          <li>The spark lands on the fuel. Credit the sixteen years, not the miracle.</li>
+          <li>Price in three layers: silicon, software, scarcity.</li>
+          <li>You say solution, I hear gross margin. Bundle where you remove risk.</li>
+          <li>Judge the detonation by delivered revenue. $13.5 billion, paid for.</li>
+          <li>Quantify moats in person-years. Ten thousand, still compounding.</li>
+          <li>Stress-test from the flank. The front is accounted for.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, NVIDIA Part III, September 2023. Full episode: youtube.com/watch?v=nFB-AILkamw. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="~03:10" data-title="Outro">
+      <p class="ch-time">~03:10</p>
+      <h2>Outro</h2>
+      <p><span class="tag fact">Source fact</span> The episode closes with the sign-off, who got the truth, and the hosts' takeaways from the dawn of the AI era.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "Nvidia Part III: The Dawn of the AI Era (2022-2023)" (September 6, 2023, about 3 hr 15 min). All facts and figures come from the episode transcript (research/acquired/transcripts/nFB-AILkamw.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 46 words: "The AI heard around the world." as a blockquote (6 words) and again as an inline quotation (6 words), "The more you buy, the more you save." as a blockquote (8 words), "Attention Is All You Need" (5 words), "You say solution, I hear gross margin." (7 words), "which seems very unlikely." (4 words), "the AI wall," (3 words), "call us." (2 words), and "generative" five times (5 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+
+  /* ---------- toy: DGX bundle margin ---------- */
+  (function(){
+    var gpu = document.getElementById('gpu'), box = document.getElementById('box');
+    var gpuV = document.getElementById('gpu-v'), boxV = document.getElementById('box-v');
+    var out = document.getElementById('dgx-verdict');
+    function upd(){
+      var g = +gpu.value, b = +box.value;
+      gpuV.textContent = g.toLocaleString('en-US'); boxV.textContent = b.toLocaleString('en-US');
+      var chips = 8 * g, margin = b - chips;
+      var pct = b > 0 ? (margin / b * 100) : 0;
+      out.textContent = '8 H100s cost $' + chips.toLocaleString('en-US') +
+        '. The box sells for $' + b.toLocaleString('en-US') +
+        ': integration margin $' + margin.toLocaleString('en-US') +
+        ' (' + pct.toFixed(0) + '%). You say solution, I hear gross margin.';
+    }
+    gpu.addEventListener('input', upd); box.addEventListener('input', upd); upd();
+  })();
+
+  /* ---------- chart: scaling ladder (log) ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var data = [
+      ['GPT-1','120M',120000000,'About 120 million parameters.'],
+      ['GPT-2','1.5B',1500000000,'1.5 billion parameters.'],
+      ['GPT-3','175B',175000000000,'175 billion parameters.'],
+      ['GPT-4','1.72T*',1720000000000,'Rumored about 1.72 trillion parameters.']
+    ];
+    var g = document.getElementById('scale-bars');
+    var minL = Math.log10(120000000), maxL = Math.log10(1720000000000);
+    data.forEach(function(d, i){
+      var x = 30 + i * 150;
+      var hh = 20 + ((Math.log10(d[2]) - minL) / (maxL - minL)) * 240;
+      var y = 286 - hh;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', x); r.setAttribute('y', y);
+      r.setAttribute('width', 110); r.setAttribute('height', hh);
+      r.setAttribute('rx', 3);
+      r.setAttribute('fill', i === 3 ? '#3d352a' : '#1f5fb0');
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x', x + 55); t.setAttribute('y', 308);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = d[0];
+      g.appendChild(t);
+      var v = document.createElementNS(svgNS,'text');
+      v.setAttribute('x', x + 55); v.setAttribute('y', y - 8);
+      v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+      v.setAttribute('font-size','10');
+      v.textContent = d[1];
+      g.appendChild(v);
+      r.addEventListener('mousemove', function(ev){ showTip(d[0] + ': ' + d[1] + ' parameters. ' + d[3], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+    });
+  })();
+
+  /* ---------- chart: CUDA developer curve ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var data = [
+      ['2010','100K',100000,'Four years after the 2006 launch.'],
+      ['2016','1M',1000000,'One million developers.'],
+      ['2018','2M',2000000,'Two years later, two million.'],
+      ['2022','3M',3000000,'Three million.'],
+      ['May 23','4M',4000000,'Four million registered developers. The curve goes vertical.']
+    ];
+    var g = document.getElementById('dev-bars');
+    var maxL = Math.log10(4000000);
+    data.forEach(function(d, i){
+      var x = 20 + i * 122;
+      var hh = Math.max(12, (Math.log10(d[2]) / maxL) * 250);
+      var y = 286 - hh;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', x); r.setAttribute('y', y);
+      r.setAttribute('width', 92); r.setAttribute('height', hh);
+      r.setAttribute('rx', 3);
+      r.setAttribute('fill', i === 4 ? '#3d352a' : '#1f5fb0');
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x', x + 46); t.setAttribute('y', 308);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = d[0];
+      g.appendChild(t);
+      var v = document.createElementNS(svgNS,'text');
+      v.setAttribute('x', x + 46); v.setAttribute('y', y - 8);
+      v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+      v.setAttribute('font-size','10');
+      v.textContent = d[1];
+      g.appendChild(v);
+      r.addEventListener('mousemove', function(ev){ showTip(d[0] + ': ' + d[1] + ' registered developers. ' + d[3], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
