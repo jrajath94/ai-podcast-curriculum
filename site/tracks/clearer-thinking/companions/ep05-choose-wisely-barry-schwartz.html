@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond the Assumption That Humans Are Rational with Barry Schwartz: Clearer Thinking Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Clearer Thinking episode with Barry Schwartz: rational choice theory, the Excel dinner, counting for thinking, frames, incommensurable goods, intuition, and the art of choosing wisely.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#23201a; --muted:#6e655a;
+    --line:#e3dccb; --accent:#0e6e6e; --accent-ink:#0a5454; --soft:#e8f1f0;
+    --warn:#fdf3e3; --warnline:#d9a441;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0dd}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d3830;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  figure.photo img{max-width:460px;margin:0 auto}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .warnbox{background:var(--warn);border:1px solid var(--warnline);border-left:4px solid var(--warnline);
+    padding:14px 18px;margin:22px 0;font-family:var(--sans);font-size:14px;line-height:1.6}
+  .warnbox b{color:#7a4d0a}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdcd9}
+  .bar.dark{fill:#3d3830}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e4eaea;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .curve{fill:none;stroke:var(--accent);stroke-width:3}
+  .curve2{fill:none;stroke:#b0873f;stroke-width:3;stroke-dasharray:6 4}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{font-family:var(--sans);font-size:14px;line-height:1.5;counter-increment:w}
+  .wisdom li:before{content:counter(w,decimal-leading-zero);font-family:var(--mono);
+    font-size:11px;color:var(--accent-ink);display:block;margin-bottom:2px}
+  .takeaways{background:#fff;border:1px solid var(--line);padding:22px;margin:30px 0}
+  .takeaways h3{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .takeaways ol{margin:0 0 14px;padding-left:22px}
+  .takeaways li{margin-bottom:8px}
+  .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-right:8px;white-space:nowrap}
+  .tag.fact{background:#e2efed;color:var(--accent-ink)}
+  .tag.interp{background:#efe9dc;color:#6b5320}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);border:1px dashed var(--line);
+    padding:10px 14px;margin:0 0 26px}
+  .video{margin:26px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+    border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:12px;color:var(--accent-ink)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 10px;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  footer p{margin:0 0 14px}
+  footer b{color:var(--ink)}
+  .backlink{font-family:var(--sans);font-size:13px;margin:18px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Clearer Thinking companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+
+<div class="hero">
+<p class="kicker">Clearer Thinking with Spencer Greenberg &middot; Episode 5</p>
+<h1>Beyond the Assumption That Humans Are Rational with Barry Schwartz</h1>
+<p class="dek">Spencer Greenberg talks with Barry Schwartz about the limits of rational choice theory: why spreadsheets cannot choose a college, why counting displaces thinking, and how to frame a decision wisely.</p>
+<img src="assets/ep05/ep05-hero.webp" alt="Watercolor of a traveler at a fork between a rainy beach and a sunlit museum">
+<p class="caption"><b>Illustration.</b> AI-generated watercolor made for this page: beach or museum, with a 20 percent chance of rain. The framing question, painted.</p>
+<div class="stats">
+<div class="stat"><div class="n">10-point</div><div class="l">Rating scale</div><div class="s">the restaurant spreadsheet sketch</div></div>
+<div class="stat"><div class="n">$900</div><div class="l">One evening</div><div class="s">three hours of friends at $300 an hour</div></div>
+<div class="stat"><div class="n">20%</div><div class="l">Chance of rain</div><div class="s">in the beach-or-museum puzzle</div></div>
+<div class="stat"><div class="n">40 yrs</div><div class="l">At Swarthmore</div><div class="s">Schwartz's teaching tenure there</div></div>
+</div></div>
+<figure class="photo"><img src="assets/ep05/barry-schwartz.jpg" alt="Photograph of Barry Schwartz"><figcaption class="caption"><b>Photograph.</b> Barry Schwartz. Real photograph via KFF Health News, kffhealthnews.org.</figcaption></figure>
+<div class="video"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/KhGNvSD7WLs" title="Episode video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption"><b>Video.</b> The full episode on YouTube.</p></div>
+<section class="chapter" id="ch-model" data-time="~00:00" data-title="The Model of the Rational Actor">
+
+<p class="ch-time">~00:00</p>
+<h2>The Model of the Rational Actor</h2>
+<div class="legend"><span class="tag fact">Source fact</span> a claim traceable to the episode transcript. <span class="tag interp">Interpretation</span> the companion author's analysis or transfer, not the guest's claim.</div>
+<p><span class="tag fact">Source fact</span> Schwartz opens with the standard economics demands: to study bias, you need a model of what a rational actor would do. Take out the word good, and yes, we have one. The word good is the problem.</p>
+<p><span class="tag fact">Source fact</span> All of the heuristics-and-biases research documents deviations from one standard: rational choice theory. Every documented error is an error because it departs from that model in some way.</p>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 &middot; Standards</p>
+<h4>Studying mistakes needs a standard of right</h4>
+<p><span class="lbl">What happened. </span>Fifty years of bias research scored human error against one unexamined standard: rational choice theory.</p>
+<p><span class="lbl">Why it matters. </span>Ask what counts as the right answer before you score the errors. The standard may be the real artifact.</p>
+<p><span class="lbl">The principle. </span>Interrogate the yardstick, not just the measurements.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-excel" data-time="~00:07" data-title="The Excel Dinner">
+
+<p class="ch-time">~00:07</p>
+<h2>The Excel Dinner</h2>
+<p><span class="tag fact">Source fact</span> Imagine choosing dinner among three restaurants. Build a spreadsheet: columns for A, B, C, rows for what you care about, food quality, atmosphere, service. Rate each on a 10-point scale. Food: a 7, an 8, a 9. Weight the attributes. Add the chance the food is as good as you think. Push a button, and Excel does the math.</p>
+<p><span class="tag fact">Source fact</span> That is expected utility, not expected value. You maximize a subjective quantity, satisfaction, not dollars. The model requires awareness of every option, every probability, and your full utility function.</p>
+<p><span class="tag interp">Interpretation</span> The hidden demand: you must know what the numbers mean. With dollar bills or blackjack, they mean something. With restaurant quality, the numbers are an invention, and the button press hides the inventing.</p>
+<div class="chart">
+<h4>The restaurant spreadsheet</h4>
+<p class="csub">Schwartz's sketch of expected utility. Food scores are stated in the episode.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of food scores 7, 8 and 9 for restaurants A, B and C">
+<rect class="bar alt" x="120" y="160" width="110" height="90" data-tip="Restaurant A: food rated 7 of 10."/>
+<rect class="bar alt" x="265" y="132" width="110" height="118" data-tip="Restaurant B: food rated 8 of 10."/>
+<rect class="bar" x="410" y="104" width="110" height="146" data-tip="Restaurant C: food rated 9 of 10. The spreadsheet multiplies by weights and probabilities you also invented."/>
+<text class="vallab" x="175" y="145" text-anchor="middle">7</text>
+<text class="vallab" x="320" y="117" text-anchor="middle">8</text>
+<text class="vallab" x="465" y="89" text-anchor="middle">9</text>
+<text class="axis" x="175" y="275" text-anchor="middle">A</text>
+<text class="axis" x="320" y="275" text-anchor="middle">B</text>
+<text class="axis" x="465" y="275" text-anchor="middle">C</text>
+<text class="axis" x="320" y="295" text-anchor="middle">Food scores on the 10-point scale</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Barry Schwartz episode, ~00:07. The scores 7, 8, 9 are stated. The chart shows the method.</p>
+</div>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 &middot; Precision</p>
+<h4>Formatting is not accuracy</h4>
+<p><span class="lbl">What happened. </span>Expected utility maximizes a subjective quantity, yet the spreadsheet renders it with the authority of arithmetic.</p>
+<p><span class="lbl">Why it matters. </span>Notice when a method's precision is really just formatting. The mystery of how you got the number did not go away.</p>
+<p><span class="lbl">The principle. </span>Distrust decimals on invented scales.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-toys" data-time="~00:15" data-title="Toy Models and Fruit Flies">
+
+<p class="ch-time">~00:15</p>
+<h2>Toy Models and Fruit Flies</h2>
+<p><span class="tag fact">Source fact</span> Schwartz grants the defense of simple models: science starts simple. Geneticists do not study human beings. They study fruit flies, build a model, and add bells and whistles as complexity grows.</p>
+<p><span class="tag fact">Source fact</span> The hidden assumption is that complexifying does not change the basics. But people are not subatomic particles. When situations grow complex, humans may treat them in fundamentally different ways than they treat simple ones.</p>
+<p><span class="tag interp">Interpretation</span> Choosing a college is not choosing a blackjack bet. How many options are on the table, two, ten, five hundred? Which deserve serious attention? What does best education even mean, in numbers? The spreadsheet requires answers the real world does not provide.</p>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 &middot; Models</p>
+<h4>Check that your toy survives complexity</h4>
+<p><span class="lbl">What happened. </span>The defense of rational choice theory borrows the prestige of physics: start simple, then complexify. Schwartz says the transfer assumption fails for people.</p>
+<p><span class="lbl">Why it matters. </span>A model proved on fruit flies may not survive the human equivalent. Complexity can change the phenomenon, not just the math.</p>
+<p><span class="lbl">The principle. </span>Before scaling a simple model up, test whether the basics survive the trip.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-counting" data-time="~00:23" data-title="Counting for Thinking">
+
+<p class="ch-time">~00:23</p>
+<h2>Counting for Thinking</h2>
+<div class="pull">
+<blockquote>counting for thinking</blockquote>
+<p class="who">Barry Schwartz &middot; Episode ~00:23</p>
+</div>
+<p><span class="tag fact">Source fact</span> To use rational choice theory, you reduce complex phenomena to simple quantified components and pretend the situation is unchanged. The result: you substitute counting for thinking.</p>
+<p><span class="tag fact">Source fact</span> The mechanism: what is quantified dominates. If you can count the share of pre-meds who reach medical school but cannot count the quality of education, the countable drives the decision, and the decision gets worse.</p>
+<div class="chart">
+<h4>What gets counted gets weighted</h4>
+<p class="csub">The mechanism Schwartz describes, drawn illustratively.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Illustrative bar chart: quantified factors receive far more decision weight than unquantified ones">
+<rect class="bar" x="120" y="70" width="180" height="180" data-tip="Illustrative: factors with numbers pull most of the decision weight."/>
+<rect class="bar alt" x="340" y="190" width="180" height="60" data-tip="Illustrative: factors without numbers are crowded out."/>
+<text class="vallab" x="210" y="55" text-anchor="middle">heavy</text>
+<text class="vallab" x="430" y="175" text-anchor="middle">light</text>
+<text class="axis" x="210" y="275" text-anchor="middle">quantified factors</text>
+<text class="axis" x="430" y="275" text-anchor="middle">unquantified factors</text>
+<text class="axis" x="320" y="295" text-anchor="middle">Numbers look respectable. The ineffable gets demoted.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Barry Schwartz episode, ~00:23. An illustrative rendering of the mechanism, not measured data.</p>
+</div>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 &middot; Measurement</p>
+<h4>When a number appears, ask what lost its number</h4>
+<p><span class="lbl">What happened. </span>Counting does not just accompany thinking. It increasingly substitutes for it and dominates the decisions it touches.</p>
+<p><span class="lbl">Why it matters. </span>The more highly educated you are, the truer this is. A number looks serious, and the ineffability of actual life slides to second-class status.</p>
+<p><span class="lbl">The principle. </span>Defend the unquantified. It is usually where the value lives.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-beef" data-time="~00:31" data-title="The True Cost of a Pound of Beef">
+
+<p class="ch-time">~00:31</p>
+<h2>The True Cost of a Pound of Beef</h2>
+<p><span class="tag fact">Source fact</span> Michael Pollan bought a heifer, tracked its feed as it grew, and computed the cost of a pound of beef from inputs and the sale price. Narrow frame: heifer plus food, divided by pounds sold.</p>
+<p><span class="tag fact">Source fact</span> The frame misses real costs: corn subsidies paid from taxes, antibiotics breeding drug-resistant bacteria, petroleum fertilizer tying beef to oil supply and foreign policy. Each belongs in the true cost. None shows in the supermarket price.</p>
+<p><span class="tag interp">Interpretation</span> The wise framer draws the frame broad enough to catch the non-obvious, but not so broad as to be paralyzed into inaction. Rational choice theory skips the framing step entirely, as if some genie solved it.</p>
+<div class="toy">
+<h4>Try it: the frame expander</h4>
+<p class="csub" style="font-family:var(--sans);font-size:12.5px;color:var(--muted)">Click through the frames of one pound of beef, from supermarket price to full cost.</p>
+<p class="fbtns" style="margin:12px 0">
+<button class="fbtn on" data-f="0" type="button">1. Supermarket</button>
+<button class="fbtn" data-f="1" type="button">2. + taxes</button>
+<button class="fbtn" data-f="2" type="button">3. + health</button>
+<button class="fbtn" data-f="3" type="button">4. + foreign policy</button>
+</p>
+<p class="out" id="frame-out" style="font-weight:400">Heifer plus feed, divided by pounds sold. This is the supermarket answer.</p>
+</div>
+<script>
+(function(){
+  var texts = [
+    "Heifer plus feed, divided by pounds sold. This is the supermarket answer.",
+    "Add the tax subsidy on the corn the cow eats. The price tag never shows it.",
+    "Add antibiotic-resistant infections: missed workdays, doctor bills, hospital visits.",
+    "Add the oil for fertilizer and the foreign policy it drags behind it. The wise frame holds all four without freezing."
+  ];
+  var btns = document.querySelectorAll('.fbtn'), out = document.getElementById('frame-out');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      out.textContent = texts[+b.getAttribute('data-f')];
+    });
+  });
+})();
+</script>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 &middot; Frames</p>
+<h4>Expand the frame in steps, not in one paralyzing leap</h4>
+<p><span class="lbl">What happened. </span>Pollan's beef shows that the frame, not the math, decides what counts as a cost.</p>
+<p><span class="lbl">Why it matters. </span>You will not answer cost-versus-benefit questions by attaching numbers to outcomes. You must judge what should count.</p>
+<p><span class="lbl">The principle. </span>Make the frame a deliberate choice. Most of rationality is the choice of good frames.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-bounded" data-time="~00:39" data-title="Bounded Rationality and the Lamppost">
+
+<p class="ch-time">~00:39</p>
+<h2>Bounded Rationality and the Lamppost</h2>
+<p><span class="tag fact">Source fact</span> Bounded rationality says minds have computational limits, so rationality must respect them. Schwartz says his concern is different: rational choice theory focuses on the easiest parts of decisions and leaves the hard parts offscreen, as if some genie will solve them.</p>
+<p><span class="tag fact">Source fact</span> The drunk-and-lamppost joke: he searches under the lamppost for his keys, not where he dropped them, but where the light is. We treat what we can measure as important because we can measure it, not because it matters most.</p>
+<p><span class="tag fact">Source fact</span> Casino bets are formulaic. Poker is not: you must read the people and see through the backs of their cards. Real life has more complexity than poker, because you do not even know your goal or what your options are.</p>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 &middot; Attention</p>
+<h4>Ask which parts of the decision the model left out</h4>
+<p><span class="lbl">What happened. </span>The theory studies choosing among pre-described options with quantified features. It ignores generating options, framing, and discovering what matters.</p>
+<p><span class="lbl">Why it matters. </span>The easy parts are the least consequential. The hard parts, left offscreen, decide the outcome.</p>
+<p><span class="lbl">The principle. </span>Name the missing pieces before you trust the calculation.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-incommensurable" data-time="~00:47" data-title="Incommensurable Goods">
+
+<p class="ch-time">~00:47</p>
+<h2>Incommensurable Goods</h2>
+<div class="pull">
+<blockquote>Preferences are, this is the slogan, exogenous.</blockquote>
+<p class="who">Barry Schwartz, stating the theory's slogan &middot; Episode ~00:35</p>
+</div>
+<p><span class="tag fact">Source fact</span> The book's word is incommensurability: different kinds of goods cannot be directly compared, because the scales of value differ. Rational choice theory must assume the opposite, one common scale, or it cannot get off the ground.</p>
+<p><span class="tag fact">Source fact</span> Dollars feel solid: they start at zero and go up to Elon Musk. So they become the default scale. A consultant billing $300 an hour may ask whether an evening with friends is worth $900. The error is not the answer. The error is the scale.</p>
+<p><span class="tag interp">Interpretation</span> Comparing two weeks in a hospital to the price of a fillet is, in Schwartz's word, loony. Yet the more we price everything, the more natural the flattening feels, until important everyday distinctions disintegrate.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the chess champion as Magnus Carlson. The name is Magnus Carlsen. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 &middot; Value</p>
+<h4>Keep hospital weeks and fillet prices on separate scales</h4>
+<p><span class="lbl">What happened. </span>Money's solid zero makes it the path of least resistance for every trade-off, even where the financial aspect is least significant.</p>
+<p><span class="lbl">Why it matters. </span>Using the money scale to be rational about time flattens the world. Resist giving that flattening the honorific rational.</p>
+<p><span class="lbl">The principle. </span>Some goods share no scale. Forcing one is a distortion, not a decision.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-intuition" data-time="~00:55" data-title="Intuition and Expertise">
+
+<p class="ch-time">~00:55</p>
+<h2>Intuition and Expertise</h2>
+<p><span class="tag fact">Source fact</span> Schwartz concedes the record: the heuristics-and-biases findings have held up under replication scrutiny, and he calls the work serious and bankable. The findings are real errors, relative to the standard. It is the standard that went unscrutinized.</p>
+<p><span class="tag fact">Source fact</span> Gerd Gigerenzer's program shows natural framings rescue performance: counts instead of base rates, checking bar IDs instead of abstract logic cards. Context fits the cognitive apparatus, so the rule becomes unnecessary.</p>
+<p><span class="tag fact">Source fact</span> The outfielder catching a fly ball uses no geometry. Experience installs the heuristic, keep the angle constant, without articulation. Kahneman's adversarial collaboration with Gary Klein found the same for firefighters: expertise is a trained network, and post-fire review tunes the next obvious answer.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the researcher as Gigerunzer. The name is Gerd Gigerenzer. Corrected in this companion. Original noted in the footer.</div>
+<div class="warnbox"><b>Trap card.</b> The transcript renders a collaborator as Amos Fursky. The name is Amos Tversky. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-8">
+<p class="eyebrow">Nugget 8 &middot; Expertise</p>
+<h4>Debrief after the decision so the network learns</h4>
+<p><span class="lbl">What happened. </span>Firefighters decide from pattern recognition, then analyze after the fire is out: what did we miss, how do we tune the next obvious answer.</p>
+<p><span class="lbl">Why it matters. </span>Intuition is trainable the way the automatic system trains: from experience plus structured review.</p>
+<p><span class="lbl">The principle. </span>Cultivate the automatic system instead of suppressing it into a spreadsheet.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-reframing" data-time="~01:03" data-title="Reframing and the Cathedral">
+
+<p class="ch-time">~01:03</p>
+<h2>Reframing and the Cathedral</h2>
+<div class="pull">
+<blockquote>this is a life well lived</blockquote>
+<p class="who">Barry Schwartz, on what rationality should serve &middot; Episode ~01:05</p>
+</div>
+<p><span class="tag fact">Source fact</span> Schwartz's advice: the automatic answer may be wrong, so give it time to percolate. Do not just do something. Sit there. Turn the problem around. See it from different angles.</p>
+<p><span class="tag fact">Source fact</span> Three bricklayers in Rome: one lays bricks, one helps make a wall, one builds a cathedral. Same labor, different frame. The third frame adds meaning and care.</p>
+<p><span class="tag interp">Interpretation</span> Asked-for wisdom is usually reframing help: someone with a different frame shows you what matters. Diverse teams earn their keep on efficacy, because different blinders let different things through.</p>
+<div class="nugget reveal" id="nugget-9">
+<p class="eyebrow">Nugget 9 &middot; Reframing</p>
+<h4>Ask someone with different blinders to reframe your decision</h4>
+<p><span class="lbl">What happened. </span>Reframing is the recurring move of wisdom: same facts, cathedral instead of bricks.</p>
+<p><span class="lbl">Why it matters. </span>You will not get there alone. Your frame feels like the world. Another mind supplies the substitute frame.</p>
+<p><span class="lbl">The principle. </span>Collect people whose frames differ from yours, on purpose.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-covid" data-time="~01:10" data-title="COVID: A Narrow Frame">
+
+<p class="ch-time">~01:10</p>
+<h2>COVID: A Narrow Frame</h2>
+<p><span class="tag fact">Source fact</span> COVID arrived with unknowns: contagiousness, transmission, severity, vaccine prospects. The first reaction assumed the worst and shut societies down. Given the fog, that was the defensible move.</p>
+<p><span class="tag fact">Source fact</span> The frame missed the uncountable: economic wreckage, community deterioration, a generation of children out of school. Schwartz taught at Berkeley's business school through it and watched student morale shatter in ways that may prove permanent, not temporary.</p>
+<p><span class="tag interp">Interpretation</span> The countable, lives lost, drove out the uncountable, years of learning and social development. The critique targets narrow rationalism, not the people who decided under desperate uncertainty.</p>
+
+</section>
+<section class="chapter" id="ch-lived" data-time="~01:17" data-title="A Life Well Lived">
+
+<p class="ch-time">~01:17</p>
+<h2>A Life Well Lived</h2>
+<div class="pull">
+<blockquote>it depends</blockquote>
+<p class="who">Barry Schwartz, on practical wisdom &middot; Episode ~01:05</p>
+</div>
+<p><span class="tag fact">Source fact</span> The alternative sketch: rationality needs judgment, openness, reflection on aspirations not just preferences, and acceptance that new options appear mid-thought. No formula decides rightly.</p>
+<p><span class="tag fact">Source fact</span> A friend asks how she looks before a wedding. The answer is not unqualified honesty. It depends: is there a plan B? What does candor do to her confidence? Practical wisdom is person- and situation-specific.</p>
+<p><span class="tag fact">Source fact</span> A life free of errors and biases is not the same as a life well lived. Schwartz wants rationality enlarged until more of us can look back and say this was a life well lived, and other people's lives were made better, even if only a little.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the co-author as Richard Children Fry. The rendering is uncertain, so this companion names him only as Schwartz's Swarthmore co-author. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-10">
+<p class="eyebrow">Nugget 10 &middot; Wisdom</p>
+<h4>Maximize the life, not the score</h4>
+<p><span class="lbl">What happened. </span>Someone making one rational decision after another by the lights of rational choice theory is not guaranteed a life they would call well lived.</p>
+<p><span class="lbl">Why it matters. </span>The theory optimizes preference satisfaction. Schwartz optimizes a life: reflection, judgment, openness, and care for others.</p>
+<p><span class="lbl">The principle. </span>Judge decisions by the life they build, not by the model they satisfy.</p>
+</div>
+
+</section>
+<div class="wisdom"><h3>Nugget index</h3><ol>
+<li>Studying mistakes needs a standard of right</li>
+<li>Formatting is not accuracy</li>
+<li>Check that your toy survives complexity</li>
+<li>When a number appears, ask what lost its number</li>
+<li>Expand the frame in steps, not in one paralyzing leap</li>
+<li>Ask which parts of the decision the model left out</li>
+<li>Keep hospital weeks and fillet prices on separate scales</li>
+<li>Debrief after the decision so the network learns</li>
+<li>Ask someone with different blinders to reframe your decision</li>
+<li>Maximize the life, not the score</li>
+</ol></div>
+<p class="backlink"><a href="../index.html">&larr; Back to the Clearer Thinking track index</a></p>
+<footer><p><b>Sources.</b> This companion narrates the Clearer Thinking episode Beyond the assumption that humans are rational with Barry Schwartz (YouTube re-upload October 2025, 82 minutes). All facts and figures come from the episode transcript (research/clearer-thinking/transcripts/KhGNvSD7WLs.txt), a faster-whisper base.en transcription of the official podcast audio. The transcript carries no timestamps. All chapter times marked ~ are proportional estimates from word position. Charts are original renderings of the episode's examples. Illustrative elements are labeled as such. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p><p id="on-quotes"><b>On quotes.</b> Direct quotations in this companion total 26 words: four pull quotes, each carrying speaker and proportional episode-time attribution, plus four short quoted transcript fragments in the corrections note below. Everything else is original paraphrase and analysis.</p><p><b>On transcript corrections.</b> The transcript is a machine transcription with rough edges. Applied corrections, with originals. The researcher is Gerd Gigerenzer (transcript: "Gigerunzer"). The collaborator is Amos Tversky (transcript: "Amos Fursky"). The chess champion is Magnus Carlsen (transcript: "Magnus Carlson"). The co-author is named only as Schwartz's Swarthmore co-author. The transcript's rendering ("Richard Children Fry") could not be verified.</p><p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p></footer>
+
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var ttl = ch.getAttribute('data-title') || '';
+    a.innerHTML = '<span class="t">' + t + '</span>' + ttl;
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(txt, x, y){
+    tip.textContent = txt;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
