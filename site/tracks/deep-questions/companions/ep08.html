@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 5-Step Productivity System: Deep Questions Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Deep Questions episode on getting organized: the productivity dragon, the six lists, and the 30-day maintenance.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Deep Questions · Track Companion</a>
+  <span class="sub">The 5-Step Productivity System</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Deep Questions · Companion</p>
+      <h1>The 5-Step Productivity System</h1>
+      <p class="dek">Day one from chaos to calm: the five steps, the six lists, and the maintenance that makes it stick.</p>
+<style>
+.tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.tag.sf{background:#e3f0e6;color:#1d5c2e;border:1px solid #bcd8c2}
+.tag.it{background:#fdf3e3;color:#8a5a12;border:1px solid #ecd9ac}
+.legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:24px 0;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.legend .k{font-weight:700;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+</style>
+      <img src="assets/cal-newport.jpg" alt="Portrait photograph of Cal Newport">
+      <p class="caption"><b>Cal Newport.</b> Photo: robertglazer.com (Elevate Podcast). This episode is a day-one manual: five steps from chaos to calm.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">5</div><div class="l">Steps</div><div class="s">four technical steps on day one, plus 30 days of maintenance</div></div>
+        <div class="stat"><div class="n">6</div><div class="l">Lists</div><div class="s">ready, backburner, waiting, to discuss, clarify, scheduled</div></div>
+        <div class="stat"><div class="n">2-4</div><div class="l">Hours</div><div class="s">for the first four steps, on a full day set aside</div></div>
+        <div class="stat"><div class="n">99%</div><div class="l">Claim</div><div class="s">more organized than 99% of working people, per Newport</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/BcE1MqziyzQ" title="Deep Questions: The 5-Step Productivity System with Cal Newport (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The productivity dragon</a></li>
+          <li><a href="#nugget-2">A full day, not 30 minutes</a></li>
+          <li><a href="#nugget-3">Digital from the start</a></li>
+          <li><a href="#nugget-4">The six lists</a></li>
+          <li><a href="#nugget-5">The waiting list</a></li>
+          <li><a href="#nugget-6">workingmemory.txt</a></li>
+          <li><a href="#nugget-7">One obligation, one item</a></li>
+          <li><a href="#nugget-8">Seven seconds, seven hours</a></li>
+          <li><a href="#nugget-9">Batching</a></li>
+          <li><a href="#nugget-10">The 30-day maintenance</a></li>
+          <li><a href="#nugget-11">The four-hour block</a></li>
+        </ol>
+      </div>
+      <div class="legend">
+        <span class="k">How to read this companion.</span>
+        <span class="tag sf">Source fact</span> marks claims stated in the episode.
+        <span class="tag it">Interpretation</span> marks analysis and transferable lessons drawn from those facts.
+        Every chart names its episode source. Illustrations are AI-generated watercolors made for this page.
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-dragon" data-time="Part 1" data-title="The productivity dragon">
+      <p class="ch-time">Part 1</p>
+      <h2>The Productivity Dragon</h2>
+      <p>Newport starts with the psychological obstacle: our misperception of the workload. He draws two pictures. The fantasy: a happy stick figure at a desk with a couple of phone messages, two projects, and a color-penciled plan for the day. The reality: the same person sprinting from a giant cloud of projects, requests, and tasks that chases them firing lightning bolts, everything on fire.</p>
+      <p>The fantasy causes two failures. First, no urgency: work seems manageable, so a pretty planner feels like enough. Second, denial: when a real system opens the door to the true workload, it looks so terrible that you slam the door and pretend it does not exist. Step one is the antidote: face the reality, however terrifying.</p>
+      <div class="pull">
+        <blockquote>facing the productivity dragon</blockquote>
+        <p class="who">Cal Newport's term for confronting the real workload · Deep Questions</p>
+      </div>
+      <img src="assets/dq-ep08-dragon.webp" alt="Watercolor illustration of a small figure facing a giant storm cloud shaped like a dragon, lightning bolts around it">
+      <p class="caption"><b>Illustration.</b> Facing the productivity dragon: the fantasy versus the storm. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The obstacle</p>
+        <h4>The productivity dragon</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport contrasts the imagined tidy workday with the reality of a lightning-firing obligation cloud, and names the first step facing the productivity dragon.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Every failed system starts with an underestimated enemy. The dragon is the true size of your plate.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Look at the whole mess before you organize any of it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-step1" data-time="Part 2" data-title="Step 1: a full day">
+      <p class="ch-time">Part 2</p>
+      <h2>Step 1: A Full Day</h2>
+      <p>The first step is psychological preparation, and it takes time. Newport cites David Allen's 2001 classic Getting Things Done: when Allen coached clients through the initial collection, it usually took one to six hours, and once took twenty hours with a single person. There is more in there than you want to admit.</p>
+      <p>The concrete advice: put aside a full day. Not thirty minutes in the morning. A quiet day, a weekend day, a vacation day. You need something like a full day to make the transition from chaos to calm.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · The commitment</p>
+        <h4>A full day, not 30 minutes</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Citing Allen's GTD (2001), Newport says the first collection takes one to six hours, once twenty, so the day-one transition needs a full day set aside.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> A thirty-minute attempt guarantees a thirty-minute result: a tidier version of the same chaos.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Budget the day. The dragon does not fit in a coffee break.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-step2" data-time="Part 3" data-title="Step 2: digital storage">
+      <p class="ch-time">Part 3</p>
+      <h2>Step 2: Digital Storage</h2>
+      <p>Step two is technical: set up the storage system that will gather and make sense of everything. Allen's method was physical: inboxes, piles of paper, pointers on slips. Newport updates it. In the 2020s, the vast majority of a knowledge worker's obligations are digital: emails, Slack requests, calendar appointments. Translating them to paper and back is inefficient. Start digital, stay digital.</p>
+      <p>The system needs three capabilities: a collection of lists, the ability to rapidly add, update, and move items between lists, and the ability to append information like links or copied email text to individual items. Three tool tiers: simple text files or docs with bold headers, Workflowy with its collapsing indents, or Trello, which Newport uses, with lists as columns and items as cards. Notion can wait until later.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The container</p>
+        <h4>Digital from the start</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport requires a digital system with three capabilities, lists, rapid moves, appended info, and offers text files, Workflowy, or Trello as starter tools.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The tool matters less than the properties. Pick the simplest one that has all three.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Start where your obligations live: on the screen.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-lists" data-time="Part 4" data-title="The six lists">
+      <p class="ch-time">Part 4</p>
+      <h2>The Six Lists</h2>
+      <p>Newport prescribes six starter lists. Ready means ready for action: items to work on as soon as possible, roughly what you aim to complete this week. Backburner holds committed items you are not working on now, with a place to park incoming details. The waiting list tracks every item with a reply pending. To discuss collects agenda items for people or teams you meet regularly, so questions batch into the next meeting instead of scattering as emails.</p>
+      <p>Clarify holds obligations you cannot yet act on because you do not know what they mean. Scheduled holds complex calendar items along with their background information and steps. Together the six lists cover every status an obligation can have.</p>
+      <div class="chart" id="chart-lists">
+        <h4>The six lists</h4>
+        <svg viewBox="0 0 680 300" role="img" aria-label="The six starter lists with their purposes">
+          <rect x="20" y="40" width="195" height="110" rx="8" fill="#1f6f8b" data-tip="Ready: ready for action, aim to complete this week."/>
+          <text x="117" y="86" text-anchor="middle" fill="#fff" font-size="15">Ready</text>
+          <text x="117" y="110" text-anchor="middle" fill="#e8dcc8" font-size="12">act on this week</text>
+          <rect x="242" y="40" width="195" height="110" rx="8" fill="#1f6f8b" data-tip="Backburner: committed but not now. Park incoming details here."/>
+          <text x="339" y="86" text-anchor="middle" fill="#fff" font-size="15">Backburner</text>
+          <text x="339" y="110" text-anchor="middle" fill="#e8dcc8" font-size="12">committed, not now</text>
+          <rect x="464" y="40" width="195" height="110" rx="8" fill="#b4531f" data-tip="Waiting: everything you are waiting to hear back about. The most neglected list."/>
+          <text x="561" y="86" text-anchor="middle" fill="#fff" font-size="15">Waiting</text>
+          <text x="561" y="110" text-anchor="middle" fill="#e8dcc8" font-size="12">waiting to hear back</text>
+          <rect x="20" y="170" width="195" height="110" rx="8" fill="#1f6f8b" data-tip="To discuss: agenda items batched for the next meeting with each person or team."/>
+          <text x="117" y="216" text-anchor="middle" fill="#fff" font-size="15">To discuss</text>
+          <text x="117" y="240" text-anchor="middle" fill="#e8dcc8" font-size="12">batched per meeting</text>
+          <rect x="242" y="170" width="195" height="110" rx="8" fill="#1f6f8b" data-tip="Clarify: obligations you cannot act on yet because their meaning is unclear."/>
+          <text x="339" y="216" text-anchor="middle" fill="#fff" font-size="15">Clarify</text>
+          <text x="339" y="240" text-anchor="middle" fill="#e8dcc8" font-size="12">meaning unclear</text>
+          <rect x="464" y="170" width="195" height="110" rx="8" fill="#1f6f8b" data-tip="Scheduled: complex calendar items with their background info and steps."/>
+          <text x="561" y="216" text-anchor="middle" fill="#fff" font-size="15">Scheduled</text>
+          <text x="561" y="240" text-anchor="middle" fill="#e8dcc8" font-size="12">on the calendar</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, The 5-Step Productivity System, the six starter lists. Labels are paraphrase.</p>
+      </div>
+      <img src="assets/dq-ep08-lists.webp" alt="Watercolor illustration of six neat labeled columns on a board, like a kanban, with small cards in each">
+      <p class="caption"><b>Illustration.</b> The six lists: every obligation gets a status. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · The statuses</p>
+        <h4>The six lists</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport defines ready, backburner, waiting, to discuss, clarify, and scheduled as the six statuses every obligation can hold.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Statuses replace the single to-do list. An obligation always knows where it stands.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Sort by status, not by project. Status is what unblocks action.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · The neglected one</p>
+        <h4>The waiting list</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport calls waiting the most important list people do not keep: every item with a reply pending.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> A reply you do not track becomes a reply you forget, then a fire to fight.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> If you sent it and need an answer, it lives on the waiting list until the answer arrives.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-step3" data-time="Part 5" data-title="Step 3: the great dump">
+      <p class="ch-time">Part 5</p>
+      <h2>Step 3: The Great Dump</h2>
+      <p>Step three makes the dragon concrete: dump everything onto the lists. Everything in your head, everything in your inbox, everything on your calendar, everything in the world you are obligated to do. Empty the inbox completely, not by answering everything but by translating every email into a task item. The inbox stops being a second task manager. This takes one to three hours.</p>
+      <p>Two advanced tips. First, use a workingmemory.txt file as an intermediary: a plain text file where you type fast without organizing. The brain holds five or six things at a time. The file holds twenty or thirty. Moving items from the file into the system forces consolidation: eight emails from one person become one discussion item. Second, lean heavily on the clarify list during the dump. Do not try to resolve ambiguities now. Park them and keep dumping.</p>
+      <p>One standing rule: every obligation gets exactly one item. It can move between lists but never exists on two at once. When an email turns a ready item into a wait, move the item to waiting and update its status. The lists are statuses, not copies.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · The buffer</p>
+        <h4>workingmemory.txt</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport recommends a plain workingmemory.txt file as a fast capture buffer, extending the brain's five-or-six-item working memory to twenty or thirty items.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Capture and organize are different speeds. A buffer lets each run at its own pace.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Dump fast into text. Sort slow into the system.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · The rule</p>
+        <h4>One obligation, one item</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport's standing rule: every obligation gets one item that moves between lists as its status changes, never duplicated.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Duplicates are how obligations go stale in one place and urgent in another.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Move the item. Update the status. Never copy.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-step4" data-time="Part 6" data-title="Step 4: configure">
+      <p class="ch-time">Part 6</p>
+      <h2>Step 4: Configure</h2>
+      <p>Step four is the initial configuration: making sense of the mess. Work through the clarify list, resolving what you can. Discard what does not matter. Send clarification emails for the rest. Triage the backburner: do you really still want this? This is where you send the honest withdrawal messages. Newport notes that pulling out of a commitment three weeks early creates about seven seconds of annoyance for the recipient and seven hours of freedom for you. Advance notice earns respect. Vanishing at the deadline earns the opposite.</p>
+      <div class="pull">
+        <blockquote>7 hours of freedom</blockquote>
+        <p class="who">Cal Newport on the payoff of an early, honest no · Deep Questions</p>
+      </div>
+      <p>Configuration also means putting urgent items on the calendar and hunting batching opportunities: five scattered items that all need Jesse become one meeting card, moved to waiting once the email goes out. Reactive chaos never reveals these efficiencies. About four to five hours into the day, the system stands fully set up and configured.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · The no</p>
+        <h4>Seven seconds, seven hours</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport says an early withdrawal message costs the recipient about seven seconds of annoyance and buys the sender about seven hours of freedom.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The price of a clean no falls every day you delay it. Early is cheap.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Triage early, in writing, with notice. It is a respect multiplier.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · The efficiency</p>
+        <h4>Batching</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport hunts batching opportunities during configuration: scattered items that need the same person or the same time block get grouped and handled together.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Batching is invisible until the system exists. The system pays for itself here.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Group by person, place, or energy. Handle once.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-step5" data-time="Part 7" data-title="Step 5: 30 days">
+      <p class="ch-time">Part 7</p>
+      <h2>Step 5: Thirty Days</h2>
+      <p>The fifth step makes it stick. Trust is everything: if you stop trusting the system, it falls apart. For the next four weeks, do two things daily and one thing weekly. Each morning, review the system for about five minutes while planning the day: check ready, check waiting, check the to-discuss lists against today's meetings. Each evening at shutdown, review again and nail down anything floating: promises made in meetings, Slack requests, status changes like moving an item to waiting after sending an email.</p>
+      <p>Each week, repeat a full configuration pass of about thirty minutes: clarify, triage, batch, calendar moves, and empty the inbox back to zero. Do this for four weeks and the system becomes habit. Newport's claim: even ignoring all his other advice, this alone leaves you more organized than 99 percent of working people, and replaces the lightning-firing cloud with a quieter feeling:</p>
+      <div class="pull">
+        <blockquote>I've got this</blockquote>
+        <p class="who">Cal Newport on the feeling the system produces · Deep Questions</p>
+      </div>
+      <div class="chart" id="chart-five">
+        <h4>The five steps on a timeline</h4>
+        <svg viewBox="0 0 680 300" role="img" aria-label="Day one holds steps one through four over two to four hours, then four weeks of twice-daily plus weekly maintenance">
+          <text x="30" y="34" class="vallab">Day 1</text>
+          <rect x="30" y="44" width="120" height="60" rx="8" fill="#3a2c22" data-tip="Step 1: face the productivity dragon. Psychological preparation."/>
+          <text x="90" y="70" text-anchor="middle" fill="#fff" font-size="12">1. Face it</text>
+          <text x="90" y="88" text-anchor="middle" fill="#e8dcc8" font-size="11">the dragon</text>
+          <rect x="160" y="44" width="120" height="60" rx="8" fill="#1f6f8b" data-tip="Step 2: set up digital storage with the six lists."/>
+          <text x="220" y="70" text-anchor="middle" fill="#fff" font-size="12">2. Storage</text>
+          <text x="220" y="88" text-anchor="middle" fill="#e8dcc8" font-size="11">six lists</text>
+          <rect x="290" y="44" width="120" height="60" rx="8" fill="#1f6f8b" data-tip="Step 3: the great dump. Everything in, one to three hours."/>
+          <text x="350" y="70" text-anchor="middle" fill="#fff" font-size="12">3. Dump</text>
+          <text x="350" y="88" text-anchor="middle" fill="#e8dcc8" font-size="11">1 to 3 hours</text>
+          <rect x="420" y="44" width="120" height="60" rx="8" fill="#1f6f8b" data-tip="Step 4: configure. Clarify, triage, batch, calendar."/>
+          <text x="480" y="70" text-anchor="middle" fill="#fff" font-size="12">4. Configure</text>
+          <text x="480" y="88" text-anchor="middle" fill="#e8dcc8" font-size="11">make sense</text>
+          <text x="30" y="140" class="vallab">Weeks 1 to 4</text>
+          <rect x="30" y="150" width="300" height="60" rx="8" fill="#b4531f" data-tip="Daily: five-minute morning review plus evening shutdown review."/>
+          <text x="180" y="176" text-anchor="middle" fill="#fff" font-size="13">Daily x2: morning plus shutdown review</text>
+          <text x="180" y="196" text-anchor="middle" fill="#e8dcc8" font-size="11">about 5 minutes each</text>
+          <rect x="350" y="150" width="300" height="60" rx="8" fill="#b4531f" data-tip="Weekly: thirty-minute configuration pass, inbox back to zero."/>
+          <text x="500" y="176" text-anchor="middle" fill="#fff" font-size="13">Weekly x1: configure, inbox to zero</text>
+          <text x="500" y="196" text-anchor="middle" fill="#e8dcc8" font-size="11">about 30 minutes</text>
+          <text x="340" y="252" text-anchor="middle" class="axis">Steps 1 to 4 take 2 to 4 hours on day one. Step 5 runs 4 weeks.</text>
+          <text x="340" y="274" text-anchor="middle" class="axis">Result: more organized than 99% of working people, per Newport.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, The 5-Step Productivity System. Numbers from the episode. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · The habit</p>
+        <h4>The 30-day maintenance</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport prescribes two daily reviews, morning and shutdown, plus one weekly thirty-minute configuration with the inbox emptied, for four weeks.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Systems die from distrust, not from complexity. The routine is a trust-maintenance program.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Review twice a day, configure once a week, for a month. Then it is yours.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-qa" data-time="Part 8" data-title="Q and A: the four-hour block">
+      <p class="ch-time">Part 8</p>
+      <h2>Q and A: The Four-Hour Block</h2>
+      <p>Felipe asks the slow-productivity question of the episode: for deep work, is it better to spread a big task over four days at one hour each, or block four hours on a single day? Newport's answer is the single block, and the reason is overhead. It takes about thirty minutes to get up to full cylinders: focusing in, getting initial results, building the head of steam. In a one-hour session, that leaves about thirty minutes of high-cylinder work.</p>
+      <p>Spread across four sessions, you pay that thirty-minute startup cost four times. Four one-hour sessions do not yield four deep hours. Newport estimates it takes roughly six such sessions to match one four-hour block, and the minutes are worse minutes anyway. Artificial slowing is not slow productivity. It is just inefficiency with a calm name.</p>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 · The block</p>
+        <h4>The four-hour block</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport tells Felipe to take one four-hour block over four one-hour sessions, since the thirty-minute startup cost repeats each session and roughly six short sessions equal one long block.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Fragmentation has a tax, and the tax compounds. Fewer, longer blocks beat many short ones.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Protect the long block. The startup cost is fixed, so amortize it.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Face the dragon: confront the true size of your obligations.</li>
+          <li>Set aside a full day. The first pass takes two to four hours.</li>
+          <li>Build digital storage with the six lists: ready, backburner, waiting, to discuss, clarify, scheduled.</li>
+          <li>Dump everything through workingmemory.txt. One obligation, one item.</li>
+          <li>Configure: clarify, triage early, batch by person and place.</li>
+          <li>Maintain for four weeks: two daily reviews, one weekly configuration.</li>
+          <li>For deep work, take the four-hour block. Do not pay the startup cost four times.</li>
+        </ol>
+        <p class="src">Distilled from Deep Questions, The 5-Step Productivity System with Cal Newport. Video: youtube.com/watch?v=BcE1MqziyzQ.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Deep Questions episode "The 5-Step Productivity System" (BcE1MqziyzQ). All facts and figures come from the episode transcript or the episode itself at youtube.com/watch?v=BcE1MqziyzQ. Each chart names its episode source. The portrait photograph is real, with attribution in its caption. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 11 words: three pull quotes ("facing the productivity dragon", 4 words, "7 hours of freedom", 4 words, and "I've got this", 3 words). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+
+</script>
+</body>
+</html>
