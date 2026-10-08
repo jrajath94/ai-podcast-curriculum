@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curing Disease with AI: Zuckerberg and Chan | Huberman Lab Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Mark Zuckerberg and Priscilla Chan: the CZI mission, the cell as the center of disease, Cell by Gene, AlphaFold, and the AR glasses roadmap.">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f4efe3; --ink:#23201a; --muted:#6e6455;
+    --line:#e0d6c0; --accent:#2f6f8f; --accent-ink:#1f5068; --soft:#e9f1f4;
+    --warn:#8a5a1d;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0ec}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:22px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.src{background:#dff0f7;color:var(--accent-ink);border:1px solid #bcd9e4}
+  .tag.int{background:#f5e8d4;color:var(--warn);border:1px solid #e3cda1}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .gap{background:#fdf6ec;border:1px dashed #d9b98a;padding:16px 20px;margin:26px 0;
+    font-family:var(--sans);font-size:13.5px;color:#6b5636;line-height:1.6}
+  .gap b{color:#4a3a22}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Huberman Lab · Track Companion</a>
+  <span class="sub">Episode 5 · Zuckerberg and Chan · 2023-10-23</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode 5 · Companion</p>
+      <h1>Curing Disease with AI</h1>
+      <p class="dek">Mark Zuckerberg and Priscilla Chan explain the Chan Zuckerberg Initiative: cure, prevent, or manage all disease by the end of the century, starting with the cell. Plus the cleanest definition of machine learning on the track and Meta's road from Ray-Ban glasses to holograms. This companion follows the conversation in order.</p>
+      <img src="assets/ep05-hero-cell.webp" alt="Watercolor illustration of a giant luminous cell like a planet under a telescope">
+      <p class="caption"><b>Illustration.</b> The telescope for the cell: AI plus imaging as the lens for 37 trillion cells. Made for this page. AI-generated watercolor in a New Yorker style, made for this page. It carries no words or labels.</p>
+      <div class="legend"><b>How to read this companion.</b>
+        Claims tagged <span class="tag src">SOURCE</span> trace to the episode or its transcript.
+        Claims tagged <span class="tag int">INTERPRETATION</span> are analysis added by this companion.
+        Numbers name their source line. Anything the episode never says is marked <b>Not in source</b>.</div>
+      <div class="stats">
+<div class="stat"><div class="n">2015</div><div class="l">the Chan Zuckerberg Initiative launched</div><div class="s">Transcript, opening section</div></div>
+        <div class="stat"><div class="n">37T</div><div class="l">cells in the human body, the unit CZI attacks</div><div class="s">Transcript, cell section</div></div>
+        <div class="stat"><div class="n">7,000+</div><div class="l">rare diseases, each a window into normal biology</div><div class="s">Transcript, limits section</div></div>
+        <div class="stat"><div class="n">2x</div><div class="l">camera improvement in the new Ray-Ban Meta glasses</div><div class="s">Transcript, glasses section</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/1Wo6SqLNmLk" title="Huberman Lab episode 5 with Zuckerberg and Chan, official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video on youtube-nocookie, the only external dependency on this page. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">The tool comes first</a></li>
+          <li><a href="#nugget-2">Infrastructure bet, not hero bet</a></li>
+          <li><a href="#nugget-3">1.17 million years</a></li>
+          <li><a href="#nugget-4">The tool makes the connection</a></li>
+          <li><a href="#nugget-5">Same machine, different patterns</a></li>
+          <li><a href="#nugget-6">The honest limit: unknown</a></li>
+          <li><a href="#nugget-7">A mouse result is not a human result</a></li>
+          <li><a href="#nugget-8">Stay in your lane</a></li>
+          <li><a href="#nugget-9">The glasses ladder</a></li>
+          <li><a href="#nugget-10">A design answer, not a solution</a></li>
+        </ol>
+      </div>
+    </div>
+    <section class="chapter" id="ch-mission" data-time="Opening" data-title="Cure, prevent, or manage all disease">
+      <p class="ch-time">Opening section</p>
+      <h2>The mission</h2>
+      <figure>
+        <img src="assets/ep05-zuckerberg-chan-photo.png" alt="Photograph of Mark Zuckerberg and Priscilla Chan at the CZ Biohub launch">
+        <p class="caption"><b>Photograph.</b> Mark Zuckerberg and Priscilla Chan at the CZ Biohub launch. Real photograph by the Associated Press, via CZ Biohub. Used with source attribution. This is not an AI-generated image.</p>
+      </figure>
+      <p><span class="tag src">SOURCE</span> The Chan Zuckerberg Initiative launched in 2015. Its stated goal: cure, prevent, or manage all disease by the end of the century. Not one disease. All of them.</p>
+      <div class="pull reveal">
+        <blockquote>cure prevent or manage all Disease by the end of the century</blockquote>
+        <p class="who">Priscilla Chan, opening section of the episode</p>
+      </div>
+      <p><span class="tag src">SOURCE</span> The strategy has three parts: fund great scientists, build tools, currently software tools, that make science faster and easier, and do science directly through institutes like the Biohubs. The first Biohub launched in San Francisco as a collaboration between Stanford, UC Berkeley, and UCSF. Later Biohubs launched in Chicago and New York. The model: bring teams together for grand challenges that no single lab or discipline could take on.</p>
+      <p><span class="tag src">SOURCE</span> The theory of change: most large-scale discoveries are preceded by a new tool or a new way of seeing. The telescope came before modern astronomy. The microscope came before modern biology. CZI's bet is that AI plus new imaging is the telescope for the cell.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Strategy</p>
+        <h4>The tool comes first</h4>
+        <p><span class="lbl">What happened.</span> CZI bets that discoveries follow tools the way astronomy followed the telescope. So it builds the lens for the cell instead of picking a disease to cure.</p>
+        <p><span class="lbl">Why it matters.</span> Tool-first beats target-first when the problem is too big to aim at directly. Nobody can aim at all disease. Everybody can use a better microscope.</p>
+        <p><span class="lbl">The principle.</span> When a problem defeats direct attack, build the instrument that makes the problem visible. The discoveries follow the tool.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Honesty</p>
+        <h4>Infrastructure bet, not hero bet</h4>
+        <p><span class="lbl">What happened.</span> CZI does not claim it will cure all diseases itself. The goal is to give the global scientific community the tools that accelerate the pace of science.</p>
+        <p><span class="lbl">Why it matters.</span> The distinction changes how you judge the bet. An infrastructure bet wins when everyone else moves faster, not when the builder takes the prize.</p>
+        <p><span class="lbl">The principle.</span> State whether you play hero or infrastructure. Heroes get judged on cures. Infrastructure gets judged on acceleration.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cell" data-time="Early" data-title="The cell is the center">
+      <p class="ch-time">Early section</p>
+      <h2>The cell is the center</h2>
+      <p><span class="tag src">SOURCE</span> Chan's framing: the cell sits at the center of all discussion of disease. The body is made of cells. The estimate given in the episode: about 37 trillion cells in the human body.</p>
+      <p><span class="tag src">SOURCE</span> The Human Genome Project taught us how mutations in DNA create susceptibility or directly cause disease. Huntington's disease follows from a DNA mutation. But between the mutation and the disease lies a vast middle: what actually happens inside cells. That middle is what CZI attacks. The open questions: what does a healthy cell look like versus a sick cell, how many cell types exist, and what do cells do when challenged.</p>
+      <div class="chart">
+        <h4>Why no human can map the cell by hand</h4>
+        <p class="csub">37 trillion cells at one cell per second is about 1.17 million years. At one million cells per second, about 1.17 years. Both are worked arithmetic from the episode's number.</p>
+        <svg viewBox="0 0 640 240" role="img" aria-label="Bar chart comparing mapping time by hand versus by AI">
+          <title>Mapping 37 trillion cells: by hand versus by AI</title>
+          <line x1="60" y1="180" x2="620" y2="180" stroke="#3d352a" stroke-width="2"/>
+          <rect x="130" y="40" width="120" height="140" class="bar alt"><title>By hand: 1 cell per second, about 1.17 million years</title></rect>
+          <rect x="390" y="168" width="120" height="12" class="bar"><title>By AI: 1 million cells per second, about 1.17 years</title></rect>
+          <text x="190" y="28" text-anchor="middle" class="vallab">1.17M yrs</text>
+          <text x="450" y="156" text-anchor="middle" class="vallab">1.17 yrs</text>
+          <text x="190" y="200" text-anchor="middle" class="axis">by hand</text>
+          <text x="450" y="200" text-anchor="middle" class="axis">by AI</text>
+          <text x="320" y="228" text-anchor="middle" class="axis">37 trillion cells. The arithmetic is the episode's point.</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, cell section (about 37 trillion cells). The time figures are worked arithmetic. 37 trillion seconds is about 1.17 million years. At one million cells per second, about 1.17 years.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Scale</p>
+        <h4>1.17 million years</h4>
+        <p><span class="lbl">What happened.</span> The episode's own arithmetic: mapping 37 trillion cells one per second takes over a million years of nonstop work. No lab, no career, no lifetime covers it.</p>
+        <p><span class="lbl">Why it matters.</span> The number kills the more-scientists strategy. The only viable move is tools that process millions of cells per second, which is why the bet is on AI, not headcount.</p>
+        <p><span class="lbl">The principle.</span> When the arithmetic says a million years, stop adding people. Change the instrument.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cellbygene" data-time="Early middle" data-title="Cell by Gene: the worked tool">
+      <p class="ch-time">Early middle section</p>
+      <h2>Cell by Gene: the worked tool</h2>
+      <p><span class="tag src">SOURCE</span> CZI built a tool called Cell by Gene. How it works: you input a gene mutation you care about, the tool returns a heat map across cell types showing which cell types express that gene, and you read the map and form hypotheses.</p>
+      <p><span class="tag src">SOURCE</span> The episode's worked example: you know gene X relates to heart disease. The heat map shows it also spikes in the pancreas. That raises two questions a human might never ask: why is a heart gene active in the pancreas, and what happens to the pancreas when the gene mutates? For drug development, the same map warns of side effects: a drug targeting the heart that also hits the pancreas needs that flagged before clinical trials.</p>
+      <p><span class="tag src">SOURCE</span> This is the episode's concrete answer to what AI does for science. It does not replace the scientist. It makes the connection no human would have made, and the human does the science from there.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Tools</p>
+        <h4>The tool makes the connection</h4>
+        <p><span class="lbl">What happened.</span> A heat map shows a heart gene spiking in the pancreas. No human looks there. The map creates the hypothesis and the side-effect warning in one view.</p>
+        <p><span class="lbl">Why it matters.</span> This is the division of labor the episode defends: the machine surfaces the unasked question, the human does the science. Neither half works alone.</p>
+        <p><span class="lbl">The principle.</span> Judge an AI science tool by the questions it makes askable, not by the answers it gives. The unasked question is the product.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ml" data-time="Middle" data-title="What machine learning is">
+      <p class="ch-time">Middle section</p>
+      <h2>What machine learning is</h2>
+      <p><span class="tag src">SOURCE</span> Zuckerberg's definition in the episode: machine learning techniques are basically “pattern recognition” systems. Very deep statistical machines, very efficient at finding patterns. The striking claim: you do not need to teach the system the domain. Feed a language model English examples and Italian examples, and it can explain in Italian what it learned in English. Nobody taught it translation as a subject. The crossover falls out of pattern recognition at scale.</p>
+      <p><span class="tag src">SOURCE</span> The AlphaFold proof: DeepMind's protein-folding work uses basically the same model architecture as language models. Instead of text, it was fed protein data. Given a protein state, it outputs how the protein folds. Same architecture, different data, completely different domain. That is the power and the limit of the paradigm in one example.</p>
+      <div class="chart">
+        <h4>Same architecture, two domains</h4>
+        <p class="csub">The episode's proof that the paradigm is pattern recognition, not domain understanding.</p>
+        <svg viewBox="0 0 640 220" role="img" aria-label="Comparison of language models and AlphaFold: same architecture, different data">
+          <title>Same architecture, two domains</title>
+          <rect x="40" y="20" width="260" height="160" fill="#e9f1f4" stroke="#e0d6c0"><title>Language model: internet text in, next words out</title></rect>
+          <rect x="340" y="20" width="260" height="160" fill="#f5e8d4" stroke="#e0d6c0"><title>AlphaFold: protein data in, folded structure out</title></rect>
+          <text x="170" y="55" text-anchor="middle" class="vallab">Language model</text>
+          <text x="470" y="55" text-anchor="middle" class="vallab">AlphaFold</text>
+          <text x="170" y="85" text-anchor="middle" class="axis">same architecture</text>
+          <text x="470" y="85" text-anchor="middle" class="axis">same architecture</text>
+          <text x="170" y="110" text-anchor="middle" class="axis">fed: internet text</text>
+          <text x="470" y="110" text-anchor="middle" class="axis">fed: protein data</text>
+          <text x="170" y="135" text-anchor="middle" class="axis">outputs: next words</text>
+          <text x="470" y="135" text-anchor="middle" class="axis">outputs: folded structure</text>
+          <text x="320" y="205" text-anchor="middle" class="axis">What it proves: patterns in, patterns out. The domain is the data.</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, machine learning section. The architecture equivalence and the protein-data training are the episode's claims.</p>
+      </div>
+      <p><span class="tag src">SOURCE</span> Zuckerberg's honest limit: as an industry, we do not know the natural limits of this yet. That is what makes the current state exciting. The paradigm solves problems that were not solvable before, and nobody knows where it stops.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Definition</p>
+        <h4>Same machine, different patterns</h4>
+        <p><span class="lbl">What happened.</span> One architecture folds proteins and writes sentences. The only change is the training data. The machine never learned biology or language as subjects. It learned patterns.</p>
+        <p><span class="lbl">Why it matters.</span> This reframes every ML result: the question is never what the system understands. The question is what patterns it was fed.</p>
+        <p><span class="lbl">The principle.</span> When you evaluate an ML system, list its training patterns first. Its capabilities cannot exceed its patterns by much.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Limits</p>
+        <h4>The honest limit: unknown</h4>
+        <p><span class="lbl">What happened.</span> Zuckerberg states plainly that the industry does not know the natural limits of the pattern-recognition paradigm. He does not fill the gap with a guess.</p>
+        <p><span class="lbl">Why it matters.</span> An unknown limit is information. It tells you the field is still in the exploration phase, where the right move is experiments, not manifestos.</p>
+        <p><span class="lbl">The principle.</span> Say when a limit is unknown. Unknown is a finding, and it beats a confident invented boundary.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-limits" data-time="Middle late" data-title="Where pattern recognition hits its limit">
+      <p class="ch-time">Middle late section</p>
+      <h2>Where pattern recognition hits its limit</h2>
+      <p><span class="tag src">SOURCE</span> The episode gives the failure case, and it is important. Mice: science has basically cured every disease in mice. Mice are the model organism. But mice are not humans, and the research often does not translate one to one.</p>
+      <p><span class="tag src">SOURCE</span> The deeper limit: pattern recognition needs abundant patterns. Where patterns are scarce, the paradigm strains. The episode's rare-disease numbers: over 7,000 rare diseases exist. Collectively they affect many people. Each one is a window into how normal biology works, because a mutation that breaks one specific thing reveals what that thing does when it works.</p>
+      <p><span class="tag src">SOURCE</span> The translation rule from the episode: CZI works up to the target-discovery stage. Then biotech companies and startups take the targets into translation and drug development. CZI knows its limitations and stays in its lane: tools and basic science, not therapeutics. The small exception is the rare-disease portfolio, where CZI funds patient advocates to build registries and partner with researchers and drug developers.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Translation</p>
+        <h4>A mouse result is not a human result</h4>
+        <p><span class="lbl">What happened.</span> Science cures diseases in mice routinely. The cures often fail in humans. The episode treats the gap as the central fact of translational medicine, not as a footnote.</p>
+        <p><span class="lbl">Why it matters.</span> Every mouse breakthrough arrives wrapped in human hope. The episode's rule keeps the two separate: routine in mice, unsolved in humans.</p>
+        <p><span class="lbl">The principle.</span> Never let a model-organism result stand in for the human result. Ask what the translation step costs before you celebrate.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Focus</p>
+        <h4>Stay in your lane</h4>
+        <p><span class="lbl">What happened.</span> CZI stops at target discovery and hands translation to biotech companies. It names its limitation and designs around it, with one deliberate exception for rare diseases.</p>
+        <p><span class="lbl">Why it matters.</span> Knowing where you stop is what makes the part you do excellent. The handoff is part of the strategy, not an admission of failure.</p>
+        <p><span class="lbl">The principle.</span> Define your lane by what you will not do. Then build the handoff to whoever does the rest.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-glasses" data-time="Closing" data-title="The future of computing: glasses">
+      <p class="ch-time">Closing section</p>
+      <h2>The future of computing: glasses</h2>
+      <p><span class="tag src">SOURCE</span> Zuckerberg defines the terms. Augmented reality: you see the real world, with holograms placed in it, the future smart glasses version. Virtual reality: the headset experience, fully immersive. Mixed reality: the umbrella term for the combined experience.</p>
+      <p><span class="tag src">SOURCE</span> His thought experiment: walk around and ask what actually needs to be physical. The chair does, because you sit on it. The art on the wall does not. The workstation does not. Any screen could be a hologram. In the limit, you walk into a room with as many holograms as physical objects.</p>
+      <figure>
+        <img src="assets/ep05-ar-glasses.webp" alt="Watercolor illustration of eyeglasses with holographic screens floating above the lenses">
+        <p class="caption"><b>Illustration.</b> The glasses ladder: every screen becomes a hologram. AI-generated watercolor in a New Yorker style, made for this page.</p>
+      </figure>
+      <p><span class="tag src">SOURCE</span> Two tracks, stated as a product ladder. Now: Ray-Ban Meta glasses. A sensor on the front captures photos and video without taking out your phone. Speaker and microphone for music and calls. Each generation improves: the camera got about twice as good, the audio crisper. The big change is AI running on the glasses, proxied through the phone, powered by LLM advances. Later: full AR glasses with holographic displays. The engineering problem: miniaturizing a supercomputer into stylish, normal-looking glasses. Internal dev kits exist. It will be more expensive at first.</p>
+      <p><span class="tag src">SOURCE</span> The analogy Zuckerberg gives: AR glasses are to the phone as the phone is to the workstation. You wear glasses all day for frequent light interactions. You sit at the headset or workstation for intense tasks. A surgeon should operate through the headset, not the glasses.</p>
+      <p><span class="tag src">SOURCE</span> The privacy design: a bright pulsing white light whenever the camera sensor is active. More visible than a phone camera, which shows nothing. The episode acknowledges the consent problem directly: glasses blend into daily life in a way phones do not, and locker rooms are the sharp example.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Hardware</p>
+        <h4>The glasses ladder</h4>
+        <p><span class="lbl">What happened.</span> Meta ships camera glasses now and builds holographic AR for later. The ladder runs on one engineering problem: miniaturizing a supercomputer into normal-looking frames.</p>
+        <p><span class="lbl">Why it matters.</span> The product sequence reveals the constraint. What ships today is what the miniaturization allows today. The roadmap is a hardware story, not a software story.</p>
+        <p><span class="lbl">The principle.</span> Read any hardware roadmap as a list of unsolved miniaturization problems. The dates are guesses. The problems are real.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Privacy</p>
+        <h4>A design answer, not a solution</h4>
+        <p><span class="lbl">What happened.</span> The camera glasses carry a bright pulsing white light when recording, more visible than a phone. The episode admits the consent problem stays real: glasses blend into daily life in a way phones do not.</p>
+        <p><span class="lbl">Why it matters.</span> The light is honest design, and the episode refuses to call it a solution. Naming the remainder is what keeps the design honest.</p>
+        <p><span class="lbl">The principle.</span> Ship the mitigation and name what it does not fix. A partial answer labeled partial beats a partial answer sold as complete.</p>
+      </div>
+    </section>
+
+    <div class="takeaways">
+      <h3>Takeaways</h3>
+      <ol>
+<li>CZI's goal: cure, prevent, or manage all disease by 2100. The method is infrastructure, not heroics: fund scientists, build tools, do science directly.</li>
+      <li>The tool comes first. The telescope came before modern astronomy. AI plus imaging is the telescope for the cell.</li>
+      <li>Machine learning is pattern recognition. AlphaFold proves it: the same model architecture as language models, fed protein data instead of text, solves protein folding.</li>
+      <li>Pattern recognition needs abundant patterns. Mice are cured routinely and it does not transfer one to one. Over 7,000 rare diseases strain the paradigm.</li>
+      <li>Glasses are the phone, worn all day. The headset is the workstation, for intense tasks. The pulsing camera light is a design answer to consent, not a complete solution.</li>
+      </ol>
+    </div>
+    <footer>
+      <p><b>Sources.</b> This companion narrates Huberman Lab Episode 5, Curing All Human Diseases and the Future of Health and Technology with Mark Zuckerberg and Dr. Priscilla Chan (2023-10-23, video 1Wo6SqLNmLk). All facts and figures come from the episode transcript (cleaned captions, not verbatim-certified) and the episode page in this track. Each chart names its source line. Illustrations are AI-generated watercolors made for this page. The photograph is real, with visible attribution in its caption. Transcripts carry no timestamps, so chapters are ordered by episode progression instead of clock time.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 14 words: one pull quote of 12 words stating the CZI goal, and one two-word episode phrase. Both carry attribution where they appear. The pull quotes carry speaker attribution and their place in the episode. Everything else is original paraphrase and analysis. The transcript used here is cleaned captions, not a verbatim-certified record, so brief quoted phrases reproduce its wording, not necessarily the exact spoken word.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var title = ch.getAttribute('data-title') || '';
+    a.innerHTML = (t ? '<span class="t">' + t + '</span>' : '') + title;
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function onScroll(){
+    var best = null, by = 160;
+    chapters.forEach(function(ch){
+      var r = ch.getBoundingClientRect();
+      if (r.top <= by) best = ch;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', best && a.getAttribute('href') === '#' + best.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
