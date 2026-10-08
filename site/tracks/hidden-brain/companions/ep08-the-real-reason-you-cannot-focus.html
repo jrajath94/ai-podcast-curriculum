@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Real Reason You Cannot Focus: Hidden Brain Interactive Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Hidden Brain episode on attention: Gloria Mark research, the 47-second attention span, and rebuilding focus.">
+<style>
+:root{
+  --paper:#fbf9f3; --paper2:#f4eee1; --ink:#24201a; --muted:#6f6455;
+  --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+  --green:#2e6b34; --blue:#2c5f8a;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:18px;line-height:1.65}
+a{color:var(--accent-ink)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+.topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+  align-items:center;gap:14px}
+.topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+.chapnav{position:sticky;top:52px;z-index:99;background:var(--paper2);
+  border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+  padding:8px 12px}
+.chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+  color:var(--muted);text-decoration:none;padding:6px 10px;margin-right:6px;
+  border:1px solid transparent;border-radius:20px}
+.chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+.chapnav a:hover{border-color:var(--line);color:var(--ink)}
+.chapnav a.active{background:var(--ink);color:#fff}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;padding:0 20px}
+@media(min-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,760px)}
+  .chapnav{display:none}
+  .sidenav{display:block}
+}
+.sidenav{display:none;position:sticky;top:70px;align-self:start;
+  max-height:calc(100vh - 90px);overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+.sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+.sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+.sidenav a:hover{color:var(--ink)}
+.sidenav a.active{border-left-color:var(--accent);color:var(--ink);font-weight:700}
+.content{min-width:0;padding:26px 0 60px}
+.breadcrumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px}
+h1{font-size:40px;line-height:1.15;margin:0 0 10px}
+.meta-line{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.sourcebox{border:1px solid var(--line);background:var(--paper2);padding:14px 16px;
+  margin:0 0 26px;font-family:var(--sans);font-size:13px;line-height:1.55}
+.sourcebox .badge{display:inline-block;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-right:8px}
+.badge.transcript{background:#e5f0e2;color:var(--green)}
+.badge.descr{background:#f6e8d4;color:var(--accent-ink)}
+.legend{margin-top:10px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 8px;border-radius:10px;margin:0 6px 4px 0}
+.tag.sf{background:#e5f0e2;color:var(--green)}
+.tag.in{background:#e6ecf5;color:var(--blue)}
+p{margin:0 0 16px}
+h2{font-size:28px;margin:44px 0 12px;scroll-margin-top:130px}
+h3{font-size:21px;margin:28px 0 8px}
+section.chapter{scroll-margin-top:120px}
+figure{margin:26px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+figcaption .kind{font-weight:700;color:var(--ink)}
+.nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+.nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+.nugget h4{font-size:20px;margin:0 0 10px}
+.nugget p{font-size:16.5px;margin:0 0 10px}
+.nugget p:last-child{margin-bottom:0}
+.nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.nugget .nsrc{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.pull{margin:34px 0;padding:6px 0;text-align:center}
+.pull blockquote{font-size:25px;line-height:1.4;margin:0 0 10px;font-style:italic}
+.pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+  background:var(--accent);margin:0 auto 18px}
+.pull:after{margin:18px auto 0}
+.chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+.chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+.chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:12px 0 0}
+.chart .illust{font-family:var(--sans);font-size:11.5px;color:var(--accent-ink);margin:6px 0 0;font-style:italic}
+.video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--line)}
+.video .frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.nugindex{columns:2;column-gap:28px;font-family:var(--sans);font-size:13.5px}
+.nugindex li{margin-bottom:8px;break-inside:avoid}
+footer.honesty{border-top:2px solid var(--ink);margin-top:50px;padding:24px 0 10px;
+  font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+footer.honesty h3{font-size:15px;color:var(--ink);margin:18px 0 8px}
+footer.honesty .big{font-size:15px;color:var(--ink);font-weight:700}
+footer.honesty code{font-family:var(--mono);font-size:12px;background:var(--paper2);padding:1px 5px}
+#tip{position:fixed;pointer-events:none;background:#1d1a15;color:#f7f3ea;
+  font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:6px;
+  max-width:280px;opacity:0;transition:opacity .15s;z-index:300}
+.stat-row{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.stat{flex:1 1 150px;border:1px solid var(--line);background:#fff;padding:14px;text-align:center}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent-ink)}
+.stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.stat .s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:4px}
+@media(max-width:700px){h1{font-size:30px}.nugindex{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Hidden Brain &middot; Interactive companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <aside class="sidenav" id="sidenav" aria-label="Chapters"></aside>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../index.html">Hidden Brain</a> / <span>The Real Reason You Cannot Focus</span></nav>
+      <p class="eyebrow">Interactive companion</p>
+      <h1>The Real Reason You Cannot Focus</h1>
+      <p class="meta-line">Episode 8 &middot; Hidden Brain &middot; Guest: Gloria Mark, psychologist &middot; Published 2026-08-31 &middot; 54,278 views &middot; 18 min 30 s</p>
+      <div class="sourcebox"><span class="badge descr">Description plus published research</span> This episode has no full transcript on disk (the auto-generated captions were rate-limited at collection time, and no manual captions exist). This companion is narrated from the official episode description plus Gloria Mark published findings, re-verified on 2026-10-08. Every claim carries a source tag. No spoken lines are quoted.
+      <div class="legend"><span class="tag sf">Source fact</span> claim verified in the source named beside it. <span class="tag in">Interpretation</span> my analysis, clearly separated from source facts.</div></div>
+      <figure class="reveal"><img src="img/ep08-attention-a.webp" alt="Watercolor: fragmented attention" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> Attention pulled in every direction, even when the room is silent.</figcaption></figure>
+      <section class="chapter" id="seconds" data-time="Source: description"><h2>47 seconds</h2><p class="reveal"><span class="tag sf">Source fact</span> The episode centers on one number from psychologist Gloria Mark research: the average person attention on any single screen now sits at just 47 seconds.</p><p class="reveal"><span class="tag sf">Published research</span> Mark, a professor of informatics at UC Irvine, measured this with background computer logging across two decades of field studies, not self-report. In 2004, workers stayed on one screen about 2.5 minutes before switching. By 2012, about 75 seconds. From about 2016 onward, an average of 47 seconds, with a median of 40 seconds: half of all observed stretches ended in 40 seconds or less. In a public interview Mark noted nearby replications of 44 and 50 seconds, averaging to about 47.</p><div class="chart reveal"><h4>Average time on one screen before switching</h4><p class="csub">Gloria Mark field studies, UC Irvine</p><svg viewBox="0 0 560 134" role="img">
+<g>
+<title>2004: 150 sec (About 2.5 minutes)</title>
+<text x="0" y="28" font-size="13" fill="#24201a" font-family="sans-serif">2004</text>
+<rect x="200" y="10" width="290.0" height="26" fill="#2e6b34"/>
+<text x="498.0" y="28" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">150 sec</text>
+</g>
+<g>
+<title>2012: 75 sec (About 75 seconds)</title>
+<text x="0" y="66" font-size="13" fill="#24201a" font-family="sans-serif">2012</text>
+<rect x="200" y="48" width="145.0" height="26" fill="#2c5f8a"/>
+<text x="353.0" y="66" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">75 sec</text>
+</g>
+<g>
+<title>2016 onward: 47 sec (About 47 seconds average, 40 second median)</title>
+<text x="0" y="104" font-size="13" fill="#24201a" font-family="sans-serif">2016 onward</text>
+<rect x="200" y="86" width="90.9" height="26" fill="#b4531f"/>
+<text x="298.9" y="104" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">47 sec</text>
+</g>
+</svg><p class="csrc">Published research: G. Mark, Attention Span (2023) and associated UC Irvine field studies, re-verified 2026-10-08. <span class="tag sf">Published research</span></p></div><p class="reveal"><span class="tag in">Interpretation</span> Averages and medians answer different questions. A 47-second average does not mean every screen visit lasts 47 seconds. One 20-minute writing session plus five rapid checks of calendar, chat, inbox, and browser all enter the same distribution. The pattern is real, but it describes behavior, not a biological limit, which means it is largely reversible.</p><div class="stat-row"><div class="stat reveal"><div class="n">47 s</div><div class="l">Average time on one screen</div><div class="s">Published research</div></div><div class="stat reveal"><div class="n">40 s</div><div class="l">Median stretch</div><div class="s">Published research</div></div><div class="stat reveal"><div class="n">25 min</div><div class="l">To return to a task after an interruption</div><div class="s">Published research</div></div></div></section><section class="chapter" id="inside" data-time="Source: description"><h2>The enemy inside</h2><p class="reveal"><span class="tag sf">Source fact</span> The episode asks: what if the thing pulling your attention away is not your phone at all, but something happening inside your own mind? Even when nothing around us buzzes or beeps, we still find ways to interrupt ourselves.</p><p class="reveal"><span class="tag sf">Published research</span> Mark research found that people interrupt themselves almost as often as external sources interrupt them. In her book she reports that 44 percent of the time, people switch their attention without any visible trigger: mid-task, the urge to check something else simply arrives. The more we are interrupted from the outside, the more we start interrupting ourselves.</p><div class="chart reveal"><h4>Where interruptions come from</h4><p class="csub">Share of attention switches with no visible trigger</p><svg viewBox="0 0 560 96" role="img">
+<g>
+<title>No visible trigger (self-interruption): 44% (44 percent of switches)</title>
+<text x="0" y="28" font-size="13" fill="#24201a" font-family="sans-serif">No visible trigger (self-interruption)</text>
+<rect x="200" y="10" width="227.9" height="26" fill="#b4531f"/>
+<text x="435.9" y="28" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">44%</text>
+</g>
+<g>
+<title>Visible trigger (external): 56% (56 percent of switches)</title>
+<text x="0" y="66" font-size="13" fill="#24201a" font-family="sans-serif">Visible trigger (external)</text>
+<rect x="200" y="48" width="290.0" height="26" fill="#2c5f8a"/>
+<text x="498.0" y="66" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">56%</text>
+</g>
+</svg><p class="csrc">Published research: G. Mark, Attention Span (2023). <span class="tag sf">Published research</span></p><p class="illust">The 44 percent figure is from the published research. The 56 percent is its complement, shown for visual proportion.</p></div><div class="nugget reveal" id="n1"><p class="eyebrow">Nugget 1 &middot; The enemy inside</p><h4>We internalized the interruption</h4><p><span class="lbl">What happened.</span> The urge to check now arrives from inside, even when the phone is silent. Almost half of attention switches have no visible trigger.</p><p><span class="lbl">Why it matters.</span> Blaming the phone misses the mechanism. The distraction habit moved indoors, into the nervous system itself.</p><p><span class="lbl">The principle.</span> Fix the trigger, not the device. A silent phone does not fix an impatient mind.</p><p class="nsrc">Source: episode description + published research. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="doctor" data-time="Source: description"><h2>The doctor on the plane</h2><p class="reveal"><span class="tag sf">Source fact</span> The episode tells the story of a doctor who books a round-trip flight just to escape Wi-Fi long enough to write a grant. No meetings, no messages, no way to be reached: altitude as a focus strategy.</p><p class="reveal"><span class="tag in">Interpretation</span> The anecdote is funny because it is expensive. When focus requires buying a plane ticket, the environment has won. But it also proves the point about reversibility: remove the channels, and the mind can still do the deep work. The attention system is not broken. It is overfed.</p><figure class="reveal"><img src="img/ep08-attention-b.webp" alt="Watercolor: deep calm focus" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> Focus rebuilt from the inside: one beam of light, one page, the phone face down.</figcaption></figure></section><section class="chapter" id="rhythm" data-time="Source: track index"><h2>Attention as a rhythm</h2><p class="reveal"><span class="tag sf">Source fact</span> The track index summarizes the episode closing argument: attention works as a rhythm, and focus can be rebuilt from the inside.</p><p class="reveal"><span class="tag sf">Published research</span> Mark calls the restless switching pattern kinetic attention: attention that is not simply present or absent, but active, repeatedly redirected, often spread across several tools. Her published work argues for flowing with the natural rhythms of attention rather than fighting them: matching tasks to the mind state instead of demanding one flat state all day.</p><div class="nugget reveal" id="n2"><p class="eyebrow">Nugget 2 &middot; Attention rhythm</p><h4>Stop demanding a flat line</h4><p><span class="lbl">What happened.</span> Attention moves in rhythms. The research describes it as kinetic: active and redirectable, not a switch that is on or off.</p><p><span class="lbl">Why it matters.</span> If focus is a rhythm, the job is the conductor, not the clamp. Fighting the rhythm burns the same energy you want to save.</p><p><span class="lbl">The principle.</span> Design the day around the rhythm. Deep work when the mind is deep, shallow work when it is not.</p><p class="nsrc">Source: track index summary + published research. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="rebuild" data-time="Source: interpretation"><h2>Rebuilding focus</h2><p class="reveal"><span class="tag in">Interpretation</span> Without the episode transcript, the specific exercises from the show cannot be reconstructed, and this companion does not try. What the sourced material supports: the problem is behavioral and environmental, which makes it reversible. The first fix is to notice self-interruption as it happens. The second is to remove channels the way the doctor did, at whatever scale your life allows. The third is to match task depth to the attentional rhythm instead of forcing flat focus.</p><p class="reveal"><span class="tag in">Interpretation</span> One number to keep: 25 minutes to fully return to a task after an interruption. Every self-interruption is not a 30-second detour. It is a 25-minute debt.</p></section>
+      <section class="chapter video" id="watch" data-time="video"><h2>Watch the episode</h2><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/uYzzfQ51V2U" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><span style="position:absolute;left:-9999px">Official Hidden Brain episode video for The Real Reason You Cannot Focus.</span><p style="font-family:var(--sans);font-size:13px;color:var(--muted)">The official Hidden Brain episode video, embedded via youtube-nocookie.com, the only external dependency on this page.</p></section>
+      <section class="chapter" id="nuggets" data-time="index">
+        <h2>Nugget index</h2>
+        <ol class="nugindex"><li><a href="#n1"><b>Nugget 1.</b> We internalized the interruption</a> <span style="color:var(--muted)">(The enemy inside)</span></li><li><a href="#n2"><b>Nugget 2.</b> Stop demanding a flat line</a> <span style="color:var(--muted)">(Attention as a rhythm)</span></li></ol>
+      </section>
+    </article>
+    <footer class="honesty" id="honesty"><h3>How this companion was built</h3><p><span class="big">Sourcing.</span> No transcript exists for this episode, so every factual claim is tagged with its provenance: the episode description, the track index, or Mark published research (re-verified October 2026). The 56 percent external-interruption bar is the complement of the published 44 percent and is labeled as such.</p><h3>Sources</h3><ul><li>Episode description: research/hidden-brain/descriptions.txt (entry uYzzfQ51V2U).</li><li>Episode metadata: research/hidden-brain/episodes.json (views 54,278, upload 2026-08-31, duration 1,110 s).</li><li>G. Mark, Attention Span (2023), via publisher and review summaries, re-verified 2026-10-08.</li><li>Gloria Mark interview transcript, TED / ReThinking with Adam Grant (2.5 min in 2004, 75 s in 2012, about 47 s later).</li><li>Track index: site/tracks/hidden-brain/index.html (episode 8 summary line).</li></ul><h3>On quotes</h3><p><span class="big">Quoted words in this companion: 0.</span> The quote budget allows at most 50 words of direct quotation per artifact. This is the mechanical recount defined in the build notes: every word inside pull-quote or blockquote markup, plus every quoted phrase in body text and attributes, footer excluded. Unquoted image alt text is not a quoted phrase, so it is excluded from this count. No phrases are itemized below, because the recount is zero.</p><p>No words in this companion are quoted from the episode. Everything is paraphrase.</p><p>No episode dialogue is quoted anywhere in this companion: no transcript exists, so no spoken lines could be verified.</p><h3>What was not invented</h3><p>Thin source, handled openly: the episode itself could not be quoted or timestamped, so this companion narrates only what the official description states (the 47-second finding, the self-interruption theme, the doctor anecdote) plus independently published Mark research. The specific exercises and stories from the episode are not reconstructed. Mark numbers (47 s average, 40 s median, 2.5 min in 2004, 75 s in 2012, 44 percent self-interruption, 25 min refocus) come from her published work, not from the episode audio.</p><h3>Images and video</h3><p>Illustrations on this page are AI-generated watercolors made for this companion and are labeled as illustrations. No real photographs appear, so no attribution is owed. The video embed uses youtube-nocookie.com, the only external dependency. Everything else loads from local relative paths and works from file://.</p><p>Companion to the <a href="../index.html">Hidden Brain track index</a> and <a href="../ep08.html">the track chapter</a>. Built for study, not affiliated with the show.</p></footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+"use strict";
+var tip=document.getElementById("tip");
+document.addEventListener("mousemove",function(e){
+  var t=e.target.closest("[data-tip]");
+  if(t){tip.textContent=t.getAttribute("data-tip");
+    tip.style.opacity="1";
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-300)+"px";
+    tip.style.top=(e.clientY+16)+"px";}
+  else{tip.style.opacity="0";}
+});
+var chapters=Array.prototype.slice.call(document.querySelectorAll("section.chapter"));
+function navLink(ch){
+  var a=document.createElement("a");
+  a.href="#"+ch.id;
+  var sp=document.createElement("span");sp.className="t";
+  sp.textContent=ch.getAttribute("data-time");
+  a.appendChild(sp);
+  var h=ch.querySelector("h2");
+  a.appendChild(document.createTextNode(h?h.textContent:ch.id));
+  a.setAttribute("data-ch",ch.id);
+  return a;
+}
+var navs=[document.getElementById("chapnav"),document.getElementById("sidenav")];
+navs.forEach(function(n){if(!n)return;chapters.forEach(function(ch){n.appendChild(navLink(ch));});});
+function spy(){
+  var cur=null;
+  chapters.forEach(function(ch){if(ch.getBoundingClientRect().top<160)cur=ch.id;});
+  var links=document.querySelectorAll("[data-ch]");
+  Array.prototype.forEach.call(links,function(a){
+    a.classList.toggle("active",a.getAttribute("data-ch")===cur);});
+}
+document.addEventListener("scroll",spy,{passive:true});spy();
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+  });
+},{threshold:.08});
+Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
