@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tactical Empathy: How to Win Hard Conversations: Charisma Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Chris Voss on Huberman Lab: the three voices, labeling, mirroring, the accusation audit, calibrated questions, and why no deal beats a bad deal.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .gridln{stroke:#e7ebf2;stroke-width:1}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy .opt{display:block;width:100%;text-align:left;font-family:var(--sans);font-size:14px;
+    padding:10px 12px;margin:8px 0;border:1px solid var(--line);background:var(--paper);cursor:pointer}
+  .toy .opt:hover{border-color:var(--accent)}
+  .toy .opt.right{border-color:#1f5fb0;background:#e9eff9}
+  .toy .opt.wrong{border-color:#8f1f1f;background:#f9e9e9}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Charisma · Track Companion</a>
+  <span class="sub">Ep 2 · Tactical Empathy: How to Win Hard Conversations · Oct 2023</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Charisma · Episode 2 · Companion</p>
+      <h1>Tactical Empathy: How to Win Hard Conversations</h1>
+      <p class="dek">Chris Voss was the FBI lead international kidnapping negotiator. His book Never Split the Difference moved his methods from hostage scenes to business and family life. The central claim: every hard conversation is a negotiation, and negotiation is not combat. It is information gathering driven by empathy. This companion follows the episode chapter by chapter.</p>
+      <img src="assets/ep02/photo-chris-voss.webp" alt="Photograph of Chris Voss">
+      <p class="caption"><b>Photo.</b> Chris Voss. Source: masterclass.com, his official MasterClass course page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">3</div><div class="l">Voices: late-night DJ, playful, assertive</div><div class="s">Episode 11:41</div></div>
+        <div class="stat"><div class="n">1-3</div><div class="l">Words to mirror, then silence</div><div class="s">Episode 2:15:27</div></div>
+        <div class="stat"><div class="n">5 min</div><div class="l">The win-win flag window</div><div class="s">Episode 18:59</div></div>
+        <div class="stat"><div class="n">20 vs 1</div><div class="l">Ways people lie vs tell the truth</div><div class="s">Episode 1:02:18</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/q8CHXefn7B4" title="Huberman Lab: Chris Voss, How to Succeed at Hard Conversations (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Huberman Lab episode video. Chapter times below follow the show's published chapter list.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Walk away fast</a></li>
+          <li><a href="#nugget-2">The DJ voice</a></li>
+          <li><a href="#nugget-3">Hear win-win, slow down</a></li>
+          <li><a href="#nugget-4">The accusation audit</a></li>
+          <li><a href="#nugget-5">Verify before you pay</a></li>
+          <li><a href="#nugget-6">Sell the vision</a></li>
+          <li><a href="#nugget-7">The hard no</a></li>
+          <li><a href="#nugget-8">Label first</a></li>
+          <li><a href="#nugget-9">Mirror one to three words</a></li>
+          <li><a href="#nugget-10">Tape it</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript or the show's published chapter list. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps.</p>
+    </div>
+
+    <section class="chapter" id="ch-opening" data-time="00:00" data-title="The Man From the FBI">
+      <p class="ch-time">00:00 · Chris Voss</p>
+      <h2>The Man From the FBI</h2>
+      <p><span class="tag fact">Source fact</span> Chris Voss served as an agent with the FBI and became its lead international kidnapping negotiator. His book Never Split the Difference moved his methods from hostage scenes to business and family life.</p>
+      <p><span class="tag fact">Source fact</span> The episode's central claim: every hard conversation is a negotiation, and negotiation is not combat. It is information gathering driven by empathy.</p>
+    </section>
+
+    <section class="chapter" id="ch-mindset" data-time="04:59" data-title="Playful, or Nothing">
+      <p class="ch-time">04:59 · Negotiation Mindset, Playfulness</p>
+      <h2>Playful, or Nothing</h2>
+      <p><span class="tag fact">Source fact</span> Voss opens with the mindset: approach negotiations with a playful attitude. Playfulness unlocks outcomes that pressure cannot.</p>
+      <p><span class="tag fact">Source fact</span> Two sentences carry the philosophy. There is always a better deal, or there is no deal at all. And the sin is a slow goodbye to a dead deal. Walking away fast from a bad deal beats grinding toward one.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Walking Away</p>
+        <h4>Walk away fast</h4>
+        <p><span class="lbl">What happened. </span>Voss hunts for whether a deal exists at all. If it is a bad deal, he walks away fast. A slow goodbye to a dead deal is the sin.</p>
+        <p><span class="lbl">Why it matters. </span>A bad deal compounds. Time spent grinding toward one is time stolen from the better deal.</p>
+        <p><span class="lbl">The principle. </span>Decide fast whether the deal is real. If it is not, leave fast and keep your power for the real one.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-voices" data-time="11:41" data-title="The Three Voices">
+      <p class="ch-time">11:41 · Calm Voice, Emotional Shift, Music</p>
+      <h2>The Three Voices</h2>
+      <figure>
+        <img src="assets/ep02/illustration-dj-voice.webp" alt="Watercolor illustration of a glowing radio microphone in a dark studio">
+        <p class="caption"><b>Illustration.</b> The late-night FM DJ voice: low, slow, calm. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Voss teaches three voices. One, the late-night FM DJ voice: low, slow, calm, with a downward inflection. Use it most of the time. It signals control and safety. Two, the positive, playful voice: relaxed and smiling. Use it for the bulk of normal conversation. The episode stresses playful over exciting. When his luggage was lost, the agent who helped him most used a magic wand tone, playful and unhurried, not pumped up. Three, the direct, assertive voice: firm and flat. Use it rarely. It triggers pushback.</p>
+      <p><span class="tag fact">Source fact</span> Huberman adds the neuroscience in the episode: low-frequency, calm voices entrain the listener's nervous system toward calm. Your voice is a remote control for their state. Speak slowly and their heart rate follows.</p>
+      <div class="toy" id="toy-voices">
+        <h4>Toy: pick the voice</h4>
+        <p class="tsub">Three moments from hard conversations. Choose the voice Voss prescribes.</p>
+        <p class="src" style="font-weight:700">Moment 1: you open a tense salary talk.</p>
+        <button class="opt" data-v="dj">Late-night FM DJ voice</button>
+        <button class="opt" data-v="play">Positive, playful voice</button>
+        <button class="opt" data-v="assert">Direct, assertive voice</button>
+        <div class="verdict" id="voice-verdict-1">Choose a voice. The verdict appears here.</div>
+        <p class="src" style="font-weight:700;margin-top:18px">Moment 2: a counterpart shouts an ultimatum.</p>
+        <button class="opt" data-v2="dj">Late-night FM DJ voice</button>
+        <button class="opt" data-v2="play">Positive, playful voice</button>
+        <button class="opt" data-v2="assert">Direct, assertive voice</button>
+        <div class="verdict" id="voice-verdict-2">Choose a voice. The verdict appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Voice</p>
+        <h4>The DJ voice</h4>
+        <p><span class="lbl">What happened. </span>The late-night FM DJ voice is low, slow, calm, with downward inflection. Voss uses it most of the time. Calm voices entrain the listener's nervous system toward calm.</p>
+        <p><span class="lbl">Why it matters. </span>Your voice is a remote control for their state. The assertive voice feels powerful and triggers pushback. The DJ voice feels safe and opens ears.</p>
+        <p><span class="lbl">The principle. </span>Default to the DJ voice. Season with playful. Reserve the assertive voice for rare hard boundaries.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-winwin" data-time="18:59" data-title="The Win-Win Trap">
+      <p class="ch-time">18:59 · Win-Win?, Benevolent Negotiations, Hypothesis Testing</p>
+      <h2>The Win-Win Trap</h2>
+      <div class="pull">
+        <blockquote>watch out for the person who says win-win.</blockquote>
+        <p class="who">Chris Voss · Episode 18:59</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> If someone says win-win in the first five minutes, treat it as a pickpocket flag. It correlates extremely highly with someone trying to pick your pocket. Real partners do not need the label that early. The label that early means someone manages you.</p>
+      <p><span class="tag fact">Source fact</span> Hypothesis testing is the disciplined alternative. Guess their perspective out loud and let them correct you. It seems like something crossed your mind. Alignment, not mind reading.</p>
+      <p><span class="tag fact">Source fact</span> Most people fear no. Voss chases it. No makes people feel safe and in control, and safe people talk. No-oriented questions beat yes-oriented ones. His example: would it be a bad idea if we tried this gets a real answer, while do you agree gets a polite lie.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Red Flags</p>
+        <h4>Hear win-win, slow down</h4>
+        <p><span class="lbl">What happened. </span>The phrase win-win in the first five minutes flags a pickpocket: someone who wants you to drop your guard.</p>
+        <p><span class="lbl">Why it matters. </span>Labels that early are management, not partnership. The flag tells you to verify everything before you trust anything.</p>
+        <p><span class="lbl">The principle. </span>When you hear win-win early, slow down. Replace trust with hypothesis testing: guess their view out loud and let them correct you.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-generosity" data-time="28:38" data-title="Generosity and Hostile Rooms">
+      <p class="ch-time">28:38 · Generosity · 33:44 · Hostile Negotiations, Internal Collaboration</p>
+      <h2>Generosity and Hostile Rooms</h2>
+      <p><span class="tag fact">Source fact</span> Start conversations with a gesture of generosity. Generosity builds rapport before any ask lands.</p>
+      <p><span class="tag fact">Source fact</span> For hostile rooms, Voss prescribes the accusation audit: list the worst things the other side could think about you, out loud, before they say them. You probably think I will waste your time. You might feel this is just another sales pitch. Each audited accusation defuses one land mine.</p>
+      <p><span class="tag fact">Source fact</span> He pairs it with the inoculation phrase this will sound harsh. Saying it first lets the listener brace, which makes the harsh thing land softer. The episode cites Robert Mnookin and the Kotler framing: tactical empathy transmits information, not warmth. You show you see their world instead of asking them to like you.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Defusing</p>
+        <h4>The accusation audit</h4>
+        <p><span class="lbl">What happened. </span>Before the other side speaks, Voss names their worst suspicions about him out loud. Each named suspicion loses its charge.</p>
+        <p><span class="lbl">Why it matters. </span>Unspoken suspicions steer the whole conversation. Spoken ones become discussable. The audit turns hostility into candor.</p>
+        <p><span class="lbl">The principle. </span>Before your next ask, list the two worst things they might think about you and say them first.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-signal" data-time="39:40" data-title="Signal Versus Noise">
+      <p class="ch-time">39:40 · Patterns and Specificity · 48:15 · Urgency, Cons, Asking Questions</p>
+      <h2>Signal Versus Noise</h2>
+      <p><span class="tag fact">Source fact</span> Fair questions test threats. The specificity test: a vague threat is noise. A specific threat is signal. Ask for specifics and bluffs collapse. The episode adds the double dip warning: some counterparts take a concession and then ask again. Proof of advantage means you verify the threat or the promise before you pay for it.</p>
+      <p><span class="tag fact">Source fact</span> Urgency is the scam flag. Legitimate deals survive verification. The Vegas breakfast story, told in the episode: a supposed urgent deal fell apart the moment Voss insisted on verifying it over breakfast. If it cannot wait for a check, it is not a deal.</p>
+      <div class="chart" id="chart-flags">
+        <h4>Four red flags and the response</h4>
+        <p class="csub">From the episode. Hover for the move each flag demands.</p>
+        <svg viewBox="0 0 640 420" role="img" aria-label="List of negotiation red flags">
+          <g id="flags-list"></g>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Chris Voss, 18:59 through 48:15.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Verification</p>
+        <h4>Verify before you pay</h4>
+        <p><span class="lbl">What happened. </span>Vague threats are noise, specific threats are signal. False urgency dies under verification, as the Vegas breakfast proved.</p>
+        <p><span class="lbl">Why it matters. </span>Concessions paid to noise are gone forever. Verification is free. The check costs a breakfast. The scam costs the deal.</p>
+        <p><span class="lbl">The principle. </span>Demand specifics for every threat and every promise. If it cannot wait for a check, walk away.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-fair" data-time="54:46" data-title="Fair Questions and the Long Game">
+      <p class="ch-time">54:46 · Negotiations, Fair Questions, Negotiations</p>
+      <h2>Fair Questions and the Long Game</h2>
+      <p><span class="tag fact">Source fact</span> Calibrated questions start with how or what, never with why. How am I supposed to do that. What makes this a priority for you. Why sounds like an accusation. How and what force slow thinking. The episode cites Daniel Kahneman's fast and slow thinking: how and what questions engage the deliberate system.</p>
+      <p><span class="tag fact">Source fact</span> Calibrated questions give the other side the illusion of control while you steer. How do I know you will follow through is the fair question Voss recommends when someone promises the moon. It forces them to solve your problem.</p>
+      <p><span class="tag fact">Source fact</span> Wear out the cutthroats. The episode cites Picco's rule: exhaust the other side's will to fight rather than matching their aggression. Patience is a weapon.</p>
+    </section>
+
+    <section class="chapter" id="ch-vision" data-time="1:02:18" data-title="Vision Drives the Decision">
+      <p class="ch-time">1:02:18 · Vision Drives Decision, Human Nature and Investigation</p>
+      <h2>Vision Drives the Decision</h2>
+      <figure>
+        <img src="assets/ep02/illustration-vision.webp" alt="Watercolor illustration of two negotiators with a glowing bridge between them">
+        <p class="caption"><b>Illustration.</b> Sell the far bank, not the crossing. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> People decide with a picture of the future in their head. Voss's FARC story makes the point: hostages crossed a river to freedom because someone painted the picture of what waited on the other side, not because of arguments about the crossing. Sell the vision first.</p>
+      <p><span class="tag fact">Source fact</span> Two corollaries. Get the verbal promise last. A promise extracted early is cheap and breeds resentment. Let the vision do the work, then collect the yes. And remember that people lie in twenty ways and tell the truth in one way. When the story keeps changing shape, you hear fabrication. When it stays simple and consistent, you hear the truth.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Persuasion</p>
+        <h4>Sell the vision</h4>
+        <p><span class="lbl">What happened. </span>Hostages crossed a river because someone painted the far bank, not because someone argued about swimming. People decide with a future picture in mind.</p>
+        <p><span class="lbl">Why it matters. </span>Arguments fight the present. Vision pulls the future. The promise comes last, after the picture does the work.</p>
+        <p><span class="lbl">The principle. </span>Paint the far bank first. Collect the yes only after they can see it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gut" data-time="1:07:47" data-title="Gut Sense">
+      <p class="ch-time">1:07:47 · Lying and Body, Gut Sense · 1:15:42 · Face-to-Face Negotiation</p>
+      <h2>Gut Sense</h2>
+      <p><span class="tag fact">Source fact</span> Humans often have an unexplained somatic response when something feels off about a person or situation. The gut picks up subtle cues before the conscious mind does. Trust the feeling and explore it.</p>
+      <p><span class="tag fact">Source fact</span> The face-to-face chapter covers the 7-38-55 split (7% words, 38% delivery, 55% body language), which Voss calls very unscientific on air. In person, the emotional channel carries the weight that words alone cannot.</p>
+    </section>
+
+    <section class="chapter" id="ch-texts" data-time="1:20:39" data-title="Texts and Straight Shooters">
+      <p class="ch-time">1:20:39 · Online and Text Communication · Straight Shooters</p>
+      <h2>Texts and Straight Shooters</h2>
+      <p><span class="tag fact">Source fact</span> Keep it to one move per text message. Long texts with three asks get one answer to the easiest ask. One text, one move. The Nick Nanton two-line text, cited in the episode, shows the discipline: two lines, one ask, easy to answer yes to.</p>
+      <p><span class="tag fact">Source fact</span> The straight shooter versus blunt distinction matters. A straight shooter is direct and respectful. Blunt is direct and careless. One keeps the relationship. The other spends it.</p>
+    </section>
+
+    <section class="chapter" id="ch-hardno" data-time="1:26:47" data-title="The Hard No">
+      <p class="ch-time">1:26:47 · Break-ups, Firing, Resilience</p>
+      <h2>The Hard No</h2>
+      <p><span class="tag fact">Source fact</span> Some conversations are terminations. Voss is blunt: there is no gentle way to cut somebody's head off. Do it on Monday, not Friday, so the person can act instead of stewing through a weekend. Warn first, then keep the meeting under three seconds of small talk before the news. Dragging it out is cruelty dressed as kindness.</p>
+      <p><span class="tag fact">Source fact</span> The same rules cover romantic and professional break-ups. Warn first, then deliver the news promptly and let resilience do its work. Human beings recover fast when they can prepare for the impact.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Endings</p>
+        <h4>The hard no</h4>
+        <p><span class="lbl">What happened. </span>Firings happen on Monday with a warning and under three seconds of preamble. Friday firings and long preambles are cruelty dressed as kindness.</p>
+        <p><span class="lbl">Why it matters. </span>Delay serves the deliverer, not the receiver. Clean endings let resilience start immediately.</p>
+        <p><span class="lbl">The principle. </span>Warn, then deliver fast. Monday, not Friday. Three seconds of small talk, not thirty minutes.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-label" data-time="1:37:35" data-title="Label First">
+      <p class="ch-time">1:37:35 · Readiness and Small Space Practice, Labeling · 1:45:17 · Emotions and Listening</p>
+      <h2>Label First</h2>
+      <p><span class="tag fact">Source fact</span> Labeling means naming the other person's emotion or situation out loud, tentatively. It seems like this feels frustrating. It looks like you feel unheard here. The label does not need to be perfect. A wrong label still works because the person corrects you, and the correction is information.</p>
+      <p><span class="tag fact">Source fact</span> Voss describes emotion as rock, paper, scissors. Sadness moves into anger. Anger moves into calm. Calm opens into positive feelings. You cannot jump from furious to happy. You walk the sequence. Labeling is the tool that walks it.</p>
+      <p><span class="tag fact">Source fact</span> The episode's rule: react before you answer. When someone hits you with something hot, label first, answer second. The label buys your thinking brain time and lowers their alarm.</p>
+      <div class="chart" id="chart-emotions">
+        <h4>The rock-paper-scissors walk</h4>
+        <p class="csub">You cannot jump states. Label each one and walk the sequence.</p>
+        <svg viewBox="0 0 640 200" role="img" aria-label="Emotion sequence from sad to positive">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="20" y="60" width="120" height="80" rx="8" fill="#f4ecd9" stroke="#e2d8c3" data-tip="Sad: label it. It seems like this feels heavy."></rect>
+            <text x="80" y="107" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">Sad</text>
+            <text x="160" y="107" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="180" y="60" width="120" height="80" rx="8" fill="#f9e9e9" stroke="#e2d8c3" data-tip="Anger: relabel. It seems like this feels unfair."></rect>
+            <text x="240" y="107" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">Anger</text>
+            <text x="320" y="107" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="340" y="60" width="120" height="80" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Calm: relabel. It seems like you want this settled."></rect>
+            <text x="400" y="107" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">Calm</text>
+            <text x="480" y="107" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="500" y="60" width="120" height="80" rx="8" fill="#dcefe0" stroke="#e2d8c3" data-tip="Positive: now they can hear the proposal."></rect>
+            <text x="560" y="107" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">Positive</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Chris Voss, 1:37:35. The rock-paper-scissors sequence, as taught on air.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Practice on small stakes. Voss talks to Lyft drivers to stay ready. His suggested opener: "What do you love about driving for Lyft?" Low stakes, real humans, live reps. The CEO clean-water story shows the same skill at scale: genuine curiosity about a stranger's mission, delivering clean water to the world, opened a door no pitch could.</p>
+      <p><span class="tag fact">Source fact</span> Venting needs a taxonomy. Frustration points at the future denied. Anger points at the past. Label which one you hear and the speaker feels understood instead of managed.</p>
+      <p><span class="tag fact">Source fact</span> Ego depletion is real and it is bad for deals. Decision fatigue makes you concede or snap. Voss recharges during implementation: after the hard part, let the routine part restore you.</p>
+      <div class="toy" id="toy-label">
+        <h4>Toy: label the heat</h4>
+        <p class="tsub">A counterpart snaps that this is the third delay and nobody tells them anything. Choose the label Voss prescribes.</p>
+        <button class="opt" data-l="bad">You are wrong, the delays were announced.</button>
+        <button class="opt" data-l="good">It seems like you feel kept in the dark here.</button>
+        <button class="opt" data-l="mid">Why do you feel that way?</button>
+        <div class="verdict" id="label-verdict">Choose a response. The verdict appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Listening</p>
+        <h4>Label first</h4>
+        <p><span class="lbl">What happened. </span>React before you answer. A tentative label walks the other person from sad through anger to calm. Even a wrong label works: the correction is information.</p>
+        <p><span class="lbl">Why it matters. </span>Answering heat with heat escalates. Labeling buys your thinking brain time and lowers their alarm.</p>
+        <p><span class="lbl">The principle. </span>No label, no argument. Say it seems like before you say anything else.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-person" data-time="2:02:40" data-title="Become a Person">
+      <p class="ch-time">2:02:40 · Hostages, Humanization and Names</p>
+      <h2>Become a Person</h2>
+      <div class="pull">
+        <blockquote>Drop your name on them in a way so that you go from being a faceless person to somebody with a name</blockquote>
+        <p class="who">Chris Voss · Episode 2:02:40</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> In kidnappings, Voss's rule for the captive: comply, and humanize yourself. Say you will do whatever they say, then give your first name the way he demonstrates on air with his own name. First names break the dehumanization script. The episode cites the Good Guys case of about 1990 and the Prince's Gate siege: once a captor sees the negotiator as a person, the math of harm changes.</p>
+    </section>
+
+    <section class="chapter" id="ch-empathy" data-time="2:08:50" data-title="Empathy Is Transmission">
+      <p class="ch-time">2:08:50 · Tactical Empathy, Compassion</p>
+      <h2>Empathy Is Transmission</h2>
+      <p><span class="tag fact">Source fact</span> Voss defines empathy strictly as the transmission of information: actively demonstrating, through words, that you see the other person's perspective. Empathy is not compassion. Compassion reacts to the map. Empathy is the map made visible.</p>
+      <p><span class="tag fact">Source fact</span> By this definition, empathy needs no warmth toward the other person to work. It is an unlimited skill: you can map anyone's world without agreeing with it.</p>
+      <p><span class="tag interp">Interpretation</span> This is the episode's thesis in one line. Tactical empathy aims at information, not affection. The feeling of being heard is the mechanism. The map is the goal.</p>
+    </section>
+
+    <section class="chapter" id="ch-mirror" data-time="2:15:27" data-title="The Mirror">
+      <p class="ch-time">2:15:27 · Tool: Mirroring Technique · 2:22:20 · Tool: Proactive Listening</p>
+      <h2>The Mirror</h2>
+      <figure>
+        <img src="assets/ep02/illustration-mirror.webp" alt="Watercolor illustration of two people with sound waves echoing between them">
+        <p class="caption"><b>Illustration.</b> Repeat the last words, then let the silence work. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Mirroring means repeating the last one to three critical words of what someone just said, with an upward, curious inflection. His example: the counterpart says we cannot do that, and the mirror replies cannot do that, then silence. Most people fill silence with information.</p>
+      <p><span class="tag fact">Source fact</span> Two rules keep mirroring clean. Mirror one to three words, not whole sentences. Long mirrors sound like parroting and trigger defenses. And keep the inflection curious, never flat or sarcastic, or the mirror becomes an insult.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Information</p>
+        <h4>Mirror one to three words</h4>
+        <p><span class="lbl">What happened. </span>Repeat their last one to three words with curious upward inflection, then go silent. They fill the silence with information.</p>
+        <p><span class="lbl">Why it matters. </span>Questions can feel like interrogation. A mirror feels like attention. The silence does the asking for you.</p>
+        <p><span class="lbl">The principle. </span>One to three words, curious tone, then silence. Never mirror with a flat or sarcastic voice.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-tape" data-time="2:29:48" data-title="Tape It">
+      <p class="ch-time">2:29:48 · Family Members and Negotiations · 2:47:45 · Sounds Like... Perspective</p>
+      <h2>Tape It</h2>
+      <p><span class="tag fact">Source fact</span> In kidnappings, Voss's rule was: tape, do not live-call, when families speak to captors. A live call lets emotion hijack the message. A recording lets you control every word. The business version: do not send the angry email live. Draft it, tape it, review it. Write it hot, send it cold.</p>
+      <p><span class="tag fact">Source fact</span> The episode closes on the sounds like perspective: the label as a way of seeing. Every tool in the episode is one move: show them you see their world, then steer.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Discipline</p>
+        <h4>Tape it</h4>
+        <p><span class="lbl">What happened. </span>Kidnap families recorded messages instead of calling live. Emotion could not hijack a recording.</p>
+        <p><span class="lbl">Why it matters. </span>Live emotion writes checks the calm mind will not cash. The draft is the tape. Review is the control room.</p>
+        <p><span class="lbl">The principle. </span>Never send the hot message live. Draft it, wait, review it, then send it cold.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>There is always a better deal, or there is no deal at all. Walk away fast from the dead ones.</li>
+          <li>Default to the late-night FM DJ voice. Your voice is a remote control for their state.</li>
+          <li>Hear win-win in the first five minutes, slow down and verify everything.</li>
+          <li>Run the accusation audit before they speak. Name their worst suspicions first.</li>
+          <li>Ask how and what, never why. Let them solve your problem.</li>
+          <li>Label before you answer. No label, no argument.</li>
+          <li>Mirror one to three words, then let the silence ask.</li>
+        </ol>
+        <p class="src">Distilled from Huberman Lab, Chris Voss: How to Succeed at Hard Conversations, Oct 2023. Full episode: youtube.com/watch?v=q8CHXefn7B4. Times follow the show's published chapter list.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Huberman Lab episode "Chris Voss: How to Succeed at Hard Conversations" (October 2023). All facts and figures come from the episode transcript (research/charisma/transcripts/q8CHXefn7B4.txt) and the show's published YouTube chapter list. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 38 words: two pull quotes from Chris Voss (8 and 22 words, each with speaker and episode-time attribution), plus the Lyft opener quoted verbatim as spoken on air (8 words). The corrupted "738" figure from the draft was replaced with the 7-38-55 split as Voss states it, including his on-air "very unscientific" caveat. All example lines, dialogue reconstructions, and chapter titles in the body are the builder's own wording and carry no quotation marks.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- chart: red flags ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var flags = [
+      ['Win-win in the first 5 minutes','Pickpocket framing. Slow down and verify everything.'],
+      ['Urgency: it cannot wait','Possible scam. Insist on verification, like the Vegas breakfast.'],
+      ['Vague threat','Noise, not signal. Demand specifics and watch bluffs collapse.'],
+      ['Double dip after a concession','They will keep taking. Stop conceding and ask for proof of advantage.']
+    ];
+    var g = document.getElementById('flags-list');
+    flags.forEach(function(f, i){
+      var y = 20 + i*98;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', 10); r.setAttribute('y', y);
+      r.setAttribute('width', 620); r.setAttribute('height', 88);
+      r.setAttribute('rx', 4);
+      r.setAttribute('fill', i % 2 ? '#f5f0e6' : '#f9e9e9');
+      r.setAttribute('stroke', '#e2d8c3');
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t1 = document.createElementNS(svgNS,'text');
+      t1.setAttribute('x', 26); t1.setAttribute('y', y+32);
+      t1.setAttribute('class','vallab'); t1.textContent = (i+1) + '. ' + f[0];
+      g.appendChild(t1);
+      var t2 = document.createElementNS(svgNS,'text');
+      t2.setAttribute('x', 26); t2.setAttribute('y', y+58);
+      t2.setAttribute('class','axis'); t2.textContent = f[1];
+      g.appendChild(t2);
+      r.setAttribute('data-tip', f[0] + ': ' + f[1]);
+      r.addEventListener('mousemove', function(ev){ showTip(f[0] + ': ' + f[1], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+      t1.addEventListener('mousemove', function(ev){ showTip(f[0] + ': ' + f[1], ev.clientX, ev.clientY); });
+      t1.addEventListener('mouseleave', hideTip);
+    });
+  })();
+
+  /* ---------- toy: pick the voice ---------- */
+  function voiceToy(btnSel, outId, rightKey){
+    var btns = Array.prototype.slice.call(document.querySelectorAll(btnSel));
+    var out = document.getElementById(outId);
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var k = b.getAttribute(rightKey.indexOf('2') > -1 ? 'data-v2' : 'data-v');
+        btns.forEach(function(x){ x.classList.remove('right','wrong'); });
+        if(k === 'dj'){
+          b.classList.add('right');
+          out.textContent = 'Right. The DJ voice signals control and safety, and it entrains their nervous system toward calm.';
+          out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f';
+        } else {
+          b.classList.add('wrong');
+          out.textContent = k === 'assert'
+            ? 'Wrong. The assertive voice is the rarest voice. It triggers pushback, not compliance.'
+            : 'Wrong. The playful voice fits normal conversation, not tension. The DJ voice owns tense moments.';
+          out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f';
+        }
+      });
+    });
+  }
+  voiceToy('[data-v]', 'voice-verdict-1', 'v');
+  voiceToy('[data-v2]', 'voice-verdict-2', 'v2');
+
+  /* ---------- toy: label the heat ---------- */
+  (function(){
+    var btns = Array.prototype.slice.call(document.querySelectorAll('[data-l]'));
+    var out = document.getElementById('label-verdict');
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var k = b.getAttribute('data-l');
+        btns.forEach(function(x){ x.classList.remove('right','wrong'); });
+        if(k === 'good'){
+          b.classList.add('right');
+          out.textContent = 'Right. A tentative label names the feeling without arguing the facts. React before you answer.';
+          out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f';
+        } else if(k === 'mid'){
+          b.classList.add('wrong');
+          out.textContent = 'Wrong. Why sounds like an accusation and triggers defense. Label with how it seems, not why it is.';
+          out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f';
+        } else {
+          b.classList.add('wrong');
+          out.textContent = 'Wrong. Answering heat with facts escalates. Label first, answer second.';
+          out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f';
+        }
+      });
+    });
+  })();
+})();
+</script>
+</body>
+</html>
