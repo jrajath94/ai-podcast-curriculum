@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peter Thiel: Political Theology · Conversations with Tyler Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Conversations with Tyler episode with Peter Thiel: political theology, Schmitt, the katechon, the Antichrist, and AI.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .warnbox{background:#fdf6ec;border:1px solid #e0cfa0;border-left:4px solid #b4531f;
+    padding:14px 18px;margin:26px 0;font-family:var(--sans);font-size:14px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar">
+  <a class="brand" href="../index.html">Conversations with Tyler</a>
+  <span class="sub">Companion · Episode 4</span>
+</div>
+<nav class="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" aria-label="Chapters"><h4>Chapters</h4></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Conversations with Tyler · April 17, 2024</p>
+      <h1>Peter Thiel on Political Theology</h1>
+      <p class="dek">The founder on why the Enlightenment settlement failed, what Schmitt got right and wrong, why the Antichrist comes before Armageddon, and why AI will hit the math people first.</p>
+      <img src="assets/ep04/thiel.webp" alt="Portrait of Peter Thiel">
+      <p class="caption"><b>Peter Thiel.</b> Photo: Intercollegiate Studies Institute.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">87 min</div><div class="l">Episode length</div></div>
+        <div class="stat"><div class="n">12,165</div><div class="l">Transcript words</div></div>
+        <div class="stat"><div class="n">5</div><div class="l">Points of five-point Calvinism</div><div class="s">Thiel agrees with none of them</div></div>
+        <div class="stat"><div class="n">1949-89</div><div class="l">The katechon years: anti-communism</div></div>
+      </div>
+      <p class="legend">Times marked ~ are proportional estimates from word position. The transcript carries no timestamps.</p>
+      <div class="wisdom">
+        <h3>Index of nuggets</h3>
+        <ol>
+          <li><a href="#nugget-1">The pin factory on steroids</a></li>
+          <li><a href="#nugget-2">Do not scapegoat Mr. God</a></li>
+          <li><a href="#nugget-3">The Bible takes the victim's side</a></li>
+          <li><a href="#nugget-4">Three options on history</a></li>
+          <li><a href="#nugget-5">No greater victim than Christ</a></li>
+          <li><a href="#nugget-6">The friend-enemy machine only works unseen</a></li>
+          <li><a href="#nugget-7">The millionaire, the general, and the priest</a></li>
+          <li><a href="#nugget-8">Daniel, not Thucydides</a></li>
+          <li><a href="#nugget-9">The Antichrist comes first</a></li>
+          <li><a href="#nugget-10">Peace and safety</a></li>
+          <li><a href="#nugget-11">You are not a lottery ticket</a></li>
+          <li><a href="#nugget-12">Do not immanentize the katechon</a></li>
+          <li><a href="#nugget-13">The fiercest fights are mimetic</a></li>
+          <li><a href="#nugget-14">AI hits math first</a></li>
+          <li><a href="#nugget-15">Centralization waves</a></li>
+          <li><a href="#nugget-16">The hedgehog and the fox</a></li>
+          <li><a href="#nugget-17">Huddle until you need it</a></li>
+          <li><a href="#nugget-18">Apocalypse means unveiling</a></li>
+          <li><a href="#nugget-19">Advice does not scale</a></li>
+          <li><a href="#nugget-20">A real Marxist beats a diversity officer</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-opening" data-time="~00:00" data-title="What political theology means">
+      <p class="ch-time">~00:00</p>
+      <h2>What Political Theology Means</h2>
+      <p><span class="tag fact">Source fact</span> The title phrase was first used by the Russian anarchist Bakunin to mock the Italian nationalist Mazzini, then picked up by the German legal theorist Carl Schmitt, who said everyone needs one. For Thiel it is a fuzzy, broad concept, motivated as a contrast. In late modernity we live in hyper-specialization, Adam Smith's pin factory on steroids, where no one can think about the big picture. Political theology, like political philosophy, tries to integrate the facets of life to make progress. The Enlightenment abandoned this for two reasons: it was too hard, a fool's errand, and it was too dangerous, too divisive. The Westphalia settlement of 1648 said forget religion, do not talk about it. That was perhaps a reasonable compromise in the 18th century. In the 21st, Thiel argues, it is more dangerous not to think about these things, and more dangerous to become ever smaller cogs in an ever bigger machine.</p>
+      <p><span class="tag fact">Source fact</span> The political dimension starts with a question of scale: do you begin with the human scale or the microscopic, telescopic, atomic, cosmic scale? Following a Socratic turn, Thiel starts with common sense, the human world, politics, economics, society, culture, as the access point. There is some deep link between the university and the universe, between the failing multiversity and the crazed multiverse. You will never solve the cosmic questions first. Start with what has gone wrong in the university, and the universe comes into view.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Frames</p>
+        <h4>The pin factory on steroids</h4>
+        <p><span class="lbl">What happened. </span>Hyper-specialization made everyone a smaller cog in a bigger machine. Political theology is the attempt to think about the whole anyway.</p>
+        <p><span class="lbl">Why it matters. </span>The Westphalia deal, stop talking about religion, worked when the questions were small. The questions are not small anymore.</p>
+        <p><span class="lbl">The principle. </span>Start with the human scale. The universe comes into focus through the university, not the other way around.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-calvin" data-time="~00:04" data-title="Why not Calvinism">
+      <p class="ch-time">~00:04</p>
+      <h2>Why Not Calvinism</h2>
+      <p><span class="tag fact">Source fact</span> Tyler presses Thiel: you call yourself religious but not spiritual, which sounds Calvinist. Calvinism insists we know nothing about heaven, so claiming to know it is an arrogation of man's power, and the same logic kills spirituality. It is concrete, serious, takes governance literally. Why not just be Calvinist? Thiel answers that he is still mostly a libertarian. He finds redeeming things in Calvinism: it is so anti-utopian it helps in the battle against communism. But five-point Calvinism, total depravity, unconditional election, limited atonement, irresistible grace, perseverance of the saints, and he does not know if he agrees with even one of the five. On Roman Catholicism, his entire rebuttal is two words: the name of the current pope.</p>
+      <div class="pull">
+        <blockquote>My two-word rebuttal to Roman Catholicism is Pope Francis.</blockquote>
+        <p class="who">Peter Thiel · Episode ~00:06</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> His Girardian argument against Calvinism: there is a deep link between gods and scapegoats. Archaic religion projects violence onto scapegoats and turns them into gods. Atheist liberalism does the same, blaming everything on Mr. God. Calvinism is the extreme form, where Mr. God did everything, determined everything, down to the blue jacket. We should be deeply distrustful of scapegoating Mr. God like that. Then the intellectual argument: if depravity means you cannot even think, there is no conversation to have. The medievals, in the Thomistic distinction, believed in the power of the intellect and the weakness of the will. The moderns reversed it. The effective altruist East Bay rationalists claim to be rational, but inwardly it is all spaghetti code, never right, maybe a little less wrong. They are much closer to Calvinism than they admit. He is against both.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Theology</p>
+        <h4>Do not scapegoat Mr. God</h4>
+        <p><span class="lbl">What happened. </span>Thiel turns Girard on Calvinism: blaming everything on a God who determined everything is just scapegoating with theology.</p>
+        <p><span class="lbl">Why it matters. </span>Total depravity ends the conversation. If no one can think, there is nothing to discuss, and Thiel wants the discussion.</p>
+        <p><span class="lbl">The principle. </span>Keep the intellect. A doctrine that forbids thinking forbids its own defense.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-bible" data-time="~00:09" data-title="The Bible takes the victim's side">
+      <p class="ch-time">~00:09</p>
+      <h2>The Bible Takes the Victim's Side</h2>
+      <p><span class="tag fact">Source fact</span> What did Thiel take from the Hebrew Bible? His views are fairly orthodox Christian: continuity between Old and New, with the Christian God as the original progressive, the first time the new is better than the old just by being new. Push that too far and you split the God of the Old Testament from the God of the New, and the 19th-century higher criticism that did this was deeply anti-Semitic. Too progressive ends in anti-Semitism. The Girardian intuition is the reversal of perspective: the Bible takes things from the side of the victim. Genesis gives us Cain and Abel, the founding of the first city, told from Abel's side, the opposite of Romulus and Remus, the founding of the greatest city, told from Romulus's side. The Exodus would normally be told from the Egyptians' side: troublemakers we got rid of. The inversion runs through the whole Old Testament.</p>
+      <p><span class="tag fact">Source fact</span> Tyler proposes: read the Old Testament, conclude history is really bad, which is the central woke message, and side with the woke, forgiving the excesses as advertising. Thiel agrees the history was very bad and warns conservatives never to whitewash it: the happy-slaves argument is a loser argument. Christianity is worse than Islam or Judaism on this, because murdering God in the form of a person is a far greater violence, and then everyone is part of the matrix, so forgiveness is required. Three rough options: the Christian in-between, history is terrible but we must find forgiveness. The woke version, history is terrible and we forget forgiveness. The right-wing Nietzschean, Bronze Age Pervert version, we forget the history, we are sick of the guilt trip. The in-between is the most tenable, tensions included.</p>
+      <div class="chart" id="chart-three-options">
+        <h4>Three positions on a terrible history</h4>
+        <p class="csub">Thiel's map of the responses. Only one keeps both the history and the forgiveness.</p>
+        <svg viewBox="0 0 640 260" role="img" aria-label="Diagram of the three positions on history">
+          <circle cx="140" cy="130" r="75" fill="#d8c9a8" data-tip="Woke version: history is terrible, forget forgiveness"></circle>
+          <circle cx="320" cy="130" r="75" fill="#b4531f" data-tip="Christian in-between: history is terrible, find forgiveness"></circle>
+          <circle cx="500" cy="130" r="75" fill="#3d352a" data-tip="Nietzschean version: forget the history, skip the guilt"></circle>
+          <text class="vallab" x="140" y="126" text-anchor="middle">woke</text>
+          <text class="vallab" x="140" y="144" text-anchor="middle" font-weight="400" font-size="11">no forgiveness</text>
+          <text class="vallab" x="320" y="126" text-anchor="middle" fill="#fff">in-between</text>
+          <text class="vallab" x="320" y="144" text-anchor="middle" fill="#fff" font-weight="400" font-size="11">both kept</text>
+          <text class="vallab" x="500" y="126" text-anchor="middle" fill="#fff">Nietzschean</text>
+          <text class="vallab" x="500" y="144" text-anchor="middle" fill="#fff" font-weight="400" font-size="11">no history</text>
+        </svg>
+        <p class="csrc">Illustrative, from Thiel's on-air three-option map (~00:11). Not measured data.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Reading</p>
+        <h4>The Bible takes the victim's side</h4>
+        <p><span class="lbl">What happened. </span>Cain and Abel is Romulus and Remus told from the loser's side. The Exodus is the expulsion told from the expelled. The perspective flip is the whole method.</p>
+        <p><span class="lbl">Why it matters. </span>Who tells the founding story decides what the city means. The victim's version is the innovation.</p>
+        <p><span class="lbl">The principle. </span>When you hear a founding story, ask whose side it is told from. Then tell it from the other side.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Judgment</p>
+        <h4>Three options on history</h4>
+        <p><span class="lbl">What happened. </span>History is terrible. The woke keep the verdict and drop forgiveness. The Nietzscheans drop the verdict. The Christian in-between keeps both.</p>
+        <p><span class="lbl">Why it matters. </span>Whitewashing is a loser argument, but so is verdict without forgiveness. The tenable position holds the tension.</p>
+        <p><span class="lbl">The principle. </span>Never trade the facts for comfort. Keep the terrible history and the forgiveness in the same hand.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-victimhood" data-time="~00:13" data-title="Relativize your victimhood">
+      <p class="ch-time">~00:13</p>
+      <h2>Relativize Your Victimhood</h2>
+      <p><span class="tag fact">Source fact</span> At a Harvard talk, Thiel suggested the left needed to learn to relativize its victimhood. The context: victimhood is unhealthy past a point. There are endless ways to identify as a victim, and he jokes about being a poor persecuted Peter person, with maybe an element of truth, exaggerated. Absolutize it and it turns unhealthy. The Christian division he proposed: it is okay to say you are a victim, up to a point. You cannot say you are a greater victim than Christ. Once you do that, you have lost perspective. On other holy books: the Western canon is the closest approximation. Shakespeare, Cervantes, Goethe were treated as semi-divine writers, and that is the attitude serious reading requires. The great books are not quite as holy as the Bible, so he probably does not read enough of them. Science fiction: he read a lot as a kid and almost none now. It is all too depressing.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Proportion</p>
+        <h4>No greater victim than Christ</h4>
+        <p><span class="lbl">What happened. </span>Victimhood is legitimate up to a point. The ceiling is Christ. Past it, perspective is gone.</p>
+        <p><span class="lbl">Why it matters. </span>A culture without a ceiling on victimhood has no way to rank claims. Everything becomes absolute, so nothing is.</p>
+        <p><span class="lbl">The principle. </span>Relativize the grievance. If it cannot survive comparison, it was not an argument.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-schmitt" data-time="~00:16" data-title="Schmitt and the friend-enemy machine">
+      <p class="ch-time">~00:16</p>
+      <h2>Schmitt and the Friend-Enemy Machine</h2>
+      <p><span class="tag fact">Source fact</span> Why the resurgence of interest in Carl Schmitt? He was one of the Weimar thinkers who came to prominence in 1920s Germany, and he got entangled with the Nazis, with very bad judgment, though he distanced himself a few years later. The Weimar moment matters: after World War I, Germany had lost, the throne-and-altar empire was gone, liberal democracy was unwanted, and deep critiques of political theology returned after being whitewashed since the Enlightenment. Thiel's image: the dwarves in Moria who delved too deep and woke the Balrog. There are parallels to the US in the 2020s, where liberalism looks exhausted and questions far outside the Overton window demand asking. Schmitt missed something crucial, though. His one powerful insight is from The Concept of the Political: politics is the division of friends and enemies, and you should not get sidetracked. The Reagan coalition is the application. What did the millionaire, the general, and the priest have in common at the dinner table? Nothing to talk about, yet the coalition worked. The answer: they were anti-communist. A common enemy. That was Thiel's formative political idea as a teenager in the late 1970s and early 1980s, and when the Berlin Wall fell in 1989, the constellation disintegrated.</p>
+      <div class="warnbox"><b>Trap card.</b> Thiel is explicit that Schmitt got entangled with the Nazis and showed very bad judgment. The discussion uses Schmitt's friend-enemy analysis as a tool. It is not an endorsement of Schmitt's politics.</div>
+      <p><span class="tag fact">Source fact</span> Where Schmitt goes haywire: is politics a market, where understanding it makes it work better, or a scapegoating machine that only works if you do not look inside? Tell the village you will achieve unity by accusing a random elderly woman of witchcraft, and the trick fails once everyone sees the mechanism. Schmitt had an optimistic Enlightenment rationality: describe the friend-enemy division plainly and the political strengthens. Thiel thinks it probably accelerated the disintegration instead.</p>
+      <div class="chart" id="chart-reagan">
+        <h4>The Reagan coalition: three strangers, one enemy</h4>
+        <p class="csub">The millionaire, the general, and the priest had nothing to discuss. Anti-communism did the work.</p>
+        <svg viewBox="0 0 640 260" role="img" aria-label="Diagram of the Reagan coalition">
+          <circle cx="180" cy="120" r="80" fill="none" stroke="#b4531f" stroke-width="2" data-tip="The millionaire: free-market libertarians"></circle>
+          <circle cx="320" cy="120" r="80" fill="none" stroke="#3d352a" stroke-width="2" data-tip="The general: defense hawks"></circle>
+          <circle cx="460" cy="120" r="80" fill="none" stroke="#d8c9a8" stroke-width="2" data-tip="The priest: social conservatives"></circle>
+          <circle cx="320" cy="120" r="34" fill="#b4531f" data-tip="The overlap: anti-communism, the common enemy"></circle>
+          <text class="axis" x="180" y="225" text-anchor="middle">millionaire</text>
+          <text class="axis" x="320" y="225" text-anchor="middle">general</text>
+          <text class="axis" x="460" y="225" text-anchor="middle">priest</text>
+          <text class="vallab" x="320" y="124" text-anchor="middle" fill="#fff" font-size="10">common</text>
+          <text class="vallab" x="320" y="138" text-anchor="middle" fill="#fff" font-size="10">enemy</text>
+        </svg>
+        <p class="csrc">Illustrative, from Thiel's on-air account (~00:19). Not measured data.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Politics</p>
+        <h4>The friend-enemy machine only works unseen</h4>
+        <p><span class="lbl">What happened. </span>Schmitt thought naming the friend-enemy division would strengthen politics. Thiel argues the scapegoating machine breaks once the village watches the sausage-making.</p>
+        <p><span class="lbl">Why it matters. </span>Transparency kills some mechanisms and saves others. Know which kind you run before you turn on the lights.</p>
+        <p><span class="lbl">The principle. </span>Ask whether your coalition survives self-awareness. If it needs the dark, it is not a coalition but a trick.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Coalitions</p>
+        <h4>The millionaire, the general, and the priest</h4>
+        <p><span class="lbl">What happened. </span>Three strangers with nothing to say to each other held together for a decade on one shared enemy. When the enemy fell in 1989, so did the coalition.</p>
+        <p><span class="lbl">Why it matters. </span>Negative coalitions are powerful and brittle. They mobilize fast and dissolve the moment they win.</p>
+        <p><span class="lbl">The principle. </span>Build on a common enemy and budget for the morning after the victory.</p>
+      </div>
+      <figure>
+        <img src="assets/ep04/illustration-weimar.webp" alt="Watercolor of a Weimar-era Berlin street at dusk">
+        <p class="caption"><b>Weimar at dusk.</b> AI-generated watercolor made for this page. Thiel compares the Weimar thinkers to the dwarves in Moria, digging too deep and waking the Balrog.</p>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-history" data-time="~00:23" data-title="Daniel, not Thucydides">
+      <p class="ch-time">~00:23</p>
+      <h2>Daniel, Not Thucydides</h2>
+      <p><span class="tag fact">Source fact</span> Tyler asks whether Schmitt misses the cyclicality of history: liberalism collapsed in Weimar in the 1920s, which was the correct prediction, but the same prediction failed in West Germany in 1948, when liberalism came back. Thiel prefers the one-time and world-historical over the timeless and eternal. Every moment happens once. History has meaning and a linearity, the Judeo-Christian view, against the classical Greco-Roman cyclical one. Thucydides gives you a great age of peace, Periclean Athens, collapsing into the war with Sparta, and readers after World War I reached for it because a hundred years of peace after Napoleon had done the same. But none of the details matter in Thucydides, and he invents the speeches. Against this, the Book of Daniel: a succession of four kingdoms, a one-time world history where everything is unique, not to be repeated. The real first historian was Daniel. Thucydides is not even close. As for Rome and the EU: we have nuclear weapons now, and they did not, not even in 1900. The science and technology arc alone makes the parallel unserious.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · History</p>
+        <h4>Daniel, not Thucydides</h4>
+        <p><span class="lbl">What happened. </span>Thucydides offers cycles with invented speeches. Daniel offers a one-time succession of kingdoms where every event is unique.</p>
+        <p><span class="lbl">Why it matters. </span>Cyclical frames comfort and mislead. They worked in 1920s Weimar and failed in 1948 Bonn. Linearity keeps you alert to the unprecedented.</p>
+        <p><span class="lbl">The principle. </span>Distrust the historical rhyme. Ask what has never happened before, and start there.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-apocalypse" data-time="~00:24" data-title="The Antichrist comes first">
+      <p class="ch-time">~00:24</p>
+      <h2>The Antichrist Comes First</h2>
+      <p><span class="tag fact">Source fact</span> Are we entering a new millenarian age like the English 17th century, fertile, crazy, a king executed? Thiel calls the frame absurdly cyclical and says no moment repeats. But yes, there are apocalyptic elements, and they come from a nonreligious place: science and technology. Nuclear weapons after 1945, environmental degradation, bioweapons, the Wuhan lab question, AI. Girard liked to note that the Catholic Church used to preach the end times during Advent, then stopped after 1945, to reassure people that nuclear weapons had nothing to do with Armageddon, even though the first test was called Trinity and the rockets carried names like Saturn and Jupiter. To the standard list of existential risks, Thiel adds one more: a one-world totalitarian government, at least as scary as the rest. In biblical eschatology you worry about Armageddon, but you also worry about the Antichrist, and the Antichrist comes first. The path through the apocalyptic age runs between the Scylla of existential risks and the Charybdis of totalitarian catastrophe.</p>
+      <p><span class="tag fact">Source fact</span> The two best fictional Antichrists were written before World War I: Robert Hugh Benson's Lord of the World (1908) and Solovyov's War, Progress, and the End of History (1900). Both show a future world dictator taking over through hypnotic speeches no one can remember, a daemonium ex machina. After 1945 the literary version writes itself: the Antichrist comes to power by constantly talking about Armageddon, by telling scary millenarian stories. One World or None, the nuclear scientists' short film, said give the weapons to the one-world government or the world blows up. So the existential-risk discourse itself is the Antichrist's campaign literature. Thiel's answer is complicated: the risks are real, do not dismiss them, but the proposed cure, effective global government, global compute governance, policing heterodox ideas, as in the 2019 Bostrom essay, is at least as scary as the disease. Dr. Strangelove or Greta: Strangelove is more dangerous, but putting everyone on a bicycle takes real enforcement.</p>
+      <div class="warnbox"><b>Trap card.</b> The Antichrist framing is theological and heuristic, not a prediction about any specific person or movement. Thiel uses it to map the structure of the risk, not to name names.</div>
+      <div class="pull">
+        <blockquote>Life is a tale told by an idiot, full of sound and fury, signifying nothing.</blockquote>
+        <p class="who">Macbeth, quoted by Peter Thiel · Episode ~00:45</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Risk</p>
+        <h4>The Antichrist comes first</h4>
+        <p><span class="lbl">What happened. </span>Armageddon gets the attention, but the Antichrist arrives first. The one-world totalitarian state is the nearer catastrophe.</p>
+        <p><span class="lbl">Why it matters. </span>Every existential-risk campaign that demands global government auditions for the role it warns about.</p>
+        <p><span class="lbl">The principle. </span>Price the cure with the disease. A cure that needs a world state is not a cure.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Language</p>
+        <h4>Peace and safety</h4>
+        <p><span class="lbl">What happened. </span>Thiel cites 1 Thessalonians 5:3 as the Antichrist's political slogan: "peace and safety." The world moved far more toward peace-and-safety than toward chaos: the Patriot Act, money-flow tracking, the vanishing Swiss bank account.</p>
+        <p><span class="lbl">Why it matters. </span>Totalitarianism arrives as protection, not as menace. The slogan tells you what to watch for.</p>
+        <p><span class="lbl">The principle. </span>When safety is the pitch, read the fine print. Exit is the liberty that matters, and it keeps getting harder.</p>
+      </div>
+      <figure>
+        <img src="assets/ep04/illustration-hilltop.webp" alt="Watercolor of a lone figure before a stormy apocalyptic sky">
+        <p class="caption"><b>The apocalyptic age.</b> AI-generated watercolor made for this page. Thiel's apocalypse comes from human sources, science and technology, not from God.</p>
+      </figure>
+    </section>
+    <section class="chapter" id="ch-muddle" data-time="~00:33" data-title="Against muddling through">
+      <p class="ch-time">~00:33</p>
+      <h2>Against Muddling Through</h2>
+      <p><span class="tag fact">Source fact</span> What variable tracks whether the West muddles through? Thiel says it is not really an empirical question. Accept the empirical frame and you have already lost half the argument: the sun rose every day, so it will keep rising, so do not worry. The post-Cold War globalization story said goods, people, ideas, and money would move, the world would integrate, do not sweat the details, we will muddle through. Then the US-China story went haywire in ways Fukuyama's 1989 vision never imagined, and the alarm bells would have rung sooner without the muddling-through lullaby. It is somewhat analytic rather than metaphysical, and moral: talking about muddling through lays down a duty. Whenever people think they can just muddle through, they are probably set up for disaster. His Zero to One chapter made the investor version of the same point. Writing checks to everyone on South Beach and calling it a strategy is a formula for losing all your money.</p>
+      <div class="pull">
+        <blockquote>You are not a lottery ticket.</blockquote>
+        <p class="who">Peter Thiel, from Zero to One · Episode ~00:36</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> The muddling-through view and the Calvinist view share a flaw: distrust in human agency, distrust in human thought, distrust in our ability to make choices. Muddling through can be Calvinist, can be rationalist. It is anti-intellectual. It is not thinking about things.</p>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 · Agency</p>
+        <h4>You are not a lottery ticket</h4>
+        <p><span class="lbl">What happened. </span>Diversified drift is not a strategy. The investor who writes checks to everyone has a formula for losing money, and the civilization that muddles through has the same formula at scale.</p>
+        <p><span class="lbl">Why it matters. </span>Muddling through feels humble and acts reckless. It is distrust of human agency wearing the mask of prudence.</p>
+        <p><span class="lbl">The principle. </span>Choose. Thinking is the job, and drift is the abdication.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-katechon" data-time="~00:38" data-title="The katechon">
+      <p class="ch-time">~00:38</p>
+      <h2>The Katechon</h2>
+      <p><span class="tag fact">Source fact</span> Tyler suggests the katechon is Thiel's substitute for muddling through: things have not collapsed, so something must hold the finger in the dyke. Thiel calls it a very mysterious idea. Why has the Antichrist not taken over yet? Something restrains the totalitarian one-world state. But he does not put too much stock in it. On its own terms it is unstable, provisional, archaic, sacred, and you cannot identify it with an institution. If you are not supposed to immanentize the eschaton, you are also not supposed to immanentize the katechon. Name it too concretely and it goes wrong. The Girardian cut: anything set up as the opposite is mimetically entangled with what it opposes. There is always a risk the katechon becomes the Antichrist. The proto-Antichrist was Nero. Claudius, the good emperor, was the katechon restraining him. But they were both Roman emperors.</p>
+      <p><span class="tag fact">Source fact</span> From 1949 to 1989, Thiel identifies the katechon as anti-communism, and communism as the Antichrist's 20th-century ideology. What stopped communism was not one country, not a libertarian debating society. It was something violent, hard to morally justify, not very Christian, but unifying. Then the morph: 1989, anti-communism becomes neoliberalism, becomes Bush 41's new world order, governing the world in the name of anti-communism. The logic was always misleading: anti-communism aspires to stop the communists from getting world control, not to take world control itself. Once the communists are defeated, you are supposed to go home. Instead the machine perpetuates itself. And the Antichrist may come to power precisely by acting as katechon. Greta presents as the katechon stopping climate change. The concept is useful, but Thiel would not put too much weight on it.</p>
+      <div class="chart" id="chart-katechon">
+        <h4>The katechon, 1949 to 1989, and its morph</h4>
+        <p class="csub">Anti-communism restrained the Antichrist's ideology, then became the thing it fought.</p>
+        <svg viewBox="0 0 640 220" role="img" aria-label="Timeline of the katechon">
+          <rect class="bar" x="60" y="60" width="300" height="50" data-tip="1949-1989: anti-communism as katechon, restraining the communist Antichrist"></rect>
+          <rect class="bar dark" x="390" y="60" width="190" height="50" data-tip="After 1989: morphs into neoliberalism and the new world order"></rect>
+          <text class="vallab" x="210" y="90" text-anchor="middle" fill="#fff">katechon</text>
+          <text class="vallab" x="485" y="90" text-anchor="middle" fill="#fff">morph</text>
+          <text class="axis" x="210" y="135" text-anchor="middle">anti-communism restrains</text>
+          <text class="axis" x="485" y="135" text-anchor="middle">becomes world government</text>
+        </svg>
+        <p class="csrc">Illustrative, from Thiel's on-air account (~00:40). Not measured data.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-12">
+        <p class="eyebrow">Nugget 12 · Power</p>
+        <h4>Do not immanentize the katechon</h4>
+        <p><span class="lbl">What happened. </span>Anti-communism worked as the restrainer for forty years, then morphed into the new world order: the katechon becoming the Antichrist.</p>
+        <p><span class="lbl">Why it matters. </span>Every restraining force is mimetically entangled with its enemy. Name it as an institution and it starts to imitate what it restrains.</p>
+        <p><span class="lbl">The principle. </span>Let the restrainer stay mysterious. The moment you can point at it, it has already changed sides.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-agency" data-time="~00:42" data-title="Human agency and the individual">
+      <p class="ch-time">~00:42</p>
+      <h2>Human Agency and the Individual</h2>
+      <p><span class="tag fact">Source fact</span> Is all this weight on human agency compatible with Lutheranism? Thiel is not a perfect Lutheran. On predestination and the chosen, Moses, Abraham: the Bible points toward agency through the anti-sacrificial theme. The idea of the individual came out of a context where the state was not absolute, not sacred, not providential. Girard's line: Christ was the first political atheist. The political reading is that Caesar Augustus, son of the divinized Caesar, is not exactly the Son of God, and the Roman Empire is not divinely ordained. That opens a space for a less unitary system, though it took many centuries to develop. Thiel even calls Ayn Rand a pretty good Christian in this sense, and admits it is scandalous to say: it is Jewish and atheist and shrill and crazy, but you cannot sacrifice the individual, your mind, your reason.</p>
+      <div class="nugget reveal" id="nugget-13">
+        <p class="eyebrow">Nugget 13 · Mimesis</p>
+        <h4>The fiercest fights are mimetic</h4>
+        <p><span class="lbl">What happened. </span>Shakespeare against Marx: Marx says battles come from real differences of class and interest. Shakespeare says the most intense conflicts come when the parties do not differ at all. The Capulets and Montagues are "alike in dignity," two houses identical, and that is why they hate each other.</p>
+        <p><span class="lbl">Why it matters. </span>Ideological differences may be the cover story. The engine is mimetic rivalry between doubles.</p>
+        <p><span class="lbl">The principle. </span>When a conflict looks ideological, check for identity. The fiercest enemies are usually twins.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-shakespeare" data-time="~00:44" data-title="Shakespeare vs Marx">
+      <p class="ch-time">~00:44</p>
+      <h2>Shakespeare vs Marx</h2>
+      <p><span class="tag fact">Source fact</span> Thiel quotes The Tempest in his talks. What is the Shakespearean political vision against the Christian one? It is hard to know what Shakespeare thought. The idiot's-tale speech is Macbeth's line, not Shakespeare's, maybe a Christian nihilism. The contrast Thiel draws is with Marx: Marx believed battles came from objective differences, classes with different interests. Shakespeare is proto-Girardian, mimetic. Romeo and Juliet opens with two houses identical in rank. Hamlet says the truly great take everything for an eggshell: average people fight over things that matter, great ones fight over honor or an eggshell. Shakespeare would distrust today's extreme ideological differences, a kind of political atheism. On Julius Caesar: Tyler notes there is no katechon, no muddling through, so they sacrifice Caesar, and the civil war kills far more with no end in sight. The pessimistic scenario of the Thiel mental universe. Thiel answers with reenactment: Brutus thinks he reenacts his ancestor's overthrow of Tarquin in 509 BC, motivated by future applause, centuries hence people reenacting this on a stage. John Wilkes Booth literalized it in 1865, a Shakespearean actor shouting the classic tyrannicide motto, thinking he was Brutus. Lincoln's 1838 Young Men's Lyceum address coded himself as a proto-Caesar, warning of the ambitious man for whom the presidency is not enough, who would enslave the white people or free the slaves. It was a bad idea for Brutus, and the Booth story is sad. The cycle is what we want to transcend.</p>
+    </section>
+
+    <section class="chapter" id="ch-ai" data-time="~00:49" data-title="AI: worse for the math people">
+      <p class="ch-time">~00:49</p>
+      <h2>AI: Worse for the Math People</h2>
+      <p><span class="tag fact">Source fact</span> Will the wordcels lose their influence to large language models? Thiel's intuition is the opposite: it looks much worse for the math people than the word people. Within three to five years, AI models may solve all the US Math Olympiad problems. The bias toward testing math ability dates to the French Revolution: verbal ability was thought to run in families, while math ability was distributed in an idiot-savant way through the population, so prioritizing math had a meritocratic, egalitarian effect. By the Soviet 20th century, giving the number theorist or chess grandmaster a medal was perhaps a control mechanism: put the clueless math person on a pedestal, tell everyone to be like them, and you control things. Silicon Valley in the early 21st century is way too biased toward the math people, deeply unstable. Thiel's own chess bias in the late 1980s and early 1990s, test everyone on chess, why not, got undermined by computers in 1997. Math faces the same rebalancing, long overdue. Weeding medical students through physics and calculus has little to do with dexterity as a neurosurgeon. He does not want his brain surgeon doing prime factorizations mid-operation.</p>
+      <p><span class="tag fact">Source fact</span> On manual labor, Thiel declines the answer and offers questions instead: how much will AI increase GDP versus inequality? Is it a centralizing technology? His old riff: if crypto is libertarian, AI might be communist, with incredible returns to scale. San Francisco looked finished, but AI's scale economies might save it. Geopolitics: the pro-China case is that China will not hesitate to train AI on all its people, so it implements faster. The pro-US case is that America is ahead, and a model that cannot answer who Winnie the Pooh is gets nerfed into uselessness. If AI helps the US more, it is massively destabilizing: China had a low-volatility plan to slowly beat the West, and a volatility-increasing technology it cannot match may accelerate its timetable toward Taiwan.</p>
+      <div class="nugget reveal" id="nugget-14">
+        <p class="eyebrow">Nugget 14 · Technology</p>
+        <h4>AI hits math first</h4>
+        <p><span class="lbl">What happened. </span>The math bias started as French Revolutionary egalitarianism and ended as a control mechanism. Chess fell in 1997. Math Olympiads are next, in three to five years.</p>
+        <p><span class="lbl">Why it matters. </span>Every selection metric is a bet on what machines cannot do. When the bet loses, the whole sorting system has to be rebuilt.</p>
+        <p><span class="lbl">The principle. </span>Ask what your credential actually measures. If a machine can pass the test, the test was never the skill.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-learn" data-time="~00:57" data-title="The hedgehog and the fox">
+      <p class="ch-time">~00:57</p>
+      <h2>The Hedgehog and the Fox</h2>
+      <p><span class="tag fact">Source fact</span> What will Thiel learn about next? He deflects with Isaiah Berlin: the hedgehog knows one thing, the fox knows many. Tyler is the fox. Thiel is the hedgehog, circling a few core ideas: the wonderful and terrible history of the world we inhabit, Christianity's unraveling of our culture, and the way to the other side. That will keep him busy for a long time.</p>
+      <div class="nugget reveal" id="nugget-15">
+        <p class="eyebrow">Nugget 15 · Centralization</p>
+        <h4>Centralization waves</h4>
+        <p><span class="lbl">What happened. </span>The computer age was centralized in the late 1960s, one big machine running the planet, decentralized by the late 1990s, and centralizing again by the late 2010s. The Sovereign Individual's 1997 decentralization thesis looked true in 1999 and false by the 2010s.</p>
+        <p><span class="lbl">Why it matters. </span>Technology's direction is not written in stone. Each wave felt permanent and was not.</p>
+        <p><span class="lbl">The principle. </span>It is up to us which way the technology pushes. Work on it instead of predicting it.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-16">
+        <p class="eyebrow">Nugget 16 · Vocation</p>
+        <h4>The hedgehog and the fox</h4>
+        <p><span class="lbl">What happened. </span>Asked what is next, Thiel names his one big thing: the wonderful and terrible history of a culture unwinding from Christianity, and the path to the other side.</p>
+        <p><span class="lbl">Why it matters. </span>The fox samples everything. The hedgehog returns to one question for decades. Both are valid, but only one compounds.</p>
+        <p><span class="lbl">The principle. </span>Pick the question that will still matter in twenty years. Then stay with it.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-audience" data-time="~00:58" data-title="The audience">
+      <p class="ch-time">~00:58</p>
+      <h2>The Audience</h2>
+      <p><span class="tag fact">Source fact</span> The audience Q&A runs nearly half an hour. On Bitcoin and the one-world order: Thiel is still hopeful that on net Bitcoin sits on the anti-one-world-order side, judging by its enemies, though that may be too simplistic a Schmittian read. Genuine anonymity matters. Physical cash may still beat Bitcoin for questionable purposes, and the crypto-anarchist utopia of the late 1990s never arrived. But as a one-time way to get money outside a particular government's control, it is still extremely good for that. "You can huddle until you need it." On Bostrom and communism converging on world government: both are optimistic about human nature and share an Enlightenment rationality where one best modality of governance should rule everywhere. Only deep doubts about human nature or the rulers break the spell.</p>
+      <p><span class="tag fact">Source fact</span> On buying an extra year of life: Thiel rejects hypotheticals whose premise he disbelieves, and would pay the questioner nothing, since the seller would be long gone by collection time. On the Straussian messages of the Bible: apocalypse in Greek means unveiling, and unveiling the social order can deconstruct it. Girard's I See Satan Fall Like Lightning: to see Satan is to see Satan fall, so Satan appears to humans only at the end of the world. The desert temptation is the libertarian cut: worship me and have all the kingdoms, which says governments are more satanic than divinely ordained. On The Sovereign Individual: the 1997 decentralization thesis looked true in 1999, centralizing by the 2010s. Star Trek's 1968 future had one supercomputer running the planet for 8,000 uneventful years. Nothing is written in stone. On open-source AI: the Linux versus Microsoft precedent probably changed little at the operating-system level. On p(doom): he is not a Calvinist, not an effective altruist, not a doomer. He worries more about the humans trying to stop the AI than about the AI. A force powerful enough to stop the AI is powerful enough to destroy the world too.</p>
+      <p><span class="tag fact">Source fact</span> On Ayaan Hirsi Ali's conversion: utilitarian elements are fine, but his bias is toward truth. On Lincoln's Lyceum address: the Caesar-Napoleon figure who would enslave the white people or free the slaves plausibly meant Lincoln himself. On personal responsibility and mimesis: tracked and competitive as a kid, Stanford in four years as the yearbook predicted, top Manhattan law firm, then a quarter-life crisis. The lesson was to avoid the worst mimetic entanglements, though psychology and awareness alone do not do it. On scaling the Thiel Fellowship: the paradox is that advice does not scale. Automate it into a cookie-cutter process and it deranges. Telling people to think for themselves, scaled up, becomes Mao's Little Red Book. On DEI: he is very against it. The Diversity Myth, his book on the Stanford campus wars of the late 1980s and early 1990s, looks prescient in parts. Walmart was the proto-woke company of the 2000s: attacked by unions over wages, it rebranded green, a cheap way to split the anti-Walmart left. A real Marxist would be preferable to a diversity officer. Rosa Luxemburg said nobody is more revolutionary than the factory worker. A diversity officer would land, in her categories, with the bank robber and the prostitute: corrupt crony capitalism.</p>
+      <p><span class="tag fact">Source fact</span> On biotech: the FDA has a global stranglehold. Most governments will not go looser than the FDA, and without the US market the economics fail. It is US or bust. On the Luddites: they stayed wrong for a long time, but even if AI replaces people outright, he still favors the AI, because muddling through is not good and the default is really bad. You do not get to muddle through with Greta on her bicycle. On what stops AI: the premise is what he challenges. If only one technology matters, you have already conceded centralization. Technology used to mean computers, medicines, spaceships, supersonic planes, the Green Revolution. Now it means IT, maybe just AI. The narrowing is itself the centralizing stagnation. On Miami versus San Francisco: he is still pro-Miami, more an anti-New York story, finance not needing New York. Crypto decentralized things and Silicon Valley missed it. AI is even more centralized in Silicon Valley. On world order: he wants a libertarian order of many nations with movement between them, but the transnational layer cannot be strong enough to control the nations. A paradox, and too concrete a picture is probably bad. On Miami governance: four winters there, two to three months each. The Georgist worry is whether all the value gets captured by a corrupt real estate group, the San Francisco, New York, London disaster where GDP rises and slum lords take all of it. On AI as god, via Voltaire: the political theology question matters more than the metaphysical one. If a centralizing AI is controlled by communist China, will it convince people the Party is God? The models will all say no religion is truer than another. Is that what they generate, or what was hardwired in?</p>
+      <div class="chart" id="chart-centralization">
+        <h4>Centralization waves in computing</h4>
+        <p class="csub">Each era felt permanent. None was.</p>
+        <svg viewBox="0 0 640 220" role="img" aria-label="Timeline of computing centralization waves">
+          <rect class="bar dark" x="60" y="60" width="140" height="50" data-tip="Late 1960s: centralized, one big supercomputer running the planet"></rect>
+          <rect class="bar" x="230" y="60" width="140" height="50" data-tip="Late 1990s: decentralized, the Sovereign Individual thesis"></rect>
+          <rect class="bar dark" x="400" y="60" width="180" height="50" data-tip="Late 2010s: centralizing again, AI most of all"></rect>
+          <text class="axis" x="130" y="135" text-anchor="middle">1960s: central</text>
+          <text class="axis" x="300" y="135" text-anchor="middle">1990s: decentral</text>
+          <text class="axis" x="490" y="135" text-anchor="middle">2010s: central</text>
+        </svg>
+        <p class="csrc">Illustrative, from Thiel's on-air account (~01:05). Not measured data.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-17">
+        <p class="eyebrow">Nugget 17 · Money</p>
+        <h4>Huddle until you need it</h4>
+        <p><span class="lbl">What happened. </span>Bitcoin never delivered the crypto-anarchist utopia, and cash still beats it for some uses. But as a one-time exit from a government's control, it remains extremely good.</p>
+        <p><span class="lbl">Why it matters. </span>Judge an exit technology by the exit, not the utopia. One use at the critical moment justifies the holding.</p>
+        <p><span class="lbl">The principle. </span>Keep one path out that no one can close. You may never use it. That is the point.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-18">
+        <p class="eyebrow">Nugget 18 · Reading</p>
+        <h4>Apocalypse means unveiling</h4>
+        <p><span class="lbl">What happened. </span>In Greek, apocalypse means unveiling. Tell people the secret messages and the social order unravels. To see Satan is to see Satan fall, so Satan appears to humans only at the end.</p>
+        <p><span class="lbl">Why it matters. </span>Some truths destroy what they reveal. Esoteric restraint is not cowardice but engineering.</p>
+        <p><span class="lbl">The principle. </span>Before unveiling, ask what the veil held up.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-19">
+        <p class="eyebrow">Nugget 19 · Scale</p>
+        <h4>Advice does not scale</h4>
+        <p><span class="lbl">What happened. </span>The Thiel Fellowship cannot grow by formula. Automate independent thought into a process and you get the Little Red Book.</p>
+        <p><span class="lbl">Why it matters. </span>Scaling changes the thing scaled. The cookie-cutter deranges exactly what made the original work.</p>
+        <p><span class="lbl">The principle. </span>Do not scale the unscalable. Keep it small or lose it.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-20">
+        <p class="eyebrow">Nugget 20 · Institutions</p>
+        <h4>A real Marxist beats a diversity officer</h4>
+        <p><span class="lbl">What happened. </span>Thiel prefers Rosa Luxemburg to the DEI apparatus. Luxemburg said nobody is more revolutionary than the factory worker. The diversity officer, in her categories, sits with the bank robber: crony capitalism.</p>
+        <p><span class="lbl">Why it matters. </span>The critique from the left is sharper than the critique from the right. It judges the institution by its own claimed values.</p>
+        <p><span class="lbl">The principle. </span>When judging a bureaucracy, use its enemies' standards, not its own press releases.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-watch" data-time="~01:27" data-title="Watch the episode">
+      <p class="ch-time">~01:27</p>
+      <h2>Watch the Episode</h2>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/vfbndRTlsg4" title="Peter Thiel on Political Theology | Conversations with Tyler" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="caption">Full episode via youtube-nocookie. Times marked ~ in this companion are proportional estimates from the transcript.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Political theology integrates what hyper-specialization splits. Start with the human scale.</li>
+          <li>History is linear, not cyclical. Daniel, not Thucydides.</li>
+          <li>The Antichrist comes first. Price the cure for existential risk like the disease.</li>
+          <li>Muddling through is not a strategy. You are not a lottery ticket.</li>
+          <li>Do not immanentize the katechon. The restrainer can become the thing it restrains.</li>
+          <li>The fiercest conflicts are mimetic: the houses alike in dignity.</li>
+          <li>Technology's direction is not written in stone. It is up to us.</li>
+        </ol>
+        <p class="src">Distilled from Conversations with Tyler, Peter Thiel on Political Theology (April 17, 2024). Full episode: youtube.com/watch?v=vfbndRTlsg4. Transcript: research/conversations-with-tyler/transcripts/vfbndRTlsg4.txt.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Conversations with Tyler episode "Peter Thiel on Political Theology" (April 17, 2024, ~87 minutes). All facts and figures come from the official published episode transcript (research/conversations-with-tyler/transcripts/vfbndRTlsg4.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Three claims carry trap-card flags: the Schmitt discussion uses his friend-enemy analysis as a tool and is not an endorsement of his Nazi entanglement. Thiel's three-option map picks the Christian in-between, not the woke position. The Antichrist framing is theological and heuristic, not a prediction about any specific person. No transcript garbles required correction. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 43 words: three pull quotes (9, 15, and 6 words: the Pope Francis rebuttal, the Macbeth line as quoted by Thiel, and the lottery-ticket line), "peace and safety" (3 words, 1 Thessalonians 5:3 as cited by Thiel), "alike in dignity" (3 words, Romeo and Juliet as cited by Thiel), and "You can huddle until you need it" (7 words, on Bitcoin). The pull quotes carry speaker and episode-time attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = document.createElement('span');
+    t.className = 't';
+    t.textContent = ch.getAttribute('data-time');
+    a.appendChild(t);
+    a.appendChild(document.createTextNode(ch.getAttribute('data-title')));
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var chapnav = document.querySelector('.chapnav');
+  var sidenav = document.querySelector('.sidenav');
+  chapters.forEach(function(ch){
+    chapnav.appendChild(navLink(ch));
+    var b = navLink(ch);
+    sidenav.appendChild(b);
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('.chapnav a, .sidenav a'));
+  function onScroll(){
+    var cur = null;
+    chapters.forEach(function(ch){
+      if (ch.getBoundingClientRect().top < 140) cur = ch.id;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-ch') === cur);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  var bars = document.querySelectorAll('[data-tip]');
+  bars.forEach(function(b){
+    b.addEventListener('mousemove', function(e){
+      tip.textContent = b.getAttribute('data-tip');
+      tip.style.opacity = '1';
+      tip.style.left = (e.clientX + 14) + 'px';
+      tip.style.top = (e.clientY + 14) + 'px';
+    });
+    b.addEventListener('mouseleave', function(){ tip.style.opacity = '0'; });
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) en.target.classList.add('in');
+    });
+  }, {threshold: 0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
