@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scout and Soldier Mindsets with Julia Galef: Clearer Thinking Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Clearer Thinking episode with Julia Galef: scout versus soldier mindset, motivated reasoning, expected-value motivation, social versus epistemic confidence, betting, and honest disagreement.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#23201a; --muted:#6e655a;
+    --line:#e3dccb; --accent:#0e6e6e; --accent-ink:#0a5454; --soft:#e8f1f0;
+    --warn:#fdf3e3; --warnline:#d9a441;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0dd}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d3830;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  figure.photo img{max-width:460px;margin:0 auto}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .warnbox{background:var(--warn);border:1px solid var(--warnline);border-left:4px solid var(--warnline);
+    padding:14px 18px;margin:22px 0;font-family:var(--sans);font-size:14px;line-height:1.6}
+  .warnbox b{color:#7a4d0a}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdcd9}
+  .bar.dark{fill:#3d3830}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e4eaea;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .curve{fill:none;stroke:var(--accent);stroke-width:3}
+  .curve2{fill:none;stroke:#b0873f;stroke-width:3;stroke-dasharray:6 4}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{font-family:var(--sans);font-size:14px;line-height:1.5;counter-increment:w}
+  .wisdom li:before{content:counter(w,decimal-leading-zero);font-family:var(--mono);
+    font-size:11px;color:var(--accent-ink);display:block;margin-bottom:2px}
+  .takeaways{background:#fff;border:1px solid var(--line);padding:22px;margin:30px 0}
+  .takeaways h3{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .takeaways ol{margin:0 0 14px;padding-left:22px}
+  .takeaways li{margin-bottom:8px}
+  .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-right:8px;white-space:nowrap}
+  .tag.fact{background:#e2efed;color:var(--accent-ink)}
+  .tag.interp{background:#efe9dc;color:#6b5320}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);border:1px dashed var(--line);
+    padding:10px 14px;margin:0 0 26px}
+  .video{margin:26px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+    border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:12px;color:var(--accent-ink)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 10px;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  footer p{margin:0 0 14px}
+  footer b{color:var(--ink)}
+  .backlink{font-family:var(--sans);font-size:13px;margin:18px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Clearer Thinking companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+
+<div class="hero">
+<p class="kicker">Clearer Thinking with Spencer Greenberg &middot; Episode 6</p>
+<h1>Scout and Soldier Mindsets with Julia Galef</h1>
+<p class="dek">Spencer Greenberg talks with Julia Galef about why the bottleneck is motivation, not knowledge: the scout who maps the terrain, the soldier who defends the hill, and how to switch sides.</p>
+<img src="assets/ep06/ep06-hero.webp" alt="Watercolor of a scout on a ridge at dawn, studying a valley through a telescope with an unrolled map">
+<p class="caption"><b>Illustration.</b> AI-generated watercolor made for this page: the scout's job is to see what is really there and draw the map.</p>
+<div class="stats">
+<div class="stat"><div class="n">Apr 13</div><div class="l">Book launch</div><div class="s">The Scout Mindset publication date</div></div>
+<div class="stat"><div class="n">30%</div><div class="l">Bezos's odds</div><div class="s">his estimate for Amazon's success</div></div>
+<div class="stat"><div class="n">10%</div><div class="l">Musk's odds</div><div class="s">for Tesla and SpaceX each</div></div>
+<div class="stat"><div class="n">$1,000</div><div class="l">The bet</div><div class="s">Galef's imaginary third-party wager</div></div>
+</div></div>
+<figure class="photo"><img src="assets/ep06/julia-galef.jpg" alt="Photograph of Julia Galef"><figcaption class="caption"><b>Photograph.</b> Julia Galef. Real photograph via the Munk Debates, munkdebates.com.</figcaption></figure>
+<div class="video"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/TFk_Y3Eg29U" title="Episode video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption"><b>Video.</b> The full episode on YouTube.</p></div>
+<section class="chapter" id="ch-scout" data-time="~00:00" data-title="Soldier and Scout">
+
+<p class="ch-time">~00:00</p>
+<h2>Soldier and Scout</h2>
+<div class="legend"><span class="tag fact">Source fact</span> a claim traceable to the episode transcript. <span class="tag interp">Interpretation</span> the companion author's analysis or transfer, not the guest's claim.</div>
+<div class="pull">
+<blockquote>The Scout's role is to go out and just see what's really there</blockquote>
+<p class="who">Julia Galef &middot; Episode ~00:02</p>
+</div>
+<p><span class="tag fact">Source fact</span> The book is The Scout Mindset, published April 13th. Scout mindset is the motivation to see things as they are, not as you wish they were: another name for intellectual honesty and curiosity about what is actually true.</p>
+<p><span class="tag fact">Source fact</span> The default is soldier mindset: the motivation to defend pre-existing beliefs against threatening evidence. Unlike the soldier, the scout does not attack or defend. The scout maps the terrain as accurately as possible.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the guest's surname as Julia Gailiff. The name is Julia Galef. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 &middot; Framing</p>
+<h4>Name the mode before the argument</h4>
+<p><span class="lbl">What happened. </span>Spencer's move in any disagreement: check first whether both sides are in scout mode. If not, the object-level debate cannot work.</p>
+<p><span class="lbl">Why it matters. </span>A soldier hears arguments as attacks. A scout hears them as data. The same words land in different games.</p>
+<p><span class="lbl">The principle. </span>Diagnose the mindset before you debate the claim.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-bottleneck" data-time="~00:08" data-title="The Bottleneck Is Motivation">
+
+<p class="ch-time">~00:08</p>
+<h2>The Bottleneck Is Motivation</h2>
+<p><span class="tag fact">Source fact</span> In 2012 Galef co-founded the Center for Applied Rationality, running workshops on reasoning from cognitive science, economics, and philosophy. Her view shifted with experience.</p>
+<p><span class="tag fact">Source fact</span> The naive theory: teach people biases and fallacies, and reasoning improves. The observed reality: people online accuse others of bias and never turn the lens on themselves. The bottleneck is not knowing how to reason. It is the motivation to reason toward the truth instead of toward defending what you already believe.</p>
+<p><span class="tag interp">Interpretation</span> Knowledge of logic is necessary but not sufficient. Until motivation is right, reasoning skill is a weapon for the soldier: confirmation bias with better tools.</p>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 &middot; Motivation</p>
+<h4>Motivation comes before method</h4>
+<p><span class="lbl">What happened. </span>Years of teaching reasoning convinced Galef that the binding constraint is which master the reasoning serves.</p>
+<p><span class="lbl">Why it matters. </span>Skills are amplifiers. Point them at truth-seeking and they help. Point them at defense and they harden the walls.</p>
+<p><span class="lbl">The principle. </span>Fix the motivation first. Then the techniques pay off.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-when" data-time="~00:15" data-title="When Are We Naturally Scouts?">
+
+<p class="ch-time">~00:15</p>
+<h2>When Are We Naturally Scouts?</h2>
+<p><span class="tag fact">Source fact</span> Nobody is always a soldier or always a scout. We are mixes, varying by day, context, and topic. The question is what tips us one way or the other.</p>
+<p><span class="tag fact">Source fact</span> Two motives decide: how much you want the truth in this situation, and how much you want to believe some particular answer regardless of truth. Finding an address is pure scout: the truth pays immediately, and no identity rides on the answer. Politics is the mirror image: strong motive to defend the tribe's answer, almost no direct benefit from being right.</p>
+<p><span class="tag fact">Source fact</span> Robin Hanson's metaphor: beliefs are apparel. We choose them, partly unconsciously, to signal what kind of person we are, sophisticated, edgy, in-group, much as we choose a skirt length. Even contrarians often pick the standard contrarian outfit.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the economist as Robin Henson. The name is Robin Hanson. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 &middot; Motives</p>
+<h4>Follow the payoff, find the mindset</h4>
+<p><span class="lbl">What happened. </span>Scout mode appears where truth pays and identity is cheap. Soldier mode appears where identity pays and truth is cheap.</p>
+<p><span class="lbl">Why it matters. </span>You can predict your own distortion by asking which payoff dominates this topic.</p>
+<p><span class="lbl">The principle. </span>Where the tribe pays you to believe, budget extra skepticism.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-rationally" data-time="~00:22" data-title="Rational Irrationality">
+
+<p class="ch-time">~00:22</p>
+<h2>Rational Irrationality</h2>
+<p><span class="tag fact">Source fact</span> The sharpest objection: rational irrationality, a term from economist Bryan Caplan. Humans may intuitively choose just enough epistemic irrationality to serve their goals. If we already dose soldier mindset optimally, a book on scout mindset has nothing to offer.</p>
+<p><span class="tag fact">Source fact</span> Galef's reply: the theory assumes minds are optimized for our interests, but present bias shows they are not. We overweight immediate consequences, breaking diets, procrastinating. The same bias infects belief: soldier mindset feels good now, scout mindset pays later. So we default to soldier more often than our own interests justify.</p>
+<p><span class="tag interp">Interpretation</span> Scout mindset is a habit of mind, not a one-off choice. Every admitted error trains the general habit of second-guessing first impressions, which pays directly in business and relationships where the stakes are real.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the economist as Brian Kaplan. The name is Bryan Caplan. Corrected in this companion. Original noted in the footer.</div>
+<div class="chart">
+<h4>Present bias in belief</h4>
+<p class="csub">Why the default overshoots soldier mindset, drawn illustratively.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Illustrative bar chart comparing immediate and delayed payoffs of soldier and scout mindsets">
+<rect class="bar" x="80" y="80" width="140" height="170" data-tip="Illustrative: soldier mindset pays off immediately in comfort and status."/>
+<rect class="bar alt" x="250" y="190" width="140" height="60" data-tip="Illustrative: soldier mindset's delayed costs, weak arguments and bad maps, arrive later."/>
+<rect class="bar alt" x="420" y="190" width="70" height="60" data-tip="Illustrative: scout mindset stings in the moment when you admit error."/>
+<rect class="bar" x="505" y="80" width="70" height="170" data-tip="Illustrative: scout mindset's delayed benefits, better decisions and truer maps, compound."/>
+<text class="axis" x="150" y="275" text-anchor="middle">soldier: now</text>
+<text class="axis" x="320" y="275" text-anchor="middle">soldier: later</text>
+<text class="axis" x="455" y="275" text-anchor="middle">scout: now</text>
+<text class="axis" x="540" y="275" text-anchor="middle">scout: later</text>
+<text class="axis" x="320" y="295" text-anchor="middle">Present bias picks the left bar. The right bars decide the outcome.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Julia Galef episode, ~00:22. An illustrative rendering of the argument, not measured data.</p>
+</div>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 &middot; Habits</p>
+<h4>Practice scout mode where the stakes are low</h4>
+<p><span class="lbl">What happened. </span>Admitting error on politics has no direct payoff, but it trains the habit that saves you where payoffs are real.</p>
+<p><span class="lbl">Why it matters. </span>You cannot switch the habit on only when stakes are high. Habits do not work that way.</p>
+<p><span class="lbl">The principle. </span>Rehearse truth-seeking in safe arenas so it is ready in dangerous ones.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-selfbelief" data-time="~00:30" data-title="The Self-Belief Model of Motivation">
+
+<p class="ch-time">~00:30</p>
+<h2>The Self-Belief Model of Motivation</h2>
+<p><span class="tag fact">Source fact</span> Objection one: hard things need self-delusion. Founders supposedly need overconfidence to attempt startups. Galef calls this the self-belief model of motivation, and offers Jeff Bezos as counter-evidence.</p>
+<p><span class="tag fact">Source fact</span> Quitting Wall Street for Amazon, Bezos estimated about a 30 percent chance of success: a 10 percent base rate for internet startups, adjusted upward for his team and idea. The self-belief model predicts failure for such a founder. Bezos succeeded anyway.</p>
+<p><span class="tag fact">Source fact</span> The alternative motivator is expected value: probability of success times value of success, plus probability of failure times value of failure. A bet can be strongly positive even when failure is the likely outcome. Her example: roll a die, win $1,000 on a six, lose $1 otherwise. You will probably lose, and you should still take the bet.</p>
+<div class="chart">
+<h4>The die bet, expected value</h4>
+<p class="csub">Galef's example: a six pays $1,000, anything else costs $1.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Bar chart showing expected gain of 166.67 dollars against expected loss of 0.83 dollars for the die bet">
+<rect class="bar" x="120" y="40" width="150" height="210" data-tip="Expected gain: one sixth of $1,000, about $166.67."/>
+<rect class="bar alt" x="370" y="240" width="150" height="10" data-tip="Expected loss: five sixths of $1, about $0.83."/>
+<text class="vallab" x="195" y="28" text-anchor="middle">+$166.67</text>
+<text class="vallab" x="445" y="228" text-anchor="middle">-$0.83</text>
+<text class="axis" x="195" y="275" text-anchor="middle">expected gain</text>
+<text class="axis" x="445" y="275" text-anchor="middle">expected loss</text>
+<text class="axis" x="320" y="295" text-anchor="middle">Net expected value: about +$165.83. Take the bet.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Julia Galef episode, ~00:30. Computed from the episode's figures: (1/6) x $1,000 - (5/6) x $1.</p>
+</div>
+<div class="toy">
+<h4>Try it: price the bet</h4>
+<p class="csub" style="font-family:var(--sans);font-size:12.5px;color:var(--muted)">Move the sliders. Watch expected value stay positive long after success looks unlikely.</p>
+<label for="ev-prize">Prize on a six: $<span id="ev-prize-v">1000</span></label>
+<input type="range" id="ev-prize" min="0" max="2000" value="1000">
+<label for="ev-cost">Cost otherwise: $<span id="ev-cost-v">1</span></label>
+<input type="range" id="ev-cost" min="0" max="10" value="1">
+<p class="out" id="ev-out"></p>
+</div>
+<script>
+(function(){
+  var pz = document.getElementById('ev-prize'), ct = document.getElementById('ev-cost');
+  var pv = document.getElementById('ev-prize-v'), cv = document.getElementById('ev-cost-v');
+  var out = document.getElementById('ev-out');
+  function upd(){
+    pv.textContent = pz.value; cv.textContent = ct.value;
+    var ev = (pz.value / 6) - (5 * ct.value / 6);
+    out.textContent = 'Expected value: $' + ev.toFixed(2) + '. ' +
+      (ev > 0 ? 'Positive: the bet is worth taking even though you will probably lose.' :
+       ev < 0 ? 'Negative: pass on this one.' : 'Exactly zero: flip a coin about the coin flip.');
+  }
+  pz.addEventListener('input', upd); ct.addEventListener('input', upd); upd();
+})();
+</script>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 &middot; Motivation</p>
+<h4>Get motivated by the bet, not the certainty</h4>
+<p><span class="lbl">What happened. </span>Bezos took the Amazon bet at 30 percent because the upside dwarfed the tolerable downside.</p>
+<p><span class="lbl">Why it matters. </span>Motivation does not require delusion. It requires a positive expected value and a stomach for the likely loss.</p>
+<p><span class="lbl">The principle. </span>Price the downside. If you can afford it, the long shot is rational.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-musk" data-time="~00:38" data-title="Musk's Ten Percent Bets">
+
+<p class="ch-time">~00:38</p>
+<h2>Musk's Ten Percent Bets</h2>
+<p><span class="tag fact">Source fact</span> Elon Musk assigned Tesla and SpaceX each about a 10 percent chance of success, even lower than Bezos. Interviewers kept asking: why try, if you expect to fail? His answer: if it is important enough, try anyway, even when failure is the likely outcome.</p>
+<p><span class="tag fact">Source fact</span> Failure was tolerable: no personal ruin, and even a failed attempt would move the mission forward, electric cars made exciting, a baton passed toward an interplanetary species. At 10 percent of an enormous upside against a tolerable downside, both bets had positive expected value.</p>
+<p><span class="tag interp">Interpretation</span> A life is a portfolio of bets made in sequence, not all at once. The collection of positive expected value bets can be a good wager even when no single bet deserves confidence. Musk's track record since suggests, if anything, he was underconfident.</p>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 &middot; Portfolios</p>
+<h4>Think in portfolios, not in single bets</h4>
+<p><span class="lbl">What happened. </span>Investors accept that most bets fail while the portfolio rises. Lives work the same way, staggered through time.</p>
+<p><span class="lbl">Why it matters. </span>Each roll also teaches you, so later bets are better priced than earlier ones.</p>
+<p><span class="lbl">The principle. </span>Maximize the portfolio's expected value, not any single bet's chance of success.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-confidence" data-time="~00:45" data-title="Two Kinds of Confidence">
+
+<p class="ch-time">~00:45</p>
+<h2>Two Kinds of Confidence</h2>
+<p><span class="tag fact">Source fact</span> Objection two: leaders must project certainty. Galef's research dissolved the trade-off by splitting confidence in two. Epistemic confidence is certainty in your beliefs. Social confidence is self-assurance: tone, posture, energy, drive.</p>
+<p><span class="tag fact">Source fact</span> What persuades is social confidence, not epistemic certainty. Bezos told early investors there was about a 70 percent chance Amazon would fail, and they invested anyway. They cited his passion, energy, and homework, not any promise of a sure thing.</p>
+<p><span class="tag fact">Source fact</span> Precision can backfire socially: saying 87 percent sounds more arrogant than 85, which sounds more arrogant than 80. But uncertainty stated well reads as command: people hear 61 percent and think, this person did the homework.</p>
+<p><span class="tag interp">Interpretation</span> Wording does the work. Saying the team will be the best in the world at something sounds delusional. Saying the goal is to be the best is fully honest and lands almost identically. Find the closest statement you fully believe, then say it with confidence.</p>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 &middot; Confidence</p>
+<h4>Sound certain about the honest thing</h4>
+<p><span class="lbl">What happened. </span>Bezos raised money while advertising a 70 percent failure chance. Investors bought the person, not the probability.</p>
+<p><span class="lbl">Why it matters. </span>You can be influential without sacrificing calibration. The trade-off was an illusion.</p>
+<p><span class="lbl">The principle. </span>State the strongest true version of your claim, and say it like you mean it.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-coping" data-time="~00:53" data-title="Coping Without Self-Deception">
+
+<p class="ch-time">~00:53</p>
+<h2>Coping Without Self-Deception</h2>
+<p><span class="tag fact">Source fact</span> Objection three: we need self-deception to cope, to protect the ego from failure and insecurity. Galef's answer: the coping bucket holds many strategies, and most people grab the first one. Rummage for one at the intersection of comforting and true.</p>
+<p><span class="tag fact">Source fact</span> The distinction matters: reframing is honest, self-delusion is not. Focusing on the positives of being alive is a reframe. Telling yourself everything happens exactly the way it needs to, as a law of the universe, is delusion, and it teaches you not to prevent the preventable.</p>
+<p><span class="tag fact">Source fact</span> Carol Tavris and Elliot Aronson's book on self-justification argues we must fool ourselves a little to avoid drowning in regret. Galef's counter: shrug, learn, and move on. Plenty of people say, I could have done that better, and I have a better chance next time, and feel fine.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the author as Carol Tavras. The name is Carol Tavris. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-8">
+<p class="eyebrow">Nugget 8 &middot; Coping</p>
+<h4>Rummage the coping bucket for the true one</h4>
+<p><span class="lbl">What happened. </span>The same comfort can come from a reframe or a falsehood. People conflate the two and conclude delusion is necessary.</p>
+<p><span class="lbl">Why it matters. </span>Silver linings work without denying the cloud: the dark thing happened, and here is also something good.</p>
+<p><span class="lbl">The principle. </span>When you catch a self-deceptive comfort, swap it for an honest reframe.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-monkey" data-time="~01:00" data-title="Borrow Their Weapons">
+
+<p class="ch-time">~01:00</p>
+<h2>Borrow Their Weapons</h2>
+<div class="pull">
+<blockquote>if you really want to feel good about yourself for being right, be right</blockquote>
+<p class="who">Julia Galef &middot; Episode ~01:02</p>
+</div>
+<p><span class="tag fact">Source fact</span> Galef's replacement for the sting of conceding: admitting you were wrong invests in future credibility. People trust the person who visibly updates. The concession is an investment in your future persuasiveness.</p>
+<p><span class="tag fact">Source fact</span> The Monkey Island reframe: in the old game, losing an insult duel taught you the pirate's rejoinder, which you kept for future duels. Lose an argument well and you borrow the winner's weapons for next time.</p>
+<p><span class="tag interp">Interpretation</span> Soldier mindset fails its own goal on a long horizon: defending weak beliefs leaves you with weaker arguments and fewer true beliefs, so you lose the war of ideas you wanted to win.</p>
+<div class="nugget reveal" id="nugget-9">
+<p class="eyebrow">Nugget 9 &middot; Updating</p>
+<h4>Want to be right in general, not in this argument</h4>
+<p><span class="lbl">What happened. </span>The desire to be right helps when aimed at the long term and hurts when aimed at the moment.</p>
+<p><span class="lbl">Why it matters. </span>Every conceded point is data that trains a better map and a deposit in your credibility account.</p>
+<p><span class="lbl">The principle. </span>Lose the battle on purpose when the tuition buys the war.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-betting" data-time="~01:07" data-title="Betting and the Press Secretary">
+
+<p class="ch-time">~01:07</p>
+<h2>Betting and the Press Secretary</h2>
+<p><span class="tag fact">Source fact</span> Robert Kurzban's analogy: much of our thinking is a press secretary, whose job is to say things plausible enough to make the company look good, not finding truth. The board of directors is the contrast: real stakes, real decisions, thrive or fail on getting it right.</p>
+<p><span class="tag fact">Source fact</span> Betting moves you from press secretary to board. Even imagining the bet works. Galef's test: claim you were right in a fight with your partner, then imagine betting $1,000 that a neutral third party, shown the argument blind, sides with you. Notice how the confidence wobbles.</p>
+<p><span class="tag fact">Source fact</span> The toothpaste version: the press secretary brags the toothpaste whitens best. The board, offered a published dental-school showdown, declines. Operationalizing the belief, what would it look like to find out, exposes what you actually believe.</p>
+<div class="nugget reveal" id="nugget-10">
+<p class="eyebrow">Nugget 10 &middot; Calibration</p>
+<h4>Imagine the bet before you trust the claim</h4>
+<p><span class="lbl">What happened. </span>Claims are cheap. Bets have stakes. Picturing the stakes forces the belief into concrete form.</p>
+<p><span class="lbl">Why it matters. </span>The more abstract the claim, the easier the self-deception. Operationalizing is the antidote.</p>
+<p><span class="lbl">The principle. </span>Ask: would I take $1,000 on this? Then watch your own hesitation.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-interlocutors" data-time="~01:14" data-title="Choose Your Interlocutors">
+
+<p class="ch-time">~01:14</p>
+<h2>Choose Your Interlocutors</h2>
+<div class="pull">
+<blockquote>dunk on the other side</blockquote>
+<p class="who">Julia Galef, on soldier mindset's pleasures &middot; Episode ~00:25</p>
+</div>
+<p><span class="tag fact">Source fact</span> The common strategy fails: a liberal watches the most prominent conservative outlet, or vice versa, and comes away hating the other side more. Prominent partisans play to their base, mock the other side, and flatter preconceptions: the opposite of an open mind's diet.</p>
+<p><span class="tag fact">Source fact</span> Galef's alternative: find someone on the other side with whom you share common ground. Jerry Taylor, a Cato Institute activist against climate action, changed his mind over years, and the decisive conversation was with a fellow libertarian ex-hedge-fund manager who framed climate risk as non-diversifiable risk, language Taylor already spoke.</p>
+<p><span class="tag interp">Interpretation</span> Common ground works twice. Intellectually, their arguments arrive in a language you accept. Emotionally, the person feels like your team, so scout mode comes naturally instead of soldier mode.</p>
+
+</section>
+<div class="wisdom"><h3>Nugget index</h3><ol>
+<li>Name the mode before the argument</li>
+<li>Motivation comes before method</li>
+<li>Follow the payoff, find the mindset</li>
+<li>Practice scout mode where the stakes are low</li>
+<li>Get motivated by the bet, not the certainty</li>
+<li>Think in portfolios, not in single bets</li>
+<li>Sound certain about the honest thing</li>
+<li>Rummage the coping bucket for the true one</li>
+<li>Want to be right in general, not in this argument</li>
+<li>Imagine the bet before you trust the claim</li>
+</ol></div>
+<p class="backlink"><a href="../index.html">&larr; Back to the Clearer Thinking track index</a></p>
+<footer><p><b>Sources.</b> This companion narrates the Clearer Thinking episode Scout and Soldier Mindsets with Julia Galef (YouTube re-upload, 76 minutes). All facts and figures come from the episode transcript (research/clearer-thinking/transcripts/TFk_Y3Eg29U.txt), a faster-whisper base.en transcription of the official podcast audio. The transcript carries no timestamps. All chapter times marked ~ are proportional estimates from word position. The die-bet figures are computed from the episode's numbers: (1/6) x $1,000 - (5/6) x $1 = $165.83. The present-bias chart is an illustrative rendering of the argument. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p><p id="on-quotes"><b>On quotes.</b> Direct quotations in this companion total 40 words: three pull quotes, each carrying speaker and proportional episode-time attribution, plus four short quoted transcript fragments in the corrections note below. Everything else is original paraphrase and analysis.</p><p><b>On transcript corrections.</b> The transcript is a machine transcription with rough edges. Applied corrections, with originals. The guest is Julia Galef (transcript: "Julia Gailiff"). The economist is Robin Hanson (transcript: "Robin Henson"). The economist is Bryan Caplan (transcript: "Brian Kaplan"). The author is Carol Tavris (transcript: "Carol Tavras").</p><p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p></footer>
+
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var ttl = ch.getAttribute('data-title') || '';
+    a.innerHTML = '<span class="t">' + t + '</span>' + ttl;
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(txt, x, y){
+    tip.textContent = txt;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
