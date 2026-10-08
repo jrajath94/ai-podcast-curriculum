@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <!DOCTYPE html>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -447,7 +449,7 @@ span.ptag, .ptag {
 <p class="ts">~00:00</p>
 <p>English pessimism does not exist in Scottish eyes, Ferguson says, because the English always expect to win the World Cup. Scottish pessimism is different: the phrase we are doomed only really works in a Scottish accent. It is the difference between Calvinists and Anglicans. He grew up in the Calvinist west of Scotland with a pessimism alleviated only by gallows humor. Scotland has the weather to match. Hearing <em>The Sunny Side of the Street</em> as a boy, he wondered where that was.</p>
 <div class="fig">
-<figure class="paint inset" data-entrance="bloom"><div class="frame"><div class="stage"><img alt="Watercolor of a rain-soaked Glasgow street at dusk" class="base" loading="lazy" src="assets/ep10/wc-glasgow.webp"/></div></div><figcaption>The weather to go with the pessimism: Glasgow in the rain. Watercolor illustration.</figcaption></figure>
+<figure class="paint inset" data-entrance="bloom" data-scene="p2-ty-ep10-glasgow"><div class="frame"><div class="stage"><img alt="Watercolor of a rain-soaked Glasgow street at dusk" class="base" height="1280" loading="lazy" src="assets/ep10/wc-glasgow.webp" width="1920"/><img alt="" aria-hidden="true" class="ly mul" data-depth="14" data-obj="bridge" src="assets/ep10/ep10-niall-ferguson-hero-layer.png" style="left:44%;top:45%;width:16%;"/></div></div><figcaption>The weather to go with the pessimism: Glasgow in the rain. Watercolor illustration.</figcaption></figure>
 </div>
 </section>
 <section class="chapter col" data-chapter="1" data-title="Not England" id="ch02"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">1</span></div><div><h2>Not England</h2></div></div>
@@ -565,7 +567,7 @@ span.ptag, .ptag {
 <p class="pullattr">Niall Ferguson · ~00:55</p>
 <p>The argument is economic and counterfactual. The 19th-century empire became an empire of liberalism: free trade, free migration, free capital movement, and it turned away from slavery before others did. Compared with the available alternatives, including indigenous empires, it was a remarkably benign empire. Comparing it to the Third Reich commits category errors and refuses realistic counterfactuals. Empire is a book he could not publish today. Bruce Gilley's unpublished article makes the same argument, and Ferguson's only regret is that Gilley did not cite it. The view has made him a hate figure for the academic left, for whom imperialism is mandatory unmitigated evil, the opposite of Collingwood's faithful reconstruction of past thought.</p>
 <div class="fig">
-<figure class="paint inset" data-entrance="bloom"><div class="frame"><div class="stage"><img alt="Watercolor of an antique world map with ships, trains, and telegraph routes" class="base" loading="lazy" src="assets/ep10/wc-empire.webp"/></div></div><figcaption>The empire as a network of ships, railways, and telegraphs. Watercolor illustration.</figcaption></figure>
+<figure class="paint inset" data-entrance="bloom" data-scene="p2-ty-ep10-empire"><div class="frame"><div class="stage"><img alt="Watercolor of an antique world map with ships, trains, and telegraph routes" class="base" height="1280" loading="lazy" src="assets/ep10/wc-empire.webp" width="1920"/></div></div><figcaption>The empire as a network of ships, railways, and telegraphs. Watercolor illustration.</figcaption></figure>
 </div>
 <div class="warnbox"><b>Trap card.</b> The cost-benefit verdict on the British Empire is Ferguson's stated heretical position, and he says so himself. This companion presents his argument and his counterfactual method faithfully. It does not present the verdict as historical consensus.</div>
 </section>
@@ -1299,5 +1301,46 @@ span.ptag, .ptag {
   });
 })();
 
+</script><script>
+<script>
+/* Phase 2 scenes (Builder 2): CompanionFX overlay life. Pure code, zero image cost. */
+(function(){
+var FX = window.CompanionFX; if(!FX) return;
+FX.registerScene("p2-ty-ep10-glasgow", {
+  init: function(F, FX) {
+    F._fx_spark = FX.sparkles(F.stage, F.W, F.H, [[600, 700, 22], [1100, 550, 20]]);
+    F._fx_glows = FX.glows(F.stage, F.W, F.H, [[960, 640, 170]], 'screen', '#FFE9B0');
+  },
+  pose: function(S, FX) {
+    var t = S.t, F = S.F, et = S.et;
+    var k = FX.smoothstep(0, 1, Math.min(1, et/1.4));
+    F._fx_spark.forEach(function(st,i){
+      var tw = 0.55 + 0.45*FX.flicker(t, i*1.7);
+      st.style.transform = 'scale(' + (k*tw).toFixed(3) + ')';
+    });
+    F._fx_glows.forEach(function(c,i){
+      c.style.opacity = (0.3+0.22*FX.flicker(t, i*2.3)).toFixed(3);
+    });
+    return {"bridge": {y: -3*Math.abs(Math.sin(t*0.5))}};
+  }
+});
+FX.registerScene("p2-ty-ep10-empire", {
+  init: function(F, FX) {
+    F._fx_motes = FX.motes(F.stage, F.W, F.H, 10, 89);
+    F._fx_spark = FX.sparkles(F.stage, F.W, F.H, [[700, 600, 20]]);
+  },
+  pose: function(S, FX) {
+    var t = S.t, F = S.F, et = S.et;
+    F._fx_motes.tick(t);
+    var k = FX.smoothstep(0, 1, Math.min(1, et/1.4));
+    F._fx_spark.forEach(function(st,i){
+      var tw = 0.55 + 0.45*FX.flicker(t, i*1.7);
+      st.style.transform = 'scale(' + (k*tw).toFixed(3) + ')';
+    });
+    return {};
+  }
+});
+})();
+</script>
 </script></body>
 </html>
