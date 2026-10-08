@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ep04: Charisma on Command: Practice Beats Talent</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--paper:#fdfbf6;--ink:#221c14;--muted:#6f6455;--line:#e6dcc8;--card:#f5f0e6;--warm:#f4ecd9;--blue:#e9eff9;--accent:#8f3f14;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.65;font-size:16.5px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+header.hero{background:var(--warm);border-bottom:1px solid var(--line);padding:64px 0 40px}
+header.hero h1{font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+header.hero .sub{font-size:18px;color:var(--muted);max-width:660px;margin-bottom:22px}
+.epmeta{font-size:14px;color:var(--muted)}
+.layout{display:flex;gap:28px;align-items:flex-start;padding-top:28px}
+.layout main{flex:1 1 0;min-width:0}
+aside.side{flex:0 0 210px;position:sticky;top:16px}
+.side h4{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px}
+.side a{display:block;padding:6px 0;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.4}
+.side a .t{color:var(--muted);font-size:12.5px;display:block}
+.side a:hover{color:var(--accent)}
+.side a.active{color:var(--accent);font-weight:700}
+#chapnav{overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:26px;position:sticky;top:0;background:var(--paper);z-index:50}
+#chapnav a{display:inline-block;margin-right:22px;font-size:13.5px;color:var(--muted);text-decoration:none;padding:4px 0}
+#chapnav a .t{display:block;font-size:11.5px}
+#chapnav a.active{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+section.chapter{margin-bottom:58px}
+.ch-time{font-size:13px;color:var(--muted);letter-spacing:1px;margin-bottom:6px}
+h2{font-size:27px;margin-bottom:16px;line-height:1.25}
+p{margin-bottom:16px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:10px}
+.fact{background:var(--blue);color:#144a8f}
+.interp{background:var(--warm);color:#6b4a12}
+.wisdom{background:var(--card);border:1px solid var(--line);padding:24px;margin:30px 0}
+.wisdom h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+.wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+@media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+.wisdom li{counter-increment:w;font-size:14px}
+.wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
+.wisdom li a:hover{border-color:var(--accent)}
+.wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;margin-right:8px}
+.legend{font-size:12.5px;color:var(--muted);margin:0 0 22px}
+figure{margin:26px 0;text-align:center}
+figure img{max-width:100%;border-radius:6px;border:1px solid var(--line)}
+.caption{font-size:13.5px;color:var(--muted);margin-top:8px}
+.caption b{color:var(--ink)}
+blockquote{font-size:21px;font-style:italic;line-height:1.5;color:#4a4136;border-left:3px solid var(--accent);padding:8px 0 8px 18px;margin:28px 0}
+p.attrline{font-style:normal;font-size:14px;color:var(--muted);display:block;margin-top:8px}
+.nugget{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin:30px 0;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.nugget.in{opacity:1;transform:none}
+.nugget .eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.nugget h4{font-size:20px;margin-bottom:12px}
+.nugget p{margin-bottom:10px}
+.nugget .lbl{font-weight:700}
+.toy{border:1px dashed var(--line);border-radius:10px;padding:24px;margin:30px 0;background:#fff}
+.toy h4{font-size:17px;margin-bottom:6px}
+.toy .tsub{font-size:14px;color:var(--muted);margin-bottom:14px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;margin:30px 0}
+.chart h4{font-size:17px;margin-bottom:4px}
+.chart .csub{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.chart .csrc{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+.chart svg{width:100%;height:auto}
+.axis{font-size:12px;fill:var(--muted)}
+.vallab{font-size:14px;fill:var(--ink);font-weight:600}
+.takeaways{background:var(--blue);border-radius:10px;padding:26px 28px;margin:40px 0}
+.takeaways h3{font-size:19px;margin-bottom:12px}
+.takeaways ol{padding-left:22px}
+.takeaways li{margin-bottom:8px}
+.takeaways .src{font-size:13px;color:var(--muted);margin-top:14px}
+footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:14px;color:var(--muted)}
+footer p{margin-bottom:12px}
+footer b{color:var(--ink)}
+.vid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid var(--line);margin:26px 0}
+.vid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+#tip{position:fixed;pointer-events:none;background:#1c1812;color:#fff;font-size:13px;padding:8px 12px;border-radius:6px;max-width:300px;opacity:0;transition:opacity .15s;z-index:100}
+.toy .row{margin-bottom:10px}
+.toy select,.toy button,.toy input[type=text]{font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.toy button{cursor:pointer;background:var(--accent);color:#fff;border:1px solid var(--accent);font-weight:700}
+.toy button:hover{opacity:.9}
+.toy .out{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:15px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.cards .card{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--paper);cursor:pointer;font-size:14px}
+.cards .card:hover{border-color:var(--accent)}
+.cards .card.sel{background:var(--blue);border-color:#1f5fb0}
+@media(max-width:760px){aside.side{display:none}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="epmeta">CHARISMA · EPISODE 4 · MODERN WISDOM · JAN 2022</p>
+    <h1>Charisma on Command: Practice Beats Talent</h1>
+    <p class="sub">Charlie Houpert on the five charisma styles, courage as a muscle, Velcro answers, humor systems, and why nobody practicing means fast gains for anyone who does.</p>
+    <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/XieCU9nzrl8" title="Charlie Houpert: How To Be More Charismatic" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</header>
+<div class="wrap layout">
+<aside class="side" id="sidenav"></aside>
+<main>
+<nav id="chapnav" aria-label="Chapters"></nav>
+
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The bar is low because the gym is empty</a></li>
+          <li><a href="#nugget-2">Stop imitating the other four</a></li>
+          <li><a href="#nugget-3">You are your habits, not your patterns</a></li>
+          <li><a href="#nugget-4">Self-esteem is your reputation with yourself</a></li>
+          <li><a href="#nugget-5">One extra sentence, daily</a></li>
+          <li><a href="#nugget-6">Stick out Velcro</a></li>
+          <li><a href="#nugget-7">Authenticity has mechanics</a></li>
+          <li><a href="#nugget-8">Chosen, not hunted</a></li>
+          <li><a href="#nugget-9">The laugh is the delivery system</a></li>
+          <li><a href="#nugget-10">One thing per day</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps.</p>
+
+    <section class="chapter" id="ch-gym" data-time="~00:00" data-title="The Empty Gym">
+      <p class="ch-time">~00:00</p>
+      <h2>The Empty Gym</h2>
+      <figure>
+        <img src="assets/ep04/photo-charlie-houpert.jpg" alt="Photograph of Charlie Houpert">
+        <p class="caption"><b>Photo.</b> Charlie Houpert, founder of Charisma on Command. Source: charismaoncommand.com.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The episode opens with the gym analogy. If nobody in the world worked out, how little training would make you exceptional. That is the world of charisma: nobody practices, so a small amount of deliberate practice puts you in an elite tier fast.</p>
+      <p><span class="tag fact">Source fact</span> Definition: charisma is influence minus beauty and talent. Strip away looks and raw skill, and what remains, the ability to move people, is charisma.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Practice</p>
+        <h4>The bar is low because the gym is empty</h4>
+        <p><span class="lbl">What happened. </span>Almost nobody deliberately practices social skills. The episode argues that the competition is thin because the training is rare.</p>
+        <p><span class="lbl">Why it matters. </span>Every other skill has coaches, drills, and reps. Social skill has none of that in most lives. The first month of practice buys years of advantage.</p>
+        <p><span class="lbl">The principle. </span>Show up to the empty gym. Small reps, consistently, beat talent that never trains.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-styles" data-time="~00:08" data-title="The Five Charisma Styles">
+      <p class="ch-time">~00:08</p>
+      <h2>The Five Charisma Styles</h2>
+      <figure>
+        <img src="assets/ep04/illustration-styles.webp" alt="Watercolor illustration of five figures with distinct energies">
+        <p class="caption"><b>Illustration.</b> Five styles, five energies. Pick the one that fits your wiring. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Charisma comes in five styles, each with an exemplar from the episode.</p>
+      <div class="chart" id="chart-styles">
+        <h4>The five styles and their exemplars</h4>
+        <p class="csub">Hover each row for the core move.</p>
+        <svg viewBox="0 0 640 330" role="img" aria-label="Five charisma styles">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="10" width="620" height="54" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Conviction charisma: certainty so total it pulls the room along. Exemplars: Conor McGregor, Steve Jobs."></rect>
+            <text x="26" y="43" class="vallab">Conviction · McGregor, Jobs</text>
+            <rect x="10" y="72" width="620" height="54" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Authentic charisma: unfiltered curiosity, no performance. Exemplar: Joe Rogan."></rect>
+            <text x="26" y="105" class="vallab">Authentic · Joe Rogan</text>
+            <rect x="10" y="134" width="620" height="54" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Comedian charisma: laughter as the delivery system for everything. Exemplar: Kevin Hart."></rect>
+            <text x="26" y="167" class="vallab">Comedian · Kevin Hart</text>
+            <rect x="10" y="196" width="620" height="54" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Energetic charisma: volume, warmth, and motion turned up. Exemplar: Will Smith."></rect>
+            <text x="26" y="229" class="vallab">Energetic · Will Smith</text>
+            <rect x="10" y="258" width="620" height="54" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Empathetic charisma: making each person feel like the only person. Exemplar: Oprah Winfrey."></rect>
+            <text x="26" y="291" class="vallab">Empathetic · Oprah Winfrey</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Modern Wisdom, Charlie Houpert, ~00:08. Styles and exemplars as given on air.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> The point of the list is permission. You do not need all five. Pick the one or two that fit your wiring and deepen them. Malleability has limits: Zuckerberg will never be Will Smith, and he should not try.</p>
+      <div class="toy" id="toy-styles">
+        <h4>Toy: which styles fit you</h4>
+        <p class="tsub">Tap your one or two best-fitting styles. The toy names your training lane.</p>
+        <div class="cards" id="style-cards">
+          <div class="card" data-style="Conviction">Conviction: you hold strong beliefs and speak them plainly</div>
+          <div class="card" data-style="Authentic">Authentic: you get curious and drop the performance</div>
+          <div class="card" data-style="Comedian">Comedian: you notice the funny angle first</div>
+          <div class="card" data-style="Energetic">Energetic: rooms get warmer when you arrive</div>
+          <div class="card" data-style="Empathetic">Empathetic: people tell you things they tell nobody</div>
+        </div>
+        <div class="out" id="style-out">Pick one or two cards.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Styles</p>
+        <h4>Stop imitating the other four</h4>
+        <p><span class="lbl">What happened. </span>The episode names five styles, each with a master, and grants permission to play only yours.</p>
+        <p><span class="lbl">Why it matters. </span>Most charisma advice fails because it hands everyone the same mask. A forced Will Smith reads as a costume.</p>
+        <p><span class="lbl">The principle. </span>Pick your one or two. Deepen them daily. Let the other styles stay on the shelf.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-selfbetrayal" data-time="~00:12" data-title="The Self-Betrayal Objection">
+      <p class="ch-time">~00:12</p>
+      <h2>The Self-Betrayal Objection</h2>
+      <p><span class="tag fact">Source fact</span> The objection goes: practicing charisma means betraying who I am. Houpert's answer: the objection is self-serving. It protects the comfort of never trying. You are not your patterns. You are your habits, and habits change.</p>
+      <p><span class="tag fact">Source fact</span> Introversion survives the training. Your essence remains. Introversion is an energy source, like a basketball player who recharges alone before the game. The training changes what you do in the room, not where you get your energy.</p>
+      <p><span class="tag fact">Source fact</span> The advantages-to-obstacles spiral names the trap of success. Each advantage you gain becomes the obstacle you defend. Delegation is the example: the skill that built the company becomes the control habit that caps it.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Identity</p>
+        <h4>You are your habits, not your patterns</h4>
+        <p><span class="lbl">What happened. </span>The self-betrayal objection protects the comfort of never trying. Introversion is an energy source, not a sentence.</p>
+        <p><span class="lbl">Why it matters. </span>If identity is fixed, training is betrayal. If identity is habit, training is growth.</p>
+        <p><span class="lbl">The principle. </span>Keep the wiring. Change the habits. Watch strengths turn into ceilings and adjust.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-innergame" data-time="~00:36" data-title="The Inner Game">
+      <p class="ch-time">~00:36</p>
+      <h2>The Inner Game: Self-Esteem and Desire</h2>
+      <p><span class="tag fact">Source fact</span> The episode's definition of self-esteem, credited on air to Nathaniel Branden (the transcript spells the name Brandon): self-esteem is your reputation with yourself. You build it the way you build any reputation: by keeping promises. His sentence-completion exercise makes it mechanical. Finish stems like if I was 5% more... in writing, fast, without editing.</p>
+      <p><span class="tag fact">Source fact</span> The Aubrey Marcus story: Marcus built Onnit, sold it to Unilever, bought the SkiErg, optimized everything, and found the optimization did not deliver happiness. The episode cites Naval Ravikant's line: it is easier to achieve your desires than to renounce them, and renouncing is the skill that actually frees you.</p>
+      <p><span class="tag fact">Source fact</span> Humans are anticipatory beings. A cited study found the happiness peak sits around 8pm before an event, not during it. You enjoy the looking-forward more than the having.</p>
+      <blockquote>Self-esteem is your reputation with yourself.</blockquote><p class="attrline">Nathaniel Branden, as cited by Charlie Houpert on Modern Wisdom, ~00:36</p>
+      <p><span class="tag fact">Source fact</span> The practical rule is to set the vibe a level higher than needed. Do not try to become the most energetic person in the room. One level above baseline is sustainable. Ten levels reads as a performance.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Inner game</p>
+        <h4>Self-esteem is your reputation with yourself</h4>
+        <p><span class="lbl">What happened. </span>Branden's method: keep promises to yourself, and the unedited sentence completions show where you break them.</p>
+        <p><span class="lbl">Why it matters. </span>Charisma built on a broken self-reputation collapses under pressure. The inner game is the floor.</p>
+        <p><span class="lbl">The principle. </span>Keep small promises daily. Vibe one level higher, never ten.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-courage" data-time="~00:46" data-title="Courage Is a Muscle">
+      <p class="ch-time">~00:46</p>
+      <h2>Courage Is a Muscle</h2>
+      <figure>
+        <img src="assets/ep04/illustration-courage.webp" alt="Watercolor illustration of rising steps toward sunrise light">
+        <p class="caption"><b>Illustration.</b> Progressive exposure: each step slightly higher than the last. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> You do not need confidence before you act. You need courage, and courage strengthens with reps. Progressive exposure is the method: one extra sentence to the taxi driver. One comment in the meeting. The dose stays small enough that you survive it and big enough that it counts.</p>
+      <p><span class="tag fact">Source fact</span> Three filters kill most conversations before they start. One, filter too high: you censor the thought because it is not perfect. Lower the bar to mildly interesting. Two, yielding mid-thought: you trail off when someone looks away. Finish the sentence at the same decibel you started it. Three, one extra sentence: the drill. Wherever you would normally stop, add one sentence.</p>
+      <p><span class="tag fact">Source fact</span> One thing per day is the training schedule. Tiger Woods rebuilt his swing one piece at a time while already the best in the world. You rebuild one social piece at a time. Reps plus beginner gains: because nobody practices, the first month of practice buys years of advantage.</p>
+      <div class="toy" id="toy-filters">
+        <h4>Toy: the filter audit</h4>
+        <p class="tsub">Recall your last three conversations. For each, name which filter struck: too-high filter, mid-thought yield, or missing extra sentence.</p>
+        <div class="row"><input type="text" id="f1" placeholder="Conversation 1: what did the filter block" style="width:100%"></div>
+        <div class="row"><input type="text" id="f2" placeholder="Conversation 2: what did the filter block" style="width:100%"></div>
+        <div class="row"><input type="text" id="f3" placeholder="Conversation 3: what did the filter block" style="width:100%"></div>
+        <button id="fbtn">Build my drill</button>
+        <div class="out" id="fout">Fill the rows and press the button. The toy builds your one-thing-per-day drill.</div>
+      </div>
+      <p><span class="tag fact">Source fact</span> The MDMA family story at Big Bear: Houpert describes a family gathering where the usual guards dropped and everyone finally said the real things. His never-again vow, to never return to guarded small talk with people he loves, overcompensated into his whole teaching career.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Courage</p>
+        <h4>One extra sentence, daily</h4>
+        <p><span class="lbl">What happened. </span>Confidence is the feeling you want before acting. Courage is the act without the feeling. The episode trains courage because confidence only arrives after reps.</p>
+        <p><span class="lbl">Why it matters. </span>Waiting for confidence is a stall tactic. Small, survivable doses build the muscle without the costume.</p>
+        <p><span class="lbl">The principle. </span>Lower the filter to mildly interesting. Finish at full decibel. Add one extra sentence wherever you would stop.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-velcro" data-time="~00:49" data-title="Velcro Answers">
+      <p class="ch-time">~00:49</p>
+      <h2>Velcro Answers: Be Unforgettable in 30 Seconds</h2>
+      <figure>
+        <img src="assets/ep04/illustration-velcro.webp" alt="Watercolor illustration of hooks connecting speaker and listener">
+        <p class="caption"><b>Illustration.</b> Stick out Velcro so the listener has something to attach to. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Small talk fails because answers are smooth. Smooth answers give the listener nothing to grab. Velcro answers have hooks. Where are you from? Philadelphia is smooth. The episode's own Velcro example: I grew up on the East Coast but I was always a little bit of a crazy person, so in college I moved to Brazil and did crazy entrepreneurial stuff. Three hooks: East Coast, Brazil, entrepreneurship. The listener grabs one.</p>
+      <blockquote>Do the favor of sticking out some Velcro for them to attach onto.</blockquote><p class="attrline">Charlie Houpert on Modern Wisdom, ~00:49</p>
+      <div class="chart" id="chart-velcro">
+        <h4>Smooth versus Velcro</h4>
+        <p class="csub">Same questions, different answers. Hover for the hook count.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Smooth versus Velcro answers">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <text x="10" y="24" class="vallab">Smooth answers</text>
+            <rect x="10" y="34" width="300" height="66" rx="4" fill="#f9e9e9" stroke="#e2d8c3" data-tip="Philadelphia. Zero hooks. The listener must do all the work."></rect>
+            <text x="24" y="62" font-size="14" fill="#221c14">Where are you from</text>
+            <text x="24" y="88" font-size="14" fill="#6f6455">Philadelphia</text>
+            <rect x="10" y="110" width="300" height="66" rx="4" fill="#f9e9e9" stroke="#e2d8c3" data-tip="Marketing. Zero hooks. Dead end."></rect>
+            <text x="24" y="138" font-size="14" fill="#221c14">What do you do</text>
+            <text x="24" y="164" font-size="14" fill="#6f6455">Marketing</text>
+            <rect x="10" y="186" width="300" height="66" rx="4" fill="#f9e9e9" stroke="#e2d8c3" data-tip="Not much. Zero hooks. The conversation dies here."></rect>
+            <text x="24" y="214" font-size="14" fill="#221c14">Any plans this weekend</text>
+            <text x="24" y="240" font-size="14" fill="#6f6455">Not much</text>
+            <text x="330" y="24" class="vallab">Velcro answers</text>
+            <rect x="330" y="34" width="300" height="66" rx="4" fill="#dcefe0" stroke="#e2d8c3" data-tip="Three hooks: Philadelphia, Brazil, surfing. The listener grabs one."></rect>
+            <text x="344" y="62" font-size="14" fill="#221c14">Where are you from</text>
+            <text x="344" y="88" font-size="14" fill="#6f6455">Philadelphia, Brazil, surfing</text>
+            <rect x="330" y="110" width="300" height="66" rx="4" fill="#dcefe0" stroke="#e2d8c3" data-tip="Three hooks: marketing, hot sauce, firefighters. Unforgettable."></rect>
+            <text x="344" y="138" font-size="14" fill="#221c14">What do you do</text>
+            <text x="344" y="164" font-size="14" fill="#6f6455">Hot sauce for firefighters</text>
+            <rect x="330" y="186" width="300" height="66" rx="4" fill="#dcefe0" stroke="#e2d8c3" data-tip="Two hooks: hiking, salsa class. Open doors."></rect>
+            <text x="344" y="214" font-size="14" fill="#221c14">Any plans this weekend</text>
+            <text x="344" y="240" font-size="14" fill="#6f6455">Hiking, first salsa class</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Modern Wisdom, Charlie Houpert, ~00:49. Examples adapted from the episode's Philadelphia, marketing, and weekend answers. The specifics are illustrative.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Non-literal answers do the same work sideways. Answer the question beneath the question, or answer with playful misdirection, then land the real answer. The authentic alternative stays available: a true, specific detail beats a clever dodge every time.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Conversation</p>
+        <h4>Stick out Velcro</h4>
+        <p><span class="lbl">What happened. </span>Smooth answers give the listener nothing to grab. Velcro answers add two or three hooks: specific, vivid details the other person can attach to.</p>
+        <p><span class="lbl">Why it matters. </span>Every boring conversation is a listener with nothing to hold. The hooks are a favor you do for them.</p>
+        <p><span class="lbl">The principle. </span>Rewrite your three most common answers with two hooks each. Use them for a week.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-brand" data-time="~00:57" data-title="Russell Brand: The Authenticity Lab">
+      <p class="ch-time">~00:57</p>
+      <h2>Russell Brand: The Authenticity Lab</h2>
+      <p><span class="tag fact">Source fact</span> Russell Brand is the episode's case study in unpredictable authenticity. Flirt with everybody: warmth distributed widely, not aimed. Push-pull: approach then retreat, so attention stays alive. Unpredictability reads as authenticity because scripts are predictable. Strong opinions held loosely: conviction without rigidity.</p>
+      <p><span class="tag fact">Source fact</span> The lesson is not to imitate Brand. The lesson is that authenticity has mechanics too. Surprise plus conviction plus warmth equals the feeling of realness.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Authenticity</p>
+        <h4>Authenticity has mechanics</h4>
+        <p><span class="lbl">What happened. </span>Brand's effect decomposes into four moves: distributed warmth, push-pull, unpredictability, and loose conviction.</p>
+        <p><span class="lbl">Why it matters. </span>If authenticity were magic, it could not be trained. Once it has mechanics, it can be drilled.</p>
+        <p><span class="lbl">The principle. </span>Warmth for everyone, pressure on no one. Hold strong opinions loosely.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-flirt" data-time="~00:59" data-title="Flirting Without Games">
+      <p class="ch-time">~00:59</p>
+      <h2>Flirting Without Games</h2>
+      <p><span class="tag fact">Source fact</span> Men's number one error, per the episode: not approaching at all. Sniper versus flirt-with-the-world: the sniper aims all intensity at one target and creates pressure. Flirting with the world distributes warmth everywhere and creates ease. The target feels chosen, not hunted.</p>
+      <p><span class="tag fact">Source fact</span> The four buckets. One, interest and playful: show clear interest wrapped in play. Ambiguity plus warmth. Two, genuine standards: the Harvard versus community college letter. State what you actually value in a partner. Standards are attractive because they imply you choose. Three, sexual tension: sit with it. Do not discharge it with a joke or an apology. Tension held is tension felt. Four, physical escalation ladder: small, gradual, consensual steps. Each step tests comfort before the next.</p>
+      <p><span class="tag fact">Source fact</span> World-building is the advanced move. The Jamaica example: instead of logistics talk, build a shared imaginary world. The Lucy cigarette story: a tiny shared ritual, one borrowed cigarette, became a whole private mythology. Values over logistics: the Goldman Sachs versus mom's house choice. Talk about what matters, not the schedule.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Flirting</p>
+        <h4>Chosen, not hunted</h4>
+        <p><span class="lbl">What happened. </span>The sniper concentrates all intensity on one target and creates pressure. Flirt-with-the-world distributes warmth and creates ease.</p>
+        <p><span class="lbl">Why it matters. </span>The number one error is not approaching at all. Warmth distributed widely removes the pressure that makes approaching feel heavy.</p>
+        <p><span class="lbl">The principle. </span>Build shared worlds, not logistics lists. Hold tension instead of discharging it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-humor" data-time="~01:34" data-title="Humor Is a System">
+      <p class="ch-time">~01:34</p>
+      <h2>Humor Is a System</h2>
+      <p><span class="tag fact">Source fact</span> Houpert treats humor as trainable mechanics, not talent. One, split-test three answers. Before you speak, generate three possible responses and pick the funniest. The first idea is usually the obvious one. Two, say the opposite. Inversion manufactures surprise: praise the terrible, doubt the certain. Three, prime with a comedian. Watch 10 to 15 minutes of stand-up before a social event. Your brain borrows the rhythm. Four, improv PIT. From improv training: Platform, Initiate, Tilt. Set the platform (where we are), initiate with energy, then tilt it sideways.</p>
+      <p><span class="tag fact">Source fact</span> Debates are won by laughs, not logic, per the episode's examples. Trump's "Only Rosie O'Donnell" line ended a debate attack in one laugh. Ben Shapiro's dunk clips travel because they are funny first. Stephen Fry wins rooms the same way. The laugh is the delivery system for the point.</p>
+      <p><span class="tag fact">Source fact</span> The communicator gallery reinforces the lesson: Tony Robbins (energy), Oprah (empathy), Bill Clinton (names plus two facts about everyone he meets), Kevin Hart at 5 foot 2 (proof that physical presence is optional when the energy is not).</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Humor</p>
+        <h4>The laugh is the delivery system</h4>
+        <p><span class="lbl">What happened. </span>Humor decomposes into four drills: split-test three, say the opposite, prime with stand-up, run the improv PIT.</p>
+        <p><span class="lbl">Why it matters. </span>The audience remembers the laugh and absorbs the point inside it. Logic without laughter rarely travels.</p>
+        <p><span class="lbl">The principle. </span>Never say the first idea. Prime the rhythm before the event.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-30day" data-time="~02:20" data-title="The 30-Day Course">
+      <p class="ch-time">~02:20</p>
+      <h2>The 30-Day Course: Put It Together</h2>
+      <div class="chart" id="chart-arc">
+        <h4>The 30-day training arc</h4>
+        <p class="csub">Hover each week for the drill.</p>
+        <svg viewBox="0 0 640 150" role="img" aria-label="30 day training arc">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="40" width="140" height="70" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Week 1: courage reps. One extra sentence daily."></rect>
+            <text x="80" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">Week 1</text>
+            <text x="80" y="94" text-anchor="middle" font-size="13" fill="#221c14">Courage reps</text>
+            <text x="158" y="82" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="166" y="40" width="140" height="70" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Week 2: Velcro answers. Two hooks in every common answer."></rect>
+            <text x="236" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">Week 2</text>
+            <text x="236" y="94" text-anchor="middle" font-size="13" fill="#221c14">Velcro answers</text>
+            <text x="314" y="82" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="322" y="40" width="140" height="70" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Week 3: humor systems. Three responses before speaking, stand-up prime."></rect>
+            <text x="392" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">Week 3</text>
+            <text x="392" y="94" text-anchor="middle" font-size="13" fill="#221c14">Humor systems</text>
+            <text x="470" y="82" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="478" y="40" width="152" height="70" rx="8" fill="#dcefe0" stroke="#e2d8c3" data-tip="Week 4: your style, performed daily. Vibe one level higher throughout."></rect>
+            <text x="554" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#221c14">Week 4</text>
+            <text x="554" y="94" text-anchor="middle" font-size="13" fill="#221c14">Your style daily</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Modern Wisdom, Charlie Houpert. The episode's training arc, compressed to one month.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> The episode's training arc compresses to one month. Week one: courage reps, one extra sentence daily. Week two: Velcro answers everywhere. Week three: humor systems, three answers before speaking. Week four: your charisma style, performed daily. Vibe one level higher throughout.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Training</p>
+        <h4>One thing per day</h4>
+        <p><span class="lbl">What happened. </span>Four weeks, one skill each: courage, Velcro, humor, style. The schedule mirrors Tiger Woods rebuilding his swing one piece at a time.</p>
+        <p><span class="lbl">Why it matters. </span>Vague effort produces vague results. A dated arc produces reps, and reps plus beginner gains compound fast.</p>
+        <p><span class="lbl">The principle. </span>Start tomorrow with one extra sentence. Stack the next skill next week.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>The gym is empty. A small amount of practice puts you in an elite tier.</li>
+          <li>Charisma is influence minus beauty and talent. Pick your one or two styles.</li>
+          <li>You are your habits, not your patterns. Introversion survives the training.</li>
+          <li>Self-esteem is your reputation with yourself. Keep promises to it.</li>
+          <li>Lower the filter to mildly interesting. Finish at full decibel. Add one sentence.</li>
+          <li>Stick out Velcro: two or three hooks in every common answer.</li>
+          <li>Humor is mechanics, not talent. Split-test three, prime with stand-up.</li>
+        </ol>
+        <p class="src">Distilled from Modern Wisdom, Charlie Houpert: How To Build Genuine Charisma And Confidence, Jan 2022. Full episode: youtube.com/watch?v=XieCU9nzrl8. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Modern Wisdom episode "Charlie Houpert: How To Build Genuine Charisma And Confidence" (January 2022). All facts and figures come from the episode transcript (research/charisma/transcripts/XieCU9nzrl8.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. The Jim Carrey quotation is cited as spoken by Houpert on air. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 22 words: two pull quotes from Charlie Houpert (6 and 13 words, each with speaker and episode-time attribution), plus the Trump debate interjection quoted verbatim as spoken on air (3 words). All example stems and illustrations in the body are the builder's own wording and carry no quotation marks.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: style picker ---------- */
+  (function(){
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#style-cards .card'));
+    var out = document.getElementById('style-out');
+    function upd(){
+      var sel = cards.filter(function(c){ return c.classList.contains('sel'); });
+      if(sel.length === 0){ out.textContent = 'Pick one or two cards.'; return; }
+      var names = sel.map(function(c){ return c.getAttribute('data-style'); });
+      out.innerHTML = '<b>Your lane:</b> ' + names.join(' + ') + '. Train this daily for week 4. The other styles stay on the shelf.';
+    }
+    cards.forEach(function(c){
+      c.addEventListener('click', function(){
+        var sel = cards.filter(function(x){ return x.classList.contains('sel'); });
+        if(c.classList.contains('sel')){ c.classList.remove('sel'); }
+        else if(sel.length < 2){ c.classList.add('sel'); }
+        else { sel[0].classList.remove('sel'); c.classList.add('sel'); }
+        upd();
+      });
+    });
+  })();
+
+  /* ---------- toy: filter audit ---------- */
+  (function(){
+    var btn = document.getElementById('fbtn');
+    var out = document.getElementById('fout');
+    btn.addEventListener('click', function(){
+      var rows = ['f1','f2','f3'].map(function(id){ return document.getElementById(id).value.trim(); });
+      var filled = rows.filter(function(r){ return r.length > 0; });
+      if(filled.length === 0){ out.textContent = 'Write at least one blocked moment first.'; return; }
+      var drills = filled.map(function(r, i){
+        return 'Day ' + (i+1) + ': in a similar moment, add one extra sentence after "' + r.slice(0, 60) + (r.length > 60 ? '…' : '') + '".';
+      });
+      out.innerHTML = '<b>Your one-thing-per-day drill:</b><br>' + drills.join('<br>');
+    });
+  })();
+})();
+</script>
+</body>
+</html>
