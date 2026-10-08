@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Part I: Origins of Search: Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Acquired's Google Part I: PageRank, the harmonious AdWords auction, the bet-the-company AOL deal, and the revenue detonation of 2001-2003.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 5 &middot; Google Part I: Origins of Search &middot; Summer 2025</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 5 &middot; Companion</p>
+      <h1>Google Part I: Origins of Search</h1>
+      <p class="dek">Google was not the first search engine. It was the last. A citation-graph insight, a stolen-and-fixed business model, and a $100 million bet the company did not have built the best business in human history. This companion follows the episode chapter by chapter.</p>
+      <figure>
+        <img src="assets/ep05/illustration-citations.webp" alt="Watercolor illustration of manuscript pages connected by a citation graph, a few glowing where many links converge">
+        <p class="caption"><b>Illustration.</b> Links are votes: the citation graph behind PageRank. AI-generated watercolor.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">$252K</div><div class="l">Jeff Bezos's seed check, a quarter of Google's seed round. Worth about $20B if he never sold</div><div class="s">Episode ~00:42</div></div>
+        <div class="stat"><div class="n">$86M&rarr;$1.5B</div><div class="l">Revenue detonation from 2001 to 2003</div><div class="s">Episode ~02:38</div></div>
+        <div class="stat"><div class="n">$23B</div><div class="l">IPO market cap in 2004 at $85 a share. Roughly 100x since</div><div class="s">Episode ~02:48</div></div>
+        <div class="stat"><div class="n">20</div><div class="l">Alphabet's P/E at recording, an all-time low, versus 27-46 for peers</div><div class="s">Episode ~02:52</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/v1nkN0sM2wc" title="Acquired: Google Part I, Origins of Search (official episode audio)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Listen.</b> The official Acquired episode audio (about 3 hr 20 min). Times below are proportional estimates from the transcript, which carries no timestamps.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Ambition is the founding technology</a></li>
+          <li><a href="#nugget-2">Rank by what others say</a></li>
+          <li><a href="#nugget-3">The check that forced the company</a></li>
+          <li><a href="#nugget-4">One plus one equaled 100</a></li>
+          <li><a href="#nugget-5">Distribution is bought, not earned</a></li>
+          <li><a href="#nugget-6">Steal the model, fix the flaw</a></li>
+          <li><a href="#nugget-7">The harmonious auction</a></li>
+          <li><a href="#nugget-8">Bet the company on arithmetic</a></li>
+          <li><a href="#nugget-9">Buy the default</a></li>
+          <li><a href="#nugget-10">Scale that grows revenue, not just cuts costs</a></li>
+          <li><a href="#nugget-11">Today's sacrilege is tomorrow's business model</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps.</p>
+    </div>
+    <section class="chapter" id="ch-myth" data-time="~00:12" data-title="Not Accidental Billionaires">
+      <p class="ch-time">~00:12</p>
+      <h2>Not Accidental Billionaires</h2>
+      <p><span class="tag fact">Source fact</span> The episode opens by killing a myth: the perception that Larry Page and Sergey Brin were hapless academics, weak on business, and that Google was a research project that became the best business of all time by accident. The hosts say that is wrong. Everyone they interviewed in research described the two as hugely ambitious, for the business as well as the product.</p>
+      <div class="pull">
+        <blockquote>Probably when I was 12, I knew I was going to start a company eventually.</blockquote>
+        <p class="who">Larry Page &middot; Episode ~00:14</p>
+      </div>
+      <p>Larry's fuller quote: he wanted to make the world better, and to do that you need to do more than just invent things. Later he added that you need to use business and entrepreneurship to make these things real, since it is not enough just to invent them. Ben's reading: companies are the vehicles that bring ideas to the masses.</p>
+      <p>The timing was extraordinary. From 1993 to 1996, the web grew from 130 sites to more than 600,000, a 723 percent growth rate year over year for four years, per John Battelle's book The Search. Larry and Sergey watched the largest communication phenomenon in history compound in real time, from inside Stanford's computer science department, where they met in the fall of 1995 and argued constantly before becoming true partners.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Founders</p>
+        <h4>Ambition is the founding technology</h4>
+        <p><span class="lbl">What happened. </span>Larry knew at 12 that he would start a company, and that invention alone was not enough. Everyone the hosts interviewed described both founders as hugely ambitious for the business, not just the product.</p>
+        <p><span class="lbl">Why it matters. </span>The "accidental billionaire" story flatters observers and misleads founders. Google's business outcomes were aimed at, not stumbled into. Ambition set the ceiling before any technology did.</p>
+        <p><span class="lbl">The principle. </span>Do not build the product and hope a business appears. Decide the business is the point, early, and say it out loud.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Partnerships</p>
+        <h4>One plus one equaled 100</h4>
+        <p><span class="lbl">What happened. </span>Larry and Sergey held equal equity and built a real true partnership that lasted decades. The hosts compare its rarity to Jensen, Chris, and Curtis at Nvidia, noting that even there it became Jensen over time, and that Warren Buffett and Charlie Munger were never both full-time in one company.</p>
+        <p><span class="lbl">Why it matters. </span>Decade-scale partnerships with shared ownership are the rarest input in the episode's whole story. Everything downstream, the AOL bet, the IPO fight, the AI era, needed both of them still in the room.</p>
+        <p><span class="lbl">The principle. </span>Equal ownership plus real partnership compounds. If you find a true partner, structure for decades, not for the seed round.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-pagerank" data-time="~00:18" data-title="Links Are Citations">
+      <p class="ch-time">~00:18</p>
+      <h2>Links Are Citations</h2>
+      <p><span class="tag fact">Source fact</span> The core insight came from an old field: the study of academic citations. Scholars had long ranked papers by who cites whom. The leap: a hyperlink is the exact same model as an academic citation. A link from page A to page B is A's vote that B matters. And links carry something citations do not: anchor text, the clickable words the linker chooses, which are usually a better description of the target page than anything the page says about itself. Google's ranking combined the citation graph with anchor-text descriptions, and it worked.</p>
+      <p>The underpinnings were brutal: crawling the whole web, storing the graph, computing the scores. Larry wrote the first PageRank implementation and crawler in Java. It was super buggy and barely worked. They tried to sell the technology to Yahoo for $1 million. Yahoo said no.</p>
+      <p>The episode stresses two underappreciated points. Ranking was only one of three innovations. The others were speed and the clean page. And Google's aversion to paid inclusion, refusing to pollute organic results with paid placement, served it enormously. Trust in the results was the product.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Insight</p>
+        <h4>Rank by what others say</h4>
+        <p><span class="lbl">What happened. </span>PageRank moved ranking from what a page says about itself, which owners can stuff, to what the web says about it through links and anchor text, which is much harder to fake. Keywords belong to the page owner. Inbound votes belong to everyone else.</p>
+        <p><span class="lbl">Why it matters. </span>The same trick generalizes: resumes, vendors, restaurants, research. Self-description is gameable. Outside citations are not. Every ranking system should weight the two differently.</p>
+        <p><span class="lbl">The principle. </span>For any decision you rank, build two lists: what the candidate claims, and what others say. Weight the second one more.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-seed" data-time="~00:39" data-title="The $100,000 Check to a Company That Did Not Exist">
+      <p class="ch-time">~00:39</p>
+      <h2>The $100,000 Check to a Company That Did Not Exist</h2>
+      <p><span class="tag fact">Source fact</span> At 8 a.m. one morning, Larry and Sergey demoed Google to Andy Bechtolsheim at Dave Cheriton's house in Palo Alto. Andy was in a hurry. He loved it. He said he was in for $100,000 and went to get the check from his car, though they had only wanted advice, not money. The check was made out to "Google Inc." Google Inc. did not exist. No documents, no valuation. Andy told them to figure it out. That check forced the company's founding.</p>
+      <p>The full seed round: $1 million at a $10 million post-money valuation, from four investors: Andy Bechtolsheim, Dave Cheriton, Ram Shriram ($250,000), and Jeff Bezos. Bezos asked Ram what he was in for, heard $250,000, and said he was in for $252,000. A quarter of Google's seed round was the Amazon CEO. Ben's math: if Bezos never sold a share, the stake is worth about $20 billion today. If he sold at the IPO, the $250,000 became roughly $200 million.</p>
+      <div class="chart" id="chart-bezos">
+        <h4>The $252,000 check</h4>
+        <p class="csub">What Jeff Bezos put in, and what the episode says it became. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of the Bezos seed stake">
+          <rect class="bar alt" x="110" y="252" width="100" height="8" data-tip="1998: $252,000, a quarter of Google's $1M seed round at a $10M post-money valuation."></rect>
+          <rect class="bar" x="280" y="208" width="100" height="52" data-tip="At the 2004 IPO: roughly $200 million."></rect>
+          <rect class="bar dark" x="450" y="40" width="100" height="220" data-tip="Today, if he never sold: about $20 billion, per Ben's math. Bezos has never said whether he sold."></rect>
+          <text class="vallab" x="160" y="244" text-anchor="middle">$252K</text>
+          <text class="vallab" x="330" y="200" text-anchor="middle">$200M</text>
+          <text class="vallab" x="500" y="32" text-anchor="middle">$20B</text>
+          <text class="axis" x="160" y="282" text-anchor="middle">1998 seed</text>
+          <text class="axis" x="330" y="282" text-anchor="middle">2004 IPO</text>
+          <text class="axis" x="500" y="282" text-anchor="middle">today, if held</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Google Part I, ~00:42. Ben's math. Bezos never disclosed sales.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> By spring 1998, google.com handled 10,000 queries a day, spreading virally through Stanford. The first revenue was gloriously unglamorous: a $20,000 enterprise search deal with Red Hat. The Series A: $25 million at a $100 million post-money valuation from Sequoia and Kleiner Perkins, wild for the time even in the bubble. A competing $150 million term sheet arrived mid-negotiation. They stayed with Sequoia and Kleiner. That was the goal all along.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Fundraising</p>
+        <h4>The check that forced the company</h4>
+        <p><span class="lbl">What happened. </span>Bechtolsheim wrote $100,000 to a company that did not exist, with no documents and no valuation, and told two graduate students to figure it out. The money created the company, not the reverse.</p>
+        <p><span class="lbl">Why it matters. </span>Waiting for the perfect structure kills momentum. A forcing function, a check that must be deposited, a date that cannot move, turns a project into an entity.</p>
+        <p><span class="lbl">The principle. </span>When a project needs to become real, manufacture the forcing function. Incorporate because the check demands it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-portals" data-time="~01:08" data-title="The Portal Deals That Bought Survival">
+      <p class="ch-time">~01:08</p>
+      <h2>The Portal Deals That Bought Survival</h2>
+      <figure>
+        <img src="assets/ep05/google-first-server.jpg" alt="Photograph of Google's first production server from 1999, a rack of inexpensive computers">
+        <p class="caption"><b>Photo.</b> Google's first production server, 1999: cheap parts, first-principles engineering. Source: Wikimedia Commons.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Around the Series A, Larry and Sergey met Omid Kordestani from Netscape. Omid soon went back to his old Netscape and AOL colleagues and landed the portal deals. In June 2000, as the dot-com bubble burst (NASDAQ peaked in March 2000), Google signed Yahoo: Google would power all of Yahoo's organic search with "Powered by Google" branding at the bottom of every page, and Yahoo would invest $10 million. Traffic doubled to 14 million searches a day on day one. The deal and the investment kept the company going through the dot-com winter until the AdWords business model arrived.</p>
+      <p>2001 numbers: $86 million in revenue, $10 million in profit. Profitable in the nuclear winter of the internet economy, almost entirely on portal deals and the old ad system.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Distribution</p>
+        <h4>Distribution is bought, not earned</h4>
+        <p><span class="lbl">What happened. </span>Google's first material traffic came from a deal, not from users discovering it. Yahoo put "Powered by Google" on every results page and doubled Google's traffic overnight, plus $10 million to survive the winter.</p>
+        <p><span class="lbl">Why it matters. </span>The best product with no distribution dies quietly. Google's founders understood that traffic is inventory you can purchase, and the brand impression at the bottom of Yahoo's page was worth more than any ad campaign.</p>
+        <p><span class="lbl">The principle. </span>Do not wait to be discovered. Find the portal that already has your users and buy your way onto its page.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-goto" data-time="~01:39" data-title="Stealing the Business Model">
+      <p class="ch-time">~01:39</p>
+      <h2>Stealing the Business Model</h2>
+      <p><span class="tag fact">Source fact</span> The business model came from Bill Gross's GoTo, later Overture: paid search results sold through a self-serve website with a real-time auction, where the highest bid wins the top spot. GoTo did $100 million in revenue in its first year. By mid-1999 it had 8,000 advertisers. AdWords at its October 2000 launch had 350 in beta. When Gross demoed paid results at TED in 1998, the audience booed. The web was still an academic utopia, and paid results felt like sacrilege.</p>
+      <p>Yahoo ended up buying Overture for $1.6 billion after a bidding war with Microsoft. At one point paid search was about 75 percent of Yahoo's revenue. When Google offered to buy Overture and the board refused to give up 10 percent of a $2 billion company to a zero-revenue startup, Ben's comment stands: there is almost zero chance Google becomes Google if that deal happens.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Strategy</p>
+        <h4>Steal the model, fix the flaw</h4>
+        <p><span class="lbl">What happened. </span>Google took GoTo's paid-search auction and changed the one line that mattered: highest bid alone does not win. The stolen model only became the best business in history after the fix.</p>
+        <p><span class="lbl">Why it matters. </span>Originality is overrated next to repair. GoTo proved the market. Google proved the mechanism. The winner is often the second mover who fixes the incentive.</p>
+        <p><span class="lbl">The principle. </span>When you borrow a business model, name its exact flaw first. Your version must fix that flaw, not just copy the shape.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-auction" data-time="~01:56" data-title="The Harmonious Auction">
+      <p class="ch-time">~01:56</p>
+      <h2>The Harmonious Auction</h2>
+      <figure>
+        <img src="assets/ep05/illustration-auction.webp" alt="Watercolor illustration of a balance scale with coins on one pan and a magnifying glass over people on the other">
+        <p class="caption"><b>Illustration.</b> The harmonious auction: money and relevance in exact balance. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Google's version of the auction ranks ads by bid times expected click-through rate, and charges per click. This aligns every incentive. Advertisers bid only on relevant keywords and write relevant ads, because relevance lowers what they pay. Users see ads they might actually want. Google maximizes its expected value per search. The episode calls it literally the algorithm to maximize Google's expected value, and a harmonious system.</p>
+      <p><span class="tag interp">Interpretation</span> The one-line difference between an auction and a good auction is the multiplication by relevance. GoTo rewarded money. Google rewards money times quality, which means quality becomes cheaper than money.</p>
+      <div class="toy" id="toy-auction">
+        <h4>Toy: the auction, one line at a time</h4>
+        <p class="tsub">Two advertisers compete for one search. Set each bid and expected click-through rate. Google ranks by bid times click-through rate. Watch relevance beat money. Illustrative model.</p>
+        <label for="bidA">Advertiser A: bid per click ($) <span class="tval" id="bidA-v">5.00</span></label>
+        <input type="range" id="bidA" min="1" max="20" value="5" step="0.5">
+        <label for="ctrA">Advertiser A: expected click-through rate (%) <span class="tval" id="ctrA-v">8</span></label>
+        <input type="range" id="ctrA" min="1" max="30" value="8">
+        <label for="bidB">Advertiser B: bid per click ($) <span class="tval" id="bidB-v">10.00</span></label>
+        <input type="range" id="bidB" min="1" max="20" value="10" step="0.5">
+        <label for="ctrB">Advertiser B: expected click-through rate (%) <span class="tval" id="ctrB-v">2</span></label>
+        <input type="range" id="ctrB" min="1" max="30" value="2">
+        <div class="verdict" id="auction-verdict"></div>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Incentives</p>
+        <h4>The harmonious auction</h4>
+        <p><span class="lbl">What happened. </span>Bid times expected click-through rate: the advertiser, the user, and Google all want the most relevant ad to win. The algorithm maximizes Google's expected revenue and makes ads better for everyone at once.</p>
+        <p><span class="lbl">Why it matters. </span>Most marketplaces pick a side. Google's formula made the sides agree. When every player wants the same outcome, you stop policing behavior and start harvesting it.</p>
+        <p><span class="lbl">The principle. </span>Design one incentive so that doing the right thing is also the cheapest thing. Multiply willingness to pay by a quality score.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-aol" data-time="~02:07" data-title="The $100 Million Google Did Not Have">
+      <p class="ch-time">~02:07</p>
+      <h2>The $100 Million Google Did Not Have</h2>
+      <p><span class="tag fact">Source fact</span> By mid-2002 the new AdWords model worked. Google went to AOL, with 34 million users, whose search ran on Inktomi. The deal: a $100 million revenue guarantee to AOL, 85 percent revenue share, plus an option to buy 7.4 million shares at $3 per share, a $22 million investment. Google did not have $100 million. Negotiating in May 2002, with the model just starting to work, Sergey Brin said: <q>We could have gone bankrupt. This is quite literally Google betting the company.</q> They were certain the ads would perform, because their monetization per search was the best in the industry.</p>
+      <p>It worked beyond anyone's model. AOL made $35 million in the second half of 2002 alone, then $200 million in 2003, blowing through the guarantee. Google took the inventory straight from Overture and became a major paid-listings player overnight.</p>
+      <div class="chart" id="chart-aol">
+        <h4>The bet, in arithmetic</h4>
+        <p class="csub">What Google promised versus what AOL earned. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of the AOL deal">
+          <rect class="bar alt" x="110" y="140" width="100" height="120" data-tip="May 2002: Google guarantees AOL $100M in revenue it does not have, plus 85% revenue share."></rect>
+          <rect class="bar" x="280" y="190" width="100" height="70" data-tip="Second half of 2002: AOL earns $35M from the deal, on pace past the guarantee."></rect>
+          <rect class="bar dark" x="450" y="60" width="100" height="200" data-tip="2003: AOL earns $200M. Google becomes a paid-listings power overnight, taking inventory straight from Overture."></rect>
+          <text class="vallab" x="160" y="132" text-anchor="middle">$100M</text>
+          <text class="vallab" x="330" y="182" text-anchor="middle">$35M</text>
+          <text class="vallab" x="500" y="52" text-anchor="middle">$200M</text>
+          <text class="axis" x="160" y="282" text-anchor="middle">guarantee</text>
+          <text class="axis" x="330" y="282" text-anchor="middle">AOL H2 2002</text>
+          <text class="axis" x="500" y="282" text-anchor="middle">AOL 2003</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Google Part I, ~02:11.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Around the same time, Yahoo offered $3 billion to buy Google. Google countered: how about $5 billion, with the unspoken punchline being that at that price it would be Google buying Yahoo. No deal. It was the last serious acquisition attempt.</p>
+      <p>The distribution logic behind all of it: whoever monetizes each search best can pay the most for distribution. Google paid everyone to bundle the Google Toolbar: Adobe, RealNetworks, WinZip. Average revenue per user went from $8 toward $10, $20, $30. Toolbar users were stickier. Google Earth shipped with the toolbar bundled and more than paid for itself. The flywheel: better monetization buys more distribution, which brings more users and advertisers, which improves monetization.</p>
+      <figure>
+        <img src="assets/ep05/illustration-flywheel.webp" alt="Watercolor illustration of a great spinning flywheel drawing users and advertisers toward it">
+        <p class="caption"><b>Illustration.</b> The distribution flywheel: monetization buys distribution buys monetization. AI-generated watercolor.</p>
+      </figure>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Bets</p>
+        <h4>Bet the company on arithmetic</h4>
+        <p><span class="lbl">What happened. </span>Google guaranteed $100 million it did not have because its dollars-per-search beat everyone provably. The guarantee was not hope. It was the best monetization in the industry written into a contract.</p>
+        <p><span class="lbl">Why it matters. </span>A bet that looks insane from outside is rational when the unit economics are measured. Google knew the number. The only variable was volume, and AOL supplied that.</p>
+        <p><span class="lbl">The principle. </span>Before any big commitment, compute your dollars-per-unit against the best alternative. If yours is provably best, the bet is arithmetic.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Distribution</p>
+        <h4>Buy the default</h4>
+        <p><span class="lbl">What happened. </span>Google paid software companies to bundle its toolbar, and revenue per user climbed from $8 toward $30, funding more bundles. Nobody saw an ad for Google. Google was inside the software they already installed.</p>
+        <p><span class="lbl">Why it matters. </span>Distribution compounds when each user funds the next one. The toolbar turned revenue per user into a distribution budget, and stickier users searched more, which funded more distribution.</p>
+        <p><span class="lbl">The principle. </span>List where your users actually come from. If the answer is hope, buy the default placement your economics can afford.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-adsense" data-time="~02:38" data-title="AdSense and the End of Trade-offs">
+      <p class="ch-time">~02:38</p>
+      <h2>AdSense and the End of Trade-offs</h2>
+      <p><span class="tag fact">Source fact</span> In early 2003, Google launched AdSense: ads on other people's websites, matched to page content. By year end it passed $1 million a day in revenue, a few months after launch. The idea came from Gmail prototyping: Paul Buchheit, in his 20 percent time, built search over his Unix mail folder, then tried showing ads from Google's database against email content. Larry and Sergey saw it and asked: does this work on websites too?</p>
+      <p>The numbers: 2002 did $440 million in revenue and $185 million in profit, up 5 to 6 times from the $86 million of 2001, while transitioning all of it to the new model. 2003 exploded to $1.5 billion in revenue and almost $350 million in operating income. AdWords stayed an 85-percent gross margin business. AdSense kept only about 20 percent but added half a billion in a year. Ben's line: after roughly the end of 2002, Google never faced a capital constraint again. Every idea could be funded.</p>
+      <div class="chart" id="chart-revenue">
+        <h4>The revenue detonation, 2001-2003</h4>
+        <p class="csub">Revenue in $ millions. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of Google revenue 2001 to 2003">
+          <rect class="bar alt" x="110" y="246" width="100" height="14" data-tip="2001: $86M revenue, $10M profit. The Yahoo deal saved the company."></rect>
+          <rect class="bar" x="280" y="172" width="100" height="88" data-tip="2002: $440M revenue, $185M profit. 5-6x growth while moving everything to the new AdWords."></rect>
+          <rect class="bar dark" x="450" y="20" width="100" height="240" data-tip="2003: $1.5B revenue, ~$350M operating income. AdSense adds half a billion in under a year."></rect>
+          <text class="vallab" x="160" y="238" text-anchor="middle">$86M</text>
+          <text class="vallab" x="330" y="164" text-anchor="middle">$440M</text>
+          <text class="vallab" x="500" y="12" text-anchor="middle">$1.5B</text>
+          <text class="axis" x="160" y="282" text-anchor="middle">2001</text>
+          <text class="axis" x="330" y="282" text-anchor="middle">2002</text>
+          <text class="axis" x="500" y="282" text-anchor="middle">2003</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Google Part I, ~02:38.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> International mattered too: Omid Kordestani spent a year on planes building country teams as tiny startups. International went from 18 percent of revenue to 22 to 29 percent, toward half the business today. China ran until the 2010 withdrawal over censorship, after a fight that started around 2002 to 2004.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Scale</p>
+        <h4>Scale that grows revenue, not just cuts costs</h4>
+        <p><span class="lbl">What happened. </span>More users and advertisers made Google's product better: more data, more relevant ads. Revenue per user rose with scale, which funded more distribution. Normal scale economies cut costs as you grow. Google's increased revenue as it grew.</p>
+        <p><span class="lbl">Why it matters. </span>David calls this the quintessence of the episode. Cost-side scale is common. Revenue-side scale is the rarest moat in business, and it is what let Google fund everything after 2002.</p>
+        <p><span class="lbl">The principle. </span>Test your scale: does getting bigger cut your costs only, or grow your revenue per user too? Only the second is a Google-class moat.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ipo" data-time="~02:48" data-title="The Dutch Auction That Mispriced">
+      <p class="ch-time">~02:48</p>
+      <h2>The Dutch Auction That Mispriced</h2>
+      <p><span class="tag fact">Source fact</span> The 2004 IPO used a Dutch auction, where bidders submit price-and-quantity bids and shares sell at the highest price that clears the offering. The indicative range was $108 to $135 a share. It priced at $85: a $23 billion market cap, raising $1.7 billion. It popped to $100 the same day, then compounded to roughly 100 times the IPO market cap by recording, over $2 trillion. The auction was supposed to price perfectly. It did not.</p>
+      <div class="chart" id="chart-ipo">
+        <h4>From $23 billion to $2 trillion</h4>
+        <p class="csub">Market cap at IPO versus at recording. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of IPO to current market cap">
+          <rect class="bar alt" x="140" y="250" width="110" height="10" data-tip="2004: $23B market cap at $85 a share, raising $1.7B. Popped to $100 the same day."></rect>
+          <rect class="bar dark" x="390" y="40" width="110" height="220" data-tip="At recording: over $2T, roughly 100x the IPO market cap, not counting dividends."></rect>
+          <text class="vallab" x="195" y="242" text-anchor="middle">$23B</text>
+          <text class="vallab" x="445" y="32" text-anchor="middle">$2T+</text>
+          <text class="axis" x="195" y="282" text-anchor="middle">2004 IPO</text>
+          <text class="axis" x="445" y="282" text-anchor="middle">2025</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Google Part I, ~02:50. Roughly 100x since IPO.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> The episode's sting: at recording, Alphabet traded at a 20 price-to-earnings ratio, an all-time low, and roughly 6 times revenue. Peers: Amazon at 35, Microsoft at 37, Nvidia at 46, Apple at 30, Meta at 27. Revenue grows just as fast as all of them except Nvidia. Ben's read: the market thinks the future is a lot bleaker for Google than for those companies. David's kicker: never mind that Google invented AI and published the transformer paper. That is Episode 4's story.</p>
+      <div class="chart" id="chart-pe">
+        <h4>The market's discount</h4>
+        <p class="csub">Price-to-earnings ratios at recording. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of P/E ratios">
+          <rect class="bar dark" x="60" y="196" width="70" height="64" data-tip="Alphabet: P/E of 20, an all-time low, about 6x revenue."></rect>
+          <rect class="bar" x="160" y="168" width="70" height="92" data-tip="Meta: 27."></rect>
+          <rect class="bar" x="260" y="160" width="70" height="100" data-tip="Apple: 30."></rect>
+          <rect class="bar" x="360" y="148" width="70" height="112" data-tip="Amazon: 35."></rect>
+          <rect class="bar" x="460" y="140" width="70" height="120" data-tip="Microsoft: 37."></rect>
+          <rect class="bar" x="560" y="96" width="70" height="164" data-tip="Nvidia: 46."></rect>
+          <text class="vallab" x="95" y="188" text-anchor="middle">20</text>
+          <text class="vallab" x="195" y="160" text-anchor="middle">27</text>
+          <text class="vallab" x="295" y="152" text-anchor="middle">30</text>
+          <text class="vallab" x="395" y="140" text-anchor="middle">35</text>
+          <text class="vallab" x="495" y="132" text-anchor="middle">37</text>
+          <text class="vallab" x="595" y="88" text-anchor="middle">46</text>
+          <text class="axis" x="95" y="282" text-anchor="middle">Alphabet</text>
+          <text class="axis" x="195" y="282" text-anchor="middle">Meta</text>
+          <text class="axis" x="295" y="282" text-anchor="middle">Apple</text>
+          <text class="axis" x="395" y="282" text-anchor="middle">Amazon</text>
+          <text class="axis" x="495" y="282" text-anchor="middle">Microsoft</text>
+          <text class="axis" x="595" y="282" text-anchor="middle">Nvidia</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Google Part I, ~02:52. The discount is the AI fear, priced.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gmail" data-time="~02:55" data-title="Gmail: The April Fool's Teaser">
+      <p class="ch-time">~02:55</p>
+      <h2>Gmail: The April Fool's Teaser</h2>
+      <p><span class="tag fact">Source fact</span> The same month Google filed its S-1 in April 2004, it launched Gmail on April Fool's Day, a terrible date given Google's history of fake April Fool's announcements. The product sounded too good to be true: web-based email with one gigabyte of free storage for every user, when Yahoo and Hotmail offered two megabytes. It came with Google search across all your mail, entirely in the browser. Paul Buchheit, the Gmail engineer, later became a Y Combinator partner and co-founded FriendFeed with Bret Taylor.</p>
+      <p><span class="tag interp">Interpretation</span> Ben's strategic point, carried into Part II: what a great reason to be logged into Google, and what a great entry point to attach more of your life to search ads. The inbox was the next distribution surface.</p>
+    </section>
+
+    <section class="chapter" id="ch-playbook" data-time="~03:01" data-title="The Seven-Point Playbook">
+      <p class="ch-time">~03:01</p>
+      <h2>The Seven-Point Playbook</h2>
+      <p><span class="tag fact">Source fact</span> Ben's seven-point playbook, the episode's capstone. (1) The best original algorithm insight, PageRank, which made the product fast, clean, and delightful. (2) The best execution of the search advertising model, the auction times click-through rate, a harmonious system. (3) Clever infrastructure advantages, first-principles engineering that invented what did not exist. (4) Hiring only world-class people, easy during the crash. (5) Culture, insanely big thinking by inexperienced, untainted people, matched with top PhDs, always asking whether it works at scale. (6) Self-reinforcing data network effects, more users and advertisers making the product better. (7) A mission that lasted, organize the world's information, not too broad, not too narrow, altruistic on the surface, covering the best business ever underneath.</p>
+      <p>David's closer: 1996 to 2002 rhymes with 2021 to today. Study how search monetization enabled distribution, and you have the template for how AI monetization will enable AI distribution. His provocation: in 1998, paid results in search were sacrilege. What if someone built a chatbot that told you what advertisers paid it to tell you? People would go crazy. But should somebody try it?</p>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 &middot; Patterns</p>
+        <h4>Today's sacrilege is tomorrow's business model</h4>
+        <p><span class="lbl">What happened. </span>In 1998 the TED audience booed paid search results as sacrilege. By 2003 they were the best business in history. David's question for today: what if an LLM told you what advertisers paid it to tell you?</p>
+        <p><span class="lbl">Why it matters. </span>The monetization everyone finds distasteful becomes the distribution engine for the next era, once the product is good enough that users accept the trade. The pattern repeats because the economics repeat.</p>
+        <p><span class="lbl">The principle. </span>Map any "sacrilege" monetization and ask what has to be true for it to become the business model. Then argue the other side: trust may be the thing it kills.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Google was not first. It was last, and best.</li>
+          <li>Rank by what others say, not what the owner claims.</li>
+          <li>Steal the business model, then fix its one flaw.</li>
+          <li>Bid times relevance: make quality cheaper than money.</li>
+          <li>Bet the company only on arithmetic you measured.</li>
+          <li>Buy the default. Distribution is inventory.</li>
+          <li>Scale should grow revenue per user, not just cut costs.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, Google Part I: Origins of Search, Summer 2025. Full episode: youtube.com/watch?v=v1nkN0sM2wc. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="~03:15" data-title="Outro">
+      <p class="ch-time">~03:15</p>
+      <h2>Outro</h2>
+      <p><span class="tag fact">Source fact</span> The episode closes with the sign-off, who got the truth, and the promise of Part II: Gmail, Maps, YouTube, Android, Chrome, and the decade Google shipped everything.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "Google Part I: Origins of Search" (Summer 2025, about 3 hr 20 min). All facts and figures come from the episode transcript (research/acquired/transcripts/v1nkN0sM2wc.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 39 words: the Larry Page pull quote (15 words), the Sergey Brin AOL quote (13 words), "accidental billionaire" (2 words), "Google Inc." (2 words), "Powered by Google" quoted twice (6 words), and "sacrilege" (1 word). The pull quotes carry speaker and episode-time attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+
+  /* ---------- toy: the auction ---------- */
+  (function(){
+    var bidA = document.getElementById('bidA'), ctrA = document.getElementById('ctrA');
+    var bidB = document.getElementById('bidB'), ctrB = document.getElementById('ctrB');
+    var bidAV = document.getElementById('bidA-v'), ctrAV = document.getElementById('ctrA-v');
+    var bidBV = document.getElementById('bidB-v'), ctrBV = document.getElementById('ctrB-v');
+    var out = document.getElementById('auction-verdict');
+    function upd(){
+      var ba = +bidA.value, ca = +ctrA.value, bb = +bidB.value, cb = +ctrB.value;
+      bidAV.textContent = ba.toFixed(2); ctrAV.textContent = ca;
+      bidBV.textContent = bb.toFixed(2); ctrBV.textContent = cb;
+      var sa = ba * ca, sb = bb * cb;
+      var win = sa >= sb ? 'A' : 'B';
+      var ws = win === 'A' ? sa : sb, ls = win === 'A' ? sb : sa;
+      out.textContent = 'Advertiser ' + win + ' wins the top spot (score ' + ws.toFixed(1) +
+        ' vs ' + ls.toFixed(1) + '). Under GoTo rules the higher bid would always win; ' +
+        'under Google rules relevance can beat money.';
+      out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f';
+    }
+    [bidA, ctrA, bidB, ctrB].forEach(function(el){ el.addEventListener('input', upd); });
+    upd();
+  })();
+})();
+</script>
+</body>
+</html>
