@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Debate: Most People Have No Idea What Is Coming: Modern Wisdom Companion</title>
+<meta name="description" content="An AI safety researcher, a poker champion turned science communicator, and a historian of civilizational cycles debate the future. Four futures, one bet on recu">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fa8; --accent-ink:#174a85; --soft:#e6eef7;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bcd6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#c9d8ea}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .gridln{stroke:#e4e9f0;stroke-width:1}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{border:1px dashed var(--line);padding:16px 18px;margin:26px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .srctag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:6px}
+  .srctag.src{background:#dce8f7;color:#174a85}
+  .srctag.int{background:#f3e9d6;color:#8f5a14}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="../index.html">Modern Wisdom · Track Companion</a><span class="sub">AI Debate: Most People Have No Idea What Is Coming · Dominic Kass, Liv Boeree, Roman Floyd · 2026</span></header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+<nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+<main id="main">
+<div class="hero">
+<p class="kicker">Modern Wisdom · 2026 · Episode 4 · Companion</p>
+<h1>AI Debate: Most People Have No Idea What Is Coming</h1>
+<p class="dek">An AI safety researcher, a poker champion turned science communicator, and a historian of civilizational cycles debate the future. Four futures, one bet on recursive research, and a question about who the technology actually serves.</p>
+<img src="assets/illustration-ep04-hero.webp" alt="Watercolor illustration of three silhouettes around a round table, each with a different glowing future scenario projected above them">
+<p class="caption"><b>Illustration.</b> Four futures on one table: the debate frames the odds before placing bets. AI-generated watercolor made for this page.</p>
+<div class="stats">
+<div class="stat"><div class="n">390K</div><div class="l">Episode views, per the track index</div><div class="s">Modern Wisdom, 2026</div></div>
+<div class="stat"><div class="n">60%</div><div class="l">ChatGPT’s own odds of turbulent but manageable adaptation by 2040</div><div class="s">AI predicts itself, in the episode</div></div>
+<div class="stat"><div class="n">9</div><div class="l">AI companies evaluated by the Future of Life Institute AI Safety Index</div><div class="s">AI safety researcher on the panel</div></div>
+<div class="stat"><div class="n">C+</div><div class="l">Highest grade any lab earned in that safety index, per the episode</div><div class="s">AI safety researcher on the panel</div></div>
+</div>
+<div class="video"><div class="frame">
+<iframe src="https://www.youtube-nocookie.com/embed/mSjaMyP5QjY" title="Modern Wisdom episode video: AI Debate: Most People Have No Idea What Is Coming" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="caption"><b>Watch.</b> The official Modern Wisdom episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p></div>
+<div class="wisdom" id="wisdom-index"><h3>The Wisdom Index: every nugget in this companion</h3><ol>
+<li><a href="#nugget-1">Bet the meta, not the model</a></li>
+<li><a href="#nugget-2">Fear concentration, not cleverness</a></li>
+<li><a href="#nugget-3">Zoom out to the cycle</a></li>
+<li><a href="#nugget-4">Think in odds, not tribes</a></li>
+<li><a href="#nugget-5">Distrust the suspect’s testimony</a></li>
+<li><a href="#nugget-6">Recursion is the whole game</a></li>
+<li><a href="#nugget-7">The future is still a choice</a></li>
+</ol></div>
+<div class="legend"><b>How to read this companion.</b> <span class="srctag src">Source</span> marks claims taken straight from the episode. <span class="srctag int">Interpretation</span> marks analysis that goes beyond the episode. Every chart carries its source line. Brief quoted phrases are counted in the footer.</div>
+</div>
+<section class="chapter" id="ch-1" data-time="Ch 1" data-title="The doom debate framing">
+<p class="ch-time">Chapter 1</p>
+<h2>The doom debate framing</h2>
+<p>The host opens with the thesis of the night. Progress is remarkable, but the rate of change is so fast that nobody can predict what it will do to the world.</p>
+<p>He frames the central bet. If you are correct about the future of AI, you are correct about everything that follows, because AI sits underneath every other question.</p>
+<p>Kass pushes back first. The danger is not intelligence itself but power concentration. A sufficiently powerful technology controlled by a small set of hands destroys the preconditions for self-correction.</p>
+<p>Floyd adds the historical lens. Civilizations cycle through growth, maturity, and collapse. The question is not whether disruption comes but whether the institutions can bend instead of break.</p>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 · Meta-bets</p>
+<h4>Bet the meta, not the model</h4>
+<p><span class="lbl">What happened · </span>The panel agrees AI is the upstream bet. Whoever is right about AI direction is right about the century.</p>
+<p><span class="lbl">Why it matters · </span>Downstream debates inherit the upstream answer. Debate about jobs or art before settling the AI question puts the argument in the wrong order.</p>
+<p><span class="lbl">Transferable principle · </span>Find the upstream variable in any debate and settle it first.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-2" data-time="Ch 2" data-title="Kass: power concentration, not intelligence">
+<p class="ch-time">Chapter 2</p>
+<h2>Kass: power concentration, not intelligence</h2>
+<p>Kass makes his signature move. He rejects the framing that intelligence itself is the threat. The threat is a technology this powerful concentrated in few hands, the same danger that nuclear weapons pose.</p>
+<p>His historical evidence is institutional. The Enlightenment built mechanisms for self-correction: science, democracy, markets. Concentrated superintelligence would let its holders bypass all of them at once.</p>
+<p>He warns about a specific failure mode. When one group can simulate, persuade, and out-plan everyone else, the feedback loops that correct bad rulers stop working. That is the end of the corrective machinery.</p>
+<p>The host tests the claim with China. Kass replies that the danger is concentration itself, whatever the flag. A monopoly on cognition is a monopoly on the future.</p>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 · Concentration</p>
+<h4>Fear concentration, not cleverness</h4>
+<p><span class="lbl">What happened · </span>Kass argues the risk is not smart machines but captured machines: superintelligence as a private asset.</p>
+<p><span class="lbl">Why it matters · </span>A distributed intelligence can be argued with, regulated, and outvoted. A concentrated one answers to no one.</p>
+<p><span class="lbl">Transferable principle · </span>When judging a technology risk, ask who holds the switch before asking how smart it is.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-3" data-time="Ch 3" data-title="Floyd: cycles and the Fourth Turning">
+<p class="ch-time">Chapter 3</p>
+<h2>Floyd: cycles and the Fourth Turning</h2>
+<p>Floyd brings the long view. He describes the Fourth Turning framework, in which history moves through saecula of about 80 to 100 years, ending in a crisis era that remakes institutions.</p>
+<p>His claim: we are in a crisis era now, and AI is the accelerant, not the author. The technology lands inside a cycle that was already turning.</p>
+<p>He offers the optimistic read of crisis eras. They destroy, but they also rebuild. The post-war order came out of the last one. The question is what we build on the other side.</p>
+<p>The host presses him on whether AI makes this cycle different. Floyd concedes the speed is new but holds that the pattern rhymes: every transformative technology looked like the end of the world to the people living through it.</p>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 · Cycles</p>
+<h4>Zoom out to the cycle</h4>
+<p><span class="lbl">What happened · </span>Floyd reads AI as the accelerant of an existing crisis era, not the start of a new story.</p>
+<p><span class="lbl">Why it matters · </span>Cycle thinking prevents two errors: panic that this time is uniquely doomed, and complacency that this time is uniquely safe.</p>
+<p><span class="lbl">Transferable principle · </span>Place the shock inside the longer cycle before deciding how to react.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-4" data-time="Ch 4" data-title="Boeree: probabilities and Moloch">
+<p class="ch-time">Chapter 4</p>
+<h2>Boeree: probabilities and Moloch</h2>
+<p>Boeree brings the poker brain. She refuses certainty and deals in odds, updating as evidence arrives. The question is never whether AI is good or bad but what probability to assign each branch.</p>
+<p>She introduces Moloch, the game-theoretic demon of coordination failure. Each lab races because it fears the other will. Each country arms because it fears the other already has. Nobody wants the race, and everyone runs it.</p>
+<p>Her proposed lever is coordination mechanisms. Treaties, norms, and verification turn the race into a walk. The difficulty is not knowing the answer but enforcing it across rivals.</p>
+<p>The host asks for her personal odds. She hedges like a pro: the distribution is wide, the tails are fat, and the most likely single outcome is still messier than either the utopians or the doomers admit.</p>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 · Think in odds</p>
+<h4>Think in odds, not tribes</h4>
+<p><span class="lbl">What happened · </span>Boeree replaces certainty with probability. Every AI future gets a number, and numbers update with evidence.</p>
+<p><span class="lbl">Why it matters · </span>Tribal debate rewards the loudest certainty. Probabilistic debate rewards the best-calibrated forecaster.</p>
+<p><span class="lbl">Transferable principle · </span>Put a number on the belief. If you cannot, you do not have a belief, you have a mood.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-5" data-time="Ch 5" data-title="Asking ChatGPT about itself">
+<p class="ch-time">Chapter 5</p>
+<h2>Asking ChatGPT about itself</h2>
+<p>Midway through, the host does something the panel could not: he asks ChatGPT to handicap the future. The model returns four scenarios with rough betting odds for 2040, and stresses they are not scientific measurements.</p>
+<p>The model gives turbulent but manageable adaptation 60 percent, a broadly flourishing transition 20 percent, a severe but survivable crisis 15 percent, and irreversible global catastrophe 5 percent. The panel notes it rated itself more pessimistic than the humans did.</p>
+<p>The panel reacts with the right mix of amusement and unease. A system trained on human text predicts a mostly manageable future, which is either reassuring or exactly what a system protecting its deployment would say.</p>
+<p>Boeree notes the base-rate problem. The model has never seen a future. Its odds are a summary of human writing about futures, weighted by what sounds plausible to its training. One panelist calls the output slop: calibrated to offend nobody.</p>
+<div class="pull">
+<blockquote>Post-scarcity totalitarianism and destruction all just swimming around in the same pot</blockquote>
+<p class="who">Chris Williamson, in the episode, on the four scenarios</p>
+</div>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 · Self-prediction</p>
+<h4>Distrust the suspect’s testimony</h4>
+<p><span class="lbl">What happened · </span>ChatGPT rates its own future as mostly fine. The panel treats that as data about the model, not about the future.</p>
+<p><span class="lbl">Why it matters · </span>A system with a stake in the outcome cannot be a neutral forecaster of that outcome. Incentives infect predictions.</p>
+<p><span class="lbl">Transferable principle · </span>Discount any forecast made by the party it benefits. Then ask why they offered it.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+<div class="chart" id="chart-odds">
+<h4>ChatGPT’s own odds for 2040</h4>
+<p class="csub">Probability assigned by the model, as reported in the episode</p>
+<svg viewBox="0 0 640 270" role="img" aria-label="ChatGPT’s own odds for 2040">
+<text x="202" y="47.0" text-anchor="end" class="axis">Turbulent but manageable adaptation</text>
+<rect x="210" y="26" width="347.8" height="34" class="bar" data-tip="ChatGPT assigns 60 percent to turbulent but manageable adaptation by 2040"/>
+<text x="565.8" y="47.0" class="vallab">60%</text>
+<text x="202" y="103.0" text-anchor="end" class="axis">Broadly flourishing transition</text>
+<rect x="210" y="82" width="115.9" height="34" class="bar" data-tip="ChatGPT assigns 20 percent to a broadly flourishing transition by 2040"/>
+<text x="333.9" y="103.0" class="vallab">20%</text>
+<text x="202" y="159.0" text-anchor="end" class="axis">Severe but survivable crisis</text>
+<rect x="210" y="138" width="87.0" height="34" class="bar" data-tip="ChatGPT assigns 15 percent to severe but survivable crisis by 2040"/>
+<text x="305.0" y="159.0" class="vallab">15%</text>
+<text x="202" y="215.0" text-anchor="end" class="axis">Irreversible global catastrophe</text>
+<rect x="210" y="194" width="29.0" height="34" class="bar" data-tip="ChatGPT assigns 5 percent to irreversible global catastrophe by 2040"/>
+<text x="247.0" y="215.0" class="vallab">5%</text>
+</svg>
+<p class="csrc">Source: Modern Wisdom episode 4. The host asked ChatGPT to assign odds to four scenarios. These are the model’s answers as reported in the episode, not measured data.</p>
+</div>
+</section>
+<section class="chapter" id="ch-6" data-time="Ch 6" data-title="Recursive research and the safety index">
+<p class="ch-time">Chapter 6</p>
+<h2>Recursive research and the safety index</h2>
+<p>Kass introduces the phrase that becomes the episode thesis: recursive research is here. AI that helps do AI safety research could compress decades of alignment work into years.</p>
+<p>But the same recursion cuts the other way. The labs race to build the systems, and safety work trails behind. He cites the Future of Life Institute AI Safety Index: nine companies evaluated, and no lab scored higher than a C plus.</p>
+<p>The debate sharpens on open weights. Kass worries that open models hand dangerous capabilities to everyone. His opponents counter that openness is the only check on concentrated power.</p>
+<p>Boeree reframes it as a Moloch problem again. Each lab would prefer a safer world, but none can afford to slow down while rivals sprint. The equilibrium is fast and fragile.</p>
+<div class="pull">
+<blockquote>recursive research is here</blockquote>
+<p class="who">Dominic Kass, in the episode</p>
+</div>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 · Recursive research</p>
+<h4>Recursion is the whole game</h4>
+<p><span class="lbl">What happened · </span>AI that accelerates safety research is the best hope the panel finds. AI that accelerates capabilities is the biggest threat.</p>
+<p><span class="lbl">Why it matters · </span>Both sides of the race use the same engine. The winner is decided by which goal the recursion serves first.</p>
+<p><span class="lbl">Transferable principle · </span>In a recursive race, aim the recursion at the constraint, not just the engine.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+<div class="chart" id="chart-safety">
+<h4>The safety bar, per the FLI Safety Index</h4>
+<p class="csub">AI companies evaluated, as reported in the episode</p>
+<svg viewBox="0 0 640 340" role="img" aria-label="The safety bar, per the FLI Safety Index">
+<line x1="56" x2="620" y1="276.0" y2="276.0" class="gridln"/>
+<text x="48" y="280.0" text-anchor="end" class="axis">0</text>
+<line x1="56" x2="620" y1="226.4" y2="226.4" class="gridln"/>
+<text x="48" y="230.4" text-anchor="end" class="axis">2</text>
+<line x1="56" x2="620" y1="176.8" y2="176.8" class="gridln"/>
+<text x="48" y="180.8" text-anchor="end" class="axis">4</text>
+<line x1="56" x2="620" y1="127.2" y2="127.2" class="gridln"/>
+<text x="48" y="131.2" text-anchor="end" class="axis">6</text>
+<line x1="56" x2="620" y1="77.6" y2="77.6" class="gridln"/>
+<text x="48" y="81.6" text-anchor="end" class="axis">8</text>
+<line x1="56" x2="620" y1="28.0" y2="28.0" class="gridln"/>
+<text x="48" y="32.0" text-anchor="end" class="axis">10</text>
+<rect x="165.0" y="52.8" width="64" height="223.2" class="bar" data-tip="Nine AI companies evaluated in the index cited by the panel"/>
+<text x="197.0" y="42.8" text-anchor="middle" class="vallab">9</text>
+<text x="197.0" y="300.0" text-anchor="middle" class="axis">Companies evaluated</text>
+<rect x="447.0" y="276.0" width="64" height="1.5" class="bar" data-tip="No lab scored higher than a C plus, per the episode"/>
+<text x="479.0" y="266.0" text-anchor="middle" class="vallab">0</text>
+<text x="479.0" y="300.0" text-anchor="middle" class="axis">Labs scoring above a C plus</text>
+</svg>
+<p class="csrc">Source: Modern Wisdom episode 4. Kass cites the Future of Life Institute AI Safety Index: nine companies evaluated, no lab scoring higher than a C plus.</p>
+</div>
+</section>
+<section class="chapter" id="ch-7" data-time="Ch 7" data-title="Who does it serve">
+<p class="ch-time">Chapter 7</p>
+<h2>Who does it serve</h2>
+<p>The closing question is the oldest one. Every powerful technology in history was captured by whoever was already powerful. The panel asks whether AI breaks the pattern or repeats it.</p>
+<p>Kass argues the pattern is already repeating. The compute, the talent, and the models concentrate in a few companies. The intelligence dividend flows upward by default.</p>
+<p>Floyd offers the counter-pattern. Printing, electricity, and the internet all escaped their first owners eventually. Diffusion is slow but undefeated.</p>
+<p>The host lands the plane on agency. Most people have no idea what lies ahead, and the panel agrees the future is still a choice. The debate is the point: a civilization that argues about its tools in public keeps the option of steering them.</p>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 · Agency</p>
+<h4>The future is still a choice</h4>
+<p><span class="lbl">What happened · </span>The panel ends where the best debates end: not with a prediction but with a responsibility.</p>
+<p><span class="lbl">Why it matters · </span>Predictions outsource agency to the future. The episode argues the future is built by the people arguing about it now.</p>
+<p><span class="lbl">Transferable principle · </span>Treat forecasts as inputs to action, not as verdicts on it.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<div class="takeaways"><h3>Takeaways</h3><ol>
+<li>Kass: the danger is power concentration, not intelligence. Superintelligence as a private asset ends self-correction.</li>
+<li>Floyd: we are inside a crisis era of a longer cycle. AI is the accelerant, not the author.</li>
+<li>Boeree: think in odds and name the Moloch. Coordination failure is the engine of the race.</li>
+<li>ChatGPT gives itself 60 percent odds of a manageable 2040. The panel reads that as data about the model.</li>
+<li>Recursive research is here, for safety and for capabilities. The race is which recursion wins.</li>
+<li>Nine companies evaluated on the safety index cited. None scored above a C plus.</li>
+<li>The future is still a choice, but only if the argument about it stays public.</li>
+</ol></div>
+<footer>
+<p><b>Sources.</b> This companion narrates the Modern Wisdom episode with Dominic Kass, Liv Boeree, and Roman Floyd (2026, 390K views per the track index), sourced from the episode transcript on file. All facts and figures come from the episode. Claims the episode attributes to studies or third parties are presented as the episode’s claims. The illustration is an AI-generated watercolor made for this page. No real photographs are used.</p>
+<p><b>On quotes.</b> Brief quoted phrases in this companion total 16 words (12-words pull quote, 4-words pull quote). Every quoted phrase is a verbatim string from the episode transcript, verified by search before publication.</p>
+<p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+<p><b>Honesty notes.</b> The transcript is a raw caption file. Speaker attribution follows the episode’s on-screen framing and the transcript’s voice cues. The ChatGPT odds and the FLI Safety Index figures are the episode’s reports, not independently verified data. No timestamps are shown because the transcript carries none. Chapters follow the episode order. The episode title contains the word Coming, kept verbatim from the track index.</p>
+</footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.textContent = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
