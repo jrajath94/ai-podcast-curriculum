@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protect the Four and a Half Hours: Cal Newport | Huberman Lab Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Cal Newport: deep work, the switching tax, practice vs flow, the three systems, pseudo-productivity, and the silver lining.">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f4efe3; --ink:#23201a; --muted:#6e6455;
+    --line:#e0d6c0; --accent:#2f6f8f; --accent-ink:#1f5068; --soft:#e9f1f4;
+    --warn:#8a5a1d;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0ec}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:22px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.src{background:#dff0f7;color:var(--accent-ink);border:1px solid #bcd9e4}
+  .tag.int{background:#f5e8d4;color:var(--warn);border:1px solid #e3cda1}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .gap{background:#fdf6ec;border:1px dashed #d9b98a;padding:16px 20px;margin:26px 0;
+    font-family:var(--sans);font-size:13.5px;color:#6b5636;line-height:1.6}
+  .gap b{color:#4a3a22}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Huberman Lab · Track Companion</a>
+  <span class="sub">Episode 10 · Dr. Cal Newport · 2024-03-11</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode 10 · Companion</p>
+      <h1>Protect the Four and a Half Hours</h1>
+      <p class="dek">Cal Newport brings numbers to the focus problem: the 5-minute check, the 15-minute confusion window, and why you spend the whole day in cognitive disorder. Then three systems to escape: pull, plan, shutdown. This companion follows the conversation in order.</p>
+      <img src="assets/ep10-hero-deep-work.webp" alt="Watercolor illustration of a serene library desk with a notebook and a dark time-blocked planner, phone locked away">
+      <p class="caption"><b>Illustration.</b> The ritual of depth: a room with no permanent technology. Made for this page. AI-generated watercolor in a New Yorker style, made for this page. It carries no words or labels.</p>
+      <div class="legend"><b>How to read this companion.</b>
+        Claims tagged <span class="tag src">SOURCE</span> trace to the episode or its transcript.
+        Claims tagged <span class="tag int">INTERPRETATION</span> are analysis added by this companion.
+        Numbers name their source line. Anything the episode never says is marked <b>Not in source</b>.</div>
+      <div class="stats">
+<div class="stat"><div class="n">1,440 min</div><div class="l">confused minutes in an 8-hour day at the median check rate</div><div class="s">Transcript numbers, worked arithmetic</div></div>
+        <div class="stat"><div class="n">5 min</div><div class="l">median interval between email and Slack checks</div><div class="s">Transcript, switching-tax section</div></div>
+        <div class="stat"><div class="n">4-4.5</div><div class="l">good brain hours per day, Newport's maximum</div><div class="s">Transcript, deep-work section</div></div>
+        <div class="stat"><div class="n">1,600</div><div class="l">people in Newport's 30-day social media experiment</div><div class="s">Transcript, void section</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/p4ZfkezDTXQ" title="Huberman Lab episode 10 with Dr. Cal Newport, official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video on youtube-nocookie, the only external dependency on this page. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Deep work defined</a></li>
+          <li><a href="#nugget-2">The four hours</a></li>
+          <li><a href="#nugget-3">Count windows, not seconds</a></li>
+          <li><a href="#nugget-4">Neurosemantic coherence</a></li>
+          <li><a href="#nugget-5">Pain is the trigger</a></li>
+          <li><a href="#nugget-6">Flow is performance</a></li>
+          <li><a href="#nugget-7">Pull, do not push</a></li>
+          <li><a href="#nugget-8">Plan at three scales</a></li>
+          <li><a href="#nugget-9">The shutdown ritual</a></li>
+          <li><a href="#nugget-10">The proxy</a></li>
+          <li><a href="#nugget-11">The silver lining</a></li>
+        </ol>
+      </div>
+    </div>
+<section class="chapter" id="ch-deepwork">
+  <div class="chip">Opening · what deep work is</div>
+  <h2>Deep work, defined</h2>
+  <figure>
+    <img src="assets/ep10-cal-newport-photo.jpg" alt="Photograph of Dr. Cal Newport">
+    <figcaption>Dr. Cal Newport, Georgetown computer science professor. Real photo for identification, via the Georgetown CS theory group.</figcaption>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> Deep work is cognitively demanding work performed in a state of focus without distraction. Newport's claim: he gets four to four and a half good brain hours per day, maximum. He does not work long hours. He protects the few hours that count. The science behind it comes from Anders Ericsson's deliberate-practice literature: to learn something new, you must quiet the neural circuitry so you can isolate the circuit relevant to the task. If the circuitry is noisy with distraction, you cannot isolate it, and you do not get better.</p>
+  <div class="nugget" id="nugget-1">
+    <h4>Nugget 1 · Deep work defined</h4>
+    <p><span class="tag s">SOURCE FACT</span> Cognitively demanding work, done in focus, without distraction. <span class="tag i">INTERPRETATION</span> Deep work is not pleasant. It is the state of trying to do something beyond your comfort zone, which is difficult by definition.</p>
+  </div>
+  <div class="nugget" id="nugget-2">
+    <h4>Nugget 2 · The four hours</h4>
+    <p><span class="tag s">SOURCE FACT</span> Four to four and a half good brain hours per day, maximum. <span class="tag i">INTERPRETATION</span> Long hours are not the input. Protected hours are.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-switching">
+  <div class="chip">Early in the episode · the quantitative core</div>
+  <h2>The switching tax</h2>
+  <figure>
+    <img src="assets/ep10-switching-tax.webp" alt="Watercolor illustration of a worker surrounded by flying envelopes and notification bells with a calm circle of focus">
+    <figcaption>The confusion windows overlap completely. Made for this page.</figcaption>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> Newport cites data from RescueTime, the software company that measures knowledge-worker behavior: the median interval between email and Slack checks was five minutes, and the mode was one minute. Workers check constantly. Each check is not just the seconds spent looking. Switching the focus of attention is an expensive neural operation. When you sit down to hard work, the first fifteen minutes feel terrible. After fifteen to twenty minutes, the brain marshals the right semantic networks and inhibits the irrelevant ones, and you get into the groove.</p>
+  <div class="nugget" id="nugget-3">
+    <h4>Nugget 3 · Count windows, not seconds</h4>
+    <p><span class="tag s">SOURCE FACT</span> Every check carries a confusion window of about fifteen minutes around it. At a five-minute median check rate, the windows overlap completely. <span class="tag i">INTERPRETATION</span> The worker spends the entire day in a state of cognitive disorder, never more than fifteen minutes from the next network switch.</p>
+  </div>
+  <figure class="chart">
+    <svg viewBox="0 0 640 300" role="img" aria-label="Chart computing the switching tax arithmetic">
+      <text x="20" y="30" class="t">The switching tax, with numbers</text>
+      <text x="20" y="48" class="c">The confused minutes exceed the day. Episode numbers, worked arithmetic.</text>
+      <text x="20" y="90" class="t">8 hours = 480 minutes</text>
+      <text x="20" y="120" class="t">checks: 480 / 5 = 96</text>
+      <text x="20" y="150" class="c">median interval: 5 minutes (mode: 1 minute)</text>
+      <text x="20" y="180" class="t">confused minutes: 96 x 15 = 1,440</text>
+      <text x="20" y="210" class="c">confusion window per check: ~15 minutes</text>
+      <rect x="20" y="230" width="480" height="24" class="bar" fill="#8ecae6"/>
+      <rect x="20" y="230" width="160" height="24" class="bar" fill="#ffb703"/>
+      <text x="35" y="247" class="c">the day (480)</text>
+      <text x="200" y="247" class="c">the confusion (1,440) overshoots the bar</text>
+    </svg>
+    <div class="csrc">Source: episode claims (Huberman Lab, Cal Newport, 2024-03-11)</div>
+    <div class="csub">Stylized arithmetic. The bar shows the confusion exceeding the workday.</div>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> Huberman adds the transmission analogy: shifting gears constantly burns far more fuel than cruising. His term for the target state is neurosemantic coherence: the relevant semantic networks are all activated, the irrelevant ones inhibited, and you grapple with the hard problem and nothing else. He contrasts it with the disease: partial continuous attention, the constant network switching back and forth.</p>
+  <div class="nugget" id="nugget-4">
+    <h4>Nugget 4 · Neurosemantic coherence</h4>
+    <p><span class="tag s">SOURCE FACT</span> Relevant networks on, irrelevant networks off, one hard problem. <span class="tag i">INTERPRETATION</span> The opposite is partial continuous attention: the constant switching that the five-minute check rate forces.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-flow">
+  <div class="chip">Middle of the episode · practice vs performance</div>
+  <h2>Flow is the performance state, not the practice state</h2>
+  <p><span class="tag s">SOURCE FACT</span> Newport knew both Mihaly Csikszentmihalyi and Anders Ericsson personally. His position: deliberate practice and flow are very different states, and Ericsson said so explicitly. The evidence is the professional guitarist he studied: practice meant adding 20 percent to what he could comfortably play, concentrating so hard trying to hit a lick 20 percent faster than usual that he forgot to breathe. Every second passed slowly because the work was incredibly difficult. That is the opposite of flow, where you lose track of time.</p>
+  <div class="nugget" id="nugget-5">
+    <h4>Nugget 5 · Pain is the trigger</h4>
+    <p><span class="tag s">SOURCE FACT</span> Neuroplasticity needs a trigger: discomfort, failure, and the signal that conditions changed. If you can already complete the operation, there is no reason to spend energy on new wiring. <span class="tag i">INTERPRETATION</span> The failures trigger the plasticity. Chasing flow during practice means rehearsing what you already know.</p>
+  </div>
+  <div class="nugget" id="nugget-6">
+    <h4>Nugget 6 · Flow is performance</h4>
+    <p><span class="tag s">SOURCE FACT</span> Hard to practice guitar, then on stage the music can carry you. Flow is the feeling of performance. Getting better is the painful state that precedes it. <span class="tag i">INTERPRETATION</span> If practice feels smooth and timeless, you are probably not improving.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> A detail worth keeping: the phrase fire together, wire together was said by Carla Shatz, not Donald Hebb. Newport corrects the attribution in the episode. On learning itself, Newport's protocol from his student years is active recall: replicate the information from scratch, as if teaching a class, without looking at your notes. Four hard hours beats an all-nighter.</p>
+</section>
+
+<section class="chapter" id="ch-systems">
+  <div class="chip">Middle-late · the three systems</div>
+  <h2>The top three systems</h2>
+  <p><span class="tag s">SOURCE FACT</span> System one: a pull-based workload. Keep an active list of two to three things you work on right now. Everything else sits in an ordered queue below. When you finish something, you pull the next item up. The rule that makes it work: no meetings and no emails about anything in the queue. People add information to the card and wait until it goes active. This kills the administrative overhead that generates most daily distraction, because overhead comes from things you agreed to do.</p>
+  <div class="nugget" id="nugget-7">
+    <h4>Nugget 7 · Pull, do not push</h4>
+    <p><span class="tag s">SOURCE FACT</span> Two to three active items, an ordered queue, silence on queued work. <span class="tag i">INTERPRETATION</span> Push lets anyone load work onto you at any time. Pull means you hold the queue, and overhead only touches active work.</p>
+  </div>
+  <figure class="chart">
+    <svg viewBox="0 0 640 280" role="img" aria-label="Chart comparing push and pull workload systems">
+      <text x="20" y="30" class="t">Push vs pull workload</text>
+      <text x="20" y="48" class="c">Overhead grows on the left, stays bounded on the right. Episode claim.</text>
+      <text x="20" y="90" class="t">PUSH (the default)</text>
+      <text x="20" y="115" class="c">anyone loads work, any time</text>
+      <text x="20" y="135" class="c">active items: unlimited</text>
+      <text x="20" y="155" class="c">queued items generate meetings and emails</text>
+      <text x="330" y="90" class="t">PULL (the system)</text>
+      <text x="330" y="115" class="c">you pull from the queue</text>
+      <text x="330" y="135" class="c">active items: 2 to 3</text>
+      <text x="330" y="155" class="c">queued items stay silent until pulled</text>
+      <rect x="20" y="185" width="600" height="26" class="bar" fill="#8ecae6"/>
+      <text x="35" y="203" class="c">pull bounds the overhead. Push lets it grow forever</text>
+    </svg>
+    <div class="csrc">Source: episode claims (Huberman Lab, Cal Newport, 2024-03-11)</div>
+    <div class="csub">Stylized comparison. The bar marks where overhead stays bounded.</div>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> System two: multiscale planning. Plan at three scales. Seasonal or quarterly: the big objectives. Weekly: free-form text, confront the actual calendar, cancel things to free mornings for what matters. Daily: time blocking, where every minute of the workday gets a job. Communication gets its own block, so the rule is simple: follow the blocks. System three: a shutdown ritual. At day's end, close the open loops: review the inbox, the plan, the calendar. Make sure nothing urgent is unhandled and nothing important lives only in your head. Then perform a demonstrative anchor. Newport used to say the shutdown-complete phrase out loud. Now he checks a box in his planner. When work rumination appears after hours, you do not argue with it. You point at the anchor.</p>
+  <div class="nugget" id="nugget-8">
+    <h4>Nugget 8 · Plan at three scales</h4>
+    <p><span class="tag s">SOURCE FACT</span> Season for objectives, week for the calendar, day for time blocks. <span class="tag i">INTERPRETATION</span> Draw thick dark boxes around deep-work blocks. Flip through the planner and count the dark blocks: that count is your real output metric.</p>
+  </div>
+  <div class="nugget" id="nugget-9">
+    <h4>Nugget 9 · The shutdown ritual</h4>
+    <p><span class="tag s">SOURCE FACT</span> Close the loops, sketch tomorrow, perform the anchor: “schedule shutdown complete”. <span class="tag i">INTERPRETATION</span> The anchor is cognitive behavioral therapy. Point at it instead of arguing with the rumination. Supporting rule: stop work at 5:30 p.m. The constraint forces innovation instead of throwing hours at problems.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-pseudo">
+  <div class="chip">Late in the episode · the diagnosis</div>
+  <h2>Pseudo-productivity and the Nash equilibrium</h2>
+  <p><span class="tag s">SOURCE FACT</span> Newport's central diagnosis: knowledge work has no measurable output, so the management class substituted a proxy: visible activity stands in for useful effort. He calls it pseudo-productivity. Email and Slack then let everyone demonstrate visible effort at fine grain, all day, everywhere. The damage peaked in the pandemic: knowledge-worker burnout, exhaustion, and nihilism. Burnout has two parts: the quantity part (overhead grows because every yes brings administrative work) and the psychological part (everyone knows the setup is stupid, but no one says so. The absurdity creates as much burnout as the hours).</p>
+  <div class="nugget" id="nugget-10">
+    <h4>Nugget 10 · The proxy</h4>
+    <p><span class="tag s">SOURCE FACT</span> In the absence of something quantitative, use visible activity as a proxy for useful effort. <span class="tag i">INTERPRETATION</span> The cure for burnout, per the poet David White via the episode: wholeheartedness, full commitment to something you actually want to do.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> This is why individuals cannot fix email alone. When low-friction digital communication entered the office, a consensus emerged: collaborate through ad hoc messaging. Every thread has time sensitivity, so everyone must keep checking. Newport's game-theory frame: the current configuration is a suboptimal Nash equilibrium. The utility is low, but no single individual can deploy a different strategy and get a better outcome. If you check email less, you just slow everything down. Only an expensive top-down change to the rules of the game breaks it. His hopeful note: cultural shifts suffice. “You could solve this tomorrow.”</p>
+  <p><span class="tag s">SOURCE FACT</span> Newport's analysis of TikTok: people assume it won through an algorithmic breakthrough. He argues the machine learning underneath is probably a standard multi-armed bandit with intermittent reinforcement, stated as his understanding, not a verified fact. The innovation was subtraction: TikTok dropped the social graph and optimized one number, dwell time. Within a couple of hours the bandit homes in on each user's addictive sub-regions. The loop is cybernetic: the user is also the content creator, training the system with every swipe.</p>
+</section>
+
+<section class="chapter" id="ch-coda">
+  <div class="chip">Closing · the silver lining</div>
+  <h2>The silver lining</h2>
+  <p><span class="tag s">SOURCE FACT</span> Newport's proposal: universities should become citadels of concentration. The economic frame: knowledge-work organizations hold one main capital asset, the brains under employment contract, and nobody maintains them. When the cognitive revolution comes, he estimates a trillion-dollar GDP gain, labeled in the episode as his estimate. The personal version: almost nobody takes their brain seriously as an organ. If you are one of the few who does, you get an immediate advantage over everyone around you.</p>
+  <blockquote>it's easy nowadays to be exceptional because so many people are just distracted.</blockquote>
+  <p class="attrib">David Goggins, quoted in the episode.</p>
+  <div class="nugget" id="nugget-11">
+    <h4>Nugget 11 · The silver lining</h4>
+    <p><span class="tag s">SOURCE FACT</span> The bar is low because the fog is thick. <span class="tag i">INTERPRETATION</span> Reputation buys autonomy: people do not want your accessibility, they want clarity that things are handled. When you visibly have your act together, colleagues grant you the space to keep it together.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> Newport runs his life like a lab for this: no social media at all, two offices (the library has no permanent technology), the phone never near deep work, whiteboards for hard thinking (two or three people at one board boosts concentration through the social cost of drifting), serious notebooks, and walking for ideation. Newport's standing advice: twenty minutes a day of chosen non-stimulation, plus a longer session weekly. During pauses, the hippocampus replays recent learning at 20 to 30 times neural speed. Checking the phone during the pause kills the effect.</p>
+</section>
+
+    <div class="takeaways">
+      <h3>Takeaways</h3>
+      <ol>
+<li>The switching tax: each check costs a 15-minute confusion window, not the seconds of the check. Count windows, not seconds.</li>
+      <li>Four to four and a half good brain hours is the maximum. Long hours are not the input. Protected hours are.</li>
+      <li>Deliberate practice is the opposite of flow. Pain and failure trigger plasticity. Flow is performance.</li>
+      <li>Email is a suboptimal Nash equilibrium: no individual can fix it alone. Only top-down rule changes work.</li>
+      <li>Run the three systems: pull-based workload, multiscale planning, and a shutdown ritual with an anchor.</li>
+      </ol>
+    </div>
+    <footer>
+      <p><b>Sources.</b> This companion narrates Huberman Lab Episode 10, How to Enhance Focus and Improve Productivity with Dr. Cal Newport (2024-03-11, video p4ZfkezDTXQ). All facts and figures come from the episode transcript (cleaned captions, not verbatim-certified) and the episode page in this track. Each chart names its source line. Illustrations are AI-generated watercolors made for this page. The photograph is real, with visible attribution in its caption. Transcripts carry no timestamps, so chapters are ordered by episode progression instead of clock time.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 21 words: one pull quote of 13 words from David Goggins via the episode, plus two short Newport phrases of five and three words. All carry attribution where they appear. The pull quotes carry speaker attribution and their place in the episode. Everything else is original paraphrase and analysis. The transcript used here is cleaned captions, not a verbatim-certified record, so brief quoted phrases reproduce its wording, not necessarily the exact spoken word.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var title = ch.getAttribute('data-title') || '';
+    a.innerHTML = (t ? '<span class="t">' + t + '</span>' : '') + title;
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function onScroll(){
+    var best = null, by = 160;
+    chapters.forEach(function(ch){
+      var r = ch.getBoundingClientRect();
+      if (r.top <= by) best = ch;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', best && a.getAttribute('href') === '#' + best.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
