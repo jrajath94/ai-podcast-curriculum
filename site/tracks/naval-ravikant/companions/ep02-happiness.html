@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happiness: Naval Ravikant Episode Companion</title>
+<meta name="description" content="Every happiness episode in one collection: why comfort is hard mode, why desire is a contract to be unhappy, why happiness is a trainable skill, how t">
+<style>
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;
+    margin:0 6px 8px 0}
+  .tag.src{background:#e8f0e4;color:#3d6b34;border:1px solid #c4d8bb}
+  .tag.int{background:#efe6f5;color:#5f3f7a;border:1px solid #d8c4e8}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted)}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--mono);font-size:15px;color:var(--accent-ink);margin-top:10px}
+  .toy button{font-family:var(--sans);font-size:13px;padding:8px 14px;background:var(--ink);
+    color:#fff;border:none;border-radius:4px;cursor:pointer;margin:6px 6px 0 0}
+  .toy button:hover{background:#3a3226}
+  .toy label{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Naval Ravikant &middot; Track Companion</a>
+  <span class="sub">Ep 2 of 10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Naval Ravikant · The Happiness Collection · Companion</p>
+      <h1>Happiness</h1>
+      <p class="dek">Every happiness episode in one collection: why comfort is hard mode, why desire is a contract to be unhappy, why happiness is a trainable skill, how the mind became the master, and why the path to peace runs through truth rather than effort.</p>
+      <img src="assets/ep02-happiness/illustration-still-lake.webp" alt="Watercolor illustration of a perfectly still mountain lake at dawn">
+      <p class="caption"><b>Illustration.</b> The still lake at dawn: peace as the goal. AI-generated watercolor made for this page.</p>
+      <div class="legend"><span class="tag src">Source fact</span><span style="align-self:center">A claim from the episode itself.</span><span class="tag int">Interpretation</span><span style="align-self:center">My reading of what it means for you.</span></div>
+      <div class="stats">
+        <div class="stat"><div class="n">27 min</div><div class="l">Collection video runtime, fourteen sections from nav.al</div><div class="s">Research notes</div></div>
+        <div class="stat"><div class="n">628K</div><div class="l">YouTube views, the second most-viewed of the ten</div><div class="s">Research notes, Oct 2026</div></div>
+        <div class="stat"><div class="n">50%</div><div class="l">Of happiness set by genetics, about half. The rest is trainable</div><div class="s">Episode, skill section</div></div>
+        <div class="stat"><div class="n">10,000</div><div class="l">Things a healthy man wants, against the sick man's one</div><div class="s">Episode, hard-mode section</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/3amLsamhtCg" title="Naval Ravikant — Happiness (official Naval podcast collection)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Naval podcast episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Admit where you are not the expert</a></li>
+          <li><a href="#nugget-2">Buy out of unhappiness first</a></li>
+          <li><a href="#nugget-3">Read for the message, not the words</a></li>
+          <li><a href="#nugget-4">Train happiness like a muscle</a></li>
+          <li><a href="#nugget-5">Cancel the contract</a></li>
+          <li><a href="#nugget-6">Peace is a performance tool</a></li>
+          <li><a href="#nugget-7">Decisions beat hours</a></li>
+          <li><a href="#nugget-8">Name the fake play</a></li>
+          <li><a href="#nugget-9">Demote the mind to servant</a></li>
+          <li><a href="#nugget-10">Understand your way to peace</a></li>
+          <li><a href="#nugget-11">Trade self-improvement for self-understanding</a></li>
+        </ol>
+      </div>
+    </div>
+
+<section class="chapter" id="ch-philosopher" data-time="00:00" data-title="A practical philosophy">
+<p class="ch-time">00:00</p>
+<h2>A practical philosophy</h2>
+<p>The episode opens with the mission. This is not abstract philosophy in fancy language. It is practical philosophy: health, wealth, and happiness as trainable crafts. The working hypothesis is that if one person learned something that made them happier, healthier, or wealthier, you can learn it too.</p>
+<p>Health gets the one-word summary: financial health, physical health, mental health. Naval is blunt about his limits here. On wealth he is self-actualized. On happiness he went from mostly unhappy to very happy, deliberately, through practice and realizations. On physical health he says he would feel fraudulent preaching, because he is not a paragon of it.</p>
+<div class="nugget reveal" id="nugget-1"><p class="eyebrow">Wisdom nugget 1</p><span class="tag src">Source fact</span><h4>Admit where you are not the expert</h4><p><b>What happened.</b> Naval refuses to teach physical health as doctrine, saying he lacks the lived result, while he teaches wealth and happiness from results he earned.</p><p><b>Why it matters.</b> Credibility comes from results, not reading. Naming your weak lane makes your strong lanes believable.</p><p><b>Principle.</b> Teach only what you lived through. For the rest, point to people who did.</p></div>
+</section>
+<section class="chapter" id="ch-hardmode" data-time="00:04" data-title="Happiness without comfort is hard mode">
+<p class="ch-time">00:04</p>
+<h2>Happiness without comfort is hard mode</h2>
+<p>You can be happy without wealth. But wealth buys you out of common causes of unhappiness: it gives freedom and time. Renouncing the material world, the monk path, is the harder road. Naval notes that after 30 years in the woods most monks probably never got over the desires they renounced. Whatever you deny yourself becomes your new prison.</p>
+<p>It is easier to fulfill material needs than to renounce them, he argues. And physical health is the foundation under everything: "A sick man only wants one thing, a healthy man wants 10,000 things."</p>
+<figure class="reveal"><img src="assets/ep02-happiness/illustration-still-lake.webp" alt="Watercolor illustration of a perfectly still mountain lake at dawn"><p class="caption"><b>Illustration.</b> The still lake: peace as the goal, not excitement. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-2"><p class="eyebrow">Wisdom nugget 2</p><span class="tag src">Source fact</span><h4>Buy out of unhappiness first</h4><p><b>What happened.</b> Naval says money cannot buy happiness, but it can buy you out of the standard miseries, and that renouncing comfort takes longer than earning it.</p><p><b>Why it matters.</b> It orders the work: secure the body and the bills, then train the mind. Do not start with the hardest mode.</p><p><b>Principle.</b> Treat wealth as unhappiness insurance and health as the foundation, then work on peace directly.</p></div>
+</section>
+<section class="chapter" id="ch-poetry" data-time="00:08" data-title="Happiness is poetry, not math">
+<p class="ch-time">00:08</p>
+<h2>Happiness is poetry, not math</h2>
+<p>Happiness is a loaded word. People mean pleasure, contentment, or enlightenment by it, and they argue past each other. Naval says to treat his claims like poetry, not algorithms: do not map words across poems like a proof, absorb the overall message instead.</p>
+<p>This is also his answer to the cynics who say misery comes from pursuing happiness. There is truth in that objection, and he will get to it. But the frame stays: ponder the thought process, not the sentences.</p>
+<div class="nugget reveal" id="nugget-3"><p class="eyebrow">Wisdom nugget 3</p><span class="tag src">Source fact</span><h4>Read for the message, not the words</h4><p><b>What happened.</b> Naval warns that his happiness claims cannot be linked like math theorems, and asks listeners to absorb the spirit instead.</p><p><b>Why it matters.</b> Advice about the inner life breaks when you treat it as a spec. It works when you let it reframe how you see.</p><p><b>Principle.</b> When learning philosophy, ask what changed in your perception, not whether every sentence is airtight.</p></div>
+</section>
+<section class="chapter" id="ch-skill" data-time="00:11" data-title="Happiness is a trainable skill">
+<p class="ch-time">00:11</p>
+<h2>Happiness is a trainable skill</h2>
+<p>The first step is the belief that you can change it. Most people think their happiness level is fixed, so they devalue the whole project. Naval says genetics sets about half the dial. The rest, temperament, outlook, peace, anger, is far more trainable than athletic performance or raw intelligence.</p>
+<p>Happiness is a skill like nutrition and fitness. You identify it, you develop it, results arrive slowly as you improve. It is not handed out at birth and frozen.</p>
+<div class="chart reveal" id="c-gene-chart"><h4>Half the dial is yours to turn</h4><p class="csub">Your genetic set point is only about half of happiness. The rest answers to practice.</p><svg viewBox="0 0 680 380" width="100%" role="img" aria-label="Half the dial is yours to turn"><g id="c-gene"><line x1="60" x2="650" y1="310.0" y2="310.0" class="gridln"/><text x="52" y="314.0" text-anchor="end" class="axis">0</text><line x1="60" x2="650" y1="254.0" y2="254.0" class="gridln"/><text x="52" y="258.0" text-anchor="end" class="axis">20</text><line x1="60" x2="650" y1="198.0" y2="198.0" class="gridln"/><text x="52" y="202.0" text-anchor="end" class="axis">40</text><line x1="60" x2="650" y1="142.0" y2="142.0" class="gridln"/><text x="52" y="146.0" text-anchor="end" class="axis">60</text><line x1="60" x2="650" y1="86.0" y2="86.0" class="gridln"/><text x="52" y="90.0" text-anchor="end" class="axis">80</text><line x1="60" x2="650" y1="30.0" y2="30.0" class="gridln"/><text x="52" y="34.0" text-anchor="end" class="axis">100</text><rect x="162.5" y="170.0" width="90.0" height="140.0" class="bar" data-tip="About half: the set point you were born with"/><text x="207.5" y="160.0" text-anchor="middle" class="vallab">50%</text><text x="207.5" y="336" text-anchor="middle" class="axis">Genetics</text><rect x="457.5" y="170.0" width="90.0" height="140.0" class="bar" data-tip="About half: temperament, outlook, peace, anger"/><text x="502.5" y="160.0" text-anchor="middle" class="vallab">50%</text><text x="502.5" y="336" text-anchor="middle" class="axis">Trainable</text></g></svg><p class="csub"><b>Source.</b> Episode section: Happiness Is a Skill You Can Develop.</p></div><div class="nugget reveal" id="nugget-4"><p class="eyebrow">Wisdom nugget 4</p><span class="tag src">Source fact</span><h4>Train happiness like a muscle</h4><p><b>What happened.</b> Naval puts the genetic set point at about half and says contentment is more malleable than strength or IQ.</p><p><b>Why it matters.</b> A fixed mindset about happiness is the lock on the door. Half the dial is plenty to change a life.</p><p><b>Principle.</b> Schedule happiness practice like gym time: daily reps of the practices in this episode.</p></div>
+</section>
+<section class="chapter" id="ch-desire" data-time="00:14" data-title="Desire is a contract to be unhappy">
+<p class="ch-time">00:14</p>
+<h2>Desire is a contract to be unhappy</h2>
+<p>The centerpiece is the contract metaphor. You get disturbed wanting it, you suffer getting it, and when it arrives you revert to baseline. No single thing makes you happy forever. If obtaining things made us permanently happy, the cavemen were miserable and we are delirious with joy. The record shows otherwise: net happiness is flat or falling.</p>
+<p>Happiness, then, is a return to the state where nothing is absent in this moment. Not a peak you climb to, but a baseline you stop leaving.</p>
+<div class="pull reveal"><blockquote>Desire's a contract you make to be unhappy until you get what you want.</blockquote><p class="who">Naval Ravikant, from the episode</p></div><div class="toy reveal" id="toy-desire">
+  <h4>Toy: the desire audit</h4>
+  <p class="csub">Type a desire, then mark whether it is borrowed (copied from other people) or true (yours alone). The episode claims most desires are borrowed.</p>
+  <label>Your desire</label>
+  <input type="text" id="desire-in" placeholder="e.g. a bigger apartment" style="width:100%;padding:8px;font-size:15px">
+  <div style="margin-top:8px">
+    <button id="desire-borrowed">Borrowed</button>
+    <button id="desire-true">Truly mine</button>
+    <button id="desire-clear">Clear list</button>
+  </div>
+  <p class="out" id="desire-out">No desires listed yet.</p>
+  <ol id="desire-list" style="font-family:var(--sans);font-size:14px"></ol>
+</div><div class="nugget reveal" id="nugget-5"><p class="eyebrow">Wisdom nugget 5</p><span class="tag src">Source fact</span><h4>Cancel the contract</h4><p><b>What happened.</b> Naval argues that desire manufactures its own suffering and delivers nothing permanent, so the target is the moment with nothing missing.</p><p><b>Why it matters.</b> Every desire you sign is a scheduled unhappiness. Most of them were never yours to begin with.</p><p><b>Principle.</b> Before you chase a desire, ask who gave it to you. If the answer is paid ads or peers, decline the contract.</p></div>
+</section>
+<section class="chapter" id="ch-smart" data-time="00:17" data-title="Smart, driven, and happy is allowed">
+<p class="ch-time">00:17</p>
+<h2>Smart, driven, and happy is allowed</h2>
+<p>Two objections get answered. First, smart overachievers say happiness is for the simple-minded and that peace will kill their drive. Naval concedes the grain of truth: the happier you are, the less likely you are to storm out and change the world. But unhappiness is wildly inefficient. A peaceful mind makes better decisions.</p>
+<p>Second, unhappiness clouds judgment. The driven, unhappy mind runs 24/7, sleeps badly, reacts in anger, and drowns in the busy trap. When Naval got happier, he worked less hard and became more effective, because he could see long-term outcomes clearly and stopped haggling over an extra 20 percent.</p>
+<div class="nugget reveal" id="nugget-6"><p class="eyebrow">Wisdom nugget 6</p><span class="tag src">Source fact</span><h4>Peace is a performance tool</h4><p><b>What happened.</b> Naval says unhappy high-achievers make emotional, busy-trap decisions, and that his own effectiveness rose as his hours fell.</p><p><b>Why it matters.</b> Drive without peace is motion without steering. Calm is not the enemy of ambition. It is the steering wheel.</p><p><b>Principle.</b> Protect your peace as a business asset. A clear head beats a frantic one.</p></div>
+</section>
+<section class="chapter" id="ch-least" data-time="00:20" data-title="Work the least for it">
+<p class="ch-time">00:20</p>
+<h2>Work the least for it</h2>
+<p>Quality of decisions beats quantity of hours, because everyone now has force multipliers: code, media, capital, community. Naval cites Warren Buffett, who makes the right call 85 percent of the time against competitors at 70 percent, and wins everything. Buffett makes one or two decisions a year and spends the rest reading and thinking.</p>
+<p>Ask yourself: would you rather be the best in the world by working the hardest, or by working the least, because you worked the most intelligently? Knowledge is power, and happiness improves the decisions that knowledge serves.</p>
+<div class="chart reveal" id="c-buffett-chart"><h4>85 percent vs 70 percent: the compounding of judgment</h4><p class="csub">Two decision-makers compounding capital over 20 years. Small edges in judgment become enormous gaps with time.</p><p class="csub"><span style="color:#b4531f">&#9632;</span> 85% right (Buffett) <span style="color:#8a7c66">&#9632;</span> 70% right (competitors)</p><svg viewBox="0 0 680 380" width="100%" role="img" aria-label="85 percent vs 70 percent: the compounding of judgment"><g id="c-buffett"><line x1="64" x2="650" y1="320.0" y2="320.0" class="gridln"/><text x="56" y="324.0" text-anchor="end" class="axis">0</text><line x1="64" x2="650" y1="216.4" y2="216.4" class="gridln"/><text x="56" y="220.4" text-anchor="end" class="axis">5</text><line x1="64" x2="650" y1="112.9" y2="112.9" class="gridln"/><text x="56" y="116.9" text-anchor="end" class="axis">10</text><polyline points="64.0,299.3 210.5,280.6 357.0,245.4 503.5,177.1 650.0,46.6" fill="none" stroke="#b4531f" stroke-width="3"/><circle cx="64.0" cy="299.3" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 0: 1.00"/><circle cx="210.5" cy="280.6" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 5"/><circle cx="357.0" cy="245.4" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 10"/><circle cx="503.5" cy="177.1" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 15"/><circle cx="650.0" cy="46.6" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="Year 20"/><polyline points="64.0,299.3 210.5,293.1 357.0,284.8 503.5,274.4 650.0,259.9" fill="none" stroke="#8a7c66" stroke-width="3"/><circle cx="64.0" cy="299.3" r="5" fill="#8a7c66" stroke="#fff" stroke-width="2" data-tip="Year 0: 1.00"/><circle cx="210.5" cy="293.1" r="5" fill="#8a7c66" stroke="#fff" stroke-width="2" data-tip="Year 5"/><circle cx="357.0" cy="284.8" r="5" fill="#8a7c66" stroke="#fff" stroke-width="2" data-tip="Year 10"/><circle cx="503.5" cy="274.4" r="5" fill="#8a7c66" stroke="#fff" stroke-width="2" data-tip="Year 15"/><circle cx="650.0" cy="259.9" r="5" fill="#8a7c66" stroke="#fff" stroke-width="2" data-tip="Year 20"/><text x="64.0" y="356" text-anchor="middle" class="axis">Year 0</text><text x="210.5" y="356" text-anchor="middle" class="axis">Year 5</text><text x="357.0" y="356" text-anchor="middle" class="axis">Year 10</text><text x="503.5" y="356" text-anchor="middle" class="axis">Year 15</text><text x="650.0" y="356" text-anchor="middle" class="axis">Year 20</text></g></svg><p class="csub"><b>Source.</b> Episode: the Buffett 85 vs 70 percent example. The curves are illustrative math of compounding decision quality.</p></div><div class="nugget reveal" id="nugget-7"><p class="eyebrow">Wisdom nugget 7</p><span class="tag src">Source fact</span><h4>Decisions beat hours</h4><p><b>What happened.</b> Naval says hard work is not the answer. Good decisions plus high force multiplication are, and he points to Buffett's one-or-two-decisions-a-year pace.</p><p><b>Why it matters.</b> In a multiplied world, one great decision outweighs a thousand frantic ones.</p><p><b>Principle.</b> Spend your best hours on the few decisions that matter. Let the rest be good enough.</p></div>
+</section>
+<section class="chapter" id="ch-addiction" data-time="00:23" data-title="The war against weaponized addiction">
+<p class="ch-time">00:23</p>
+<h2>The war against weaponized addiction</h2>
+<p>All pleasure creates its own offsetting pain and fear of loss. In an age of abundance, pursuing pleasure for its own sake creates addiction. The modern struggle is the disconnected individual standing up to weaponized addictions: alcohol, drugs, porn, processed food, news, social media, games.</p>
+<p>Addictions are fake work and fake play. They hold together fake relationships and fake activities. Breaking them is socially unacceptable, because it means replacing your friends and your fun, which is why most people never try.</p>
+<figure class="reveal"><img src="assets/ep02-happiness/illustration-storm-calming.webp" alt="Watercolor illustration of a stormy sea calming into glassy water"><p class="caption"><b>Illustration.</b> From storm to glass: the mind calming down on its own. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-8"><p class="eyebrow">Wisdom nugget 8</p><span class="tag src">Source fact</span><h4>Name the fake play</h4><p><b>What happened.</b> Naval argues that engineered pleasures deliver small doses and then desensitize you, and that quitting forces a lifestyle change, not just willpower.</p><p><b>Why it matters.</b> You cannot win a fight you will not name. Most unhappiness budgets are spent on subscriptions to fake play.</p><p><b>Principle.</b> Audit every pleasure for its offsetting pain. If quitting would cost you your social life, the social life was rented.</p></div>
+</section>
+<section class="chapter" id="ch-mind" data-time="00:25" data-title="Peace from mind">
+<p class="ch-time">00:25</p>
+<h2>Peace from mind</h2>
+<p>When Naval says he wants happiness, he means peace. Not peace of mind: peace from mind. In your moments of greatest pleasure, the voice in your head goes quiet. That silence is what you chased, not the stimulus.</p>
+<p>The mind is a useful tool that became the master. Humans are the most paranoid creatures ever to walk the earth, and the wiring made sense when a rustle in the bushes was a tiger one time in ten. Modern life is safer, so the paranoia is now mostly misfiring. You cannot force the mind quiet, any more than you can obey the order not to think of a white elephant. You build tools that let it calm down on its own.</p>
+<div class="nugget reveal" id="nugget-9"><p class="eyebrow">Wisdom nugget 9</p><span class="tag src">Source fact</span><h4>Demote the mind to servant</h4><p><b>What happened.</b> Naval reframes happiness as the quieting of mental chatter, and says the paranoid wiring that saved us on the savanna now misfires in safe modern life.</p><p><b>Why it matters.</b> You chased the silence all along, not the drug, the purchase, or the win. Aim at the silence directly.</p><p><b>Principle.</b> Do not fight the mind. Watch it, understand it, and give it less to be paranoid about.</p></div>
+</section>
+<section class="chapter" id="ch-peace" data-time="00:26" data-title="Peace is happiness at rest">
+<p class="ch-time">00:26</p>
+<h2>Peace is happiness at rest</h2>
+<p>Mental stress is an inability to decide what is important: wanting two incompatible things at once. Give up on one of them, or accept it is out of your control, and the stress dissolves.</p>
+<div class="pull reveal"><blockquote>Peace is happiness at rest; happiness is peace in motion.</blockquote><p class="who">Naval Ravikant, from the episode</p></div><p>The goal is not happiness, he says, it is peace. And you cannot work your way to peace, because peace is inactivity, the sense that everything is fine. You can only work toward understanding. An old Sikh saying he quotes: the name of God is truth.</p>
+<div class="nugget reveal" id="nugget-10"><p class="eyebrow">Wisdom nugget 10</p><span class="tag src">Source fact</span><h4>Understand your way to peace</h4><p><b>What happened.</b> Naval defines stress as indecision between incompatible wants and says peace cannot be achieved by effort, only by understanding.</p><p><b>Why it matters.</b> The harder you chase calm, the further it runs. Comprehension is the only door.</p><p><b>Principle.</b> When stressed, decide or surrender. Then study the truth of the situation until the charge drains out.</p></div>
+</section>
+<section class="chapter" id="ch-truth" data-time="00:27" data-title="The path to peace is truth">
+<p class="ch-time">00:27</p>
+<h2>The path to peace is truth</h2>
+<p>Wise people are quiet, not as a performance but because they are quiet inside. "Individuals search for truth but groups search for consensus", and society is the largest group, so what society wants for you is often not what is good for you. Guilt is the voice of society installed in your head, training you to be your own warden.</p>
+<p>The closing move: give up self-improvement, because self-improvement is a dressed-up form of self-conflict. Instead, use curiosity to understand things. When you truly see the cost of a habit, the habit dissolves on its own. The path to peace is truth.</p>
+<div class="nugget reveal" id="nugget-11"><p class="eyebrow">Wisdom nugget 11</p><span class="tag src">Source fact</span><h4>Trade self-improvement for self-understanding</h4><p><b>What happened.</b> Naval says techniques create a gap between you and the goal, while clear seeing dissolves bad habits without a fight.</p><p><b>Why it matters.</b> Every self-improvement project is a war with yourself. Wars do not produce peace.</p><p><b>Principle.</b> Replace every technique with a question. Understand the thing fully, and the change happens by itself.</p></div>
+</section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Naval podcast collection "Happiness" (YouTube 3amLsamhtCg), from the full official transcript at nav.al/happiness (published 2021-03-12). Section timestamps are proportional estimates. The Osho line is quoted by Naval from Osho. The sick-man line is a Confucius saying he attributes. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 46 words: two pull quotes, "Desire's a contract you make to be unhappy until you get what you want." (14 words) and "Peace is happiness at rest; happiness is peace in motion." (10 words), plus "A sick man only wants one thing, a healthy man wants 10,000 things." (13 words) and "Individuals search for truth but groups search for consensus" (9 words). Each is a verbatim string from the official transcript, verified by search. The peace pull quote keeps its original semicolon. It is verbatim from the transcript. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+
+
+/* ---------- toy: desire audit ---------- */
+(function(){
+  var inp = document.getElementById('desire-in'),
+      out = document.getElementById('desire-out'),
+      list = document.getElementById('desire-list');
+  if(!inp) return;
+  var items = [];
+  function render(){
+    list.innerHTML = '';
+    var b = 0, t = 0;
+    items.forEach(function(d){
+      var li = document.createElement('li');
+      li.textContent = d.text + ' — ' + (d.borrowed ? 'borrowed' : 'truly mine');
+      list.appendChild(li);
+      if(d.borrowed) b++; else t++;
+    });
+    out.textContent = items.length === 0
+      ? 'No desires listed yet.'
+      : items.length + ' desires audited: ' + b + ' borrowed, ' + t + ' truly yours.';
+  }
+  function add(borrowed){
+    var v = inp.value.trim();
+    if(!v) return;
+    items.push({text: v, borrowed: borrowed});
+    inp.value = ''; render();
+  }
+  document.getElementById('desire-borrowed').addEventListener('click', function(){ add(true); });
+  document.getElementById('desire-true').addEventListener('click', function(){ add(false); });
+  document.getElementById('desire-clear').addEventListener('click', function(){ items = []; render(); });
+})();
+
+</script>
+</body>
+</html>
