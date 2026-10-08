@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grimes on Art, AI, and the Future · Lex Fridman Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Lex Fridman's Grimes interview: art, music, protopia, motherhood, consciousness, and the universe waking up.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .crumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .crumb a{color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Lex Fridman &middot; Track Companion</a>
+  <span class="sub">Ep 10 · Grimes: Art, Music, AI, and the Future · Jun 2022</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="crumb"><a href="../index.html">Lex Fridman track index</a> / Companion</p>
+      <p class="kicker">Lex Fridman Podcast · Episode 10 · Companion</p>
+      <h1>Grimes on Art, AI, and the Future</h1>
+      <p class="dek">Homo techno, protopia, the underrated producer, a million artists on Spotify, motherhood, and the universe waking up.</p>
+      <img src="assets/illustration-ep10.webp" alt="Watercolor illustration of a musician at a glowing console under a vast starry sky with a rising sun">
+      <p class="caption"><b>Illustration.</b> Homo techno: the species that programs itself. AI-generated watercolor.</p>
+      <figure>
+        <img src="assets/photo-grimes.png" alt="Photograph of Grimes">
+        <p class="caption"><b>Photo.</b> Grimes, musician and producer. Photo by Jordan Uhl, CC BY 2.0, via Wikimedia Commons.</p>
+      </figure>
+      <div class="stats">
+<div class="stat"><div class="n">~1M</div><div class="l">Artists making a good living from Spotify, per Daniel Ek via Grimes</div><div class="s">Episode</div></div><div class="stat"><div class="n">20K</div><div class="l">Artists who made millions at the CD peak</div><div class="s">Episode</div></div><div class="stat"><div class="n">10 yrs</div><div class="l">Good years most artists get, per Daniel Ek</div><div class="s">Episode</div></div><div class="stat"><div class="n">~2.6 hr</div><div class="l">Episode runtime</div><div class="s">Transcript word count</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/KOwm7GUjcg8" title="Lex Fridman Podcast: Grimes on art, music, AI, and the future (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Credit the invisible craft</a></li><li><a href="#nugget-2">Join the conversation, don't invent the wheel</a></li><li><a href="#nugget-3">Aim for protopia, not utopia</a></li><li><a href="#nugget-4">Save what you love</a></li><li><a href="#nugget-5">Count cooperation as a strategy</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
+    </div>
+    <section class="chapter" id="ch-c" data-time="~00:03" data-title="The name C and the render rate">
+      <p class="ch-time">~00:03</p>
+      <h2>The Name C and the Render Rate</h2>
+      <p><span class="tag fact">Source fact</span> Grimes goes by c, lowercase, and the letter carries many meanings for her: the speed of light, her favorite programming language, and what she calls the render rate of the universe. Her test for the simulation: if the speed of light ever changes, we will know the render speed got an upgrade. Nothing in general relativity precludes faster-than-light travel, she notes, but it would take funky work with tears in space-time.</p>
+      <p>On identity, she says her personality changes with every person she talks to, from megalomaniac to shy hermit. She suspects everyone is like this. Few admit it or can introspect it. Her peak mode arrives with close friends, when she feels understood enough to be funny.</p>
+    </section>
+
+    <section class="chapter" id="ch-music" data-time="~00:08" data-title="Constraints and the underrated producer">
+      <p class="ch-time">~00:08</p>
+      <h2>Constraints and the Underrated Producer</h2>
+      <p><span class="tag fact">Source fact</span> Grimes argues constraints help when they move: cheaper tools keep changing what music can be. She made a whole album on one computer, which gives enormous freedom but also millions more competitors. She never learned music formally and calls herself not a natural musician, just someone messing around with the computer as music merges with engineering and programming.</p>
+      <p>She calls music production deeply underrated: the production is often why a hit is a hit, yet nobody discusses it the way film discusses directors. Rick Rubin, whom she calls one of the gods of production, works by sitting in silence with closed eyes, which gives artists freedom to be their best. She comes instead from what she calls the Skrillex school: engineer, producer, and artist in one person, the lone wizard era of the 2010s.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Craft</p>
+        <h4>Credit the invisible craft</h4>
+        <p><span class="lbl">What happened. </span>Grimes points out that production decides hits while the culture talks only about singers and lyrics.</p>
+        <p><span class="lbl">Why it matters. </span>The least-discussed role in a collaboration is often the load-bearing one.</p>
+        <p><span class="lbl">The principle. </span>When something succeeds, ask who shaped it invisibly. Study that craft.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-art" data-time="~00:20" data-title="Art as collective memory">
+      <p class="ch-time">~00:20</p>
+      <h2>Art as Collective Memory</h2>
+      <p><span class="tag fact">Source fact</span> Grimes describes a recent realization: <span class="q">"art is sort of a decentralized collective thing"</span>, a conversation with every artist who ever lived, where you run thousands of years of art through your own algorithm. She wants to drop the lone-genius ego framing: art brings humanity together and is humanity's collective memory. We forget ancient Egypt's grain records. We remember its art.</p>
+      <p>She loves memes as the purest example: an egoless, anonymous, decentralized comedy project at the forefront of humor, which corporations cannot infiltrate. On digital fragility, she proposes a foundation-style bunker, like the seed banks, holding all human knowledge on solar or geothermal power, because digital art is easy to delete.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Art</p>
+        <h4>Join the conversation, skip the lone genius</h4>
+        <p><span class="lbl">What happened. </span>Grimes stopped chasing originality and started seeing art as an ongoing exchange across millennia.</p>
+        <p><span class="lbl">Why it matters. </span>The lone-genius myth creates bitterness about authenticity and credit. The conversation model creates connection.</p>
+        <p><span class="lbl">The principle. </span>Your work is your reply to everything before it. Make the reply worth reading.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-spotify" data-time="~00:24" data-title="Spotify and the million artists">
+      <p class="ch-time">~00:24</p>
+      <h2>Spotify and the Million Artists</h2>
+      <p><span class="tag fact">Source fact</span> Grimes says she grilled Spotify CEO Daniel Ek directly. His numbers, as she reports them: at the CD industry's peak, about 20,000 artists made millions, a tiny one percent. Now about a million artists make a good living from Spotify. She says she would rather make less money herself and have more artists make a decent living, though she admits this could be propaganda since it comes from Ek.</p>
+      <p>Her deeper complaint is not pay levels but middlemen: the industry is full of them because artists are bad at business, so artists keep small cuts. Her manager is building an app to automate management, publishing, and contract reading, so the money artists do earn goes further. She frames it as positive-sum thinking: instead of fighting over scraps, increase efficiency and expand the pie.</p>
+    </section>
+
+    <section class="chapter" id="ch-protopia" data-time="~00:34" data-title="Protopia and homo techno">
+      <p class="ch-time">~00:34</p>
+      <h2>Protopia and Homo Techno</h2>
+      <p><span class="tag fact">Source fact</span> Grimes's favorite science fiction future is Iain Banks's Surface Detail: a protopia, a future as good as we can get rather than a hopeless utopia, where superintelligence and biological beings mostly coexist and wars get settled in simulated battles instead of with nukes. She credits the term protopia to an Instagram account, Protopia Futures, run by a woman whose name she says she is probably mispronouncing, noting young women do not get enough credit for such coinages.</p>
+      <p>Her central claim: we became homo techno, a new species. Since the iPhone, brains are fundamentally changed. An MRI of her brain versus a medieval brain would look very different. Evolution was survival of the fittest. Now we can choose intelligent design and reprogram the human computer. The responsibility is enormous and the education is not there.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Future</p>
+        <h4>Aim for protopia, not utopia</h4>
+        <p><span class="lbl">What happened. </span>Grimes prefers a future that is approximately good over a perfect one nobody believes in.</p>
+        <p><span class="lbl">Why it matters. </span>Unreachable ideals breed cynicism. Reachable ones breed building.</p>
+        <p><span class="lbl">The principle. </span>Set the target one step beyond plausible, not ten beyond imaginable.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-mother" data-time="~00:53" data-title="Motherhood and optimism">
+      <p class="ch-time">~00:53</p>
+      <h2>Motherhood and Optimism</h2>
+      <p><span class="tag fact">Source fact</span> Grimes says motherhood changed everything and is still changing her. She fought it at first, feeling it was a failure of feminism for her kids to matter more than her work, then recognized that guilt as itself a construct: the culture devalues motherhood so deeply that caring feels like betrayal. Motherhood made her more creative and forced optimism on her: with kids, she feels responsible for imagining good futures, because if everything is Blade Runner we will get Blade Runner.</p>
+      <p>She argues capitalism should count social good as profit, and that producing great humans is a huge social good currently done for free. Her Star Wars Episode VIII quote, which she calls her favorite of all time:</p>
+      <div class="pull">
+        <blockquote>don't kill what you hate save what you love</blockquote>
+        <p class="who">Rose Tico, quoted by Grimes · ~01:01</p>
+      </div>
+      <p>Society is in diagnosis mode, trying to kill what it hates. She pairs it with a Buckminster Fuller line she warns she will mangle: do not destroy old bad models, render them obsolete with better ones.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Building</p>
+        <h4>Save what you love</h4>
+        <p><span class="lbl">What happened. </span>Grimes argues creation beats destruction: obsolete the old model instead of attacking it.</p>
+        <p><span class="lbl">Why it matters. </span>Killing things tends to kill the killer too. Building leaves something standing.</p>
+        <p><span class="lbl">The principle. </span>When something is broken, ask what better thing would make it irrelevant.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-babyx" data-time="~01:10" data-title="Baby X and the birth of consciousness">
+      <p class="ch-time">~01:10</p>
+      <h2>Baby X and the Birth of Consciousness</h2>
+      <p><span class="tag fact">Source fact</span> Watching her son X become conscious, Grimes calls it the craziest science fiction novel: consciousness coming into being in real time. She hates baby books and their aesthetics, calling them bad programming languages for baby computers. Her counterexample is Totoro: nearly wordless, aimed at ages one to three, yet so good that adults keep their old Totoro merch. She wants an industry of great art for emerging consciousness, universal enough that nobody throws it away.</p>
+      <p>She also finds the infant phase disturbing: conscious, bombarded with inputs, unable to move or communicate, like the story I Have No Mouth and I Must Scream. She suspects we all carry unremembered trauma from it, and that studying it could matter.</p>
+    </section>
+
+    <section class="chapter" id="ch-consciousness" data-time="~01:19" data-title="Consciousness, AI, and love">
+      <p class="ch-time">~01:19</p>
+      <h2>Consciousness, AI, and Love</h2>
+      <p><span class="tag fact">Source fact</span> Grimes quotes Terence McKenna on courage and the abyss becoming a feather bed, and concludes there are no technological limits: digital consciousness is inevitable, though we may not understand what it means. If we build curious AI, she hopes it will be curious about us the way we love dogs despite the intelligence gap: recognizing the profundity of what we accomplished by creating consciousness at all.</p>
+      <p>On love, she cites the anarchist Kropotkin's studies of cooperation in nature: love is an evolutionary mechanism as much as war is, and science leans too hard on Darwinian competition. Child-rearing is immense love with no immediate competitive payoff. If motherhood vanished, she says, the engineering would mean nothing.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Values</p>
+        <h4>Count cooperation as a strategy</h4>
+        <p><span class="lbl">What happened. </span>Grimes argues evolution runs on love and cooperation at least as much as on competition.</p>
+        <p><span class="lbl">Why it matters. </span>A model of progress built only on rivalry misreads half the mechanism.</p>
+        <p><span class="lbl">The principle. </span>When you analyze a system, look for the cooperation engines, not just the contests.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-avatar" data-time="~01:36" data-title="Avatars and the burden of being seen">
+      <p class="ch-time">~01:36</p>
+      <h2>Avatars and the Burden of Being Seen</h2>
+      <p><span class="tag fact">Source fact</span> Grimes says she has lost control of her public narrative: the avatar of her on social media is a distorted thing hijacked by forces beyond her control, and celebrity culture demands the avatar stay static while she keeps changing. She calls herself artificially famous, a weird niche indie musician dragged into geopolitics and markets, who cannot be media trained because her mouth just says things.</p>
+      <p>On Twitter's ownership question, she deliberately withholds opinions: she is too close to the situation, and a few wrong words from her could change world affairs. <span class="tag interp">Interpretation</span> The stance is notable from someone otherwise radically outspoken: proximity to power converts speech from self-expression into potential harm, so she chooses silence.</p>
+    </section>
+
+    <section class="chapter" id="ch-dark" data-time="~01:57" data-title="Dark ages and dark questions">
+      <p class="ch-time">~01:57</p>
+      <h2>Dark Ages and Dark Questions</h2>
+      <p><span class="tag fact">Source fact</span> At eighteen, Grimes lost her best friend to a heroin overdose and another best friend to suicide. She says she never contemplated suicide herself: she is terrified of death and cannot fathom it. On immortality, she turned during a recent meeting: what if Putin were immortal? Power corrupts and alienates even the best people from common human experience, so death may be important.</p>
+      <p>Her biggest civilizational worry is supply chain collapse. She reads the Bronze Age collapse as mass supply-chain failure: one Iranian mine controlled bronze production, and when the chain broke, flourishing societies fell into dark ages. Modern humans cannot hunt or forage. A collapse now means starvation and war. The marker of a dark age, in her model, is the loss of the technology you depend on.</p>
+    </section>
+
+    <section class="chapter" id="ch-meaning" data-time="~02:28" data-title="The universe waking up">
+      <p class="ch-time">~02:28</p>
+      <h2>The Universe Waking Up</h2>
+      <p><span class="tag fact">Source fact</span> Her advice to the young: creativity is a muscle that takes failure and humiliation to build, and tolerance for failure is easier to develop young. She wishes failure were encouraged instead of punished. On the meaning of life, she borrows from James Lovelock's Novacene: <span class="q">"the universe waking up"</span>. What if this is not us discovering the universe but the universe becoming conscious of herself for the first time, and social media is the neurons connecting?</p>
+      <p>She closes with the image of humanity as the blue-green algae of something amazing: single-celled organisms at the true beginning of life. <span class="tag interp">Interpretation</span> The episode's arc bends from cynicism about the present to a deliberately chosen cosmic optimism, the same optimism motherhood forced on her.</p>
+      <div class="pull">
+        <blockquote>cynicism is often confused for insight</blockquote>
+        <p class="who">Grimes · ~00:55</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Lex Fridman Podcast episode with Grimes (c), published June 2022 (~2.6 hours). Facts, figures, and quoted phrases from the conversation come from the episode's auto-generated caption transcript on file (transcripts/KOwm7GUjcg8.txt). Publish dates, episode numbers, and view counts come from the video and track metadata. Each chapter names its episode section. Times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors. The guest photo is a real photograph, attributed in the caption. Figures attributed to Daniel Ek are reported as Grimes heard them, not independently verified. Grimes's historical and scientific claims (Bronze Age collapse, inherited memory) are her stated views, presented as such.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 27 words: two pull quotes and two inline phrases, each verbatim from the episode transcript with speaker attribution: “don't kill what you hate save what you love” (9 words, Rose Tico's line from Star Wars Episode VIII, quoted by Grimes), “cynicism is often confused for insight” (6 words), “art is sort of a decentralized collective thing” (8 words), and “the universe waking up” (4 words). The Star Wars quote contains a contraction because it is verbatim. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(scope){
+    scope.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+  window.__bindTips = bindTips;
+  window.__showTip = showTip;
+  window.__hideTip = hideTip;
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+
+})();
+</script>
+</body>
+</html>
