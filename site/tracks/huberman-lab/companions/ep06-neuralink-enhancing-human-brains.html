@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuralink: Enhancing Human Brains | Huberman Lab Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Dr. Matthew MacDougall of Neuralink: the implant and its robot, decoding motor cortex, the brain's design, the alcohol dose line, and animal ethics.">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f4efe3; --ink:#23201a; --muted:#6e6455;
+    --line:#e0d6c0; --accent:#2f6f8f; --accent-ink:#1f5068; --soft:#e9f1f4;
+    --warn:#8a5a1d;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0ec}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:22px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.src{background:#dff0f7;color:var(--accent-ink);border:1px solid #bcd9e4}
+  .tag.int{background:#f5e8d4;color:var(--warn);border:1px solid #e3cda1}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .gap{background:#fdf6ec;border:1px dashed #d9b98a;padding:16px 20px;margin:26px 0;
+    font-family:var(--sans);font-size:13.5px;color:#6b5636;line-height:1.6}
+  .gap b{color:#4a3a22}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Huberman Lab · Track Companion</a>
+  <span class="sub">Episode 6 · Dr. Matthew MacDougall · 2023-04-17</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode 6 · Companion</p>
+      <h1>Neuralink: Enhancing Human Brains</h1>
+      <p class="dek">Neuralink's head neurosurgeon explains the implant: threads thinner than a hair, sewn by a robot, decoding motor cortex so quadriplegic people can move a cursor with thought. Plus a surgeon's tour of the brain's design flaws and the clearest alcohol finding on the track. This companion follows the conversation in order.</p>
+      <img src="assets/ep06-hero-threads.webp" alt="Watercolor illustration of a robotic arm placing glowing hair-thin threads into a brain">
+      <p class="caption"><b>Illustration.</b> Micron surgery: the robot sews what no human hand can place. Made for this page. AI-generated watercolor in a New Yorker style, made for this page. It carries no words or labels.</p>
+      <div class="legend"><b>How to read this companion.</b>
+        Claims tagged <span class="tag src">SOURCE</span> trace to the episode or its transcript.
+        Claims tagged <span class="tag int">INTERPRETATION</span> are analysis added by this companion.
+        Numbers name their source line. Anything the episode never says is marked <b>Not in source</b>.</div>
+      <div class="stats">
+<div class="stat"><div class="n">3 lb</div><div class="l">the brain: a lump of meat in a bony prison</div><div class="s">Transcript, brain section</div></div>
+        <div class="stat"><div class="n">2 mm</div><div class="l">drill hole for laser tumor ablation under MRI</div><div class="s">Transcript, brain section</div></div>
+        <div class="stat"><div class="n">1/sec</div><div class="l">MRI pictures taken during laser heating</div><div class="s">Transcript, brain section</div></div>
+        <div class="stat"><div class="n">0-3</div><div class="l">weekly drinks: each step maps to more cortical thinning</div><div class="s">Transcript, alcohol section</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/3ZGItIAUQmI" title="Huberman Lab episode 6 with Dr. Matthew MacDougall, official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video on youtube-nocookie, the only external dependency on this page. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">The actuator must be a robot</a></li>
+          <li><a href="#nugget-2">The surgeon still opens the skull</a></li>
+          <li><a href="#nugget-3">Digital freedom first</a></li>
+          <li><a href="#nugget-4">Unload difficulty onto software</a></li>
+          <li><a href="#nugget-5">The confidence test</a></li>
+          <li><a href="#nugget-6">Duct-taped modules</a></li>
+          <li><a href="#nugget-7">Firmware below, supercomputer on top</a></li>
+          <li><a href="#nugget-8">Plasticity declines</a></li>
+          <li><a href="#nugget-9">The alcohol line</a></li>
+          <li><a href="#nugget-10">The skull's design flaws</a></li>
+          <li><a href="#nugget-11">Involuntary enrollment, voluntary participation</a></li>
+        </ol>
+      </div>
+    </div>
+    <section class="chapter" id="ch-device" data-time="Opening" data-title="Threads thinner than hair">
+      <p class="ch-time">Opening section</p>
+      <h2>Threads thinner than hair, placed by a robot</h2>
+      <p><span class="tag src">SOURCE</span> Neuralink's implant uses electrode threads “smaller than the size of a human hair.” A robotic insertion device places them across a small region of the brain. The reason for the robot is mechanical, not theatrical: a human hand is not steady enough to grab a micron-width loop at the end of an electrode thread and place it blindly into the cortical surface at the right depth, through all the cortical layers, hundreds or thousands of times.</p>
+      <p><span class="tag src">SOURCE</span> The surgery is split by capability. The robot does the precise thread placement. A human neurosurgeon still does the crude part: opening the skin and skull and presenting a pristine brain surface for the robot to sew into.</p>
+      <div class="chart">
+        <h4>The scale ladder of the surgery</h4>
+        <p class="csub">All sizes from the episode. The millimeter-to-micron conversion is arithmetic. The hair is the episode's own reference object, given without a number.</p>
+        <svg viewBox="0 0 640 240" role="img" aria-label="Scale comparison: 2 millimeter drill hole, human hair, electrode thread, micron loop">
+          <title>Surgical scale ladder, from the episode</title>
+          <line x1="60" y1="200" x2="620" y2="200" stroke="#3d352a" stroke-width="2"/>
+          <rect x="90" y="60" width="100" height="140" class="bar alt"><title>Drill hole: 2 millimeters, equals 2000 microns</title></rect>
+          <rect x="240" y="140" width="100" height="60" class="bar alt"><title>Human hair: reference, threads smaller</title></rect>
+          <rect x="390" y="160" width="100" height="40" class="bar"><title>Electrode thread: smaller than the size of a human hair</title></rect>
+          <rect x="530" y="180" width="60" height="20" class="bar dark"><title>Thread loop: micron width</title></rect>
+          <text x="140" y="48" text-anchor="middle" class="vallab">2 mm</text>
+          <text x="290" y="128" text-anchor="middle" class="vallab">hair</text>
+          <text x="440" y="148" text-anchor="middle" class="vallab">thread</text>
+          <text x="560" y="168" text-anchor="middle" class="vallab">loop</text>
+          <text x="140" y="220" text-anchor="middle" class="axis">drill hole</text>
+          <text x="290" y="220" text-anchor="middle" class="axis">reference</text>
+          <text x="440" y="220" text-anchor="middle" class="axis">smaller than hair</text>
+          <text x="560" y="220" text-anchor="middle" class="axis">microns</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, device section. Thread size, loop width, and drill-hole diameter are the episode's. 2 millimeters equals 2,000 microns by unit conversion.</p>
+      </div>
+      <p><span class="tag src">SOURCE</span> MacDougall's framing: Neuralink leads in robotic surgeons as much as in brain interfaces. The insertion engineering will spill into other neurosurgery and medical technology.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Engineering</p>
+        <h4>The actuator must be a robot</h4>
+        <p><span class="lbl">What happened.</span> Micron-width loops must land at exact depths through cortical layers, hundreds of times, placed blind. No human hand qualifies. The robot is not a flourish. It is the only actuator that meets the spec.</p>
+        <p><span class="lbl">Why it matters.</span> When the scale defeats the hand, the tool must change. Arguing for steadier hands misses the point. The task needs a different kind of mover.</p>
+        <p><span class="lbl">The principle.</span> State the scale and the count first. If the spec reads microns times hundreds, stop assigning it to hands.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Surgery</p>
+        <h4>The surgeon still opens the skull</h4>
+        <p><span class="lbl">What happened.</span> The robot sews the threads. The human neurosurgeon opens the skin and skull and presents the pristine surface. The crude part stays human. The precise part goes to the machine.</p>
+        <p><span class="lbl">Why it matters.</span> Automation splits work by capability, not by prestige. The surgeon's job did not vanish. It moved to the part where judgment and exposure matter most.</p>
+        <p><span class="lbl">The principle.</span> When a robot enters your field, ask which half is crude and which is precise. Keep the half where your judgment is the instrument.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-target" data-time="Early" data-title="Digital freedom for quadriplegics">
+      <p class="ch-time">Early section</p>
+      <h2>First target: digital freedom for quadriplegics</h2>
+      <p><span class="tag src">SOURCE</span> The first clinical indication: people with high spinal cord injury, essentially quadriplegic. Their brains are intact. Their motor cortex is pristine and fully capable of operating a body. The wiring between brain and limbs is broken.</p>
+      <p><span class="tag src">SOURCE</span> The near-term goal is not to reconnect the brain to the limbs. That is on the roadmap but years away. The near-term goal is digital freedom: the person imagines moving a hand, the implant reads the motor intentions from motor cortex, and software translates them into moving a mouse and typing on a keyboard. Nothing in the physical world moves at first. The cursor moves.</p>
+      <figure>
+        <img src="assets/ep06-digital-freedom.webp" alt="Watercolor illustration of a person in a wheelchair moving a computer cursor by thought">
+        <p class="caption"><b>Illustration.</b> Digital freedom: thought becomes cursor. AI-generated watercolor in a New Yorker style, made for this page.</p>
+      </figure>
+      <p><span class="tag src">SOURCE</span> The decoding problem: the transformation from motor-cortex electrical signals through the brainstem and spinal cord to muscles is well studied, over 100 years of research. The transformation from motor-cortex signals to a mouse cursor is a new problem. Neuralink's approach unloads difficulty from the patient's brain onto software: smarter algorithms decode the motor intentions.</p>
+      <p><span class="tag src">SOURCE</span> The proof it works: monkeys. A small army of monkeys plays video games for smoothie rewards, and Neuralink holds the world record for bit rate of information coming out of a monkey's brain to control a cursor. The episode gives no bits-per-second number. Not in source.</p>
+      <p><span class="tag src">SOURCE</span> The longer roadmap: an implant in the brain talking to an implant in the spinal cord, bypassing the damaged area. The motor signals are intact above the injury. Most spinal wiring below the injury is intact. Reconnecting brain to body is, in MacDougall's words, not out of the question in some small number of years.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Medicine</p>
+        <h4>Digital freedom first</h4>
+        <p><span class="lbl">What happened.</span> Neuralink targets the cursor before the limbs. The brain-to-screen path is solvable now. The brain-to-body path needs a second implant and years of work.</p>
+        <p><span class="lbl">Why it matters.</span> Sequencing is the strategy. The tractable win funds and teaches the harder win. Promising limbs first would be the flashy order. The episode defends the solvable order.</p>
+        <p><span class="lbl">The principle.</span> Ship the solvable version first, even when the vision is bigger. The roadmap earns its later steps with earlier wins.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Design</p>
+        <h4>Unload difficulty onto software</h4>
+        <p><span class="lbl">What happened.</span> Instead of training the patient's brain to produce cleaner signals, Neuralink builds smarter decoders. The hard translation work lives in software, not in the person.</p>
+        <p><span class="lbl">Why it matters.</span> The user is the fixed constraint. The software is the variable. Every unit of difficulty moved from brain to code makes the device usable by more people with less training.</p>
+        <p><span class="lbl">The principle.</span> In any human-machine system, push complexity toward the side you can iterate fastest. That side is almost always the software.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-confidence" data-time="Early middle" data-title="Would you implant yourself">
+      <p class="ch-time">Early middle section</p>
+      <h2>The confidence test</h2>
+      <p><span class="tag src">SOURCE</span> Huberman asks the question that tests the technology: would MacDougall implant himself? He says yes, absolutely, he would be excited to. The honest caveat: the first iteration would not be very useful for him, because he can already move his limbs, and the device's outputs are things he does easily with his hands.</p>
+      <p><span class="tag src">SOURCE</span> The principle behind the question: the fastest way to advance the technology is tests on someone who moves normally and deeply understands the system, not only on patients where every failure has many possible causes.</p>
+      <p><span class="tag src">SOURCE</span> MacDougall's own body already carries an experiment: he implanted a radio receiver in his own periphery, and in his family members, to show the utility of combining devices with the nervous system for everyday challenges. The episode presents this as science reality, not science fiction.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Trust</p>
+        <h4>The confidence test</h4>
+        <p><span class="lbl">What happened.</span> The head neurosurgeon says he would take the implant himself, excitedly, and he already carries a receiver implant of his own design. The caveat is stated in the same breath: version one would not help him much.</p>
+        <p><span class="lbl">Why it matters.</span> Willingness plus a stated limit is the credible combination. Pure enthusiasm would be sales. Enthusiasm with a boundary shows judgment.</p>
+        <p><span class="lbl">The principle.</span> Ask builders whether they would use version one. Then ask what it would not do for them. The second answer is the honest one.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-brain" data-time="Middle" data-title="The brain, from the inside">
+      <p class="ch-time">Middle section</p>
+      <h2>The brain, from the inside</h2>
+      <p><span class="tag src">SOURCE</span> MacDougall's picture: the brain is a three pound lump of meat trapped in a prison of the skull, and it is miraculous that electrical impulses produce a human life. As a surgeon, he learned the brain is a collection of functional modules pinned together, duct-taped together. The evidence comes from failure modes: a young car-accident patient woke from surgery with bilateral frontal lobe damage and essentially no impulse control. Discrete damage, discrete loss.</p>
+      <p><span class="tag src">SOURCE</span> The modern fix for deep tumors: a 2-millimeter drill hole in the skull, a fiber-optic cannula with a laser, heating the tumor under real-time MRI temperature monitoring, pictures every second, killing tumor cells while sparing surrounding brain. Tumors that were once catastrophic to operate on now leave patients largely intact.</p>
+      <p><span class="tag src">SOURCE</span> MacDougall divides the brain into two layers. Deep structures: stereotyped, similar across species, handling body temperature, blood pressure, hunger, motivation, sleep-wake. The firmware. A fox and a human need the same housekeeping. Neocortex: the bumpy outer surface, vastly different between species, handling reasoning and problem-solving. The strange case: gelastic seizures, where a tumor in the hypothalamus, a deep structure, causes uncontrollable fits of mirthless laughter. The lesson: any neuron population can break, and the break reveals the function.</p>
+      <p><span class="tag src">SOURCE</span> On neuroplasticity, the adult capacity to rewire: it goes down in older brains. It is harder for older people to learn new things, make radical behavior changes, or kick long-held habits. Implanted electrodes are not the obvious answer for more plasticity. Neuralink stays in the electrical bin: decoding the brain through recording and stimulation.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Anatomy</p>
+        <h4>Duct-taped modules</h4>
+        <p><span class="lbl">What happened.</span> The surgeon sees the brain as modules pinned together, because damage deletes functions discretely: frontal lobes gone, impulse control gone with them.</p>
+        <p><span class="lbl">Why it matters.</span> Modularity explains both the miracle and the fragility. Each module does its job until it breaks, and the break is specific.</p>
+        <p><span class="lbl">The principle.</span> When a complex system fails in a specific way, the failure maps the structure. Read failures as anatomy.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Model</p>
+        <h4>Firmware below, supercomputer on top</h4>
+        <p><span class="lbl">What happened.</span> Deep structures run the housekeeping every mammal needs. The neocortex runs the reasoning that separates humans from foxes. A hypothalamic tumor causing mirthless laughter shows even the firmware can surprise.</p>
+        <p><span class="lbl">Why it matters.</span> The two-layer model organizes every brain question: is this firmware or supercomputer? The fix differs by layer.</p>
+        <p><span class="lbl">The principle.</span> Sort problems by layer before you solve them. Firmware problems need inputs: sleep, food, temperature. Supercomputer problems need training.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Aging</p>
+        <h4>Plasticity declines</h4>
+        <p><span class="lbl">What happened.</span> The adult brain rewires less with age. New learning, radical behavior change, and habit-breaking all get harder. Electrodes are not the obvious fix for this.</p>
+        <p><span class="lbl">Why it matters.</span> Knowing the decline is structural changes the strategy: you protect plasticity early and you stop expecting the older brain to learn like the younger one.</p>
+        <p><span class="lbl">The principle.</span> Price the decline into your plans. Learn the hard things while the wiring is still cheap to change.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-alcohol" data-time="Middle late" data-title="Alcohol thins the cortex">
+      <p class="ch-time">Middle late section</p>
+      <h2>Alcohol thins the cortex in a straight line</h2>
+      <p><span class="tag src">SOURCE</span> The episode's most actionable health finding, from large-scale UK brain bank data: going from zero to one drink per week shows more brain atrophy, thinning of the gray matter cortex. One to two shows more. Two to three shows more. The relationship is near-linear: every additional regular drink maps to more thinning.</p>
+      <div class="pull reveal">
+        <blockquote>there's a near linear relationship between the amount that people are drinking and the amount of brain atrophy</blockquote>
+        <p class="who">Matthew MacDougall, alcohol section of the episode</p>
+      </div>
+      <div class="chart">
+        <h4>The alcohol line</h4>
+        <p class="csub">Each additional regular weekly drink maps to more gray-matter thinning. Near-linear from zero. Schematic bar heights. The shape is the finding.</p>
+        <svg viewBox="0 0 640 240" role="img" aria-label="Bar chart of cortical thinning rising with weekly drinks from zero to three">
+          <title>Alcohol dose line: near-linear thinning from zero</title>
+          <line x1="60" y1="180" x2="620" y2="180" stroke="#3d352a" stroke-width="2"/>
+          <rect x="110" y="168" width="90" height="12" class="bar alt"><title>Zero drinks per week: baseline</title></rect>
+          <rect x="250" y="128" width="90" height="52" class="bar"><title>One drink per week: more thinning</title></rect>
+          <rect x="390" y="88" width="90" height="92" class="bar"><title>Two drinks per week: more thinning</title></rect>
+          <rect x="530" y="48" width="60" height="132" class="bar dark"><title>Three drinks per week: more thinning</title></rect>
+          <text x="155" y="156" text-anchor="middle" class="vallab">0</text>
+          <text x="295" y="116" text-anchor="middle" class="vallab">1</text>
+          <text x="435" y="76" text-anchor="middle" class="vallab">2</text>
+          <text x="560" y="36" text-anchor="middle" class="vallab">3</text>
+          <text x="320" y="205" text-anchor="middle" class="axis">regular drinks per week</text>
+          <text x="320" y="228" text-anchor="middle" class="axis">No safe threshold visible. Bar heights are schematic. The line shape is the data.</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, alcohol section (UK brain bank data). The dose steps and the near-linear shape are the episode's. Bar heights are schematic.</p>
+      </div>
+      <p><span class="tag src">SOURCE</span> MacDougall's reaction: he is shocked at the current state of alcohol advertising given data this clear. Resveratrol in red wine exists in infinitesimal amounts and its benefit is debated anyway. The atrophy finding is not debated in the episode's telling.</p>
+      <p><span class="tag src">SOURCE</span> Two design notes from the surgeon. The failure: the middle meningeal artery runs just inside the thinnest, most fracture-prone part of the skull, the temporal bone. A fracture there tears the artery, blood at arterial pressure crushes the brain, and people die from what would otherwise be a minor injury. The success: the brain is mostly fat floating in salt water, and the fluid sheath cushions rapid acceleration and deceleration well. And the base rate most people get wrong: most traumatic brain injuries come from car accidents and construction work, not football and hockey.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Health</p>
+        <h4>The alcohol line</h4>
+        <p><span class="lbl">What happened.</span> UK brain bank data shows cortical thinning rising with every regular weekly drink, near-linear from zero. No threshold. The resveratrol story does not offset it.</p>
+        <p><span class="lbl">Why it matters.</span> A straight line from zero removes the comfortable story of a safe amount. The decision becomes arithmetic, not folklore.</p>
+        <p><span class="lbl">The principle.</span> When the dose line starts at zero, count your doses against the line, not against the culture.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Design</p>
+        <h4>The skull's design flaws</h4>
+        <p><span class="lbl">What happened.</span> The body's most pressurized artery sits inside its thinnest bone: one fracture can be fatal. But the brain's fluid suspension handles acceleration better than any first-time designer would manage.</p>
+        <p><span class="lbl">Why it matters.</span> Good design review covers both the failure and the success. The artery placement is the flaw to respect. The suspension is the feature to admire.</p>
+        <p><span class="lbl">The principle.</span> Audit any design for its thinnest bone and its best cushion. Protect the first. Trust the second.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ethics" data-time="Closing" data-title="Animals and the ethics">
+      <p class="ch-time">Closing section</p>
+      <h2>Animals and the ethics</h2>
+      <p><span class="tag src">SOURCE</span> Neuralink does animal research because there is no other way to develop the implant. No organization he knows goes further to give animals agency, MacDougall claims. No animal is compelled to participate beyond the surgery itself. The monkeys play video games for smoothie rewards. If the star monkey does not want to play on a given day, nobody forces it. The brain has no pain receptors, so the implanted recording itself is painless.</p>
+      <p><span class="tag src">SOURCE</span> Huberman's framing, which the chapter keeps: the animals do not opt into the experiment, only into each day's session. The ethical picture is involuntary enrollment, voluntary daily participation, strong welfare staffing.</p>
+      <p><span class="tag src">SOURCE</span> MacDougall adds that if the FDA ever allowed early experimentation in willing human participants, many people would step up, himself included, and animals could be spared. The episode presents this as a wish about the regulatory future, not a proposal.</p>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 · Ethics</p>
+        <h4>Involuntary enrollment, voluntary participation</h4>
+        <p><span class="lbl">What happened.</span> The animals never chose the program. They choose each day's session, with real opt-out and no compulsion. The recording itself is painless.</p>
+        <p><span class="lbl">Why it matters.</span> The two-level structure is the honest accounting: it neither hides the enrollment nor denies the daily agency. Ethics lives in stating both levels plainly.</p>
+        <p><span class="lbl">The principle.</span> When you cannot get full consent, separate what was chosen from what was not. Maximize agency inside the unchosen frame, and say the frame out loud.</p>
+      </div>
+    </section>
+
+    <div class="takeaways">
+      <h3>Takeaways</h3>
+      <ol>
+<li>The implant reads motor cortex through threads thinner than a hair, placed by a robot. The surgeon still opens the skull. The robot does the micron sewing.</li>
+      <li>First target: digital freedom for quadriplegic people, thought to cursor. Reconnecting the limbs is the roadmap, years away.</li>
+      <li>The decoding principle: unload difficulty from the patient's brain onto software. Smarter algorithms, not more electrodes, do the work.</li>
+      <li>Alcohol thins the cortex in a near-linear line from the first weekly drink. No safe threshold is visible in the data.</li>
+      <li>Animal research runs on involuntary enrollment with voluntary daily participation. MacDougall wishes willing humans could volunteer first so animals could be spared.</li>
+      </ol>
+    </div>
+    <footer>
+      <p><b>Sources.</b> This companion narrates Huberman Lab Episode 6, Neuralink and Technologies to Enhance Human Brains with Dr. Matthew MacDougall (2023-04-17, video 3ZGItIAUQmI). All facts and figures come from the episode transcript (cleaned captions, not verbatim-certified) and the episode page in this track. Each chart names its source line. Illustrations are AI-generated watercolors made for this page. No real photograph of the guest could be verified from a clean source, so this companion carries illustrations only. Transcripts carry no timestamps, so chapters are ordered by episode progression instead of clock time.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 26 words: one pull quote of 18 words on the alcohol finding, and one eight-word episode phrase on thread size. Both carry attribution where they appear. The pull quotes carry speaker attribution and their place in the episode. Everything else is original paraphrase and analysis. The transcript used here is cleaned captions, not a verbatim-certified record, so brief quoted phrases reproduce its wording, not necessarily the exact spoken word.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var title = ch.getAttribute('data-title') || '';
+    a.innerHTML = (t ? '<span class="t">' + t + '</span>' : '') + title;
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function onScroll(){
+    var best = null, by = 160;
+    chapters.forEach(function(ch){
+      var r = ch.getBoundingClientRect();
+      if (r.top <= by) best = ch;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', best && a.getAttribute('href') === '#' + best.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
