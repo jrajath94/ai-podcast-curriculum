@@ -442,8 +442,8 @@ span.ptag, .ptag {
 <div class="stat"><div class="n">0</div><div class="l">Helpful results in the filtered search, inflation unchanged</div><div class="s">Fisher interview, ep063</div></div>
 <div class="stat"><div class="n">2015</div><div class="l">Fisher, Goddu and Keil publish the inflation paper</div><div class="s">Fisher interview, ep063</div></div>
 </div>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1">
-<div class="frame"><div class="stage"><img alt="Watercolor illustration for this companion" class="base" fetchpriority="high" src="assets/search-effect.webp"/></div></div>
+</div><figure data-phase2="1" data-scene="search-effect-hero" class="paint wide" data-entrance="bloom" data-hero="1">
+<div class="frame"><div class="stage"><img alt="Watercolor illustration for this companion" class="base" fetchpriority="high" src="assets/search-effect.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/search-effect-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div>
 <figcaption><b>Illustration.</b> Watercolor-style image generated for this page. A reader dwarfs under a thought bubble holding a globe. Not a photograph.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="Part 1" data-title="Cognitive tools and transactive memory" id="ch-memory"><div class="ch-head"><div><p class="ch-meta"><span class="ts">Part 1</span> · Cognitive tools and transactive memory</p><h2>Cognitive Tools and Transactive Memory</h2></div></div>
 <p><span class="tag-src">SOURCE</span>Fisher starts with the baseball glove: an enhanced hand, crafted for catching, fitted to human biology. Then the cognitive version: writing. Without paper, remembering a birthday costs mental energy every day. With paper, you outsource the storage. Culture is the long accumulation of such tools.</p>
@@ -1213,5 +1213,19 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('search-effect-hero',{
+ init:function(F,FX){
+  F._m=FX.motes(F.stage,F.W,F.H,24,7);
+  F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.5,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];
+ },
+ pose:function(S,FX){
+  var F=S.F;F._m.tick(S.t);
+  F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);
+  return {'hero-subject':{x:7*Math.sin(S.t*0.6),y:5*Math.sin(S.t*0.83+1),r:0,s:1,o:1}};
+ } });
+})();
+</script>
+</body>
 </html>
