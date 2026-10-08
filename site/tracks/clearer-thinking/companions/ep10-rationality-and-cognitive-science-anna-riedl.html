@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rationality and Cognitive Science with Anna Riedl: Clearer Thinking Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Clearer Thinking episode with Anna Riedl: the great rationality debate, base rates, resource rationality, wisdom as meta-rationality, and her map of cognitive science.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#23201a; --muted:#6e655a;
+    --line:#e3dccb; --accent:#0e6e6e; --accent-ink:#0a5454; --soft:#e8f1f0;
+    --warn:#fdf3e3; --warnline:#d9a441;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0dd}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d3830;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  figure.photo img{max-width:460px;margin:0 auto}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .warnbox{background:var(--warn);border:1px solid var(--warnline);border-left:4px solid var(--warnline);
+    padding:14px 18px;margin:22px 0;font-family:var(--sans);font-size:14px;line-height:1.6}
+  .warnbox b{color:#7a4d0a}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdcd9}
+  .bar.dark{fill:#3d3830}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e4eaea;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .curve{fill:none;stroke:var(--accent);stroke-width:3}
+  .curve2{fill:none;stroke:#b0873f;stroke-width:3;stroke-dasharray:6 4}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{font-family:var(--sans);font-size:14px;line-height:1.5;counter-increment:w}
+  .wisdom li:before{content:counter(w,decimal-leading-zero);font-family:var(--mono);
+    font-size:11px;color:var(--accent-ink);display:block;margin-bottom:2px}
+  .takeaways{background:#fff;border:1px solid var(--line);padding:22px;margin:30px 0}
+  .takeaways h3{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .takeaways ol{margin:0 0 14px;padding-left:22px}
+  .takeaways li{margin-bottom:8px}
+  .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-right:8px;white-space:nowrap}
+  .tag.fact{background:#e2efed;color:var(--accent-ink)}
+  .tag.interp{background:#efe9dc;color:#6b5320}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);border:1px dashed var(--line);
+    padding:10px 14px;margin:0 0 26px}
+  .video{margin:26px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+    border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:12px;color:var(--accent-ink)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 10px;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  footer p{margin:0 0 14px}
+  footer b{color:var(--ink)}
+  .backlink{font-family:var(--sans);font-size:13px;margin:18px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Clearer Thinking companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+
+<div class="hero">
+<p class="kicker">Clearer Thinking with Spencer Greenberg &middot; Episode 10</p>
+<h1>Rationality and Cognitive Science with Anna Riedl</h1>
+<p class="dek">Spencer Greenberg talks with cognitive scientist Anna Riedl about the great rationality debate, why simple heuristics often win, and wisdom as the route to greater rationality.</p>
+<img src="assets/ep10/ep10-hero.webp" alt="Watercolor of nine ink dots with a brushstroke line sweeping outside the square">
+<p class="caption"><b>Illustration.</b> AI-generated watercolor made for this page: the nine-dot puzzle, solved by leaving the box.</p>
+<div class="stats">
+<div class="stat"><div class="n">99%</div><div class="l">Test accuracy</div><div class="s">1 in 10 million prior</div></div>
+<div class="stat"><div class="n">64/62</div><div class="l">Chessboard squares</div><div class="s">31 dominoes cannot cover</div></div>
+<div class="stat"><div class="n">100 yrs</div><div class="l">Map x-axis</div><div class="s">her cognitive science map</div></div>
+<div class="stat"><div class="n">2019</div><div class="l">Map published</div><div class="s">by Anna Riedl</div></div>
+</div></div>
+<figure class="photo"><img src="assets/ep10/ep10-anna-riedl.jpg" alt="Photograph of Anna Riedl"><figcaption class="caption"><b>Photograph.</b> Anna Riedl. Real photograph via Anna Riedl's website, riedlanna.com (cropped from a video thumbnail).</figcaption></figure>
+<div class="video"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/ovoui2h8UPU" title="Episode video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption"><b>Video.</b> The full episode on YouTube.</p></div>
+<section class="chapter" id="ch-debate" data-time="~00:00" data-title="Two Tribes of Rationality">
+
+<p class="ch-time">~00:00</p>
+<h2>Two Tribes of Rationality</h2>
+<div class="legend"><span class="tag fact">Source fact</span> a claim traceable to the episode transcript. <span class="tag interp">Interpretation</span> the companion author's analysis or transfer, not the guest's claim.</div>
+<p><span class="tag fact">Source fact</span> The great rationality debate has two main tribes. The axiomatic approach builds on the axioms of rationality of von Neumann and Morgenstern. Follow the axioms and you behave as if you maximize utility. The ecological approach, associated with Gigerenzer, asks instead how well an agent adapts to its environment, without grading that adaptation against axioms.</p>
+<p><span class="tag fact">Source fact</span> The classic axiom is transitivity: if you like A more than B and B more than C, you should like A more than C. A violation looks like a contradiction in your choices. Utility here does not mean happiness. It means a description of the agent's goals as a function over states of the world.</p>
+<p><span class="tag fact">Source fact</span> Underneath sit two attitudes about the gap between humans and the ideal. The meliorist view sees a large gap, the home of biases, that we could close. The Panglossian view sees the best of all possible worlds and a small gap. The debate is not settled history: a 2002 publication by Tetlock and Mellers summarized the 20th-century debate, and a large new exchange appeared only two or three years before this episode.</p>
+<div class="pull">
+<blockquote>one cannot be reduced to the other</blockquote>
+<p class="who">Anna Riedl &middot; Episode ~00:04</p>
+</div>
+<p><span class="tag fact">Source fact</span> Riedl's own project is unification. The two sides approach from different ends, but they do not disagree about the facts. They abstract differently from the same phenomena. She calls her stance scientific perspectivism: both sides are powerful tools for discovery, and we need both.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the guest as Anna Riedel, von Neumann and Morgenstern as Loyman and Morgenheim, Gigerenzer as gear, Tetlock and Mellers as Ted Logan-Mellers, meliorist as miliarist, and Panglossian as penglossian. Corrected in this companion. Originals noted in the footer.</div>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 &middot; Debate</p>
+<h4>Name both tribes before you pick one</h4>
+<p><span class="lbl">What happened. </span>Axioms grade the agent. Ecology grades the fit. Both watch the same humans.</p>
+<p><span class="lbl">Why it matters. </span>Most arguments about bias are really arguments about which yardstick to use.</p>
+<p><span class="lbl">The principle. </span>Ask what the yardstick is before you argue about the score.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-baserate" data-time="~00:07" data-title="The 1-in-10-Million Test">
+
+<p class="ch-time">~00:07</p>
+<h2>The 1-in-10-Million Test</h2>
+<p><span class="tag fact">Source fact</span> The classic base-rate problem. A cancer test is 99% accurate: if you have the cancer, it says so 99% of the time, and if you do not, it clears you 99% of the time. The cancer is rare: one in 10 million people have it. A random person tests positive. Most people's impulse is that the person probably has the cancer.</p>
+<p><span class="tag fact">Source fact</span> The Bayesian answer goes the other way. Out of 10 million screened people, one truly has the cancer and tests positive. But the test errs one time in 100, so roughly 100,000 healthy people also test positive. A positive result is about 100,000 times more likely to be a false alarm than a true one.</p>
+<p><span class="tag fact">Source fact</span> Restate the same facts as natural frequencies, counts of people instead of abstract probabilities, and accuracy jumps. The ecological reading: the frequency format is closer to how information arrives in the real world, so the lab failure overstates the real-world bias.</p>
+<div class="chart">
+<h4>One true positive against a crowd of false ones</h4>
+<p class="csub">The episode's screening numbers, drawn to scale of the story.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Bar chart comparing 1 true positive with about 100000 false positives from the episode screening example">
+<rect class="bar" x="120" y="230" width="80" height="20" data-tip="1 true positive out of 10 million screened."/>
+<rect class="bar alt" x="320" y="40" width="200" height="210" data-tip="About 100000 false positives: the 1 percent error rate applied to 10 million people."/>
+<text class="vallab" x="160" y="215" text-anchor="middle">1</text>
+<text class="vallab" x="420" y="25" text-anchor="middle">~100,000</text>
+<text class="axis" x="160" y="275" text-anchor="middle">true positives</text>
+<text class="axis" x="420" y="275" text-anchor="middle">false positives</text>
+<text class="axis" x="320" y="295" text-anchor="middle">The base rate, not the test, dominates the answer.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Anna Riedl episode, ~00:07. Bars from the episode's stated figures: 99% accuracy, 1 in 10 million prior. Not to linear scale.</p>
+</div>
+<div class="toy">
+<h4>Try it: the base-rate machine</h4>
+<p class="csub" style="font-family:var(--sans);font-size:12.5px;color:var(--muted)">Set the rarity and the test accuracy. Watch the positive result change meaning.</p>
+<label for="br-n">Rarity: 1 in <span id="br-n-v">10000000</span></label>
+<input type="range" id="br-n" min="2" max="7" step="1" value="7">
+<label for="br-acc">Test accuracy: <span id="br-acc-v">99</span>%</label>
+<input type="range" id="br-acc" min="50" max="99.9" step="0.1" value="99">
+<p class="out" id="br-out"></p>
+</div>
+<script>
+(function(){
+  var n = document.getElementById('br-n'), a = document.getElementById('br-acc');
+  var nv = document.getElementById('br-n-v'), av = document.getElementById('br-acc-v');
+  var out = document.getElementById('br-out');
+  function upd(){
+    var N = Math.pow(10, +n.value), acc = +a.value / 100;
+    nv.textContent = N.toLocaleString('en-US'); av.textContent = a.value;
+    var tp = 1 * acc, fp = (N - 1) * (1 - acc);
+    var p = tp / (tp + fp);
+    out.textContent = 'A positive test means the condition is present with probability about ' +
+      (p < 0.0001 ? p.toExponential(1) : p.toFixed(4)) + '. True positives: ' +
+      tp.toFixed(2) + '. False positives: ' + Math.round(fp).toLocaleString('en-US') + '.';
+  }
+  n.addEventListener('input', upd); a.addEventListener('input', upd); upd();
+})();
+</script>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 &middot; Probability</p>
+<h4>Translate probabilities into people</h4>
+<p><span class="lbl">What happened. </span>99% accurate sounds decisive until you count the healthy 10 million.</p>
+<p><span class="lbl">Why it matters. </span>Frequencies show the base rate. Percentages hide it.</p>
+<p><span class="lbl">The principle. </span>When a probability confuses you, count the crowd it describes.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-resource" data-time="~00:11" data-title="Thinking Has a Price">
+
+<p class="ch-time">~00:11</p>
+<h2>Thinking Has a Price</h2>
+<p><span class="tag fact">Source fact</span> The bridge concept is computational rationality. Deciding whether to think longer is itself a decision with a speed-accuracy trade-off. In the real world, computation costs time and carries opportunity costs. The expected value of further thought drops fast, so quick decisions are often boundlessly optimal.</p>
+<p><span class="tag fact">Source fact</span> Falk Lieder's research program, resource-rational analysis, shows that many apparent biases are optimal trade-offs once you price the thinking. Simple strategies also tend to beat complex ones on average because they are more resistant to environmental uncertainty, the same way simple models resist overfitting noise.</p>
+<p><span class="tag interp">Interpretation</span> This reframes the debate as accounting. The axiomatic side prices only the answer. The ecological side prices the thinking too. Add the missing cost and the two ledgers start to agree.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders Falk Lieder as Lita. Corrected in this companion. Original noted in the footer. The episode credits the resource-rational results without naming a paper, so treat the claim as a pointer to a literature, not a citation.</div>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 &middot; Cost</p>
+<h4>Price the thinking, not just the answer</h4>
+<p><span class="lbl">What happened. </span>A perfect answer that arrives too late loses to a good answer now.</p>
+<p><span class="lbl">Why it matters. </span>Opportunity cost is invisible in the lab and decisive outside it.</p>
+<p><span class="lbl">The principle. </span>Ask what the deliberation costs before you call the shortcut a bias.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-sunk" data-time="~00:12" data-title="Maybe Not a Fallacy">
+
+<p class="ch-time">~00:12</p>
+<h2>Maybe Not a Fallacy</h2>
+<p><span class="tag fact">Source fact</span> Spencer presses the sunk-cost case: people with plenty of time to decide still cling to doomed projects because quitting would feel like wasting past investment, even though the investment is gone either way. Riedl pushes back. We are radically dependent on the structure of our environment and our history. Years invested create real constraints on what comes next, and under deep uncertainty about the payoff, sticking with it can be the reasonable move.</p>
+<p><span class="tag fact">Source fact</span> She does not claim it is never a fallacy. Her claim is narrower: many textbook biases stop looking obvious once you account for embeddedness. The fallacy label assumes a clean separation between past and future that real lives do not have.</p>
+<p><span class="tag interp">Interpretation</span> This is the ecological move applied to a favorite example of the other side. Change the assumed environment from a lab gamble to an uncertain life, and the same behavior changes its grade.</p>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 &middot; Fallacies</p>
+<h4>Check the environment before you name the fallacy</h4>
+<p><span class="lbl">What happened. </span>Sunk cost looks irrational in a gamble and reasonable in a career.</p>
+<p><span class="lbl">Why it matters. </span>The fallacy label smuggles in an assumed world. Inspect the world first.</p>
+<p><span class="lbl">The principle. </span>A bias is a behavior plus a context. Never grade one without the other.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-wason" data-time="~00:15" data-title="The Card Trick">
+
+<p class="ch-time">~00:15</p>
+<h2>The Card Trick</h2>
+<p><span class="tag fact">Source fact</span> The Wason selection task: cards show a shape on each side, and the rule is that a triangle on one side means a square on the other. Most people pick the wrong cards to turn over. Rephrase the identical logical structure as checking IDs to see who may enter a bar, and accuracy jumps dramatically.</p>
+<p><span class="tag fact">Source fact</span> Spencer's moral: a silly lab mistake does not imply a silly real-world mistake. The information is the same, but the realistic framing recruits machinery the abstract framing does not. Riedl agrees in part but stays agnostic about whether human rationality is improvable in general. She notes large individual differences in decision-making, the Stanovich research line, which the axiomatic side takes seriously.</p>
+<p><span class="tag interp">Interpretation</span> The card trick is the debate in miniature. One side sees a logic failure. The other sees a format failure. Both can be right if the failure lives in the interface between mind and presentation.</p>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 &middot; Framing</p>
+<h4>Rephrase the problem, keep the structure</h4>
+<p><span class="lbl">What happened. </span>Same logic, new cover story. The error rate collapses.</p>
+<p><span class="lbl">Why it matters. </span>Performance measures the pairing of mind and format, not the mind alone.</p>
+<p><span class="lbl">The principle. </span>Before you fix the thinker, try fixing the presentation.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-wisdom" data-time="~00:21" data-title="Wisdom as Meta-Rationality">
+
+<p class="ch-time">~00:21</p>
+<h2>Wisdom as Meta-Rationality</h2>
+<div class="pull">
+<blockquote>there cannot really be a theory of fitness</blockquote>
+<p class="who">John Vervaeke, via Anna Riedl &middot; Episode ~00:21</p>
+</div>
+<p><span class="tag fact">Source fact</span> Riedl found her way into wisdom research through John Vervaeke, who describes wisdom as meta-rationality. His argument: fitness changes radically with the environment, so there can be no theory of fitness, only a theory of evolution, natural selection. Likewise there is no fixed list of rationality's properties. There is only the process by which one becomes more rational, and that process is wisdom.</p>
+<div class="pull">
+<blockquote>what is true and what to do</blockquote>
+<p class="who">Spencer Greenberg &middot; Episode ~00:23</p>
+</div>
+<p><span class="tag fact">Source fact</span> Spencer offers a compact definition of rationality itself: what is true and what to do. Wisdom, on Vervaeke's view, is the machinery that improves both. It needs self-reflection, and it works by turning seemingly intractable problems into tractable ones through insight. Vervaeke's name for the loop is "overcoming foolishness": make a mistake, reflect, have the aha moment, and do better next time.</p>
+<p><span class="tag fact">Source fact</span> The wise adviser does not just hand over the output of a causal model. She hands over parts of the model, or a process for building your own. Vervaeke also describes expertise as sophisticated procedural knowledge: abstract facts are cheap, but the lived know-how of acting is not, which is why advice lands only after you have made the mistakes yourself.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders John Vervaeke as John Ververky and as Barakie, among other variants. Corrected in this companion. Originals noted in the footer.</div>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 &middot; Wisdom</p>
+<h4>Treat wisdom as a process, not a property</h4>
+<p><span class="lbl">What happened. </span>No fixed theory survives a changing environment. Only the upgrading process does.</p>
+<p><span class="lbl">Why it matters. </span>It moves the goal from a fixed trait to a practice.</p>
+<p><span class="lbl">The principle. </span>Invest in the loop: mistake, reflection, insight, change.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-ninedot" data-time="~00:27" data-title="Draw Outside the Box">
+
+<p class="ch-time">~00:27</p>
+<h2>Draw Outside the Box</h2>
+<p><span class="tag fact">Source fact</span> The nine-dot problem: nine dots in a square, strike through all of them. People struggle because they implicitly assume the lines must stay inside the square. Nothing says so. Once you allow lines outside the box, where the phrase comes from, the solution is easy. The constraint was never in the problem. It was in the solver.</p>
+<p><span class="tag fact">Source fact</span> Riedl's life-sized version: flower pots outside a restaurant read as a boundary, so she walked around them, while her friend walked between them. Physically possible, socially marked. The lesson is two-sided. Many constraints are imaginary and worth questioning from first principles. But violating real social norms has real costs, and a wise agent keeps both considerations on the table.</p>
+<p><span class="tag fact">Source fact</span> Two wider points follow. The typical mind fallacy holds that people's inner lives differ far more than we assume. And social copying means behavior is far more uniform than it could be, because everyone copies everyone and incentives punish deviation. Minds vary wildly, actions barely do.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders Mirta Galesic as Mircha Galesik. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 &middot; Constraints</p>
+<h4>Question the invisible walls, price the real ones</h4>
+<p><span class="lbl">What happened. </span>The box was never drawn. The flower pots were only a suggestion.</p>
+<p><span class="lbl">Why it matters. </span>Imaginary constraints shrink your options. Real ones just cost.</p>
+<p><span class="lbl">The principle. </span>List the constraints, then ask which ones anyone actually wrote down.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-relevance" data-time="~00:34" data-title="Relevance Realization">
+
+<p class="ch-time">~00:34</p>
+<h2>Relevance Realization</h2>
+<p><span class="tag fact">Source fact</span> Vervaeke's central problem: relevance realization, deciding what to attend to and what to ignore. Considering every possible action explodes combinatorially, and the brain cannot hold them all. So the mind filters almost everything before consciousness. Relevance is learned in ongoing interaction with the environment, by keeping goals in mind and noticing what actually serves them.</p>
+<p><span class="tag fact">Source fact</span> The chessboard demonstration: 64 squares, 32 dominoes covering two squares each. Remove two diagonally opposite corners. Can 31 dominoes still cover the board? People shuffle pieces in their heads and get lost. The parity insight ends it: each domino covers one white and one black square, but the removed corners share a color, so the board now has 32 of one color and 30 of the other. Impossible, and the same insight generalizes to every such removal.</p>
+<div class="chart">
+<h4>Why 31 dominoes cannot cover 62 squares</h4>
+<p class="csub">The episode's parity argument, drawn from the stated numbers.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Diagram explaining the domino parity argument: 32 squares of one color and 30 of the other cannot be covered by 31 dominoes">
+<rect class="bar" x="120" y="60" width="150" height="190" data-tip="32 squares of the majority color remain after removing two corners of the same color."/>
+<rect class="bar alt" x="370" y="78" width="150" height="172" data-tip="30 squares of the minority color remain."/>
+<text class="vallab" x="195" y="45" text-anchor="middle">32</text>
+<text class="vallab" x="445" y="63" text-anchor="middle">30</text>
+<text class="axis" x="195" y="275" text-anchor="middle">majority color</text>
+<text class="axis" x="445" y="275" text-anchor="middle">minority color</text>
+<text class="axis" x="320" y="295" text-anchor="middle">Each domino needs one of each. 31 dominoes need 31 pairs.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Anna Riedl episode, ~00:36. The 64/32/31 figures are stated in the episode.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Older models of rationality assume an all-seeing eye: all data arrives, then the agent updates. Real perception is goal-dependent. We see what we need to reach our goals, which is why trained expertise looks like perception: chess masters see strong moves rather than computing them, and the phrase I see means I understand.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the parity argument as a parody argument. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-8">
+<p class="eyebrow">Nugget 8 &middot; Attention</p>
+<h4>Relevance is the real bottleneck</h4>
+<p><span class="lbl">What happened. </span>Every hard problem is mostly a filtering problem.</p>
+<p><span class="lbl">Why it matters. </span>Insight is what remains after the irrelevant is cut away.</p>
+<p><span class="lbl">The principle. </span>Train what you ignore as carefully as what you study.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-journey" data-time="~00:42" data-title="Becoming a Cognitive Scientist">
+
+<p class="ch-time">~00:42</p>
+<h2>Becoming a Cognitive Scientist</h2>
+<p><span class="tag fact">Source fact</span> Riedl entered cognitive science overconfident, assuming she already knew the psychology. She learned that interdisciplinarity means breaking your home paradigm. Paul Thagard's book The Cognitive Science of Science gave her the frame: fields advance through conceptual change, the same thing she later watched happen in herself.</p>
+<p><span class="tag fact">Source fact</span> The paradigm tour: behaviorism measured stimulus and response with no model of the organism, Skinner style. Cognitivism opened the box and assumed information processing inside. Then computationalism, connectionism, and embodied dynamism, plus the 4E approach, active, extended, embedded, and embodied cognition. The extended view asks where the mind's boundary lies: a calculator between thought steps is arguably part of the thinking.</p>
+<p><span class="tag interp">Interpretation</span> Her journey mirrors the episode's theme. Each paradigm is a relevance filter, deciding what counts as data. Shifting paradigms is relevance realization at the scale of a career.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders Paul Thagard as Paul Fegerd. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-9">
+<p class="eyebrow">Nugget 9 &middot; Paradigms</p>
+<h4>Learn the second lens on purpose</h4>
+<p><span class="lbl">What happened. </span>One paradigm felt complete until a second one broke it.</p>
+<p><span class="lbl">Why it matters. </span>Confidence tracks the number of lenses you try, not the strength of one.</p>
+<p><span class="lbl">The principle. </span>Study the field that disagrees with your training.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-map" data-time="~00:46" data-title="The Map of a Field">
+
+<p class="ch-time">~00:46</p>
+<h2>The Map of a Field</h2>
+<p><span class="tag fact">Source fact</span> Near the end of her master's, Riedl still felt cognitive science did not make sense, so she drew it. The map's x-axis is the last 100 years of history, the rows are disciplines, the bubbles are key publications, and colored blobs mark the paradigms. It hit the front page of Reddit and Hacker News.</p>
+<p><span class="tag fact">Source fact</span> Drawing it was itself an extended-mind trick. Working memory holds maybe seven to ten items, but a diagram holds them all at once, lets the eye move nonlinearly, and makes gaps visible. It also lets experts point at your mistakes: a picture of your understanding is easier to correct than a monologue about it.</p>
+<p><span class="tag interp">Interpretation</span> The map is the episode's ideas made concrete. Externalizing thought is relevance realization with a pen. The diagram does the filtering the brain cannot.</p>
+<div class="nugget reveal" id="nugget-10">
+<p class="eyebrow">Nugget 10 &middot; Maps</p>
+<h4>Draw it to understand it</h4>
+<p><span class="lbl">What happened. </span>A field that would not fit in her head fit on one page.</p>
+<p><span class="lbl">Why it matters. </span>External representation turns private confusion into public, fixable error.</p>
+<p><span class="lbl">The principle. </span>When a topic resists you, draw your current understanding and show it around.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-infodesign" data-time="~00:51" data-title="Diagrams That Think">
+
+<p class="ch-time">~00:51</p>
+<h2>Diagrams That Think</h2>
+<p><span class="tag fact">Source fact</span> Riedl is an information-design enthusiast. Her example is Herbert Simon's paper on why a diagram is sometimes worth 10,000 words: a drawing of a mechanical device and a parts list carry the same information, but the drawing lets you imagine pulling the parts and watching it work, while the list forces a costly mental translation first.</p>
+<p><span class="tag fact">Source fact</span> The public-service version comes from Otto and Marie Neurath, who thought governments owed citizens good visual representations so they could vote better. The warning: presentation choices steer conclusions. Diagrams of US inequality disagree depending on small decisions, like how employer-paid health care is counted, so an untrusted designer can sway you without lying.</p>
+<p><span class="tag fact">Source fact</span> The closing loop: perception and understanding are close. Once complex thinking becomes expertise, it turns into direct perception, which is why the chess master answers one when asked how many moves deep he sees.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders Otto and Marie Neurath as Otto and Mervi Noida, and Simon's paper title as Wyatt diagram is sometimes the worst 10,000 words. Corrected in this companion. Originals noted in the footer.</div>
+
+</section>
+<div class="wisdom"><h3>Nugget index</h3><ol>
+<li>Name both tribes before you pick one</li>
+<li>Translate probabilities into people</li>
+<li>Price the thinking, not just the answer</li>
+<li>Check the environment before you name the fallacy</li>
+<li>Rephrase the problem, keep the structure</li>
+<li>Treat wisdom as a process, not a property</li>
+<li>Question the invisible walls, price the real ones</li>
+<li>Relevance is the real bottleneck</li>
+<li>Learn the second lens on purpose</li>
+<li>Draw it to understand it</li>
+</ol></div>
+<p class="backlink"><a href="../index.html">&larr; Back to the Clearer Thinking track index</a></p>
+<footer><p><b>Sources.</b> This companion narrates the Clearer Thinking episode on rationality and cognitive science with Anna Riedl (YouTube re-upload, 58 minutes). All facts and figures come from the episode transcript (research/clearer-thinking/transcripts/ovoui2h8UPU.txt), a faster-whisper base.en transcription of the official podcast audio. The transcript carries no timestamps. All chapter times marked ~ are proportional estimates from word position. The screening, domino, and publication figures are stated in the episode. The screening and domino charts are illustrative renderings of the episode's examples. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p><p id="on-quotes"><b>On quotes.</b> Direct quotations in this companion total 49 words: three pull quotes, each carrying speaker and proportional episode-time attribution, one short quoted phrase in the body text, and thirteen short quoted transcript fragments in the corrections note below. Everything else is original paraphrase and analysis.</p><p><b>On transcript corrections.</b> The transcript is a machine transcription with rough edges. Applied corrections, with originals. Anna Riedl (transcript: "Anna Riedel"). Von Neumann and Morgenstern (transcript: "Loyman and Morgenheim"). Tetlock and Mellers (transcript: "Ted Logan-Mellers"). Falk Lieder (transcript: "Lita"). Meliorist (transcript: "miliarist"). Panglossian (transcript: "penglossian"). John Vervaeke (transcript: "John Ververky" and "Barakie"). The parity argument (transcript: "parody argument"). Paul Thagard (transcript: "Paul Fegerd"). Otto and Marie Neurath (transcript: "Otto and Mervi Noida"). Simon's diagram paper (transcript: "Wyatt diagram"). Mirta Galesic (transcript: "Mircha Galesik").</p><p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p></footer>
+
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var ttl = ch.getAttribute('data-title') || '';
+    a.innerHTML = '<span class="t">' + t + '</span>' + ttl;
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(txt, x, y){
+    tip.textContent = txt;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
