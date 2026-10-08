@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Dunning-Kruger Effect: You Are Not So Smart Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the You Are Not So Smart episode with David Dunning: the double curse, the lemon-juice bank robber, and the buffers that guard real institutions.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .backlinks{font-family:var(--sans);font-size:13px;margin:0 0 18px;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted);margin:18px 0}
+  .tag-src,.tag-int{display:inline-block;font-family:var(--sans);font-size:10.5px;
+    font-weight:700;letter-spacing:.1em;padding:2px 8px;border-radius:10px;
+    margin-right:8px;vertical-align:middle}
+  .tag-src{background:#e8f0e4;color:#2f5d33;border:1px solid #bcd3b6}
+  .tag-int{background:#efe6f5;color:#5b3a8c;border:1px solid #d5c2e8}
+  footer.honesty{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer.honesty p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  footer.honesty h3{font-family:var(--sans);font-size:13px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink);margin:22px 0 8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">You Are Not So Smart · Interactive Companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">You Are Not So Smart · Episode 036 · Interactive Companion</p>
+      <h1>The Dunning-Kruger Effect</h1>
+      <p class="dek">David Dunning explains why the unskilled cannot judge their own skill. The same gap that causes the error also hides it. This companion follows the full interview, from a lost video game tournament to the buffers that guard real institutions.</p>
+      <p class="backlinks"><a href="../index.html">← Track index</a> · <a href="../ep01.html">Episode chapter →</a></p>
+      <div class="legend"><span><b>SOURCE</b> marks a claim from the episode interview transcript.</span><span><b>INTERPRETATION</b> marks analysis or transferable advice from the companion author.</span></div>
+      <figure>
+        <img src="assets/dunning-kruger.webp" alt="Watercolor illustration for this companion">
+        <p class="caption"><b>Illustration.</b> Watercolor-style image generated for this page. A lone figure at a small pond sees a giant crowned reflection. Not a photograph.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">8 vs 6</div><div class="l">Of 10: self estimates for the same test under two labels</div><div class="s">Dunning interview, ep036</div></div>
+        <div class="stat"><div class="n">×1.3 / ×2 / ×8</div><div class="l">Estimate buffers: software, new systems, concrete</div><div class="s">Dunning interview, ep036</div></div>
+        <div class="stat"><div class="n">50 years</div><div class="l">For Vertigo to be voted the best film of all time</div><div class="s">Dunning interview, ep036</div></div>
+        <div class="stat"><div class="n">8 to 10</div><div class="l">Hometown friends sure they were the best in the world</div><div class="s">Dunning interview, ep036</div></div>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The double curse</a></li>
+          <li><a href="#nugget-2">The small pond</a></li>
+          <li><a href="#nugget-3">The lemon juice test</a></li>
+          <li><a href="#nugget-4">The buffer rule</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-tournament" data-time="Part 1" data-title="The tournament nobody was ready for">
+      <p class="ch-time">Part 1</p>
+      <h2>The Tournament Nobody Was Ready For</h2>
+      <p><span class="tag-src">SOURCE</span>The core finding, in the words Dunning uses in the interview: &ldquo;relatively meagre, to often non-existent.&rdquo; That is the measured link between what people believe about their skill and the reality of it.</p>
+      <p><span class="tag-src">SOURCE</span>In college, David McRaney staged a fighting game tournament. He invited national champions to play 8 to 10 hometown friends. The friends played one game without pause. They felt superb, sure they ranked with the best in the world.</p>
+      <p><span class="tag-src">SOURCE</span>Every hometown player lost both matches at once. None placed. None came close. They shook their heads and asked how they could be not just mediocre but terrible.</p>
+      <p><span class="tag-src">SOURCE</span>Dunning calls this the small pond problem. The friends judged their skill against the only rivals they had ever seen. They had never met the master level, so they placed themselves near it. He gives the college version: the best swimmer on a high school team can land in the bottom 20 percent of college tryouts. The swimmer did not get worse. The pond got bigger.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The rule for the reader: you cannot know your rank until you see the top. Find one practitioner clearly better than you and study their work for an hour each month. That hour is the pond check.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget</p>
+        <h4>The small pond</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Eight to ten friends, best in their world, lost every match to champions they had never seen.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Rank needs the full range in view. Without the top in sight, the mind puts you near it.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Seek the real top monthly and measure the gap. Exposure beats introspection.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-double" data-time="Part 2" data-title="The double curse">
+      <p class="ch-time">Part 2</p>
+      <h2>The Double Curse</h2>
+      <p><span class="tag-src">SOURCE</span>Dunning gives the short version first. Incompetent people are not in a position to know they are incompetent, in many areas of life. Three things follow. They judge other people worse. They can see the gap once they gain skill. And they find it hard to learn how low they stand.</p>
+      <p><span class="tag-src">SOURCE</span>The key exclusion: this is not denial. Nobody hides the truth here. The person simply lacks the tools to make the call. Dunning calls it the double curse. The same gap causes the mistake and blocks its detection, because you judge your work with the same flawed knowledge you used to do it.</p>
+      <p><span class="tag-src">SOURCE</span>The American Idol case shows the mechanism. Weak singers believed they sang well. The evidence they used to judge was the same evidence they used to perform: what they heard inside their own heads. They heard a flattering inner mix. The judges heard the room. Same event, two data streams, and the singer owns the corrupt one.</p>
+      <p><span class="tag-src">SOURCE</span>McRaney adds the Jeopardy uncle. At home, uncles answer the questions they choose and skip the rest, and they never count the skips. Put them on the show and they would score below zero. The camera and the nerves take the rest.</p>
+      <p><span class="tag-src">SOURCE</span>Then the mediocrity enablers. Polite friends tell the bad singer the voice is great, face to face. They would never say it behind the back. The singer believes the praise and auditions on television. Dunning calls the polite conspiracy fine for daily life and dangerous the moment someone acts on it in a high stakes setting.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The transfer: never grade your own work alone. The judge and the defendant share one broken instrument. Borrow other eyes before you ship, publish, or decide.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget</p>
+        <h4>The double curse</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>The same knowledge gap causes the error and hides it. This is not denial. The judge is the defendant.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Your inner verdict arrives pre approved. Distrust the feeling of being right.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Never grade your own work alone. Borrow other eyes for every consequential call.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-border" data-time="Part 3" data-title="The borderline you cannot see">
+      <p class="ch-time">Part 3</p>
+      <h2>The Borderline You Cannot See</h2>
+      <p><span class="tag-src">SOURCE</span>Dunning draws a border between what you know and what you do not know. Then he makes two claims he calls contentious. First, the border arrives fast, well inside everyday life. People often act from ignorance without knowing it. Second, and worse, nobody knows where the border sits. You cross it in both directions all day and never feel the crossing.</p>
+      <p><span class="tag-src">SOURCE</span>The episode names the confident crossing a lemon juice belief, after MacArthur Wheeler of Pittsburgh. Wheeler robbed banks in daylight with no disguise. He believed lemon juice on his face made him invisible to cameras. He had run a test before the robbery: a Polaroid selfie that showed only wall. The test was broken. He had mis-aimed the camera. Police caught him within hours.</p>
+      <div class="pull">
+        <blockquote>But I wore the juice, I wore the juice.</blockquote>
+        <p class="who">MacArthur Wheeler, as Dunning tells the story in the interview</p>
+      </div>
+      <p><span class="tag-int">INTERPRETATION</span>The lemon juice test for the reader: before you act on a clever theory, check the test that tested it. Wheeler tested. His test was broken. Bad tests are their own lemon juice belief.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget</p>
+        <h4>The lemon juice test</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Wheeler tested his theory with a mis-aimed camera and trusted the result.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>The will to test means nothing if the test cannot fail in the right way.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Audit the test before you trust the result.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-genius" data-time="Part 4" data-title="The effect runs both directions">
+      <p class="ch-time">Part 4</p>
+      <h2>The Effect Runs Both Directions</h2>
+      <p><span class="tag-src">SOURCE</span>The skilled misjudge too, in the other direction. Hard tasks feel easy to them, so they assume ease for all. Dunning gives the collective version: groups good enough to spot poor performers still miss the top. His example is Vertigo. On release it earned back its money but missed a Best Picture nomination and drew mixed reviews. About 50 years later, Sight and Sound critics voted it the best film of all time. Genius hid in plain sight for half a century.</p>
+      <p><span class="tag-src">SOURCE</span>With Joyce Ehrlinger, Dunning gave students one verbal reasoning test under two labels. Told it measured abstract reasoning, a skill students prize, they estimated about 8 of 10 correct. Told it measured computer programming reasoning, a skill students disown, they estimated about 6 of 10. Same test, same answers. The label alone moved the estimate 2 points. People infer the score from the self view they brought into the room, not from the test itself.</p>
+      <p><span class="tag-src">SOURCE</span>The gender follow up sharpens the cost. Men and women scored the same on a science quiz. Men estimated far higher scores after. Dunning names this as one possible engine of the STEM gap: not talent differences but perceived talent differences, compounding daily.</p>
+      <div class="chart" id="chart-label">
+        <h4>The label moves the estimate 2 points</h4>
+        <p class="csub">Hover any bar for detail. One test, two labels, same questions.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of self estimates under two labels">
+          <line x1="60" x2="620" y1="280" y2="280" class="gridln"></line>
+          <line x1="60" x2="620" y1="220" y2="220" class="gridln"></line>
+          <line x1="60" x2="620" y1="160" y2="160" class="gridln"></line>
+          <line x1="60" x2="620" y1="100" y2="100" class="gridln"></line>
+          <line x1="60" x2="620" y1="40" y2="40" class="gridln"></line>
+          <text class="axis" x="52" y="284" text-anchor="end">0</text>
+          <text class="axis" x="52" y="224" text-anchor="end">2.5</text>
+          <text class="axis" x="52" y="164" text-anchor="end">5</text>
+          <text class="axis" x="52" y="104" text-anchor="end">7.5</text>
+          <text class="axis" x="52" y="44" text-anchor="end">10</text>
+          <rect class="bar" x="150" y="88" width="110" height="192" data-tip="Labeled abstract reasoning, a prized skill: students estimated about 8 of 10 correct"></rect>
+          <rect class="bar alt" x="380" y="136" width="110" height="144" data-tip="Labeled computer programming reasoning, a disowned skill: students estimated about 6 of 10 correct"></rect>
+          <text class="vallab" x="205" y="78" text-anchor="middle">~8 of 10</text>
+          <text class="vallab" x="435" y="126" text-anchor="middle">~6 of 10</text>
+          <text class="axis" x="205" y="302" text-anchor="middle">Abstract reasoning label</text>
+          <text class="axis" x="435" y="302" text-anchor="middle">Programming label</text>
+          <text class="axis" x="205" y="318" text-anchor="middle">I have this skill</text>
+          <text class="axis" x="435" y="318" text-anchor="middle">I lack this skill</text>
+        </svg>
+        <p class="csrc">Source: Dunning interview, ep036, via the track chapter. Original toy chart built from episode claims. Estimates are top down inferences, not readings of the test.</p>
+      </div>
+      <p><span class="tag-int">INTERPRETATION</span>Calibration is an outside job. Your self view writes the score before the test starts. The fix is exposure to the real top and to other judges, not harder introspection.</p>
+    </section>
+
+    <section class="chapter" id="ch-fix" data-time="Part 5" data-title="What to do about it">
+      <p class="ch-time">Part 5</p>
+      <h2>What To Do About It</h2>
+      <p><span class="tag-src">SOURCE</span>McRaney asks about the general. Should a commander hold unearned confidence or clean self doubt? Dunning answers: &ldquo;I want them both but at different times.&rdquo; Confidence in the charge, because doubt delays and delay kills. Doubt before it, in the planning tent: more troops, more shells, a plan B and a plan C. Confidence is a dial, not a trait.</p>
+      <p><span class="tag-src">SOURCE</span>For institutions, Dunning gives two fixes. First, install naysayers. Give every decision a devil advocate to break it. It feels bad and it works. Second, build buffers for the errors you cannot foresee. Managers inflate software estimates by 30 percent, and up to 100 percent for a new operating system. Architects multiply the concrete a design needs by up to 8. The arithmetic: 10 weeks becomes 13, a new system at 10 weeks becomes up to 20, 100 tons of concrete becomes up to 800.</p>
+      <div class="chart" id="chart-buffer">
+        <h4>The buffer rule: price the unseen border</h4>
+        <p class="csub">Hover any bar for detail. The multiplier is the cost of the border you cannot locate.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of estimate buffer multipliers">
+          <line x1="60" x2="620" y1="280" y2="280" class="gridln"></line>
+          <line x1="60" x2="620" y1="210" y2="210" class="gridln"></line>
+          <line x1="60" x2="620" y1="140" y2="140" class="gridln"></line>
+          <line x1="60" x2="620" y1="70" y2="70" class="gridln"></line>
+          <text class="axis" x="52" y="284" text-anchor="end">1x</text>
+          <text class="axis" x="52" y="214" text-anchor="end">3x</text>
+          <text class="axis" x="52" y="144" text-anchor="end">5x</text>
+          <text class="axis" x="52" y="74" text-anchor="end">7x</text>
+          <rect class="bar" x="110" y="245" width="90" height="35" data-tip="Software estimates: multiply by 1.3. A 10 week estimate becomes 13 weeks"></rect>
+          <rect class="bar" x="275" y="210" width="90" height="70" data-tip="New operating system: multiply by up to 2. A 10 week estimate becomes up to 20 weeks"></rect>
+          <rect class="bar" x="440" y="35" width="90" height="245" data-tip="Building concrete: multiply by up to 8. 100 tons specified becomes up to 800 tons"></rect>
+          <text class="vallab" x="155" y="235" text-anchor="middle">x1.3</text>
+          <text class="vallab" x="320" y="200" text-anchor="middle">x2</text>
+          <text class="vallab" x="485" y="25" text-anchor="middle">x8</text>
+          <text class="axis" x="155" y="302" text-anchor="middle">Software feature</text>
+          <text class="axis" x="320" y="302" text-anchor="middle">New OS</text>
+          <text class="axis" x="485" y="302" text-anchor="middle">Concrete</text>
+        </svg>
+        <p class="csrc">Source: Dunning interview, ep036, via the track chapter. Original toy chart built from episode claims. Buffers cover unknown unknowns, not bad arithmetic.</p>
+      </div>
+      <p><span class="tag-src">SOURCE</span>The closing counsel is social. Self knowledge is a brutal solo task and an easier group one. Other minds supply what introspection cannot. Dunning says it takes a village for a person to know themselves. His own test: ask whether you feel vague embarrassment at things you did 5 or 10 years ago. If yes, you grow. If your past self looks flawless, you stalled.</p>
+      <p><span class="tag-int">INTERPRETATION</span>Four moves for an engineer. Study the real top monthly. Put a breaker in every design review. Multiply every estimate: 1.3 for familiar work, 2 for new systems. Run the embarrassment test on your old code each year. If nothing embarrasses you, the model is stale.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget</p>
+        <h4>The buffer rule</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Managers add 30 percent to software estimates, up to 100 percent for new systems. Architects multiply concrete by up to 8.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>You cannot locate the border, so you price it instead.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Multiply the estimate before you speak it. The buffer is the cost of the unseen border.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-1b">
+        <p class="eyebrow">Nugget</p>
+        <h4>The double curse, restated</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Dunning names the root bug of the whole track: the instrument that judges is the instrument that errs.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Every later episode assumes you can catch your own mind. This one proves the catcher is broken by default.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Build the outside instruments first: other eyes, buffers, and the village.</p>
+      </div>
+    </section>
+
+    <footer class="honesty" id="honesty">
+      <h3>Sources</h3>
+      <p>This companion narrates You Are Not So Smart episode 036, an interview with David Dunning dated 2014-11-10. The on-disk source is the official interview-only transcript at youarenotsosmart.com/transcripts/transcript-interview-with-david-dunning-from-episode-036/. McRaney's opening monologue is not part of that transcript, so this companion narrates the interview arc only. All numbers come from the transcript via the track chapter. Charts are original toys built from episode claims, each labeled with its source line.</p>
+      <h3>On quotes</h3>
+      <p>Quoted words in the body total 22, all verified verbatim by grep against the on-disk chapter source: the pull quote &ldquo;But I wore the juice, I wore the juice.&rdquo; (9 words), &ldquo;I want them both but at different times.&rdquo; (8 words), and &ldquo;relatively meagre, to often non-existent.&rdquo; (5 words). Everything else is original paraphrase and analysis.</p>
+      <h3>Honesty notes</h3>
+      <p>No official YouTube video of this episode was found, so there is no video embed. No historical photographs are used: no verifiable portrait was confirmed, and the spec forbids invented photos. The illustration is an AI-generated watercolor made for this page. The Wheeler anecdote, the tournament, and the Vertigo history are retold from the interview transcript, not independently verified.</p>
+      <h3>Method</h3>
+      <p>Built per the binding companion spec. Quote count recounted mechanically (curly-quote aware script), not asserted. Builder prose passes ste_check.py with 0 hard fails. Text passed through wm_clean.py Layer A. JavaScript passes node --check. Tags balance and all relative links resolve.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="tooltip"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
