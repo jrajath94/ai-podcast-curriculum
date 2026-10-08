@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Secrets of Effective Learning with Andy Matuschak: Clearer Thinking Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Clearer Thinking episode with Andy Matuschak: the forgetting curve, the spacing effect, active recall, Quantum Country, and para-academia.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#23201a; --muted:#6e655a;
+    --line:#e3dccb; --accent:#0e6e6e; --accent-ink:#0a5454; --soft:#e8f1f0;
+    --warn:#fdf3e3; --warnline:#d9a441;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0dd}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d3830;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  figure.photo img{max-width:460px;margin:0 auto}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .warnbox{background:var(--warn);border:1px solid var(--warnline);border-left:4px solid var(--warnline);
+    padding:14px 18px;margin:22px 0;font-family:var(--sans);font-size:14px;line-height:1.6}
+  .warnbox b{color:#7a4d0a}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdcd9}
+  .bar.dark{fill:#3d3830}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e4eaea;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .curve{fill:none;stroke:var(--accent);stroke-width:3}
+  .curve2{fill:none;stroke:#b0873f;stroke-width:3;stroke-dasharray:6 4}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{font-family:var(--sans);font-size:14px;line-height:1.5;counter-increment:w}
+  .wisdom li:before{content:counter(w,decimal-leading-zero);font-family:var(--mono);
+    font-size:11px;color:var(--accent-ink);display:block;margin-bottom:2px}
+  .takeaways{background:#fff;border:1px solid var(--line);padding:22px;margin:30px 0}
+  .takeaways h3{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .takeaways ol{margin:0 0 14px;padding-left:22px}
+  .takeaways li{margin-bottom:8px}
+  .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-right:8px;white-space:nowrap}
+  .tag.fact{background:#e2efed;color:var(--accent-ink)}
+  .tag.interp{background:#efe9dc;color:#6b5320}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);border:1px dashed var(--line);
+    padding:10px 14px;margin:0 0 26px}
+  .video{margin:26px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+    border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:12px;color:var(--accent-ink)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 10px;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  footer p{margin:0 0 14px}
+  footer b{color:var(--ink)}
+  .backlink{font-family:var(--sans);font-size:13px;margin:18px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Clearer Thinking companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+
+<div class="hero">
+<p class="kicker">Clearer Thinking with Spencer Greenberg &middot; Episode 1</p>
+<h1>The Secrets of Effective Learning with Andy Matuschak</h1>
+<p class="dek">Spencer Greenberg talks with researcher Andy Matuschak about why we forget the books we read, the two laws of memory that fix it, and what becomes possible when remembering costs almost nothing.</p>
+<img src="assets/ep01/ep01-hero.webp" alt="Watercolor of index cards on a desk with memory threads rising toward a head in profile">
+<p class="caption"><b>Illustration.</b> AI-generated watercolor made for this page: cards, a review schedule, and the threads of memory.</p>
+<div class="stats">
+<div class="stat"><div class="n">81 min</div><div class="l">Episode length</div><div class="s">4859 seconds of audio</div></div>
+<div class="stat"><div class="n">2 laws</div><div class="l">Of memory</div><div class="s">Forgetting curve plus spacing effect</div></div>
+<div class="stat"><div class="n">10 to 15 sec</div><div class="l">Total review time</div><div class="s">For a year of durable recall per item</div></div>
+<div class="stat"><div class="n">~50%</div><div class="l">Extra cost</div><div class="s">To hold a 4-hour essay for a full year</div></div>
+</div></div>
+<figure class="photo"><img src="assets/ep01/andy-matuschak.jpg" alt="Photograph of Andy Matuschak"><figcaption class="caption"><b>Photograph.</b> Andy Matuschak. Real photograph via the Berkeley MDes program, design.berkeley.edu.</figcaption></figure>
+<div class="video"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/bgsKaGGnIws" title="Episode video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption"><b>Video.</b> The full episode on YouTube.</p></div>
+<section class="chapter" id="ch-nonfiction" data-time="~00:02" data-title="Do We Really Read Nonfiction to Learn?">
+
+<p class="ch-time">~00:02</p>
+<h2>Do We Really Read Nonfiction to Learn?</h2>
+<div class="legend"><span class="tag fact">Source fact</span> a claim traceable to the episode transcript. <span class="tag interp">Interpretation</span> the companion author's analysis or transfer, not the guest's claim.</div>
+<p><span class="tag fact">Source fact</span> Andy opens with a familiar sting. He reads a book he finds fascinating, in this case one about theories of religion around the world, and a few weeks later he cannot recall the key details when the topic comes up in conversation. Spencer calls it feeling flat-footed at a party: someone asks what the book was about, and the answer is roughly one sentence.</p>
+<p><span class="tag fact">Source fact</span> Andy wrote an early blog post with a deliberately provocative title:</p>
+<div class="pull">
+<blockquote>Do we really read nonfiction to learn?</blockquote>
+<p class="who">Andy Matuschak, title of an early blog post &middot; Episode ~00:04</p>
+</div>
+<p><span class="tag interp">Interpretation</span> The point is not that reading is useless. It is that the learning we claim to want from nonfiction almost never survives, because almost nobody takes the basic steps that would consolidate it. We read the next book instead.</p>
+<p><span class="tag fact">Source fact</span> Andy then asks the question that organizes the whole episode: how cheap can memory become? If keeping a book cost 10 percent on top of reading time, would you pay it? Spencer notes the arithmetic is lopsided: reading another article doubles the time, while the 10 percent keeps the first one.</p>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 &middot; Cost</p>
+<h4>Memory has a price tag, so price it</h4>
+<p><span class="lbl">What happened. </span>Andy reframes forgetting as a cost problem, not a willpower problem. Nobody pays for durable memory because nobody knows the price.</p>
+<p><span class="lbl">Why it matters. </span>A 10 percent surcharge on reading time to keep the ideas would beat rereading the next book. Decisions get better the moment the cost is explicit.</p>
+<p><span class="lbl">The principle. </span>Before you dismiss a memory practice as expensive, compute the price. Compare it to the price of forgetting.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Many people answer the blog-post question in the negative: they say they do not read to learn facts at all. Andy says these people are not wrong. A book can teach cultural norms, values, or a way a mind engages a problem, none of which feel like facts.</p>
+<p><span class="tag fact">Source fact</span> His counter: when you start behaving differently, or understanding something you did not understand before, what happened if not memory? For absorbing norms and salience, he argues, the same consolidation machinery is at work as for learning labels in organic chemistry.</p>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 &middot; Memory</p>
+<h4>Learning is memory, all the way down</h4>
+<p><span class="lbl">What happened. </span>Spencer and Andy sort memory into kinds: explicit facts, implicit conceptual change, and automatic pattern recognition, the kind a chess master or martial artist carries.</p>
+<p><span class="lbl">Why it matters. </span>People dismiss memorization as trivia drills, then exempt everything they care about. If behavior change runs on memory machinery, the dismissal fails.</p>
+<p><span class="lbl">The principle. </span>Ask what changed in the learner. If the answer is memory in some form, memory techniques apply.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-memory-kinds" data-time="~00:10" data-title="Three Kinds of Memory">
+
+<p class="ch-time">~00:10</p>
+<h2>Three Kinds of Memory</h2>
+<p><span class="tag fact">Source fact</span> Spencer sketches three memories. First, explicit knowledge: the number of states in the United States. Second, conceptual memory: what philosophy is, which does not feel like a fact at all. Third, the automatic pattern memory of a chess master, trained like a fast machine learning algorithm inside the brain.</p>
+<p><span class="tag fact">Source fact</span> Andy names the second category implicit memory: behavior shaped by memory without conscious awareness of the memory. Reading about religion changes how you talk about religion next time, not because you quote the author, but because your conception of the topic was altered.</p>
+<p><span class="tag fact">Source fact</span> For the chess case, Andy cites the classic board-reconstruction experiment. Masters shown a board could rebuild it on an adjacent board after far fewer glances than novices, as if they held a more efficient encoding. Interviewed, the masters described abstract representations, what Andy calls lines of force with a color or valence, rather than piece positions. A martial artist friend of Spencer reported the same perception in fighting.</p>
+<p><span class="tag fact">Source fact</span> Andy sees the same progression in his own programming life. As a kid the unit of thought was syntax, then the line, then the function, then large architectural elements, with box-and-arrow diagrams appearing in his head. He reads this as progressive consolidation of experience, and believes memory augmentation can accelerate it.</p>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 &middot; Expertise</p>
+<h4>Experts see forces, not pieces</h4>
+<p><span class="lbl">What happened. </span>Chess masters, fighters, and programmers all describe the same shift: from discrete items to abstract patterns with a felt quality.</p>
+<p><span class="lbl">Why it matters. </span>That shift is consolidation, and consolidation can be sped up. The expert eye is not a gift. It is a trained encoding.</p>
+<p><span class="lbl">The principle. </span>To get good fast, train the encoding, not just the facts. Flashcards of mini chess problems could build the pattern layer directly.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-two-laws" data-time="~00:16" data-title="The Two Laws: Forgetting Curve and Spacing Effect">
+
+<p class="ch-time">~00:16</p>
+<h2>The Two Laws: Forgetting Curve and Spacing Effect</h2>
+<p><span class="tag fact">Source fact</span> Andy names the two findings from cognitive psychology that make the whole practice work. First, the forgetting curve: after first learning, you forget fast at first, then more slowly, roughly following a power law. Each re-exposure flattens the curve further, and you can induce those re-exposures by testing yourself.</p>
+<p><span class="tag fact">Source fact</span> Second, the spacing effect. Cramming five hours the night before a test, massed practice, loses badly to the same five hours spread as one hour a day. The optimal gap depends on your forgetting rate, how well the item stuck, and how long until the next test.</p>
+<p><span class="tag fact">Source fact</span> Combined, the two laws give an exponential backoff schedule: see an item once, test it a few days later, then a week later, then a month later, then a quarter later, until about four exposures carry it to once a year. Total practice time: roughly 10 to 15 seconds per item for a year or more of durable recall.</p>
+<div class="chart">
+<h4>The exponential backoff schedule</h4>
+<p class="csub">Andy stated schedule: reviews at expanding intervals. Hover the marks for the plan.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Timeline of review intervals growing exponentially">
+<g class="axis"><line class="gridln" x1="60" y1="200" x2="600" y2="200"/></g>
+<circle cx="70" cy="200" r="9" class="bar" data-tip="Learn: first exposure. The clock starts."/>
+<circle cx="150" cy="200" r="9" class="bar" data-tip="Review 1: a few days later. Test yourself."/>
+<circle cx="260" cy="200" r="9" class="bar" data-tip="Review 2: about a week later."/>
+<circle cx="380" cy="200" r="9" class="bar" data-tip="Review 3: about a month later."/>
+<circle cx="490" cy="200" r="9" class="bar" data-tip="Review 4: about a quarter later."/>
+<circle cx="590" cy="200" r="9" class="bar dark" data-tip="Steady state: about once a year from here."/>
+<text class="vallab" x="70" y="240" text-anchor="middle">day 0</text>
+<text class="vallab" x="150" y="240" text-anchor="middle">days</text>
+<text class="vallab" x="260" y="240" text-anchor="middle">1 wk</text>
+<text class="vallab" x="380" y="240" text-anchor="middle">1 mo</text>
+<text class="vallab" x="490" y="240" text-anchor="middle">3 mo</text>
+<text class="vallab" x="590" y="240" text-anchor="middle">1 yr</text>
+<text class="axis" x="320" y="60" text-anchor="middle">Four exposures, then yearly. Total: 10 to 15 seconds of practice.</text>
+<text class="axis" x="320" y="80" text-anchor="middle">Intervals widen as the forgetting curve flattens.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Andy Matuschak episode, ~00:18. Intervals and the 10 to 15 second figure are Andy stated values. The timeline layout is illustrative.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Spencer adds the adaptive twist: grade each review, and stretch the interval when you answer well, compress it when you struggle. The schedule can also adapt to the material, since some items are known to be harder across many learners.</p>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 &middot; Schedule</p>
+<h4>Four exposures buy a year</h4>
+<p><span class="lbl">What happened. </span>The forgetting curve says you lose fast then slow. The spacing effect says spread beats massed. Together they schedule reviews at widening gaps.</p>
+<p><span class="lbl">Why it matters. </span>The price of durable memory turns out to be seconds per item, not hours. The 10 percent surcharge from chapter one is a wild overestimate.</p>
+<p><span class="lbl">The principle. </span>Schedule the review, not the study session. Let the interval grow with the memory.</p>
+</div>
+<div class="toy">
+<h4>Try it: the backoff calculator</h4>
+<p class="csub" style="font-family:var(--sans);font-size:12.5px;color:var(--muted)">Illustrative arithmetic from Andy stated schedule: about 5 reviews in year one, then about 1 per year after.</p>
+<label for="toy-items">Items you want to keep</label>
+<input type="range" id="toy-items" min="10" max="500" value="100">
+<label for="toy-secs">Seconds per review</label>
+<input type="range" id="toy-secs" min="5" max="60" value="12">
+<p class="out" id="toy-out"></p>
+</div>
+<script>
+(function(){
+  var items = document.getElementById('toy-items');
+  var secs = document.getElementById('toy-secs');
+  var out = document.getElementById('toy-out');
+  function upd(){
+    var n = +items.value, s = +secs.value;
+    var yr1 = n * 5 * s / 3600, steady = n * 1 * s / 3600;
+    out.textContent = n + ' items: about ' + yr1.toFixed(1) +
+      ' hours of review in year one, then about ' + steady.toFixed(1) +
+      ' hours per year after.';
+  }
+  items.addEventListener('input', upd);
+  secs.addEventListener('input', upd);
+  upd();
+})();
+</script>
+
+</section>
+<section class="chapter" id="ch-retrieval" data-time="~00:24" data-title="Retrieval Beats Rereading">
+
+<p class="ch-time">~00:24</p>
+<h2>Retrieval Beats Rereading</h2>
+<p><span class="tag fact">Source fact</span> Andy names the third load-bearing idea: active recall, also called retrieval practice. The most common student study method is the reread: scanning the textbook and asking, do I feel like I remember this. It barely works. Highlighting and summarizing do little better.</p>
+<p><span class="tag fact">Source fact</span> The effective move is to pull the answer from long-term memory: ask in what year the United States was founded, answer 1776 from memory, rather than rereading the sentence. Spencer adds the obvious guardrail: get corrected when wrong, or you re-encode a false memory. Andy notes studies suggesting even uncorrected attempts, and even failed retrieval, can beat restudying, depending on how unavailable the information was.</p>
+<p><span class="tag fact">Source fact</span> Both hosts note that school runs the opposite program. Learn the material, get tested, never touch it again. Some schools use a spiral method, retesting old material on later tests, but students cram for each spot check and forget it after, because massed practice does not stick. Andy offers two-digit multiplication as the emblem: a straightforward algorithm many students never retain, a problem he calls simply solvable with these techniques.</p>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 &middot; Study</p>
+<h4>Test, do not reread</h4>
+<p><span class="lbl">What happened. </span>Retrieval practice beats rereading, highlighting, and summarizing. Even a failed attempt to recall can outperform another pass over the notes.</p>
+<p><span class="lbl">Why it matters. </span>Most study time goes to the weakest method. The fix costs nothing: close the book and ask the question first.</p>
+<p><span class="lbl">The principle. </span>Memory is built at retrieval, not at exposure. If you are not pulling, you are not learning.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Andy stresses that the exciting part is not times tables. It is complex conceptual knowledge: the tangled system of causes behind World War I, and how to think about historical causation in general. That looks un-flashcardable, but he argues it is not. Moves like looking for effects with no other good explanation are practicable moves, and they can be drilled like dates.</p>
+
+</section>
+<section class="chapter" id="ch-rich-cards" data-time="~00:32" data-title="Cards for Rich Ideas">
+
+<p class="ch-time">~00:32</p>
+<h2>Cards for Rich Ideas</h2>
+<p><span class="tag fact">Source fact</span> Spencer has run a personal spaced repetition system for about eight years. He opens it live and reads a random sample: a David Yaden paper linking philosophical views to personality, a card on controlling for baseline values in experiments, a self-theory from coaching work, a card on why we have identities with four reasons, and a proposal to redesign capital gains taxes. None of these look like flashcards. That is the point.</p>
+<p><span class="tag fact">Source fact</span> Andy loves it, and adds a caution from the literature: the published studies mostly test English-to-Swahili word pairs, a different beast from rich conceptual prompts. Much of the value he gets is salience: making an idea resurface over time so it stays live in his thinking.</p>
+<p><span class="tag fact">Source fact</span> His best example is a behavior-change card. A friend told him he avoids asking people to do tasks he dislikes himself, even employees hired for exactly that, and named it a failure mode. Andy wrote this prompt:</p>
+<div class="pull">
+<blockquote>What failure mode did that person suggest that I'm at risk of when working with other people?</blockquote>
+<p class="who">Andy Matuschak, reading his own spaced repetition card &middot; Episode ~00:38</p>
+</div>
+<p><span class="tag fact">Source fact</span> Spencer agrees the goal is behavior change, not reciting the back of the card. If the quiz alters how you act, it worked, even if you cannot state the answer verbatim. Andy admits the dynamics are murky: these prompts do not obviously follow the same forgetting curves as vocabulary, the right feedback system is unclear, and they do not always work.</p>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 &middot; Practice</p>
+<h4>Write cards that change behavior</h4>
+<p><span class="lbl">What happened. </span>The richest cards in both hosts systems target ideas, failure modes, and theories, not trivia. The measure of a card is changed action, not correct recitation.</p>
+<p><span class="lbl">Why it matters. </span>Most people who try these systems write bad prompts, see no value, and quit. The skill is prompt design, and it is learnable.</p>
+<p><span class="lbl">The principle. </span>Card the insight you want to live by. Judge the card by what you do differently.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-quantum-country" data-time="~00:42" data-title="Quantum Country and the Mnemonic Medium">
+
+<p class="ch-time">~00:42</p>
+<h2>Quantum Country and the Mnemonic Medium</h2>
+<p><span class="tag fact">Source fact</span> The bad-prompt problem motivated Andy collaboration with Michael Nielsen. Newcomers write poor prompts, cannot tell they are poor, and quit. Shared decks like Quizlet exist, but the cards feel atomized, disconnected from understanding: what is a qubit, asked cold, means nothing.</p>
+<p><span class="tag fact">Source fact</span> Their answer was to interleave expert-written prompts into a rich prose narrative, so the reader learns the terminology and metaphors, then pauses every few minutes to review with memory techniques. They built it as a quantum computing textbook called Quantum Country. Andy later generalized the system as Orbit, so the idea could travel to other subjects and contexts.</p>
+<p><span class="tag fact">Source fact</span> Spencer frames the deeper motive as a never-ending research project: ship systems people actually use, get the data back, and learn new things about memory that laboratory experiments cannot show. Andy calls it translational cognitive science, borrowed from translational medicine: bench to bedside and back, where real-world use feeds new theory.</p>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 &middot; Medium</p>
+<h4>Teach inside the memory system</h4>
+<p><span class="lbl">What happened. </span>Quantum Country wove review prompts into a real textbook so readers met each card already grounded in the story, terms, and metaphors.</p>
+<p><span class="lbl">Why it matters. </span>Shared decks fail because cards arrive orphaned. Narrative context is what makes a prompt answerable and worth answering.</p>
+<p><span class="lbl">The principle. </span>Do not hand someone a deck. Hand them the explanation with the remembering built in.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-data" data-time="~00:50" data-title="What the Data Says">
+
+<p class="ch-time">~00:50</p>
+<h2>What the Data Says</h2>
+<p><span class="tag fact">Source fact</span> The Quantum Country numbers are concrete. The median reader spent about four hours on the first essay. Andy frames the memory cost like a burrito menu: you finished the four hours, now would you like to add durable memory? For the median reader the add-on ran about one third extra for roughly six months of durable recall, rising toward 50 percent extra for the first year, then much less in later years.</p>
+<div class="chart">
+<h4>The price of durable memory</h4>
+<p class="csub">Median Quantum Country reader, first essay. Four hours of reading, then the memory add-on.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of reading time plus memory cost">
+<g class="axis">
+<line class="gridln" x1="180" y1="40" x2="180" y2="230"/>
+<line class="gridln" x1="320" y1="40" x2="320" y2="230"/>
+<line class="gridln" x1="460" y1="40" x2="460" y2="230"/>
+</g>
+<rect class="bar alt" x="60" y="60" width="320" height="34" data-tip="Reading the essay: about 4 hours for the median reader."/>
+<rect class="bar" x="60" y="120" width="107" height="34" data-tip="Memory add-on for about 6 months: roughly one third extra."/>
+<rect class="bar" x="60" y="180" width="160" height="34" data-tip="Memory add-on for the first year: up to about 50 percent extra."/>
+<text class="vallab" x="390" y="82">4 h reading</text>
+<text class="vallab" x="177" y="142">+1/3 for 6 mo</text>
+<text class="vallab" x="230" y="202">~+50% for year 1</text>
+<text class="axis" x="60" y="260">Bars to scale. Later years cost much less, per Andy.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Andy Matuschak episode, ~00:50. All figures Andy stated values from Quantum Country reader data.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Two more findings surprised him. Conceptual material is retained far more easily than brute facts, and reviewing one prompt seems to reinforce memory of neighboring prompts, a mutual reinforcement that could push scheduling costs down another 50 to 70 percent.</p>
+<p><span class="tag fact">Source fact</span> On how much readers would keep without the prompts, the team ran a randomized controlled trial. The median reader forgot about a third of the material in one month. But Andy flags the confound himself: the trial withheld prompts only from conscientious reviewers, so reviewing the kept prompts likely reinforced the tested ones through interference. The true forgetting was probably worse.</p>
+<div class="warnbox"><b>Trap card.</b> The one-third-in-a-month figure is the episode own confounded estimate. Andy states the interference effect on air, so quote the number only with that flag.</div>
+<p><span class="tag fact">Source fact</span> For comparison, Andy cites research on medical students: roughly a third of basic science knowledge forgotten after one year, roughly half by the end of the next year, attributed on air to a researcher named Custers.</p>
+<div class="warnbox"><b>Trap card.</b> The medical-student figures are an episode claim with the original study unnamed on air. Quote them only with that flag.</div>
+<div class="chart">
+<h4>How much we forget, three measures</h4>
+<p class="csub">Different studies, different windows. Read the caveats before comparing.</p>
+<svg viewBox="0 0 640 320" role="img" aria-label="Bar chart comparing forgetting across studies">
+<rect class="bar" x="80" y="60" width="150" height="36" data-tip="Quantum Country RCT: median reader forgot about a third in one month. Confounded by interference."/>
+<rect class="bar alt" x="80" y="130" width="150" height="36" data-tip="Medical students: about a third of basic science forgotten after one year."/>
+<rect class="bar dark" x="80" y="200" width="225" height="36" data-tip="Medical students: about half forgotten by the end of year two."/>
+<text class="vallab" x="240" y="83">~1/3 in 1 mo (confounded)</text>
+<text class="vallab" x="240" y="153">~1/3 in 1 yr</text>
+<text class="vallab" x="315" y="223">~1/2 by end of yr 2</text>
+<text class="axis" x="80" y="270">Spencer intuition for a plain nonfiction book at six months: under 5 percent retained.</text>
+<text class="axis" x="80" y="290">That last figure is a guess stated on air, not a measurement.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Andy Matuschak episode, ~00:52. The 5 percent figure is Spencer stated intuition, labeled as such.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Spencer pushes back on whether any of this matters: maybe details that matter get naturally reinforced by your environment, and the rest is not worth keeping. Andy half-agrees, and the exchange produces the episode key filter: the sweet spot is knowledge that would be useful to retain but will not be naturally reinforced.</p>
+
+</section>
+<section class="chapter" id="ch-sweet-spot" data-time="~00:56" data-title="The Sweet Spot of Memory">
+
+<p class="ch-time">~00:56</p>
+<h2>The Sweet Spot of Memory</h2>
+<p><span class="tag fact">Source fact</span> Spencer makes the sweet spot concrete. Most news is not worth remembering. A good nonfiction book might hold 12 genuinely interesting ideas, each with parts, so perhaps 30 pieces worth keeping. Of those, a typical reader keeps about 4. The gap between 4 and 30 is the market for these tools.</p>
+<p><span class="tag fact">Source fact</span> Andy adds two more classes where the case is strong. First, subjects like quantum computing where you must internalize dozens of terms and notations before the first interesting idea is even legible. Without memory support you juggle too much in working memory to understand anything. Second, the toned-down version everyone knows: the first program, when you look up syntax ten times per line, or the first foreign-language conversation with five words of vocabulary. Memory tools get you over the hump.</p>
+<p><span class="tag fact">Source fact</span> Then the look-it-up objection: in the age of search, why remember anything? Andy gives three answers. Some cards exist to change behavior, and notes do not do that. Creative insight needs both ideas present in the moment. You cannot connect what you cannot summon. And constant lookup makes the activity qualitatively different, often so unpleasant you quit.</p>
+<p><span class="tag fact">Source fact</span> Spencer adds the hook insight. You may not need the Pythagorean theorem in memory, but you need to know that a thing called the Pythagorean theorem relates triangle sides, so that when you design a cabinet you reach for it. Even the lightest memory, knowing that something exists and roughly where to find it, beats not knowing it exists.</p>
+<div class="nugget reveal" id="nugget-8">
+<p class="eyebrow">Nugget 8 &middot; Judgment</p>
+<h4>Remember the hooks, not just the holdings</h4>
+<p><span class="lbl">What happened. </span>The look-it-up objection wins for facts you can fetch. It loses for behavior, for creative connection, and for knowing what to look up.</p>
+<p><span class="lbl">Why it matters. </span>A memory of existence, that theorem about triangles, is cheap and unlocks the expensive fact on demand. Most lookup failures are really hook failures.</p>
+<p><span class="lbl">The principle. </span>When full retention is overkill, retain the pointer. Know that it exists and where it lives.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Andy closes the loop on cost: the objections to memorization are correct in a world where memory is scarce and onerous, and irrelevant in a world where choosing to remember is nearly free. The research program is to move us toward that world.</p>
+<div class="pull">
+<blockquote>What would be true in a world where memory was trivial and automatic?</blockquote>
+<p class="who">Andy Matuschak &middot; Episode ~01:02</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-personal" data-time="~01:04" data-title="Your Memory, Not the Syllabus">
+
+<p class="ch-time">~01:04</p>
+<h2>Your Memory, Not the Syllabus</h2>
+<p><span class="tag fact">Source fact</span> Andy names a quieter reason people resist these systems: their experience of memorization comes from industrial schooling, where the material served other people agendas. Many tools inherit that framing. Even Quantum Country has the flaw: the authors supply the prompts, and the reader gets no fluidity to reshape them.</p>
+<p><span class="tag fact">Source fact</span> His design rule, still unsolved in his own systems: the memory practice must be about you, the ideas you find interesting and meaningful, framed in terms of your experiences and stories, with no shred of duty or schoolishness. A tool for personal enablement, not compliance.</p>
+<div class="nugget reveal" id="nugget-9">
+<p class="eyebrow">Nugget 9 &middot; Design</p>
+<h4>Memory must feel like yours</h4>
+<p><span class="lbl">What happened. </span>School taught memorization as obedience, and the tools kept the framing. Andy argues the practice only survives when the cards carry your questions in your words.</p>
+<p><span class="lbl">Why it matters. </span>A system that feels like duty gets abandoned. A system that feels like enablement gets opened.</p>
+<p><span class="lbl">The principle. </span>Write every card for yourself, about what you care about. Delete anything that smells like homework.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-para" data-time="~01:08" data-title="Para-academia">
+
+<p class="ch-time">~01:08</p>
+<h2>Para-academia</h2>
+<p><span class="tag fact">Source fact</span> The conversation widens to translational science itself. Andy borrows the bench-to-bedside-and-back model from medicine: lab insight becomes treatment, and bedside observation feeds the lab. He argues an underrated version is one person doing the whole loop: reading the literature, building a high-fidelity system no academic lab would fund, learning something new from real use, and publishing it back.</p>
+<p><span class="tag fact">Source fact</span> Spencer offers his own metaphor, full-stack social science, after the full-stack software engineer: hypothesis to study design to product to users, all in one practice. Both agree the hard part is not time but hats: the implementation mindset and the research mindset fight for the same head, and switching between them is the real cost. Spencer solution is team. Andy notes the design itself changes the concept, so the work resists clean delegation.</p>
+<p><span class="tag fact">Source fact</span> Spencer asks whether Andy sees himself as para-academic, a term from his earlier episode with Michael Nielsen. Andy says yes. He produces ideas, like a new kind of memory system interleaved with prose, rather than products or organizations. The para part: no institution, no refereed journals.</p>
+<p><span class="tag fact">Source fact</span> Why not academia? Two reasons. First, academic incentives punish the high-fidelity build his questions need. A lab would demand a cheaper research tool, and real users would never touch it. Second, his nearest field, human-computer interaction, is dominated by a descriptive-science culture he does not enjoy: every design paper must carry a study with proxy measures, like time-on-task judged by outside referees, taken in inauthentic settings.</p>
+<p><span class="tag fact">Source fact</span> He grants the field its wins: the top-of-screen menu bar, placed where the cursor stops at the screen edge so targeting needs less precision, is a genuine quantitative insight. His complaint is narrower: design is a design science, about creating new spaces of possibility and asking what they enable, not describing one fixed phenomenon. Weak proxies miss the point.</p>
+<div class="nugget reveal" id="nugget-10">
+<p class="eyebrow">Nugget 10 &middot; Institutions</p>
+<h4>Build the thing the incentives forbid</h4>
+<p><span class="lbl">What happened. </span>Andy works outside academia because his questions need high-fidelity systems that academic incentives discourage, and his field rewards proxy measurements over enablement.</p>
+<p><span class="lbl">Why it matters. </span>Some questions are only visible from inside a real system used by real people. The lab cannot see them by design.</p>
+<p><span class="lbl">The principle. </span>If the institution cannot ask your question, ask it outside. Publish where readers are, not where referees are.</p>
+</div>
+<p><span class="tag fact">Source fact</span> On whether more people should do this, both land on yes with a market analogy. Capitalism has gaps like pollution. Regulators patch them. Para-academia patches academia gaps: translational work nobody will fund commercially, and paradigm-defining work too weird for referees. Spencer wants a hundred long-shot physics theories blooming, most failing, a few going Google.</p>
+<p><span class="tag fact">Source fact</span> The downsides get honest airtime. Crankery is easier without institutions. Intellectual exchange is thinner. Andy compensates with a weekly psychology call with a brilliant friend. Archival is fragile: his work may not appear in Google Scholar or survive like journal papers, and interactive work is especially hard to preserve.</p>
+
+</section>
+<section class="chapter" id="ch-funding" data-time="~01:16" data-title="Who Pays for It">
+
+<p class="ch-time">~01:16</p>
+<h2>Who Pays for It</h2>
+<p><span class="tag fact">Source fact</span> The money question gets a concrete answer: Andy work is funded mostly by Patreon, and it pays his expenses without being lucrative. He compares the scale to the standard junior-faculty starter grant, the NSF CAREER award over five years. His crowdfunding now generates about two thirds of one of those grants.</p>
+<p><span class="tag fact">Source fact</span> He worries the model selects for legibility. He names Gwern, a researcher doing deep handmade meta-analyses funded by readers, whose work he calls deeper and more interesting than his own, yet less funded. Two explanations: Gwern rarely talks about the funding model, which feels like shilling, and the work is weirder, 20,000 words on an obscure topic, which fewer people will pay for.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the name as Guern. The researcher described, reader-funded handmade meta-analyses, is Gwern. Corrected in this companion. Original noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> A December survey of his supporters, with about a third responding, found the top motivation in their own words: they want more of this kind of work to exist. The marginal dollar, Andy says, first covered his expenses, then his inability to save, which made the whole arrangement feel fragile. Now the money pays for staff and speed.</p>
+<p><span class="tag fact">Source fact</span> The episode closes with pointers: Andy site at andymatuschak.org, his Twitter, and the usual outro with contact details for the show.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the site as handymattushac.org. The correct site is andymatuschak.org.</div>
+
+</section>
+<section class="chapter" id="ch-outro" data-time="~01:19" data-title="Outro and the Episode in Ten Lines">
+
+<p class="ch-time">~01:19</p>
+<h2>Outro and the Episode in Ten Lines</h2>
+<p><span class="tag fact">Source fact</span> The episode carries one sponsor segment, for Clearer Thinking question deck, citing a five-study test: 83 percent of people found the questions valuable, 78 percent would recommend them, 88 percent enjoyed answering. The segment advertises the show own product, not peer-reviewed research.</p>
+<div class="takeaways">
+<h3>The episode in ten lines</h3>
+<ol>
+<li>Forgetting is a cost problem. Price the memory before you dismiss it.</li>
+<li>All learning runs on memory, including behavior change and taste.</li>
+<li>Two laws run the practice: the forgetting curve and the spacing effect.</li>
+<li>Four reviews on a widening schedule buy a year of recall for seconds.</li>
+<li>Retrieval beats rereading. Close the book and ask first.</li>
+<li>Card rich ideas and failure modes, not trivia. Judge cards by changed behavior.</li>
+<li>Conceptual material sticks better than brute facts, and reviews reinforce each other.</li>
+<li>The sweet spot: worth remembering, but never naturally reinforced.</li>
+<li>Keep the hooks. Knowing a thing exists beats not knowing to look.</li>
+<li>Make the practice yours. Duty-flavored memory systems get abandoned.</li>
+</ol>
+<p class="src">Distilled from Clearer Thinking, The secrets of effective learning with Andy Matuschak, 2021 podcast release, YouTube re-upload March 2023. Full episode: youtube.com/watch?v=bgsKaGGnIws. Times marked ~ are proportional estimates from word position.</p>
+</div>
+
+</section>
+<div class="wisdom"><h3>Nugget index</h3><ol>
+<li>Memory has a price tag, so price it</li>
+<li>Learning is memory, all the way down</li>
+<li>Experts see forces, not pieces</li>
+<li>Four exposures buy a year</li>
+<li>Test, do not reread</li>
+<li>Write cards that change behavior</li>
+<li>Teach inside the memory system</li>
+<li>Remember the hooks, not just the holdings</li>
+<li>Memory must feel like yours</li>
+<li>Build the thing the incentives forbid</li>
+</ol></div>
+<p class="backlink"><a href="../index.html">&larr; Back to the Clearer Thinking track index</a></p>
+<footer><p><b>Sources.</b> This companion narrates the Clearer Thinking episode The secrets of effective learning with Andy Matuschak (podcast release 2021, YouTube re-upload March 2023, 81 minutes). All facts and figures come from the episode transcript (research/clearer-thinking/transcripts/bgsKaGGnIws.txt), a Whisper base.en transcription of the official podcast audio. The transcript carries no timestamps. All chapter times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p><p id="on-quotes"><b>On quotes.</b> Direct quotations in this companion total 46 words: three pull quotes, each carrying speaker and proportional episode-time attribution, plus five short quoted transcript fragments in the corrections note below. Everything else is original paraphrase and analysis.</p><p><b>On transcript corrections.</b> The transcript is a machine transcription with rough edges. Applied corrections, with originals. The field term is spaced repetition (transcript: "space repetition"). The guest site is andymatuschak.org (transcript: "handymattushac.org"). The independent researcher is Gwern (transcript: "Guern"). The credit is Orbit art direction (transcript: "Orbitz Art Direction"). The intended word reads imbibing (transcript: "in bibing").</p><p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p></footer>
+
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var ttl = ch.getAttribute('data-title') || '';
+    a.innerHTML = '<span class="t">' + t + '</span>' + ttl;
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(txt, x, y){
+    tip.textContent = txt;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
