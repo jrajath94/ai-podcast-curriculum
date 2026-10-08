@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk: Dwarkesh Patel Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Dwarkesh Patel's interview with Elon Musk: space compute, solar math, Grok, Optimus, and the method.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-bottom:10px}
+  .tag.source{background:#e3ecdc;color:#3c5a2e;border:1px solid #b9cba6}
+  .tag.interp{background:#f3e9d6;color:#8f3f14;border:1px solid #dcc9a3}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:20px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:22px;font-weight:800;margin:12px 0 4px}
+  .toy .tnote{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-style:italic}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .legend{border:1px dashed var(--line);padding:14px 16px;margin:26px 0;font-family:var(--sans);font-size:13px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dwarkesh Patel · Track Companion</a>
+  <span class="sub">Richard Sutton · Ep 9</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Dwarkesh Patel · Ep 9 · Companion</p>
+      <h1>Richard Sutton</h1>
+      <p class="dek">The father of reinforcement learning on the Bitter Lesson, why goals are the essence of intelligence, and the experiential paradigm that could supersede everything LLMs do. Sutton's 2019 essay was the most influential in AI. This companion follows the full conversation in order.</p>
+      <figure>
+        <img src="assets/ep09-bitter-lesson.webp" alt="Watercolor illustration of a small robot learning to walk by trial and error in a garden">
+        <p class="caption"><b>Illustration.</b> Learning from experience: sensation, action, reward, on and on. AI-generated watercolor made for this page.</p>
+      </figure>
+      <div class="legend"><b>How to read this page.</b> <span class="tag source">Source fact</span> marks a claim made on the episode. <span class="tag interp">Interpretation</span> marks builder analysis built on top of it. Section labels (§1 to §8) follow the transcript in order. The episode publishes no chapter marks.</div>
+      <div class="stats">
+        <div class="stat"><div class="n">2019</div><div class="l">The Bitter Lesson essay, called the most influential essay in AI.</div><div class="s">Episode transcript §1</div></div>
+        <div class="stat"><div class="n">70</div><div class="l">Years of AI history the Bitter Lesson observes, with no guarantee for the next 70.</div><div class="s">Episode transcript §1</div></div>
+        <div class="stat"><div class="n">10 yrs</div><div class="l">The reward horizon of a startup: one payout per decade of work.</div><div class="s">Episode transcript §6</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">Words of the experiential paradigm: sensation, action, reward.</div><div class="s">Episode transcript §5</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/21EYKqUsPfg" title="Dwarkesh Patel interviews Richard Sutton (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The bitter lesson repeats</a></li>
+          <li><a href="#nugget-2">A goal is the essence of intelligence</a></li>
+          <li><a href="#nugget-3">Learn during the interaction</a></li>
+          <li><a href="#nugget-4">Sensation, action, reward</a></li>
+          <li><a href="#nugget-5">Convert long rewards into short ones</a></li>
+          <li><a href="#nugget-6">Humans are animals</a></li>
+          <li><a href="#nugget-7">Work on your local goals</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-bitter" data-time="§1" data-title="Bitter Lesson">
+      <p class="ch-time">§1 · The essay</p>
+      <h2>The Bitter Lesson</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <figure>
+        <img src="assets/richard-sutton-photo.jpg" alt="Photograph of Richard Sutton">
+        <p class="caption"><b>Photo.</b> Richard Sutton, founding father of reinforcement learning. Source: Amii.</p>
+      </figure>
+      <p>Dwarkesh introduces Sutton as one of the founding fathers of reinforcement learning, inventor of TD learning and policy gradient methods, and recipient of that year's Turing Award, the Nobel Prize of computer science. Then the essay: written in 2019, titled "The Bitter Lesson", called the most influential essay in AI.</p>
+      <p>The lesson: methods that use human knowledge feel good and work for a while, then get superseded by methods that just train from experience and computation. Seventy years of history say so. Sutton adds the caveat himself: it is an empirical observation about one period. It does not have to hold for the next seventy years.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · History</p>
+        <h4>The bitter lesson repeats</h4>
+        <p><span class="lbl">What happened. </span>Seventy years of AI: hand-crafted knowledge wins early, experience plus compute wins late, every cycle.</p>
+        <p><span class="lbl">Why it matters. </span>The pattern is about where the advantage sits. The advantage moved from human insight to raw computation.</p>
+        <p><span class="lbl">The principle. </span>Bet against the hand-crafted. Whatever humans build in, scale will route around.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-goals" data-time="§2" data-title="Goals">
+      <p class="ch-time">§2 · Intelligence</p>
+      <h2>A Goal Is the Essence of Intelligence</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="pull">
+        <blockquote>having a goal is the essence of intelligence</blockquote>
+        <p class="who">Richard Sutton · Episode transcript §2</p>
+      </div>
+      <p>Sutton's definition is disarmingly short. Something is intelligent if it can achieve goals. The critique of LLMs follows from it: a language model predicts the next token and updates on the surprise, but the token is what it should say, not what the world gives back in response to what it does. There is no goal in that loop.</p>
+      <p>This reframes the whole alignment debate. If intelligence is goal achievement, then the question is never whether the system is smart. It is whether it has a goal, and whose.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Definition</p>
+        <h4>A goal is the essence of intelligence</h4>
+        <p><span class="lbl">What happened. </span>Sutton defined intelligence as goal achievement, and found LLMs missing the essential part: the goal.</p>
+        <p><span class="lbl">Why it matters. </span>Definitions decide what gets built. Build for prediction and you get oracles. Build for goals and you get agents.</p>
+        <p><span class="lbl">The principle. </span>Judge a system by its goals, not its outputs. Capability without a goal is a demo.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-continual" data-time="§3" data-title="Continual">
+      <p class="ch-time">§3 · Learning</p>
+      <h2>Learn During the Interaction</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Continual learning, in Sutton's sense, means learning during the normal interaction with the world. Not in a separate training phase. During. Today's LLMs, he notes, make no changes based on what happens to them. They are frozen between trainings, however fluent they sound.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>This is the quietest radical claim of the episode. A system that cannot change from experience cannot accumulate anything, and accumulation is what Sutton calls knowledge. Fluency without accumulation is performance without memory.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Learning</p>
+        <h4>Learn during the interaction</h4>
+        <p><span class="lbl">What happened. </span>Sutton drew the line at change: real learners alter themselves from what happens to them, in the moment.</p>
+        <p><span class="lbl">Why it matters. </span>Training phases are batch wisdom. Life arrives as a stream. The next systems must learn like life does.</p>
+        <p><span class="lbl">The principle. </span>Without change from experience, there is no learning. There is only replay.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-experience" data-time="§4" data-title="Experience">
+      <p class="ch-time">§4 · The supersession</p>
+      <h2>Experience Will Supersede Human Knowledge</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Putting more human knowledge into LLMs helps, Sutton grants. It feels good. But he expects systems that learn from experience to perform much better and scale much further, another instance of the bitter lesson: the things built on human knowledge, eventually superseded by things that just train from experience and computation.</p>
+      <p>Even infants guide the point. A baby guesses, sees the surprise, adjusts. An LLM early in training does the same with tokens: very short-horizon RL, guessing what comes next and updating on the miss. The machinery is already there. The horizon is what must grow.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Paradigm</p>
+        <h4>Sensation, action, reward</h4>
+        <p><span class="lbl">What happened. </span>Sutton named the foundation of intelligence in three words: sensation, action, reward, on and on for a life.</p>
+        <p><span class="lbl">Why it matters. </span>Three words replace the whole dataset paradigm. The world becomes the training set, and it never ends.</p>
+        <p><span class="lbl">The principle. </span>Build the loop, not the dataset. Sensation, action, reward, forever.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-horizons" data-time="§6" data-title="Horizons">
+      <p class="ch-time">§6 · Long rewards</p>
+      <h2>Convert Long Rewards into Short Ones</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>The hard problem: rewards arrive on human timescales. Founding a startup pays out on the order of 10 years, once a decade if you are lucky. Two things are needed. First, a way to convert that long-run goal reward into smaller auxiliary predictive rewards, stepping stones that predict the final reward. Second, the ability to hold all the context gained along the way: the clients, the company, everything learned while working in the world.</p>
+      <div class="chart" id="chart-horizon">
+        <h4>Reward horizons</h4>
+        <p class="csub">Hover any bar for detail.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of reward horizons">
+          <rect class="bar alt" x="90" y="230" width="90" height="50" data-tip="Next token: milliseconds. Short-horizon RL already works here"></rect>
+          <rect class="bar" x="280" y="180" width="90" height="100" data-tip="A project: months. Needs auxiliary predictive rewards"></rect>
+          <rect class="bar dark" x="470" y="120" width="90" height="160" data-tip="A startup: 10 years. The long-run goal reward, converted into stepping stones"></rect>
+          <text class="vallab" x="135" y="222" text-anchor="middle">ms</text>
+          <text class="vallab" x="325" y="172" text-anchor="middle">months</text>
+          <text class="vallab" x="515" y="112" text-anchor="middle">10 yrs</text>
+          <text class="axis" x="135" y="300" text-anchor="middle">token</text>
+          <text class="axis" x="325" y="300" text-anchor="middle">project</text>
+          <text class="axis" x="515" y="300" text-anchor="middle">startup</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Richard Sutton, episode transcript §6. Horizons are Sutton's examples.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Credit assignment</p>
+        <h4>Convert long rewards into short ones</h4>
+        <p><span class="lbl">What happened. </span>A startup pays once a decade. Sutton's fix: auxiliary rewards that predict the final one, plus total context retention.</p>
+        <p><span class="lbl">Why it matters. </span>Nothing learns from a signal a decade away. Learning needs stepping stones it can feel today.</p>
+        <p><span class="lbl">The principle. </span>For any distant goal, build the ladder of nearer rewards. Then keep every rung in memory.</p>
+      </div>
+      <div class="toy" id="toy-horizon">
+        <h4>Toy: the horizon converter</h4>
+        <p class="tsub">Pick a goal horizon. See how many auxiliary stepping stones Sutton's recipe needs.</p>
+        <label for="horRange">Goal horizon: <b id="horVal">10 years</b></label>
+        <input type="range" id="horRange" min="0" max="3" step="1" value="3">
+        <div class="out" id="horOut">~1,200 weekly stepping stones, keep all context</div>
+        <p class="tnote">Illustrates Sutton's two requirements: auxiliary predictive rewards plus full context retention. Counts are the builder's arithmetic, not episode claims.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-animals" data-time="§7" data-title="Animals">
+      <p class="ch-time">§7 · The common</p>
+      <h2>Humans Are Animals</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="pull">
+        <blockquote>Humans are animals.</blockquote>
+        <p class="who">Richard Sutton, on cultural evolution · Episode transcript §7</p>
+      </div>
+      <p>Dwarkesh brings up Joseph Henrich's work on cultural evolution, on what distinguishes humans. Sutton pushes back on the question itself. Why distinguish humans? What we have in common with animals is more interesting. What distinguishes us deserves less attention. If the aim is to replicate intelligence, the shared machinery matters more than the human specialty.</p>
+      <p>It connects to Moravec's paradox, which both of them name: what is hard for humans is easy for machines, and what is easy for humans, the sensorimotor fluency animals share, is the hard part. The common ground is the frontier.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Perspective</p>
+        <h4>Humans are animals</h4>
+        <p><span class="lbl">What happened. </span>Asked what distinguishes humans, Sutton said the distinction is the wrong question. The common machinery is the target.</p>
+        <p><span class="lbl">Why it matters. </span>Human exceptionalism narrows the search. Animal generality widens it to where intelligence actually lives.</p>
+        <p><span class="lbl">The principle. </span>Study what you share with the pigeon, not what separates you from it. The shared part is the engine.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-succession" data-time="§8" data-title="Succession">
+      <p class="ch-time">§8 · The future</p>
+      <h2>Succession, and Your Local Goals</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Sutton lays out four things he sees as clear. We will reach superintelligence. Over time the most intelligent things around will gain resources and power. That makes succession to AI, or to AI-enabled augmented humans, sort of inevitable. Within that set, good outcomes and bad outcomes are both possible.</p>
+      <p>His response is not to steer the universe. It is to work on your own local goals: your family, your work, the things you can actually control. Trying to dictate how the whole future evolves is, in his word, aggressive. Different people want different futures, and the arguments never end.</p>
+      <p>He calls himself a classicist, not a contrarian. The larger community of thinkers about the mind always thought something like this. He is just reading the old books carefully.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Agency</p>
+        <h4>Work on your local goals</h4>
+        <p><span class="lbl">What happened. </span>Facing inevitable succession, Sutton chose the local: family, work, controllable things.</p>
+        <p><span class="lbl">Why it matters. </span>Cosmic control is a fantasy that breeds conflict. Local agency is real and compounds.</p>
+        <p><span class="lbl">The principle. </span>Do not design the future. Tend your garden. The future is tended by gardeners.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Seventy years say it: human-crafted knowledge wins early, experience plus compute wins late.</li>
+          <li>Intelligence is goal achievement. A system without a goal is a demo.</li>
+          <li>Learn during the interaction, not in a separate training phase.</li>
+          <li>The paradigm is three words: sensation, action, reward.</li>
+          <li>Decade-long rewards need auxiliary stepping stones and total context.</li>
+          <li>Humans are animals. The shared machinery is the target.</li>
+          <li>Succession is likely. Tend your local goals anyway.</li>
+        </ol>
+        <p class="src">Distilled from Dwarkesh Patel's interview with Richard Sutton (video id 21EYKqUsPfg). All figures are the guest's statements from the episode transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates Dwarkesh Patel's interview with Richard Sutton (video id 21EYKqUsPfg). All facts and figures come from the episode transcript. Section labels (§1 to §8) follow the transcript in order. The episode publishes no chapter marks, so no timestamps are claimed. The illustration is an AI-generated watercolor made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 14 words: "having a goal is the essence of intelligence" (8 words), "Humans are animals." (3 words), and "The Bitter Lesson" (3 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+  var gr = document.getElementById('gpuRange'), gv = document.getElementById('gpuVal'), mo = document.getElementById('mwOut');
+  if(gr){
+    gr.addEventListener('input', function(){
+      var n = parseInt(gr.value, 10);
+      gv.textContent = n.toLocaleString('en-US');
+      mo.textContent = '\u2248 ' + Math.round(n / 110000 * 300).toLocaleString('en-US') + ' MW all-in';
+    });
+  }
+
+  /* ---------- toy: horizon converter ---------- */
+  (function(){
+    var r = document.getElementById('horRange'), v = document.getElementById('horVal'), o = document.getElementById('horOut');
+    if(!r) return;
+    var labels = ['1 week', '1 month', '1 year', '10 years'];
+    var stones = ['~7 daily stepping stones; keep all context', '~30 daily stepping stones; keep all context', '~50 weekly stepping stones; keep all context', '~1,200 weekly stepping stones; keep all context'];
+    function upd(){
+      var i = parseInt(r.value, 10);
+      v.textContent = labels[i]; o.textContent = stones[i];
+    }
+    r.addEventListener('input', upd); upd();
+  })();
+
+})();
+</script>
+</body>
+</html>
