@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools for Managing Stress and Anxiety: Huberman Lab Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode on tools for managing stress and anxiety: the physiological sigh, stress thresholds, and stress inoculation.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#1f2a28; --muted:#6b7572;
+    --line:#ddd8c8; --accent:#0f766e; --accent-ink:#0b5c56; --soft:#e9f2ef;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#a9d6cf}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3a4542;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfd8d3}
+  .bar.dark{fill:#3a4542}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6;
+    border:1px dashed var(--line);padding:12px 16px;margin:26px 0}
+  .legend b{color:var(--ink)}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#eef3f1;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#a9b6b2}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Fear and Social Freedom · Track Companion</a>
+  <span class="sub">Huberman Lab · Tools for Managing Stress and Anxiety</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode Companion</p>
+      <h1>Tools for Managing Stress and Anxiety</h1>
+      <p class="dek">Andrew Huberman organizes stress into an operational framework: real-time tools for the moment, threshold tools for the weeks, and supplements for the margins. At the center sits a single breath pattern, discovered in the 1930s, that can return your heart rate to baseline in under half a minute.</p>
+      <img src="assets/ep03-hero-sigh.webp" alt="Watercolor illustration of a person breathing deeply on a beach at sunrise">
+      <p class="caption"><b>Illustration.</b> The physiological sigh: a double inhale, a long exhale, and a calmer nervous system. AI-generated watercolor made for this page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">1930s</div><div class="l">Decade the physiological sigh was discovered</div><div class="s">Episode ~00:24</div></div>
+        <div class="stat"><div class="n">20-30 sec</div><div class="l">For heart rate to return to baseline with exhale-emphasized breathing</div><div class="s">Episode ~00:24</div></div>
+        <div class="stat"><div class="n">14.5-27.9%</div><div class="l">Cortisol reduction with ashwagandha across six studies</div><div class="s">Episode ~01:18</div></div>
+        <div class="stat"><div class="n">200 years</div><div class="l">Of stress the adrenals hold enough adrenaline to support</div><div class="s">Episode ~01:10</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/ntfcfJ28eiU" title="Huberman Lab: Tools for Managing Stress and Anxiety (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Huberman Lab episode video. Use the chapter menu above to move through this companion as you listen.</p>
+      </div>
+      <div class="legend"><b>How to read this page.</b> Each nugget has three parts. <b>What happened</b> states a fact from the episode. <b>Why it matters</b> and <b>The principle</b> are my interpretation of that fact. Charts built from episode numbers name their source. Charts drawn from his descriptions are labeled schematic.</div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Stress is not the enemy</a></li>
+          <li><a href="#nugget-2">Real-time tools for real-time states</a></li>
+          <li><a href="#nugget-3">One breath, thirty seconds</a></li>
+          <li><a href="#nugget-4">The diaphragm is the remote control</a></li>
+          <li><a href="#nugget-5">Threshold is capacity</a></li>
+          <li><a href="#nugget-6">Inoculate deliberately</a></li>
+          <li><a href="#nugget-7">Supplements are third-line</a></li>
+          <li><a href="#nugget-8">Learn the brake with the accelerator</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-intro" data-time="~00:01" data-title="Intro: an organizational logic">
+      <p class="ch-time">~00:01</p>
+      <h2>Intro: An Organizational Logic for Stress</h2>
+      <p>This episode belongs to a month of four episodes on emotions. Huberman promises something more useful than a list of tips: an organizational logic, a framework for thinking about states we usually just label happy or sad, calm or stressed.</p>
+      <p>He starts by cleaning up myths. The famous one: stress impairs your immune system. His answer is careful. <q>That's true in certain contexts.</q> In other contexts, stress enhances the immune system and makes it function better. Whether alertness or calm is good or bad depends on the circumstance. The episode refuses the simple story that stress is poison and calm is medicine.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Myth cleanup</p>
+        <h4>Stress is not the enemy</h4>
+        <p><span class="lbl">What happened. </span>Huberman rejects the blanket claim that stress harms immunity. Short-term stress can enhance immune function. Context decides.</p>
+        <p><span class="lbl">Why it matters. </span>A war on stress creates a second stressor: fear of the feeling. The framework replaces avoidance with management.</p>
+        <p><span class="lbl">The principle. </span>Ask what the stress is for before you fight it. Some of it is fuel.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-realtime" data-time="~00:13" data-title="Real-time tools">
+      <p class="ch-time">~00:13</p>
+      <h2>Real-Time Tools for Real-Time States</h2>
+      <div class="pull">
+        <blockquote>Emotions and stress happen in real time.</blockquote>
+        <p class="who">Andrew Huberman · Episode ~00:26</p>
+      </div>
+      <p>The sentence sets the design constraint for the whole episode. A tool that works tomorrow does not help a panic that peaks in ninety seconds. So Huberman divides his toolkit by timescale. Real-time tools act in the moment, while the stress is live. Threshold tools build capacity over weeks. Supplements sit at the margins.</p>
+      <p>This chapter covers the first class. Everything here must work while your heart pounds and your attention narrows, with no equipment and no preparation.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Timescale</p>
+        <h4>Real-time tools for real-time states</h4>
+        <p><span class="lbl">What happened. </span>Huberman sorts tools by timescale: real-time tools for the live moment, threshold tools for weeks, supplements for the margins.</p>
+        <p><span class="lbl">Why it matters. </span>Most advice fails because it answers the wrong timescale. Journaling does not stop a panic attack. Breathing does not fix a burnout quarter.</p>
+        <p><span class="lbl">The principle. </span>Match the tool to the clock. Name the timescale before you pick the tool.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-sigh" data-time="~00:24" data-title="The physiological sigh">
+      <p class="ch-time">~00:24</p>
+      <h2>The Physiological Sigh</h2>
+      <p>The star real-time tool is the physiological sigh. It was discovered in the 1930s and has since been mapped at the neurobiological level by Jack Feldman's lab at UCLA and Mark Krasnow's lab at Stanford. Humans and animals do it spontaneously: before sleep, during sleep when carbon dioxide builds up, after hard sobbing, in claustrophobic spaces. It is the body's built-in reset breath.</p>
+      <p>The pattern is simple. Take a double inhale through the nose, two sharp sniffs, then one long exhale through the mouth. The double inhale pops open the collapsed air sacs in the lungs. The long exhale offloads a large volume of carbon dioxide. One to three rounds is enough.</p>
+      <div class="chart" id="chart-sigh">
+        <h4>The sigh in two moves</h4>
+        <p class="csub">Schematic of the mechanism as described in the episode.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Schematic of the physiological sigh mechanism">
+          <rect class="bar" x="90" y="70" width="200" height="120" data-tip="Move 1: double inhale through the nose. The second sniff pops open collapsed air sacs in the lungs."></rect>
+          <rect class="bar alt" x="350" y="70" width="200" height="120" data-tip="Move 2: one long exhale through the mouth. Offloads a large volume of carbon dioxide."></rect>
+          <text class="vallab" x="190" y="120" text-anchor="middle" fill="#fff">double</text>
+          <text class="vallab" x="190" y="142" text-anchor="middle" fill="#fff">inhale</text>
+          <text class="vallab" x="450" y="120" text-anchor="middle">long</text>
+          <text class="vallab" x="450" y="142" text-anchor="middle">exhale</text>
+          <text class="axis" x="190" y="215" text-anchor="middle">opens the air sacs</text>
+          <text class="axis" x="450" y="215" text-anchor="middle">dumps the CO2</text>
+          <text class="axis" x="320" y="258" text-anchor="middle">One to three rounds. Heart rate returns to baseline in 20 to 30 seconds.</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Tools for Managing Stress and Anxiety, ~00:24. Mechanism per Feldman (UCLA) and Krasnow (Stanford) labs as described.</p>
+      </div>
+      <p>The speed is the point. With exhale-emphasized breathing, heart rate takes about 20 to 30 seconds to return to baseline. That is the whole intervention: under half a minute, no app, no equipment.</p>
+      <p>Huberman gives the diaphragm its due. It is a skeletal muscle and an internal organ you can control voluntarily, unlike the spleen, the heart, or the pancreas. You cannot will your pancreas to release insulin. You can move your diaphragm any time you want, and it runs in the background when you do not think about it. That makes breathing the only direct remote control into the autonomic nervous system.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The breath</p>
+        <h4>One breath, thirty seconds</h4>
+        <p><span class="lbl">What happened. </span>The physiological sigh, double inhale through the nose and long exhale through the mouth, restores baseline heart rate in 20 to 30 seconds.</p>
+        <p><span class="lbl">Why it matters. </span>The tool fits the timescale of the problem. Panic peaks in seconds. The sigh answers in seconds.</p>
+        <p><span class="lbl">The principle. </span>Learn one real-time tool cold. In the spike, you will not remember three.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Anatomy</p>
+        <h4>The diaphragm is the remote control</h4>
+        <p><span class="lbl">What happened. </span>The diaphragm is the one internal organ under voluntary control. Breathing is the only direct lever into the autonomic nervous system.</p>
+        <p><span class="lbl">Why it matters. </span>Every other calm-down advice works indirectly. The breath works at the hardware level.</p>
+        <p><span class="lbl">The principle. </span>When the system spikes, go to the one control you own. Breathe on purpose.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-study" data-time="~00:40" data-title="Deliberate activation: the endotoxin study">
+      <p class="ch-time">~00:40</p>
+      <h2>Deliberate Activation: The Endotoxin Study</h2>
+      <p>The sigh presses the brake. The next tool presses the accelerator on purpose. Cyclic hyperventilation, the Tummo or Wim Hof pattern, runs 25 to 30 deep breaths, then an exhale with the breath held for 15 to 30 seconds, repeated for three or four rounds, ending with a big inhale held until the impulse to breathe returns. The point is deliberate adrenaline release.</p>
+      <p>The evidence he cites is remarkable. In a study published in the Proceedings of the National Academy of Sciences, volunteers were injected with E. coli endotoxin, a bacterial wall fragment that mimics infection and causes fever, nausea, and sickness. Half the group practiced the breathing protocol. That group experienced essentially zero symptoms: no fever, no sickness, no vomiting. The liberated adrenaline blunted the inflammatory response.</p>
+      <p>Huberman uses the protocol himself at the first tickle of a cold, with his doctor's clearance. He rarely takes ice baths and prefers hot showers, so the breathing is his version. His safety warnings are absolute: never do the breath holds near water. People died from shallow-water blackout. get a doctor's clearance first, and skip it with glaucoma or eye-pressure concerns.</p>
+      <p>The deeper lesson is the pairing. The stress system knows how to activate itself. If you learn to activate it deliberately, you must also learn to press the brake deliberately. Accelerator and brake, the hyperventilation and the sigh, belong together as one skill.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Pairing</p>
+        <h4>Learn the brake with the accelerator</h4>
+        <p><span class="lbl">What happened. </span>Deliberate hyperventilation releases adrenaline and, in the PNAS endotoxin study, erased the symptoms of an injected bacterial toxin. Huberman pairs it with the sigh: never learn activation without deactivation.</p>
+        <p><span class="lbl">Why it matters. </span>A stress tool without an off switch is just stress. The pair is the tool.</p>
+        <p><span class="lbl">The principle. </span>Every accelerator needs a brake. Practice both, or practice neither.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-threshold" data-time="~00:56" data-title="The stress threshold">
+      <p class="ch-time">~00:56</p>
+      <h2>The Stress Threshold</h2>
+      <figure>
+        <img src="assets/ep03-threshold.webp" alt="Watercolor illustration of a small sailboat riding steadily over a large ocean wave">
+        <p class="caption"><b>Illustration.</b> Threshold as capacity: the same wave, a steadier boat. AI-generated watercolor made for this page.</p>
+      </figure>
+      <p>Medium-term stress, the kind that lasts days to weeks, is governed by a different variable: the stress threshold. Huberman defines it plainly as the ability to cognitively re-regulate what happens inside the body. <q>It's about capacity.</q></p>
+      <p>Raising the threshold is the work of stress inoculation. The method looks like the tools already described: place yourself deliberately into stress, in doses you control, and practice returning to baseline. Cold showers, ice baths, hard exercise, the breathing protocols. The dose is the message. Deliberate entry builds capacity. Ambush depletes it.</p>
+      <div class="chart" id="chart-threshold">
+        <h4>Stress threshold: capacity before and after deliberate training</h4>
+        <p class="csub">Schematic of his capacity model. Not measured data.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Schematic of rising stress threshold with deliberate training">
+          <rect class="bar alt" x="120" y="170" width="110" height="60" data-tip="Untrained threshold: everyday stressors push the system over the edge"></rect>
+          <rect class="bar" x="400" y="80" width="110" height="150" data-tip="Trained threshold: the same stressors stay inside capacity after deliberate stress practice"></rect>
+          <text class="vallab" x="175" y="160" text-anchor="middle">low</text>
+          <text class="vallab" x="455" y="70" text-anchor="middle">high</text>
+          <text class="axis" x="175" y="252" text-anchor="middle">untrained</text>
+          <text class="axis" x="455" y="252" text-anchor="middle">trained</text>
+          <line x1="80" y1="200" x2="580" y2="200" stroke="#b4531f" stroke-width="2" stroke-dasharray="6,4"></line>
+          <text class="axis" x="590" y="204" text-anchor="end">a hard week</text>
+          <text class="axis" x="320" y="282" text-anchor="middle">Training raises the line. The week stays the same.</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Tools for Managing Stress and Anxiety, ~00:56. Schematic of the stress-threshold capacity model.</p>
+      </div>
+      <p>He adds a humbling number about the hardware. The adrenals hold enough adrenaline to support 200 years of stress, for better or worse. Running out of adrenaline is not the risk. Running out of control is.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Capacity</p>
+        <h4>Threshold is capacity</h4>
+        <p><span class="lbl">What happened. </span>The stress threshold is the ability to re-regulate the body under load. Deliberate, dosed stress raises it. The adrenals hold 200 years of adrenaline, so supply is never the limit.</p>
+        <p><span class="lbl">Why it matters. </span>People try to shrink their lives to fit a low threshold. The episode argues the opposite: raise the threshold to fit the life.</p>
+        <p><span class="lbl">The principle. </span>Do not shrink the wave. Steady the boat.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Inoculation</p>
+        <h4>Inoculate deliberately</h4>
+        <p><span class="lbl">What happened. </span>Stress inoculation means entering stress on purpose, in controlled doses, and practicing the return to baseline. Cold, heat, exertion, and breath all count.</p>
+        <p><span class="lbl">Why it matters. </span>The nervous system learns from deliberate exposure the way the immune system learns from a vaccine: a small, chosen dose teaches the response.</p>
+        <p><span class="lbl">The principle. </span>Schedule small hard things. The unchosen hard things get easier.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-supplements" data-time="~01:18" data-title="Supplements: ashwagandha and theanine">
+      <p class="ch-time">~01:18</p>
+      <h2>Supplements: Ashwagandha and Theanine</h2>
+      <p>Supplements come last in the framework, and Huberman treats them as marginal gains, not foundations. He focuses on three, with a warning on one of them.</p>
+      <p>Ashwagandha leads. Across six studies, it reduced cortisol by 14.5 to 27.9 percent in otherwise healthy but stressed people. He calls the effect significant and the literature consistent.</p>
+      <div class="chart" id="chart-ashwa">
+        <h4>Ashwagandha: cortisol reduction across six studies</h4>
+        <p class="csub">Percent reduction in cortisol, otherwise healthy but stressed adults. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of cortisol reduction with ashwagandha">
+          <rect class="bar alt" x="150" y="196" width="90" height="54" data-tip="Low end of the range: 14.5 percent cortisol reduction"></rect>
+          <rect class="bar" x="400" y="104" width="90" height="146" data-tip="High end of the range: 27.9 percent cortisol reduction"></rect>
+          <text class="vallab" x="195" y="188" text-anchor="middle">14.5%</text>
+          <text class="vallab" x="445" y="96" text-anchor="middle">27.9%</text>
+          <text class="axis" x="195" y="268" text-anchor="middle">low end</text>
+          <text class="axis" x="445" y="268" text-anchor="middle">high end</text>
+          <text class="axis" x="320" y="292" text-anchor="middle">six studies, healthy but stressed adults</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Tools for Managing Stress and Anxiety, ~01:18. Cortisol reduction of 14.5 to 27.9 percent across six studies.</p>
+      </div>
+      <p>L-theanine follows. At 100 or 200 milligrams, taken 30 to 60 minutes before sleep, it deepens the transition into sleep for many people. It raises GABA, the brain's main inhibitory neurotransmitter, and quiets the forebrain's thinking and ruminating systems. In chronically anxious or stressed people, the studies show significantly increased relaxation.</p>
+      <p>Melatonin gets the warning. It is a hormone secreted by the pineal gland in proportion to darkness, and it helps with falling asleep, not staying asleep. Huberman does not recommend supplementing it: typical doses of 1 to 3 milligrams are outrageously high compared to what the body makes, super-physiological, with effects he considers poorly controlled.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Margins</p>
+        <h4>Supplements are third-line</h4>
+        <p><span class="lbl">What happened. </span>Ashwagandha cut cortisol 14.5 to 27.9 percent across six studies. Theanine at 100 to 200 milligrams aids sleep onset and relaxation. Melatonin, at typical 1 to 3 milligram doses, he advises against.</p>
+        <p><span class="lbl">Why it matters. </span>Supplements adjust the margins. Breath and threshold do the main work. Reversing the order is the common mistake.</p>
+        <p><span class="lbl">The principle. </span>Earn the basics first. Supplement only what the basics leave unfinished.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Stress is not poison. Short-term stress can enhance immunity. Context decides.</li>
+          <li>Sort every tool by timescale: real-time, threshold, or margin.</li>
+          <li>The physiological sigh resets the system in 20 to 30 seconds. Learn it cold.</li>
+          <li>The diaphragm is the only voluntary lever into the autonomic nervous system.</li>
+          <li>Deliberate adrenaline has uses, shown in the endotoxin study, but learn the brake with the accelerator.</li>
+          <li>Raise the threshold with dosed, deliberate stress. The adrenals hold 200 years of supply.</li>
+          <li>Supplements are third-line. Ashwagandha and theanine have data. Melatonin gets a warning.</li>
+        </ol>
+        <p class="src">Distilled from Huberman Lab, Tools for Managing Stress and Anxiety (Mar 2021, ~1h38m). Full episode: youtube.com/watch?v=ntfcfJ28eiU. Labs and studies named: Feldman (UCLA) and Krasnow (Stanford) on the sigh, the PNAS endotoxin study, and the six-study ashwagandha literature.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Huberman Lab episode Tools for Managing Stress and Anxiety (Mar 8, 2021, ~1h38m). All facts and figures come from the episode. Timestamps marked ~ are proportional estimates from transcript position. Each chart names its source. Illustrations are AI-generated watercolors made for this page and labeled as such.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 15 words: the pull quote (7 words) and two short phrases in quotation marks (5 and 3 words). The pull quote carries speaker and episode-timestamp attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+})();
+</script>
+</body>
+</html>
