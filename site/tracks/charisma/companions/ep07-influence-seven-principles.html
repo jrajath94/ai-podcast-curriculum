@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ep07: Influence: The Seven Principles That Move People</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--paper:#fdfbf6;--ink:#221c14;--muted:#6f6455;--line:#e6dcc8;--card:#f5f0e6;--warm:#f4ecd9;--blue:#e9eff9;--accent:#8f3f14;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.65;font-size:16.5px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+header.hero{background:var(--warm);border-bottom:1px solid var(--line);padding:64px 0 40px}
+header.hero h1{font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+header.hero .sub{font-size:18px;color:var(--muted);max-width:660px;margin-bottom:22px}
+.epmeta{font-size:14px;color:var(--muted)}
+.layout{display:flex;gap:28px;align-items:flex-start;padding-top:28px}
+.layout main{flex:1 1 0;min-width:0}
+aside.side{flex:0 0 210px;position:sticky;top:16px}
+.side h4{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px}
+.side a{display:block;padding:6px 0;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.4}
+.side a .t{color:var(--muted);font-size:12.5px;display:block}
+.side a:hover{color:var(--accent)}
+.side a.active{color:var(--accent);font-weight:700}
+#chapnav{overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:26px;position:sticky;top:0;background:var(--paper);z-index:50}
+#chapnav a{display:inline-block;margin-right:22px;font-size:13.5px;color:var(--muted);text-decoration:none;padding:4px 0}
+#chapnav a .t{display:block;font-size:11.5px}
+#chapnav a.active{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+section.chapter{margin-bottom:58px}
+.ch-time{font-size:13px;color:var(--muted);letter-spacing:1px;margin-bottom:6px}
+h2{font-size:27px;margin-bottom:16px;line-height:1.25}
+p{margin-bottom:16px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:10px}
+.fact{background:var(--blue);color:#144a8f}
+.interp{background:var(--warm);color:#6b4a12}
+.wisdom{background:var(--card);border:1px solid var(--line);padding:24px;margin:30px 0}
+.wisdom h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+.wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+@media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+.wisdom li{counter-increment:w;font-size:14px}
+.wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
+.wisdom li a:hover{border-color:var(--accent)}
+.wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;margin-right:8px}
+.legend{font-size:12.5px;color:var(--muted);margin:0 0 22px}
+figure{margin:26px 0;text-align:center}
+figure img{max-width:100%;border-radius:6px;border:1px solid var(--line)}
+.caption{font-size:13.5px;color:var(--muted);margin-top:8px}
+.caption b{color:var(--ink)}
+blockquote{font-size:21px;font-style:italic;line-height:1.5;color:#4a4136;border-left:3px solid var(--accent);padding:8px 0 8px 18px;margin:28px 0}
+p.attrline{font-size:14px;color:var(--muted);margin-top:-20px;margin-bottom:24px}
+.nugget{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin:30px 0;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.nugget.in{opacity:1;transform:none}
+.nugget .eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.nugget h4{font-size:20px;margin-bottom:12px}
+.nugget p{margin-bottom:10px}
+.nugget .lbl{font-weight:700}
+.toy{border:1px dashed var(--line);border-radius:10px;padding:24px;margin:30px 0;background:#fff}
+.toy h4{font-size:17px;margin-bottom:6px}
+.toy .tsub{font-size:14px;color:var(--muted);margin-bottom:14px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;margin:30px 0}
+.chart h4{font-size:17px;margin-bottom:4px}
+.chart .csub{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.chart .csrc{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+.chart svg{width:100%;height:auto}
+.axis{font-size:12px;fill:var(--muted)}
+.vallab{font-size:14px;fill:var(--ink);font-weight:600}
+.takeaways{background:var(--blue);border-radius:10px;padding:26px 28px;margin:40px 0}
+.takeaways h3{font-size:19px;margin-bottom:12px}
+.takeaways ol{padding-left:22px}
+.takeaways li{margin-bottom:8px}
+.takeaways .src{font-size:13px;color:var(--muted);margin-top:14px}
+footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:14px;color:var(--muted)}
+footer p{margin-bottom:12px}
+footer b{color:var(--ink)}
+.vid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid var(--line);margin:26px 0}
+.vid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+#tip{position:fixed;pointer-events:none;background:#1c1812;color:#fff;font-size:13px;padding:8px 12px;border-radius:6px;max-width:300px;opacity:0;transition:opacity .15s;z-index:100}
+.toy .row{margin-bottom:10px}
+.toy select,.toy button{font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.toy button{cursor:pointer;background:var(--accent);color:#fff;border:1px solid var(--accent);font-weight:700}
+.toy button:hover{opacity:.9}
+.toy .out{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:15px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.cards .card{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--paper);cursor:pointer;font-size:14px}
+.cards .card:hover{border-color:var(--accent)}
+.cards .card.sel{background:var(--blue);border-color:#1f5fb0}
+@media(max-width:760px){aside.side{display:none}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="epmeta">CHARISMA · EPISODE 7 · THE KNOWLEDGE PROJECT · OCT 2021</p>
+    <h1>Influence: The Seven Principles That Move People</h1>
+    <p class="sub">Robert Cialdini on reciprocation, liking, social proof, authority, scarcity, commitment, and unity: how each works, the studies behind them, and how to defend against misuse.</p>
+    <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/aO4RC70qU1U" title="Robert Cialdini: The Psychology of Persuasion" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</header>
+<div class="wrap layout">
+<aside class="side" id="sidenav"></aside>
+<main>
+<nav id="chapnav" aria-label="Chapters"></nav>
+
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Advice makes partners. Opinion makes critics.</a></li>
+          <li><a href="#nugget-2">Go first, and mean it</a></li>
+          <li><a href="#nugget-3">Similarity found is rapport built</a></li>
+          <li><a href="#nugget-4">Uncertainty is the amplifier</a></li>
+          <li><a href="#nugget-5">Be an authority, not in authority</a></li>
+          <li><a href="#nugget-6">Losses loom larger than gains</a></li>
+          <li><a href="#nugget-7">Small public yeses grow</a></li>
+          <li><a href="#nugget-8">Of us beats like us</a></li>
+          <li><a href="#nugget-9">The test is always verifiability</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps.</p>
+
+    <section class="chapter" id="ch-advice" data-time="~00:00" data-title="Ask for Advice, Not Opinion">
+      <p class="ch-time">~00:00</p>
+      <h2>Ask for Advice, Not Opinion</h2>
+      <figure>
+        <img src="assets/ep07/photo-robert-cialdini.jpg" alt="Robert Cialdini">
+        <p class="caption"><b>Photo.</b> Robert Cialdini. Source: Cialdini Institute press release, via newswire.com.</p>
+      </figure>
+      <blockquote>when you ask for an opinion you get a critic</blockquote>
+      <p class="attrline">Robert Cialdini on The Knowledge Project, ~00:00</p>
+      <p><span class="tag fact">Source fact</span> The cold open carries a complete lesson. When you want someone's buy-in, do not ask for their opinion. Asking for an opinion makes them a critic. Asking for advice makes them a partner. The research finding: people asked for advice become more favorable to the idea and give better, more constructive input, because they are now on your side of it.</p>
+      <p><span class="tag fact">Source fact</span> The distinction that governs everything after: influence means pointing to the principles where they genuinely exist. Manipulation means fabricating them. One informs. The other counterfeits.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Buy-in</p>
+        <h4>Advice makes partners. Opinion makes critics.</h4>
+        <p><span class="lbl">What happened. </span>Asking for advice puts the other person on your side of the idea. They become more favorable and give better input.</p>
+        <p><span class="lbl">Why it matters. </span>Every plan needs buy-in. The question you ask decides whether you get a partner or a reviewer.</p>
+        <p><span class="lbl">The principle. </span>Replace what is your opinion with what advice do you have in your next meeting.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-reciprocation" data-time="~00:06" data-title="Principle 1: Reciprocation">
+      <p class="ch-time">~00:06</p>
+      <h2>Principle 1: Reciprocation</h2>
+      <figure>
+        <img src="assets/ep07/illustration-reciprocation.webp" alt="Watercolor illustration of hands exchanging gifts in a circle">
+        <p class="caption"><b>Illustration.</b> The rule of reciprocation: give first, honestly. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Definition: the rule of reciprocation says we must give back to those who first gave to us. Every human culture trains it. It lets societies give first without fear, because the obligation to return is built in.</p>
+      <p><span class="tag fact">Source fact</span> The McDonald's study, run by Cialdini's colleague Steve Martin in Colombia and Brazil: children got a balloon. Half the families got it while leaving, as a thank-you. Half got it on entry. The entry-balloon families bought 25 percent more food. First is the key. The standard business model asks the customer to go first: sign, then we serve. Reciprocation reverses it: we go first.</p>
+      <p><span class="tag fact">Source fact</span> The cheapest gift is information. White papers, tips, the three things that improve their outcome, given freely and not as a sales device. If the gift is designed to sell, people read it as a device, not a gift, and the obligation never forms.</p>
+      <p><span class="tag fact">Source fact</span> Concessions are the negotiation form. The blood donor study: asked to give blood every six weeks for two years, everyone refused. Asked then for one donation tomorrow, compliance rose from 33 percent to 55 percent, and observers confirmed they showed up. Two mechanisms combine: the concession triggers a return concession, and the contrast makes the small ask look smaller. The contrast alone does not work. The episode stresses that the subjects had to say no first. Without the refusal, the retreat has no power.</p>
+      <p><span class="tag fact">Source fact</span> The Cuban missile crisis retelling is the historical case. The public story: Kennedy stood firm and Khrushchev blinked. The declassified record: a secret reciprocal concession. American missiles out of Turkey for Soviet missiles out of Cuba. What saved the world was not the hard line. It was the trade.</p>
+      <p><span class="tag fact">Source fact</span> Defense: do not reject all gifts. Reframe the manipulative ones. When a gift arrives as the lever for a much larger ask, rename it mentally from gift to trick, show them the door, and keep the extinguisher. By the rule of reciprocation, the exploiter may be exploited.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Reciprocation</p>
+        <h4>Go first, and mean it</h4>
+        <p><span class="lbl">What happened. </span>The balloon on entry lifted food purchases 25 percent. The refused big ask made the small ask jump from 33 to 55 percent.</p>
+        <p><span class="lbl">Why it matters. </span>The obligation to return only forms for real gifts. Devices designed to sell never trigger it.</p>
+        <p><span class="lbl">The principle. </span>Give first, honestly. When a gift is a lever, rename it a trick and show them out.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-liking" data-time="~00:35" data-title="Principle 2: Liking">
+      <p class="ch-time">~00:35</p>
+      <h2>Principle 2: Liking</h2>
+      <blockquote>I like you.</blockquote>
+      <p class="attrline">Joe Girard, as quoted by Robert Cialdini, ~00:40</p>
+      <p><span class="tag fact">Source fact</span> We say yes to people we like. Two levers move liking honestly: similarity and genuine compliments.</p>
+      <p><span class="tag fact">Source fact</span> The email negotiation study: negotiators bargaining by email deadlocked 30 percent of the time, both sides walking away with nothing. When instructed to exchange personal information first, hobbies, hometowns, majors, deadlocks fell to 6 percent. The key was not the amount of information. It was the count of genuine commonalities. Similarity found is rapport built. The internet hands you this tool: social profiles list the commonalities before you ever meet.</p>
+      <p><span class="tag fact">Source fact</span> Joe Girard is the exemplar. The Guinness record holder sold an average of six cars and trucks a day from a Detroit dealership. His method: every buyer got a greeting card every month, and inside each card one line: I like you, from Joe Girard. We like people who like us, and hearing it monthly compounded for years.</p>
+      <p><span class="tag fact">Source fact</span> Defense: notice the liking spike. If you like a salesperson far more than a 30-minute interaction warrants, step back and inventory what they did: the drink, the compliments, the claimed similarities. Then separate the salesperson from the car. You drive the car home, not the person.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Liking</p>
+        <h4>Similarity found is rapport built</h4>
+        <p><span class="lbl">What happened. </span>Deadlocks fell from 30 to 6 percent when negotiators surfaced genuine commonalities first.</p>
+        <p><span class="lbl">Why it matters. </span>Liking is not luck. It is similarity plus genuine praise, delivered before the ask.</p>
+        <p><span class="lbl">The principle. </span>Find real overlap and surface it early. When warmth spikes unnaturally, inventory what they did.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-proof" data-time="~00:50" data-title="Principle 3: Social Proof">
+      <p class="ch-time">~00:50</p>
+      <h2>Principle 3: Social Proof</h2>
+      <figure>
+        <img src="assets/ep07/illustration-proof.webp" alt="Watercolor illustration of a crowd moving one way with a hesitant follower">
+        <p class="caption"><b>Illustration.</b> Under uncertainty, we look outward at what people like us do. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> When uncertain, we do not look inward. Inward shows only the lack of confidence. We look outward, at what people like us do. That is the whole principle.</p>
+      <p><span class="tag fact">Source fact</span> The Beijing restaurant study: managers put an asterisk on certain menu items. The asterisk did not mean chef's special. It meant one of our most popular items. Those items sold 13 to 20 percent more. Every demographic moved, but first-time visitors moved most. Uncertainty is the amplifier. The most uncertain are the most influenceable.</p>
+      <p><span class="tag fact">Source fact</span> The trend variant of social proof deserves its own note. 40 percent market share persuades. 30 percent last year, 35 six months ago, 40 now persuades more. People project the trend forward. Momentum beats position.</p>
+      <p><span class="tag fact">Source fact</span> Defense: read reviews like a detective. Phony reviews lean on personal stories instead of product features, and on verbs instead of nouns, because the writer never touched the product. And when a company is caught faking, penalize it publicly. Post the cheating everywhere. Private boycotts do not change incentives. Public ones do.</p>
+      <div class="toy" id="toy-proof">
+        <h4>Toy: the uncertainty amplifier</h4>
+        <p class="tsub">Rate your uncertainty about a decision, 1 to 10. The toy tells you how hard social proof pulls on you.</p>
+        <div class="row"><input type="range" id="unc" min="1" max="10" value="5" style="width:100%"><label>Uncertainty: <b id="uncv">5</b> of 10</label></div>
+        <div class="out" id="uncout">Move the slider. The pull appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Social proof</p>
+        <h4>Uncertainty is the amplifier</h4>
+        <p><span class="lbl">What happened. </span>The asterisk lifted sales 13 to 20 percent. First-time visitors moved most. Momentum beats position.</p>
+        <p><span class="lbl">Why it matters. </span>The most uncertain are the most influenceable, which is exactly when you should check your own borrowing.</p>
+        <p><span class="lbl">The principle. </span>Show real momentum. Read reviews like a detective.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-authority" data-time="~01:03" data-title="Principle 4: Authority">
+      <p class="ch-time">~01:03</p>
+      <h2>Principle 4: Authority</h2>
+      <p><span class="tag fact">Source fact</span> The distinction that matters: being in authority versus being an authority. Being in authority is power: the boss card, threats, coercion. It works and it costs. People finesse around it. Being an authority is expertise: genuine knowledge that earns following.</p>
+      <p><span class="tag fact">Source fact</span> The Bose ad is the masterclass. Moving expert testimonials from the bottom of the ad to the top increased purchases by 15 percent. Authority first infuses everything below it. Authority last is decoration.</p>
+      <p><span class="tag fact">Source fact</span> Defense asks two questions. One: is this person truly an expert on this topic. Matthew McConaughey selling cars and the actor who played a doctor selling cough syrup both fail this test. Two: if they are an expert, is there a reason besides merit for the recommendation. Paid influencers pass question one and fail question two. Either failure unhooks the authority.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Authority</p>
+        <h4>Be an authority, not in authority</h4>
+        <p><span class="lbl">What happened. </span>Expert testimonials moved to the top lifted purchases 15 percent. Titles with threats cost goodwill.</p>
+        <p><span class="lbl">Why it matters. </span>Knowledge compounds. Coercion bills you later.</p>
+        <p><span class="lbl">The principle. </span>Lead with real expertise. Ask the two questions of every endorsement you meet.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-scarcity" data-time="~01:14" data-title="Principle 5: Scarcity">
+      <p class="ch-time">~01:14</p>
+      <h2>Principle 5: Scarcity</h2>
+      <p><span class="tag fact">Source fact</span> We want more of what we can have less of. Rare, scarce, and dwindling in availability all pull harder. FOMO is the folk name. Loss aversion is the engine: losing a value hurts about twice as much as gaining the same value pleases.</p>
+      <p><span class="tag fact">Source fact</span> Uniqueness is scarcity without countdown timers. If no rival can match a feature, or a combination of features, say so. What they cannot get elsewhere is what they fear losing.</p>
+      <p><span class="tag fact">Source fact</span> The e-commerce A/B tests, across six sites and 29 tested elements: the top six converters were all principles of social influence, and scarcity of supply ranked first.</p>
+      <p><span class="tag fact">Source fact</span> Defense: verify. Real scarcity survives a check. False urgency does not.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Scarcity</p>
+        <h4>Losses loom larger than gains</h4>
+        <p><span class="lbl">What happened. </span>Loss aversion runs about two to one. Scarcity of supply, time, and uniqueness all trade on it.</p>
+        <p><span class="lbl">Why it matters. </span>Honest scarcity informs. Fabricated scarcity counterfeits.</p>
+        <p><span class="lbl">The principle. </span>State what is genuinely rare. Verify every countdown.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-commitment" data-time="~01:28" data-title="Principle 6: Commitment">
+      <p class="ch-time">~01:28</p>
+      <h2>Principle 6: Commitment and Consistency</h2>
+      <p><span class="tag fact">Source fact</span> People want to act consistently with what they have said and done, especially in public. Get a small, voluntary, public step in your direction and the larger step follows.</p>
+      <p><span class="tag fact">Source fact</span> Gordon Sinclair's restaurant: 30 percent no-shows. His receptionist changed two words: her old please call if you have to change or cancel your reservation became will you please call if you have to change or cancel your reservation, followed by a pause. Every caller said yes. No-shows fell 67 percent and never rose again. The pause did the work. The yes was active, public, and voluntary.</p>
+      <p><span class="tag interp">Interpretation</span> The management application: never let anyone leave a meeting without asking whether they will complete it by next time, then pause. A no is useful information: the person needs time, resources, or help. A yes is a commitment device that raises follow-through.</p>
+      <p><span class="tag fact">Source fact</span> Unmooring works in reverse. To move someone off an old commitment, never call the old choice stupid. Say it could be right given what was known then, then introduce the new information. Framing them as a good decision maker who uses all the information lets them change without losing face.</p>
+      <p><span class="tag fact">Source fact</span> Self-defense: when new information arrives about your own past choice, ask whether you would decide the same way knowing it then. If not, update. Consistency is a virtue until it becomes a cage.</p>
+      <div class="toy" id="toy-commit">
+        <h4>Toy: the commitment builder</h4>
+        <p class="tsub">Draft a request below. The toy checks it against the Sinclair formula: active, public, voluntary.</p>
+        <div class="row"><input type="text" id="req" placeholder="e.g. send me the draft by Thursday" style="width:100%"></div>
+        <button id="reqbtn">Check the formula</button>
+        <div class="out" id="reqout">Write the request and press the button. The check appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Commitment</p>
+        <h4>Small public yeses grow</h4>
+        <p><span class="lbl">What happened. </span>Two words and a pause cut no-shows 67 percent. The yes was active, public, and voluntary.</p>
+        <p><span class="lbl">Why it matters. </span>Consistency binds people to their own words. The pause is what makes the yes theirs.</p>
+        <p><span class="lbl">The principle. </span>Ask will you and then pause. Let the silence do the work.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-unity" data-time="~01:36" data-title="Principle 7: Unity">
+      <p class="ch-time">~01:36</p>
+      <h2>Principle 7: Unity</h2>
+      <figure>
+        <img src="assets/ep07/illustration-unity.webp" alt="Watercolor illustration of two people in a shared glowing circle">
+        <p class="caption"><b>Illustration.</b> Unity: of us, not just like us. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The newest principle. If the communicator can arrange to be seen as one of us, sharing an identity, yeses follow. Not like us. Of us. Tribal identity is the strong form, but any genuine shared membership works.</p>
+      <p><span class="tag fact">Source fact</span> The campus study: a student asking for United Way donations added one line: I am a student here too. Donations rose 400 percent. Four words of shared identity quintupled giving.</p>
+      <p><span class="tag fact">Source fact</span> Cialdini's own Tim story is the applied version. He needed data from a colleague famous for refusing. Leading with the deadline already failed. He led instead with twelve years in the same psychology department. He reminded Tim that they shared twelve years in the same psychology department, then made the ask. He had the data that afternoon. Unity first, request second.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Unity</p>
+        <h4>Of us beats like us</h4>
+        <p><span class="lbl">What happened. </span>Four words of shared identity quintupled donations. Twelve years of shared membership unlocked the data.</p>
+        <p><span class="lbl">Why it matters. </span>Similarity attracts. Membership obligates. The difference is 400 percent.</p>
+        <p><span class="lbl">The principle. </span>Claim genuine shared identity before the ask. Unity first, request second.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-defense" data-time="~01:45" data-title="The Defense Table">
+      <p class="ch-time">~01:45</p>
+      <h2>The Defense Table: Seven Attacks, Seven Counters</h2>
+      <div class="chart" id="chart-defense">
+        <h4>Each principle's defense</h4>
+        <p class="csub">Hover each row for the counter.</p>
+        <svg viewBox="0 0 640 420" role="img" aria-label="Influence defenses">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="10" width="620" height="52" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Reciprocation: reframe the manipulative gift as a trick, keep it, show them out."></rect>
+            <text x="26" y="34" class="vallab">Reciprocation</text><text x="26" y="52" font-size="13" fill="#6f6455">Reframe gift as trick</text>
+            <rect x="10" y="70" width="620" height="52" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Liking: inventory what they did, then separate the person from the deal."></rect>
+            <text x="26" y="94" class="vallab">Liking</text><text x="26" y="112" font-size="13" fill="#6f6455">Separate person from deal</text>
+            <rect x="10" y="130" width="620" height="52" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Social proof: read reviews like a detective, watch the rating band, penalize faking publicly."></rect>
+            <text x="26" y="154" class="vallab">Social proof</text><text x="26" y="172" font-size="13" fill="#6f6455">Detective reading</text>
+            <rect x="10" y="190" width="620" height="52" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Authority: two questions. True expert. Unbiased motive."></rect>
+            <text x="26" y="214" class="vallab">Authority</text><text x="26" y="232" font-size="13" fill="#6f6455">Two questions</text>
+            <rect x="10" y="250" width="620" height="52" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Scarcity: verify. Real scarcity survives a check."></rect>
+            <text x="26" y="274" class="vallab">Scarcity</text><text x="26" y="292" font-size="13" fill="#6f6455">Verify the urgency</text>
+            <rect x="10" y="310" width="620" height="52" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Commitment: the new-information test. Would I still choose this."></rect>
+            <text x="26" y="334" class="vallab">Commitment</text><text x="26" y="352" font-size="13" fill="#6f6455">New-information test</text>
+            <rect x="10" y="370" width="620" height="52" rx="4" fill="#f4ecd9" stroke="#e2d8c3" data-tip="Unity: check the membership is real and relevant."></rect>
+            <text x="26" y="394" class="vallab">Unity</text><text x="26" y="412" font-size="13" fill="#6f6455">Check the membership</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: The Knowledge Project, Robert Cialdini. Defenses as given on air.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Defense</p>
+        <h4>The test is always verifiability</h4>
+        <p><span class="lbl">What happened. </span>Every principle gets a specific counter, from the liking inventory to the two-question authority check.</p>
+        <p><span class="lbl">Why it matters. </span>Influence finds the levers. Manipulation forges them. Only verification tells them apart.</p>
+        <p><span class="lbl">The principle. </span>When a principle pushes you, check whether it genuinely exists before you obey it.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Ask for advice, not opinion. Partners beat critics.</li>
+          <li>Give first, honestly. The balloon on entry lifted purchases 25 percent.</li>
+          <li>Surface genuine commonalities early. Deadlocks fell from 30 to 6 percent.</li>
+          <li>Uncertainty amplifies social proof. The asterisk lifted sales 13 to 20 percent.</li>
+          <li>Be an authority, not in authority. Testimonials first, never last.</li>
+          <li>Small public yeses grow. Two words and a pause cut no-shows 67 percent.</li>
+          <li>Unity first, request second. Shared identity quintupled donations.</li>
+        </ol>
+        <p class="src">Distilled from The Knowledge Project, Robert Cialdini: The Psychology of Persuasion, Oct 2021. Full episode: youtube.com/watch?v=aO4RC70qU1U. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates The Knowledge Project episode "Robert Cialdini: The Psychology of Persuasion" (October 2021). All facts and figures come from the episode transcript (research/charisma/transcripts/aO4RC70qU1U.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Two items from the episode's content file were excluded because they do not appear in this transcript: the Opower story and the Bose headline figures. The member-only second half of the conversation is not in the transcript and is not covered here. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 13 words: two pull quotes from Robert Cialdini (10 and 3 words, each with speaker and episode-time attribution). All example lines and script condensations in the body are the builder's own wording and carry no quotation marks.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: uncertainty amplifier ---------- */
+  (function(){
+    var unc = document.getElementById('unc'), uncv = document.getElementById('uncv');
+    var out = document.getElementById('uncout');
+    function upd(){
+      var u = parseInt(unc.value, 10);
+      uncv.textContent = u;
+      if(u <= 3){ out.textContent = 'Uncertainty ' + u + ' of 10: low. Social proof pulls weakly. Trust your own read.'; out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f'; }
+      else if(u <= 6){ out.textContent = 'Uncertainty ' + u + ' of 10: moderate. The crowd tugs. Check whether the proof is real before borrowing it.'; out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14'; }
+      else { out.textContent = 'Uncertainty ' + u + ' of 10: high. You are the first-time visitor right now. Expect the asterisk to work on you, and verify it anyway.'; out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f'; }
+    }
+    unc.addEventListener('input', upd); upd();
+  })();
+
+  /* ---------- toy: commitment builder ---------- */
+  (function(){
+    var inp = document.getElementById('req'), btn = document.getElementById('reqbtn');
+    var out = document.getElementById('reqout');
+    btn.addEventListener('click', function(){
+      var r = inp.value.trim();
+      if(!r){ out.textContent = 'Write the request first.'; return; }
+      var hasWill = /\bwill\b/i.test(r);
+      out.innerHTML = '<b>The Sinclair check:</b> "' + r + '"<br>' +
+        (hasWill ? 'Contains "will": it asks for an active yes. ' : 'No "will": rephrase as "will you ' + r.replace(/\.$/, '') + '" and pause. ') +
+        'Keep it public and voluntary. Then wait through the silence.';
+    });
+  })();
+})();
+</script>
+</body>
+</html>
