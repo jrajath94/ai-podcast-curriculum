@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resilience: Hidden Brain Interactive Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Hidden Brain episode on resilience: the four trajectories, the 10-percent ceiling, and the cost of the fragility script.">
+<style>
+:root{
+  --paper:#fbf9f3; --paper2:#f4eee1; --ink:#24201a; --muted:#6f6455;
+  --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+  --green:#2e6b34; --blue:#2c5f8a;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:18px;line-height:1.65}
+a{color:var(--accent-ink)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+.topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+  align-items:center;gap:14px}
+.topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+.chapnav{position:sticky;top:52px;z-index:99;background:var(--paper2);
+  border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+  padding:8px 12px}
+.chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+  color:var(--muted);text-decoration:none;padding:6px 10px;margin-right:6px;
+  border:1px solid transparent;border-radius:20px}
+.chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+.chapnav a:hover{border-color:var(--line);color:var(--ink)}
+.chapnav a.active{background:var(--ink);color:#fff}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;padding:0 20px}
+@media(min-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,760px)}
+  .chapnav{display:none}
+  .sidenav{display:block}
+}
+.sidenav{display:none;position:sticky;top:70px;align-self:start;
+  max-height:calc(100vh - 90px);overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+.sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+.sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+.sidenav a:hover{color:var(--ink)}
+.sidenav a.active{border-left-color:var(--accent);color:var(--ink);font-weight:700}
+.content{min-width:0;padding:26px 0 60px}
+.breadcrumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px}
+h1{font-size:40px;line-height:1.15;margin:0 0 10px}
+.meta-line{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.sourcebox{border:1px solid var(--line);background:var(--paper2);padding:14px 16px;
+  margin:0 0 26px;font-family:var(--sans);font-size:13px;line-height:1.55}
+.sourcebox .badge{display:inline-block;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-right:8px}
+.badge.transcript{background:#e5f0e2;color:var(--green)}
+.badge.descr{background:#f6e8d4;color:var(--accent-ink)}
+.legend{margin-top:10px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 8px;border-radius:10px;margin:0 6px 4px 0}
+.tag.sf{background:#e5f0e2;color:var(--green)}
+.tag.in{background:#e6ecf5;color:var(--blue)}
+p{margin:0 0 16px}
+h2{font-size:28px;margin:44px 0 12px;scroll-margin-top:130px}
+h3{font-size:21px;margin:28px 0 8px}
+section.chapter{scroll-margin-top:120px}
+figure{margin:26px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+figcaption .kind{font-weight:700;color:var(--ink)}
+.nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+.nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+.nugget h4{font-size:20px;margin:0 0 10px}
+.nugget p{font-size:16.5px;margin:0 0 10px}
+.nugget p:last-child{margin-bottom:0}
+.nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.nugget .nsrc{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.pull{margin:34px 0;padding:6px 0;text-align:center}
+.pull blockquote{font-size:25px;line-height:1.4;margin:0 0 10px;font-style:italic}
+.pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+  background:var(--accent);margin:0 auto 18px}
+.pull:after{margin:18px auto 0}
+.chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+.chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+.chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:12px 0 0}
+.chart .illust{font-family:var(--sans);font-size:11.5px;color:var(--accent-ink);margin:6px 0 0;font-style:italic}
+.video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--line)}
+.video .frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.nugindex{columns:2;column-gap:28px;font-family:var(--sans);font-size:13.5px}
+.nugindex li{margin-bottom:8px;break-inside:avoid}
+footer.honesty{border-top:2px solid var(--ink);margin-top:50px;padding:24px 0 10px;
+  font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+footer.honesty h3{font-size:15px;color:var(--ink);margin:18px 0 8px}
+footer.honesty .big{font-size:15px;color:var(--ink);font-weight:700}
+footer.honesty code{font-family:var(--mono);font-size:12px;background:var(--paper2);padding:1px 5px}
+#tip{position:fixed;pointer-events:none;background:#1d1a15;color:#f7f3ea;
+  font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:6px;
+  max-width:280px;opacity:0;transition:opacity .15s;z-index:300}
+.stat-row{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.stat{flex:1 1 150px;border:1px solid var(--line);background:#fff;padding:14px;text-align:center}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent-ink)}
+.stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.stat .s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:4px}
+@media(max-width:700px){h1{font-size:30px}.nugindex{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Hidden Brain &middot; Interactive companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <aside class="sidenav" id="sidenav" aria-label="Chapters"></aside>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../index.html">Hidden Brain</a> / <span>Resilience</span></nav>
+      <p class="eyebrow">Interactive companion</p>
+      <h1>Resilience</h1>
+      <p class="meta-line">Episode 3 &middot; Hidden Brain &middot; Guest: George Bonanno, Columbia University &middot; Published 2026-05-01 &middot; 9,221 views &middot; 19 min 16 s</p>
+      <div class="sourcebox"><span class="badge transcript">Full transcript</span> Narrated from the full episode transcript on disk (<i>research/hidden-brain/transcripts/DZj73Fu939s.txt</i>, 3,388 words, from the official YouTube captions), checked against the episode description and research notes.
+      <div class="legend"><span class="tag sf">Source fact</span> claim verified in the source named beside it. <span class="tag in">Interpretation</span> my analysis, clearly separated from source facts.</div></div>
+      <figure class="reveal"><img src="img/ep03-resilience-a.webp" alt="Watercolor: bent tree in storm" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> Bent, not broken: the shape the episode argues is the norm, not the exception.</figcaption></figure>
+      <section class="chapter" id="call" data-time="00:00"><h2>The midnight phone call</h2><p class="reveal">Imagine a phone call in the middle of the night with news of a death in the family. How would you expect to feel? Most of us have an answer ready: devastation, tears, weeks or months of deep, unrelenting grief. We expect the world to stop.</p><p class="reveal">The episode asks a harder question. What if the most common response to loss is not that at all? What if, for most people, the world keeps turning, and they turn with it?</p><p class="reveal"><span class="tag sf">Source fact</span> What follows is three decades of research from Columbia psychologist George Bonanno, work that challenges nearly everything our culture says about how humans react to tragedy, loss, and suffering.</p></section><section class="chapter" id="george" data-time="00:01:00"><h2>George</h2><p class="reveal">Bonanno interest in the subject did not begin in a lab. He grew up in a Sicilian immigrant neighborhood in Chicago. His father was hard-working, but his rages scared the household. As a boy George would find his father lying in the dark and try to talk to him. His father pushed him away.</p><p class="reveal">At 17 George left home. His father told him that if he left, he should not come crawling back. George drifted through his early twenties. At 23, living in Colorado, the phone rang. His older brother told him their father was dead.</p><p class="reveal">George braced for devastation. It never came.</p><div class="pull reveal"><blockquote>&ldquo;What I experienced was essentially silence.&rdquo;</blockquote><p class="who">George Bonanno, via the episode</p></div><p class="reveal">People moved cautiously around him, as if he might splinter if they said the wrong thing. He felt grateful that his father pain was over, and confused. He was supposed to feel a certain way, and he did not.</p><div class="nugget reveal" id="n1"><p class="eyebrow">Nugget 1 &middot; The silence</p><h4>Not feeling destroyed is data, not denial</h4><p><span class="lbl">What happened.</span> Bonanno expected shattering grief at his father death and instead experienced something like silence, then felt confused about his own reaction.</p><p><span class="lbl">Why it matters.</span> The confusion came from a script about how grief must look, not from the grief itself.</p><p><span class="lbl">The principle.</span> When your feelings break the expected script, question the script first.</p><p class="nsrc">Source: episode transcript. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="julia" data-time="00:02:48"><h2>Julia</h2><p class="reveal">Years later, as a researcher, Bonanno kept meeting people who skipped the expected script. One was a student he calls Julia. Home from college, cooking dinner with her mother, she heard her mother cry out. Her father rode his bicycle home from work when a car hit him, and he died in the ICU as Julia and her mother arrived.</p><p class="reveal">After the shock, Julia returned to school and threw herself into her work. Friends asked if she wanted to talk about it. She said she did not. She wanted to be with her friends and live her life.</p><p class="reveal">Her mother grew worried that Julia forgot her father, accused her of denying her grief, and suggested a grief counselor. Note the direction of the worry. Nobody sent Julia to therapy because grief knocked her off balance. They sent her because she did not grieve enough.</p></section><section class="chapter" id="jed" data-time="00:04:07"><h2>Jed</h2><p class="reveal">Then there was Jed, an aspiring musician working at an upscale restaurant in the West Village. One freezing December night he stepped into an intersection. A garbage truck made an illegal right turn, clipped him, and pulled him under. It crushed his left leg and hip to a mass of blood and bone.</p><p class="reveal">Jed stayed conscious through it all. The cold slowed his bleeding enough to save his life. He spent six weeks in a medically induced coma, underwent roughly 20 surgeries, and lost his entire left leg and part of his hip.</p><p class="reveal">He braced for the psychological aftermath. For about a week, vivid memories of the accident played on a loop. Then they stopped. Jed was confused, not by the suffering, but by its absence. Years later he became a university professor, and his question stayed with him:</p><div class="pull reveal"><blockquote>&ldquo;Why was I doing okay?&rdquo;</blockquote><p class="who">Jed, via the episode</p></div><div class="stat-row"><div class="stat reveal"><div class="n">6 wks</div><div class="l">Medically induced coma after the accident</div><div class="s">Episode transcript</div></div><div class="stat reveal"><div class="n">~20</div><div class="l">Surgeries Jed underwent</div><div class="s">Episode 00:04:35</div></div><div class="stat reveal"><div class="n">1 wk</div><div class="l">How long the intrusive memories lasted</div><div class="s">Episode transcript</div></div></div><div class="nugget reveal" id="n2"><p class="eyebrow">Nugget 2 &middot; Jed question</p><h4>The haunting question is why am I okay</h4><p><span class="lbl">What happened.</span> After losing a leg and surviving six weeks in a coma, Jed intrusive memories stopped after a week, and he could not understand his own recovery.</p><p><span class="lbl">Why it matters.</span> George, Julia, and Jed all asked some version of what is wrong with me. The culture had taught them that resilience is suspicious.</p><p><span class="lbl">The principle.</span> Treat recovery as information. The mind often knows the way back before theory does.</p><p class="nsrc">Source: episode transcript, 00:04:07. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="prediction" data-time="00:06:00"><h2>The prediction</h2><p class="reveal">Before the research, the episode runs an exercise. When a person goes through a serious loss, what share of people will develop chronic, long-lasting psychological damage? Hold your number.</p><p class="reveal">After the 9/11 attacks, mental health experts went through the same exercise. The consensus was that a mental health crisis of unprecedented proportions lay ahead, with not enough resources to meet it. FEMA allocated about 130 million dollars for emergency funds in New York, mostly for free therapy.</p><p class="reveal">Early surveys seemed to confirm the worst. Nearly 8 percent of Manhattan residents met the criteria for post-traumatic stress disorder. For those near the World Trade Center, 20 percent. For those directly affected, possibly 30 percent or higher. But as time went on, the numbers dropped precipitously, and by six months they were more or less back to normal.</p><p class="reveal">The pattern repeated with COVID. Experts predicted a catastrophe. Instead, suicides stayed the same or declined globally.</p><div class="chart reveal"><h4>Predicted disaster, measured recovery</h4><p class="csub">Share meeting PTSD criteria after 9/11, then six months later</p><svg viewBox="0 0 560 300" role="img">
+<g>
+<title>Manhattan: 8% (Nearly 8 percent of Manhattan residents met PTSD criteria)</title>
+<rect x="30" y="188.7" width="90" height="61.3" fill="#b4531f"/>
+<text x="75.0" y="180.7" font-size="13" font-weight="bold" text-anchor="middle" fill="#24201a" font-family="sans-serif">8%</text>
+<text x="75.0" y="268" font-size="12" text-anchor="middle" fill="#6f6455" font-family="sans-serif">Manhattan</text>
+</g>
+<g>
+<title>Near WTC: 20% (20 percent for those near the World Trade Center)</title>
+<rect x="138" y="96.7" width="90" height="153.3" fill="#b4531f"/>
+<text x="183.0" y="88.7" font-size="13" font-weight="bold" text-anchor="middle" fill="#24201a" font-family="sans-serif">20%</text>
+<text x="183.0" y="268" font-size="12" text-anchor="middle" fill="#6f6455" font-family="sans-serif">Near WTC</text>
+</g>
+<g>
+<title>Directly hit: 30% (Possibly 30 percent or higher for those directly affected)</title>
+<rect x="246" y="20.0" width="90" height="230.0" fill="#b4531f"/>
+<text x="291.0" y="12.0" font-size="13" font-weight="bold" text-anchor="middle" fill="#24201a" font-family="sans-serif">30%</text>
+<text x="291.0" y="268" font-size="12" text-anchor="middle" fill="#6f6455" font-family="sans-serif">Directly hit</text>
+</g>
+<g>
+<title>6 months: 2% (More or less back to normal, illustrative low bar)</title>
+<rect x="354" y="234.7" width="90" height="15.3" fill="#2e6b34"/>
+<text x="399.0" y="226.7" font-size="13" font-weight="bold" text-anchor="middle" fill="#24201a" font-family="sans-serif">2%</text>
+<text x="399.0" y="268" font-size="12" text-anchor="middle" fill="#6f6455" font-family="sans-serif">6 months</text>
+</g>
+</svg><p class="csrc">Source: episode transcript, 00:07:18. The six-month bar is illustrative. The episode says numbers were more or less back to normal. <span class="tag sf">Source fact</span></p><p class="illust">Illustrative: the final bar visualizes back to normal. The episode gives no exact figure.</p></div></section><section class="chapter" id="trajectories" data-time="00:08:10"><h2>Four trajectories</h2><p class="reveal">In a landmark 2018 study published in Clinical Psychology Review, researchers analyzed decades of data on how people respond to adversity. They found four distinct trajectories.</p><p class="reveal">The first is chronic suffering: people who cannot move past the loss. It is real, painful, and deserves serious care, but it characterizes at most about 10 percent of people. The second is recovery: significant struggle at first, then gradual improvement over a year or two. The third is a delayed response: barely getting by, then slowly worsening.</p><p class="reveal">The fourth is the resilience trajectory: short-term distress and upheaval, then a return to normal functioning. Early in his career Bonanno found that almost everyone assumed hardly anybody showed this pattern, and that something was wrong with those who did. When researchers actually looked, the majority showed it. Almost always the majority.</p><p class="reveal">Researchers replicated the finding after mass shootings, spinal cord injuries, divorce, job loss, and financial ruin. The resilience trajectory is not the exception. It is the norm.</p><div class="chart reveal"><h4>How people respond to serious adversity</h4><p class="csub">Four trajectories from the 2018 Clinical Psychology Review analysis</p><svg viewBox="0 0 560 96" role="img">
+<g>
+<title>Chronic suffering: 10% (At most about 10 percent, real and deserving of care)</title>
+<text x="0" y="28" font-size="13" fill="#24201a" font-family="sans-serif">Chronic suffering</text>
+<rect x="200" y="10" width="52.7" height="26" fill="#b4531f"/>
+<text x="260.7" y="28" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">10%</text>
+</g>
+<g>
+<title>Resilience trajectory: 55% (The majority, illustrative bar for almost always the majority)</title>
+<text x="0" y="66" font-size="13" fill="#24201a" font-family="sans-serif">Resilience trajectory</text>
+<rect x="200" y="48" width="290.0" height="26" fill="#2e6b34"/>
+<text x="498.0" y="66" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">55%</text>
+</g>
+</svg><p class="csrc">Source: episode transcript, 00:08:10. <span class="tag sf">Source fact</span></p><p class="illust">Illustrative: the episode says at most 10 percent chronic and a majority resilient. The 55 percent bar visualizes a majority.</p></div><div class="nugget reveal" id="n3"><p class="eyebrow">Nugget 3 &middot; Four trajectories</p><h4>Resilience is the norm, not the miracle</h4><p><span class="lbl">What happened.</span> Decades of data sorted into four paths after adversity. Chronic suffering capped at about 10 percent. The resilient majority felt distress, then kept functioning.</p><p><span class="lbl">Why it matters.</span> Most of us carry an inverted map: we treat the 10 percent as the rule and the majority as lucky outliers.</p><p><span class="lbl">The principle.</span> Plan for the resilient case and reserve intensive help for the minority who truly need it.</p><p class="nsrc">Source: episode transcript, 00:08:10. Study: Clinical Psychology Review, 2018. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="script" data-time="00:10:31"><h2>Why we believe the fragility script</h2><p class="reveal">If most people are resilient, why does our culture tell a different story? Part of the answer is a theory you have heard of. In the late 1960s, psychiatrist Elizabeth Kubler-Ross proposed five stages: denial, anger, bargaining, depression, acceptance. The model described people facing their own mortality. Over decades it was adopted as the map for how all of us are supposed to grieve.</p><p class="reveal">There is one problem. The research never supported it. The model is far too neat to be true, and study after study contradicts it. Worse, the theory prescribes reality. Miss the depression stage and you must be stuck in denial. Reach acceptance quickly and the model says you hide something.</p><div class="pull reveal"><blockquote>&ldquo;strong emotions do not equal psychopathology&rdquo;</blockquote><p class="who">Patricia Resick, PTSD researcher, via the episode</p></div><p class="reveal">Being upset after a terrible event is not a disorder. It is what the stress response system was designed to do. The mistake is to confuse initial distress with lasting damage.</p><p class="reveal">Three forces keep the wrong script alive. First, the resilience blind spot: in the middle of intense distress, you cannot imagine ever feeling different, so you mistake the moment for the future. Second, therapist sampling: therapists spend their days with people who struggle and rarely meet the resilient majority who never walk through the door, so they overgeneralize. Third, social media, where trauma dumping is common, and an asymmetry of judgment: warn of disaster and be wrong, and people forgive your good heart. Predict resilience and be wrong, and people call you heartless.</p><p class="reveal">The wrong script has real costs. Trigger warnings were built on the idea of hidden traumas lurking raw inside people. Research shows they either do not help or they cause harm: warned people often feel more anxious. Teaching people to brace for emotional damage may undermine the flexibility they need to cope. And walking on eggshells builds an invisible cage: we stop laughing around the bereaved and treat them as if they might break.</p><figure class="reveal"><img src="img/ep03-resilience-b.webp" alt="Watercolor: hands guarding flame" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> The wrong script treats people like a flame that any breeze will kill. The research says the flame is hardier than that.</figcaption></figure><div class="nugget reveal" id="n4"><p class="eyebrow">Nugget 4 &middot; The five stages</p><h4>A map for the dying became a cage for the living</h4><p><span class="lbl">What happened.</span> Kubler-Ross five stages described the dying, not the grieving. Culture adopted it anyway, and research never backed the transfer.</p><p><span class="lbl">Why it matters.</span> A descriptive model became prescriptive. People now get diagnosed by a checklist that was never true.</p><p><span class="lbl">The principle.</span> Ask of any famous model: who was it built for, and does the evidence cover my case?</p><p class="nsrc">Source: episode transcript, 00:10:31. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="laughter" data-time="00:14:30"><h2>Laughter in grief</h2><p class="reveal">Working with psychologist Dacher Keltner, Bonanno interviewed people who had recently lost a spouse. The majority showed genuine laughter and smiling during the interviews. A person might cry with head in hands, head in hands, and thirty seconds later laugh through tears at a memory.</p><p class="reveal">That laughter is not denial and not heartlessness. It is connection, with the listener and with the person lost. Genuine laughter and smiling during grief correlate with better long-term mental health. The human heart can hold grief and joy at the same time.</p><div class="nugget reveal" id="n5"><p class="eyebrow">Nugget 5 &middot; Laughter</p><h4>Joy during grief predicts healing</h4><p><span class="lbl">What happened.</span> Most recent widows and widowers laughed genuinely in interviews, and those who did fared better in the long run.</p><p><span class="lbl">Why it matters.</span> The fragility script reads laughter as denial. The data reads it as a sign of life returning.</p><p><span class="lbl">The principle.</span> Do not police your own joy after loss. It is part of the recovery, not a betrayal of it.</p><p class="nsrc">Source: episode transcript. Research with Dacher Keltner. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="father" data-time="00:16:00"><h2>Talking with his father</h2><p class="reveal">Years after his father death, Bonanno became a parent himself. In the exhausting work of raising children, he found himself longing for a relationship with his father that he never had. So he created one. He began to talk with his father, imagining the conversations, telling him about the struggles with money and parenthood, picturing how his father might respond.</p><p class="reveal">Death had paradoxically made the relationship possible: no rages, no fear, no ultimatums. This is what resilience looks like. Not the absence of sadness, not the denial of loss, but the ability to hold grief and growth in the same hand. To cry on a Tuesday and laugh on a Wednesday.</p><p class="reveal"><span class="tag in">Interpretation</span> The danger was never that terrible things would happen. They inevitably will. The danger lies in carrying a script that says you are supposed to be destroyed by them. The trauma script says you are easily broken. The science says you are not.</p></section>
+      <section class="chapter video" id="watch" data-time="video"><h2>Watch the episode</h2><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/DZj73Fu939s" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><span style="position:absolute;left:-9999px">Official Hidden Brain episode video for Resilience.</span><p style="font-family:var(--sans);font-size:13px;color:var(--muted)">The official Hidden Brain episode video, embedded via youtube-nocookie.com, the only external dependency on this page.</p></section>
+      <section class="chapter" id="nuggets" data-time="index">
+        <h2>Nugget index</h2>
+        <ol class="nugindex"><li><a href="#n1"><b>Nugget 1.</b> Not feeling destroyed is data, not denial</a> <span style="color:var(--muted)">(George)</span></li><li><a href="#n2"><b>Nugget 2.</b> The haunting question is why am I okay</a> <span style="color:var(--muted)">(Jed)</span></li><li><a href="#n3"><b>Nugget 3.</b> Resilience is the norm, not the miracle</a> <span style="color:var(--muted)">(Four trajectories)</span></li><li><a href="#n4"><b>Nugget 4.</b> A map for the dying became a cage for the living</a> <span style="color:var(--muted)">(Why we believe the fragility script)</span></li><li><a href="#n5"><b>Nugget 5.</b> Joy during grief predicts healing</a> <span style="color:var(--muted)">(Laughter in grief)</span></li></ol>
+      </section>
+    </article>
+    <footer class="honesty" id="honesty"><h3>How this companion was built</h3><p><span class="big">Sourcing.</span> Every factual claim in this companion traces to the full episode transcript, with timestamps from the caption file. The 00:01:00, 00:14:30, and 00:16:00 section markers are approximate, placed by narrative order where the caption search returned no anchor phrase. Interpretive passages carry the Interpretation tag.</p><h3>Sources</h3><ul><li>Episode transcript: research/hidden-brain/transcripts/DZj73Fu939s.txt (3,388 words, from official YouTube captions, with timestamps from DZj73Fu939s.en.srt).</li><li>Episode description: research/hidden-brain/descriptions.txt (entry DZj73Fu939s).</li><li>Episode metadata: research/hidden-brain/episodes.json (views 9,221, upload 2026-05-01, duration 1,156 s).</li><li>Research notes: research/hidden-brain/research-notes.md (channel verification, transcript provenance).</li></ul><h3>On quotes</h3><p><span class="big">Quoted words in this companion: 17.</span> The quote budget allows at most 50 words of direct quotation per artifact. This is the mechanical recount defined in the build notes: every word inside pull-quote or blockquote markup, plus every quoted phrase in body text and attributes, footer excluded. Unquoted image alt text is not a quoted phrase, so it is excluded from this count. Every quoted phrase below was verified character-for-character against the source on disk.</p><ul><li><code>What I experienced was essentially silence.</code> &middot; 6 words (George Bonanno, via the episode)</li><li><code>Why was I doing okay?</code> &middot; 5 words (Jed, via the episode)</li><li><code>strong emotions do not equal psychopathology</code> &middot; 6 words (Patricia Resick, via the episode)</li></ul><p>All three phrases appear in the transcript with the wording shown. Longer passages, including the father farewell and the Keltner interview descriptions, are paraphrased, not quoted.</p><h3>What was not invented</h3><p>No numbers were invented. The 130 million dollars, the 8, 20, and 30 percent figures, the six weeks, the 20 surgeries, and the 2018 study all come verbatim from the transcript. The six-month bar in the first chart and the 55 percent bar in the second are labeled illustrative visualizations of qualitative claims. Kubler-Ross stages are given as denial, anger, bargaining, depression, acceptance, exactly as the episode lists them.</p><h3>Images and video</h3><p>Illustrations on this page are AI-generated watercolors made for this companion and are labeled as illustrations. No real photographs appear, so no attribution is owed. The video embed uses youtube-nocookie.com, the only external dependency. Everything else loads from local relative paths and works from file://.</p><p>Companion to the <a href="../index.html">Hidden Brain track index</a> and <a href="../ep03.html">the track chapter</a>. Built for study, not affiliated with the show.</p></footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+"use strict";
+var tip=document.getElementById("tip");
+document.addEventListener("mousemove",function(e){
+  var t=e.target.closest("[data-tip]");
+  if(t){tip.textContent=t.getAttribute("data-tip");
+    tip.style.opacity="1";
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-300)+"px";
+    tip.style.top=(e.clientY+16)+"px";}
+  else{tip.style.opacity="0";}
+});
+var chapters=Array.prototype.slice.call(document.querySelectorAll("section.chapter"));
+function navLink(ch){
+  var a=document.createElement("a");
+  a.href="#"+ch.id;
+  var sp=document.createElement("span");sp.className="t";
+  sp.textContent=ch.getAttribute("data-time");
+  a.appendChild(sp);
+  var h=ch.querySelector("h2");
+  a.appendChild(document.createTextNode(h?h.textContent:ch.id));
+  a.setAttribute("data-ch",ch.id);
+  return a;
+}
+var navs=[document.getElementById("chapnav"),document.getElementById("sidenav")];
+navs.forEach(function(n){if(!n)return;chapters.forEach(function(ch){n.appendChild(navLink(ch));});});
+function spy(){
+  var cur=null;
+  chapters.forEach(function(ch){if(ch.getBoundingClientRect().top<160)cur=ch.id;});
+  var links=document.querySelectorAll("[data-ch]");
+  Array.prototype.forEach.call(links,function(a){
+    a.classList.toggle("active",a.getAttribute("data-ch")===cur);});
+}
+document.addEventListener("scroll",spy,{passive:true});spy();
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+  });
+},{threshold:.08});
+Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
