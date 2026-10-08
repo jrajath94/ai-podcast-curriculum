@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Smart People Quit Social Media: Deep Questions Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Deep Questions episode on quitting social media: the three harms, the slope of terribleness, and why there is no fix.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Deep Questions · Track Companion</a>
+  <span class="sub">Why Smart People Quit Social Media</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Deep Questions · Companion</p>
+      <h1>Why Smart People Quit Social Media</h1>
+      <p class="dek">The case for quitting: curated conversation platforms, the three connected harms, and the slope of terribleness.</p>
+<style>
+.tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.tag.sf{background:#e3f0e6;color:#1d5c2e;border:1px solid #bcd8c2}
+.tag.it{background:#fdf3e3;color:#8a5a12;border:1px solid #ecd9ac}
+.legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:24px 0;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.legend .k{font-weight:700;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+</style>
+      <img src="assets/cal-newport.jpg" alt="Portrait photograph of Cal Newport">
+      <p class="caption"><b>Cal Newport.</b> Photo: robertglazer.com (Elevate Podcast). This episode is a monologue: his strongest case against social media.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">4</div><div class="l">Platforms</div><div class="s">Twitter, Blue Sky, Threads, Facebook: the classic examples</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">Harms</div><div class="s">distraction, demoderation, disassociation</div></div>
+        <div class="stat"><div class="n">500M</div><div class="l">Tweets/day</div><div class="s">submitted daily, which is why curation is mandatory</div></div>
+        <div class="stat"><div class="n">1</div><div class="l">Slope</div><div class="s">the slope of terribleness, connecting all three harms</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/X-Lb81yUph4" title="Deep Questions: Why Smart People Quit Social Media with Cal Newport (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Define the enemy precisely</a></li>
+          <li><a href="#nugget-2">The three harms</a></li>
+          <li><a href="#nugget-3">The reassuring story</a></li>
+          <li><a href="#nugget-4">The slope of terribleness</a></li>
+          <li><a href="#nugget-5">Dopamine is motivation</a></li>
+          <li><a href="#nugget-6">The unavoidable echo chamber</a></li>
+          <li><a href="#nugget-7">Tribal circuits</a></li>
+          <li><a href="#nugget-8">No technological fix</a></li>
+          <li><a href="#nugget-9">The cost of holding on</a></li>
+          <li><a href="#nugget-10">The attention factory</a></li>
+          <li><a href="#nugget-11">Enough is enough</a></li>
+        </ol>
+      </div>
+      <div class="legend">
+        <span class="k">How to read this companion.</span>
+        <span class="tag sf">Source fact</span> marks claims stated in the episode.
+        <span class="tag it">Interpretation</span> marks analysis and transferable lessons drawn from those facts.
+        Every chart names its episode source. Illustrations are AI-generated watercolors made for this page.
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-define" data-time="Part 1" data-title="Define the enemy precisely">
+      <p class="ch-time">Part 1</p>
+      <h2>Define the Enemy Precisely</h2>
+      <p>Newport opens by defining terms, because the phrase social media means too many things. His target is a specific class: curated conversation platforms. These are services where large numbers of people converse, through text, images, or video, while curation algorithms optimizing for engagement select what each user sees. The classic examples: Twitter, Blue Sky, Threads, Facebook.</p>
+      <p>Precision matters because many things called social media do not fit. Pinterest is not a conversation platform. Snapchat and WhatsApp are conversation platforms but not algorithmically curated. Instagram and YouTube fall in or out depending on how you use them. The argument that follows is about the curated conversation category, not about every app with a feed.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The target</p>
+        <h4>Define the enemy precisely</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport limits his case to curated conversation platforms: mass conversation plus engagement-optimizing curation. Twitter, Blue Sky, Threads, and Facebook are the classic examples.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Vague targets produce vague debates. Naming the exact mechanism is what makes the argument falsifiable.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Before you reject a platform, define exactly what you reject.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-harms" data-time="Part 2" data-title="The three harms">
+      <p class="ch-time">Part 2</p>
+      <h2>The Three Harms</h2>
+      <p>Ask people what is wrong with these platforms and they list some combination of three harms. First, distraction: the addictive pull that makes us use them more than is healthy, at the expense of things that matter. Second, demoderation: losing moderation around an issue, growing strident, seeing no good faith or basic humanity on the other side, closing ranks with your tribe.</p>
+      <p>Third, and scariest, disassociation: a complete break from normal human community and normative ethical constraints, where violence to others or to yourself becomes possible, or where you grow numb to such violence. It comes in two flavors: overwhelming rage, and nihilistic withdrawal, the sense that the world is so dark and unredeemable that you might as well cause chaos on the way out. The FBI now uses a term for the second flavor: nihilistic violent extremist.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · The catalog</p>
+        <h4>The three harms</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport catalogs distraction, demoderation, and disassociation, the last with rage and nihilistic-withdrawal variants, noting the FBI's term nihilistic violent extremist.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Most debates stop at distraction. The list gets darker from there, and the darkness is the point.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Judge a platform by its worst predictable outcome, not its average afternoon.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-story" data-time="Part 3" data-title="The reassuring story">
+      <p class="ch-time">Part 3</p>
+      <h2>The Reassuring Story</h2>
+      <p>Given these harms, why do people stay? Newport says we tell ourselves a reassuring story. Distraction, we admit, but we can manage it with better habits. Demoderation is a problem for the other tribes. Our side is reasonably upset and basically right. Disassociation is scary, but it happens on weird semi-dark-web platforms like Rumble, Kick, or strange Discord servers, not on the platforms we use.</p>
+      <p>This story explains why so few people change. But Newport argues the story is wrong. The harms are not three separate problems that happen to other people. They are one connected slope, and everyone on the platforms stands on it.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The excuse</p>
+        <h4>The reassuring story</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport describes how users admit distraction, assign demoderation to other tribes, and locate disassociation on fringe platforms, which explains why few people quit.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The claim that the harms skip you is the most load-bearing sentence in the attention economy.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Distrust any analysis that places every harm one step away from you.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-slope" data-time="Part 4" data-title="The slope of terribleness">
+      <p class="ch-time">Part 4</p>
+      <h2>The Slope of Terribleness</h2>
+      <p>Here is Newport's model. Imagine a slope. You step onto it in the distraction zone: using the platforms more than is healthy. Stay there and gravity pulls you into demoderation: losing good faith, dehumanizing the other side, policing your own tribe. Keep sliding and you reach disassociation: the world unredeemable, violence thinkable. Around the demoderation-to-disassociation transition, the slope goes underground. Above ground is the mainstream internet. Below ground is the dark web, the barely regulated services where the worst outcomes happen.</p>
+      <div class="pull">
+        <blockquote>the slope of terribleness</blockquote>
+        <p class="who">Cal Newport's name for the connected harms · Deep Questions</p>
+      </div>
+      <div class="chart" id="chart-slope">
+        <h4>The slope of terribleness</h4>
+        <svg viewBox="0 0 680 320" role="img" aria-label="A slope descending through distraction, demoderation, and disassociation, crossing from mainstream internet to dark web">
+          <line x1="60" y1="60" x2="620" y2="280" stroke="#8a7c66" stroke-width="6"/>
+          <rect x="60" y="30" width="170" height="120" rx="8" fill="#1f6f8b" data-tip="Distraction: using the platforms more than is healthy. The entry point of the slope."/>
+          <text x="145" y="80" text-anchor="middle" fill="#fff" font-size="15">Distraction</text>
+          <text x="145" y="104" text-anchor="middle" fill="#fff" font-size="12">the entry point</text>
+          <rect x="255" y="105" width="170" height="120" rx="8" fill="#b4531f" data-tip="Demoderation: losing good faith, dehumanizing the other side, tribal policing."/>
+          <text x="340" y="155" text-anchor="middle" fill="#fff" font-size="15">Demoderation</text>
+          <text x="340" y="179" text-anchor="middle" fill="#fff" font-size="12">losing good faith</text>
+          <rect x="450" y="180" width="170" height="120" rx="8" fill="#3a2c22" data-tip="Disassociation: break from ethical constraints; violence becomes possible. Below ground: the dark web."/>
+          <text x="535" y="230" text-anchor="middle" fill="#fff" font-size="15">Disassociation</text>
+          <text x="535" y="254" text-anchor="middle" fill="#fff" font-size="12">the break</text>
+          <line x1="40" y1="200" x2="640" y2="200" stroke="#3a2c22" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="60" y="192" class="axis">mainstream internet above</text>
+          <text x="560" y="218" class="axis">dark web below</text>
+          <text x="340" y="312" text-anchor="middle" class="axis">Gravity pulls you from one zone to the next. The harms are one connected slope.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Why Smart People Quit Social Media, the slope of terribleness. Labels are paraphrase.</p>
+      </div>
+      <img src="assets/dq-ep06-slope.webp" alt="Watercolor illustration of a steep slope with three zones, a small figure sliding downward from the top">
+      <p class="caption"><b>Illustration.</b> The slope of terribleness: distraction to demoderation to disassociation. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · The model</p>
+        <h4>The slope of terribleness</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport models the three harms as one connected slope with gravity pulling users from distraction through demoderation to disassociation, crossing from mainstream internet to dark web.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Connected harms cannot be managed one at a time. Standing on the slope is the problem.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Ask not which harm affects you. Ask which part of the slope holds you.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-dopamine" data-time="Part 5" data-title="Dopamine is motivation">
+      <p class="ch-time">Part 5</p>
+      <h2>Dopamine Is Motivation</h2>
+      <p>The slide starts with distraction, and distraction is brain chemistry. The curation algorithm learns what engages you, representing content as weighted data points in a multi-dimensional space, and serves whatever catches your attention. This overwhelms the brain's short-term motivation circuits. Here Newport corrects a common error: dopamine is not a pleasure chemical. It is a motivation chemical. The circuits predict a rewarding outcome and flood with dopamine, making the activity feel irresistible.</p>
+      <p>The phone trains this circuit relentlessly. Every time the phone is nearby, the prediction fires: pick it up, something interesting will happen, pleasurable or outrageous. The phone is always with you, so the circuit is constantly bathed in dopamine. Resisting it is like trying to quit cigarettes while carrying a pack in your hand at all times.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · The chemistry</p>
+        <h4>Dopamine is motivation</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport explains that dopamine drives motivation, not pleasure, and that algorithmically curated content trains the brain's prediction circuits to find the phone irresistible.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> You are not enjoying the phone. It summons you. Those are different problems.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Do not fight a trained circuit with willpower. Remove the training.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-echo" data-time="Part 6" data-title="The unavoidable echo chamber">
+      <p class="ch-time">Part 6</p>
+      <h2>The Unavoidable Echo Chamber</h2>
+      <p>Heavy use brings a second effect: the echo chamber. Newport insists this is not a design choice but an unavoidable side effect of algorithmic curation. The algorithm embeds content as vectors across roughly a thousand descriptive categories, learns which regions of that space engage you most, and serves more of what is similar and more strident. Nobody programs an echo chamber. It falls out of optimizing for engagement.</p>
+      <p>Then the tribal circuits fire. These are conversation platforms, so you are not just consuming content. You are in a community, talking back and forth, and the social circuits light up. Echo chamber plus tribal community circuits creates a virtual tribe with a strong cause. That is where demoderation comes from. No willpower failure or algorithm knob explains it. Demoderation is an inescapable consequence of how the platforms function.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · The mechanism</p>
+        <h4>The unavoidable echo chamber</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues the echo chamber is an unavoidable consequence of engagement optimization, and that combining it with conversation fires the brain's tribal community circuits.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> If the harm is structural, personal discipline cannot fix it. Structure is the whole game.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> When a harm is unavoidable by design, the only move is exit.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-tribal" data-time="Part 7" data-title="Tribal circuits">
+      <p class="ch-time">Part 7</p>
+      <h2>Tribal Circuits</h2>
+      <p>Why are these circuits so powerful? Newport goes back 200,000 to 300,000 years. For most of human existence, the tribe was everything. Other tribes were threats. Suspicion of outsiders is wired deep. Yuval Harari's argument in Sapiens, which Newport cites, is that human civilization succeeded by hijacking these tribal circuits with abstractions like nations and religions, expanding their scope so large groups could cooperate.</p>
+      <p>Curated conversation platforms run this in reverse. They collapse the scope back to the paleolithic setting: my tribe matters, outsiders are suspect, the stakes are epic. That is why demoderation feels so righteous. It is ancient hardware running at full power, and the platforms feed it because tribal fury is the most engaging content there is.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · The depth</p>
+        <h4>Tribal circuits</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport traces tribal community circuits to 200,000 to 300,000 years of human history, citing Harari's Sapiens on how civilization redirected them, and argues the platforms reverse that redirection.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The outrage is not a bug in your character. It is a feature of the machine, tuned to your oldest wiring.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Respect the age of the circuit. Do not hand it a megaphone.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-nofix" data-time="Part 8" data-title="No technological fix">
+      <p class="ch-time">Part 8</p>
+      <h2>No Technological Fix</h2>
+      <p>Could we fix the services instead? Newport says no. The slope is not a side effect of implementation mistakes. It is fundamental to how the technologies function. The two drivers are mass conversation and algorithmic curation. Remove either and the service ceases to exist. Asking for a version of Twitter without them, he jokes, is like asking Pizza Hut to exist without selling pizza.</p>
+      <p>The scale forces the issue. With 500 million people submitting tweets a day, curation is mandatory. And curation will optimize for what people want to see, which is what slides them down the slope. There is no technological fix because the terribleness is the product working as designed.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · The verdict</p>
+        <h4>No technological fix</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues the slope is fundamental to mass conversation plus algorithmic curation, using the Pizza Hut analogy and the 500-million-tweets-a-day scale to show curation is mandatory.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Reform proposals assume the harm is accidental. This argument says it is essential.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Do not wait for a fixed version. The fixed version is a different product.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cost" data-time="Part 9" data-title="The cost of holding on">
+      <p class="ch-time">Part 9</p>
+      <h2>The Cost of Holding On</h2>
+      <p>Most people, Newport grants, arrest their fall before the bottom. You can hold on like a mountain climber partway down the slope. But holding on has two costs. First, the flourishing scale: the further down you stop, the lower your flourishing as a human. You parked your life in a worse place than if you had never stepped on the slope.</p>
+      <p>Second, resistance takes mental energy. Not being demoderated while using the services constantly takes real will. Resisting the final slide toward disassociation takes more. That energy could go to things that matter and people you love. So the trade is: less happiness, plus a constant energy tax, in exchange for staying on the platforms. Once you see the dynamics, the trade is hard to justify.</p>
+      <div class="chart" id="chart-flourish">
+        <h4>Holding on costs flourishing</h4>
+        <svg viewBox="0 0 680 280" role="img" aria-label="The further down the slope you arrest your fall, the lower your flourishing, and the more energy resistance costs">
+          <line x1="80" y1="40" x2="80" y2="240" stroke="#8a7c66" stroke-width="3"/>
+          <text x="80" y="30" text-anchor="middle" class="vallab">Flourishing</text>
+          <line x1="140" y1="60" x2="600" y2="220" stroke="#8a7c66" stroke-width="6"/>
+          <circle cx="240" cy="93" r="10" fill="#1f6f8b" data-tip="Arrested in distraction: mild flourishing loss, some resistance energy."/>
+          <text x="240" y="80" text-anchor="middle" class="axis">hold here</text>
+          <circle cx="400" cy="147" r="10" fill="#b4531f" data-tip="Arrested in demoderation: real flourishing loss, heavy resistance energy."/>
+          <text x="400" y="134" text-anchor="middle" class="axis">hold here</text>
+          <circle cx="540" cy="200" r="10" fill="#3a2c22" data-tip="Arrested near disassociation: severe flourishing loss, enormous resistance energy."/>
+          <text x="540" y="187" text-anchor="middle" class="axis">hold here</text>
+          <text x="340" y="262" text-anchor="middle" class="axis">Wherever you stop, you flourish less, and resistance taxes your energy.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Why Smart People Quit Social Media, the flourishing scale. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · The price</p>
+        <h4>The cost of holding on</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues that arresting your fall still costs flourishing and consumes mental energy that could go to things that matter.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The belief that you can handle it is priced in happiness and attention. The bill comes due daily.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Count the cost of staying, not just the cost of leaving.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-factory" data-time="Part 10" data-title="The attention factory">
+      <p class="ch-time">Part 10</p>
+      <h2>The Attention Factory</h2>
+      <p>Newport then replaces the platforms' supposed benefits with real alternatives. Want news? Subscribe to actual media. Want suppressed information? Subscribe to newsletters and podcasts, chosen person by person. Want belonging? Actually go be part of something, not on a screen. The platforms trick you into feeling like a participant. In reality, he says:</p>
+      <div class="pull">
+        <blockquote>you're in an attention factory punching with your time clock while your billionaire overseers laugh</blockquote>
+        <p class="who">Cal Newport on what platform combat really is · Deep Questions</p>
+      </div>
+      <p>You imagine yourself at the front of the march. You are on a factory floor. And if you are just bored, there is better entertainment everywhere: podcasts, books, films, streaming. Newport notes there is roughly half a trillion dollars of capital expenditure in entertainment available for about $30 a month. Boredom does not require the slope.</p>
+      <img src="assets/dq-ep06-factory.webp" alt="Watercolor illustration of a factory floor where small figures punch time clocks while giant coins rise above, muted industrial tones">
+      <p class="caption"><b>Illustration.</b> The attention factory: punching the time clock while overseers profit. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · The unmasking</p>
+        <h4>The attention factory</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport reframes platform participation as factory labor for billionaire overseers, and lists direct alternatives: media subscriptions, newsletters, podcasts, real-world belonging, better entertainment.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Every stated benefit of the platforms has a cheaper, safer substitute. What remains is the habit.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Replace the function, not the feeling. The feeling was the trap.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-enough" data-time="Part 11" data-title="Enough is enough">
+      <p class="ch-time">Part 11</p>
+      <h2>Enough Is Enough</h2>
+      <p>Newport closes by reading the conclusion of his newsletter essay. The reassuring story, he says, told us the harms were manageable and the benefits real. The reality is one connected slope that makes life worse the further you slide, taxing energy you could spend on what matters. His verdict:</p>
+      <div class="pull">
+        <blockquote>to save civil society, we need to end our decade-long experiment with curated conversation platforms</blockquote>
+        <p class="who">Cal Newport, closing the episode · Deep Questions</p>
+      </div>
+      <p>We tried them. They became dark and awful. It is time to move on. Enough is enough.</p>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 · The verdict</p>
+        <h4>Enough is enough</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport closes with the conclusion of his newsletter essay. The reassuring story said the harms were manageable and the benefits real. His verdict: the platforms became dark and awful, and it is time to move on.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> He frames the exit as the rational end of an experiment, not a sacrifice. You do not lose something precious. You end an experiment that failed.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Run the experiment, read the results honestly, and act on them. Trust data over story.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>The target is precise: mass conversation plus engagement-optimizing curation.</li>
+          <li>The harms are three: distraction, demoderation, disassociation.</li>
+          <li>The reassuring story places every harm one step away from you. It is wrong.</li>
+          <li>The harms form one slope, and gravity pulls you down it.</li>
+          <li>Dopamine is motivation, not pleasure. The echo chamber is structural. The tribal circuits are ancient.</li>
+          <li>There is no technological fix. The terribleness is the product working as designed.</li>
+          <li>Holding on costs flourishing and energy. We tried the experiment. Enough is enough.</li>
+        </ol>
+        <p class="src">Distilled from Deep Questions, Why Smart People Quit Social Media with Cal Newport. Video: youtube.com/watch?v=X-Lb81yUph4.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Deep Questions episode "Why Smart People Quit Social Media" (X-Lb81yUph4). All facts and figures come from the episode transcript or the episode itself at youtube.com/watch?v=X-Lb81yUph4. Each chart names its episode source. The portrait photograph is real, with attribution in its caption. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 34 words: three pull quotes ("the slope of terribleness", 4 words, "you're in an attention factory punching with your time clock while your billionaire overseers laugh", 15 words, and "to save civil society, we need to end our decade-long experiment with curated conversation platforms", 15 words). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+
+</script>
+</body>
+</html>
