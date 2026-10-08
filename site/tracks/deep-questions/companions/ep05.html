@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slow Productivity: Deep Questions Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Deep Questions episode on slow productivity: chronic overload, the three problems, and the three principles.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Deep Questions · Track Companion</a>
+  <span class="sub">Slow Productivity</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Deep Questions · Companion · 18 min</p>
+      <h1>Slow Productivity</h1>
+      <p class="dek">The answer to burnout: chronic overload, its three problems, and the three principles of slow productivity.</p>
+<style>
+.tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.tag.sf{background:#e3f0e6;color:#1d5c2e;border:1px solid #bcd8c2}
+.tag.it{background:#fdf3e3;color:#8a5a12;border:1px solid #ecd9ac}
+.legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:24px 0;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.legend .k{font-weight:700;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+</style>
+      <img src="assets/cal-newport.jpg" alt="Portrait photograph of Cal Newport">
+      <p class="caption"><b>Cal Newport.</b> Photo: robertglazer.com (Elevate Podcast). This episode introduces his slow productivity thesis.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">2019</div><div class="l">Feb</div><div class="s">Odell's How to Do Nothing sparked the anti-productivity wave</div></div>
+        <div class="stat"><div class="n">700</div><div class="l">Unread</div><div class="s">messages, with 75 projects, in the overload example</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">Problems</div><div class="s">caused by chronic overload</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">Principles</div><div class="s">fewer things, natural pace, quality obsession</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/zZwPyB20lxg" title="Deep Questions: Core Idea, Slow Productivity with Cal Newport (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The anti-productivity wave</a></li>
+          <li><a href="#nugget-2">Doing nothing is not the answer</a></li>
+          <li><a href="#nugget-3">The paleolithic baseline</a></li>
+          <li><a href="#nugget-4">Chronic overload</a></li>
+          <li><a href="#nugget-5">The short-circuited planner</a></li>
+          <li><a href="#nugget-6">The overhead spiral</a></li>
+          <li><a href="#nugget-7">The relentless pace</a></li>
+          <li><a href="#nugget-8">The three principles</a></li>
+          <li><a href="#nugget-9">The pull system</a></li>
+          <li><a href="#nugget-10">Seasonality</a></li>
+          <li><a href="#nugget-11">Quality buys autonomy</a></li>
+        </ol>
+      </div>
+      <div class="legend">
+        <span class="k">How to read this companion.</span>
+        <span class="tag sf">Source fact</span> marks claims stated in the episode.
+        <span class="tag it">Interpretation</span> marks analysis and transferable lessons drawn from those facts.
+        Every chart names its episode source. Illustrations are AI-generated watercolors made for this page.
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-wave" data-time="Part 1" data-title="The anti-productivity wave">
+      <p class="ch-time">Part 1</p>
+      <h2>The Anti-Productivity Wave</h2>
+      <p>Newport opens with the cultural moment. Since February 2019, when Jenny Odell's How to Do Nothing became a New York Times bestseller and landed on Barack Obama's best books list, a visible pushback against productivity has grown. The pandemic amplified it, but the movement predates the pandemic. A string of books followed: Celeste Headlee's Do Nothing, Devon Price's Laziness Does Not Exist, Anne Helen Petersen's Can't Even, Oliver Burkeman's Four Thousand Weeks. They all make the same point: we are burnt out, we do too much, we are tired of doing too much.</p>
+      <p>Newport saw it in his own audience. In 2020 he wrote a newsletter essay asking whether the term productivity was over. It sparked a heated discussion and two follow-up posts. His readers were exhausted with activity, at work and outside it, and wanted something more than tips for getting more done.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The moment</p>
+        <h4>The anti-productivity wave</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> From February 2019, a run of bestselling books argued we are burnt out and doing too much. Newport's own 2020 essay on whether productivity was over drew a heated response from exhausted readers.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The diagnosis is now mainstream. What we lack is a treatment plan.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Agreeing on the disease is step one. The hard part is the prescription.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-missing" data-time="Part 2" data-title="The missing answer">
+      <p class="ch-time">Part 2</p>
+      <h2>Doing Nothing Is Not the Answer</h2>
+      <p>The question these books leave unanswered is what to do about burnout. The typical answer is: just do less, and be okay with that. Some frame it as political resistance against an exploitative economic system. Others frame it as defiance of an overproduction culture, perhaps rooted in the Protestant work ethic. Newport says this advice is fine as far as it goes, but it is not a full solution.</p>
+      <p>His reason is human nature. We like to do things. Nothing makes us more consistently miserable than doing nothing for an extended stretch. It makes us uncomfortable, non-efficacious, rootless, bored, and anxious. The problem is not activity. The problem is too much activity. We need something more sophisticated than permission to do less.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · The gap</p>
+        <h4>Doing nothing is not the answer</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues that extended idleness makes humans miserable, uncomfortable, and anxious, so the answer cannot be simply doing less.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Rest without purpose is not rest. It is drift, and drift hurts.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Do not subtract activity. Fix its shape.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-baseline" data-time="Part 3" data-title="The paleolithic baseline">
+      <p class="ch-time">Part 3</p>
+      <h2>The Paleolithic Baseline</h2>
+      <p>To design a better answer, Newport first asked what activity is natural for humans. He spoke with a quantitative anthropologist from Oxford who studies hunter-gatherer tribes in the Philippines, measuring their activity levels with careful methods and extrapolating to our species' past.</p>
+      <p>The picture: skilled and important work nearly every day, mainly food acquisition and preparation plus child rearing. Expert work, too. Gathering herbs demands deep knowledge of plants and their uses. Hunting without rifles is a highly skilled pursuit. But the pace is natural, with ups and downs. An all-day hunt includes a two-hour midday rest, a nap in the shade. And there is never a list of eighteen things to get through. The day is: we do this today, then that.</p>
+      <img src="assets/dq-ep05-hunt.webp" alt="Watercolor illustration of a hunter resting in the shade of a tree at midday, the hunt paused, calm savanna light">
+      <p class="caption"><b>Illustration.</b> The paleolithic baseline: skilled work at a natural pace, with rest built in. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The wiring</p>
+        <h4>The paleolithic baseline</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> An Oxford anthropologist's work on Philippine hunter-gatherer tribes shows skilled daily work at a natural pace, with long midday rests and no stacked obligation lists.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> This is the hardware spec. Modern work that violates it produces modern misery.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Judge any work system against the baseline: skilled, paced, uncluttered.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-overload" data-time="Part 4" data-title="Chronic overload">
+      <p class="ch-time">Part 4</p>
+      <h2>Chronic Overload</h2>
+      <p>Compare that with modern knowledge work. Obligations fly at us through email, Zoom requests, hallway grabs from the boss. The result is a massive list of explicit and implicit commitments. Newport calls this state "chronic overload": more on your plate than you can imagine ever finishing, and it never clears. It causes three distinct problems, none of which our ancestors faced.</p>
+      <div class="chart" id="chart-three">
+        <h4>The three problems of chronic overload</h4>
+        <svg viewBox="0 0 680 300" role="img" aria-label="Diagram of the three problems: short-circuited planning center, overhead spiral, relentless pace">
+          <rect x="30" y="60" width="190" height="170" rx="8" fill="#b4531f" data-tip="700 unread messages and 75 projects short-circuit the brain's planning center, causing anxiety."/>
+          <text x="125" y="120" text-anchor="middle" fill="#fff" font-size="15">1. Short circuit</text>
+          <text x="125" y="146" text-anchor="middle" fill="#fff" font-size="13">the planning center</text>
+          <text x="125" y="168" text-anchor="middle" fill="#fff" font-size="13">cannot imagine how</text>
+          <text x="125" y="190" text-anchor="middle" fill="#fff" font-size="13">to finish it all</text>
+          <rect x="245" y="60" width="190" height="170" rx="8" fill="#b4531f" data-tip="Fixed coordination overhead per project multiplies until the schedule is all meetings and email."/>
+          <text x="340" y="120" text-anchor="middle" fill="#fff" font-size="15">2. Overhead spiral</text>
+          <text x="340" y="146" text-anchor="middle" fill="#fff" font-size="13">25 projects times</text>
+          <text x="340" y="168" text-anchor="middle" fill="#fff" font-size="13">fixed overhead each</text>
+          <text x="340" y="190" text-anchor="middle" fill="#fff" font-size="13">leaves no time to work</text>
+          <rect x="460" y="60" width="190" height="170" rx="8" fill="#b4531f" data-tip="Effort pegged at 10 out of 10 every day, with no downshift, which humans are not wired for."/>
+          <text x="555" y="120" text-anchor="middle" fill="#fff" font-size="15">3. Relentless pace</text>
+          <text x="555" y="146" text-anchor="middle" fill="#fff" font-size="13">effort pegged at</text>
+          <text x="555" y="168" text-anchor="middle" fill="#fff" font-size="13">10 out of 10,</text>
+          <text x="555" y="190" text-anchor="middle" fill="#fff" font-size="13">day after day</text>
+          <text x="340" y="268" text-anchor="middle" class="axis">These three alienate us from the rhythms of work we are wired for.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Core Idea: Slow Productivity, the three problems of chronic overload. Numbers from the episode. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · The diagnosis</p>
+        <h4>Chronic overload</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport defines chronic overload as carrying more obligations than you can imagine completing, persistently, with 700 unread messages and 75 projects as his example.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Overload is not a busy week. It is a steady state, and steady states reshape the brain.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Name the state before you fight it. You cannot fix what you call normal.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-planner" data-time="Part 5" data-title="The short-circuited planner">
+      <p class="ch-time">Part 5</p>
+      <h2>The Short-Circuited Planner</h2>
+      <p>Problem one is neurological. Humans have a brain center dedicated to long-term planning and goal completion, more powerful than anything our primate relatives carry. It ties into motivation: we feel good making a plan, better executing it, bad failing it.</p>
+      <p>That system overloads when it faces 700 unread messages and 75 projects. It cannot imagine how to accomplish all of it, so it short-circuits. The result is anxiety and misery. Our ancestors never had 700 unread messages, each one a commitment the mind cannot wrap itself around.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · The mechanism</p>
+        <h4>The short-circuited planner</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues that an unfinishable obligation list overloads the brain's planning center, which evolved for long-term goals, producing anxiety.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The anxiety is not a character flaw. It is a circuit breaker doing its job.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Keep the list short enough that your planner can see the finish line.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-spiral" data-time="Part 6" data-title="The overhead spiral">
+      <p class="ch-time">Part 6</p>
+      <h2>The Overhead Spiral</h2>
+      <p>Problem two is the overhead spiral, which Newport calls one of the more insidious tortures of modern office work. Every project carries fixed coordination overhead: meetings to plan, a non-trivial number of emails to move things forward. One project is fine. Twenty-five concurrent projects, each demanding its weekly meeting and its couple dozen emails, add up until the schedule is all overhead. You spend nearly all your time talking about the work, with no time left to execute it.</p>
+      <p>The pandemic made it visible. Knowledge workers reported eight straight hours per day in Zoom, doing email inside the meetings. One complaint Newport heard captures it: a worker who did not know when to use the bathroom during the day. That is the overhead spiral personified: a parody of work life where all you do is talk about work.</p>
+      <div class="pull">
+        <blockquote>the knowledge worker equivalent of chinese water torture</blockquote>
+        <p class="who">Cal Newport on the overhead spiral · Deep Questions</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · The math</p>
+        <h4>The overhead spiral</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport shows how fixed per-project overhead multiplies across 25 concurrent projects until coordination consumes the whole schedule, as the pandemic's eight-hour Zoom days demonstrated.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Each new commitment looks small in isolation. The cost is in the multiplication.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Count the overhead, not just the work. Say no at the margin where the spiral starts.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-pace" data-time="Part 7" data-title="The relentless pace">
+      <p class="ch-time">Part 7</p>
+      <h2>The Relentless Pace</h2>
+      <p>Problem three is pace. With chronic overload, there is constant pressure on execution because there is always more to do and you are always behind. Every available minute fills with work, plus evenings and weekends to dodge the overhead spiral. Effort pegs at 10 on a 1-to-10 scale, day after day after day, with no time to relax or downshift.</p>
+      <p>Remember the ancestors: an all-day hunt with hours resting in the shade, or a rainy day with no hunting at all. We are not wired for a relentless pace with no relief. Newport offers this as the detailed socio-physiological explanation for what the anti-productivity books described: chronic overload alienates us from the rhythms of work we are wired for, and that is why we are not happy.</p>
+      <div class="pull">
+        <blockquote>i don't know when to use the bathroom during the day</blockquote>
+        <p class="who">A knowledge worker's complaint, quoted by Cal Newport · Deep Questions</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · The speed</p>
+        <h4>The relentless pace</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues that chronic overload pins effort at 10 out of 10 with no downshift, which humans are not wired to sustain.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Rest is not a reward for finishing. It is part of the work cycle.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> If your pace has no low gear, you do not have a pace. You have a countdown.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-answer" data-time="Part 8" data-title="The three principles">
+      <p class="ch-time">Part 8</p>
+      <h2>The Three Principles</h2>
+      <p>Slow productivity is Newport's answer: a redefinition of productivity built from the ground up to realign work with our ancient wiring. Three elements: do fewer things, do them at a natural pace, and obsess over the quality of what you do. A productivity that prioritizes these three can get us back to the rhythms we are wired for while still letting us do interesting work, grow companies, and earn autonomy.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · The reframe</p>
+        <h4>The three principles</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport defines slow productivity as doing fewer things, at a natural pace, while obsessing over quality.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> It keeps ambition and discards the machinery that crushed it.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Fewer, paced, better. That is the whole program.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-pull" data-time="Part 9" data-title="The pull system">
+      <p class="ch-time">Part 9</p>
+      <h2>The Pull System</h2>
+      <p>Doing fewer things is the first principle. In an ideal world your committed workload sits below the chronic-overload line: few enough obligations that the planner does not short-circuit, the overhead does not spiral, and the pace does not turn relentless. Freelancers should aggressively titrate how much they take on. You are a human, not a computer processor with a pipeline to keep full.</p>
+      <p>For employees, Newport says we must rethink how work is assigned. Workloads should be transparent: everyone can see what is on your plate, and there is a shared understanding of what is reasonable. Tasks that arise go into external systems carrying the information needed to accomplish them, with clear statuses and priorities. Then individuals pull work out of the system as new slots open. Managers may not simply pile tasks on and say figure it out. That short-circuits the brain and makes people miserable.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · The mechanism</p>
+        <h4>The pull system</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport proposes transparent workloads and external task systems from which individuals pull new work as slots open, instead of managers pushing tasks onto plates.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Push assignment treats people as processors. Pull assignment treats them as people.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> New work waits in a queue, not on your conscience. Pull when ready.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-season" data-time="Part 10" data-title="Seasonality">
+      <p class="ch-time">Part 10</p>
+      <h2>Seasonality</h2>
+      <p>The second principle is a natural pace, and its core is seasonality: hard times balanced by easier times, at every scale. Some days harder than others, with Friday pulled back. Some months intense, with June quiet and light. Even seasons, the way professors work: winter intense, summer pulled back for rest and recovery. Up, down, up, down, at all scales.</p>
+      <p>The other half of a natural pace: measure accomplishment on a longer time scale. Stop measuring output in days and weeks. Measure it in months and years. When the goal is a strong set of high-quality results over three years, Tuesday stops ruling your mood. You might even take a couple of weeks off so the push that follows is high quality. Newport's test: what matters is what sits on your CV from the last five years, not how many items you checked off this week.</p>
+      <div class="chart" id="chart-season">
+        <h4>Seasonality at every scale</h4>
+        <svg viewBox="0 0 680 300" role="img" aria-label="Intensity bars across days, weeks, months, and seasons, alternating hard and easy periods">
+          <text x="30" y="34" class="vallab">Days</text>
+          <rect x="30" y="44" width="90" height="44" fill="#b4531f" data-tip="Monday: pegged, an intense day."/><rect x="130" y="64" width="90" height="24" fill="#1f6f8b" data-tip="Midweek: moderate days."/><rect x="230" y="44" width="90" height="44" fill="#b4531f" data-tip="Thursday: another intense push."/><rect x="330" y="74" width="90" height="14" fill="#8fb3bd" data-tip="Friday: pulled back, easing into the weekend."/>
+          <text x="30" y="110" class="vallab">Weeks</text>
+          <rect x="30" y="120" width="120" height="44" fill="#b4531f" data-tip="Intense weeks of focused pushing."/><rect x="160" y="140" width="120" height="24" fill="#1f6f8b" data-tip="Steady weeks."/><rect x="290" y="150" width="120" height="14" fill="#8fb3bd" data-tip="Light weeks for recovery."/>
+          <text x="30" y="186" class="vallab">Months</text>
+          <rect x="30" y="196" width="150" height="44" fill="#b4531f" data-tip="An intense month, getting after it."/><rect x="190" y="216" width="150" height="24" fill="#1f6f8b" data-tip="A moderate month."/><rect x="350" y="226" width="150" height="14" fill="#8fb3bd" data-tip="June: quiet, very light days."/>
+          <text x="30" y="262" class="vallab">Seasons</text>
+          <rect x="30" y="272" width="180" height="16" fill="#b4531f" data-tip="Winter: intense, like professors at full push."/><rect x="220" y="272" width="180" height="16" fill="#8fb3bd" data-tip="Summer: pulled back far, rest and recovery."/>
+          <text x="470" y="284" class="axis">Up, down, up, down, at all scales.</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Core Idea: Slow Productivity, seasonality and the time scale of accomplishment. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · The rhythm</p>
+        <h4>Seasonality</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport prescribes hard periods balanced by easy ones at the scale of days, weeks, months, and seasons, plus judging accomplishment over months and years rather than days and weeks.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> A long horizon absorbs bad Tuesdays. A short horizon weaponizes them.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Plan in seasons. Judge in years.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-quality" data-time="Part 11" data-title="Quality buys autonomy">
+      <p class="ch-time">Part 11</p>
+      <h2>Quality Buys Autonomy</h2>
+      <p>The final principle: obsess over quality. If you do less, do what you do better. Craft is more fulfilling. Our ancestors got motivation from skilled, important activity, not from adjusting fonts on a fundraising deck. Building the program, writing the book, crafting the campaign: that is where motivation lives.</p>
+      <p>Quality also earns the right to say no. When your metric becomes getting better at what you do, the mid-level distractions fall away on their own: the call you do not need, the plugin you do not need, the committee you will not join. And mastery buys autonomy. The better you get at rare and valuable work, the more leeway you have to control what you spend your time on.</p>
+      <img src="assets/dq-ep05-craft.webp" alt="Watercolor illustration of an artisan polishing a nearly finished piece at a workbench, warm focused light">
+      <p class="caption"><b>Illustration.</b> Obsess over quality: fewer things, done with craft. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 · The payoff</p>
+        <h4>Quality buys autonomy</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues that obsessing over quality makes work fulfilling, makes it easier to decline distractions, and earns the autonomy to control your time.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Excellence is power. It converts skill into freedom.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Get so good they cannot load you with trivia.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-close" data-time="Part 12" data-title="The book in progress">
+      <p class="ch-time">Part 12</p>
+      <h2>The Book in Progress</h2>
+      <p>Newport notes the idea is new and still evolving. He discussed it on Tim Ferriss's show the day before, and wrote about it in his final office column for the New Yorker in early January. A book proposal on the topic was in the works. Proposals run 50 pages and take real time to write, and he likes to sell books in pairs: he sold Digital Minimalism and A World Without Email together so he could write undisturbed for years. The next two books might be The Deep Life and Slow Productivity, in some order. None of it was signed yet.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>The anti-productivity wave is right about the disease: we are burnt out.</li>
+          <li>But doing nothing is not the cure. Humans need skilled, meaningful activity.</li>
+          <li>Our wiring: expert work at a natural pace, with rest built in.</li>
+          <li>Chronic overload breaks the wiring three ways: short-circuited planner, overhead spiral, relentless pace.</li>
+          <li>Slow productivity: do fewer things, at a natural pace, and obsess over quality.</li>
+          <li>Pull work from a queue instead of piling it on. Plan in seasons, judge in years.</li>
+          <li>Quality is power: it makes no easy and buys autonomy.</li>
+        </ol>
+        <p class="src">Distilled from Deep Questions, Core Idea: Slow Productivity with Cal Newport (18:26). Video: youtube.com/watch?v=zZwPyB20lxg.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Deep Questions episode "Core Idea: Slow Productivity" (18:26). All facts and figures come from the episode transcript or the episode itself at youtube.com/watch?v=zZwPyB20lxg. Each chart names its episode source. The portrait photograph is real, with attribution in its caption. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 21 words: two pull quotes ("the knowledge worker equivalent of chinese water torture", 8 words, and "i don't know when to use the bathroom during the day", 11 words) and "chronic overload" (2 words). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+
+</script>
+</body>
+</html>
