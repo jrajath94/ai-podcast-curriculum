@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <!DOCTYPE html>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -470,7 +472,7 @@ span.ptag, .ptag {
 <p class="ts">~00:08</p>
 <p>How does splitting square with conservation of matter and energy? Deutsch rejects the word. Everett and DeWitt spoke of splitting, but modern Everettians speak of differentiation. Picture a continuum of universes like a continuum of geological strata. When a stratum becomes two, there is no point at which one became two. It happens gradually, and the measure of how many universes there are stays constant.</p>
 <div class="fig">
-<figure class="paint inset" data-entrance="sketch"><div class="frame"><div class="stage"><img alt="Watercolor of luminous streams gradually forking across a dark cosmos" class="base" loading="lazy" src="assets/ep08/wc-multiverse.webp"/></div></div><figcaption>Differentiation, not splitting: the multiverse as gradually forking strata. Watercolor illustration.</figcaption></figure>
+<figure class="paint inset" data-entrance="sketch" data-scene="p2-ty-ep08-multiverse"><div class="frame"><div class="stage"><img alt="Watercolor of luminous streams gradually forking across a dark cosmos" class="base" height="1280" loading="lazy" src="assets/ep08/wc-multiverse.webp" width="1920"/></div></div><figcaption>Differentiation, not splitting: the multiverse as gradually forking strata. Watercolor illustration.</figcaption></figure>
 </div>
 <div class="chart" id="chart-strata">
 <h3>Differentiation, not splitting</h3>
@@ -507,7 +509,7 @@ span.ptag, .ptag {
 <p class="pullattr">David Deutsch · ~00:16</p>
 <p>You could write a book on canine behavior with a chapter predicting each situation. There is no such book for humans, because chapter 37 would be blank: humans will do something neither of us can predict. Gorillas, in Richard Byrne's experiments, copy complex nut-opening behaviors over months yet cannot explain any step. When injury makes a motion useless, they repeat it anyway. And the squirrel on the concrete floor, scrabbling and nudging nuts that go nowhere, is a program enacted by genes. It sees no point because there is no one home to see it.</p>
 <div class="fig">
-<figure class="paint inset" data-entrance="bloom"><div class="frame"><div class="stage"><img alt="Watercolor of a squirrel performing its nut-burying ritual on a concrete floor" class="base" loading="lazy" src="assets/ep08/wc-squirrel.webp"/></div></div><figcaption>The squirrel on concrete: a program enacted by genes, with no one home to see the point. Watercolor illustration.</figcaption></figure>
+<figure class="paint inset" data-entrance="bloom" data-scene="p2-ty-ep08-squirrel"><div class="frame"><div class="stage"><img alt="Watercolor of a squirrel performing its nut-burying ritual on a concrete floor" class="base" height="1280" loading="lazy" src="assets/ep08/wc-squirrel.webp" width="1920"/></div></div><figcaption>The squirrel on concrete: a program enacted by genes, with no one home to see the point. Watercolor illustration.</figcaption></figure>
 </div>
 <div class="warnbox"><b>Trap card.</b> The gorilla and squirrel stories are Deutsch's retellings of others' experiments, offered to illustrate a philosophical distinction between program and explanation. They are anecdotes in service of an argument, not ethology papers. Treat them as illustrations.</div>
 </section>
@@ -1332,5 +1334,46 @@ span.ptag, .ptag {
   });
 })();
 
+</script><script>
+<script>
+/* Phase 2 scenes (Builder 2): CompanionFX overlay life. Pure code, zero image cost. */
+(function(){
+var FX = window.CompanionFX; if(!FX) return;
+FX.registerScene("p2-ty-ep08-multiverse", {
+  init: function(F, FX) {
+    F._fx_spark = FX.sparkles(F.stage, F.W, F.H, [[600, 700, 22], [1100, 550, 20]]);
+    F._fx_glows = FX.glows(F.stage, F.W, F.H, [[960, 640, 170]], 'screen', '#FFE9B0');
+  },
+  pose: function(S, FX) {
+    var t = S.t, F = S.F, et = S.et;
+    var k = FX.smoothstep(0, 1, Math.min(1, et/1.4));
+    F._fx_spark.forEach(function(st,i){
+      var tw = 0.55 + 0.45*FX.flicker(t, i*1.7);
+      st.style.transform = 'scale(' + (k*tw).toFixed(3) + ')';
+    });
+    F._fx_glows.forEach(function(c,i){
+      c.style.opacity = (0.3+0.22*FX.flicker(t, i*2.3)).toFixed(3);
+    });
+    return {};
+  }
+});
+FX.registerScene("p2-ty-ep08-squirrel", {
+  init: function(F, FX) {
+    F._fx_motes = FX.motes(F.stage, F.W, F.H, 10, 88);
+    F._fx_spark = FX.sparkles(F.stage, F.W, F.H, [[700, 600, 20]]);
+  },
+  pose: function(S, FX) {
+    var t = S.t, F = S.F, et = S.et;
+    F._fx_motes.tick(t);
+    var k = FX.smoothstep(0, 1, Math.min(1, et/1.4));
+    F._fx_spark.forEach(function(st,i){
+      var tw = 0.55 + 0.45*FX.flicker(t, i*1.7);
+      st.style.transform = 'scale(' + (k*tw).toFixed(3) + ')';
+    });
+    return {};
+  }
+});
+})();
+</script>
 </script></body>
 </html>
