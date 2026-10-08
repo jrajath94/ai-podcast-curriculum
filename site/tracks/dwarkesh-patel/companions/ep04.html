@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk: Dwarkesh Patel Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Dwarkesh Patel's interview with Elon Musk: space compute, solar math, Grok, Optimus, and the method.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-bottom:10px}
+  .tag.source{background:#e3ecdc;color:#3c5a2e;border:1px solid #b9cba6}
+  .tag.interp{background:#f3e9d6;color:#8f3f14;border:1px solid #dcc9a3}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:20px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:22px;font-weight:800;margin:12px 0 4px}
+  .toy .tnote{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-style:italic}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .legend{border:1px dashed var(--line);padding:14px 16px;margin:26px 0;font-family:var(--sans);font-size:13px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dwarkesh Patel · Track Companion</a>
+  <span class="sub">Andrej Karpathy · Ep 4</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Dwarkesh Patel · Ep 4 · Companion</p>
+      <h1>Andrej Karpathy</h1>
+      <p class="dek">The builder's manual: why this is the decade of agents and not the year, why today's models are ghosts and not animals, and what 8,000 lines of hand-built code teach that no paper can. This companion follows the full conversation in order, from RL bottlenecks to a 1989 time machine.</p>
+      <figure>
+        <img src="assets/ep04-ghosts-not-animals.webp" alt="Watercolor illustration of a translucent ghost of code facing a small mechanical animal robot">
+        <p class="caption"><b>Illustration.</b> Ghosts, not animals: the ethereal entity we actually built. AI-generated watercolor made for this page.</p>
+      </figure>
+      <div class="legend"><b>How to read this page.</b> <span class="tag source">Source fact</span> marks a claim made on the episode. <span class="tag interp">Interpretation</span> marks builder analysis built on top of it. Section labels (§1 to §9) follow the transcript in order. The episode publishes no chapter marks.</div>
+      <div class="stats">
+        <div class="stat"><div class="n">0.07</div><div class="l">Bits stored per token seen: Llama 3 70B trained on 15 trillion tokens.</div><div class="s">Episode transcript §3</div></div>
+        <div class="stat"><div class="n">35M×</div><div class="l">More information per token in in-context learning (320 KB) than in pre-training.</div><div class="s">Episode transcript §3</div></div>
+        <div class="stat"><div class="n">8,000</div><div class="l">Lines of code in nanochat, Karpathy's from-scratch ChatGPT pipeline.</div><div class="s">Episode transcript §5</div></div>
+        <div class="stat"><div class="n">33 yrs</div><div class="l">Of algorithms time-traveled in his 1989 LeCun reproduction. It halved the error.</div><div class="s">Episode transcript §8</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/lXUZvyajciY" title="Dwarkesh Patel interviews Andrej Karpathy (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Name the decade, not the year</a></li>
+          <li><a href="#nugget-2">Ghosts, not animals</a></li>
+          <li><a href="#nugget-3">Count the bits</a></li>
+          <li><a href="#nugget-4">In-context learning is the real intelligence</a></li>
+          <li><a href="#nugget-5">Build it to understand it</a></li>
+          <li><a href="#nugget-6">Suck supervision through a straw</a></li>
+          <li><a href="#nugget-7">Time-travel by algorithms</a></li>
+          <li><a href="#nugget-8">Everything improves together</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-decade" data-time="§1" data-title="Decade of agents">
+      <p class="ch-time">§1 · Opening</p>
+      <h2>The Decade of Agents, Not the Year</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dwarkesh opens with Karpathy's most quoted correction. Someone declared this the year of agents. Karpathy, triggered by the over-prediction, answered with a longer clock.</p>
+      <div class="pull">
+        <blockquote>It's the decade of agents,</blockquote>
+        <p class="who">Andrej Karpathy · Episode transcript §1</p>
+      </div>
+      <p>The early agents impress him daily. Claude and Codex are genuinely useful. But the gap between a dazzling demo and an agent that actually works, end to end, in the wild, is the whole project. His question back: what exactly will take a decade? Answer: making it work. The bottlenecks are not one breakthrough away. They are a long list of unglamorous problems, each needing its turn.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Timelines</p>
+        <h4>Name the decade, not the year</h4>
+        <p><span class="lbl">What happened. </span>Karpathy stretched the industry's favorite prediction by 10x. Not because agents disappoint, but because "working" is a much higher bar than <i>demoing</i>.</p>
+        <p><span class="lbl">Why it matters. </span>Year-scale predictions price in only the visible problems. The invisible ones, reliability, edge cases, integration, take the other nine years.</p>
+        <p><span class="lbl">The principle. </span>When a technology demos well, multiply the timeline to production by ten. The demo is the first 10 percent.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ghosts" data-time="§2" data-title="Ghosts vs animals">
+      <p class="ch-time">§2 · What we built</p>
+      <h2>Ghosts, Not Animals</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Karpathy's central metaphor: we train by imitating humans and the data they put on the internet, so we get ethereal spirit entities, fully digital, mimicking humans. A different kind of intelligence, starting from a different point in the space of possible minds. "We're not really building animals," he says. But we could make them more animal-like, and we should want to.</p>
+      <div class="pull">
+        <blockquote>We want to build animals.</blockquote>
+        <p class="who">Andrej Karpathy on the goal · Episode transcript §2</p>
+      </div>
+      <p>He comes at it as a builder with a hard hat on. Evolution is off the table, he does not know how to do it. But imitation of internet documents works, and it lifts us to something with real built-in knowledge and intelligence. The ghost is not a failure. It is a starting point.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Metaphor</p>
+        <h4>Ghosts, not animals</h4>
+        <p><span class="lbl">What happened. </span>Imitation of text produces spirits: knowledgeable, fluent, disembodied. Animals would need bodies, drives, and a world.</p>
+        <p><span class="lbl">Why it matters. </span>The metaphor predicts the failure modes. Ghosts hallucinate, drift, and lack grounding, exactly what we observe.</p>
+        <p><span class="lbl">The principle. </span>Name what you actually built, not what you wished you built. The honest noun predicts the next ten bugs.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-bits" data-time="§3" data-title="Bits per token">
+      <p class="ch-time">§3 · The ledger</p>
+      <h2>Count the Bits</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Karpathy proposes a ledger: how much information does the model store per unit of information it receives? Take Llama 3, trained on 15 trillion tokens. The 70B model holds the equivalent of about 0.07 bits per token seen in pre-training. Pre-training is grotesquely lossy.</p>
+      <p>Then the contrast. In-context learning assimilates about 320 kilobytes per token, a 35 million-fold difference in information per token. The weights barely sip. The context window gulps.</p>
+      <div class="chart" id="chart-bits">
+        <h4>Information per token: pre-training vs in-context</h4>
+        <p class="csub">Hover any bar for detail. Log scale: the gap is 35 million-fold.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Log scale bar chart of bits per token">
+          <rect class="bar alt" x="120" y="230" width="90" height="30" data-tip="Pre-training: about 0.07 bits stored per token seen (Llama 3 70B, 15T tokens)"></rect>
+          <rect class="bar" x="330" y="60" width="90" height="200" data-tip="In-context learning: about 320 kilobytes per token, 35 million times more"></rect>
+          <text class="vallab" x="165" y="222" text-anchor="middle">0.07 bits</text>
+          <text class="vallab" x="375" y="52" text-anchor="middle">320 KB</text>
+          <text class="axis" x="165" y="280" text-anchor="middle">pre-training</text>
+          <text class="axis" x="375" y="280" text-anchor="middle">in-context</text>
+          <text class="axis" x="320" y="308" text-anchor="middle">Log scale. The in-context bar would otherwise be 35 million times taller.</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Andrej Karpathy, episode transcript §3. Figures are Karpathy's estimates for Llama 3.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Measurement</p>
+        <h4>Count the bits</h4>
+        <p><span class="lbl">What happened. </span>Karpathy divided what the model keeps by what it saw. The ratio exposes pre-training as a trickle and context as a flood.</p>
+        <p><span class="lbl">Why it matters. </span>Ratios beat vibes. One division reframed where the intelligence actually lives.</p>
+        <p><span class="lbl">The principle. </span>When a process feels magical, audit its ledger. Divide output by input and watch the magic shrink to size.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cortex" data-time="§4" data-title="The cortex">
+      <p class="ch-time">§4 · Brains</p>
+      <h2>The Cortex and the Missing Distillation</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>The cortex is famously plastic. Karpathy cites the rewiring experiments, visual cortex rewired to auditory input, where the animal learned fine, as evidence that cortical tissue is general-purpose. Reasoning traces inside neural networks, he suggests, are our version of that flexible tissue.</p>
+      <p>What we lack is the distillation phase. Humans take the day's events, analyze them obsessively, and distill them back into the weights. Models have no equivalent: no nightly consolidation, no per-person neural net, no continual learning worthy of the name. In-context learning is real intelligence, visibly meta-learned by gradient descent, but the in-context process itself is not gradient descent, just as lifetime learning is not evolution.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Learning</p>
+        <h4>In-context learning is the real intelligence</h4>
+        <p><span class="lbl">What happened. </span>Gradient descent built a machine that learns without gradient descent. The meta-learner is the product. The weights are the substrate.</p>
+        <p><span class="lbl">Why it matters. </span>It tells you where to invest. The context window is not a hack around the model. It is the model's mind.</p>
+        <p><span class="lbl">The principle. </span>Distinguish the thing that learns from the thing that learned. Optimize the learner, not just the learned.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-together" data-time="§5" data-title="Everything improves">
+      <p class="ch-time">§5 · Progress</p>
+      <h2>Everything Improves Together</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>What drives progress? Karpathy's answer: everything, at once. More data, better hardware, better kernels and software, better algorithms. No single factor dominates for long. The trend has held for a while, and he expects it to continue.</p>
+      <p>The proof is nanochat: his from-scratch rebuild of the ChatGPT pipeline in about 8,000 lines of code, taking in the entire stack from tokens to a working assistant. No one thing made the jump from GPT-2 to nanochat. Dozens of small improvements compounded.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Progress</p>
+        <h4>Everything improves together</h4>
+        <p><span class="lbl">What happened. </span>GPT-2 to nanochat took no single breakthrough. Data, hardware, kernels, and algorithms each contributed, none winning too much.</p>
+        <p><span class="lbl">Why it matters. </span>Single-cause stories mislead. Betting everything on one axis, one model, one trick, loses to the portfolio.</p>
+        <p><span class="lbl">The principle. </span>When many inputs improve in parallel, diversify your bets across all of them. The winner is the bundle.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-build" data-time="§6" data-title="Build it">
+      <p class="ch-time">§6 · nanochat</p>
+      <h2>Build It to Understand It</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Karpathy's credo, which he attributes to Feynman with a caveat: if you build it, you understand it. He says he has always believed this very strongly, because papers hide the details that matter. Nanochat forced every decision into the open: tokenization, training, RL, the serving stack.</p>
+      <p>The surprise was how little was load-bearing. Asked what mattered most going from GPT-2 to nanochat, his answer: there was no one thing. The pipeline is the product, and the only way to learn the pipeline is to write all 8,000 lines yourself.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Craft</p>
+        <h4>Build it to understand it</h4>
+        <p><span class="lbl">What happened. </span>Karpathy rebuilt the whole stack by hand and found the knowledge lived in the doing, not the reading.</p>
+        <p><span class="lbl">Why it matters. </span>Abstractions leak upward. The person who wrote the pipeline debugs it ten times faster than the person who read about it.</p>
+        <p><span class="lbl">The principle. </span>Rebuild one system from scratch per year. The lines you write are the understanding you keep.</p>
+      </div>
+      <div class="toy" id="toy-autonomy">
+        <h4>Toy: the autonomy slider</h4>
+        <p class="tsub">Drag from human-led to agent-led. Karpathy's frame: the decade is the slider moving right.</p>
+        <label for="autoRange">Autonomy: <b id="autoVal">Copilot</b></label>
+        <input type="range" id="autoRange" min="0" max="4" step="1" value="1">
+        <p id="autoOut" style="font-family:var(--sans);font-size:14px;min-height:60px"></p>
+        <p class="tnote">Stages are the builder's gloss on the episode's decade-of-agents framing, not Karpathy's literal labels.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-rl" data-time="§7" data-title="RL and supervision">
+      <p class="ch-time">§7 · Reinforcement learning</p>
+      <h2>Suck Supervision Through a Straw</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Karpathy's phrase for the RL predicament, which Dwarkesh calls beautifully evocative: "Sucking supervision through a straw." The reward signal is thin. In one run, a hundred attempts went in and only three came out right, and RL's whole job is to say "Do more of this." to the three and move on.</p>
+      <p>The practical limit today: agents handle maybe 10 or 20 steps, not 100 or 1,000. The supervision straw is narrow, and every step of autonomy multiplies the chance of drift. Widening the straw, denser rewards, better verifiers, longer horizons, is the decade's work.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · RL</p>
+        <h4>Suck supervision through a straw</h4>
+        <p><span class="lbl">What happened. </span>RL learns from a trickle: three successes in a hundred tries, amplified by repetition.</p>
+        <p><span class="lbl">Why it matters. </span>The bottleneck is not the algorithm. It is the thinness of the signal. Richer feedback beats cleverer updates.</p>
+        <p><span class="lbl">The principle. </span>When learning stalls, widen the feedback channel before you tune the learner. Signal first, algorithm second.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-1989" data-time="§8" data-title="1989">
+      <p class="ch-time">§8 · Time travel</p>
+      <h2>The 1989 Time Machine</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>For fun, Karpathy reproduced Yann LeCun's 1989 work and then time-traveled 33 years of algorithms onto it. The result surprised him: all of modern algorithmic progress, applied to the 1989 setup, only halved the error. Thirty years of ideas, one halving.</p>
+      <p>He is careful about the reading. Halving the error repeatedly is how the field compounds, and the Atari deep RL shift of 2013 was part of the early agent lineage he traces. But the experiment disciplines the story: data and compute did more of the recent work than the algorithms did.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · History</p>
+        <h4>Time-travel by algorithms</h4>
+        <p><span class="lbl">What happened. </span>Thirty-three years of algorithmic genius, ported back to 1989, bought one halving of error. The rest of progress came from data and scale.</p>
+        <p><span class="lbl">Why it matters. </span>It separates the contributions. Algorithms matter enormously, and less than the legend claims.</p>
+        <p><span class="lbl">The principle. </span>Replay history with one variable changed. Counterfactuals beat narratives for apportioning credit.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-history" data-time="§9" data-title="Fifteen years">
+      <p class="ch-time">§9 · Perspective</p>
+      <h2>Fifteen Years In</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Karpathy entered AI almost two decades ago, and worked through fifteen years or so of the modern era. Dwarkesh asks what the people in the room felt at each breakthrough, and where they were too pessimistic or too optimistic. The pattern he keeps returning to: the field repeatedly underestimates what scale will do, then overestimates what the next year will do.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>That is the whole episode in one loop. Underestimate the decade, overestimate the year. Karpathy's correction is not pessimism. It is a schedule: ten years of real, compounding, unglamorous work between the demo and the animal.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>It is the decade of agents, not the year. Making it work is the project.</li>
+          <li>We built ghosts by imitating the internet. The goal is animals.</li>
+          <li>Pre-training stores 0.07 bits per token. In-context learning stores 320 kilobytes. The gap is 35 million-fold.</li>
+          <li>The cortex distills the day into the weights. Models have no equivalent yet.</li>
+          <li>Build the 8,000 lines yourself. The pipeline is the understanding.</li>
+          <li>RL sucks supervision through a straw. Widen the signal before tuning the learner.</li>
+          <li>Thirty-three years of algorithms halved the 1989 error. Data and compute did the rest.</li>
+        </ol>
+        <p class="src">Distilled from Dwarkesh Patel's interview with Andrej Karpathy (video id lXUZvyajciY). All figures are the guest's estimates from the episode transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates Dwarkesh Patel's interview with Andrej Karpathy (video id lXUZvyajciY). All facts and figures come from the episode transcript. Section labels (§1 to §9) follow the transcript in order. The episode publishes no chapter marks, so no timestamps are claimed. The illustration is an AI-generated watercolor made for this page. No photograph is used: no freely licensed portrait of the guest was found.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 25 words: the decade pull quote (5 words), the animals pull quote (5 words), "We're not really building animals," (5 words), "Sucking supervision through a straw." (5 words), "Do more of this." (4 words), and the contrasted term "working" (1 word). The "We're not really building animals," line is kept verbatim as spoken on the episode. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+  var gr = document.getElementById('gpuRange'), gv = document.getElementById('gpuVal'), mo = document.getElementById('mwOut');
+  if(gr){
+    gr.addEventListener('input', function(){
+      var n = parseInt(gr.value, 10);
+      gv.textContent = n.toLocaleString('en-US');
+      mo.textContent = '\u2248 ' + Math.round(n / 110000 * 300).toLocaleString('en-US') + ' MW all-in';
+    });
+  }
+
+  /* ---------- toy: autonomy slider ---------- */
+  (function(){
+    var stages = [
+      ['Autocomplete', 'The human drives. The model suggests the next token, the next line. Ghosts as tools.'],
+      ['Copilot', 'The human leads, the agent assists. Suggestions, drafts, and corrections inside the human workflow.'],
+      ['Teammate', 'The agent owns subtasks: 10 to 20 steps, checked at the end. The human reviews the work, not the keystrokes.'],
+      ['Contractor', 'The agent owns whole projects. The human sets the goal and the constraints, then inspects the result.'],
+      ['Colleague', 'The agent works for a decade alongside you: animal-like, grounded, self-correcting. The decade arrives.']
+    ];
+    var r = document.getElementById('autoRange'), v = document.getElementById('autoVal'), o = document.getElementById('autoOut');
+    if(!r) return;
+    function upd(){
+      var s = stages[parseInt(r.value, 10)];
+      v.textContent = s[0]; o.textContent = s[1];
+    }
+    r.addEventListener('input', upd); upd();
+  })();
+
+})();
+</script>
+</body>
+</html>
