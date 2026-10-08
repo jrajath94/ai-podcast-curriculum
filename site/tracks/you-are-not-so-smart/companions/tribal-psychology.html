@@ -442,8 +442,8 @@ span.ptag, .ptag {
 <div class="stat"><div class="n">92% / 94%</div><div class="l">Republicans right of the median Democrat, and the reverse, in 2014</div><div class="s">Pew data via Mason, ep122</div></div>
 <div class="stat"><div class="n">100%</div><div class="l">The full policy-spectrum flip when only the party label changed</div><div class="s">Cohen welfare experiment, ep122</div></div>
 </div>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1">
-<div class="frame"><div class="stage"><img alt="Watercolor illustration for this companion" class="base" fetchpriority="high" src="assets/tribal-psychology.webp"/></div></div>
+</div><figure data-phase2="1" data-scene="tribal-psychology-hero" class="paint wide" data-entrance="bloom" data-hero="1">
+<div class="frame"><div class="stage"><img alt="Watercolor illustration for this companion" class="base" fetchpriority="high" src="assets/tribal-psychology.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/tribal-psychology-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div>
 <figcaption><b>Illustration.</b> Watercolor-style image generated for this page. Two crowds face each other across a line, each side painted in a different shade. Not a photograph.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="Part 1" data-title="The dots" id="ch-dots"><div class="ch-head"><div><p class="ch-meta"><span class="ts">Part 1</span> · The dots</p><h2>The Dots</h2></div></div>
 <p><span class="tag-src">SOURCE</span>Henri Tajfel flashed 40 dots on a screen for half a second, then sorted strangers into groups by whether they overestimated or underestimated the count. Minutes later, these strangers, grouped by a coin toss, got to split money between the groups. They chose $4 for their group and $3 for the other over $5 for everyone. They paid a dollar of their group's welfare to widen the gap. Tajfel repeated it with paintings, with random group numbers, with everything. Same result.</p>
@@ -523,7 +523,7 @@ span.ptag, .ptag {
 <p><span class="tag-src">SOURCE</span>Kahan's case study in issue pollution: the HPV vaccine versus the HBV (hepatitis B) vaccine. Both prevent sexually transmitted infections. Both are given similarly. The numbers for HPV: up to 75 percent of sexually active people in their twenties and early thirties encountered it. It is essentially the sole cause of cervical cancer, which kills about 3,000 US women a year. Acceptance runs about 95 percent for each vaccine. The controversy is not in the uptake. It is in the identity overlay poured on top.</p>
 <p><span class="tag-src">SOURCE</span>Late 2016: Oxford named post-truth the word of the year after a 2,000 percent usage spike around Brexit and the US election. The Washington Post lamented that truth was dead. Kahan's dry response: he would like to know when this supposed truth era ran. The dread is real. The golden age is invented. We were always motivated reasoners. The Comey hearing did not create the split. It revealed it.</p>
 <p><span class="tag-int">INTERPRETATION</span>The test for any controversy you meet: separate the uptake from the overlay. 95 percent acceptance plus a screaming debate means the fight is about identity, not the thing.</p>
-<aside class="tag" data-chapter="ch-pollution" data-sign-label="Aisle" data-sign-num="3" id="nugget-4"><div class="tag-price"><span class="tag-big">•</span><span class="tag-unit">The myth of the golden age</span></div><div class="tag-body"><div class="tag-title">The myth of the golden age</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>Post-truth spiked 2,000 percent as a phrase. The reasoned era it mourns never existed.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>Nostalgia is a bad baseline. You cannot restore what was never there.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Demand the uptake numbers before the debate. The fight is usually about the overlay.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 03</span></div></div></aside>
+<aside class="tag" data-chapter="ch-pollution" data-sign-label="Aisle" data-sign-num="3" id="nugget-4"><div class="tag-price"><span class="tag-big">2,000%</span><span class="tag-unit">spike of the phrase post-truth, though the era it mourns never existed</span></div><div class="tag-body"><div class="tag-title">The myth of the golden age</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>Post-truth spiked 2,000 percent as a phrase. The reasoned era it mourns never existed.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>Nostalgia is a bad baseline. You cannot restore what was never there.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Demand the uptake numbers before the debate. The fight is usually about the overlay.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 03</span></div></div></aside>
 </section>
 </main>
 <section class="col" id="playbook-sec">
@@ -1244,5 +1244,19 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('tribal-psychology-hero',{
+ init:function(F,FX){
+  F._m=FX.motes(F.stage,F.W,F.H,24,7);
+  F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.5,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];
+ },
+ pose:function(S,FX){
+  var F=S.F;F._m.tick(S.t);
+  F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);
+  return {'hero-subject':{x:7*Math.sin(S.t*0.6),y:5*Math.sin(S.t*0.83+1),r:0,s:1,o:1}};
+ } });
+})();
+</script>
+</body>
 </html>
