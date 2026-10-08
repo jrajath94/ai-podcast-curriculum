@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forgetting: Hidden Brain Interactive Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Hidden Brain episode on forgetting: Jill Price, memory as reconstruction, and the editor in your head.">
+<style>
+:root{
+  --paper:#fbf9f3; --paper2:#f4eee1; --ink:#24201a; --muted:#6f6455;
+  --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+  --green:#2e6b34; --blue:#2c5f8a;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:18px;line-height:1.65}
+a{color:var(--accent-ink)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+.topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+  align-items:center;gap:14px}
+.topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+.chapnav{position:sticky;top:52px;z-index:99;background:var(--paper2);
+  border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+  padding:8px 12px}
+.chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+  color:var(--muted);text-decoration:none;padding:6px 10px;margin-right:6px;
+  border:1px solid transparent;border-radius:20px}
+.chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+.chapnav a:hover{border-color:var(--line);color:var(--ink)}
+.chapnav a.active{background:var(--ink);color:#fff}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;padding:0 20px}
+@media(min-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,760px)}
+  .chapnav{display:none}
+  .sidenav{display:block}
+}
+.sidenav{display:none;position:sticky;top:70px;align-self:start;
+  max-height:calc(100vh - 90px);overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+.sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+.sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+.sidenav a:hover{color:var(--ink)}
+.sidenav a.active{border-left-color:var(--accent);color:var(--ink);font-weight:700}
+.content{min-width:0;padding:26px 0 60px}
+.breadcrumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px}
+h1{font-size:40px;line-height:1.15;margin:0 0 10px}
+.meta-line{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.sourcebox{border:1px solid var(--line);background:var(--paper2);padding:14px 16px;
+  margin:0 0 26px;font-family:var(--sans);font-size:13px;line-height:1.55}
+.sourcebox .badge{display:inline-block;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-right:8px}
+.badge.transcript{background:#e5f0e2;color:var(--green)}
+.badge.descr{background:#f6e8d4;color:var(--accent-ink)}
+.legend{margin-top:10px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 8px;border-radius:10px;margin:0 6px 4px 0}
+.tag.sf{background:#e5f0e2;color:var(--green)}
+.tag.in{background:#e6ecf5;color:var(--blue)}
+p{margin:0 0 16px}
+h2{font-size:28px;margin:44px 0 12px;scroll-margin-top:130px}
+h3{font-size:21px;margin:28px 0 8px}
+section.chapter{scroll-margin-top:120px}
+figure{margin:26px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+figcaption .kind{font-weight:700;color:var(--ink)}
+.nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+.nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+.nugget h4{font-size:20px;margin:0 0 10px}
+.nugget p{font-size:16.5px;margin:0 0 10px}
+.nugget p:last-child{margin-bottom:0}
+.nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.nugget .nsrc{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.pull{margin:34px 0;padding:6px 0;text-align:center}
+.pull blockquote{font-size:25px;line-height:1.4;margin:0 0 10px;font-style:italic}
+.pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+  background:var(--accent);margin:0 auto 18px}
+.pull:after{margin:18px auto 0}
+.chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+.chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+.chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:12px 0 0}
+.chart .illust{font-family:var(--sans);font-size:11.5px;color:var(--accent-ink);margin:6px 0 0;font-style:italic}
+.video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--line)}
+.video .frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.nugindex{columns:2;column-gap:28px;font-family:var(--sans);font-size:13.5px}
+.nugindex li{margin-bottom:8px;break-inside:avoid}
+footer.honesty{border-top:2px solid var(--ink);margin-top:50px;padding:24px 0 10px;
+  font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+footer.honesty h3{font-size:15px;color:var(--ink);margin:18px 0 8px}
+footer.honesty .big{font-size:15px;color:var(--ink);font-weight:700}
+footer.honesty code{font-family:var(--mono);font-size:12px;background:var(--paper2);padding:1px 5px}
+#tip{position:fixed;pointer-events:none;background:#1d1a15;color:#f7f3ea;
+  font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:6px;
+  max-width:280px;opacity:0;transition:opacity .15s;z-index:300}
+.stat-row{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.stat{flex:1 1 150px;border:1px solid var(--line);background:#fff;padding:14px;text-align:center}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent-ink)}
+.stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.stat .s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:4px}
+@media(max-width:700px){h1{font-size:30px}.nugindex{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Hidden Brain &middot; Interactive companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <aside class="sidenav" id="sidenav" aria-label="Chapters"></aside>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../index.html">Hidden Brain</a> / <span>Forgetting</span></nav>
+      <p class="eyebrow">Interactive companion</p>
+      <h1>Forgetting</h1>
+      <p class="meta-line">Episode 5 &middot; Hidden Brain &middot; Guest: Ciara Greene, University College Dublin &middot; Published 2026-05-25 &middot; 8,753 views &middot; 17 min 47 s</p>
+      <div class="sourcebox"><span class="badge transcript">Full transcript</span> Narrated from the full episode transcript on disk (<i>research/hidden-brain/transcripts/A8uokmk_MvE.txt</i>, 3,504 words, from the official YouTube captions), checked against the episode description and research notes.
+      <div class="legend"><span class="tag sf">Source fact</span> claim verified in the source named beside it. <span class="tag in">Interpretation</span> my analysis, clearly separated from source facts.</div></div>
+      <figure class="reveal"><img src="img/ep05-forgetting-a.webp" alt="Watercolor: dissolving sand patterns" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> The episode in one image: detail dissolving at the edges, the gist kept at the center.</figcaption></figure>
+      <section class="chapter" id="fantasy" data-time="00:00"><h2>The fantasy</h2><p class="reveal">What if you could remember everything? Every conversation, every meal, every detail of every day you ever lived. It sounds incredible, because in real life you forget names, lose keys, and lose whole years of childhood. Each lapse feels like a failure, like the brain let you down.</p><p class="reveal"><span class="tag sf">Source fact</span> The episode argues the opposite. Forgetting might be one of the most important things your brain does. To show why, it introduces a woman for whom forgetting never happens.</p></section><section class="chapter" id="jill" data-time="00:01:03"><h2>Jill Price</h2><p class="reveal">At University College Dublin, psychologist Ciara Greene studies how memories form. With her colleague Jillian Murphy she wrote a book on the topic. One story she told the host concerns a woman with an extremely rare condition: highly superior autobiographical memory, or HSAM. Her name is Jill Price.</p><p class="reveal">Ask Jill what the weather was like on the 30th of September 1998, and where you would draw a blank, she answers in detail: it was really sunny, but the clouds came over at about 3:00, rain threatened, then never came. A blow-by-blow account of her own experience, on demand.</p><p class="reveal">It sounds like a superpower until you hear the rest. Jill father worked as the agent for Jim Henson, the creator of the Muppets. He once arranged for Jill entire nursery school class to visit the studio where the puppets were made. The children waited for weeks. On the day, Jill had tonsillitis and could not go. Her father took the class without her.</p><p class="reveal">To little Jill it was a shock. She screamed at the top of her lungs. You had a meltdown like that as a child too, but you do not remember it. Jill does. For her it is like it never stopped happening. Every Muppets Christmas Carol brings the moment back, and she feels it as though she is right there again.</p><p class="reveal">Then the story turns darker. Jill fell in love with a man named Jim, married him, and after only two years of marriage he suffered a stroke. He was 42 years old and he died. She can replay every phone call, every detail of the drive to the hospital, the days of critical care, the moment the doctors turned off life support. Most people keep the knowledge that a spouse died while the details blur. For Jill the details never fade. She cannot drive down that road without every vivid fragment rushing back.</p><div class="stat-row"><div class="stat reveal"><div class="n">1998</div><div class="l">Sept 30: the date Jill recalls in full detail</div><div class="s">Episode 00:01:03</div></div><div class="stat reveal"><div class="n">3:00</div><div class="l">When the clouds came over that afternoon</div><div class="s">Episode transcript</div></div><div class="stat reveal"><div class="n">42</div><div class="l">Jim age when he died, two years into the marriage</div><div class="s">Episode 00:03:55</div></div></div><div class="nugget reveal" id="n1"><p class="eyebrow">Nugget 1 &middot; Jill Price</p><h4>Perfect memory is a curse wearing a superpower costume</h4><p><span class="lbl">What happened.</span> A woman who forgets nothing relives childhood humiliation and her husband death in full sensory detail, years later, without dimming.</p><p><span class="lbl">Why it matters.</span> The pain of forgetting nothing reframes the goal. The question is not how to remember more, but what remembering everything would cost.</p><p><span class="lbl">The principle.</span> Before you envy a capability, price its shadow. Every strength bills you somewhere.</p><p class="nsrc">Source: episode transcript, 00:01:03 to 00:03:55. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="parking" data-time="00:03:30"><h2>The parking lot</h2><p class="reveal">The host offers his own counterpoint. At 11 or 12 he ran across a dark, unpaved parking lot, tripped on uneven ground, and landed hard on his ring finger. He remembers crying. Today he cannot feel the pain anymore, and he is not even sure which hand it was.</p><p class="reveal"><span class="tag in">Interpretation</span> When we say time heals our wounds, what we mean is that time helps us forget. Forgetting is the mechanism inside the healing.</p></section><section class="chapter" id="reconstruction" data-time="00:05:49"><h2>Reconstruction, not filing</h2><p class="reveal">Most of us picture memory as a filing cabinet. You open a drawer, drop in a folder, and it waits for retrieval. Or a camera: you take a photograph and store it on the hard disk inside your head. That is not how memory works.</p><div class="pull reveal"><blockquote>&ldquo;Our memories are not recollections as much as they are reconstructions.&rdquo;</blockquote><p class="who">Ciara Greene, via the episode</p></div><p class="reveal">Remembering is an active process. Your moods, situations, and contexts shape what comes back. Consider breakfast. You could imagine storing a perfect record of every morning: the cornflakes, the milk, the spoon, the bites, the chews. What a waste. All you need is the condensed version:</p><div class="pull reveal"><blockquote>&ldquo;Usually, I eat cornflakes for breakfast.&rdquo;</blockquote><p class="who">Ciara Greene, via the episode</p></div><p class="reveal">Your mind throws away most of the details and keeps the gist. You know you eat breakfast and like cereal. What you ate on March 18th, 2024 is unimportant. You remember driving to a friend house but not every traffic light. The brain keeps the gist and discards the rest.</p><figure class="reveal"><img src="img/ep05-forgetting-b.webp" alt="Watercolor: filing cabinet birds" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> The filing cabinet is the wrong metaphor. The papers fly away, and that is the design.</figcaption></figure><div class="nugget reveal" id="n2"><p class="eyebrow">Nugget 2 &middot; Reconstruction</p><h4>You do not replay the past. You rebuild it.</h4><p><span class="lbl">What happened.</span> Research shows recall is reconstruction: mood and context shape what returns, and detail is shed in favor of gist.</p><p><span class="lbl">Why it matters.</span> If memory is built, not retrieved, then every memory is partly a present-tense creation.</p><p><span class="lbl">The principle.</span> Distrust vivid recall precisely because it feels true. Feeling true is what reconstruction does.</p><p class="nsrc">Source: episode transcript, 00:05:49. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="grid" data-time="00:07:54"><h2>The city grid</h2><p class="reveal">Why do some memories survive? Because multiple pathways in the brain lead to them. Think of a city grid. Some places have highways converging on them. Others sit at the end of a single alley. The well-connected places are easy to reach. Memory works the same way: dense networks of connections give many routes to a memory, sparse ones give few.</p><p class="reveal">That is why a smell can ambush you. The host associates a certain dish with an aunt who cooked it when he was a child. The memory of his aunt has few roads leading to it, until the smell opens one, and suddenly he is there. Random triggers are just accidental discoveries of a road to a memory.</p><div class="nugget reveal" id="n3"><p class="eyebrow">Nugget 3 &middot; The city grid</p><h4>Build roads to the memories you want kept</h4><p><span class="lbl">What happened.</span> Memories with many neural pathways are easy to reach. Sparse ones surface only when a chance trigger opens a road.</p><p><span class="lbl">Why it matters.</span> Forgetting is often just disconnection. Reconnection is a skill you can practice.</p><p><span class="lbl">The principle.</span> To keep a memory, give it roads: tell the story, link it to senses, revisit it in new contexts.</p><p class="nsrc">Source: episode transcript, 00:07:54. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="crash" data-time="00:10:30"><h2>The bike crash</h2><p class="reveal">Emotions cement memories, which is why the emotional ones stick. Ciara learned this in her body. Riding her bike through Dublin on a rainy November night, late and going a little fast on a road with no bicycle lane, she skidded in front of a bus. Her leg caught in the heavy down tube of the electric bike and snapped in half, like a bundle of twigs breaking with shards.</p><p class="reveal">The ambulance took nearly an hour, snarled in traffic. She lay in excruciating pain, screaming without meaning to, the screams drawn out of her against her will. Her old scale broke that night: her previous 10 became a 6 on the broken-leg scale.</p><p class="reveal">Seven months later she rode again to her parent house. Her heart hammered, her hands locked on the handlebars in a death grip, and she could barely turn right across traffic. The illusion of invulnerability that cycling needs lay shattered. Her brain did its job: remember what happened last time, and do not let it happen again.</p><div class="nugget reveal" id="n4"><p class="eyebrow">Nugget 4 &middot; The crash</p><h4>Painful memories are the tuition for caution</h4><p><span class="lbl">What happened.</span> A violent bike crash wrote itself permanently into Ciara body memory, and her fear on the next ride was the lesson, not a malfunction.</p><p><span class="lbl">Why it matters.</span> The memories we most want to erase are often the ones doing protective work.</p><p><span class="lbl">The principle.</span> Before you wish a painful memory away, ask what it is still guarding.</p><p class="nsrc">Source: episode transcript. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="editor" data-time="00:12:42"><h2>The editor</h2><p class="reveal">As we move through life, our memories try to give us information that is helpful. Note the word. Not truthful. Helpful. Researchers gave people their real school grades and asked them to recall tests where they got an A and tests where they got a D. People remembered their A grades accurately 89 percent of the time. Their D grades: only 29 percent.</p><p class="reveal">The volunteers knew the researchers held the real grades, so this was not deception. Their memories were genuinely reshaped: weakened for failure, strengthened for success.</p><div class="chart reveal"><h4>The editor at work</h4><p class="csub">How accurately people recalled their own school grades</p><svg viewBox="0 0 560 300" role="img">
+<g>
+<title>A grades: 89% (People remembered A grades accurately 89 percent of the time)</title>
+<rect x="30" y="20.0" width="90" height="230.0" fill="#2e6b34"/>
+<text x="75.0" y="12.0" font-size="13" font-weight="bold" text-anchor="middle" fill="#24201a" font-family="sans-serif">89%</text>
+<text x="75.0" y="268" font-size="12" text-anchor="middle" fill="#6f6455" font-family="sans-serif">A grades</text>
+</g>
+<g>
+<title>D grades: 29% (People remembered D grades only 29 percent of the time)</title>
+<rect x="138" y="175.1" width="90" height="74.9" fill="#b4531f"/>
+<text x="183.0" y="167.1" font-size="13" font-weight="bold" text-anchor="middle" fill="#24201a" font-family="sans-serif">29%</text>
+<text x="183.0" y="268" font-size="12" text-anchor="middle" fill="#6f6455" font-family="sans-serif">D grades</text>
+</g>
+</svg><p class="csrc">Source: episode transcript, 00:12:42. <span class="tag sf">Source fact</span></p></div><p class="reveal">In another study, volunteers read a mixed description of a person, kind but sometimes dishonest, and were told it described either themselves or someone named Chris. Told it was Chris, they recalled the good and the bad. Told it was them, they recalled the positive and quietly forgot the negative. Their brains edited the portrait to be a little more generous.</p><p class="reveal"><span class="tag in">Interpretation</span> The episode is careful: this is not an endorsement of lying to yourself. It is an account of what memory is for. We evolved memory because it helped us survive and reproduce, and the errors carry the signature of that history. Remembering virtues and forgetting flaws nudges you toward happiness, and happier people live longer. The bias has survival value.</p><div class="nugget reveal" id="n5"><p class="eyebrow">Nugget 5 &middot; The editor</p><h4>Your past is copy-edited for your future</h4><p><span class="lbl">What happened.</span> People recalled successes at 89 percent accuracy and failures at 29 percent, and remembered their own flaws far less than a stranger identical flaws.</p><p><span class="lbl">Why it matters.</span> Memory optimizes for forward motion, not for the record. The archive serves the traveler.</p><p><span class="lbl">The principle.</span> Use the edit, do not worship it. Let the past encourage you, but check it against outside records when the stakes are high.</p><p class="nsrc">Source: episode transcript, 00:12:42 to 00:13:19. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="depression" data-time="00:14:30"><h2>The accuracy of the sad</h2><p class="reveal">There is a striking corollary. People with depression often paint a more accurate picture of their lives. They remember the D as well as the A. Their memories are more truthful, but less helpful.</p><p class="reveal">Mood also steers recall. Feeling happy, you retrieve happy events. Feeling low, you retrieve sad ones, then conclude from the sample that your life was a sad one. The bias feeds itself: retrieve six memories, find four sad ones, and declare the whole life sad, never noticing the retrieval itself was rigged.</p><p class="reveal">The episode adds one boundary. Not all forgetfulness is normal. People do develop dementia, and anyone worried about memory loss should talk to a doctor. The claim is narrower: the general view that remembering is always good and forgetting always bad is simply wrong.</p></section><section class="chapter" id="mengpo" data-time="00:16:59"><h2>Meng Po</h2><p class="reveal">In Chinese mythology, Meng Po is the goddess of oblivion. She brews a soup of five ingredients that erases all memories of your life, so your soul can be reincarnated without carrying the burden of a previous one.</p><p class="reveal">It is mythology. But science now confirms the shape of the kindness: sometimes the best thing a mind can do is forget.</p><div class="stat-row"><div class="stat reveal"><div class="n">89%</div><div class="l">Accuracy recalling A grades</div><div class="s">Episode 00:12:42</div></div><div class="stat reveal"><div class="n">29%</div><div class="l">Accuracy recalling D grades</div><div class="s">Episode 00:12:48</div></div><div class="stat reveal"><div class="n">5</div><div class="l">Ingredients in Meng Po soup of oblivion</div><div class="s">Episode 00:16:59</div></div></div><div class="nugget reveal" id="n6"><p class="eyebrow">Nugget 6 &middot; Meng Po</p><h4>Forgetting is a feature, not a bug</h4><p><span class="lbl">What happened.</span> From Jill Price curse to the 89-versus-29 edit, the episode shows forgetting as an active, evolved system for keeping a usable past.</p><p><span class="lbl">Why it matters.</span> Treating every lapse as failure fights your own design. The design discards detail to protect the future.</p><p><span class="lbl">The principle.</span> Judge your memory by what it lets you do next, not by what it kept.</p><p class="nsrc">Source: episode transcript, 00:16:59. <span class="tag sf">Source fact</span></p></div></section>
+      <section class="chapter video" id="watch" data-time="video"><h2>Watch the episode</h2><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/A8uokmk_MvE" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><span style="position:absolute;left:-9999px">Official Hidden Brain episode video for Forgetting.</span><p style="font-family:var(--sans);font-size:13px;color:var(--muted)">The official Hidden Brain episode video, embedded via youtube-nocookie.com, the only external dependency on this page.</p></section>
+      <section class="chapter" id="nuggets" data-time="index">
+        <h2>Nugget index</h2>
+        <ol class="nugindex"><li><a href="#n1"><b>Nugget 1.</b> Perfect memory is a curse wearing a superpower costume</a> <span style="color:var(--muted)">(Jill Price)</span></li><li><a href="#n2"><b>Nugget 2.</b> You do not replay the past. You rebuild it.</a> <span style="color:var(--muted)">(Reconstruction, not filing)</span></li><li><a href="#n3"><b>Nugget 3.</b> Build roads to the memories you want kept</a> <span style="color:var(--muted)">(The city grid)</span></li><li><a href="#n4"><b>Nugget 4.</b> Painful memories are the tuition for caution</a> <span style="color:var(--muted)">(The bike crash)</span></li><li><a href="#n5"><b>Nugget 5.</b> Your past is copy-edited for your future</a> <span style="color:var(--muted)">(The editor)</span></li><li><a href="#n6"><b>Nugget 6.</b> Forgetting is a feature, not a bug</a> <span style="color:var(--muted)">(Meng Po)</span></li></ol>
+      </section>
+    </article>
+    <footer class="honesty" id="honesty"><h3>How this companion was built</h3><p><span class="big">Sourcing.</span> Every factual claim in this companion traces to the full episode transcript, with timestamps from the caption file. The 00:03:30, 00:10:30, and 00:14:30 section markers are approximate, placed by narrative order where the caption search returned no anchor phrase. Interpretive passages carry the Interpretation tag.</p><h3>Sources</h3><ul><li>Episode transcript: research/hidden-brain/transcripts/A8uokmk_MvE.txt (3,504 words, from official YouTube captions, with timestamps from A8uokmk_MvE.en.srt).</li><li>Episode description: research/hidden-brain/descriptions.txt (entry A8uokmk_MvE).</li><li>Episode metadata: research/hidden-brain/episodes.json (views 8,753, upload 2026-05-25, duration 1,067 s).</li><li>Research notes: research/hidden-brain/research-notes.md (channel verification, transcript provenance).</li></ul><h3>On quotes</h3><p><span class="big">Quoted words in this companion: 17.</span> The quote budget allows at most 50 words of direct quotation per artifact. This is the mechanical recount defined in the build notes: every word inside pull-quote or blockquote markup, plus every quoted phrase in body text and attributes, footer excluded. Unquoted image alt text is not a quoted phrase, so it is excluded from this count. Every quoted phrase below was verified character-for-character against the source on disk.</p><ul><li><code>Our memories are not recollections as much as they are reconstructions.</code> &middot; 11 words (Ciara Greene, via the episode)</li><li><code>Usually, I eat cornflakes for breakfast.</code> &middot; 6 words (Ciara Greene, via the episode)</li></ul><p>Both phrases appear in the transcript with the wording shown. The editing-for-you line and the Jill Price weather answer are paraphrased, not quoted.</p><h3>What was not invented</h3><p>No numbers were invented. The September 30 1998 date, the 3:00 clouds, the 42 years, the 89 and 29 percent, the March 18th 2024 breakfast, the nearly one hour ambulance wait, the seven months, and the five ingredients all come verbatim from the transcript. The host parking-lot story is presented as his own memory, as the episode presents it.</p><h3>Images and video</h3><p>Illustrations on this page are AI-generated watercolors made for this companion and are labeled as illustrations. No real photographs appear, so no attribution is owed. The video embed uses youtube-nocookie.com, the only external dependency. Everything else loads from local relative paths and works from file://.</p><p>Companion to the <a href="../index.html">Hidden Brain track index</a> and <a href="../ep05.html">the track chapter</a>. Built for study, not affiliated with the show.</p></footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+"use strict";
+var tip=document.getElementById("tip");
+document.addEventListener("mousemove",function(e){
+  var t=e.target.closest("[data-tip]");
+  if(t){tip.textContent=t.getAttribute("data-tip");
+    tip.style.opacity="1";
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-300)+"px";
+    tip.style.top=(e.clientY+16)+"px";}
+  else{tip.style.opacity="0";}
+});
+var chapters=Array.prototype.slice.call(document.querySelectorAll("section.chapter"));
+function navLink(ch){
+  var a=document.createElement("a");
+  a.href="#"+ch.id;
+  var sp=document.createElement("span");sp.className="t";
+  sp.textContent=ch.getAttribute("data-time");
+  a.appendChild(sp);
+  var h=ch.querySelector("h2");
+  a.appendChild(document.createTextNode(h?h.textContent:ch.id));
+  a.setAttribute("data-ch",ch.id);
+  return a;
+}
+var navs=[document.getElementById("chapnav"),document.getElementById("sidenav")];
+navs.forEach(function(n){if(!n)return;chapters.forEach(function(ch){n.appendChild(navLink(ch));});});
+function spy(){
+  var cur=null;
+  chapters.forEach(function(ch){if(ch.getBoundingClientRect().top<160)cur=ch.id;});
+  var links=document.querySelectorAll("[data-ch]");
+  Array.prototype.forEach.call(links,function(a){
+    a.classList.toggle("active",a.getAttribute("data-ch")===cur);});
+}
+document.addEventListener("scroll",spy,{passive:true});spy();
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+  });
+},{threshold:.08});
+Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
