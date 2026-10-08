@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ep10: Storytelling: Change Over Time, Told to Be Remembered</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--paper:#fdfbf6;--ink:#221c14;--muted:#6f6455;--line:#e6dcc8;--card:#f5f0e6;--warm:#f4ecd9;--blue:#e9eff9;--accent:#8f3f14;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.65;font-size:16.5px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+header.hero{background:var(--warm);border-bottom:1px solid var(--line);padding:64px 0 40px}
+header.hero h1{font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+header.hero .sub{font-size:18px;color:var(--muted);max-width:660px;margin-bottom:22px}
+.epmeta{font-size:14px;color:var(--muted)}
+.layout{display:flex;gap:28px;align-items:flex-start;padding-top:28px}
+.layout main{flex:1 1 0;min-width:0}
+aside.side{flex:0 0 210px;position:sticky;top:16px}
+.side h4{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px}
+.side a{display:block;padding:6px 0;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.4}
+.side a .t{color:var(--muted);font-size:12.5px;display:block}
+.side a:hover{color:var(--accent)}
+.side a.active{color:var(--accent);font-weight:700}
+#chapnav{overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:26px;position:sticky;top:0;background:var(--paper);z-index:50}
+#chapnav a{display:inline-block;margin-right:22px;font-size:13.5px;color:var(--muted);text-decoration:none;padding:4px 0}
+#chapnav a .t{display:block;font-size:11.5px}
+#chapnav a.active{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+section.chapter{margin-bottom:58px}
+.ch-time{font-size:13px;color:var(--muted);letter-spacing:1px;margin-bottom:6px}
+h2{font-size:27px;margin-bottom:16px;line-height:1.25}
+p{margin-bottom:16px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:10px}
+.fact{background:var(--blue);color:#144a8f}
+.interp{background:var(--warm);color:#6b4a12}
+.wisdom{background:var(--card);border:1px solid var(--line);padding:24px;margin:30px 0}
+.wisdom h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+.wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+@media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+.wisdom li{counter-increment:w;font-size:14px}
+.wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
+.wisdom li a:hover{border-color:var(--accent)}
+.wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;margin-right:8px}
+.legend{font-size:12.5px;color:var(--muted);margin:0 0 22px}
+figure{margin:26px 0;text-align:center}
+figure img{max-width:100%;border-radius:6px;border:1px solid var(--line)}
+.caption{font-size:13.5px;color:var(--muted);margin-top:8px}
+.caption b{color:var(--ink)}
+blockquote{font-size:21px;font-style:italic;line-height:1.5;color:#4a4136;border-left:3px solid var(--accent);padding:8px 0 8px 18px;margin:28px 0}
+p.attrline{font-size:14px;color:var(--muted);margin-top:-20px;margin-bottom:24px}
+.nugget{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin:30px 0;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.nugget.in{opacity:1;transform:none}
+.nugget .eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.nugget h4{font-size:20px;margin-bottom:12px}
+.nugget p{margin-bottom:10px}
+.nugget .lbl{font-weight:700}
+.toy{border:1px dashed var(--line);border-radius:10px;padding:24px;margin:30px 0;background:#fff}
+.toy h4{font-size:17px;margin-bottom:6px}
+.toy .tsub{font-size:14px;color:var(--muted);margin-bottom:14px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;margin:30px 0}
+.chart h4{font-size:17px;margin-bottom:4px}
+.chart .csub{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.chart .csrc{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+.chart svg{width:100%;height:auto}
+.axis{font-size:12px;fill:var(--muted)}
+.vallab{font-size:14px;fill:var(--ink);font-weight:600}
+.takeaways{background:var(--blue);border-radius:10px;padding:26px 28px;margin:40px 0}
+.takeaways h3{font-size:19px;margin-bottom:12px}
+.takeaways ol{padding-left:22px}
+.takeaways li{margin-bottom:8px}
+.takeaways .src{font-size:13px;color:var(--muted);margin-top:14px}
+footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:14px;color:var(--muted)}
+footer p{margin-bottom:12px}
+footer b{color:var(--ink)}
+.vid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid var(--line);margin:26px 0}
+.vid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+#tip{position:fixed;pointer-events:none;background:#1c1812;color:#fff;font-size:13px;padding:8px 12px;border-radius:6px;max-width:300px;opacity:0;transition:opacity .15s;z-index:100}
+.toy .row{margin-bottom:10px}
+.toy textarea{width:100%;min-height:110px;font-size:15px;padding:10px;border:1px solid var(--line);border-radius:6px;font-family:inherit}
+.toy select,.toy button{font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.toy button{cursor:pointer;background:var(--accent);color:#fff;border:1px solid var(--accent);font-weight:700}
+.toy button:hover{opacity:.9}
+.toy .out{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:15px}
+@media(max-width:760px){aside.side{display:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="epmeta">CHARISMA · EPISODE 10 · THE KNOWLEDGE PROJECT · SEP 2024</p>
+    <h1>Storytelling: Change Over Time, Told to Be Remembered</h1>
+    <p class="sub">Matthew Dicks on what makes a story, the Spoon of Power, stakes and suspense devices, beginnings and endings, but-and-therefore structure, and Homework for Life.</p>
+    <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/bZDiwANRS84" title="Matthew Dicks: The Art of Storytelling" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</header>
+<div class="wrap layout">
+<aside class="side" id="sidenav"></aside>
+<main>
+<nav id="chapnav" aria-label="Chapters"></nav>
+
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Change over time, or it is a report</a></li>
+          <li><a href="#nugget-2">Earn every sentence</a></li>
+          <li><a href="#nugget-3">Nothing at the start, everything at the end</a></li>
+          <li><a href="#nugget-4">Six reasons to hear the next sentence</a></li>
+          <li><a href="#nugget-5">The beginning must be the opposite of the end</a></li>
+          <li><a href="#nugget-6">Remember the beats. Keep the stupid parts.</a></li>
+          <li><a href="#nugget-7">Dissect what lands</a></li>
+          <li><a href="#nugget-8">Replace and-then with but-therefore</a></li>
+          <li><a href="#nugget-9">One line a night</a></li>
+          <li><a href="#nugget-10">Jump, survive, jump again</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript or the show's published chapter list. <span class="tag interp">Interpretation</span> My read on what it means. Chapter times come from the episode's own chapter list.</p>
+
+    <section class="chapter" id="ch-change" data-time="00:01:08" data-title="A Story Is Change Over Time">
+      <p class="ch-time">00:01:08</p>
+      <h2>A Story Is Change Over Time</h2>
+      <figure>
+        <img src="assets/ep10/photo-matthew-dicks.jpg" alt="Matthew Dicks performing on The Moth stage">
+        <p class="caption"><b>Photo.</b> Matthew Dicks on The Moth stage. Source: themoth.org.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Most people think a story is stuff that happened, told in order. That is a report. Nobody wants your report except your mother, and she is required to listen. A story is change over time. Usually a realization: I used to think one thing, now I think another. Sometimes a transformation: I was one kind of person, now I am another.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Definition</p>
+        <h4>Change over time, or it is a report</h4>
+        <p><span class="lbl">What happened. </span>A story shows a realization or a transformation. A report lists events in order.</p>
+        <p><span class="lbl">Why it matters. </span>Reports inform. Stories change the listener. Only one gets remembered.</p>
+        <p><span class="lbl">The principle. </span>Test every candidate story with the feeling test: did something just happen in me.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-anecdote" data-time="00:04:37" data-title="Stories Versus Anecdotes">
+      <p class="ch-time">00:04:37</p>
+      <h2>Stories Versus Anecdotes</h2>
+      <p><span class="tag fact">Source fact</span> An anecdote is cotton candy: delicious, forgotten. A story is the best meal of your life: you remember the restaurant, the company, the order. The mechanism differs too. An anecdote hopes you think that once happened to me. A story aims for I once felt that way. Feeling travels. Events do not.</p>
+      <p><span class="tag fact">Source fact</span> The customs story is the negative example. Detained in Canada, saved by his own Wikipedia page: amusing, but nothing changed. He left seeing nothing differently. Cotton candy. The test is the feeling test: did something just happen in me. If not, it is not a story yet.</p>
+      <p><span class="tag fact">Source fact</span> Nobody owes you their attention. No one wants to hear anything you have to say unless you give them a reason to listen. Every sentence must earn the next one. The power-outage test makes it concrete. Twice in his life the power died mid-movie. Once he never went back: he had not cared about the characters. Once he hunted for another theater with power: he had to know the ending. Your audience should be the second kind of moviegoer.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Attention</p>
+        <h4>Earn every sentence</h4>
+        <p><span class="lbl">What happened. </span>Attention is conditional. The second moviegoer hunts for another theater because he must know the ending.</p>
+        <p><span class="lbl">Why it matters. </span>Feeling travels, events do not. Aim for I once felt that way.</p>
+        <p><span class="lbl">The principle. </span>Every sentence is the price of the next. Pay it or lose them.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-spoon" data-time="00:06:09" data-title="The Spoon of Power">
+      <p class="ch-time">00:06:09</p>
+      <h2>The Spoon of Power</h2>
+      <figure>
+        <img src="assets/ep10/illustration-spoon.webp" alt="Watercolor illustration of a glowing spoon on a chain">
+        <p class="caption"><b>Illustration.</b> An ordinary kitchen spoon becomes the most powerful teaching tool of a career. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Behind his school, a pile of leaves quivers. A boy's hand emerges holding a metal object. Jamie, a redheaded ten-year-old, holds a kitchen spoon. Dicks declares it the Spoon of Power. Jamie sprints. For 18 minutes of recess, the teacher chases the boy across the field, up the slide, through the woods, and loses.</p>
+      <p><span class="tag fact">Source fact</span> In class the standoff continues: math, reading, writing, the spoon daring him from the desk corner. At writing time Jamie's head falls to his arm, lost in his story. Dicks creeps up the aisle, reaches, and the spoon is gone. The class conspires. The bell rings. Jamie pulls the spoon from the library box.</p>
+      <blockquote>I filed it under S for spoon.</blockquote>
+      <p class="attrline">Jamie, as quoted by Matthew Dicks, 00:06:09</p>
+      <p><span class="tag fact">Source fact</span> Next day the spoon hangs on a chain around Jamie's neck, his father drilled the hole, his mother gave the chain. Thursday is the math test, and McKenzie falls apart as she always does. Jamie takes off the spoon: maybe this will help. Best test of her life. Days later David's grandfather dies, and Jamie waits at the door: I think you need this today. All year the spoon finds every kid in trouble: forgotten homework, the principal's hallway, the bully on the bus.</p>
+      <p><span class="tag fact">Source fact</span> Last day of school, Jamie tries to give the spoon back. Dicks refuses: you kept it, you did this amazing thing, it is yours. Jamie insists.</p>
+      <blockquote>The magic of the spoon only works in my classroom.</blockquote>
+      <p class="attrline">Jamie, as quoted by Matthew Dicks, 00:06:09</p>
+      <p><span class="tag fact">Source fact</span> He pulls up the little orange chair to reach eye level and puts it on. The pandemic year, 2020 to 2021, the hardest of 26 years teaching, becomes the year of the spoon: kids, colleagues, everyone wearing it to get through the day. Sixteen years later he still carries it in his bag. At a pandemic-era talk, the line after the show was not for books. Grown adults lined up to touch a spoon.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Arc</p>
+        <h4>Nothing at the start, everything at the end</h4>
+        <p><span class="lbl">What happened. </span>An ordinary kitchen spoon becomes the most powerful teaching tool of a career. Sixteen years later, grown adults line up to touch it.</p>
+        <p><span class="lbl">Why it matters. </span>The arc is the story. Nothing to everything is change over time, compressed.</p>
+        <p><span class="lbl">The principle. </span>Find your spoon: the ordinary object that changed everything.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-architecture" data-time="00:15:22" data-title="The Architecture">
+      <p class="ch-time">00:15:22</p>
+      <h2>The Architecture: Scenes, Senses, and Six Devices</h2>
+      <figure>
+        <img src="assets/ep10/illustration-devices.webp" alt="Watercolor illustration of six floating attention devices">
+        <p class="caption"><b>Illustration.</b> The six devices that hold attention. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Dicks remembers stories as scenes, and scenes are locations. Playground chase. Classroom standoff. Next-day necklace. Thursday test. David's door. The montage of three troubles. Last day. Pandemic coda. Each scene has one job. The montage is engineered: three locations, three kinds of kid problems, chosen from a thousand real spoon-givings.</p>
+      <p><span class="tag fact">Source fact</span> Description discipline: almost no adjectives. Nobody wants to know what things looked like unless it matters. What the audience wants: what you felt, what you said, what you did. Say classroom and the listener supplies their own, which beats yours because it is theirs. Every unnecessary adjective steals bandwidth the audience needs for the story.</p>
+      <p><span class="tag fact">Source fact</span> Through every scene run the four: stakes, suspense, surprise, humor. The Mount Rushmore of attention. A boring stretch gets painted over with suspense or humor until the story resumes. Demos, data sections, and explanations all need the same paint.</p>
+      <div class="chart" id="chart-devices">
+        <h4>The six attention devices</h4>
+        <p class="csub">Hover each device for its move.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Six attention devices">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="10" width="300" height="60" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="The elephant: the big obvious stake, named early. A boy has a spoon and Matt wants it."></rect>
+            <text x="26" y="46" class="vallab">Elephant</text>
+            <rect x="330" y="10" width="300" height="60" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="The backpack: load the plan, then break it. The writing-time strike that fails."></rect>
+            <text x="346" y="46" class="vallab">Backpack</text>
+            <rect x="10" y="80" width="300" height="60" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Breadcrumbs: hints dropped without explanation. McKenzie falling apart at the test."></rect>
+            <text x="26" y="116" class="vallab">Breadcrumbs</text>
+            <rect x="330" y="80" width="300" height="60" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="The hourglass: slow down at peak want. The orange chair, the slower voice."></rect>
+            <text x="346" y="116" class="vallab">Hourglass</text>
+            <rect x="10" y="150" width="300" height="60" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="The crystal ball: state a prediction aloud. I will get that spoon eventually."></rect>
+            <text x="26" y="186" class="vallab">Crystal ball</text>
+            <rect x="330" y="150" width="300" height="60" rx="4" fill="#f4ecd9" stroke="#e2d8c3" data-tip="Humor: the most underused business tool. A laugh in the first 60 seconds relaxes the room."></rect>
+            <text x="346" y="186" class="vallab">Humor</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: The Knowledge Project, Matthew Dicks, 00:19:08. Devices as named on air.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Six devices that hold attention. The elephant: the big obvious stake, named early. The backpack: tell the audience your plan, load them with your hopes, then let the plan fail. Breadcrumbs: hints dropped without explanation. The hourglass: when the audience is desperate for the next sentence, slow down. The crystal ball: say a prediction out loud. Humor: the most underused business tool. A laugh in the first 30 to 60 seconds relaxes the room.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Devices</p>
+        <h4>Six reasons to hear the next sentence</h4>
+        <p><span class="lbl">What happened. </span>Each device manufactures a reason to continue: stakes named, plans broken, hints dropped, time stretched, predictions stated, laughter paid.</p>
+        <p><span class="lbl">Why it matters. </span>Attention is not luck. It is built, one device per stretch.</p>
+        <p><span class="lbl">The principle. </span>Audit your next story for device-free stretches. Paint them.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-beginnings" data-time="00:19:08" data-title="Beginnings and Endings">
+      <p class="ch-time">00:19:08</p>
+      <h2>Beginnings and Endings</h2>
+      <p><span class="tag fact">Source fact</span> The two most common failures are beginnings and endings. Beginnings fail because storytellers teach before they engage. The bad version of the spoon story: I am a fifth-grade teacher in Connecticut, my school is called... Nobody ever sat down hoping to be taught things before hearing something good.</p>
+      <p><span class="tag fact">Source fact</span> Start at the moment the story starts: a pile of leaves, a hand, a metal object. Say metal object, not spoon. Knife, gun, or mystery: every guess is a crystal ball, and every guess makes them want the answer. Teach everything else along the way. The beginning is the plane: land in a beautiful place all you want, but if nobody boarded, you failed.</p>
+      <p><span class="tag fact">Source fact</span> Start at the end. Before building anything, answer: what changed. The five-second moment is the change compressed: the spoon was nothing, now it is everything. Every keynote, every deck, every story needs its last three slides first. Say one thing. Saying three things says nothing.</p>
+      <p><span class="tag fact">Source fact</span> The beginning must be the opposite of the end. Spoon as nothing versus spoon as everything. That opposition is the arc. The customs story is flat because Matt was never worried: Canada, a red X, worst case a longer wait. No fear at the start means no change at the end. If you cannot find the opposite, you do not have a story.</p>
+      <p><span class="tag fact">Source fact</span> Leave a frayed ending, not a knot. Thelma and Louise ends mid-flight over the cliff. Butch Cassidy freezes before the federales fire. Unanswered questions keep the audience wondering the next day, and wondering is memory.</p>
+      <div class="toy" id="toy-opposition">
+        <h4>Toy: the opposition test</h4>
+        <p class="tsub">Write your story's beginning and ending. The toy checks the opposition.</p>
+        <div class="row"><input type="text" id="opb" placeholder="Beginning: where it starts" style="width:100%"></div>
+        <div class="row"><input type="text" id="ope" placeholder="Ending: what changed" style="width:100%"></div>
+        <button id="opbtn">Test the arc</button>
+        <div class="out" id="opout">Fill both and press the button. The verdict appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Structure</p>
+        <h4>The beginning must be the opposite of the end</h4>
+        <p><span class="lbl">What happened. </span>Spoon as nothing versus spoon as everything. The opposition is the arc.</p>
+        <p><span class="lbl">Why it matters. </span>Without two poles there is no movement. The customs anecdote is flat because nothing changed.</p>
+        <p><span class="lbl">The principle. </span>Write the five-second moment first. Then open at its opposite.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-mistakes" data-time="00:34:10" data-title="Common Mistakes">
+      <p class="ch-time">00:34:10</p>
+      <h2>Common Mistakes and How to Fix Them</h2>
+      <p><span class="tag fact">Source fact</span> The game with the audience: they pretend you make it up, you pretend you make it up. The truth is the middle. Never memorize. Remember the beats. A word caller recites memorized words and cannot read the room. A beater knows what happens next but not the exact sentences, so they can pivot, pull an anecdote from the pocket, and riff on the phone-checker in row three.</p>
+      <p><span class="tag fact">Source fact</span> Trimming is allowed. Take Martin out of the car if Martin did nothing. He steals bandwidth. Condense two days into one. Nobody needs your cereal. Shorten locations. What you may not trim is your own stupidity. Keep the foolish parts, even enlarge them. Audiences crave the vulnerability, and the stupid thing you did is usually where the story lives.</p>
+      <p><span class="tag fact">Source fact</span> Tell your own stories. Other people's stories report on fictional characters. The teller on stage with their own failure is vulnerability. The teller with someone else's anecdote is a newscaster.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Craft</p>
+        <h4>Remember the beats. Keep the stupid parts.</h4>
+        <p><span class="lbl">What happened. </span>Memorized words cannot read the room. Remembered beats can pivot. Trimming is honest when it cuts the idle, never your image.</p>
+        <p><span class="lbl">Why it matters. </span>The stupid thing you did is usually where the story lives. Cut it and you cut the vulnerability.</p>
+        <p><span class="lbl">The principle. </span>Take Martin out of the car. Keep your foolishness in.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-listening" data-time="00:52:41" data-title="Strategic Listening">
+      <p class="ch-time">00:52:41</p>
+      <h2>Strategic Listening</h2>
+      <p><span class="tag fact">Source fact</span> Become a strategic listener. When a movie makes you laugh, ask what combination of words did it. When a story lands, dissect the mechanism. Consumers let content wash through. Reproducers pull the threads.</p>
+      <p><span class="tag fact">Source fact</span> The Wonder Woman autopsy is the demonstration. The hero can only defeat the villain after her boyfriend sacrifices himself. The film's structure says a woman cannot win her own battle. You can enjoy the movie or see the machinery. Strategic listeners see it, and seeing it teaches them to build better.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Listening</p>
+        <h4>Dissect what lands</h4>
+        <p><span class="lbl">What happened. </span>The strategic listener asks what combination of words made the laugh happen.</p>
+        <p><span class="lbl">Why it matters. </span>Consumers wash through. Reproducers pull the threads and learn to build.</p>
+        <p><span class="lbl">The principle. </span>Next time a story lands, name the mechanism before you forget it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-honesty" data-time="01:01:12" data-title="Honesty and But-Therefore">
+      <p class="ch-time">01:01:12</p>
+      <h2>Honesty, and the But-Therefore Test</h2>
+      <p><span class="tag fact">Source fact</span> Can you lie in stories. No. The spoon works because audiences know it is true. The line at the pandemic talk formed to touch a real spoon. Fiction would have made it a prop.</p>
+      <p><span class="tag fact">Source fact</span> The South Park rule, adopted in the episode: replace and then with but and therefore. An and-story is a list: this happened and then this happened. Remove any scene and nothing breaks. A but-therefore story is a chain: this happened, but that blocked it, therefore this. Remove any scene and the story collapses.</p>
+      <div class="chart" id="chart-but">
+        <h4>And-stories versus but-therefore stories</h4>
+        <p class="csub">Hover each column for the test.</p>
+        <svg viewBox="0 0 640 220" role="img" aria-label="And versus but therefore">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="20" width="300" height="160" rx="8" fill="#f5f0e6" stroke="#e2d8c3" data-tip="And-story: connectors are and then. Remove a scene and nothing breaks. Flat list. Example: the customs anecdote."></rect>
+            <text x="26" y="56" class="vallab">And-story</text>
+            <text x="26" y="86" font-size="13" fill="#221c14">And then, and then</text>
+            <text x="26" y="112" font-size="13" fill="#6f6455">Remove a scene:</text>
+            <text x="26" y="134" font-size="13" fill="#6f6455">nothing breaks</text>
+            <text x="26" y="160" font-size="13" fill="#6f6455">The customs anecdote</text>
+            <rect x="330" y="20" width="300" height="160" rx="8" fill="#dcefe0" stroke="#e2d8c3" data-tip="But-therefore story: connectors are but and therefore. Remove a scene and the chain snaps. Example: the Spoon of Power."></rect>
+            <text x="346" y="56" class="vallab">But-therefore story</text>
+            <text x="346" y="86" font-size="13" fill="#221c14">But, therefore</text>
+            <text x="346" y="112" font-size="13" fill="#6f6455">Remove a scene:</text>
+            <text x="346" y="134" font-size="13" fill="#6f6455">the chain snaps</text>
+            <text x="346" y="160" font-size="13" fill="#6f6455">The Spoon of Power</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: The Knowledge Project, Matthew Dicks, 01:02:50. The South Park rule as adopted on air.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> But is the most powerful word in storytelling. "I got in the Uber today, but..." makes you need the next clause. And... lets the power go out unmourned. The trailer rule applies the test to promotion. State the stakes, withhold the solution. John McClane wants his wife, terrorists stand between them, he has only his wits: you must watch to learn how.</p>
+      <div class="toy" id="toy-but">
+        <h4>Toy: the but-therefore tester</h4>
+        <p class="tsub">Paste a short story below. The toy counts your connectors.</p>
+        <textarea id="storyin" placeholder="Tell the story in a few sentences"></textarea>
+        <button id="storybtn">Test the chain</button>
+        <div class="out" id="storyout">Paste the story and press the button. The verdict appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Structure</p>
+        <h4>Replace and-then with but-therefore</h4>
+        <p><span class="lbl">What happened. </span>An and-story survives scene removal, which proves the scene was decorative. A but-therefore chain snaps.</p>
+        <p><span class="lbl">Why it matters. </span>Every scene should be load-bearing. The removal test finds the dead weight.</p>
+        <p><span class="lbl">The principle. </span>Run the test on your next anecdote. Convert what survives.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-homework" data-time="01:07:45" data-title="Homework for Life">
+      <p class="ch-time">01:07:45</p>
+      <h2>Homework for Life</h2>
+      <figure>
+        <img src="assets/ep10/illustration-homework.webp" alt="Watercolor illustration of a glowing journal line at night">
+        <p class="caption"><b>Illustration.</b> One line a night. Small moments beat big ones. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The daily practice: each night, write down the most storyworthy moment of the day in a spreadsheet. One line. Most days it is small. Small moments beat big ones: the tiny, seemingly insignificant moment filled with meaning travels better than the near-death tale nobody can relate to.</p>
+      <p><span class="tag fact">Source fact</span> The swim test story is the worked example. His son faces the camp swim test. Dicks tells him about 1983: nine pancakes, the cold lake, quitting at 50 yards, two days as a beginner swimmer, 45 extra minutes in the rowboat while friends canoed. The advice: do not quit because you are tired, quit only when you cannot swim. A week later the son passes and says he heard his father's voice on the second lap and swam two more.</p>
+      <p><span class="tag fact">Source fact</span> The structure lesson is the BABC model. Chronological A-B-C would start in 1983 and take 40 years. Instead: B, the son packing now. A, the father's 1983 failure yanked into the present. C, the son's test and the voice in his head. The 40-year story becomes a week-long story. Start in the middle, pull the past in, land in the present.</p>
+      <p><span class="tag fact">Source fact</span> The metaphor lesson for business: find the theme, not the content match. The entrepreneur teaching bottlenecks had the Facebook story: seven friends in ten days, the one metric that mattered. Dicks asked for his personal version. The answer: his marriage was in trouble until a friend said kiss your wife every morning, and it changed everything. One small solution fixing a huge problem. The personal story carries the business lesson further than any case study, because audiences remember the kiss and forget the dashboard. Every future morning kiss in the audience becomes a reminder of his talk.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Practice</p>
+        <h4>One line a night</h4>
+        <p><span class="lbl">What happened. </span>Homework for Life stocks the inventory nightly. The BABC model compresses 40 years into a week.</p>
+        <p><span class="lbl">Why it matters. </span>Stories come from inventory, not inspiration. Small moments are relatable, so they travel.</p>
+        <p><span class="lbl">The principle. </span>Start in the middle, pull the past in, land in the present.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-confidence" data-time="01:29:00" data-title="Confidence Is a High Dive">
+      <p class="ch-time">01:29:00</p>
+      <h2>Confidence Is a High Dive</h2>
+      <p><span class="tag fact">Source fact</span> The armed robbery at 21 is the origin story. Managing a McDonald's, three men through the glass, two already dead by their hands. He dropped the $7,000 deposit down the safe chute. They beat him. What he felt was not fear but regret: 20 years old, homeless six weeks earlier, nothing accomplished. After that, other people's opinions washed away. The stakes recalibrated permanently.</p>
+      <p><span class="tag fact">Source fact</span> For everyone else, confidence is the high dive. The 14-foot board at the town pool terrified him every time until repetition burned the fear down. You cannot think your way off the board. You jump, survive, and jump again. Audiences reward the jump: he has never had anyone think less of him for something vulnerable he said on stage.</p>
+      <p><span class="tag fact">Source fact</span> A speech does not live on the page. It lives in the air, in your voice. Memorized speeches speak at: identical tomorrow, aimed at the middle distance. Remembered stories speak to: different every time, aimed at these people.</p>
+      <p><span class="tag fact">Source fact</span> The Brooklyn Historical Society proof: he arrived with a raunchy story, saw an audience of blue-haired old ladies, and spent 15 minutes converting humor to heart. He won the slam. The memorized version could not pivot. Catherine Burns's line, quoted in the episode: it is in the imperfection that the beauty lies. The stumble proves you speak to them.</p>
+      <p><span class="tag fact">Source fact</span> The teaching coda: with kids, never correct spelling first. Have them read aloud. The mouth is more beautiful than the page. Keep the ratio at six praises to one correction. Writing, like storytelling, is the child saying here is my humanity, what do you think of it. Answer kindly or they never offer it again.</p>
+      <p><span class="tag fact">Source fact</span> Success, for Dicks, is stasis refused: in six months, doing something he cannot imagine today.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Confidence</p>
+        <h4>Jump, survive, jump again</h4>
+        <p><span class="lbl">What happened. </span>The 14-foot board burned fear down through repetition. The robbery recalibrated the stakes permanently.</p>
+        <p><span class="lbl">Why it matters. </span>You cannot think your way off the board. Audiences reward the vulnerable jump every time.</p>
+        <p><span class="lbl">The principle. </span>Speak to the room, not at it. Let the stumble prove you are here.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>A story is change over time. Everything else is a report.</li>
+          <li>Earn every sentence. Nobody owes you their attention.</li>
+          <li>Run the Mount Rushmore four through every scene.</li>
+          <li>Deploy the six devices: elephant, backpack, breadcrumbs, hourglass, crystal ball, humor.</li>
+          <li>Open at the opposite of the end. Fray the ending.</li>
+          <li>Replace and-then with but-therefore. Trim honestly.</li>
+          <li>Homework for Life: one line a night. Small moments win.</li>
+        </ol>
+        <p class="src">Distilled from The Knowledge Project, Matthew Dicks: The Art of Storytelling, Sep 2024. Full episode: youtube.com/watch?v=bZDiwANRS84. Chapter times from the episode's own chapter list.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates The Knowledge Project episode "Matthew Dicks: The Art of Storytelling" (September 2024). All facts and figures come from the episode transcript (research/charisma/transcripts/bZDiwANRS84.txt). Chapter times come from the episode's own chapter list. The robbery retelling uses only the details verified in the transcript. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 24 words: two pull quotes from Matthew Dicks (7 and 10 words, each with speaker and episode-time attribution), plus the but-example kept as an honest marked truncation (7 words). All toy dialogue and example lines in the body are the builder's own wording and carry no quotation marks.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: opposition test ---------- */
+  (function(){
+    var b = document.getElementById('opb'), e = document.getElementById('ope');
+    var btn = document.getElementById('opbtn'), out = document.getElementById('opout');
+    btn.addEventListener('click', function(){
+      var bv = b.value.trim(), ev = e.value.trim();
+      if(!bv || !ev){ out.textContent = 'Fill both fields first.'; return; }
+      var bw = bv.toLowerCase().split(/\s+/), ew = ev.toLowerCase().split(/\s+/);
+      var overlap = bw.filter(function(w){ return ew.indexOf(w) > -1 && w.length > 3; }).length;
+      if(overlap === 0){ out.innerHTML = '<b>The arc holds.</b> Beginning and ending share no long words: they are opposites. You have a story.'; out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f'; }
+      else { out.innerHTML = '<b>Flat risk.</b> ' + overlap + ' long word' + (overlap === 1 ? '' : 's') + ' repeat across beginning and ending. Push the poles further apart.'; out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14'; }
+    });
+  })();
+
+  /* ---------- toy: but-therefore tester ---------- */
+  (function(){
+    var inp = document.getElementById('storyin'), btn = document.getElementById('storybtn');
+    var out = document.getElementById('storyout');
+    btn.addEventListener('click', function(){
+      var t = inp.value.trim();
+      if(!t){ out.textContent = 'Paste the story first.'; return; }
+      var ands = (t.match(/\band then\b/gi) || []).length;
+      var buts = (t.match(/\bbut\b/gi) || []).length;
+      var therefores = (t.match(/\btherefore\b/gi) || []).length;
+      if(buts + therefores > ands){ out.innerHTML = '<b>But-therefore story.</b> ' + buts + ' but, ' + therefores + ' therefore, ' + ands + ' and-then. The chain should snap if you remove a scene.'; out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f'; }
+      else { out.innerHTML = '<b>And-story.</b> ' + ands + ' and-then against ' + (buts + therefores) + ' but/therefore. Rewrite one and-then as a but and watch a scene earn its place.'; out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14'; }
+    });
+  })();
+})();
+</script>
+</body>
+</html>
