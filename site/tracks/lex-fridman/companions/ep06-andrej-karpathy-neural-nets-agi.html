@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrej Karpathy on Neural Nets, Tesla, and AGI · Lex Fridman Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Lex Fridman's Andrej Karpathy interview on neural networks, Software 2.0, the Tesla data engine, and AGI.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .crumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .crumb a{color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Lex Fridman &middot; Track Companion</a>
+  <span class="sub">Ep 6 · Andrej Karpathy on AI, Tesla, and AGI · Jun 2022</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="crumb"><a href="../index.html">Lex Fridman track index</a> / Companion</p>
+      <p class="kicker">Lex Fridman Podcast · Episode 6 · Companion</p>
+      <h1>Andrej Karpathy on Neural Nets, Tesla, and AGI</h1>
+      <p class="dek">What neural networks really are, why code turns into weights, how Tesla's data engine climbs its staircase, and what AGI might feel like when it arrives quietly.</p>
+      <img src="assets/illustration-ep06.webp" alt="Watercolor illustration of a neural network as glowing knobs and connections dissolving into a winding staircase">
+      <p class="caption"><b>Illustration.</b> Knobs, weights, and the staircase of improvement. AI-generated watercolor.</p>
+      <figure>
+        <img src="assets/photo-andrej-karpathy.png" alt="Photograph of Andrej Karpathy">
+        <p class="caption"><b>Photo.</b> Andrej Karpathy, former director of AI at Tesla. Photo by Gladwin Analytics, CC BY 3.0, via Wikimedia Commons.</p>
+      </figure>
+      <div class="stats">
+<div class="stat"><div class="n">0→1,000</div><div class="l">Tesla annotation team grown under Karpathy</div><div class="s">Episode</div></div><div class="stat"><div class="n">10,000</div><div class="l">Hours of deliberate work to become an expert</div><div class="s">Episode, Karpathy’s advice</div></div><div class="stat"><div class="n">8</div><div class="l">Cameras on the Tesla vision-only sensor suite</div><div class="s">Episode</div></div><div class="stat"><div class="n">18:6</div><div class="l">Karpathy’s default intermittent fasting window</div><div class="s">Episode</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/cdiD-9MMpb0" title="Lex Fridman Podcast: Andrej Karpathy (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Simple rules, surprising results</a></li><li><a href="#nugget-2">Absence of evidence is not the answer</a></li><li><a href="#nugget-3">Good ideas fail, then return</a></li><li><a href="#nugget-4">Build the staircase, then climb it</a></li><li><a href="#nugget-5">Count the full cost of every part</a></li><li><a href="#nugget-6">Pay the fixed cost once</a></li><li><a href="#nugget-7">Buy time, then ask why</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
+    </div>
+    <section class="chapter" id="ch-nets" data-time="~00:00" data-title="Neural nets: knobs and emergent magic">
+      <p class="ch-time">~00:00</p>
+      <h2>Neural Nets: Knobs and Emergent Magic</h2>
+      <p><span class="tag fact">Source fact</span> Asked what a neural network is, Karpathy calls it a mathematical abstraction of the brain that is really just a simple expression: a sequence of matrix multiplies plus nonlinearities, with many trainable knobs, loosely like synapses. The mystery is not in the parts. It is in what emerges when the knobs are numerous and the problem is hard, like next-word prediction on the internet.</p>
+      <p>He resists brain analogies for the trained artifact. The brain was optimized by evolution, a multi-agent self-play process. Neural nets are optimized by a compression objective on massive data. Different processes, different artifacts. He thinks of trained networks as complicated alien artifacts, not as brain copies.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Emergence</p>
+        <h4>Simple rules, strange results</h4>
+        <p><span class="lbl">What happened. </span>Karpathy undersells neural nets as simple math, then admits the emergent behavior is genuinely magical once they are large enough.</p>
+        <p><span class="lbl">Why it matters. </span>Two true statements coexist: the mechanism is simple, and the result surprises. Holding both is the skill.</p>
+        <p><span class="lbl">The principle. </span>Do not mistake a simple mechanism for a simple outcome. Scale changes what simple things can do.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-aliens" data-time="~00:20" data-title="Aliens, Fermi, and physics exploits">
+      <p class="ch-time">~00:20</p>
+      <h2>Aliens, Fermi, and Physics Exploits</h2>
+      <p><span class="tag fact">Source fact</span> Karpathy keeps returning to the Fermi paradox. Reading Nick Lane on the origin of life convinced him it is basic chemistry, not a miracle: life arose within a few hundred million years of Earth's formation, so it should be common. His reconciliation with the silence: we cannot see them. Our radio waves are measurable only about a tenth of a light year out, and interstellar travel means hitting dust grains at near light speed, which is like flying into bullets.</p>
+      <p>The episode opens with his bolder idea: <span class="q">"physics has exploits"</span>, and we should hunt for them, arranging quantum systems that produce buffer overflows or rounding errors in floating point. Reinforcement learning agents already find such exploits in sloppy physics simulators, sliding across floors on infinite energy from friction bugs.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Unknowns</p>
+        <h4>Absence of evidence is not the answer</h4>
+        <p><span class="lbl">What happened. </span>Karpathy refuses both easy answers: aliens are rare, or the universe is a simulation. Instead he questions our instruments.</p>
+        <p><span class="lbl">Why it matters. </span>Before concluding something does not exist, check whether your tools could detect it at all.</p>
+        <p><span class="lbl">The principle. </span>Audit the measuring device before you interpret the measurement.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-bots" data-time="~01:01" data-title="World of Bits and proof of personhood">
+      <p class="ch-time">~01:01</p>
+      <h2>World of Bits and Proof of Personhood</h2>
+      <p><span class="tag fact">Source fact</span> At OpenAI around 2015, Karpathy worked on World of Bits: giving a neural net a keyboard and mouse to complete web bookings. It failed because reinforcement learning from scratch is brutally inefficient: the agent must randomly stumble onto a correct booking to ever get a reward. The idea is back now, because GPT pretraining gives the agent reading, buttons, and bookings for free before training starts.</p>
+      <p>On bots: a world shared with synthetic beings lies ahead, and the defense is an arms race. His proposed direction is proof of personhood, possibly via digitally signing what we create. On the Google engineer convinced LaMDA was sentient, Karpathy calls it a canary-in-the-coal-mine moment: the engineer did not stress the system hard enough, but more such cases will come as models get better at emotional text.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Timing</p>
+        <h4>Good ideas fail, then return</h4>
+        <p><span class="lbl">What happened. </span>World of Bits was too early in 2015. With pretrained models as the starting point, the same idea is now tractable.</p>
+        <p><span class="lbl">Why it matters. </span>An idea's failure can be a timing failure. The right substrate arriving later changes the verdict.</p>
+        <p><span class="lbl">The principle. </span>File failed ideas by the absent piece, not by the idea itself. Revisit when the missing piece arrives.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-software2" data-time="~01:26" data-title="Software 2.0 and the data engine">
+      <p class="ch-time">~01:26</p>
+      <h2>Software 2.0 and the Data Engine</h2>
+      <p><span class="tag fact">Source fact</span> Karpathy's famous Software 2.0 thesis: more and more code is written not in C++ but in the weights of neural nets. Programming becomes accumulating datasets, crafting objectives, and specifying architectures. Optimization compiles datasets into a binary of weights. The developer stack gets reinvented: GitHub's analog turns into Hugging Face.</p>
+      <p>At Tesla he built the data engine, a staircase of improvement: train on the dataset, deploy, mine the rare scenarios the fleet encounters where the net fails, reconstruct ground truth offline, add them back, repeat. He grew the human annotation team from zero to about 1,000 people, carefully assigning humans only what humans do well (2D pixel labels) and leaving 3D reconstruction to the offline tracker.</p>
+      <div class="pull">
+        <blockquote>humans are just not very good at writing software</blockquote>
+        <p class="who">Andrej Karpathy on why the 2.0 stack wins · ~01:35</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Improvement loops</p>
+        <h4>Build the staircase, then climb it</h4>
+        <p><span class="lbl">What happened. </span>The data engine turns deployment into dataset improvement: every failure the fleet finds becomes training data.</p>
+        <p><span class="lbl">Why it matters. </span>Most systems treat failures as embarrassments. The data engine treats them as the raw material of progress.</p>
+        <p><span class="lbl">The principle. </span>Close the loop between the field and the training set. Improvement compounds when failures feed the next version.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-sensors" data-time="~01:57" data-title="Radar, lidar, and the best part">
+      <p class="ch-time">~01:57</p>
+      <h2>Radar, Lidar, and the Best Part</h2>
+      <p><span class="tag fact">Source fact</span> Tesla removed radar, then ultrasonic sensors, going camera-only. Karpathy reframes the question: sensors are not free assets. Each one needs a supply chain, firmware teams, calibration, and fusion code. The delta in usefulness was not massive, so out they went. On lidar, his stronger claim: other companies using it will probably drop it too.</p>
+      <div class="pull">
+        <blockquote>best part is no part</blockquote>
+        <p class="who">Andrej Karpathy, quoting Elon's design rule · ~01:58</p>
+      </div>
+      <p>His deeper point: the real debate is not pixels versus point clouds but fleet versus no fleet. Vision is both necessary (the world is designed for eyes) and sufficient (it carries all the information driving needs). High-definition pre-mapped maps are a crutch: maintaining centimeter-accurate maps of the Earth is a massive dependency humans do not need.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Subtraction</p>
+        <h4>Count the full cost of every part</h4>
+        <p><span class="lbl">What happened. </span>A sensor's price tag hides its true cost: teams, supply chains, fusion code, and organizational entropy.</p>
+        <p><span class="lbl">Why it matters. </span>Engineers evaluate the component. Leaders evaluate the system that must carry it forever.</p>
+        <p><span class="lbl">The principle. </span>Before adding anything, price its lifetime burden on the organization, not just its spec sheet.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-exit" data-time="~02:19" data-title="Leaving Tesla, and the robot that thinks it's a car">
+      <p class="ch-time">~02:19</p>
+      <h2>Leaving Tesla, and the Robot That Thinks It's a Car</h2>
+      <p><span class="tag fact">Source fact</span> After five years, Karpathy left because he had become a manager. When he joined, two people trained nets on a desktop. He built the team, the compute cluster, and the annotation org until it ran itself. He wanted to do technical work again, and left open the door to return for Optimus or AGI work at Tesla.</p>
+      <p>On the humanoid robot: the world is designed for the humanoid form factor, and Tesla's edge is the copy-paste from Autopilot. The vision stack, the data engine, the offline trackers all transfer. Only the planning and control change. As he puts it, <span class="q">"this robot currently thinks it's a car"</span>. His product advice for the long road: make it useful almost immediately and earn revenue along the way, never a zero-one loss where it works only when it finally works.</p>
+    </section>
+
+    <section class="chapter" id="ch-productivity" data-time="~02:55" data-title="A productive day, according to Karpathy">
+      <p class="ch-time">~02:55</p>
+      <h2>A Productive Day, According to Karpathy</h2>
+      <p><span class="tag fact">Source fact</span> Karpathy is a night owl: in his PhD he slept at 3 AM because the world is quiet and nobody interrupts. His method: load the problem into working memory and stay obsessed with it across days, through showers and sleep. Even on his best days he logs only six to eight hours of actual coding. The cost of being human is high. His fasting default is 18:6, eating between 12 and 6, and his editor is VS Code over SSH, with Copilot as what he calls autopilot for programming.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Deep work</p>
+        <h4>Pay the fixed cost once</h4>
+        <p><span class="lbl">What happened. </span>Every problem has a large fixed cost of loading it into memory. Karpathy batches days around a single problem to pay it once.</p>
+        <p><span class="lbl">Why it matters. </span>Five minutes of interruption does not cost five minutes. It costs the reload.</p>
+        <p><span class="lbl">The principle. </span>Protect the load. One deep problem per stretch beats five shallow ones.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-teaching" data-time="~03:25" data-title="Teaching, arXiv, and 10,000 hours">
+      <p class="ch-time">~03:25</p>
+      <h2>Teaching, arXiv, and 10,000 Hours</h2>
+      <p><span class="tag fact">Source fact</span> Karpathy built arXiv Sanity to tame the flood of preprints. On peer review, he argues the AI community peer-reviews on Twitter within hours, and verification is cheap because anyone can rerun the code the next day. Conferences now discuss work that is three generations old. His teaching takes about 10 hours of preparation per hour of content, and he does multiple takes.</p>
+      <p>His advice to beginners: focus on how much you do, not what you do. He believes in the 10,000-hours idea as a kind of determinism: pick something, put in the hours daily, compare yourself only to yourself a year ago. On imposter syndrome, his honesty stands out:</p>
+      <div class="pull">
+        <blockquote>the source of truth is the code</blockquote>
+        <p class="who">Andrej Karpathy on expertise · ~03:31</p>
+      </div>
+      <p>Papers are high-level summaries. When he stopped writing code daily at Tesla, the insecurity crept in, because the code is where the truth lives.</p>
+    </section>
+
+    <section class="chapter" id="ch-agi" data-time="~03:45" data-title="AGI, consciousness, and the oracle">
+      <p class="ch-time">~03:45</p>
+      <h2>AGI, Consciousness, and the Oracle</h2>
+      <p><span class="tag fact">Source fact</span> Karpathy is bullish on building AGI and expects a slow, product-based arrival: better Copilot, better GPT, then oracles you can ask hard chemistry and physics questions. He suspects text alone is not enough for full understanding. Models need pixels and the physical world. Optimus is his hedge: millions of humanoids interacting with humans might give rise to AGI, though the atoms path is slower and more certain.</p>
+      <p>On consciousness, he expects a dull outcome: systems will claim it, appear conscious, and do everything we expect, producing a stalemate and Supreme-Court-level ethical questions. He is not afraid of AGI and wants to know when it happens, but worries the digital path could make it arrive as quietly as boiling water.</p>
+    </section>
+
+    <section class="chapter" id="ch-meaning" data-time="~04:36" data-title="The meaning of life: choose your adventure">
+      <p class="ch-time">~04:36</p>
+      <h2>The Meaning of Life: Choose Your Adventure</h2>
+      <p><span class="tag fact">Source fact</span> Karpathy's first answer: anyone can choose their own meaning of life. We are conscious entities and that is beautiful. The deeper version is the why question behind physics: 19 free parameters, quantum field theory, and whether there is a message in it, or one we are supposed to send back.</p>
+      <p>His engineering reduction: you cannot compute the deep answers in the time you have, so the practical question is how to get more time. He treats aging as a disease and death as a physical system with interventions, arguing a world without death would still hold plenty of meaning. The closing image he endorses: born a conscious free entity, choose your own adventure.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Time</p>
+        <h4>Buy time, then ask why</h4>
+        <p><span class="lbl">What happened. </span>Karpathy reduces the meaning of life to an engineering problem: the deep questions need more compute time than a lifespan allows.</p>
+        <p><span class="lbl">Why it matters. </span>Unanswerable questions become answerable with enough time. The bottleneck is the clock, not the question.</p>
+        <p><span class="lbl">The principle. </span>When a question exceeds your time budget, work the time budget first.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Lex Fridman Podcast episode with Andrej Karpathy, published June 2022 (~4.7 hours). Facts, figures, and quoted phrases from the conversation come from the episode's auto-generated caption transcript on file (transcripts/cdiD-9MMpb0.txt). Publish dates, episode numbers, and view counts come from the video and track metadata. Each chapter names its episode section. Times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors. The guest photo is a real photograph, attributed in the caption. Karpathy's forecasts (AGI timelines, lidar predictions) are his stated views, presented as stated.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 31 words: three pull quotes plus two inline phrases, each verbatim from the episode transcript with speaker attribution: “humans are just not very good at writing software” (9 words), “best part is no part” (5 words, quoting Elon Musk’s design rule), “the source of truth is the code” (7 words), “physics has exploits” (3 words), and “this robot currently thinks it's a car” (7 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(scope){
+    scope.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+  window.__bindTips = bindTips;
+  window.__showTip = showTip;
+  window.__hideTip = hideTip;
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+
+})();
+</script>
+</body>
+</html>
