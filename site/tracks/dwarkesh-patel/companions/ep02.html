@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk: Dwarkesh Patel Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Dwarkesh Patel's interview with Elon Musk: space compute, solar math, Grok, Optimus, and the method.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-bottom:10px}
+  .tag.source{background:#e3ecdc;color:#3c5a2e;border:1px solid #b9cba6}
+  .tag.interp{background:#f3e9d6;color:#8f3f14;border:1px solid #dcc9a3}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:20px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:22px;font-weight:800;margin:12px 0 4px}
+  .toy .tnote{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-style:italic}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .legend{border:1px dashed var(--line);padding:14px 16px;margin:26px 0;font-family:var(--sans);font-size:13px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dwarkesh Patel · Track Companion</a>
+  <span class="sub">Ilya Sutskever (2025) · Ep 2</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Dwarkesh Patel · Ep 2 · Companion</p>
+      <h1>Ilya Sutskever</h1>
+      <p class="dek">The co-founder of OpenAI and SSI returns with an update: the age of scaling is over, the age of research is back, and the next capabilities will come from agents generating their own data. This companion follows the full conversation in order, from RL environments to value functions to what superintelligence might cost.</p>
+      <figure>
+        <img src="assets/ep02-age-of-research.webp" alt="Watercolor illustration of a researcher at a chalkboard with a robot arm learning beside them">
+        <p class="caption"><b>Illustration.</b> The age of research: a lone investigator, a learning machine, and a horizon of data centers. AI-generated watercolor made for this page.</p>
+      </figure>
+      <div class="legend"><b>How to read this page.</b> <span class="tag source">Source fact</span> marks a claim made on the episode. <span class="tag interp">Interpretation</span> marks builder analysis built on top of it. Section labels (§1 to §8) follow the transcript in order. The episode publishes no chapter marks.</div>
+      <div class="stats">
+        <div class="stat"><div class="n">1%</div><div class="l">Of GDP now invested in AI, a figure that would once have felt like science fiction.</div><div class="s">Episode transcript §1</div></div>
+        <div class="stat"><div class="n">8-64</div><div class="l">GPUs used for any single transformer experiment in 2017. About two of today's GPUs.</div><div class="s">Episode transcript §7</div></div>
+        <div class="stat"><div class="n">$5-6B</div><div class="l">Per year that labs like OpenAI spend on experiments alone, separate from inference.</div><div class="s">Episode transcript §7</div></div>
+        <div class="stat"><div class="n">5-20 yrs</div><div class="l">Ilya's window for AI reaching human level and then going superhuman.</div><div class="s">Episode transcript §8</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/aR20FWCCjAs" title="Dwarkesh Patel interviews Ilya Sutskever (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Normalcy is not safety</a></li>
+          <li><a href="#nugget-2">Name the era you are in</a></li>
+          <li><a href="#nugget-3">Find the new scaling axis</a></li>
+          <li><a href="#nugget-4">Short-circuit the wait</a></li>
+          <li><a href="#nugget-5">Respect evolution's prior</a></li>
+          <li><a href="#nugget-6">Ideas need compute to convince</a></li>
+          <li><a href="#nugget-7">Small teams can still win</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-normal" data-time="§1" data-title="The slow takeoff">
+      <p class="ch-time">§1 · Opening</p>
+      <h2>The Slow Takeoff Feels Normal</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Ilya opens with disbelief at the normalcy of it all. AI straight out of science fiction is here, and the world treats it as background noise. Society now invests about 1 percent of GDP in AI, a figure that would once have felt like a civilization-scale event. Instead it feels like Tuesday.</p>
+      <div class="pull">
+        <blockquote>We get used to things pretty fast, it turns out.</blockquote>
+        <p class="who">Ilya Sutskever on the slow takeoff · Episode transcript §1</p>
+      </div>
+      <p>The abstraction hides the scale. The number arrives as headlines, one company announcing one dollar amount, and the brain files it under news. Nothing about the lived texture of the week changes, so the magnitude never lands.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Perception</p>
+        <h4>Normalcy is not safety</h4>
+        <p><span class="lbl">What happened. </span>A science-fiction economy arrived at 1 percent of GDP and felt like nothing. Habituation outran comprehension.</p>
+        <p><span class="lbl">Why it matters. </span>Humans calibrate to the rate of change, not the level. A slow takeoff can be world-historical and still feel boring.</p>
+        <p><span class="lbl">The principle. </span>When a number stops shocking you, recompute it from scratch. Familiarity is not the same as understanding.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-eras" data-time="§2" data-title="The eras">
+      <p class="ch-time">§2 · Research vs scaling</p>
+      <h2>From the Age of Scaling to the Age of Research</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Ilya periodizes deep learning. From 2012 to 2020 was the age of research. From 2020 to 2025 was the age of scaling, give or take error bars on the years. Now, he argues, the field returns to the age of research.</p>
+      <p>Scaling had a social cost. The recipe worked so well that it "sucked out all the air in the room": everyone scaled, few researched, and the field converged on one playbook. The big realization of pre-training was that the recipe itself was good. Once the recipe is known, the edge moves back to new ideas.</p>
+      <div class="chart" id="chart-eras">
+        <h4>Three eras of deep learning</h4>
+        <p class="csub">Hover any block for detail. Ilya adds error bars to the year boundaries.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Timeline of research and scaling eras">
+          <rect class="bar alt" x="60" y="110" width="180" height="70" data-tip="2012 to 2020: the age of research. New architectures, new ideas."></rect>
+          <rect class="bar" x="250" y="110" width="150" height="70" data-tip="2020 to 2025: the age of scaling. The pre-training recipe dominates."></rect>
+          <rect class="bar dark" x="410" y="110" width="170" height="70" data-tip="2025 onward: the age of research returns. New ideas needed again."></rect>
+          <text class="vallab" x="150" y="100" text-anchor="middle">Research</text>
+          <text class="vallab" x="325" y="100" text-anchor="middle">Scaling</text>
+          <text class="vallab" x="495" y="100" text-anchor="middle">Research</text>
+          <text class="axis" x="150" y="200" text-anchor="middle">2012-2020</text>
+          <text class="axis" x="325" y="200" text-anchor="middle">2020-2025</text>
+          <text class="axis" x="495" y="200" text-anchor="middle">2025-</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Ilya Sutskever, episode transcript §2. Year boundaries are Ilya's, with his stated error bars.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Strategy</p>
+        <h4>Name the era you are in</h4>
+        <p><span class="lbl">What happened. </span>When one recipe works, the field stops inventing. Ilya reads the end of easy scaling gains as a regime change, not a slowdown.</p>
+        <p><span class="lbl">Why it matters. </span>Scaling-era tactics (more of the same) underperform in a research era. The winning move changes with the regime.</p>
+        <p><span class="lbl">The principle. </span>Ask which era you are in before you copy the winners. Yesterday's playbook is today's trap.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-rl" data-time="§3" data-title="RL scaling">
+      <p class="ch-time">§3 · Reinforcement learning</p>
+      <h2>RL Is the New Scaling Axis</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>People talk about scaling data, parameters, and compute. Ilya points at a fourth axis: reinforcement learning. Labs now spend more compute on RL than on pre-training, by some accounts, because long rollouts consume enormous compute for relatively small amounts of learning per rollout.</p>
+      <p>The new bottleneck is the environment. Teams now exist whose whole job is to produce fresh RL environments and add them to the training mix: new tasks, new verifiers, new curricula. The degrees of freedom are huge, and choosing them well is the emerging craft.</p>
+      <div class="pull">
+        <blockquote>This is amazing. You've got to scale more. Keep scaling.</blockquote>
+        <p class="who">Ilya Sutskever ventriloquizing the scaling era · Episode transcript §2</p>
+      </div>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>Notice the shift in what "scale" means. Pre-training scaled a fixed recipe over fixed data. RL scales the generation of new experience itself. The model begins to produce its own curriculum.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Scaling</p>
+        <h4>Find the new scaling axis</h4>
+        <p><span class="lbl">What happened. </span>Data, parameters, and compute were the old axes. RL environments are the new one, and the labs retool around it.</p>
+        <p><span class="lbl">Why it matters. </span>Every exhausted axis looks like the end of progress until someone finds the next one. Progress is axis discovery.</p>
+        <p><span class="lbl">The principle. </span>When the current dimension flattens, search for a new dimension before you declare the limit.</p>
+      </div>
+      <div class="toy" id="toy-axes">
+        <h4>Toy: the scaling axes</h4>
+        <p class="tsub">Pick an axis to see what the scaling era scaled, and what the research era must invent.</p>
+        <div id="axisBtns" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px"></div>
+        <p id="axisOut" style="font-family:var(--sans);font-size:14px;min-height:60px"></p>
+        <p class="tnote">Built from Ilya's framing in transcript §3. Characterizations are the builder's summary of the episode's claims.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-programmer" data-time="§4" data-title="The programmer">
+      <p class="ch-time">§4 · Data and skill</p>
+      <h2>The Competitive Programmer</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Ilya offers an intuition pump. One student practices competitive programming for 10,000 hours: every problem solved, every algorithm memorized, every proof technique at the fingertips. Another dabbles for 100 hours. Both look fluent, but the deep one generalizes in a way the dabbler cannot.</p>
+      <p>Training works the same way. Data augmentation can manufacture more problems, and training on the augmented set builds the competitor with every proof technique "right at its fingertips." Depth of preparation, not just hours, is what transfers.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>This reframes the data debate. The question is how much structure the data forces the model to internalize, not just how much data there is. Deliberate practice beats exposure.</p>
+    </section>
+
+    <section class="chapter" id="ch-value" data-time="§5" data-title="Value functions">
+      <p class="ch-time">§5 · Self-correction</p>
+      <h2>The Value Function</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>How does a teenage driver learn without a teacher in the passenger seat? Ilya's answer: the value function. Lose a piece in chess and you know at once the move was bad, without playing out the game. The value function short-circuits the wait until the end.</p>
+      <p>Humans carry a remarkably steady internal sense of doing well or badly, with narrow exceptions around addiction. That internal signal lets the teenager self-correct from experience alone. For AI, building an equivalent is the open problem: models today lack a reliable way to judge their own partial progress.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Learning</p>
+        <h4>Short-circuit the wait</h4>
+        <p><span class="lbl">What happened. </span>Chess players and teenage drivers judge a move mid-stream. They do not need the final score to know they blundered.</p>
+        <p><span class="lbl">Why it matters. </span>Learning speed depends on feedback latency. A good internal value function turns every step into a lesson.</p>
+        <p><span class="lbl">The principle. </span>Build the inner scoreboard before you scale the outer training. Fast feedback beats big batches.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-evolution" data-time="§6" data-title="Evolution">
+      <p class="ch-time">§6 · Sample efficiency</p>
+      <h2>Evolution's Head Start</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>A human after 15 years, on a tiny fraction of pre-training data, knows things more deeply than our models and avoids mistakes they still make. Part of the answer may be evolution: a 3-billion-year search that front-loaded the most useful information possible into the architecture.</p>
+      <p>Vision, hearing, locomotion, dexterity: evolution gave strong priors for all of them. Children learn to drive after about 10 hours of practice, which looks miraculous until you count the pre-installed visual system. The sample efficiency is inherited, not learned.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Priors</p>
+        <h4>Respect evolution's prior</h4>
+        <p><span class="lbl">What happened. </span>Fifteen years of childhood beats petabytes of training on some tasks, because the brain ships with 3 billion years of R and D inside.</p>
+        <p><span class="lbl">Why it matters. </span>Sample efficiency comparisons that ignore the prior mislead. The human starts the race halfway down the track.</p>
+        <p><span class="lbl">The principle. </span>Count the pre-training you did not pay for. Every learner stands on a prior. Name it before you benchmark.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-bottleneck" data-time="§7" data-title="Bottlenecks">
+      <p class="ch-time">§7 · Ideas and compute</p>
+      <h2>Ideas Need Compute to Convince</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Ilya names two bottlenecks: ideas, and the ability to turn them into working systems, which means compute and engineering. In the 1990s, good ideas died because no one could afford the demo that would prove them. The transformer itself was built on 8 to 64 GPUs per experiment, about two of today's GPUs.</p>
+      <p>Today the numbers stun. Public estimates put labs like OpenAI at $5 to 6 billion a year on experiments alone, separate from inference. SSI raised $3 billion, which Ilya calls a lot in absolute terms but small next to the giants. He even mentions turning down a Meta acquisition offer at a $32 billion valuation.</p>
+      <div class="chart" id="chart-spend">
+        <h4>What research costs now</h4>
+        <p class="csub">Hover any bar for detail. Experiment budgets, not total company spend.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of AI experiment spending">
+          <rect class="bar alt" x="120" y="180" width="100" height="80" data-tip="SSI total raised: $3 billion, for the whole research program"></rect>
+          <rect class="bar" x="330" y="100" width="100" height="160" data-tip="OpenAI experiments: $5 to 6 billion per year, inference excluded"></rect>
+          <text class="vallab" x="170" y="172" text-anchor="middle">$3B</text>
+          <text class="vallab" x="380" y="92" text-anchor="middle">$5-6B/yr</text>
+          <text class="axis" x="170" y="280" text-anchor="middle">SSI raised (total)</text>
+          <text class="axis" x="380" y="280" text-anchor="middle">OpenAI experiments</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Ilya Sutskever, episode transcript §7. OpenAI figure is a public estimate cited on the episode.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Resources</p>
+        <h4>Ideas need compute to convince</h4>
+        <p><span class="lbl">What happened. </span>The transformer needed only dozens of 2017 GPUs to prove itself. Today, proving the next idea costs billions a year in experiments.</p>
+        <p><span class="lbl">Why it matters. </span>The price of a convincing demo sets who gets to play. As the price rises, the field centralizes.</p>
+        <p><span class="lbl">The principle. </span>Budget for the proof, not just the idea. An untested idea is a rumor with math.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Competition</p>
+        <h4>Small teams can still win</h4>
+        <p><span class="lbl">What happened. </span>SSI holds $3 billion against rivals spending that much per year, and Ilya still bets on ideas plus enough compute to test them.</p>
+        <p><span class="lbl">Why it matters. </span>Compute is necessary but the idea is the scarce input. A small team with the right idea and enough proof budget stays in the game.</p>
+        <p><span class="lbl">The principle. </span>Do not confuse the budget with the breakthrough. Fund the smallest test that could change your mind.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-future" data-time="§8" data-title="AGI and safety">
+      <p class="ch-time">§8 · The future</p>
+      <h2>AGI, Safety, and Five to Twenty Years</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>On the term AGI, Ilya is deflationary: a human being is not an AGI. Humans lack vast knowledge and rely on continual learning instead. The interesting question is what continual learning looks like for a safe superintelligence, since today's models mostly do not do it.</p>
+      <p>His timeline: 5 to 20 years for AI to learn as well as a human and then become superhuman. On safety, he notes a first small step, OpenAI and Anthropic beginning to collaborate as fierce competitors, and argues governments and frontier companies will both shape what happens. Rapid economic growth looks possible. The open question is which rules win.</p>
+      <p>He closes on a distinctive claim about safety research. He cannot think of another engineering discipline where the end artifact was made safer mostly by thinking about safety, rather than by crash-testing the real thing. AI safety may be the first field where reasoning has to do the work that wreckage did elsewhere.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>A science-fiction economy at 1 percent of GDP feels like nothing. Habituation is not comprehension.</li>
+          <li>The age of scaling (2020-2025) sucked the air out of the room. The age of research is back.</li>
+          <li>RL is the new scaling axis: more compute now goes to RL than to pre-training, and environments are the bottleneck.</li>
+          <li>Depth beats exposure: the 10,000-hour competitor generalizes where the 100-hour dabbler cannot.</li>
+          <li>The value function short-circuits the wait. Fast inner feedback is the learning speedup.</li>
+          <li>Evolution front-loaded the priors. Count the 3-billion-year head start before you benchmark sample efficiency.</li>
+          <li>Five to twenty years to human-level and beyond. Safety may have to be won by thought, not by wreckage.</li>
+        </ol>
+        <p class="src">Distilled from Dwarkesh Patel's interview with Ilya Sutskever (video id aR20FWCCjAs). All figures are the guest's statements or cited estimates from the episode transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates Dwarkesh Patel's 2025 interview with Ilya Sutskever (video id aR20FWCCjAs). All facts and figures come from the episode transcript. Section labels (§1 to §8) follow the transcript in order. The episode publishes no chapter marks, so no timestamps are claimed. The illustration is an AI-generated watercolor made for this page. No photograph is used: no freely licensed portrait of the guest was found.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 33 words: the slow-takeoff pull quote (10 words), the scaling-era pull quote (10 words), "sucked out all the air in the room" (8 words), "right at its fingertips." (4 words), and the word "scale" discussed as a term (1 word). The scaling-era pull quote is kept verbatim, including its contraction and verb form, as spoken on the episode. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+  var gr = document.getElementById('gpuRange'), gv = document.getElementById('gpuVal'), mo = document.getElementById('mwOut');
+  if(gr){
+    gr.addEventListener('input', function(){
+      var n = parseInt(gr.value, 10);
+      gv.textContent = n.toLocaleString('en-US');
+      mo.textContent = '\u2248 ' + Math.round(n / 110000 * 300).toLocaleString('en-US') + ' MW all-in';
+    });
+  }
+
+  /* ---------- toy: scaling axes ---------- */
+  (function(){
+    var data = [
+      ['Data', 'The scaling era scaled the scrape: Common Crawl, Reddit links, the whole internet. The research era asks what experience the model generates for itself.'],
+      ['Parameters', 'The scaling era scaled the blob: bigger models, same recipe. The research era asks what new architectures the parameters should hold.'],
+      ['Compute', 'The scaling era scaled the FLOPs: more chips, longer runs. The research era asks where each FLOP goes: RL rollouts now rival pre-training.'],
+      ['RL envs', 'The new axis. Teams now manufacture RL environments the way data teams once scraped text. Choosing the environments is the emerging craft.']
+    ];
+    var box = document.getElementById('axisBtns'), out = document.getElementById('axisOut');
+    if(!box) return;
+    data.forEach(function(d, i){
+      var b = document.createElement('button');
+      b.textContent = d[0];
+      b.style.cssText = 'font-family:var(--sans);font-size:13px;padding:8px 14px;border:1px solid var(--line);background:var(--paper);cursor:pointer;border-radius:20px';
+      b.addEventListener('click', function(){
+        out.textContent = d[1];
+        Array.prototype.forEach.call(box.children, function(c){ c.style.background='var(--paper)'; c.style.fontWeight='400'; });
+        b.style.background = 'var(--ink)'; b.style.color = '#fff'; b.style.fontWeight = '700';
+      });
+      box.appendChild(b);
+      if(i === 0) b.click();
+    });
+  })();
+
+})();
+</script>
+</body>
+</html>
