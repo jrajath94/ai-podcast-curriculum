@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Models With Leverage: Naval Ravikant Episode Companion</title>
+<meta name="description" content="Can the business model itself multiply your force? Scale economies, zero marginal cost, and network effects: Metcalfe&#x27;s law, the winner-take-all secre">
+<style>
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;
+    margin:0 6px 8px 0}
+  .tag.src{background:#e8f0e4;color:#3d6b34;border:1px solid #c4d8bb}
+  .tag.int{background:#efe6f5;color:#5f3f7a;border:1px solid #d8c4e8}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted)}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--mono);font-size:15px;color:var(--accent-ink);margin-top:10px}
+  .toy button{font-family:var(--sans);font-size:13px;padding:8px 14px;background:var(--ink);
+    color:#fff;border:none;border-radius:4px;cursor:pointer;margin:6px 6px 0 0}
+  .toy button:hover{background:#3a3226}
+  .toy label{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Naval Ravikant &middot; Track Companion</a>
+  <span class="sub">Ep 9 of 10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Naval Ravikant · The Model Is the Tool · Companion</p>
+      <h1>Business Models With Leverage</h1>
+      <p class="dek">Can the business model itself multiply your force? Scale economies, zero marginal cost, and network effects: Metcalfe's law, the winner-take-all secret of Silicon Valley, language as the oldest network, and why your users should build value for each other while you sleep.</p>
+      <img src="assets/ep09-business-models-with-leverage/illustration-lever.webp" alt="Watercolor illustration of a giant lever lifting a massive boulder">
+      <p class="caption"><b>Illustration.</b> The ancient lever: small force, massive result. AI-generated watercolor made for this page.</p>
+      <div class="legend"><span class="tag src">Source fact</span><span style="align-self:center">A claim from the episode itself.</span><span class="tag int">Interpretation</span><span style="align-self:center">My reading of what it means for you.</span></div>
+      <div class="stats">
+        <div class="stat"><div class="n">n²</div><div class="l">Metcalfe's law: network value grows as the square of nodes</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">$1M</div><div class="l">What Joe Rogan earns for podcast number 1,100</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">0</div><div class="l">Marginal cost of one more copy of a media product</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">1</div><div class="l">Winner that a network-effects market tends toward</div><div class="s">Episode</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/UZB7tUyKLCg" title="Naval Ravikant — Pick a Business Model With Leverage (official Naval podcast)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Naval podcast episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Pick the model, not just the product</a></li>
+          <li><a href="#nugget-2">Let volume be your moat</a></li>
+          <li><a href="#nugget-3">Create once, sell forever</a></li>
+          <li><a href="#nugget-4">Be number one or be nowhere</a></li>
+          <li><a href="#nugget-5">Find the tipping point</a></li>
+          <li><a href="#nugget-6">Make users build value for each other</a></li>
+        </ol>
+      </div>
+    </div>
+
+<section class="chapter" id="ch-question" data-time="00:00" data-title="Can the business model itself be the tool?">
+<p class="ch-time">00:00</p>
+<h2>Can the business model itself be the tool?</h2>
+<p>The question from Nivi: beyond personal tools like code and media, can the choice of business model bring its own force multiplication? Naval says yes, and names three microeconomic concepts every founder should understand: scale economies, zero marginal cost of reproduction, and network effects.</p>
+<p>The three travel together. Anything with zero marginal cost obviously has scale economies, and zero-marginal-cost things often develop network effects, because stamping out another copy costs nothing, so you can add hooks for users to create value for each other.</p>
+<div class="nugget reveal" id="nugget-1"><p class="eyebrow">Wisdom nugget 1</p><span class="tag src">Source fact</span><h4>Pick the model, not just the product</h4><p><b>What happened.</b> Naval says business-model choice is itself a source of force multiplication, via three specific mechanisms.</p><p><b>Why it matters.</b> Founders obsess over product and ignore the model. The model decides the ceiling before the product ships.</p><p><b>Principle.</b> Score every idea on all three: scale economies, reproduction cost, network effects. Two out of three is the minimum.</p></div>
+</section>
+<section class="chapter" id="ch-scale" data-time="00:02" data-title="Scale economies">
+<p class="ch-time">00:02</p>
+<h2>Scale economies</h2>
+<p>Economics 101, but easy to skip: the more you produce of something, the cheaper each unit gets. Widget number 12 costs less than widget number 5. Widget number 10,000 costs far less than the early ones. That cost curve becomes an automatic barrier against competition and commoditization.</p>
+<p>The advice is direct: get into a business where the ten-thousandth unit is dramatically cheaper than the fifth.</p>
+<div class="nugget reveal" id="nugget-2"><p class="eyebrow">Wisdom nugget 2</p><span class="tag src">Source fact</span><h4>Let volume be your moat</h4><p><b>What happened.</b> Naval defines scale economies through the widget example and says they build automatic barriers to entry.</p><p><b>Why it matters.</b> Without scale economies, every competitor can match your cost. With them, time is on your side.</p><p><b>Principle.</b> Ask: does my 10,000th unit cost a fraction of my 5th? If not, find the volume game or change games.</p></div>
+</section>
+<section class="chapter" id="ch-zero" data-time="00:04" data-title="Zero marginal cost">
+<p class="ch-time">00:04</p>
+<h2>Zero marginal cost</h2>
+<p>Technology and media products have a stranger property: "zero marginal cost of reproduction". One more copy costs nothing. When someone new listens to this podcast or watches the video, it costs Naval nothing for that next person to show up.</p>
+<p>These businesses start slow, because you earn very little per user, and then they compound. Joe Rogan is the example: he works no harder on podcast number 1,100 than on number one, but on number 1,100 he is "making a million dollars" for the episode, where the first one probably lost money.</p>
+<div class="chart reveal" id="c-rogan-chart"><h4>Zero marginal cost: podcast 1 vs podcast 1,100</h4><p class="csub">Joe Rogan works no harder on episode 1,100 than on episode 1. The economics are unrecognizable.</p><svg viewBox="0 0 680 148" width="100%" role="img" aria-label="Zero marginal cost: podcast 1 vs podcast 1,100"><g id="c-rogan"><text x="190" y="32" text-anchor="end" class="axis">Podcast #1</text><rect x="200" y="16" width="2.0" height="24" class="bar" data-tip="Episode 1: probably lost money."/><text x="210.0" y="33" class="vallab">0$</text><text x="190" y="76" text-anchor="end" class="axis">Podcast #1,100</text><rect x="200" y="60" width="450.0" height="24" class="bar" data-tip="Episode 1,100: making a million dollars for the podcast."/><text x="658.0" y="77" class="vallab">1e+06$</text></g></svg><p class="csub"><b>Source.</b> Episode: the Joe Rogan zero-marginal-cost example.</p></div><figure class="reveal"><img src="assets/ep09-business-models-with-leverage/illustration-press.webp" alt="Watercolor illustration of an antique printing press with pages fanning out endlessly"><p class="caption"><b>Illustration.</b> The press: one carving, infinite copies at zero extra cost. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-3"><p class="eyebrow">Wisdom nugget 3</p><span class="tag src">Source fact</span><h4>Create once, sell forever</h4><p><b>What happened.</b> Naval says zero-marginal-cost products earn little per user early, then add up enormously, using Rogan's 1-to-1,100 arc.</p><p><b>Why it matters.</b> It explains why creators should endure the flat beginning: the cost curve, not the talent curve, is what changes.</p><p><b>Principle.</b> Build things with zero reproduction cost. Survive the slow start. The math turns vertical later.</p></div>
+</section>
+<section class="chapter" id="ch-network" data-time="00:06" data-title="Network effects">
+<p class="ch-time">00:06</p>
+<h2>Network effects</h2>
+<p>The subtlest and most important of the three. Bob Metcalfe, who created Ethernet, coined the law: "the value of a network is proportional to the square of the number of nodes in the network". A network of 10 has value 100. A network of 100 has value 10,000. Not ten times more. One hundred times more, because of the square.</p>
+<p>The consequence is "winner-take-all". If you are number one in a network-effects business, you win everything. Facebook has no real competitor in social networking because everyone is already there. Uber beats Lyft as long as it moves more drivers and riders. Google stands alone in search. Twitter in microblogging. YouTube in video. "network effects create natural monopolies", and a dirty secret of Silicon Valley is how many winners are natural monopolies, even ride-sharing.</p>
+<div class="chart reveal" id="c-metcalfe-chart"><h4>Metcalfe&#x27;s law: value grows as the square</h4><p class="csub">A network of 10 has value 100. A network of 100 has value 10,000. Ten times the nodes, one hundred times the value.</p><p class="csub"><span style="color:#b4531f">&#9632;</span> Network value (n squared)</p><svg viewBox="0 0 680 380" width="100%" role="img" aria-label="Metcalfe&#x27;s law: value grows as the square"><g id="c-metcalfe"><line x1="64" x2="650" y1="320.0" y2="320.0" class="gridln"/><text x="56" y="324.0" text-anchor="end" class="axis">0</text><line x1="64" x2="650" y1="262.0" y2="262.0" class="gridln"/><text x="56" y="266.0" text-anchor="end" class="axis">2000</text><line x1="64" x2="650" y1="204.0" y2="204.0" class="gridln"/><text x="56" y="208.0" text-anchor="end" class="axis">4000</text><line x1="64" x2="650" y1="146.0" y2="146.0" class="gridln"/><text x="56" y="150.0" text-anchor="end" class="axis">6000</text><line x1="64" x2="650" y1="88.0" y2="88.0" class="gridln"/><text x="56" y="92.0" text-anchor="end" class="axis">8000</text><line x1="64" x2="650" y1="30.0" y2="30.0" class="gridln"/><text x="56" y="34.0" text-anchor="end" class="axis">10000</text><polyline points="64.0,317.1 650.0,30.0" fill="none" stroke="#b4531f" stroke-width="3"/><circle cx="64.0" cy="317.1" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="10 nodes: value 100"/><circle cx="650.0" cy="30.0" r="5" fill="#b4531f" stroke="#fff" stroke-width="2" data-tip="100 nodes: value 10,000"/><text x="64.0" y="356" text-anchor="middle" class="axis">10 nodes</text><text x="650.0" y="356" text-anchor="middle" class="axis">100 nodes</text></g></svg><p class="csub"><b>Source.</b> Episode: Bob Metcalfe&#x27;s law as stated in the episode.</p></div><div class="toy reveal" id="toy-metcalfe">
+  <h4>Toy: the Metcalfe machine</h4>
+  <p class="csub">Move the slider. Network value grows as the square of the nodes, per the episode.</p>
+  <label>Nodes in the network: <b>10</b></label>
+  <input type="range" id="met-n" min="2" max="200" value="10">
+  <p class="out" id="met-out"></p>
+</div><div class="nugget reveal" id="nugget-4"><p class="eyebrow">Wisdom nugget 4</p><span class="tag src">Source fact</span><h4>Be number one or be nowhere</h4><p><b>What happened.</b> Naval states Metcalfe's law and argues that network effects produce natural monopolies across social, search, video, and ride-sharing.</p><p><b>Why it matters.</b> In network markets, second place is not half as good. It is nearly worthless. The strategy must be winner-take-all or do not play.</p><p><b>Principle.</b> Enter network-effect markets only with a credible path to number one. Otherwise pick a different game.</p></div>
+</section>
+<section class="chapter" id="ch-language" data-time="00:10" data-title="Language: the oldest network effect">
+<p class="ch-time">00:10</p>
+<h2>Language: the oldest network effect</h2>
+<p>The definition, precisely: a network effect is when each additional user adds value to the existing user base. Your users create value for each other. The classic example everyone understands is language.</p>
+<p>Imagine 100 people speaking 10 languages, each person knowing one. Translation is constant pain. If all 100 spoke one language, the value explodes. The dynamics are inevitable: once English reaches 20 or 25 speakers out of 100, it owns the whole language marketplace and the rest get competed out. That is why the world converges on English, and why a technical education in almost any country still requires reading untranslated English books.</p>
+<figure class="reveal"><img src="assets/ep09-business-models-with-leverage/illustration-lever.webp" alt="Watercolor illustration of a giant stone lever lifting a massive boulder"><p class="caption"><b>Illustration.</b> The ancient lever: small force, massive result. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-5"><p class="eyebrow">Wisdom nugget 5</p><span class="tag src">Source fact</span><h4>Find the tipping point</h4><p><b>What happened.</b> Naval uses language to show how network effects tip: past a threshold share, one standard takes the whole market.</p><p><b>Why it matters.</b> Tipping dynamics mean early leads become permanent. The fight is for the threshold, not the endgame.</p><p><b>Principle.</b> In any network market, identify the tipping share and aim all resources at crossing it first.</p></div>
+</section>
+<section class="chapter" id="ch-pick" data-time="00:12" data-title="Pick the model deliberately">
+<p class="ch-time">00:12</p>
+<h2>Pick the model deliberately</h2>
+<p>Money itself is a network effect: the world tends to use one reserve currency at a time, currently the US dollar, with geography and regulation creating artificial islands. The lesson generalizes.</p>
+<p>When picking a business model, choose one where you benefit from network effects, low marginal costs, and scale economies. And always ask the ultimate question: how can your users add value to each other? That is the highest form of force multiplication. Your customers create value for each other while you sleep on a beach in the Bahamas.</p>
+<div class="nugget reveal" id="nugget-6"><p class="eyebrow">Wisdom nugget 6</p><span class="tag src">Source fact</span><h4>Make users build value for each other</h4><p><b>What happened.</b> Naval closes by saying the ultimate tool is a user base that adds value to itself while the founder sleeps.</p><p><b>Why it matters.</b> Every other tool still needs you. A self-reinforcing user network works without you entirely.</p><p><b>Principle.</b> Design the loop where user N makes the product better for users 1 through N-1. Then get out of the way.</p></div>
+</section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Naval podcast episode "Pick a Business Model With Leverage" (YouTube UZB7tUyKLCg), from its caption transcript. Timestamps are proportional estimates. Metcalfe's law is credited in the episode to Bob Metcalfe, creator of Ethernet. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 33 words: "the value of a network is proportional to the square of the number of nodes in the network" (18 words), "zero marginal cost of reproduction" (5 words), "making a million dollars" (4 words), "network effects create natural monopolies" (5 words), and "winner-take-all" (1 word). The episode title keeps Naval's original term. The companion's own prose uses force multiplication instead. Each quotation was verified by search against the caption transcript. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+
+
+/* ---------- toy: Metcalfe machine ---------- */
+(function(){
+  var n = document.getElementById('met-n'), out = document.getElementById('met-out');
+  if(!n) return;
+  function upd(){
+    var v = parseInt(n.value, 10);
+    n.previousElementSibling.querySelector('b').textContent = v;
+    out.textContent = v + ' nodes: value ' + (v * v).toLocaleString('en-US') +
+      '. Double the nodes to ' + (v * 2) + ' and value quadruples to ' + (v * v * 4).toLocaleString('en-US') + '.';
+  }
+  n.addEventListener('input', upd); upd();
+})();
+
+</script>
+</body>
+</html>
