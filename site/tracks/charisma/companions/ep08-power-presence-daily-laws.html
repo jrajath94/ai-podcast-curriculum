@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ep08: Power and Presence: The Daily Laws</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--paper:#fdfbf6;--ink:#221c14;--muted:#6f6455;--line:#e6dcc8;--card:#f5f0e6;--warm:#f4ecd9;--blue:#e9eff9;--accent:#8f3f14;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.65;font-size:16.5px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+header.hero{background:var(--warm);border-bottom:1px solid var(--line);padding:64px 0 40px}
+header.hero h1{font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+header.hero .sub{font-size:18px;color:var(--muted);max-width:660px;margin-bottom:22px}
+.epmeta{font-size:14px;color:var(--muted)}
+.layout{display:flex;gap:28px;align-items:flex-start;padding-top:28px}
+.layout main{flex:1 1 0;min-width:0}
+aside.side{flex:0 0 210px;position:sticky;top:16px}
+.side h4{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px}
+.side a{display:block;padding:6px 0;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.4}
+.side a .t{color:var(--muted);font-size:12.5px;display:block}
+.side a:hover{color:var(--accent)}
+.side a.active{color:var(--accent);font-weight:700}
+#chapnav{overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:26px;position:sticky;top:0;background:var(--paper);z-index:50}
+#chapnav a{display:inline-block;margin-right:22px;font-size:13.5px;color:var(--muted);text-decoration:none;padding:4px 0}
+#chapnav a .t{display:block;font-size:11.5px}
+#chapnav a.active{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+section.chapter{margin-bottom:58px}
+.ch-time{font-size:13px;color:var(--muted);letter-spacing:1px;margin-bottom:6px}
+h2{font-size:27px;margin-bottom:16px;line-height:1.25}
+p{margin-bottom:16px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:10px}
+.fact{background:var(--blue);color:#144a8f}
+.interp{background:var(--warm);color:#6b4a12}
+.wisdom{background:var(--card);border:1px solid var(--line);padding:24px;margin:30px 0}
+.wisdom h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+.wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+@media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+.wisdom li{counter-increment:w;font-size:14px}
+.wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
+.wisdom li a:hover{border-color:var(--accent)}
+.wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;margin-right:8px}
+.legend{font-size:12.5px;color:var(--muted);margin:0 0 22px}
+figure{margin:26px 0;text-align:center}
+figure img{max-width:100%;border-radius:6px;border:1px solid var(--line)}
+.caption{font-size:13.5px;color:var(--muted);margin-top:8px}
+.caption b{color:var(--ink)}
+blockquote{font-size:21px;font-style:italic;line-height:1.5;color:#4a4136;border-left:3px solid var(--accent);padding:8px 0 8px 18px;margin:28px 0}
+p.attrline{font-size:14px;color:var(--muted);margin-top:-20px;margin-bottom:24px}
+.nugget{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin:30px 0;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.nugget.in{opacity:1;transform:none}
+.nugget .eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.nugget h4{font-size:20px;margin-bottom:12px}
+.nugget p{margin-bottom:10px}
+.nugget .lbl{font-weight:700}
+.toy{border:1px dashed var(--line);border-radius:10px;padding:24px;margin:30px 0;background:#fff}
+.toy h4{font-size:17px;margin-bottom:6px}
+.toy .tsub{font-size:14px;color:var(--muted);margin-bottom:14px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;margin:30px 0}
+.chart h4{font-size:17px;margin-bottom:4px}
+.chart .csub{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.chart .csrc{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+.chart svg{width:100%;height:auto}
+.axis{font-size:12px;fill:var(--muted)}
+.vallab{font-size:14px;fill:var(--ink);font-weight:600}
+.takeaways{background:var(--blue);border-radius:10px;padding:26px 28px;margin:40px 0}
+.takeaways h3{font-size:19px;margin-bottom:12px}
+.takeaways ol{padding-left:22px}
+.takeaways li{margin-bottom:8px}
+.takeaways .src{font-size:13px;color:var(--muted);margin-top:14px}
+footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:14px;color:var(--muted)}
+footer p{margin-bottom:12px}
+footer b{color:var(--ink)}
+.vid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid var(--line);margin:26px 0}
+.vid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+#tip{position:fixed;pointer-events:none;background:#1c1812;color:#fff;font-size:13px;padding:8px 12px;border-radius:6px;max-width:300px;opacity:0;transition:opacity .15s;z-index:100}
+.toy .row{margin-bottom:10px}
+.toy input[type=range]{width:100%}
+.toy select,.toy button{font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.toy button{cursor:pointer;background:var(--accent);color:#fff;border:1px solid var(--accent);font-weight:700}
+.toy button:hover{opacity:.9}
+.toy .out{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:15px}
+@media(max-width:760px){aside.side{display:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="epmeta">CHARISMA · EPISODE 8 · MODERN WISDOM · OCT 2021</p>
+    <h1>Power and Presence: The Daily Laws</h1>
+    <p class="sub">Robert Greene on demonstrating over explaining, negative capability, character judgment, strategic absence, mimetic desire, dead versus live time, and accepting insignificance.</p>
+    <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/BWJ4vnXIvts" title="Robert Greene: The Daily Laws of Power" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</header>
+<div class="wrap layout">
+<aside class="side" id="sidenav"></aside>
+<main>
+<nav id="chapnav" aria-label="Chapters"></nav>
+
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Power is an inner quality, not a position</a></li>
+          <li><a href="#nugget-2">Demonstration ends the argument</a></li>
+          <li><a href="#nugget-3">Follow the thread back to childhood</a></li>
+          <li><a href="#nugget-4">Loosen the grip to perform</a></li>
+          <li><a href="#nugget-5">Force options D, E, and F</a></li>
+          <li><a href="#nugget-6">Craft the character, back it with substance</a></li>
+          <li><a href="#nugget-7">Cynicism is not intelligence</a></li>
+          <li><a href="#nugget-8">Hire for character, train for skill</a></li>
+          <li><a href="#nugget-9">Withdraw to grow desire. Seed desire to grow desire.</a></li>
+          <li><a href="#nugget-10">Smallness restores awe, and awe is power</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps.</p>
+
+    <section class="chapter" id="ch-power" data-time="~00:00" data-title="Power Is Not Status">
+      <p class="ch-time">~00:00</p>
+      <h2>Power Is Not Status</h2>
+      <figure>
+        <img src="assets/ep08/photo-robert-greene.jpg" alt="Robert Greene">
+        <p class="caption"><b>Photo.</b> Robert Greene. Source: Lifeboat Foundation advisory board bio, via lifeboat.com.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The opening distinction: status is a position that grants access. Power is an inner quality. You can hold status without power. Greene cites a charismatic CEO he served under: magnetic, all over the place, no self-control. That is status without power. You can also hold power without status, and if the power is real, the position eventually follows.</p>
+      <p><span class="tag fact">Source fact</span> Greene's own story is the proof. He counted more than 60 jobs, restless, hating working for others. He pitched The 48 Laws of Power at 36. The lesson he draws: he never gave up, kept a spark alive through depressed stretches, and trusted the one talent he had. Purpose outlasted every job.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Power</p>
+        <h4>Power is an inner quality, not a position</h4>
+        <p><span class="lbl">What happened. </span>Status grants access. Power is control over your emotions, the ability to see ahead, and the discipline to act.</p>
+        <p><span class="lbl">Why it matters. </span>Status without power collapses. Power without status eventually earns the position.</p>
+        <p><span class="lbl">The principle. </span>Build the inner quality. Let the position follow.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-law1" data-time="~00:14" data-title="Law 1: Win Through Your Actions">
+      <p class="ch-time">~00:14</p>
+      <h2>Law 1: Win Through Your Actions</h2>
+      <figure>
+        <img src="assets/ep08/illustration-wren.webp" alt="Watercolor illustration of a column with a gap at its top">
+        <p class="caption"><b>Illustration.</b> Wren's floating column: victory without an argument. AI-generated watercolor.</p>
+      </figure>
+      <blockquote>demonstrate do not explicate</blockquote>
+      <p class="attrline">Robert Greene on Modern Wisdom, ~00:14</p>
+      <p><span class="tag fact">Source fact</span> Demonstrate. Do not explicate. Explaining yourself puts you in the weak position, because nobody trusts words anymore. The room is flooded with talk. Action cuts through.</p>
+      <p><span class="tag fact">Source fact</span> The Christopher Wren story: a critic said Wren's church needed another column to hold the roof. Wren added the column but left a gap at the top. It held nothing. The critic felt he had won. Wren had won, without an argument. Malicious compliance, done masterfully.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Action</p>
+        <h4>Demonstration ends the argument</h4>
+        <p><span class="lbl">What happened. </span>Wren's column held nothing and satisfied the critic. No debate was needed.</p>
+        <p><span class="lbl">Why it matters. </span>Explanation invites counter-argument. Demonstration bypasses it entirely.</p>
+        <p><span class="lbl">The principle. </span>Pick one thing you would normally explain and demonstrate it instead.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-law2" data-time="~00:21" data-title="Law 2: Purpose Before Money">
+      <p class="ch-time">~00:21</p>
+      <h2>Law 2: Purpose Before Money</h2>
+      <p><span class="tag fact">Source fact</span> Concentrate on maintaining a high sense of purpose and success flows to you naturally. The trap is to count in your twenties: followers, salary, comparisons. Purpose is the thread that connects you to childhood inclinations. Greene's was prose. He tried journalism, Hollywood, and kept returning to the craft.</p>
+      <p><span class="tag fact">Source fact</span> After The 48 Laws of Power succeeded, he refused to write the sequel the market wanted. His purpose was to branch into new directions, not milk the hit. Money follows purpose. Purpose chased as money dies.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Purpose</p>
+        <h4>Follow the thread back to childhood</h4>
+        <p><span class="lbl">What happened. </span>Greene's purpose was prose, and every detour returned to it. He refused to milk the hit.</p>
+        <p><span class="lbl">Why it matters. </span>Counting followers and salary in your twenties measures the wrong thing. Purpose outlasts every job.</p>
+        <p><span class="lbl">The principle. </span>Name your childhood thread. Refuse the sequel the market wants.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-law3" data-time="~00:25" data-title="Law 3: Release Hyperintention">
+      <p class="ch-time">~00:25</p>
+      <h2>Law 3: Hyperintention Causes Hyperanxiousness</h2>
+      <p><span class="tag fact">Source fact</span> Gripping too tightly ruins performance. In seduction, visible desperation repels. In writing, forcing the idea blocks it. Greene's pool table story: he practiced daily, then melted against real opponents because winning mattered too much. When he learned to relax and enjoy the game, performance returned.</p>
+      <p><span class="tag fact">Source fact</span> The method is release through experience. Step back, listen to music, watch a game. The idea arrives when the grip loosens. The danger is a death-grip on your calling, until the stakes crush the work. Seriousness needs a release valve.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Release</p>
+        <h4>Loosen the grip to perform</h4>
+        <p><span class="lbl">What happened. </span>The pool game returned when winning stopped mattering so much.</p>
+        <p><span class="lbl">Why it matters. </span>A death-grip on your calling crushes the work the calling needs.</p>
+        <p><span class="lbl">The principle. </span>When the grip tightens, step back for one hour. Return and compare.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-law4" data-time="~00:33" data-title="Law 4: Negative Capability">
+      <p class="ch-time">~00:33</p>
+      <h2>Law 4: Cultivate Negative Capability</h2>
+      <p><span class="tag fact">Source fact</span> Develop the habit of suspending judgment. Entertain views opposite to your own. Break your normal train of thought.</p>
+      <p><span class="tag fact">Source fact</span> The mechanism: most people start a project seeing only options A, B, and C. A is what they always do. B is what someone else did. C is the odd one they will never try. Negative capability adds D, E, and F. It asks what your enemy would do. It drops the ego enough to admit someone else's approach is better.</p>
+      <p><span class="tag fact">Source fact</span> Mozart's late career is the example. He studied Bach's counterpoint, admitted its superiority in that dimension, and absorbed it. The result was a new creative level. Startups win the same way: under 50 people, no diseconomies of scale, able to pivot while leviathans lumber.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Openness</p>
+        <h4>Force options D, E, and F</h4>
+        <p><span class="lbl">What happened. </span>Mozart admitted Bach's counterpoint was better in that dimension and absorbed it.</p>
+        <p><span class="lbl">Why it matters. </span>The ego locks you into A, B, and C. The breakthrough lives in the options you would never try.</p>
+        <p><span class="lbl">The principle. </span>Ask what your enemy would do. Then steal the best of it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-law5" data-time="~00:43" data-title="Law 5: Remake Yourself">
+      <p class="ch-time">~00:43</p>
+      <h2>Law 5: Remake Yourself Into a Character of Power</h2>
+      <p><span class="tag fact">Source fact</span> Work on yourself like clay. People judge by appearance and presence, then lock the judgment in. That lock constrains your freedom. So take control of the image deliberately. You are always crafting a persona for the room. Make it conscious.</p>
+      <p><span class="tag fact">Source fact</span> David Bowie and Picasso changed image every few years and grew more powerful each time. George Sand took a man's name, dressed as a man, and built an aura that carried her novels. The warning is Elizabeth Holmes: image without substance is fraud. The black turtleneck worked as marketing. The missing product made it a crime. Craft the character, but back it with real work.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Image</p>
+        <h4>Craft the character, back it with substance</h4>
+        <p><span class="lbl">What happened. </span>Bowie and Picasso remade themselves every few years. Holmes proved the marketing half works and the substance half is not optional.</p>
+        <p><span class="lbl">Why it matters. </span>People lock their judgment of you early. Deliberate image is freedom. Empty image is fraud.</p>
+        <p><span class="lbl">The principle. </span>Choose your persona consciously. Then do the work it promises.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-law6" data-time="~00:58" data-title="Law 6: Drop the Cynicism">
+      <p class="ch-time">~00:58</p>
+      <h2>Law 6: Do Not Be the Court Cynic</h2>
+      <p><span class="tag fact">Source fact</span> The ability to express wonder and amazement, and seem like you mean it, is rare and therefore powerful. Cynicism is the default of the modern court. Everyone performs disbelief to look smart.</p>
+      <p><span class="tag fact">Source fact</span> The correction: cynicism is not intelligence. The neuroscientist Ramachandran, interviewed for Greene's Mastery, argued the opposite stance. Childlike wonder at the world produces discoveries. Performed skepticism produces nothing. Online, the disarming move is simple: that is worth a look, can you link me so I can learn more. Good faith stated plainly mutes the entire argument.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Wonder</p>
+        <h4>Cynicism is not intelligence</h4>
+        <p><span class="lbl">What happened. </span>Ramachandran's stance: childlike wonder produces discoveries. Performed skepticism produces nothing.</p>
+        <p><span class="lbl">Why it matters. </span>Genuine openness is rare, so it disarms. Everyone else performs disbelief.</p>
+        <p><span class="lbl">The principle. </span>State good faith plainly. Understand the idea first, judge it privately.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-law7" data-time="~01:15" data-title="Law 7: Judge Behavior">
+      <p class="ch-time">~01:15</p>
+      <h2>Law 7: Judge Them by Behavior, Not Words</h2>
+      <p><span class="tag fact">Source fact</span> Character reveals itself over time. The number one consulting problem Greene sees: people hire dazzling resumes and charming smiles, then discover disasters. The fix is to look past appearance at patterns.</p>
+      <p><span class="tag fact">Source fact</span> Strong character has three marks. They take criticism without collapsing. They handle stress without turning infantile. They subsume ego and work as a team. The Navy SEAL dichotomy, quoted in the episode: hire for skills, fire for attributes. Skills are teachable in weeks. Character is not.</p>
+      <p><span class="tag fact">Source fact</span> The interview tactic: make them sweat a little. A good answer sounds like I do not know, good question, let me think. A weak answer gets defensive and blames others. The pebble at the top of the avalanche: defensiveness in an interview predicts catastrophe later. Read the resume for patterns, not titles. Fired every two years with every boss blamed is a pattern, and it will recur with you.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Character</p>
+        <h4>Hire for character, train for skill</h4>
+        <p><span class="lbl">What happened. </span>Skills teach in weeks. Character does not. Defensiveness in the interview is the avalanche pebble.</p>
+        <p><span class="lbl">Why it matters. </span>The dazzling resume plus the charming smile is the number one hiring disaster.</p>
+        <p><span class="lbl">The principle. </span>Read patterns, not titles. Stress them lightly and watch.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-laws89" data-time="~01:22" data-title="Laws 8 and 9: Absence and Desire">
+      <p class="ch-time">~01:22</p>
+      <h2>Laws 8 and 9: Strategic Absence, Mimetic Desire</h2>
+      <figure>
+        <img src="assets/ep08/illustration-absence.webp" alt="Watercolor illustration of an empty theater seat in a spotlight">
+        <p class="caption"><b>Illustration.</b> Withdrawal creates space for imagination, and imagination flatters. AI-generated watercolor.</p>
+      </figure>
+      <blockquote>if i am often seen at the theater people will cease to notice me</blockquote>
+      <p class="attrline">Napoleon, as quoted by Robert Greene, ~01:22</p>
+      <p><span class="tag fact">Source fact</span> Law 8: the more you are seen and heard, the more common you appear. If you are established in a group, withdraw temporarily. People start thinking about you, wondering, imagining depth. Napoleon's line, quoted in the episode: if I am often seen at the theater, people will cease to notice me.</p>
+      <p><span class="tag fact">Source fact</span> The social media age runs the opposite strategy: constant presence, hourly posts. Greene's verdict is that it breeds a quiet contempt. The audience feels the trying. In dating the dynamic is obvious. Constant texting, the love bombing phase, turns tiring within days and reads as desperation. A pause after a pattern makes them wonder and try harder.</p>
+      <p><span class="tag fact">Source fact</span> Law 9: build a reputation that precedes you. Desire is mimetic: we want what others want. The restaurant test: one couple in a vast room reads as a warning. A packed, laughing room reads as a reason. Nobody admits the calculus. Everybody runs it.</p>
+      <p><span class="tag fact">Source fact</span> Coco Chanel did it commercially: she hired women to wear her designs everywhere, so other women saw the desire and joined it. The 1920s Fifth Avenue smoking march, branded freedom torches, turned a stigma into a liberation symbol. One of the great campaigns of the modern era, built entirely on mimetic desire.</p>
+      <div class="chart" id="chart-triad">
+        <h4>The thirteen laws in four triads</h4>
+        <p class="csub">Hover each triad for its laws.</p>
+        <svg viewBox="0 0 640 240" role="img" aria-label="Thirteen laws in four triads">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="20" width="300" height="90" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Self: 1, demonstrate. 2, purpose before money. 3, release hyperintention."></rect>
+            <text x="26" y="52" class="vallab">Triad 1: self</text>
+            <text x="26" y="78" font-size="13" fill="#6f6455">Demonstrate, purpose, release</text>
+            <rect x="330" y="20" width="300" height="90" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Mind: 4, negative capability. 5, craft your character. 6, drop cynicism."></rect>
+            <text x="346" y="52" class="vallab">Triad 2: mind</text>
+            <text x="346" y="78" font-size="13" fill="#6f6455">Open, craft, wonder</text>
+            <rect x="10" y="130" width="300" height="90" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Others: 7, judge behavior. 8, strategic absence. 9, mimetic desire."></rect>
+            <text x="26" y="162" class="vallab">Triad 3: others</text>
+            <text x="26" y="188" font-size="13" fill="#6f6455">Character, absence, desire</text>
+            <rect x="330" y="130" width="300" height="90" rx="8" fill="#f4ecd9" stroke="#e2d8c3" data-tip="World: 10, own your time. 11, resist group madness. 12, suffer fools gladly. Plus 13, accept insignificance."></rect>
+            <text x="346" y="162" class="vallab">Triad 4: world, plus one</text>
+            <text x="346" y="188" font-size="13" fill="#6f6455">Time, groups, fools, smallness</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Modern Wisdom, Robert Greene, The Daily Laws. The triad grouping from the episode's content.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Presence</p>
+        <h4>Withdraw to grow desire. Seed desire to grow desire.</h4>
+        <p><span class="lbl">What happened. </span>Absence makes people imagine depth. Mimetic desire manufactures attraction from the appearance of attraction.</p>
+        <p><span class="lbl">Why it matters. </span>Omnipresence breeds quiet contempt. The audience feels the trying.</p>
+        <p><span class="lbl">The principle. </span>Disappear for a day, return slightly unpredictable. Build the reputation that precedes you.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-laws1013" data-time="~01:45" data-title="Laws 10 to 13: Time, Groups, Fools, Smallness">
+      <p class="ch-time">~01:45</p>
+      <h2>Laws 10 to 13: Time, Groups, Fools, Smallness</h2>
+      <figure>
+        <img src="assets/ep08/illustration-insignificance.webp" alt="Watercolor illustration of a tiny figure under a vast cosmos">
+        <p class="caption"><b>Illustration.</b> Thirteen billion years against your decades. Smallness restores awe. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Law 10: your time is your only true possession. It can be 60 years or 20. Wasting it on trivial fights or miserable jobs gives the treasure away. People who own your schedule own your life.</p>
+      <p><span class="tag fact">Source fact</span> Dead time versus live time: dead time is the brown, withering hours at the hated job, going home bitter. Live time is the same hours reclaimed. Tell yourself the job is temporary, study at night, learn the psychologies around you, find what the worst job can teach. The brown branch greens again.</p>
+      <p><span class="tag fact">Source fact</span> The 3:30am supermarket story, from the host: existential dread in the fluorescent aisles, cured by one habit. Care about one stranger for 30 seconds. Ask the shelf-stacker how the night goes. Energy aimed outward dissolves the inward spiral.</p>
+      <p><span class="tag fact">Source fact</span> Law 11: never relinquish your ability to doubt, reflect, and consider other options. Groups go mad in a specific way: consequences diffuse, so reflection stops. An individual who picks a bad path pays fully and therefore thinks. A group signing off on the boss's bad idea shares the blame, so nobody thinks.</p>
+      <p><span class="tag fact">Source fact</span> Law 12: detach emotionally from fools. Inwardly laugh, outwardly indulge their harmless ideas. Greene admits this is his weakest law. The method is recall of your own foolishness. You play the fool too. Everyone does.</p>
+      <p><span class="tag fact">Source fact</span> Law 13: the fact of your smallness, fully felt, is what makes you significant. The episode's science tour restores the scale. The Big Bang, 13 billion years ago. Life sparking in some small pool. One bacterium eating another, once in cosmic history, creating all complex life. The asteroid 60 million years ago nearly missing. Seventy thousand generations of improbable meetings ending in you. You are five or six feet of space against all of that. Feeling it returns the curiosity, and curiosity is power.</p>
+      <div class="toy" id="toy-laws">
+        <h4>Toy: which law do you need today</h4>
+        <p class="tsub">Pick the situation that matches your day. The toy names the law.</p>
+        <select id="lawsel" style="width:100%">
+          <option value="">Choose your situation</option>
+          <option value="You keep explaining yourself and nobody believes you.">You keep explaining and nobody believes you</option>
+          <option value="You chase metrics that have nothing to do with your thread.">You chase metrics off your thread</option>
+          <option value="You grip the goal so tightly your performance collapses.">You grip the goal too tightly</option>
+          <option value="You only see options A, B, and C.">You only see A, B, and C</option>
+          <option value="Your image is an accident, not a choice.">Your image is an accident</option>
+          <option value="You perform disbelief to look smart.">You perform disbelief</option>
+          <option value="You hire dazzling resumes and regret it.">You hire resumes and regret it</option>
+          <option value="You are everywhere and nobody notices.">You are everywhere, noticed nowhere</option>
+          <option value="Nobody wants what you offer.">Nobody wants what you offer</option>
+          <option value="Your hours belong to other people.">Your hours belong to others</option>
+          <option value="The group slides into madness and you feel it.">The group slides into madness</option>
+          <option value="A fool is under your skin.">A fool is under your skin</option>
+          <option value="Your ego has shrunk the universe.">Your ego shrunk the universe</option>
+        </select>
+        <div class="out" id="lawout">Choose a situation. The law appears here.</div>
+      </div>
+      <div class="toy" id="toy-time">
+        <h4>Toy: the dead-time audit</h4>
+        <p class="tsub">Estimate your weekly dead hours. The toy does the Greene math.</p>
+        <div class="row"><input type="range" id="dead" min="0" max="60" value="10" style="width:100%"><label>Dead hours per week: <b id="deadv">10</b></label></div>
+        <div class="out" id="deadout">Move the slider. The math appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Scale</p>
+        <h4>Smallness restores awe, and awe is power</h4>
+        <p><span class="lbl">What happened. </span>Seventy thousand generations of improbable meetings ended in you. Thirteen billion years against your decades.</p>
+        <p><span class="lbl">Why it matters. </span>The adult ego shrinks the universe to a dull size. True scale returns curiosity, and curiosity drives learning.</p>
+        <p><span class="lbl">The principle. </span>Own your hours. Keep your doubt. Feel the smallness and get to work.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Power is inner quality. Status is a position. Build the first.</li>
+          <li>Demonstrate, do not explicate. Action ends arguments.</li>
+          <li>Purpose before money. Follow the thread back to childhood.</li>
+          <li>Force options D, E, and F. Ask what your enemy would do.</li>
+          <li>Judge behavior, not words. Hire for character, train for skill.</li>
+          <li>Withdraw to grow desire. Desire is mimetic: seed it.</li>
+          <li>Own your time, keep your doubt, feel your smallness.</li>
+        </ol>
+        <p class="src">Distilled from Modern Wisdom, Robert Greene: The Daily Laws of Power, Oct 2021. Full episode: youtube.com/watch?v=BWJ4vnXIvts. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Modern Wisdom episode "Robert Greene: The Daily Laws of Power" (October 2021). All facts and figures come from the episode transcript (research/charisma/transcripts/BWJ4vnXIvts.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. The freedom torches story appears as told on air without a named source, and is presented that way here. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 18 words: two pull quotes from Robert Greene (4 and 14 words, each with speaker and episode-time attribution). All example lines and book titles in the body are the builder's own wording and carry no quotation marks.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: law picker ---------- */
+  (function(){
+    var laws = [
+      'Law 1: Win through your actions. Demonstrate, do not explicate.',
+      'Law 2: Purpose before money. Follow the thread back to childhood.',
+      'Law 3: Release hyperintention. Loosen the grip to perform.',
+      'Law 4: Negative capability. Force options D, E, and F.',
+      'Law 5: Remake yourself into a character of power. Craft it consciously.',
+      'Law 6: Do not be the court cynic. Wonder is rare and disarming.',
+      'Law 7: Judge them by behavior, not words. Patterns, not resumes.',
+      'Law 8: Use absence to increase respect. Withdraw to grow desire.',
+      'Law 9: Appear to be an object of desire. Seed mimetic triangles.',
+      'Law 10: Own your time. Convert dead time to live time.',
+      'Law 11: Resist the madness of groups. Keep your doubt.',
+      'Law 12: Suffer fools gladly. Detach, remember your own folly.',
+      'Law 13: Accept your insignificance. Smallness restores awe.'
+    ];
+    var sel = document.getElementById('lawsel'), out = document.getElementById('lawout');
+    sel.addEventListener('change', function(){
+      var i = sel.selectedIndex - 1;
+      out.textContent = i < 0 ? 'Choose a situation. The law appears here.' : laws[i];
+    });
+  })();
+
+  /* ---------- toy: dead-time audit ---------- */
+  (function(){
+    var dead = document.getElementById('dead'), deadv = document.getElementById('deadv');
+    var out = document.getElementById('deadout');
+    function upd(){
+      var h = parseInt(dead.value, 10);
+      deadv.textContent = h;
+      var year = h * 52;
+      if(h === 0){ out.textContent = 'Zero dead hours: you own your schedule. Guard it.'; }
+      else { out.textContent = h + ' dead hours a week is ' + year + ' hours a year, about ' + Math.round(year / 16) + ' waking days. Convert one block this week: tell yourself it is temporary and extract one lesson.'; }
+    }
+    dead.addEventListener('input', upd); upd();
+  })();
+})();
+</script>
+</body>
+</html>
