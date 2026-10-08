@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Any Austin on the Hermeneutics of Video Games · Conversations with Tyler Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Conversations with Tyler episode with Any Austin (June 2025): video game infrastructure, AI art, games and canon, commentary culture, and learning to look.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700}
+  .deck{font-size:21px;color:var(--muted);line-height:1.5;margin:0 0 24px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--sans);
+    font-size:13px;color:var(--muted);margin-bottom:26px}
+  .meta b{color:var(--ink);font-weight:600}
+  .herofig{margin:0 0 8px}
+  .herofig img{width:100%;height:auto;display:block;border-radius:6px}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 30px}
+  blockquote.pull{margin:38px 0;padding:6px 0 6px 26px;border-left:4px solid var(--accent);
+    font-size:25px;line-height:1.45;font-style:italic;color:var(--ink)}
+  .pullattr{font-family:var(--sans);font-size:13px;color:var(--muted);
+    margin:-28px 0 38px;padding-left:30px}
+  .warnbox{background:#fdf3e7;border:1px solid #e8cda2;border-radius:8px;
+    padding:16px 20px;margin:30px 0;font-size:16px}
+  .warnbox b{font-family:var(--sans)}
+  section.chapter{margin:0;padding:34px 0;border-top:1px solid var(--line)}
+  section.chapter h2{font-size:27px;margin:0 0 6px;line-height:1.25}
+  section.chapter .ts{font-family:var(--mono);font-size:12.5px;color:var(--accent-ink);
+    letter-spacing:.04em;margin:0 0 16px}
+  section.chapter p{margin:0 0 16px}
+  .fig{margin:26px 0}
+  .fig img{width:100%;height:auto;display:block;border-radius:6px}
+  .fig .caption{margin-top:8px}
+  .chart{background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:20px;margin:26px 0}
+  .chart h3{font-family:var(--sans);font-size:14px;margin:0 0 4px}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .bar{cursor:default}
+  .chart .bar rect{fill:var(--accent)}
+  .chart .bar.alt rect{fill:#8a9a5b}
+  .chart .bar.dim rect{fill:#c9bfae}
+  .chart text{font-family:var(--sans);font-size:12px;fill:var(--ink)}
+  .chart .grid{stroke:var(--line);stroke-width:1}
+  .nuggets{background:var(--paper2);border:1px solid var(--line);border-radius:8px;
+    padding:26px 30px;margin:40px 0}
+  .nuggets h2{font-size:23px;margin:0 0 14px}
+  .nuggets ol{margin:0;padding-left:22px}
+  .nuggets li{margin:0 0 12px;font-size:16.5px}
+  footer.sources{border-top:2px solid var(--ink);margin-top:60px;padding-top:26px;
+    font-size:15px}
+  footer.sources h2{font-size:20px;margin:0 0 12px}
+  footer.sources p{margin:0 0 14px}
+  .onquotes{background:var(--soft);border-radius:8px;padding:18px 22px;margin:20px 0}
+  .vid{margin:34px 0}
+  .vid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Conversations with Tyler</a>
+  <span class="sub">Episode companion · Any Austin on video games</span>
+</header>
+<nav class="chapnav" aria-label="Chapters">
+  <a href="#ch01"><span class="t">~00:01</span>Hermeneutics of infrastructure</a>
+  <a href="#ch02"><span class="t">~00:05</span>In a fog</a>
+  <a href="#ch03"><span class="t">~00:08</span>The ideal form</a>
+  <a href="#ch04"><span class="t">~00:10</span>Glitches in reality</a>
+  <a href="#ch05"><span class="t">~00:16</span>AI art</a>
+  <a href="#ch06"><span class="t">~00:22</span>Role in history</a>
+  <a href="#ch07"><span class="t">~00:28</span>Lost train of thought</a>
+  <a href="#ch08"><span class="t">~00:29</span>Tyler's glitch</a>
+  <a href="#ch09"><span class="t">~00:31</span>Favorite infrastructure</a>
+  <a href="#ch10"><span class="t">~00:34</span>Games stay the same</a>
+  <a href="#ch11"><span class="t">~00:36</span>Canonical games</a>
+  <a href="#ch12"><span class="t">~00:42</span>Football and theater</a>
+  <a href="#ch13"><span class="t">~00:44</span>Commentary culture</a>
+  <a href="#ch14"><span class="t">~00:50</span>Hydrology students</a>
+  <a href="#ch15"><span class="t">~00:51</span>VR</a>
+  <a href="#ch16"><span class="t">~00:54</span>Oral culture</a>
+  <a href="#ch17"><span class="t">~00:56</span>New Orleans food</a>
+  <a href="#ch18"><span class="t">~00:57</span>Secret sauce</a>
+  <a href="#ch19"><span class="t">~00:58</span>What's next</a>
+  <a href="#ch20"><span class="t">~00:59</span>Polymath</a>
+  <a href="#ch21"><span class="t">~01:01</span>The correlation question</a>
+  <a href="#ch22"><span class="t">~01:03</span>Staying sharp</a>
+  <a href="#ch23"><span class="t">~01:06</span>Space Invaders</a>
+  <a href="#ch24"><span class="t">~01:07</span>Watch the episode</a>
+</nav>
+<div class="layout">
+<aside class="sidenav" aria-label="Chapters">
+  <h4>Chapters</h4>
+  <a href="#ch01"><span class="t">~00:01</span>Hermeneutics of infrastructure</a>
+  <a href="#ch02"><span class="t">~00:05</span>In a fog</a>
+  <a href="#ch03"><span class="t">~00:08</span>The ideal form</a>
+  <a href="#ch04"><span class="t">~00:10</span>Glitches in reality</a>
+  <a href="#ch05"><span class="t">~00:16</span>AI art</a>
+  <a href="#ch06"><span class="t">~00:22</span>Role in history</a>
+  <a href="#ch07"><span class="t">~00:28</span>Lost train of thought</a>
+  <a href="#ch08"><span class="t">~00:29</span>Tyler's glitch</a>
+  <a href="#ch09"><span class="t">~00:31</span>Favorite infrastructure</a>
+  <a href="#ch10"><span class="t">~00:34</span>Games stay the same</a>
+  <a href="#ch11"><span class="t">~00:36</span>Canonical games</a>
+  <a href="#ch12"><span class="t">~00:42</span>Football and theater</a>
+  <a href="#ch13"><span class="t">~00:44</span>Commentary culture</a>
+  <a href="#ch14"><span class="t">~00:50</span>Hydrology students</a>
+  <a href="#ch15"><span class="t">~00:51</span>VR</a>
+  <a href="#ch16"><span class="t">~00:54</span>Oral culture</a>
+  <a href="#ch17"><span class="t">~00:56</span>New Orleans food</a>
+  <a href="#ch18"><span class="t">~00:57</span>Secret sauce</a>
+  <a href="#ch19"><span class="t">~00:58</span>What's next</a>
+  <a href="#ch20"><span class="t">~00:59</span>Polymath</a>
+  <a href="#ch21"><span class="t">~01:01</span>The correlation question</a>
+  <a href="#ch22"><span class="t">~01:03</span>Staying sharp</a>
+  <a href="#ch23"><span class="t">~01:06</span>Space Invaders</a>
+  <a href="#ch24"><span class="t">~01:07</span>Watch the episode</a>
+</aside>
+<main id="main">
+<div class="hero">
+  <p class="kicker">Conversations with Tyler · Episode companion</p>
+  <h1>Any Austin on the Hermeneutics of Video Games</h1>
+  <p class="deck">Recorded in June 2025, live and in person, this episode is the funniest and most visual of the series: the world's only great critic of video game infrastructure on noticing, glitches, AI art, and why games are not getting better.</p>
+  <div class="meta">
+    <span><b>Episode:</b> Conversations with Tyler #245, Any Austin</span>
+    <span><b>Recorded:</b> June 11, 2025</span>
+    <span><b>Length:</b> about 67 minutes</span>
+    <span><b>Transcript:</b> about 11,900 words</span>
+  </div>
+  <figure class="herofig">
+    <img src="assets/ep09/austin.webp" alt="Any Austin, episode 245 artwork">
+    <figcaption class="caption">Any Austin. Official Conversations with Tyler episode artwork via Libsyn.</figcaption>
+  </figure>
+</div>
+
+<section class="chapter" id="ch01">
+<p class="ts">~00:01</p>
+<h2>The hermeneutics of infrastructure</h2>
+<p>Cowen introduces Austin as the very best in the world, without doubt, at the hermeneutics of infrastructure within video games. He watches and plays games and explains how the parts fit together: do Liberty City's power lines connect to anything, who are the background people, what are the roads for. Austin's reply:</p>
+<blockquote class="pull">I like being the best in the world at something that nobody else does.</blockquote>
+<p class="pullattr">Any Austin · ~00:02</p>
+<p>Cowen's theory of the modern world follows: if you cannot easily state what you are the best in the world at, it is hard to do very well, and the stranger it sounds, the less it holds you back.</p>
+<p>On discoverability, Austin puts a number on it: he would bet it is 90 percent the YouTube algorithm, which demolishes everything else at getting content to the people who want it.</p>
+<div class="warnbox"><b>Trap card.</b> The 90 percent figure is Austin's own bet, stated as a bet, his words. It is his estimate of his own channel's discovery, not measured platform data. This companion treats it as his claim.</div>
+<div class="chart" id="chart-discovery">
+<h3>Austin's estimate of his own discovery</h3>
+<p class="csrc">His stated bet, not measured data.</p>
+<svg viewBox="0 0 560 170" role="img" aria-label="Bar chart of discovery sources">
+<g class="bar" data-tip="Austin estimates the YouTube algorithm drives about 90 percent of discovery"><rect x="180" y="30" width="324" height="34"/><text x="20" y="52">YouTube algorithm</text><text x="508" y="52">90%</text></g>
+<g class="bar dim" data-tip="Everything else combined, per his estimate"><rect x="180" y="80" width="36" height="34"/><text x="20" y="102">All other channels</text><text x="220" y="102">10%</text></g>
+<text x="20" y="150">His bet on his own numbers, not platform data</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch02">
+<p class="ts">~00:05</p>
+<h2>In a fog</h2>
+<p>Does Austin notice strange things in real cities too, or only in games? He is, he says, somehow simultaneously in a fog while noticing the fog. He just likes looking at stuff. Since making the power lines video, he sees way more utility poles than he used to.</p>
+<p>The habit may come from childhood. Games were rationed to 20 minutes a day, and switching off meant starting over, so he ran through the same tiny spaces over and over, learning to make fun in a small area. Maybe that taught him to look at spaces in detail, and he carried it outside.</p>
+</section>
+
+<section class="chapter" id="ch03">
+<p class="ts">~00:08</p>
+<h2>The ideal form</h2>
+<p>Studying game infrastructure taught Austin something about real infrastructure. We expect the ideal form of a thing to appear in games, and when a utility pole's wire runs the wrong way, we say that cannot be right. But walk outside: real infrastructure is usually wrong too. Putting a city together means colliding with the guy who dug the hole, the contractor, the phone calls. The same collisions shape game development.</p>
+<blockquote class="pull">The infrastructure you look at in real life is usually wrong.</blockquote>
+<p class="pullattr">Any Austin · ~00:09</p>
+<p>Getting a paved road with a utility pole to your house takes so much coordination, knowledge, and effort that Austin is passionate about it almost by accident.</p>
+<div class="fig">
+<img src="assets/ep09/poles.webp" alt="A utility pole crowded with tangled wires">
+<figcaption class="caption">The usually-wrong kind: a real utility pole, wire running every which way. Photo via Resources for the Future.</figcaption>
+</div>
+<div class="fig">
+<img src="assets/ep09/wc-cityinfra.webp" alt="Watercolor cutaway of a city street with poles, pipes, and sewers exposed">
+<figcaption class="caption">The city as a game level: everything that hides under and above the street. Watercolor illustration.</figcaption>
+</div>
+</section>
+
+<section class="chapter" id="ch04">
+<p class="ts">~00:10</p>
+<h2>Glitches in reality</h2>
+<p>Does studying game glitches make Austin doubt reality is fully knit together? His answer runs through simulation talk: we can extrapolate from what games looked like 30 years ago to what they will look like in 100, and perfect simulation is easy to imagine. But the more interesting question is whether reality's rules, like game rules, have seams. Games run on codified rules and things still go wrong. Maybe there is a real-life equivalent of hacking physics, an interplay of rule sets that creates strange, fascinating things. He says it seems really unlikely that everything works all the time.</p>
+<p>Cowen offers his metatheory: all possible universes exist, many have glitches, and we are in one that works well enough to survive. Austin's instinct, as a trained YouTuber, is the anthropic version: if the rules did not cohere well enough for this conversation, we would not be here. The references fly: The Matrix's obvious glitches feel unlikely to him. Cronenberg's EXistenZ gets a recommendation. Cowen calls the subtle version a Thomas Pynchon kind of world.</p>
+</section>
+
+<section class="chapter" id="ch05">
+<p class="ts">~00:16</p>
+<h2>AI art</h2>
+<p>Austin has almost no interest now in the visual side of AI. AI art grows less interesting as it grows more competent, while LLMs became serious educational tools. The video side is still a little interesting, the strange halfway of a chicken bone turning into a runway model, but the whole field aims to eliminate the surrealness in favor of competence.</p>
+<p>That was never where the frontier of cool art was. Competence gives the tools power to replace low-paid stock photography, but it does not make interesting art. Cowen counters with the million-storylines idea: at low enough token cost, run a million variants and let the AI judge which one you will like. Austin grants it eventually, maybe in ten years, but notes the fringes of art are not what the tools prefer, and asks who will look through a billion pictures.</p>
+<div class="warnbox"><b>Trap card.</b> Austin's AI timelines and the billion-movies scenario are speculation, his and Cowen's, stated as such in the conversation. This companion does not present them as forecasts.</div>
+</section>
+
+<section class="chapter" id="ch06">
+<p class="ts">~00:22</p>
+<h2>Role in history</h2>
+<p>Cowen says the role in history matters to him. AI art would have its own role, but it would not compete directly with Michelangelo. Austin pushes back with the cup. If the cup is the art and this is me, the value is here somewhere, in the interaction. He can know nothing about a sculpture and prefer it that way.</p>
+<blockquote class="pull">the value is here somewhere</blockquote>
+<p class="pullattr">Any Austin, on where art's value lives · ~00:25</p>
+<p>Cowen insists artworks are in dialogue: Rodin makes Brancusi make sense, knowing the theology makes La Pieta make sense. Austin's test: put him in a room of AI-generated sculptures with no history attached. Do they mean nothing? Cowen says much, much less. Austin finds that really interesting.</p>
+<div class="fig">
+<img src="assets/ep09/wc-cup.webp" alt="Watercolor of a lone person before a giant cup on a plinth">
+<figcaption class="caption">The cup is the art, this is me, and the value is here somewhere. Watercolor illustration.</figcaption>
+</div>
+<p>One Austin argument lands hard: we cannot even tell authentic human art from inauthentic now. Bands made records under duress they did not care about, and we call them authentic anyway. So we are unlikely to be good at detecting AI art either.</p>
+</section>
+
+<section class="chapter" id="ch07">
+<p class="ts">~00:28</p>
+<h2>Lost train of thought</h2>
+<p>Austin forgets where the conversation jumped in from. He says he lost his train of thought. Cowen calls it a glitch. Austin declares himself a simulation. The episode's best thirty seconds.</p>
+</section>
+
+<section class="chapter" id="ch08">
+<p class="ts">~00:29</p>
+<h2>Tyler's glitch</h2>
+<p>Cowen asks whether Austin has glitches in his own workflow, the way studying a game's infrastructure reveals the game. His own: the first two or three sentences of every podcast intro, the one part he has to redo. Everything after runs clean. Austin's diagnosis: improvisation works forever, but the moment you put it on paper, the intro becomes the overture and breaks. We can improvise forever and make no mistakes, but the written bit fails.</p>
+</section>
+
+<section class="chapter" id="ch09">
+<p class="ts">~00:31</p>
+<h2>Favorite infrastructure</h2>
+<p>Cowen's favorites: bridges, ports, harbors. Austin's: the stuff we do not see. Sewage is pretty crazy to him, that we took care of all of that. Energy infrastructure fascinates him. Nuclear power plants are awesome, really cool, and we should build more of them, for the aesthetics, honestly. Just build the cooling towers. Forget the power. Put in a steam thing so you can see the steam. Do not even install turbines.</p>
+<p>Cowen: you do not need the power, just build the thing, that is why it is an artwork. Austin agrees. If you raised a baby in a box and showed them a cooling tower at eighteen, they would love it with no historical context at all. Cowen disagrees: they would love it less than Austin does.</p>
+</section>
+
+<section class="chapter" id="ch10">
+<p class="ts">~00:34</p>
+<h2>Games stay the same</h2>
+<p>How much better will games get in twenty years? None. No better. This is a huge pet peeve of Austin's. They will not get worse either. They will stay the same. His claim: once a medium's nascent period resolves, art does not get qualitatively better. Art is good all the time, everywhere, always. The value of Red Dead Redemption II, in the aggregate, is not that much more impactful than playing The Legend of Zelda in 1984 on the NES. Games got more complicated and vastly more expensive. The fun stayed.</p>
+<div class="chart" id="chart-quality">
+<h3>Austin's claim: game quality over time</h3>
+<p class="csrc">His argument, stylized. Not a measurement.</p>
+<svg viewBox="0 0 560 170" role="img" aria-label="Flat line of artistic value over decades">
+<line x1="20" y1="120" x2="540" y2="120" stroke="#b4531f" stroke-width="4" data-tip="Artistic value stays roughly flat once the medium matures"/>
+<text x="20" y="100">Atari era</text>
+<text x="220" y="100">NES, 1984</text>
+<text x="420" y="100">Red Dead Redemption II</text>
+<text x="20" y="150">Good all the time, everywhere, always</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch11">
+<p class="ts">~00:36</p>
+<h2>Canonical games</h2>
+<p>Cowen reports that many people tell him we are not creating canonical games at the rate we used to. Austin pushes back hard and calls out the many-people-are-saying move. His exhibits: Minecraft, from 2011 to 2014 depending on how you count, which blew open what games could be, and The Legend of Zelda: Breath of the Wild from 2017, which revolutionized again. Cowen says those are a long time ago now. Austin: if the claim is a declining distribution, then draw the graph.</p>
+<p>He grants part of the decline story: demand is down since the pandemic, and the collapse is concentrated in giant AAA games that were in a bubble for ten to fifteen years. The bubble did not even pop. It is just coming down.</p>
+</section>
+
+<section class="chapter" id="ch12">
+<p class="ts">~00:42</p>
+<h2>Football and theater</h2>
+<p>Part of the confusion is the category. Fortnite, VALORANT, Counter-Strike are video games, and they are also competitive, long-lasting spectacles. Calling them video games alongside Zelda is like grouping football in with theater. Same medium, different cultural object. The revenue statistics everyone repeats, that games are bigger than movies and music combined, were always a red flag: the audience for serious game consumption is probably closer to books than to television, because interactivity is a high barrier to entry.</p>
+<div class="warnbox"><b>Trap card.</b> Austin cites a recent figure that 12 percent of self-described gamers will buy a game this year, but he hedges it as something he thinks came out recently. This companion repeats it only as his recollection of a stat, not as a verified number.</div>
+</section>
+
+<section class="chapter" id="ch13">
+<p class="ts">~00:44</p>
+<h2>Commentary culture</h2>
+<p>Could commentary become bigger than the games? With the NBA it already has: six hours of podcasts, no game watched all week. Austin guesses we are probably there with games too. But the value system of game commentary bothers him. Everyone cares about exactly the same things: frame rates, settings, technical trivia nobody would discuss about film. Nobody talks about the sampling rate of a song. They talk about how it made them feel.</p>
+<blockquote class="pull">There are more commentators than games.</blockquote>
+<p class="pullattr">Any Austin · ~00:46</p>
+<p>His goal, stated plainly: show people it is not inherent that games must be discussed in these technical, narrative-obsessed, comparative terms. Stop saying every review is this game plus that game. Say what it made you feel, and say what it is. Literally, what are we looking at.</p>
+</section>
+
+<section class="chapter" id="ch14">
+<p class="ts">~00:50</p>
+<h2>Hydrology students</h2>
+<p>One of Austin's tertiary goals: get hydrology master's students up by 3 percent, 4 percent. Get engineering college admissions up the same. It is an excellent veneer. Underneath, the videos are a mindfulness exercise. The infrastructure talk, the adopted systems of values, are second order. First order: learn to look at things and use your brain. Notice what is actually there.</p>
+</section>
+
+<section class="chapter" id="ch15">
+<p class="ts">~00:51</p>
+<h2>VR</h2>
+<p>Is Austin bullish on virtual reality? No, not economically, because the barrier to entry is too high and development is complicated and annoying. His evidence is personal: he played Resident Evil 4 on the GameCube in 2002, on the Wii in 2007, and again on the Meta Quest 2 about three years ago. He took the headset off and thought about it now equally as immersive. Both times he felt like he was in the game. What is the point? Why even put the thing on?</p>
+<p>Playing Zelda in 1984, you felt like you were there. Playing Half-Life: Alyx on the Valve Index, you pick cups up and throw them around. At the end of the day, basically the same amount of fun.</p>
+</section>
+
+<section class="chapter" id="ch16">
+<p class="ts">~00:54</p>
+<h2>Oral culture</h2>
+<p>Are we moving toward a more oral culture? Austin thinks podcasts make the case more than YouTube, but yes: people do not like to read now, and talking reaches them. He does not fear that leaving print means leaving analysis. That gets cause and symptom backward. It falls on people to choose to think.</p>
+<p>His own videos model the choice. He recently spent a whole video arguing the hydrology of Morrowind, then ended by saying: flip the interpretations and there is an equally good argument for the exact opposite. The point is not getting it right. The point is to learn that we can be analytical, to learn that we can use our brains.</p>
+</section>
+
+<section class="chapter" id="ch17">
+<p class="ts">~00:56</p>
+<h2>New Orleans food</h2>
+<p>The best food in New Orleans? Austin's hot take: New Orleans is very good at New Orleans foods. Gumbo, jambalaya, crawfish, go there. Want Thai, burritos, Chinese food? Not very good. On the whole, the average quality is not good except for the specialties. He only eats fish, which is great down there.</p>
+<div class="warnbox"><b>Trap card.</b> This is a stated hot take about restaurant quality, Austin's opinion. It is not a review of any particular restaurant.</div>
+</section>
+
+<section class="chapter" id="ch18">
+<p class="ts">~00:57</p>
+<h2>Secret sauce</h2>
+<p>What makes him a great YouTuber? Austin refuses to know. All he should have in his head is that the current video will be the best video he could possibly make. The less he understands his own inner machinations, the better, because artists who learn what their thing is fly off a cliff. They become so much worse. Parodies of themselves.</p>
+<blockquote class="pull">The less you know about how you do what you do, the better.</blockquote>
+<p class="pullattr">Any Austin · ~00:57</p>
+</section>
+
+<section class="chapter" id="ch19">
+<p class="ts">~00:58</p>
+<h2>What's next</h2>
+<p>He has shot himself in the foot, he says, by leaning so far into the infrastructure reading that people think it is the point. Tons of channels now copy the surface: what are the housing prices in this game, what is the economy like. He needs to rebalance toward the real goal: learning how to think, learning how to be analytical. The games and the infrastructure are the vehicle, not the point.</p>
+</section>
+
+<section class="chapter" id="ch20">
+<p class="ts">~00:59</p>
+<h2>Polymath</h2>
+<p>Austin gets to ask questions now. First, a side note: people call Cowen a polymath, and the AI summary called Austin one too, so he looked it up. Cowen: it is a meaningless term. Someone who knows five things rather than one or two.</p>
+</section>
+
+<section class="chapter" id="ch21">
+<p class="ts">~01:01</p>
+<h2>The correlation question</h2>
+<p>Austin's real question: great films, games, albums often come from people who, in conversation, do not seem that intelligent or compelling. Is there a correlation between making great work and being an interesting person? Cowen's answer: the world is more meritocratic than he once thought, and the successful mostly deserve it. Also selection: the best interviews are with people not much in the public eye, who will actually say what they think, and who must have something going for them to get on the show at all. Like the NBA, where taller players are worse at free throws but play anyway.</p>
+<p>Austin finds it hopeful: you do not have to be a very interesting, compelling person to do something truly great. Cowen: it is hopeful for the interesting people too, because they have a clearer field.</p>
+</section>
+
+<section class="chapter" id="ch22">
+<p class="ts">~01:03</p>
+<h2>Staying sharp</h2>
+<p>Why so many interviews lately? Cowen: he likes to listen and to talk, and at 63 it is important to do something not to degenerate. Also, he records himself for the AIs: with enough online writing and podcasts, the AIs will have a pretty good picture of him, and he will be more real to them, and they will like him more and take better care of him.</p>
+</section>
+
+<section class="chapter" id="ch23">
+<p class="ts">~01:06</p>
+<h2>Space Invaders</h2>
+<p>Cowen presses him on old arcade games, then confesses he liked Space Invaders much more than Pac-Man, which felt too mechanical, not strange enough. Austin agrees: Pac-Man invites optimization, while Space Invaders has a mushiness, no clear optimal choice in every moment. His new goal, on the record: make a video about Space Invaders or Pac-Man that gets millions of views and changes how we think about them, because those games are beautiful, underappreciated, meaningful, and they tell us about ourselves with a hundred lines of code.</p>
+</section>
+
+<section class="chapter" id="ch24">
+<p class="ts">~01:07</p>
+<h2>Watch the episode</h2>
+<div class="vid">
+<iframe src="https://www.youtube-nocookie.com/embed/rOYjgXY-Ts4" title="Conversations with Tyler: Any Austin" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>The full 67-minute conversation, recorded June 2025, live and in person.</p>
+</section>
+
+<section class="nuggets" id="nuggets">
+<h2>Nuggets of wisdom</h2>
+<ol>
+<li>Be the best in the world at something nobody else does.</li>
+<li>Ninety percent of discovery is the YouTube algorithm, by Austin's own estimate.</li>
+<li>Real infrastructure is usually wrong. The ideal form is the exception.</li>
+<li>Getting a paved road with a utility pole to your house takes enormous coordination.</li>
+<li>Reality's rules may not all fit together. Some imperfection is inevitable.</li>
+<li>AI image tools trend toward competency, and competency was never where the frontier of cool art was.</li>
+<li>Art lives in the interaction between you and it, not in its history.</li>
+<li>Nobody can tell authentic art from inauthentic, so AI art will pass too.</li>
+<li>Improvisation is flawless. The memorized intro is the glitch.</li>
+<li>Nuclear cooling towers are beautiful. Build them for the aesthetics.</li>
+<li>Games are not getting better. Art is good all the time, everywhere, always.</li>
+<li>Red Dead Redemption II is not much more impactful than Zelda in 1984.</li>
+<li>If the decline claim is real, draw the graph.</li>
+<li>Fortnite and Zelda are as different as football and theater.</li>
+<li>There are more commentators than games, and their values are all the same.</li>
+<li>First order: learn to look at things. Infrastructure is second order.</li>
+<li>VR did not make Resident Evil 4 better. You feel like you are there either way.</li>
+<li>The point is not getting it right. The point is to learn to use your brains.</li>
+<li>The less you know about how you do what you do, the better.</li>
+<li>Someday he will show the world that Space Invaders is about the human condition.</li>
+</ol>
+</section>
+
+<footer class="sources">
+<h2>Sources and attribution</h2>
+<p><b>Episode:</b> Conversations with Tyler #245, Any Austin (June 11, 2025), about 67 minutes, about 11,900 words. Video <code>rOYjgXY-Ts4</code>. All timestamps are proportional estimates marked <code>~</code>, computed from transcript position against the episode length.</p>
+<p><b>Photos:</b> Any Austin portrait from the official episode artwork via Libsyn (static.libsyn.com). Utility pole photo via Resources for the Future (rff.org).</p>
+<p><b>Corrections:</b> none. Several transcript passages are repeated verbatim in the source, apparently transcription artifacts. This companion treats each as a single statement. The "90 percent" algorithm figure and the "12 percent of gamers" figure are repeated here only as Austin's own stated estimates, with his hedges intact.</p>
+<div class="onquotes">
+<p><b>On quotes.</b> This companion contains <b>49</b> quoted words, counted mechanically with <code>recount_quotes.py</code> (blockquote markup plus every double-quoted phrase in visible body text, footer excluded, data-tips included). Breakdown: 14 + 11 + 5 + 6 + 13, from five quoted passages: Austin on being the best at something nobody else does, on real infrastructure being usually wrong, on where art's value lives, on commentators outnumbering games, and on not knowing how he does what he does. Each quote is verbatim from the transcript and edited to hard-fail nothing.</p>
+</div>
+</footer>
+</main>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.chapnav a,.sidenav a'));
+  var map={}; links.forEach(function(a){var id=a.getAttribute('href').slice(1);(map[id]=map[id]||[]).push(a)});
+  var secs=Object.keys(map).map(function(id){return document.getElementById(id)}).filter(Boolean);
+  function onScroll(){
+    var best=null;
+    secs.forEach(function(s){if(s.getBoundingClientRect().top<140)best=s});
+    links.forEach(function(a){a.classList.toggle('active',best&&a.getAttribute('href')==='#'+best.id)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>
