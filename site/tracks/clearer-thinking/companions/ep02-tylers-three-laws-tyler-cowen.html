@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tyler's Three Laws and Twelve Rules with Tyler Cowen: Clearer Thinking Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Clearer Thinking episode with Tyler Cowen: the three laws, real interest rates, steelmanning, learning from those who offend you, mentors, and raising aspirations.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#23201a; --muted:#6e655a;
+    --line:#e3dccb; --accent:#0e6e6e; --accent-ink:#0a5454; --soft:#e8f1f0;
+    --warn:#fdf3e3; --warnline:#d9a441;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0dd}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d3830;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  figure.photo img{max-width:460px;margin:0 auto}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .warnbox{background:var(--warn);border:1px solid var(--warnline);border-left:4px solid var(--warnline);
+    padding:14px 18px;margin:22px 0;font-family:var(--sans);font-size:14px;line-height:1.6}
+  .warnbox b{color:#7a4d0a}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdcd9}
+  .bar.dark{fill:#3d3830}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e4eaea;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .curve{fill:none;stroke:var(--accent);stroke-width:3}
+  .curve2{fill:none;stroke:#b0873f;stroke-width:3;stroke-dasharray:6 4}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{font-family:var(--sans);font-size:14px;line-height:1.5;counter-increment:w}
+  .wisdom li:before{content:counter(w,decimal-leading-zero);font-family:var(--mono);
+    font-size:11px;color:var(--accent-ink);display:block;margin-bottom:2px}
+  .takeaways{background:#fff;border:1px solid var(--line);padding:22px;margin:30px 0}
+  .takeaways h3{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .takeaways ol{margin:0 0 14px;padding-left:22px}
+  .takeaways li{margin-bottom:8px}
+  .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-right:8px;white-space:nowrap}
+  .tag.fact{background:#e2efed;color:var(--accent-ink)}
+  .tag.interp{background:#efe9dc;color:#6b5320}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);border:1px dashed var(--line);
+    padding:10px 14px;margin:0 0 26px}
+  .video{margin:26px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+    border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:12px;color:var(--accent-ink)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 10px;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  footer p{margin:0 0 14px}
+  footer b{color:var(--ink)}
+  .backlink{font-family:var(--sans);font-size:13px;margin:18px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Clearer Thinking companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+
+<div class="hero">
+<p class="kicker">Clearer Thinking with Spencer Greenberg &middot; Episode 2</p>
+<h1>Tyler's Three Laws and Twelve Rules with Tyler Cowen</h1>
+<p class="dek">Spencer Greenberg talks with economist Tyler Cowen about why every claim about real interest rates fails, how to steelman your opponents, and why raising someone aspirations may be the highest-return activity there is.</p>
+<img src="assets/ep02/ep02-hero.webp" alt="Watercolor of a brass balance scale tipped to one side with a falling dotted curve">
+<p class="caption"><b>Illustration.</b> AI-generated watercolor made for this page: the tipped scales of Cowen third law.</p>
+<div class="stats">
+<div class="stat"><div class="n">57 min</div><div class="l">Episode length</div><div class="s">3404 seconds of audio</div></div>
+<div class="stat"><div class="n">3 laws</div><div class="l">Of Cowen</div><div class="s">Wrong with everything, literature, rates</div></div>
+<div class="stat"><div class="n">-5%</div><div class="l">Real rate</div><div class="s">On government borrowing, 2021, per Tyler</div></div>
+<div class="stat"><div class="n">18 yrs</div><div class="l">Daily blogging</div><div class="s">Tyler writing practice</div></div>
+</div></div>
+<figure class="photo"><img src="assets/ep02/tyler-cowen.jpg" alt="Photograph of Tyler Cowen"><figcaption class="caption"><b>Photograph.</b> Tyler Cowen. Real photograph via George Mason University, chss.gmu.edu. Photograph by Ian Tuttle.</figcaption></figure>
+<div class="video"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/a8qiJckz-8o" title="Episode video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption"><b>Video.</b> The full episode on YouTube.</p></div>
+<section class="chapter" id="ch-third-law" data-time="~00:02" data-title="All Propositions About Real Interest Rates Are Wrong">
+
+<p class="ch-time">~00:02</p>
+<h2>All Propositions About Real Interest Rates Are Wrong</h2>
+<div class="legend"><span class="tag fact">Source fact</span> a claim traceable to the episode transcript. <span class="tag interp">Interpretation</span> the companion author's analysis or transfer, not the guest's claim.</div>
+<p><span class="tag fact">Source fact</span> The producer opens with a glossary note for listeners: a real interest rate is the interest rate minus the inflation rate, the rate adjusted for inflation. Then Spencer asks about Cowen third law:</p>
+<div class="pull">
+<blockquote>All propositions about real interest rates are wrong.</blockquote>
+<p class="who">Tyler Cowen, stating his third law &middot; Episode ~00:03</p>
+</div>
+<p><span class="tag fact">Source fact</span> Tyler watched economic claims fail for decades. Theory says big deficits should push real rates up and crowd out private investment. In the data, the effect is nearly impossible to find: government deficits do not seem to move real interest rates. Or take 2021, when price inflation hit 6.2 percent while nominal yields barely rose, so the real rate on government borrowing fell toward negative 5 percent. Nobody predicted that shape.</p>
+<div class="chart">
+<h4>The puzzle of 2021</h4>
+<p class="csub">Price inflation hit 6.2 percent. Nominal yields barely moved. The real rate collapsed.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of inflation versus real rate in 2021">
+<g class="axis">
+<line class="gridln" x1="60" y1="150" x2="600" y2="150"/>
+<text class="axis" x="52" y="154" text-anchor="end">0%</text>
+</g>
+<rect class="bar dark" x="180" y="40" width="90" height="110" data-tip="Price inflation: 6.2 percent, the last recorded measure cited on air."/>
+<rect class="bar" x="400" y="150" width="90" height="89" data-tip="Real rate on government borrowing: as low as negative 5 percent, per Tyler."/>
+<text class="vallab" x="225" y="30" text-anchor="middle">+6.2%</text>
+<text class="vallab" x="225" y="175" text-anchor="middle">price inflation</text>
+<text class="vallab" x="445" y="255" text-anchor="middle">about -5%</text>
+<text class="vallab" x="445" y="275" text-anchor="middle">real rate</text>
+<text class="axis" x="320" y="292" text-anchor="middle">Real rate equals nominal minus inflation. Nominal yields barely rose, per Tyler, no figure given.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Tyler Cowen episode, ~00:04. The 6.2 percent and negative 5 percent are Tyler stated figures. Nominal yields are described only qualitatively on air.</p>
+</div>
+<p><span class="tag fact">Source fact</span> The strangeness runs deeper. Real rates declined steadily since at least the 1920s, and nobody has a satisfying account of why. Tyler calls macroeconomics more art than science: loose variables interacting in ways nobody fully understands. And the law has a self-referential sting: any theory of why we predict rates so badly would itself violate the third law.</p>
+<div class="chart">
+<h4>The long strange decline</h4>
+<p class="csub">Real rates fell steadily for a century. The episode gives the shape, not the series.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Illustrative declining line from the 1920s to 2021">
+<path class="curve2" d="M 60 60 C 200 90, 320 130, 460 190 S 580 230, 600 235" data-tip="Illustrative path only. The episode states a steady decline since the 1920s but gives no data series."/>
+<circle cx="60" cy="60" r="7" class="bar dark" data-tip="1920s: the decline starts here, per Tyler. No level stated."/>
+<circle cx="600" cy="235" r="7" class="bar" data-tip="2021: as low as negative 5 percent on government borrowing."/>
+<text class="vallab" x="60" y="40" text-anchor="middle">1920s</text>
+<text class="vallab" x="600" y="260" text-anchor="middle">2021: about -5%</text>
+<text class="axis" x="320" y="292" text-anchor="middle">Dashed path is illustrative. Only the endpoints carry episode-stated claims.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Tyler Cowen episode, ~00:05. The century-long decline is an episode claim with no source named on air. Treat the shape as Tyler reading of history.</p>
+</div>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 &middot; Humility</p>
+<h4>A law about the limits of laws</h4>
+<p><span class="lbl">What happened. </span>Decades of confident claims about real interest rates, from deficit hawks left and right, all failed against the data. Tyler made the failure itself a law.</p>
+<p><span class="lbl">Why it matters. </span>The third law is really about economic knowledge: in complex systems, the confident mechanism story is usually the thing that breaks.</p>
+<p><span class="lbl">The principle. </span>When every theory of a variable failed, stop theorizing the variable. Theorize the failure instead.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-economists" data-time="~00:09" data-title="What Economists Get Wrong">
+
+<p class="ch-time">~00:09</p>
+<h2>What Economists Get Wrong</h2>
+<p><span class="tag fact">Source fact</span> Asked what most economists are wrong about, Tyler declines the frame. His complaint is different: economists are so hyper-specialized that most do not hold real opinions outside their niche. Off duty, their views come from the same media diet as other educated coastal professionals: the New York Times, Paul Krugman, Twitter for the activist ones.</p>
+<p><span class="tag fact">Source fact</span> He cites a study finding that a French economist nationality predicts their opinions better than their profession does. Economists, in other words, are French first and economists second on views outside their specialty.</p>
+<div class="warnbox"><b>Trap card.</b> The French-economist study is cited without authors, journal, or year on air. Quote the finding only with that flag.</div>
+<p><span class="tag fact">Source fact</span> He also argues economists maximize self-interestedly like everyone else. His example: with Alex Tabarrok he wrote a critical piece on how the National Science Foundation funds economists, and found almost no literature on the question from any viewpoint. Nobody wants to bite the hand that funds them, so collectively the analysis never happens.</p>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 &middot; Curiosity</p>
+<h4>Specialization ate the big picture</h4>
+<p><span class="lbl">What happened. </span>Tyler diagnoses the profession: narrow expertise, borrowed opinions, careerist caution, and little curiosity about the world outside the model.</p>
+<p><span class="lbl">Why it matters. </span>The same failure mode hits any expert class. Credentials certify the niche, not the worldview.</p>
+<p><span class="lbl">The principle. </span>Distrust the expert outside their lane exactly as much as you distrust anyone outside their lane.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-mmt" data-time="~00:16" data-title="Modern Monetary Theory">
+
+<p class="ch-time">~00:16</p>
+<h2>Modern Monetary Theory</h2>
+<p><span class="tag fact">Source fact</span> On modern monetary theory, Tyler is blunt: it was never coherently defined as a model, so he cannot coherently present it. He reads it as a set of loosely associated views with a political slant, roughly that governments can inflate their way out of problems and face no real constraint on boosting demand. Its one concrete claim, that overheating inflation should be met with spending cuts, is now under test by high inflation, and none of its advocates call for cuts.</p>
+<p><span class="tag fact">Source fact</span> He grants MMT one real point. Economists used to think governments had almost no room to monetize debt, having the central bank buy it, without stoking inflation. Over the last 30 years, and especially the last two decades, there turned out to be more room than expected. On that, the MMT people were right. He notes Paul Krugman, Larry Summers, and Noah Smith all looked at MMT and could not find a coherent model in it either.</p>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 &middot; Judgment</p>
+<h4>Separate the insight from the movement</h4>
+<p><span class="lbl">What happened. </span>Tyler rejects MMT as theory and marketing, then salvages its one true empirical claim about debt monetization room.</p>
+<p><span class="lbl">Why it matters. </span>Bad frameworks can carry good facts. Dismissing the package should not delete the datum.</p>
+<p><span class="lbl">The principle. </span>Ask what the wrong theory got right. That is usually the part worth keeping.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-open-questions" data-time="~00:20" data-title="The Open Questions">
+
+<p class="ch-time">~00:20</p>
+<h2>The Open Questions</h2>
+<p><span class="tag fact">Source fact</span> The biggest questions are mostly open: what drives growth, what produces innovation, why unemployment stays stubborn, how the business cycle really works. Economics handles small things well, like how a liquor tax changes drink sales. On the big ones, Tyler is pessimistic about the next 10 to 20 years. Progress may just mean seeing more clearly how complicated the problem is.</p>
+<p><span class="tag fact">Source fact</span> On math in economics, he says the critique is half wrong. Graduate training starts with a predoc apprenticeship in programming, databases, and research assistance, and the field has grown more mathematical in data manipulation even as pure theory math receded. His wish is not less math but more breadth: reading, travel, and bigger questions.</p>
+<p><span class="tag fact">Source fact</span> He rejects the story that behavioral economics rescued the field from perfect rationality. Adam Smith, Keynes, and his own adviser Thomas Schelling all used behavioral models. Economics was behavioral from the start. The real contribution of modern behavioral work was to show the effects are more context-specific than hoped, which also made them harder to use. The field fragmented into isolated papers, which he compares to Leibniz monads, each a small universe unsure how it touches the others.</p>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 &middot; Science</p>
+<h4>Small levers work. Big mysteries stay big.</h4>
+<p><span class="lbl">What happened. </span>Economics predicts the liquor tax and flounders on growth. Tyler expects the next decades to map the complexity, not crack it.</p>
+<p><span class="lbl">Why it matters. </span>Calibrating ambition to the hardness of the problem is itself progress. False precision is worse than admitted ignorance.</p>
+<p><span class="lbl">The principle. </span>Demand small claims with evidence and big questions with humility. Never the reverse.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-three-laws" data-time="~00:29" data-title="The Three Laws">
+
+<p class="ch-time">~00:29</p>
+<h2>The Three Laws</h2>
+<p><span class="tag fact">Source fact</span> The laws were born as teaching tools. While teaching PhD macro, Tyler scribbled them on the chalkboard one night so students would carry something home:</p>
+<div class="pull">
+<blockquote>There is something wrong with everything.</blockquote>
+<p class="who">Tyler Cowen, his first law &middot; Episode ~00:30</p>
+</div>
+<p><span class="tag fact">Source fact</span> Law one meant: you do not understand a paper until you can say what is wrong with it. Law two:</p>
+<div class="pull">
+<blockquote>There is a literature on everything.</blockquote>
+<p class="who">Tyler Cowen, his second law &middot; Episode ~00:30</p>
+</div>
+<p><span class="tag fact">Source fact</span> Law two warned young researchers against thinking they were first: check what exists before going far. Law three, the interest-rate law, came from the same classroom, where students kept noticing that none of the rate papers solved their problems. Tyler notes the odd specificity is deliberate, and the meta-lesson generalizes: some domains may simply sit beyond our understanding, the way unifying relativity and quantum mechanics sits beyond physics today.</p>
+<p><span class="tag fact">Source fact</span> Law one becomes a practice: steelman the other side. Write out views you do not hold, make the best case for them, and watch your understanding deepen. The effective altruism community now calls it steelmanning. Tyler can do it cheaply because he is a professional writer: a daily blog for 18 years, Bloomberg columns, tweets, books. At 59, he says, repeating yourself bores everyone, so you either keep getting deeper or you stultify.</p>
+<div class="toy">
+<h4>Try it: the steelman worksheet</h4>
+<p class="csub" style="font-family:var(--sans);font-size:12.5px;color:var(--muted)">Law one as a drill. Fill the boxes, then assemble.</p>
+<label for="sw-view">The view you hold</label>
+<input type="text" id="sw-view" style="width:100%;padding:8px;font-family:var(--sans);font-size:14px">
+<label for="sw-other">The best case for the other side</label>
+<input type="text" id="sw-other" style="width:100%;padding:8px;font-family:var(--sans);font-size:14px">
+<label for="sw-change">What would change your mind</label>
+<input type="text" id="sw-change" style="width:100%;padding:8px;font-family:var(--sans);font-size:14px">
+<p style="margin-top:12px"><button id="sw-go" style="font-family:var(--sans);font-size:14px;padding:8px 16px;cursor:pointer">Assemble the steelman</button></p>
+<p class="out" id="sw-out"></p>
+</div>
+<script>
+(function(){
+  var go = document.getElementById('sw-go');
+  var out = document.getElementById('sw-out');
+  function val(id){ return document.getElementById(id).value.trim(); }
+  go.addEventListener('click', function(){
+    var v = val('sw-view'), o = val('sw-other'), c = val('sw-change');
+    if(!o){
+      out.textContent = 'You have not steelmanned yet. The best case for the other side is empty.';
+      return;
+    }
+    out.textContent = 'You hold: ' + (v || '(unstated)') + ' | The other side at its best: ' + o +
+      ' | You would change your mind if: ' + (c || '(unstated)');
+  });
+})();
+</script>
+<p><span class="tag fact">Source fact</span> Spencer asks whether public intellectuals should forecast constantly and be scored. Tyler points to Philip Tetlock expert prediction project at the University of Pennsylvania, which found early that experts do not predict well. His verdict: stop the clock, accept that most of us are bad at it, and distrust the ones who claim they are great.</p>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 &middot; Thinking</p>
+<h4>Steelman before you strike</h4>
+<p><span class="lbl">What happened. </span>Law one turned into a writing discipline: make the best case for the view you oppose, on paper, before you attack it.</p>
+<p><span class="lbl">Why it matters. </span>You cannot understand a paper, a policy, or a person until you can state what is wrong with your own take. The steelman is the test.</p>
+<p><span class="lbl">The principle. </span>Write the other side best case first. If you cannot, you do not understand the issue yet.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-offend" data-time="~00:35" data-title="Learn From Those Who Offend You">
+
+<p class="ch-time">~00:35</p>
+<h2>Learn From Those Who Offend You</h2>
+<p><span class="tag fact">Source fact</span> Rule seven of Tyler rules: learn how to learn from those who offend you. Social media shows you the worst, stupidest version of opposing views, and the natural reaction is entrenchment: they are terrible, I am right. Tyler says that is exactly backwards. Offense is a sign you have under-invested in understanding them.</p>
+<p><span class="tag fact">Source fact</span> The failure mode has a name with alliteration he teaches his students: devalue and dismiss. You find one thing wrong with an argument, lower its status and its author, and file it where you never learn from it again. Sometimes that triage is rational. Mostly it is a tax on your own growth.</p>
+<p><span class="tag fact">Source fact</span> Offense itself, he argues, is usually about status, not morality: someone devalued your group or your position, and you felt your standing drop. Genuinely abhorrent views exist, but people confuse a slight to their worldview with objective badness, then sort the offender into the bad group and stop listening.</p>
+<p><span class="tag fact">Source fact</span> His examples are deliberately uncomfortable. Picasso was a Stalin-adjacent communist. Great 20th-century minds apologized for Mao. Marx was systematically wrong and his ideas killed millions, yet Marx rewards study partly because his errors pervade everything he wrote, which makes the system legible. Terrible views do not always corrupt every other view.</p>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 &middot; Openness</p>
+<h4>Devalue and dismiss is a tax you pay</h4>
+<p><span class="lbl">What happened. </span>Tyler named the reflex: spot one flaw, downgrade the person, stop learning. Then he prescribed the inversion: let offense pull you toward the offender like a magnet.</p>
+<p><span class="lbl">Why it matters. </span>The people who offend you often hold the views you understand least, which is exactly where your growth is.</p>
+<p><span class="lbl">The principle. </span>When you feel the dismiss reflex, pause. Master the view first, judge it second.</p>
+</div>
+<p><span class="tag fact">Source fact</span> On communism popularity, Tyler is dry. As doctrine it failed and is not popular in the West. Its appendices survive where people imagine it alongside DoorDash and smartphones. The place it is truly popular is China, where the party delivered growth, and he reads China as classically Marxian in sequence: industrialize first, which Mao agrarian detour violated, with the fading-away-of-the-state part never arriving.</p>
+
+</section>
+<section class="chapter" id="ch-mentors" data-time="~00:41" data-title="Mentors and Symbolic Systems">
+
+<p class="ch-time">~00:41</p>
+<h2>Mentors and Symbolic Systems</h2>
+<p><span class="tag fact">Source fact</span> Rule eight covers mentorship, and Tyler calls it one of two nearly universal pieces of advice. The other: keep a small group of smart, interesting peers. A mentor is simply someone who knows an area better than you and will help: an art mentor, a classical music mentor, a China mentor. Humans learn through other humans. A book on geology will not stick, but a book plus a mentor plus a group will.</p>
+<p><span class="tag fact">Source fact</span> He warns against the formal ask. Emailing a stranger to be your mentor rarely clicks. Real mentorship is informal: someone who enjoys your company, meets periodically, and sometimes is already a friend whose expertise you had not noticed. You know a mentor when you have one, and you know the absence too.</p>
+<p><span class="tag fact">Source fact</span> Rule two: study the symbolic systems of art, music, literature, and religion. People who study opposing political views directly hit a wall and sort everything into agree or disagree. Art resists that sorting. The codes keep outpacing you, and the puzzles stay strong. That mode of attention transfers: those are the stories a culture tells about itself, so why would that be a weird place to look?</p>
+<p><span class="tag fact">Source fact</span> His own taste runs to foreign literature in translation, which he finds more vital than much American highbrow fiction. He names Knausgaard, Elena Ferrante, and Michel Houellebecq as bets to last.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the names as Can I Us Guard and Michelle Hubeck. Corrected to Knausgaard and Michel Houellebecq in this companion. Originals noted in the footer.</div>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 &middot; Learning</p>
+<h4>Get mentors, not just books</h4>
+<p><span class="lbl">What happened. </span>Tyler two universal advices: a small peer group and mentors in every domain you want to enter. Knowledge becomes vivid through people.</p>
+<p><span class="lbl">Why it matters. </span>Reading alone rarely sticks. The mentor supplies the vividness that turns information into understanding.</p>
+<p><span class="lbl">The principle. </span>For each thing you want to learn, find the human first and the bibliography second.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-effective" data-time="~00:47" data-title="Super-Effective People and Magic in the Air">
+
+<p class="ch-time">~00:47</p>
+<h2>Super-Effective People and Magic in the Air</h2>
+<p><span class="tag fact">Source fact</span> Tyler wants more study of super-effective people. Biographies sprawl, trick books cannot exist, and the middle literature is thin. On whether effectiveness is learnable, he holds both truths at once: heritability studies are correct that shared family environment explains little, and yet Florence, with 60,000 to 80,000 people, produced the Renaissance, which genes cannot explain.</p>
+<p><span class="tag fact">Source fact</span> His resolution is local culture: magic in the air. Small groups, raised aspirations, easier mentorship. Jews dominated boxing once and do not now. The genes did not change, the incentives and culture did. He cites Grandma Moses, who started painting past 70 and hangs in museums, as the case against writing people off.</p>
+<p><span class="tag fact">Source fact</span> That is the theory behind his Emergent Ventures grants: small, fast money for interesting people. Efficient markets hold for liquid securities, he says, but talent is an illiquid market full of bias and missed pattern recognition. Big foundations could do this but have become slow, bureaucratic, and politicized, with feedback loops that reward conformism. His model is Florentine: small, compact decision makers allocating capital quickly. He notes Schmidt Futures now funds 14 to 17 year olds for at least five years as a similar bet.</p>
+<div class="nugget reveal" id="nugget-8">
+<p class="eyebrow">Nugget 8 &middot; Talent</p>
+<h4>Bet on the illiquid market</h4>
+<p><span class="lbl">What happened. </span>Tyler funds people, not proposals, with small fast grants, on the theory that talent spotting is the least efficient market around.</p>
+<p><span class="lbl">Why it matters. </span>Wherever allocation is slow and conformist, a fast contrarian allocator wins. The edge is speed plus judgment.</p>
+<p><span class="lbl">The principle. </span>Find the market everyone agrees is inefficient and be the liquidity.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-lookism" data-time="~00:52" data-title="Lookism">
+
+<p class="ch-time">~00:52</p>
+<h2>Lookism</h2>
+<p><span class="tag fact">Source fact</span> Lookism, judging people by their looks, is radically under-discussed, Tyler says. Everyone does it. Sometimes the inference is sound: a high share of the world seven-footers play in the NBA. But stereotyping is easy, and the under-discussion itself is the tell: we are happy judging and do not want the habit examined.</p>
+<p><span class="tag fact">Source fact</span> He notes the asymmetry of privilege talk: many privileges get named, but good looks rarely do, and the very unattractive get no credit for a real hardship. Extreme beauty has costs too: less seriousness, sexualization, weaker drive. He cites a machine learning paper claiming small but real prediction of political views from photographs, likely picking up head tilt and expression, and the evidence for a short-men earnings penalty.</p>
+<div class="warnbox"><b>Trap card.</b> The photo-politics paper and the short-men earnings evidence are cited without sources on air. Quote them only with that flag.</div>
+<div class="nugget reveal" id="nugget-9">
+<p class="eyebrow">Nugget 9 &middot; Bias</p>
+<h4>The undiscussed privilege</h4>
+<p><span class="lbl">What happened. </span>Tyler argues looks shape outcomes as much as many discussed privileges, yet the topic stays off limits, which suggests we like the judging more than we admit.</p>
+<p><span class="lbl">Why it matters. </span>Undervalued assets are opportunities: people misjudged on looks are talent the market misprices.</p>
+<p><span class="lbl">The principle. </span>Notice which biases polite conversation forbids naming. Those are the live ones.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-aspirations" data-time="~00:54" data-title="Raise Aspirations">
+
+<p class="ch-time">~00:54</p>
+<h2>Raise Aspirations</h2>
+<p><span class="tag fact">Source fact</span> The closing question: what makes lifting aspirations pay so well? Because most people are not ambitious enough. Not from laziness, but from imagination failure: the scope of what they consider possible is too small, until they see it embodied in another human.</p>
+<div class="pull">
+<blockquote>People's imaginations are not vivid enough.</blockquote>
+<p class="who">Tyler Cowen &middot; Episode ~00:55</p>
+</div>
+<p><span class="tag fact">Source fact</span> His evidence is a story from his coauthor, the venture capitalist Daniel Gross. Meeting Mark Zuckerberg and watching him give a normal talk made it vivid that being a Zuckerberg is a thing humans do. Ambition compounds from there. Tyler calls the imagination gap one of the biggest market failures there is, and says two decades of evidence moved him from skeptic to believer on role-model effects: kids who see someone like them at great heights aim higher.</p>
+<div class="nugget reveal" id="nugget-10">
+<p class="eyebrow">Nugget 10 &middot; Ambition</p>
+<h4>Ambition is a vividness problem</h4>
+<p><span class="lbl">What happened. </span>People do not aim higher because they cannot picture the higher aim. One vivid encounter, Gross watching Zuckerberg, rewired the sense of possible.</p>
+<p><span class="lbl">Why it matters. </span>If the bottleneck is imagination, the fix is exposure, not exhortation. Show, do not tell.</p>
+<p><span class="lbl">The principle. </span>To raise someone aspirations, put the embodied example in front of them.</p>
+</div>
+<div class="takeaways">
+<h3>The episode in eight lines</h3>
+<ol>
+<li>Every proposition about real interest rates is wrong. Theorize the failure, not the rate.</li>
+<li>Experts borrow their off-duty opinions. Trust the lane, not the person.</li>
+<li>Salvage the true datum from the false movement.</li>
+<li>Small questions get answers. Big questions get humility.</li>
+<li>You do not understand a view until you can steelman it.</li>
+<li>Devalue and dismiss is a tax on your own growth.</li>
+<li>Learn through humans: mentors and small groups beat bibliographies.</li>
+<li>Ambition is vividness. Show the example and aspirations compound.</li>
+</ol>
+<p class="src">Distilled from Clearer Thinking, Tyler three laws and twelve rules with Tyler Cowen, 2021 podcast release, YouTube re-upload March 2023. Full episode: youtube.com/watch?v=a8qiJckz-8o. Times marked ~ are proportional estimates from word position.</p>
+</div>
+
+</section>
+<div class="wisdom"><h3>Nugget index</h3><ol>
+<li>A law about the limits of laws</li>
+<li>Specialization ate the big picture</li>
+<li>Separate the insight from the movement</li>
+<li>Small levers work. Big mysteries stay big.</li>
+<li>Steelman before you strike</li>
+<li>Devalue and dismiss is a tax you pay</li>
+<li>Get mentors, not just books</li>
+<li>Bet on the illiquid market</li>
+<li>The undiscussed privilege</li>
+<li>Ambition is a vividness problem</li>
+</ol></div>
+<p class="backlink"><a href="../index.html">&larr; Back to the Clearer Thinking track index</a></p>
+<footer><p><b>Sources.</b> This companion narrates the Clearer Thinking episode Tyler three laws and twelve rules with Tyler Cowen (podcast release 2021, YouTube re-upload March 2023, 57 minutes). All facts and figures come from the episode transcript (research/clearer-thinking/transcripts/a8qiJckz-8o.txt), a Whisper base.en transcription of the official podcast audio. The transcript carries no timestamps. All chapter times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p><p id="on-quotes"><b>On quotes.</b> Direct quotations in this companion total 35 words: four pull quotes, each carrying speaker and proportional episode-time attribution, plus five short quoted transcript fragments in the corrections note below. Everything else is original paraphrase and analysis.</p><p><b>On transcript corrections.</b> The transcript is a machine transcription with rough edges. Applied corrections, with originals. The guest name is Tyler Cowen (transcript: "Cowan"). The coauthor is Alex Tabarrok (transcript: "Taberock"). Spencer site is spencergreenberg.com (transcript: "spencergreenburn.com"). The novelist is Michel Houellebecq (transcript: "Michelle Hubeck"). The novelist named alongside Ferrante is Knausgaard (transcript: "Can I Us Guard").</p><p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p></footer>
+
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var ttl = ch.getAttribute('data-title') || '';
+    a.innerHTML = '<span class="t">' + t + '</span>' + ttl;
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(txt, x, y){
+    tip.textContent = txt;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
