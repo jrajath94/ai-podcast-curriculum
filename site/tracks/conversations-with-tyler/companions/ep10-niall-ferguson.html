@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niall Ferguson on Why We Study History · Conversations with Tyler Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Conversations with Tyler episode with Niall Ferguson (July 2021): pessimism, Bond, counterfactuals, Collingwood, empire, libraries, and doom.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700}
+  .deck{font-size:21px;color:var(--muted);line-height:1.5;margin:0 0 24px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--sans);
+    font-size:13px;color:var(--muted);margin-bottom:26px}
+  .meta b{color:var(--ink);font-weight:600}
+  .herofig{margin:0 0 8px}
+  .herofig img{width:100%;height:auto;display:block;border-radius:6px}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 30px}
+  blockquote.pull{margin:38px 0;padding:6px 0 6px 26px;border-left:4px solid var(--accent);
+    font-size:25px;line-height:1.45;font-style:italic;color:var(--ink)}
+  .pullattr{font-family:var(--sans);font-size:13px;color:var(--muted);
+    margin:-28px 0 38px;padding-left:30px}
+  .warnbox{background:#fdf3e7;border:1px solid #e8cda2;border-radius:8px;
+    padding:16px 20px;margin:30px 0;font-size:16px}
+  .warnbox b{font-family:var(--sans)}
+  section.chapter{margin:0;padding:34px 0;border-top:1px solid var(--line)}
+  section.chapter h2{font-size:27px;margin:0 0 6px;line-height:1.25}
+  section.chapter .ts{font-family:var(--mono);font-size:12.5px;color:var(--accent-ink);
+    letter-spacing:.04em;margin:0 0 16px}
+  section.chapter p{margin:0 0 16px}
+  .fig{margin:26px 0}
+  .fig img{width:100%;height:auto;display:block;border-radius:6px}
+  .fig .caption{margin-top:8px}
+  .chart{background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:20px;margin:26px 0}
+  .chart h3{font-family:var(--sans);font-size:14px;margin:0 0 4px}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .bar{cursor:default}
+  .chart .bar rect{fill:var(--accent)}
+  .chart .bar.alt rect{fill:#8a9a5b}
+  .chart .bar.dim rect{fill:#c9bfae}
+  .chart text{font-family:var(--sans);font-size:12px;fill:var(--ink)}
+  .chart .grid{stroke:var(--line);stroke-width:1}
+  .nuggets{background:var(--paper2);border:1px solid var(--line);border-radius:8px;
+    padding:26px 30px;margin:40px 0}
+  .nuggets h2{font-size:23px;margin:0 0 14px}
+  .nuggets ol{margin:0;padding-left:22px}
+  .nuggets li{margin:0 0 12px;font-size:16.5px}
+  footer.sources{border-top:2px solid var(--ink);margin-top:60px;padding-top:26px;
+    font-size:15px}
+  footer.sources h2{font-size:20px;margin:0 0 12px}
+  footer.sources p{margin:0 0 14px}
+  .onquotes{background:var(--soft);border-radius:8px;padding:18px 22px;margin:20px 0}
+  .vid{margin:34px 0}
+  .vid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Conversations with Tyler</a>
+  <span class="sub">Episode companion · Niall Ferguson on history</span>
+</header>
+<nav class="chapnav" aria-label="Chapters">
+  <a href="#ch01"><span class="t">~00:00</span>Scottish pessimism</a>
+  <a href="#ch02"><span class="t">~00:02</span>Not England</a>
+  <a href="#ch03"><span class="t">~00:04</span>Marx</a>
+  <a href="#ch04"><span class="t">~00:06</span>Bureaucracy</a>
+  <a href="#ch05"><span class="t">~00:07</span>Bond</a>
+  <a href="#ch06"><span class="t">~00:13</span>The epistemic crisis</a>
+  <a href="#ch07"><span class="t">~00:16</span>Glorious Revolution</a>
+  <a href="#ch08"><span class="t">~00:17</span>Walter Scott</a>
+  <a href="#ch09"><span class="t">~00:24</span>Collingwood</a>
+  <a href="#ch10"><span class="t">~00:26</span>A. J. P. Taylor</a>
+  <a href="#ch11"><span class="t">~00:31</span>Quentin Skinner</a>
+  <a href="#ch12"><span class="t">~00:32</span>Kings or queens</a>
+  <a href="#ch13"><span class="t">~00:35</span>Northern Ireland</a>
+  <a href="#ch14"><span class="t">~00:41</span>Rapid fire</a>
+  <a href="#ch15"><span class="t">~00:44</span>The Kelvin Bridge</a>
+  <a href="#ch16"><span class="t">~00:46</span>Libraries</a>
+  <a href="#ch17"><span class="t">~00:47</span>Tocqueville</a>
+  <a href="#ch18"><span class="t">~00:49</span>Keynes</a>
+  <a href="#ch19"><span class="t">~00:55</span>The Empire</a>
+  <a href="#ch20"><span class="t">~00:58</span>India</a>
+  <a href="#ch21"><span class="t">~00:59</span>Snow Crash</a>
+  <a href="#ch22"><span class="t">~01:00</span>Mexico City</a>
+  <a href="#ch23"><span class="t">~01:01</span>No more books</a>
+  <a href="#ch24"><span class="t">~01:03</span>Watch the episode</a>
+</nav>
+<div class="layout">
+<aside class="sidenav" aria-label="Chapters">
+  <h4>Chapters</h4>
+  <a href="#ch01"><span class="t">~00:00</span>Scottish pessimism</a>
+  <a href="#ch02"><span class="t">~00:02</span>Not England</a>
+  <a href="#ch03"><span class="t">~00:04</span>Marx</a>
+  <a href="#ch04"><span class="t">~00:06</span>Bureaucracy</a>
+  <a href="#ch05"><span class="t">~00:07</span>Bond</a>
+  <a href="#ch06"><span class="t">~00:13</span>The epistemic crisis</a>
+  <a href="#ch07"><span class="t">~00:16</span>Glorious Revolution</a>
+  <a href="#ch08"><span class="t">~00:17</span>Walter Scott</a>
+  <a href="#ch09"><span class="t">~00:24</span>Collingwood</a>
+  <a href="#ch10"><span class="t">~00:26</span>A. J. P. Taylor</a>
+  <a href="#ch11"><span class="t">~00:31</span>Quentin Skinner</a>
+  <a href="#ch12"><span class="t">~00:32</span>Kings or queens</a>
+  <a href="#ch13"><span class="t">~00:35</span>Northern Ireland</a>
+  <a href="#ch14"><span class="t">~00:41</span>Rapid fire</a>
+  <a href="#ch15"><span class="t">~00:44</span>The Kelvin Bridge</a>
+  <a href="#ch16"><span class="t">~00:46</span>Libraries</a>
+  <a href="#ch17"><span class="t">~00:47</span>Tocqueville</a>
+  <a href="#ch18"><span class="t">~00:49</span>Keynes</a>
+  <a href="#ch19"><span class="t">~00:55</span>The Empire</a>
+  <a href="#ch20"><span class="t">~00:58</span>India</a>
+  <a href="#ch21"><span class="t">~00:59</span>Snow Crash</a>
+  <a href="#ch22"><span class="t">~01:00</span>Mexico City</a>
+  <a href="#ch23"><span class="t">~01:01</span>No more books</a>
+  <a href="#ch24"><span class="t">~01:03</span>Watch the episode</a>
+</aside>
+<main id="main">
+<div class="hero">
+  <p class="kicker">Conversations with Tyler · Episode companion</p>
+  <h1>Niall Ferguson on Why We Study History</h1>
+  <p class="deck">Recorded in July 2021, with Doom: The Politics of Catastrophe fresh off the press, this episode runs from Scottish pessimism to Bond, Collingwood, empire, and why libraries beat Google.</p>
+  <div class="meta">
+    <span><b>Episode:</b> Conversations with Tyler, Niall Ferguson</span>
+    <span><b>Recorded:</b> July 28, 2021</span>
+    <span><b>Length:</b> about 64 minutes</span>
+    <span><b>Transcript:</b> about 8,800 words</span>
+  </div>
+  <figure class="herofig">
+    <img src="assets/ep10/ferguson.webp" alt="Portrait of Niall Ferguson">
+    <figcaption class="caption">Niall Ferguson. Photo via Panmure House.</figcaption>
+  </figure>
+</div>
+
+<section class="chapter" id="ch01">
+<p class="ts">~00:00</p>
+<h2>Scottish pessimism</h2>
+<p>English pessimism does not exist in Scottish eyes, Ferguson says, because the English always expect to win the World Cup. Scottish pessimism is different: the phrase we are doomed only really works in a Scottish accent. It is the difference between Calvinists and Anglicans. He grew up in the Calvinist west of Scotland with a pessimism alleviated only by gallows humor. Scotland has the weather to match. Hearing <em>The Sunny Side of the Street</em> as a boy, he wondered where that was.</p>
+<div class="fig">
+<img src="assets/ep10/wc-glasgow.webp" alt="Watercolor of a rain-soaked Glasgow street at dusk">
+<figcaption class="caption">The weather to go with the pessimism: Glasgow in the rain. Watercolor illustration.</figcaption>
+</div>
+</section>
+
+<section class="chapter" id="ch02">
+<p class="ts">~00:02</p>
+<h2>Not England</h2>
+<p>Welsh pessimism? Ferguson is a student of it, spending time in Wales. After two decades in America he sees the Celtic periphery, Scotland, Wales, Ireland, as one thing really: they should unite under the name Not England. South Wales is like the west of Scotland, coal mines and dilapidated steelworks, pubs that feel the same. Wales is Scotland lite, the diet version, less morose, and the Welsh do not take their nationalism too seriously. Nobody really thinks Wales will ever be independent. Scotland, unfortunately, has a significant proportion who believe in a People's Republic of Scotland, a terrible idea in his view.</p>
+</section>
+
+<section class="chapter" id="ch03">
+<p class="ts">~00:04</p>
+<h2>Marx</h2>
+<p>Who made the most convincing case for British pessimism? One word: Marx. His vision of the Industrial Revolution came from observing the British Isles, and because the English are obsessed with class, London gave him the idea that class was the key to history. Das Kapital is a prophetic work about England, and about any country that follows England down the route of industrial revolution and class society. Ferguson cannot think of a more influential pessimistic view of history.</p>
+<div class="warnbox"><b>Trap card.</b> Ferguson names Marx as the most convincing British pessimist in answer to a question about pessimism, not as an endorsement of Marxism. The praise is for influence and prophetic power, and it sits inside a conversation with an anti-Marxist historian.</div>
+</section>
+
+<section class="chapter" id="ch04">
+<p class="ts">~00:06</p>
+<h2>Bureaucracy</h2>
+<p>Le Carre's deadening bureaucracy as our sad future? Ferguson is closer to that than to Marx, but bureaucracy is not an English pathology. The modern bureaucratic state is a German idea, idealized by the Prussians, imported into the English-speaking world along with the PhD and all the bad things about academic life. When it reached Britain, rather late, it immediately became an object of mockery. The funniest thing ever written about bureaucracy is the sitcom Yes, Minister. It has since become a general pathology of the Western democratic world.</p>
+</section>
+
+<section class="chapter" id="ch05">
+<p class="ts">~00:07</p>
+<h2>Bond</h2>
+<p>Is James Bond a Scottish prophet of doom? Bond was played by a Scot, Sean Connery, and conceived by Fleming with at least a streak of Scottishness. Ferguson tells the story of meeting Connery in Lyford Cay, introduced without warning, finding the great man in the middle of lunch wearing only a sarong. Ferguson mumbled that he learned everything about how to be a man from watching him in Glasgow cinemas in the 1970s. Connery raised an eyebrow and asked whether Ferguson knew he was a homosexual. Ferguson asked whether that explained the skirt. The ice broke.</p>
+<p>The deeper point: Bond and Doctor Who are heroes of brains over brawn, compensations for dwindling economic muscle. Doctor Who is the only superhero who uses his brain, not his muscles. And Bond's villains, semi-freelancing criminals rather than Soviet employees, look prophetic now: that is how cyber warfare is waged, criminal gangs semi-officially working with the Kremlin, like the one behind the Colonial Pipeline attack.</p>
+</section>
+
+<section class="chapter" id="ch06">
+<p class="ts">~00:13</p>
+<h2>The epistemic crisis</h2>
+<p>What is the fundamental epistemic crisis of modernity? We are haunted by doomsday scenarios, seared into our subconscious by religion even though we think we are secular. The world will end in 12 years, no, 10. We also suspect, with Bostrom, that our technologies raised the probability of an extinction-level event, while we are promised a singularity of superhuman beings and AGI. Which scenario, extinction or singularity? Ferguson's historian instinct: each is very low probability indeed, and we should think more about the mundane scenarios in between.</p>
+<div class="chart" id="chart-scenarios">
+<h3>Ferguson's scenario skepticism</h3>
+<p class="csrc">His stated instinct, stylized. Not a forecast.</p>
+<svg viewBox="0 0 560 170" role="img" aria-label="Diagram of scenario probabilities">
+<g data-tip="Extinction-level events: very low probability, in his view"><rect x="20" y="40" width="60" height="40" fill="#c9bfae" rx="6"/><text x="28" y="64" font-size="11">Extinction</text></g>
+<g data-tip="The singularity: very low probability, in his view"><rect x="100" y="40" width="60" height="40" fill="#c9bfae" rx="6"/><text x="106" y="64" font-size="11">Singularity</text></g>
+<g data-tip="The mundane middle: more likely, and a relief or a disappointment"><rect x="180" y="40" width="360" height="40" fill="#8a9a5b" rx="6"/><text x="192" y="64">The mundane middle</text></g>
+<text x="20" y="120">Both extremes unlikely. Think about the middle</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch07">
+<p class="ts">~00:16</p>
+<h2>Glorious Revolution</h2>
+<p>Which side in the Glorious Revolution? Everybody should ask themselves each morning: Whig or Tory? Are you a Jacobite? Ferguson wrote about the Dutch takeover in Empire: it is bizarre that the British Isles got taken over by a Dutch monarch at the behest of a faction motivated by religious prejudice. On religious grounds, he favored the Whigs, an ardent Protestant Lowlander, drawn to Jacobite romanticism but repelled by the practice.</p>
+</section>
+
+<section class="chapter" id="ch08">
+<p class="ts">~00:17</p>
+<h2>Walter Scott</h2>
+<p>To understand any of it, read Walter Scott, which Ferguson did during the pandemic after years of hearing that Scott was dull. The Waverley novels hold the fundamental dilemmas of the Glorious Revolution, the Civil War, and the 1745 rising. Scott explains the extraordinary trajectory: Scotland went from being Afghanistan in the 17th century, warring clans in the north, a Calvinist theocracy in the Lowlands, deeply violent and dysfunctional, to the most dynamic tiger economy in the world in the 18th, cradle of the Enlightenment, all the best ideas of Western civilization at once, from a tiny number of people in Glasgow and Edinburgh.</p>
+<p>No book properly explains it, he says. But the lesson is Whiggish: the institutions imported from England, including the Dutch ones, got Scotland out of its Afghan predicament. Scott's own ambivalence, romantic about Jacobites, sober about bourgeois Glasgow, is the central tension of the culture, the same one Stevenson explores in Jekyll and Hyde and The Master of Ballantrae. Entrust your country to romanticism and it reverts to Afghanistan.</p>
+<div class="chart" id="chart-scotland">
+<h3>Scotland's trajectory, per Ferguson</h3>
+<p class="csrc">His summary, stylized.</p>
+<svg viewBox="0 0 560 170" role="img" aria-label="Timeline from Afghanistan to tiger economy">
+<g data-tip="17th century Scotland: clans, theocracy, high homicide"><rect x="20" y="50" width="180" height="44" fill="#b4531f" rx="6"/><text x="34" y="77" fill="#fff">Afghanistan, 1600s</text></g>
+<text x="215" y="77" font-size="20">→</text>
+<g data-tip="18th century Scotland: tiger economy, Enlightenment"><rect x="260" y="50" width="280" height="44" fill="#8a9a5b" rx="6"/><text x="274" y="77" fill="#fff">Tiger economy + Enlightenment, 1700s</text></g>
+<text x="20" y="130">Nobody would have bet on it</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch09">
+<p class="ts">~00:24</p>
+<h2>Collingwood</h2>
+<p>The most profound philosopher of history? R. G. Collingwood. He captured what historians do better than anyone: the historical act is the reconstitution of past thought from such relics of thought as survive, juxtaposed with the thought of your own time, studied not for its own sake but for the light it sheds on your own predicament. Ferguson found it after crossing the Atlantic to Harvard, a sudden illumination. Collingwood's autobiography, published 1939, should be required reading.</p>
+</section>
+
+<section class="chapter" id="ch10">
+<p class="ts">~00:26</p>
+<h2>A. J. P. Taylor</h2>
+<p>What did Ferguson take from A. J. P. Taylor? The throwaway line:</p>
+<blockquote class="pull">Men only learn from history how to make new mistakes.</blockquote>
+<p class="pullattr">A. J. P. Taylor, via Ferguson · ~00:26</p>
+<p>Taylor was his schoolboy hero. Ferguson applied to Magdalen, Oxford, believing Taylor was a fellow there. Taylor was long gone by the time Ferguson arrived. Taylor's prose belongs in the same league as Orwell's. His Origins of the Second World War is a masterpiece of polemical writing, but its method, strict adherence to the diplomatic documents, led to the appealing but wrong conclusion that Hitler was a traditional German statesman and the war an accident of misunderstandings. Taylor knowingly underplayed Hitler's ideological motivations for the contrarian argument. The antidote is Michael Burleigh's The Third Reich, which captures the political-religious, messianic quality of National Socialism that English-language biographies miss.</p>
+</section>
+
+<section class="chapter" id="ch11">
+<p class="ts">~00:31</p>
+<h2>Quentin Skinner</h2>
+<p>What did he learn from Quentin Skinner? How to be patronized. As a young fellow at Christ's College, Cambridge, Skinner told him that in the great chain of being, intellectual history was at the top and economic history at the bottom, the bottom feeders. The kind of thing said at high table in the early 1990s to put an upstart in his place. Still, Skinner insisted on contextualizing documents, on not reading texts as if handed down on stone tablets, and Ferguson admires him as a scholar.</p>
+</section>
+
+<section class="chapter" id="ch12">
+<p class="ts">~00:32</p>
+<h2>Kings or queens</h2>
+<p>Kings or queens? No preference. Mary, Queen of Scots, got herself into more trouble than almost any monarch he can think of, and the sample size is too small anyway. He worked the data on how monarchs end once: they come to a lot of sticky ends, women as well as men. He avoided royal history his whole career. English historians are supposed to write about Henry VIII. He once tried a Saxe-Coburg-Gotha dynasty book after the Rothschild book, drew a wonderful family tree showing one family holding nearly all of Europe's thrones by 1900, but the royal letters were gossip and hunting stories, far more boring than the Rothschild correspondence, and he fell asleep in the Windsor archives.</p>
+</section>
+
+<section class="chapter" id="ch13">
+<p class="ts">~00:35</p>
+<h2>Northern Ireland</h2>
+<p>What happens in Northern Ireland? Boris Johnson, the Disraeli of our time, not the Churchill, agreed to the unworkable Northern Ireland Protocol to get to the top of the greasy pole. The customs border in the Irish Sea is a terrible blow to Ulster Unionism and a win for Irish reunification, but Boris has only the haziest notions about Northern Ireland. Ferguson does not buy the warnings that the Troubles will return. That is bluff. The English no longer care about any of it, and indifference is the more powerful force. In fifty years, one Ireland is possible. The United Kingdom is shape-shifting. It has only had its current form for about a hundred years.</p>
+<div class="warnbox"><b>Trap card.</b> These are Ferguson's political judgments from July 2021, stated as such. The Northern Ireland Protocol has since been renegotiated. This companion reports his views, not the current state of play.</div>
+<p>His own arc: Scottish nationalist at 15, ready to punch people over it. Young Thatcherite punk Tory at Oxford. Then the historian's view that Scotland got a great deal out of the Union. After fighting the 2014 referendum, he is despondent at making the arguments again. His message to the nationalists now:</p>
+<blockquote class="pull">try independence and see how you like it</blockquote>
+<p class="pullattr">Niall Ferguson, to Scottish nationalists · ~00:40</p>
+</section>
+
+<section class="chapter" id="ch14">
+<p class="ts">~00:41</p>
+<h2>Rapid fire</h2>
+<p>Boswell or Johnson? Boswell, because Ferguson identifies with him, sometimes feeling he is Kissinger's Boswell, trotting along writing down aphorisms. But Johnson has the better lines, and Boswell deserves the credit for giving them to him. Alasdair Gray over Irvine Welsh: better writer, Lanark is a great book. Lennon over McCartney: he cried when Lennon died, all the great songs are Lennon's, though Macca is a lovely man. Best American punk band? There is not one.</p>
+<blockquote class="pull">Punk was British.</blockquote>
+<p class="pullattr">Niall Ferguson · ~00:43</p>
+<p>The Dead Kennedys get a B+. His musical education was John Peel's radio show, ten to midnight, punk and reggae. After the Sex Pistols: the Jam, the Clash, the Damned, the Buzzcocks.</p>
+<div class="warnbox"><b>Trap card.</b> The punk-was-British claim is Ferguson's stated opinion in a music debate, delivered with a grin. It is not a musicological finding.</div>
+</section>
+
+<section class="chapter" id="ch15">
+<p class="ts">~00:44</p>
+<h2>The Kelvin Bridge</h2>
+<p>His favorite bridge in Glasgow: the bridge over the River Kelvin near his school, Glasgow Academy, maybe boringly called the Kelvin Bridge. A lovely spot, walked to and from school in all weathers. Glasgow is a rather beautiful city, he says, to the surprise of some.</p>
+<div class="fig">
+<img src="assets/ep10/kelvin.webp" alt="The Kelvin Bridge over the River Kelvin in Glasgow">
+<figcaption class="caption">The Kelvin Bridge, walked to and from school in all weathers. Photo via ephotozine.</figcaption>
+</div>
+</section>
+
+<section class="chapter" id="ch16">
+<p class="ts">~00:46</p>
+<h2>Libraries</h2>
+<p>The Macintosh Library burning down is a great tragedy, because public libraries made him. Sent to the Mitchell Library as a schoolboy to write about the Thirty Years' War, he saw the shelves and realized history was an unmanageable quantity of data. That was when the challenge gripped him.</p>
+<blockquote class="pull">Libraries are better than Google.</blockquote>
+<p class="pullattr">Niall Ferguson · ~00:46</p>
+<p>Print produced an enormous amount of content not designed to sell ads, and libraries became the organizing institutions of information, with cataloging systems designed only to connect the book in your hands with related books. Google sorts to sell ads. Library cataloging is a much-underrated contribution to civilization.</p>
+</section>
+
+<section class="chapter" id="ch17">
+<p class="ts">~00:47</p>
+<h2>Tocqueville</h2>
+<p>The strongest defense of liberalism? Tocqueville, always, over Mill and Hayek. An Oxford story: reading L'Ancien Regime in French in his first term, hard work with weak French, but the conversations with his tutor Angus Macintyre and near-contemporary Andrew Sullivan were seminal. Tocqueville's insight: liberty must be protected by nonobvious means, by things a liberal might not even approve of. Democracy in America shows why France could not be the United States, and what institutional supports made American liberty distinctive. Ferguson is, by his own admission, a philosophical ignoramus who needs a story, and Tocqueville's story clicked.</p>
+</section>
+
+<section class="chapter" id="ch18">
+<p class="ts">~00:49</p>
+<h2>Keynes</h2>
+<p>How does Ferguson feel reading Keynes? Awe. The General Theory was the hardest thing he had ever read. He read it cover to cover three times, taking notes. But he is out of sympathy with Keynes's Bloomsbury iconoclasm, the tearing down of Victorian verities, gold standard, free trade, posterity, which cleared a path for a failed socialist experiment and Labour dominance and stagnation. He is more Bloomsbury than he looks, with his own network of artists and musicians, but more sympathetic to the Victorian achievement. Keynes's redeeming feature: the heroic effort to keep Britain from going under in World War II, fighting Roosevelt's advisers as they tried to dismantle the British Empire.</p>
+</section>
+
+<section class="chapter" id="ch19">
+<p class="ts">~00:55</p>
+<h2>The Empire</h2>
+<p>His heretical position, held for at least twenty years:</p>
+<blockquote class="pull">the benefits of the British Empire outweighed the costs</blockquote>
+<p class="pullattr">Niall Ferguson · ~00:55</p>
+<p>The argument is economic and counterfactual. The 19th-century empire became an empire of liberalism: free trade, free migration, free capital movement, and it turned away from slavery before others did. Compared with the available alternatives, including indigenous empires, it was a remarkably benign empire. Comparing it to the Third Reich commits category errors and refuses realistic counterfactuals. Empire is a book he could not publish today. Bruce Gilley's unpublished article makes the same argument, and Ferguson's only regret is that Gilley did not cite it. The view has made him a hate figure for the academic left, for whom imperialism is mandatory unmitigated evil, the opposite of Collingwood's faithful reconstruction of past thought.</p>
+<div class="fig">
+<img src="assets/ep10/wc-empire.webp" alt="Watercolor of an antique world map with ships, trains, and telegraph routes">
+<figcaption class="caption">The empire as a network of ships, railways, and telegraphs. Watercolor illustration.</figcaption>
+</div>
+<div class="warnbox"><b>Trap card.</b> The cost-benefit verdict on the British Empire is Ferguson's stated heretical position, and he says so himself. This companion presents his argument and his counterfactual method faithfully. It does not present the verdict as historical consensus.</div>
+</section>
+
+<section class="chapter" id="ch20">
+<p class="ts">~00:58</p>
+<h2>India</h2>
+<p>Cowen pushes on India: post-independence growth outran empire growth, and the empire invested very little in public goods. Ferguson answers with Tirthankar Roy's book, the best on this: large-scale investment in infrastructure, vastly more railroad, telegraph, and dock construction than in Qing China. Oriental empires invested far less. The real shortfall was primary education. The British trained a native elite to run the empire and left basic education unfunded, one reason India remains poor. And the counterfactual cannot be that the policies of the 1990s magically happened in the 1890s. The question is what comparable geographies did in the 1890s.</p>
+</section>
+
+<section class="chapter" id="ch21">
+<p class="ts">~00:59</p>
+<h2>Snow Crash</h2>
+<p>The most plausible dystopia in science fiction? Neal Stephenson's Snow Crash. Stephenson saw brilliantly that we would spend half our lives on the internet and our avatars would start having more fun than us. The juxtaposition of a breaking-down California, people online half the time, and great flotillas of illegal migrants. Brilliant book.</p>
+</section>
+
+<section class="chapter" id="ch22">
+<p class="ts">~01:00</p>
+<h2>Mexico City</h2>
+<p>What did he learn in Mexico City? His motivation was to see his daughter, unseen for nearly eighteen months. He learned she was fine. But you cannot help but learn: the populism of the left may get rewarded more than the populism of the right in Latin America, because Mexico will recover rapidly on America's coattails despite bad excess mortality, while Brazil faces a torrid time for which Bolsonaro will be blamed. Mexico City seemed more okay than he expected.</p>
+</section>
+
+<section class="chapter" id="ch23">
+<p class="ts">~01:01</p>
+<h2>No more books</h2>
+<p>No more books after the second Kissinger volume. That will make seventeen, quite enough, and he is not sure anybody reads books all the way through anymore. It is a fool's errand to change minds with 400-page volumes. The Kissinger book is worth writing: Central Committee transcripts, previously untouched, will illuminate the US-China relationship freshly. After that, at 57, with maybe two decades left, the priority is intellectual succession and institution building. Academic life has gone off the rails in ways he never imagined in the 1980s. New institutions are urgently needed, and that should strike terror in his enemies' hearts.</p>
+</section>
+
+<section class="chapter" id="ch24">
+<p class="ts">~01:03</p>
+<h2>Watch the episode</h2>
+<div class="vid">
+<iframe src="https://www.youtube-nocookie.com/embed/v7hEF8CS79U" title="Conversations with Tyler: Niall Ferguson" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>The full 64-minute conversation, recorded July 2021.</p>
+</section>
+
+<section class="nuggets" id="nuggets">
+<h2>Nuggets of wisdom</h2>
+<ol>
+<li>The phrase we are doomed only really works in a Scottish accent.</li>
+<li>Wales is Scotland lite: the diet version.</li>
+<li>The most convincing British pessimist is Marx.</li>
+<li>Bureaucracy is a German idea. Yes, Minister is the funniest thing written about it.</li>
+<li>Bond and Doctor Who compensate for dwindling economic muscle with superior brains.</li>
+<li>We are haunted by doomsday, seared into us by religion.</li>
+<li>Extinction and singularity are both low-probability. Think about the mundane middle.</li>
+<li>Ask yourself each morning: Whig or Tory? Are you a Jacobite?</li>
+<li>Scotland went from Afghanistan to tiger economy in a single century.</li>
+<li>History is the reconstitution of past thought, set against your own.</li>
+<li>Men only learn from history how to make new mistakes.</li>
+<li>Taylor's Hitler-as-bumbler comes from trusting only the diplomatic documents.</li>
+<li>In the Cambridge chain of being, economic history is the bottom feeder.</li>
+<li>Boris Johnson is the Disraeli of our time, not the Churchill.</li>
+<li>Boswell deserves the credit for giving Johnson the better lines.</li>
+<li>Libraries are better than Google: honest sorting against ad sorting.</li>
+<li>Tocqueville's liberty must be protected by nonobvious means.</li>
+<li>The General Theory, read three times cover to cover, with notes.</li>
+<li>Judge empires by counterfactuals: what were the available alternatives.</li>
+<li>After Kissinger: no more books. Build institutions instead.</li>
+</ol>
+</section>
+
+<footer class="sources">
+<h2>Sources and attribution</h2>
+<p><b>Episode:</b> Conversations with Tyler, Niall Ferguson (July 28, 2021), about 64 minutes, about 8,800 words. Video <code>v7hEF8CS79U</code>. All timestamps are proportional estimates marked <code>~</code>, computed from transcript position against the episode length.</p>
+<p><b>Photos:</b> Niall Ferguson portrait via Panmure House (panmurehouse.org). Kelvin Bridge, Glasgow, via ephotozine.</p>
+<p><b>Corrections:</b> none. The Northern Ireland Protocol was later renegotiated, after this 2021 conversation. Ferguson's remarks are reported as his views at the time.</p>
+<div class="onquotes">
+<p><b>On quotes.</b> This companion contains <b>35</b> quoted words, counted mechanically with <code>recount_quotes.py</code> (blockquote markup plus every double-quoted phrase in visible body text, footer excluded, data-tips included). Breakdown: 10 + 8 + 3 + 5 + 9, from five quoted passages: A. J. P. Taylor on learning from history, Ferguson on libraries and Google, on punk, on the British Empire, and to Scottish nationalists. Each quote is verbatim from the transcript and edited to hard-fail nothing.</p>
+</div>
+</footer>
+</main>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.chapnav a,.sidenav a'));
+  var map={}; links.forEach(function(a){var id=a.getAttribute('href').slice(1);(map[id]=map[id]||[]).push(a)});
+  var secs=Object.keys(map).map(function(id){return document.getElementById(id)}).filter(Boolean);
+  function onScroll(){
+    var best=null;
+    secs.forEach(function(s){if(s.getBoundingClientRect().top<140)best=s});
+    links.forEach(function(a){a.classList.toggle('active',best&&a.getAttribute('href')==='#'+best.id)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>
