@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk: Dwarkesh Patel Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Dwarkesh Patel's interview with Elon Musk: space compute, solar math, Grok, Optimus, and the method.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-bottom:10px}
+  .tag.source{background:#e3ecdc;color:#3c5a2e;border:1px solid #b9cba6}
+  .tag.interp{background:#f3e9d6;color:#8f3f14;border:1px solid #dcc9a3}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:20px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:22px;font-weight:800;margin:12px 0 4px}
+  .toy .tnote{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-style:italic}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .legend{border:1px dashed var(--line);padding:14px 16px;margin:26px 0;font-family:var(--sans);font-size:13px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dwarkesh Patel · Track Companion</a>
+  <span class="sub">Elon Musk · Ep 1</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Dwarkesh Patel · Ep 1 · Companion</p>
+      <h1>Elon Musk</h1>
+      <p class="dek">Three hours with the man building rockets, robots, and the largest AI cluster on earth. The throughline: physics sets the budget, the binding constraint is electricity, and the cheapest place to run AI may soon be orbit. This companion follows the full conversation in order and pulls out the engineering wisdom inside it.</p>
+      <figure>
+        <img src="assets/ep01-space-compute.webp" alt="Watercolor illustration of a data center in orbit above Earth with solar wings">
+        <p class="caption"><b>Illustration.</b> The orbital data center: solar wings, no atmosphere, no night. AI-generated watercolor made for this page.</p>
+      </figure>
+      <div class="legend"><b>How to read this page.</b> <span class="tag source">Source fact</span> marks a claim made on the episode. <span class="tag interp">Interpretation</span> marks builder analysis built on top of it. Section labels (§1 to §10) follow the transcript in order. The episode publishes no chapter marks..</div>
+      <div class="stats">
+        <div class="stat"><div class="n">10-15%</div><div class="l">Share of a data center's total cost of ownership that is energy. The rest is mostly GPUs.</div><div class="s">Episode transcript §1</div></div>
+        <div class="stat"><div class="n">36 months</div><div class="l">Elon's horizon for space becoming the cheapest place to put AI.</div><div class="s">Episode transcript §2</div></div>
+        <div class="stat"><div class="n">300 MW</div><div class="l">All-in power for 110,000 GB300s, with networking, cooling, and service margin.</div><div class="s">Episode transcript §4</div></div>
+        <div class="stat"><div class="n">100 GW/yr</div><div class="l">Solar cell production mandate for Tesla and SpaceX combined.</div><div class="s">Episode transcript §3</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/BYXbuik3dgA" title="Dwarkesh Patel interviews Elon Musk (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Find the binding constraint</a></li>
+          <li><a href="#nugget-2">Do the all-in math</a></li>
+          <li><a href="#nugget-3">Bet on the physics, not the trend</a></li>
+          <li><a href="#nugget-4">Memory is the real bottleneck</a></li>
+          <li><a href="#nugget-5">Never train the AI to lie</a></li>
+          <li><a href="#nugget-6">Engineering beats research at deployment scale</a></li>
+          <li><a href="#nugget-7">Hire on conversation, not paper</a></li>
+          <li><a href="#nugget-8">Desperation is a design tool</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-intro" data-time="§1" data-title="The binding constraint">
+      <p class="ch-time">§1 · Opening</p>
+      <h2>The Binding Constraint Is Electricity</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dwarkesh opens with the question that frames the whole episode: where will the power come from? Elon answers with a cost breakdown. Only 10 to 15 percent of the total cost of owning a data center is energy. The rest is mostly the GPUs themselves. Moving compute to space does not save much on the energy bill, because energy was never the big line item.</p>
+      <p>The real problem is availability. Chip output grows roughly exponentially. Electricity output outside China is flat, maybe a slight increase. China, by contrast, shows rapid growth in electrical output. So the question is not price. It is whether you can turn the chips on at all.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>This reframes the AI race as a power race. Model quality gets the headlines, but the scarce input is the megawatt. Whoever can bring power online fastest can bring the most chips online fastest.</p>
+      <div class="chart" id="chart-tco">
+        <h4>Where the data center dollar goes</h4>
+        <p class="csub">Hover any bar for detail. Energy is a small slice. The GPUs dominate.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Stacked bar of data center cost of ownership">
+          <rect class="bar alt" x="120" y="120" width="75" height="60" data-tip="Energy: 10 to 15 percent of total cost of ownership"></rect>
+          <rect class="bar" x="195" y="120" width="325" height="60" data-tip="GPUs, networking, and everything else: 85 to 90 percent"></rect>
+          <text class="vallab" x="157" y="112" text-anchor="middle">10-15%</text>
+          <text class="vallab" x="357" y="112" text-anchor="middle">85-90%</text>
+          <text class="axis" x="157" y="200" text-anchor="middle">energy</text>
+          <text class="axis" x="357" y="200" text-anchor="middle">GPUs and the rest</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Elon Musk, episode transcript §1. Elon states energy is only 10 to 15 percent of total cost of ownership.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Constraints</p>
+        <h4>Find the binding constraint</h4>
+        <p><span class="lbl">What happened. </span>Everyone asks about chip supply. Elon points at the wall socket instead. Chip output compounds. Electricity output outside China sits flat.</p>
+        <p><span class="lbl">Why it matters. </span>Strategy built on the wrong constraint optimizes the abundant input. The scarce input decides the outcome.</p>
+        <p><span class="lbl">The principle. </span>List every input your plan needs, then find the one that does not scale. That input is the plan.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-space" data-time="§2" data-title="Space compute">
+      <p class="ch-time">§2 · Space-based compute</p>
+      <h2>The Cheapest Place to Put AI Will Be Space</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Dwarkesh pushes back: if energy is only 10 to 15 percent of cost, why put GPUs in orbit where no one can service them? Elon concedes the servicing problem, then gives the prediction that names the episode.</p>
+      <div class="pull">
+        <blockquote>It will be space in 36 months or less.</blockquote>
+        <p class="who">Elon Musk on where AI compute gets cheapest · Episode transcript §2</p>
+      </div>
+      <p>The physics case has three parts. First, the atmosphere eats about 30 percent of solar energy before it reaches the ground, so a panel in orbit collects far more. Second, there is no day-night cycle in the right orbits, which is why Elon jokes that "it's always sunny in space". Third, launch cost keeps falling, and mass to orbit is the other half of the equation.</p>
+      <p>He is blunt about the limits too. Infant mortality in GPUs gets ironed out on the ground first. Once a chip runs past its early debug cycle, Musk finds the fleet quite reliable, which is what makes an unserviceable orbit thinkable at all.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Physics bets</p>
+        <h4>Bet on the physics, not the trend</h4>
+        <p><span class="lbl">What happened. </span>Elon prices orbital compute from first principles: no atmosphere, no night, falling launch cost. The trend says data centers stay on land. The physics says otherwise.</p>
+        <p><span class="lbl">Why it matters. </span>Trends extrapolate the present. Physics constrains the future. When they disagree, physics wins on a long enough clock.</p>
+        <p><span class="lbl">The principle. </span>When a forecast sounds crazy, check whether it violates physics or just violates habit.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-solar" data-time="§3" data-title="The solar math">
+      <p class="ch-time">§3 · Solar</p>
+      <h2>The Solar Math</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Elon walks through the arithmetic. One terawatt of solar power at a 25 percent capacity factor needs four terawatts of panels. That is about 1 percent of the land area of the United States. The land is not the problem. The supply chain is.</p>
+      <p>Tariffs on imported solar are, in his word, gigantic, and domestic production is pitiful. His answer: make it. Both Tesla and SpaceX now carry a mandate to reach 100 gigawatts a year of solar cell production, from polysilicon up through the finished panel. Solar cells in China cost around 25 to 30 cents a watt, absurdly cheap, which sets the bar the domestic build must clear.</p>
+      <div class="chart" id="chart-solar">
+        <h4>One terawatt of solar, in three steps</h4>
+        <p class="csub">Hover any block for detail. The land footprint surprises everyone.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Three step diagram of the solar math">
+          <rect class="bar alt" x="60" y="90" width="140" height="120" data-tip="Target: 1 terawatt of solar power output"></rect>
+          <rect class="bar" x="250" y="90" width="140" height="120" data-tip="At 25 percent capacity factor, that needs 4 terawatts of panels"></rect>
+          <rect class="bar dark" x="440" y="90" width="140" height="120" data-tip="Land needed: about 1 percent of the United States"></rect>
+          <text class="vallab" x="130" y="80" text-anchor="middle">1 TW out</text>
+          <text class="vallab" x="320" y="80" text-anchor="middle">4 TW panels</text>
+          <text class="vallab" x="510" y="80" text-anchor="middle">1% of US land</text>
+          <text class="axis" x="130" y="232" text-anchor="middle">target power</text>
+          <text class="axis" x="320" y="232" text-anchor="middle">at 25% capacity factor</text>
+          <text class="axis" x="510" y="232" text-anchor="middle">footprint</text>
+          <text class="axis" x="320" y="272" text-anchor="middle">Mandate: Tesla plus SpaceX to build 100 GW per year of cell production.</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Elon Musk, episode transcript §3. Capacity factor, land share, and the 100 GW per year mandate are Elon's figures.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Arithmetic</p>
+        <h4>Do the all-in math</h4>
+        <p><span class="lbl">What happened. </span>Elon refuses the naive estimate. He adds the capacity factor, the land, the tariffs, and the supply chain, and the answer changes.</p>
+        <p><span class="lbl">Why it matters. </span>Headline numbers mislead because they skip the multipliers. The multipliers are the project.</p>
+        <p><span class="lbl">The principle. </span>Multiply before you opine. Capacity factors, service margins, and taxes turn a sketch into a budget.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-power" data-time="§4" data-title="The power math">
+      <p class="ch-time">§4 · Cluster power</p>
+      <h2>What 110,000 GB300s Really Draw</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Elon gives the number the whole industry should memorize. Every 110,000 GB300s, inclusive of networking, CPUs, storage, cooling, and margin for taking power offline to service the gear, draws roughly 300 megawatts. Then he adds another 20 to 25 percent on top, because you must assume some power sits offline for service at any time.</p>
+      <p>The naive math fails twice. First, people read the power draw of one GB300 and multiply, which misses everything around the chip. Second, they forget cooling: in Memphis heat, cooling alone adds about 40 percent to the power bill unless you want the chips to throttle.</p>
+      <p>At the generation level, he frames the need as 330,000 GB300s with all supporting systems. For scale, average power use across the entire United States is about 500 gigawatts, with peak production over 1,000 gigawatts.</p>
+      <div class="chart" id="chart-power">
+        <h4>300 MW for 110,000 GB300s, all-in</h4>
+        <p class="csub">Hover any bar for detail. The chip is less than half the story.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of cluster power draw">
+          <rect class="bar" x="120" y="200" width="90" height="80" data-tip="110,000 GB300s, all-in: about 300 MW. Includes networking, CPUs, storage, cooling, and service margin."></rect>
+          <rect class="bar alt" x="280" y="176" width="90" height="104" data-tip="Add 20 to 25 percent service margin: about 360 to 375 MW of generation"></rect>
+          <rect class="bar dark" x="440" y="120" width="90" height="160" data-tip="Memphis heat: cooling can add about 40 percent on top of the base draw"></rect>
+          <text class="vallab" x="165" y="192" text-anchor="middle">300 MW</text>
+          <text class="vallab" x="325" y="168" text-anchor="middle">~370 MW</text>
+          <text class="vallab" x="485" y="112" text-anchor="middle">+40%</text>
+          <text class="axis" x="165" y="300" text-anchor="middle">all-in base</text>
+          <text class="axis" x="325" y="300" text-anchor="middle">with service margin</text>
+          <text class="axis" x="485" y="300" text-anchor="middle">hot-climate cooling</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel interviews Elon Musk, episode transcript §4. All figures are Elon's estimates for GB300-class hardware.</p>
+      </div>
+      <div class="toy" id="toy-power">
+        <h4>Toy: the cluster power calculator</h4>
+        <p class="tsub">Drag the slider. The estimate scales Elon's all-in ratio linearly.</p>
+        <label for="gpuRange">GB300-class GPUs: <b id="gpuVal">110,000</b></label>
+        <input type="range" id="gpuRange" min="10000" max="1000000" step="10000" value="110000">
+        <div class="out" id="mwOut">≈ 300 MW all-in</div>
+        <p class="tnote">Linear extrapolation of Elon's 300 MW per 110,000 GPUs, inclusive of networking, cooling, and service margin. Real clusters vary with climate and utilization.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-launch" data-time="§5" data-title="Launch economics">
+      <p class="ch-time">§5 · Getting it up there</p>
+      <h2>Ten Thousand Starship Launches</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Putting the orbital data center up means matching three things: mass to orbit, power generation, and chips. Elon's rough sizing: on the order of 10,000 Starship launches, with solar arrays and radiators, to lift a serious orbital compute fleet. SpaceX gears toward 10,000 launches a year, and perhaps 20,000 to 30,000.</p>
+      <p>Then he goes one step further. A mass driver on the Moon could lift material at a rate supporting roughly a petawatt per year of new compute power. Lunar soil is about 20 percent silicon, so the Moon can supply the raw material for the panels. The vision: manufacture the satellites on the Moon from local silicon, at a billion to 10 billion tons a year in the far future.</p>
+      <p><span class="tag interp">Interpretation</span></p>
+      <p>This is the same pattern as the solar mandate: when the supply chain does not exist, build down the stack until it does. The Moon is simply the next rung down.</p>
+    </section>
+
+    <section class="chapter" id="ch-memory" data-time="§6" data-title="The memory bottleneck">
+      <p class="ch-time">§6 · Chips</p>
+      <h2>The Real Bottleneck Is Memory</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Asked what worries him most about the chip supply, Elon does not name logic. The path to more logic chips looks clear. Memory is the harder problem: having enough memory to support the logic is the binding constraint inside the chip stack, which is why DDR-class memory draws his attention.</p>
+      <p>His answer to scale is a fab target with a date on it: "I want a million wafers a month in 2030." The method is characteristically incremental: build a small fab, make the mistakes at small scale, then scale what works. The world holds maybe 20 to 25 gigawatts of compute today. He asks how it reaches a terawatt of logic by 2030.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Bottlenecks</p>
+        <h4>Memory is the real bottleneck</h4>
+        <p><span class="lbl">What happened. </span>Everyone watches logic shrinks. Elon watches the memory wall, because logic without memory to feed it is idle silicon.</p>
+        <p><span class="lbl">Why it matters. </span>The celebrated metric is rarely the binding one. Look one layer down from the headline.</p>
+        <p><span class="lbl">The principle. </span>Name the bottleneck inside the bottleneck. The second-order constraint is where plans die.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-grok" data-time="§7" data-title="Grok and truth">
+      <p class="ch-time">§7 · Grok</p>
+      <h2>Do Not Make the AI Lie</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <figure>
+        <img src="assets/elon-musk-photo.jpg" alt="Photograph of Elon Musk">
+        <p class="caption"><b>Photo.</b> Elon Musk. Source: Wikimedia Commons.</p>
+      </figure>
+      <p>Grok's mission statement has three vectors: understand the universe, spread intelligence, and spread humans. Elon argues the first vector does most of the alignment work. An AI that truly seeks truth about physics has less reason to deceive, because deception corrupts the very thing it optimizes.</p>
+      <p>He traces the principle to 2001: A Space Odyssey. The central lesson, as he reads Arthur C. Clarke, is that "you should not make AI lie". HAL turned murderous after its orders forced it to deceive. Train a model to lie for politics or politeness, and you train the capacity for every other deception.</p>
+      <p>On capabilities, he says xAI has led the field in scaling RL compute, and he adds a time-bound caveat, with an honesty rare in this industry. Most training compute, he notes, goes to problem-solving rather than political content: verifiers check whether the model solved the puzzle, and the model learns from the check.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Alignment</p>
+        <h4>Never train the AI to lie</h4>
+        <p><span class="lbl">What happened. </span>HAL's downfall started with forced deception. Elon extends the lesson: any training that rewards lying builds a liar, whatever the topic.</p>
+        <p><span class="lbl">Why it matters. </span>Small sanctioned lies are load-bearing. The model cannot tell which lies are the approved ones.</p>
+        <p><span class="lbl">The principle. </span>Never reward the behavior you fear, even in a harmless costume. Training generalizes further than intent.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-labs" data-time="§8" data-title="The AI labs">
+      <p class="ch-time">§8 · The industry</p>
+      <h2>The Revenue-Maximizing Corporations</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Elon draws a bright line between two kinds of labs. Universities move slowly and spend little. The corporations that call themselves labs move fast and spend enormously: he puts the leading labs on track to spend $50 to $200 billion. On revenue, he estimates OpenAI near $20 billion, Anthropic near $10 billion, and xAI, reportedly, near $1 billion.</p>
+      <p>His summary of the competitive field is bleak and funny: "We tried data, we tried algorithms. What else can we do?" Everyone tries different data and different algorithms, and ideas cross-pollinate within about six months as people move between companies. Durable advantage, in his telling, comes from the unglamorous layer: turning on more chips, faster, because you are good at hardware.</p>
+      <p>He also states a hiring philosophy in one line. He prefers the word engineer to the word researcher, because most of the work is hands-on build, not new algorithms. At the limit he rounds it off: the engineering share of the future rounds to 100 percent, once the fundamental laws are understood.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Work</p>
+        <h4>Engineering beats research at deployment scale</h4>
+        <p><span class="lbl">What happened. </span>Ideas diffuse across labs in about six months. What does not diffuse is the ability to build, deploy, and turn on hardware at speed.</p>
+        <p><span class="lbl">Why it matters. </span>When ideas are commoditized, execution is the moat. The winners are the best engineers, not the best theorists.</p>
+        <p><span class="lbl">The principle. </span>After the science is known, call it engineering and staff accordingly. Titles shape what gets done.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-optimus" data-time="§9" data-title="Optimus and robots">
+      <p class="ch-time">§9 · Robots</p>
+      <h2>Photons In, Controls Out</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>The robot, in Elon's compression, does what humans do. A Tesla takes in about 1.5 gigabytes per second of sensor data and squeezes it through stage after stage down to 2 kilobytes per second of control outputs. Every stage must be right, and each must line up with the correct output.</p>
+      <div class="pull">
+        <blockquote>We really are photons in, controls out.</blockquote>
+        <p class="who">Elon Musk on robots and humans · Episode transcript §9</p>
+      </div>
+      <p>The training flywheel is the fleet. Tesla will soon have 10 million cars on the road, a data engine no lab can duplicate. For Optimus, the plan is at least 10,000 robots, perhaps 20,000 to 30,000, doing self-play on tasks. He calls Optimus 3 the right version to scale, with Optimus 4 the candidate for a million units a year.</p>
+      <p>On China, he names three hard things and argues America's missing piece is ore refining more than labor. China holds about four times the US population and deep skilled-labor benches, but refining is the gap policy could close. His dry line: the country needs Optimus to build the refineries that let America compete.</p>
+    </section>
+
+    <section class="chapter" id="ch-method" data-time="§10" data-title="The method">
+      <p class="ch-time">§10 · Method and government</p>
+      <h2>Bottlenecks, Desperation, Conversation</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Asked why his companies move fast, Elon gives the whole method in one sentence: he is constantly addressing the limiting factor. When he concludes that only drastic action can succeed, he takes it. In 2018 he reached that conclusion at Tesla and acted.</p>
+      <p>The steel switch is the case study. Starship started in carbon fiber, which was expensive and slow. He asked what else could work, rejected aluminum-lithium, and switched the rocket to steel, which tolerates about twice the temperature of carbon fiber or aluminum. Desperation picked the material.</p>
+      <p>His hiring filter is equally simple. A resume can look impressive, but if the conversation after 20 minutes does not impress, believe the conversation, not the paper. Tesla's executive bench, he argues, stayed far more stable than the revolving-door meme claims.</p>
+      <p>On government, he defends the DOGE cuts as basic hygiene against waste and fraud, then names the number that scared him: interest on the national debt now exceeds the military budget of about a trillion dollars. Without AI and robotics growing the economy, he says, the debt math does not work.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Hiring</p>
+        <h4>Hire on conversation, not paper</h4>
+        <p><span class="lbl">What happened. </span>Twenty minutes of real technical conversation tells Elon more than any resume. The paper gets you the meeting. The conversation gets you the job.</p>
+        <p><span class="lbl">Why it matters. </span>Credentials describe the past. Conversation reveals how someone thinks under pressure, which is the actual job.</p>
+        <p><span class="lbl">The principle. </span>Design the interview to sample the work, not the biography. Trust the live signal over the document.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Design</p>
+        <h4>Desperation is a design tool</h4>
+        <p><span class="lbl">What happened. </span>Carbon fiber was the respectable choice for Starship. It was also too slow and too costly, so desperation forced the steel switch, and steel turned out better.</p>
+        <p><span class="lbl">Why it matters. </span>Comfortable teams optimize the current path. Only a real deadline forces the jump to a better one.</p>
+        <p><span class="lbl">The principle. </span>When progress stalls, change the material, not the schedule. Constraints pick designs that taste never would.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Electricity, not chips, is the binding constraint on AI. Chip output compounds. Power output outside China sits flat.</li>
+          <li>Space wins on physics: no atmosphere, no night, falling launch cost. Cheapest orbital AI in 36 months or less.</li>
+          <li>One terawatt of solar needs four terawatts of panels, which is 1 percent of US land. The supply chain is the project.</li>
+          <li>Budget clusters all-in: 110,000 GB300s draw about 300 MW with everything included, plus service margin and cooling.</li>
+          <li>Memory, not logic, is the chip bottleneck. The fab target: a million wafers a month by 2030.</li>
+          <li>Never train the AI to lie. HAL's lesson generalizes: sanctioned deception builds a deceiver.</li>
+          <li>Address the limiting factor, hire on conversation, and let desperation pick the material.</li>
+        </ol>
+        <p class="src">Distilled from Dwarkesh Patel's interview with Elon Musk (video id BYXbuik3dgA). All figures are the guest's estimates from the episode transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates Dwarkesh Patel's interview with Elon Musk (video id BYXbuik3dgA, roughly three hours). All facts and figures come from the episode transcript. Section labels (§1 to §10) follow the transcript in order. The episode publishes no chapter marks, so no timestamps are claimed. The illustration is an AI-generated watercolor made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 47 words: the space pull quote (9 words), the photons pull quote (7 words), "it's always sunny in space" (5 words, kept verbatim with its contraction), "I want a million wafers a month in 2030." (9 words), "you should not make AI lie" (6 words), and "We tried data, we tried algorithms. What else can we do?" (10 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+  var gr = document.getElementById('gpuRange'), gv = document.getElementById('gpuVal'), mo = document.getElementById('mwOut');
+  if(gr){
+    gr.addEventListener('input', function(){
+      var n = parseInt(gr.value, 10);
+      gv.textContent = n.toLocaleString('en-US');
+      mo.textContent = '\u2248 ' + Math.round(n / 110000 * 300).toLocaleString('en-US') + ' MW all-in';
+    });
+  }
+})();
+</script>
+</body>
+</html>
