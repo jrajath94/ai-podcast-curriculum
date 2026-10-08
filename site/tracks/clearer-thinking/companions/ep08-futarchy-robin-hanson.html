@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Futarchy and Social Innovation with Robin Hanson: Clearer Thinking Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Clearer Thinking episode with Robin Hanson: futarchy, decision markets, firing the CEO, national welfare, hypocrisy, the sacred, and why good institutions struggle to get adopted.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#23201a; --muted:#6e655a;
+    --line:#e3dccb; --accent:#0e6e6e; --accent-ink:#0a5454; --soft:#e8f1f0;
+    --warn:#fdf3e3; --warnline:#d9a441;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0dd}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d3830;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  figure.photo img{max-width:460px;margin:0 auto}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .warnbox{background:var(--warn);border:1px solid var(--warnline);border-left:4px solid var(--warnline);
+    padding:14px 18px;margin:22px 0;font-family:var(--sans);font-size:14px;line-height:1.6}
+  .warnbox b{color:#7a4d0a}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdcd9}
+  .bar.dark{fill:#3d3830}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e4eaea;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .curve{fill:none;stroke:var(--accent);stroke-width:3}
+  .curve2{fill:none;stroke:#b0873f;stroke-width:3;stroke-dasharray:6 4}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{font-family:var(--sans);font-size:14px;line-height:1.5;counter-increment:w}
+  .wisdom li:before{content:counter(w,decimal-leading-zero);font-family:var(--mono);
+    font-size:11px;color:var(--accent-ink);display:block;margin-bottom:2px}
+  .takeaways{background:#fff;border:1px solid var(--line);padding:22px;margin:30px 0}
+  .takeaways h3{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .takeaways ol{margin:0 0 14px;padding-left:22px}
+  .takeaways li{margin-bottom:8px}
+  .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-right:8px;white-space:nowrap}
+  .tag.fact{background:#e2efed;color:var(--accent-ink)}
+  .tag.interp{background:#efe9dc;color:#6b5320}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);border:1px dashed var(--line);
+    padding:10px 14px;margin:0 0 26px}
+  .video{margin:26px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+    border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:12px;color:var(--accent-ink)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 10px;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  footer p{margin:0 0 14px}
+  footer b{color:var(--ink)}
+  .backlink{font-family:var(--sans);font-size:13px;margin:18px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Clearer Thinking companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+
+<div class="hero">
+<p class="kicker">Clearer Thinking with Spencer Greenberg &middot; Episode 8</p>
+<h1>Futarchy and Social Innovation with Robin Hanson</h1>
+<p class="dek">Spencer Greenberg talks with Robin Hanson about his best idea: separate values from beliefs, vote on the first, bet on the second, and let markets pick the policies that work.</p>
+<img src="assets/ep08/ep08-hero.webp" alt="Watercolor of a civic hall split between a ballot box and a market ticker board">
+<p class="caption"><b>Illustration.</b> AI-generated watercolor made for this page: on the left citizens vote their values, on the right traders bet their beliefs.</p>
+<div class="stats">
+<div class="stat"><div class="n">1988</div><div class="l">First pitch</div><div class="s">35 years of proposing futarchy</div></div>
+<div class="stat"><div class="n">5%</div><div class="l">Proposer fee</div><div class="s">of a bill's estimated value</div></div>
+<div class="stat"><div class="n">22%</div><div class="l">Tax take</div><div class="s">the government's career-agent cut</div></div>
+<div class="stat"><div class="n">64</div><div class="l">Correlates</div><div class="s">of the sacred, in 7 themes</div></div>
+</div></div>
+<figure class="photo"><img src="assets/ep08/robin-hanson.jpg" alt="Photograph of Robin Hanson"><figcaption class="caption"><b>Photograph.</b> Robin Hanson. Real photograph via Econlib, econlib.org.</figcaption></figure>
+<div class="video"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/kBkzT4J1CJU" title="Episode video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption"><b>Video.</b> The full episode on YouTube.</p></div>
+<section class="chapter" id="ch-merchant" data-time="~00:00" data-title="The Idea Merchant">
+
+<p class="ch-time">~00:00</p>
+<h2>The Idea Merchant</h2>
+<div class="legend"><span class="tag fact">Source fact</span> a claim traceable to the episode transcript. <span class="tag interp">Interpretation</span> the companion author's analysis or transfer, not the guest's claim.</div>
+<p><span class="tag fact">Source fact</span> Robin Hanson trained in engineering, then physics, then nine years of computer science and AI research, before a social science PhD. The turn: technical progress kept getting blocked by social arrangements, so he went after the social layer, where big improvements looked easier to find.</p>
+<p><span class="tag fact">Source fact</span> The pattern he noticed: social innovations rarely get adopted, so the same ideas get rediscovered endlessly instead of being pulled from the pool. His proposals nod along, then stall.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the proposal as Futarkey and few Tarki. The name is Futarchy. Corrected in this companion. Originals noted in the footer.</div>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 &middot; Institutions</p>
+<h4>Social technology is the neglected frontier</h4>
+<p><span class="lbl">What happened. </span>Hanson moved from atoms and bits to institutions because the returns looked higher there.</p>
+<p><span class="lbl">Why it matters. </span>The pool of unadopted social ideas keeps refilling. First movers face no competition, only indifference.</p>
+<p><span class="lbl">The principle. </span>Seek the opening where adoption, not invention, is the bottleneck.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-slogan" data-time="~00:08" data-title="Vote on Values, Bet on Beliefs">
+
+<p class="ch-time">~00:08</p>
+<h2>Vote on Values, Bet on Beliefs</h2>
+<div class="pull">
+<blockquote>vote on values, but bet on beliefs</blockquote>
+<p class="who">Robin Hanson &middot; Episode ~00:12</p>
+</div>
+<p><span class="tag fact">Source fact</span> Every decision aggregates information and values: what is true, and what we care about. Hanson's diagnosis: our institutions, democracy included, fail most at the information half. Democracy bundles value aggregation with information aggregation and does the second badly.</p>
+<p><span class="tag fact">Source fact</span> Futarchy splits the job. Keep the current machinery for values. Replace the information machinery with betting markets. Hence the slogan.</p>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 &middot; Design</p>
+<h4>Split the decision into its two halves</h4>
+<p><span class="lbl">What happened. </span>Values say where to go. Beliefs say how the world works. One mechanism cannot serve both.</p>
+<p><span class="lbl">Why it matters. </span>Reform gets easier when you change one thing and hold the rest constant.</p>
+<p><span class="lbl">The principle. </span>Decompose the decision, then pick the best tool for each part.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-ceo" data-time="~00:15" data-title="Fire the CEO">
+
+<p class="ch-time">~00:15</p>
+<h2>Fire the CEO</h2>
+<p><span class="tag fact">Source fact</span> The worked example: the board that should fire the CEO but will not, because directors are the CEO's friends, owe their seats to the CEO, and want more board seats. The fix needs a discrete choice, keep or fire, and an after-the-fact measure of the decision, the stock price.</p>
+<p><span class="tag fact">Source fact</span> The mechanism: two conditional stock markets. Trades in market one are called off if the CEO stays, so it prices the company given the CEO leaves. Trades in market two are called off if the CEO leaves, so it prices the company given the CEO stays. The price difference is the market's verdict.</p>
+<p><span class="tag interp">Interpretation</span> Speculators need no civic virtue. They buy low and sell high, and the side effect is a public signal about the CEO. Greed becomes an information service.</p>
+<div class="chart">
+<h4>Two conditional markets, one verdict</h4>
+<p class="csub">The fire-the-CEO decision market, drawn illustratively.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Illustrative bar chart comparing conditional company values if the CEO stays versus leaves">
+<rect class="bar alt" x="120" y="120" width="150" height="130" data-tip="Illustrative: conditional value if the CEO stays."/>
+<rect class="bar" x="370" y="70" width="150" height="180" data-tip="Illustrative: conditional value if the CEO leaves. Higher price means the market favors firing."/>
+<text class="vallab" x="195" y="105" text-anchor="middle">stays</text>
+<text class="vallab" x="445" y="55" text-anchor="middle">leaves</text>
+<text class="axis" x="195" y="275" text-anchor="middle">CEO stays</text>
+<text class="axis" x="445" y="275" text-anchor="middle">CEO leaves</text>
+<text class="axis" x="320" y="295" text-anchor="middle">The gap between the bars is the decision.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Robin Hanson episode, ~00:15. An illustrative rendering of the mechanism. No real prices are involved.</p>
+</div>
+<div class="toy">
+<h4>Try it: the decision market</h4>
+<p class="csub" style="font-family:var(--sans);font-size:12.5px;color:var(--muted)">Set the conditional values. The market reads the gap.</p>
+<label for="dm-stay">Company value if the CEO stays: $<span id="dm-stay-v">100</span>M</label>
+<input type="range" id="dm-stay" min="50" max="150" value="100">
+<label for="dm-leave">Company value if the CEO leaves: $<span id="dm-leave-v">100</span>M</label>
+<input type="range" id="dm-leave" min="50" max="150" value="100">
+<p class="out" id="dm-out"></p>
+</div>
+<script>
+(function(){
+  var s = document.getElementById('dm-stay'), l = document.getElementById('dm-leave');
+  var sv = document.getElementById('dm-stay-v'), lv = document.getElementById('dm-leave-v');
+  var out = document.getElementById('dm-out');
+  function upd(){
+    sv.textContent = s.value; lv.textContent = l.value;
+    var d = l.value - s.value;
+    out.textContent = d > 0 ? 'Gap: +$' + d + 'M for leaving. The market says fire the CEO.' :
+      d < 0 ? 'Gap: $' + d + 'M. The market says keep the CEO.' :
+      'No gap. The market is indifferent.';
+  }
+  s.addEventListener('input', upd); l.addEventListener('input', upd); upd();
+})();
+</script>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 &middot; Markets</p>
+<h4>Turn the decision into a price</h4>
+<p><span class="lbl">What happened. </span>Two conditional prices replace a boardroom argument with a number.</p>
+<p><span class="lbl">Why it matters. </span>Prices aggregate what committees suppress: dispersed, disagreeing information.</p>
+<p><span class="lbl">The principle. </span>When a group must choose, ask what each option is worth, not who wants it.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-greed" data-time="~00:23" data-title="Harnessing Greed">
+
+<p class="ch-time">~00:23</p>
+<h2>Harnessing Greed</h2>
+<p><span class="tag fact">Source fact</span> Traders may be employees or friends of the CEO with every personal interest at stake, but inside the market their incentive is uniform: buy low, sell high. That forces the most accurate price out of them regardless of their other motives.</p>
+<p><span class="tag fact">Source fact</span> On insider trading, Hanson is contrarian: let each company's founders decide whether insiders may trade, and publish the rule. Insider trading makes prices more accurate at the cost of scaring off uninformed traders. Founders internalize that trade-off better than a national ban does.</p>
+<p><span class="tag fact">Source fact</span> Two patches for thin markets: subsidize an automated market maker that loses to informed traders, so the ignorant trade more cheaply, and use combinatorial trading, where betting on combinations costs no more than betting on the parts, since only one outcome resolves.</p>
+<p><span class="tag interp">Interpretation</span> The honest caveat: decision selection bias. A month before the decision, prices can mix in news that also affects whether the CEO leaves. At the decision moment itself, with the board's knowledge in the prices, the conditional values are clean.</p>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 &middot; Incentives</p>
+<h4>Pay for accuracy, not for virtue</h4>
+<p><span class="lbl">What happened. </span>The market does not ask traders to be good. It pays them to be right.</p>
+<p><span class="lbl">Why it matters. </span>Virtue is scarce and unreliable. The profit motive shows up every day.</p>
+<p><span class="lbl">The principle. </span>Design for the motives people have, not the ones you wish they had.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-small" data-time="~00:30" data-title="Small Stakes First">
+
+<p class="ch-time">~00:30</p>
+<h2>Small Stakes First</h2>
+<p><span class="tag fact">Source fact</span> Hanson wants small trials before grand rollouts: a project deadline market, then conditional markets on changing requirements, personnel, or resources. Hiring is the high-value case: for each candidate, ask the market for their evaluation score in a year or two, and hire the top prices.</p>
+<p><span class="tag fact">Source fact</span> The restaurant version: a board with pictures of 10 or 20 dishes, a dart for each worker, the two most-darted dishes become the specials, and the dart-holders on the night's revenue winner split a prize. Move your dart as the day goes. Futarchy with pushpins.</p>
+<p><span class="tag interp">Interpretation</span> Innovation is a simple elegant idea plus a pile of messy details that must be tuned by trial. Nobody can specify the final form in advance. A dozen or two variations will find the one that works.</p>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 &middot; Testing</p>
+<h4>Earn the large scale at the small scale</h4>
+<p><span class="lbl">What happened. </span>The mechanism is cheap to test and expensive to debate. Darts cost nothing.</p>
+<p><span class="lbl">Why it matters. </span>Trials answer the gameability questions that arguments never settle.</p>
+<p><span class="lbl">The principle. </span>Never combine a risky idea with a risky testbed. Isolate one novelty at a time.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-national" data-time="~00:38" data-title="Futarchy at National Scale">
+
+<p class="ch-time">~00:38</p>
+<h2>Futarchy at National Scale</h2>
+<p><span class="tag fact">Source fact</span> For government, the discrete decisions are bills, and the outcome measure must be constructed. Start with GDP, the Bureau of Labor Statistics measure of economic activity, then add what people say they value: leisure, nature, international respect. The result is a monthly national welfare number, and assets that pay in proportion to it.</p>
+<p><span class="tag fact">Source fact</span> Each bill gets a decision market: national welfare conditional on passing versus rejecting. The legislature keeps one job, choosing the welfare measure itself, and loses another, passing bills. Bill proposal slots go to auction, two per day, and the proposer of a passed bill earns a fee, perhaps 5 percent of the estimated value created.</p>
+<p><span class="tag interp">Interpretation</span> The pork defense: stuff a bill with personal favors and someone will propose the clean version without them. Competition strips the riders.</p>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 &middot; Governance</p>
+<h4>Keep the values vote, automate the beliefs bet</h4>
+<p><span class="lbl">What happened. </span>Politicians would argue about what counts in national welfare, the values half, while speculators decide which bills raise it.</p>
+<p><span class="lbl">Why it matters. </span>It mirrors today's split between elected generalists and expert agencies, but picks the experts by accuracy instead of appointment.</p>
+<p><span class="lbl">The principle. </span>Change one institution at a time so the change stays legible.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-gaming" data-time="~00:46" data-title="Gaming and Pork">
+
+<p class="ch-time">~00:46</p>
+<h2>Gaming and Pork</h2>
+<p><span class="tag fact">Source fact</span> The legitimacy test is comparative: every current system is gameable too, and people game it daily. The question is never whether a proposal can be gamed. It is whether it games less than the status quo.</p>
+<p><span class="tag fact">Source fact</span> The welfare-function attack: add a term that pays out if your road gets built, and speculators will dutifully approve the road. The defense is a norm against overly specific measures, enforced the usual way, by voters refusing to reelect the pork-writers.</p>
+<p><span class="tag fact">Source fact</span> Hanson's biggest worry is not gaming but hypocrisy. Futarchy forces explicitness: put trees in the welfare function at high weight and you get trees, at real cost. Today we elect the tree-praiser, get little, and everyone is satisfied. Explicit knobs break the comfortable pretense.</p>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 &middot; Honesty</p>
+<h4>Explicitness is the price of the mechanism</h4>
+<p><span class="lbl">What happened. </span>The system works by turning vague applause into measurable knobs. The knobs do what they say.</p>
+<p><span class="lbl">Why it matters. </span>People who like the applause more than the outcome will fight the knobs.</p>
+<p><span class="lbl">The principle. </span>Ask what a reform makes explicit. That is where the resistance lives.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-elephant" data-time="~00:53" data-title="The Elephant in the Brain">
+
+<p class="ch-time">~00:53</p>
+<h2>The Elephant in the Brain</h2>
+<div class="pull">
+<blockquote>It just says what it thinks constantly all the time</blockquote>
+<p class="who">Robin Hanson, on prediction markets &middot; Episode ~01:20</p>
+</div>
+<p><span class="tag fact">Source fact</span> The book Elephant in the Brain documents ten areas where stated motives differ from real ones: medicine is more about showing you care than producing health, education more about displaying smarts and conscientiousness than learning, politics more about tribal loyalty than improving the nation.</p>
+<p><span class="tag fact">Source fact</span> The design lesson: the traditional question is what people want and which institution gets them more of it. The Hanson correction: if people pretend to want X while wanting Y, offer an institution that lets them keep pretending X while delivering more Y. Give them more X alone and they will not bite.</p>
+<p><span class="tag interp">Interpretation</span> Politics runs on fighting, not fixing. Win-win improvements bore people because they offer no enemy. Futarchy is engineered to be neutral, which is exactly why it struggles for fans.</p>
+<div class="nugget reveal" id="nugget-8">
+<p class="eyebrow">Nugget 8 &middot; Motives</p>
+<h4>Design for the hidden want, not the stated one</h4>
+<p><span class="lbl">What happened. </span>Reforms fail when they serve the press release instead of the preference.</p>
+<p><span class="lbl">Why it matters. </span>Ask what people actually reward, then build the institution around that.</p>
+<p><span class="lbl">The principle. </span>Never trust the mission statement. Watch the applause.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-sacred" data-time="~01:00" data-title="The Sacred and Sacred Money">
+
+<p class="ch-time">~01:00</p>
+<h2>The Sacred and Sacred Money</h2>
+<p><span class="tag fact">Source fact</span> Money feels profane in sacred contexts: betting on government feels like paying grandma for Christmas dinner. To understand the obstacle, Hanson collected 64 correlates of the sacred, grouped them into seven themes, and built a theory from a classic sociologist of religion plus construal-level psychology.</p>
+<p><span class="tag fact">Source fact</span> The theory: shared sacred views bind groups together. We see sacred things as if from afar even up close, which keeps the group agreeing at the cost of accuracy. The invention: sacred money, consecrated currency spendable only on sacred ends like health, education, and charity, the tax code's deduction list serving as a rough proxy.</p>
+<p><span class="tag interp">Interpretation</span> A sacred bank converts ordinary money into sacred money, one way only. Hospitals could pay staff in it, and prediction markets could run on it, making the whole enterprise feel consecrated instead of tawdry.</p>
+<div class="nugget reveal" id="nugget-9">
+<p class="eyebrow">Nugget 9 &middot; Sacred</p>
+<h4>Consecrate the medium, not just the message</h4>
+<p><span class="lbl">What happened. </span>The resistance is aesthetic and tribal, not technical. Sacred money launders the mechanism's image.</p>
+<p><span class="lbl">Why it matters. </span>Adoption runs on feelings of fittingness. Design for them explicitly.</p>
+<p><span class="lbl">The principle. </span>When the obstacle is the sacred, speak its language.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-agents" data-time="~01:08" data-title="Tax Career Agents and Elites">
+
+<p class="ch-time">~01:08</p>
+<h2>Tax Career Agents and Elites</h2>
+<p><span class="tag fact">Source fact</span> The pitch: everyone gets a career agent, free. Musicians and athletes pay agents 10 to 15 percent. The government already takes about 22 percent of income while doing a bad job as your agent. Auction each person's future tax revenue to the highest bidder, who becomes their agent with a real incentive to boost their career. The government gets the auction cash instead of borrowing.</p>
+<div class="chart">
+<h4>Who takes a cut of your income</h4>
+<p class="csub">The episode's figures: government 22%, proposed agent 20%.</p>
+<svg viewBox="0 0 640 300" role="img" aria-label="Bar chart comparing the 22 percent government tax take with the proposed 20 percent career agent share">
+<rect class="bar alt" x="140" y="60" width="150" height="190" data-tip="Today: the government takes about 22 percent of income and gives little career advice."/>
+<rect class="bar" x="350" y="78" width="150" height="172" data-tip="Proposal: a career agent takes 20 percent and works to raise your income."/>
+<text class="vallab" x="215" y="45" text-anchor="middle">22%</text>
+<text class="vallab" x="425" y="63" text-anchor="middle">20%</text>
+<text class="axis" x="215" y="275" text-anchor="middle">government today</text>
+<text class="axis" x="425" y="275" text-anchor="middle">career agent</text>
+<text class="axis" x="320" y="295" text-anchor="middle">Same cut, different service.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, Robin Hanson episode, ~01:08. The 22% and 20% figures are stated in the episode.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Nobody loses, says Hanson: the agent is voluntary, the government gets paid upfront, and you get advice. The fear, that the agent will sabotage or manipulate you, gets a market answer: make the asset transferable, so a bad agent's asset flows to someone you would actually listen to.</p>
+<p><span class="tag fact">Source fact</span> The elite theory: people want big proposals to come from elites, and they want elites visibly in charge. Speculators in pajamas making policy offends that instinct. One workaround is to credential the roles, the way law and medicine do.</p>
+<div class="nugget reveal" id="nugget-10">
+<p class="eyebrow">Nugget 10 &middot; Agency</p>
+<h4>Align the advisor's pay with your outcome</h4>
+<p><span class="lbl">What happened. </span>The agent profits only if you prosper. That is the whole mechanism.</p>
+<p><span class="lbl">Why it matters. </span>Advice follows incentives. Buy the incentives and the advice comes free.</p>
+<p><span class="lbl">The principle. </span>When someone advises you, check what they earn if you win.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-die" data-time="~01:16" data-title="Why Good Ideas Die">
+
+<p class="ch-time">~01:16</p>
+<h2>Why Good Ideas Die</h2>
+<p><span class="tag fact">Source fact</span> Hanson began pitching these ideas in 1988, about 35 years ago. Corporate prediction markets teach the key lesson: they thrive on topics far from management's stated opinions and die near them. A market that proves the boss wrong gets killed. The market is the colleague who blurts the truth at every meeting.</p>
+<p><span class="tag fact">Source fact</span> The cost-accounting analogy: in a world without cost accounting, proposing it accuses someone of stealing. In a world with it everywhere, proposing to drop it looks like hiding theft. Equilibria protect themselves. A deadline market in a firm with no such markets sounds like an accusation that the deadline will slip.</p>
+<p><span class="tag interp">Interpretation</span> Deadlines are often forcing functions, not predictions. People state them to make things happen. A truthful market punctures the performance, which is why the performance defends itself.</p>
+<p><span class="tag fact">Source fact</span> The episode's coda: Uri Bram, the previous guest, is the podcast's fact totem. Even the credits get a final Hanson-flavored wink at hidden motives.</p>
+
+</section>
+<div class="wisdom"><h3>Nugget index</h3><ol>
+<li>Social technology is the neglected frontier</li>
+<li>Split the decision into its two halves</li>
+<li>Turn the decision into a price</li>
+<li>Pay for accuracy, not for virtue</li>
+<li>Earn the large scale at the small scale</li>
+<li>Keep the values vote, automate the beliefs bet</li>
+<li>Explicitness is the price of the mechanism</li>
+<li>Design for the hidden want, not the stated one</li>
+<li>Consecrate the medium, not just the message</li>
+<li>Align the advisor's pay with your outcome</li>
+</ol></div>
+<p class="backlink"><a href="../index.html">&larr; Back to the Clearer Thinking track index</a></p>
+<footer><p><b>Sources.</b> This companion narrates the Clearer Thinking episode on Futarchy and social innovation with Robin Hanson (YouTube re-upload, 83 minutes). All facts and figures come from the episode transcript (research/clearer-thinking/transcripts/kBkzT4J1CJU.txt), a faster-whisper base.en transcription of the official podcast audio. The transcript carries no timestamps. All chapter times marked ~ are proportional estimates from word position. The 22% and 20% figures are stated. The CEO-market chart is an illustrative rendering of the mechanism. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p><p id="on-quotes"><b>On quotes.</b> Direct quotations in this companion total 20 words: two pull quotes, each carrying speaker and proportional episode-time attribution, plus two short quoted transcript fragments in the corrections note below. Everything else is original paraphrase and analysis.</p><p><b>On transcript corrections.</b> The transcript is a machine transcription with rough edges. Applied corrections, with originals. The proposal is Futarchy (transcript: "Futarkey" and "few Tarki").</p><p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p></footer>
+
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var ttl = ch.getAttribute('data-title') || '';
+    a.innerHTML = '<span class="t">' + t + '</span>' + ttl;
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(txt, x, y){
+    tip.textContent = txt;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
