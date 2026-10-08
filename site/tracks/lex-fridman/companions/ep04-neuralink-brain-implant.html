@@ -445,7 +445,7 @@ span.ptag, .ptag {
 <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
 </div>
 <p class="legend src-legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a translucent human head in profile with golden threads connecting the brain to a small coin-sized device" class="base" fetchpriority="high" src="assets/illustration-ep04.webp"/></div></div><figcaption><b>Illustration.</b> The N1 implant and its threads, imagined in watercolor. AI-generated illustration.</figcaption></figure><figure class="photo wide" data-hero="1">
+</div><figure data-phase2="1" data-scene="ep04-neuralink-brain-implant-hero" class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a translucent human head in profile with golden threads connecting the brain to a small coin-sized device" class="base" fetchpriority="high" src="assets/illustration-ep04.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/ep04-neuralink-brain-implant-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div><figcaption><b>Illustration.</b> The N1 implant and its threads, imagined in watercolor. AI-generated illustration.</figcaption></figure><figure class="photo wide" data-hero="1">
 <img alt="Photograph of Elon Musk" fetchpriority="high" src="assets/photo-elon-musk.jpg"/>
 <figcaption><b>Photo.</b> Elon Musk, Neuralink co-founder. Photo by Gage Skidmore, CC BY-SA 4.0, via Wikimedia Commons.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="~00:00" data-title="Five conversations, one story" id="ch-open"><div class="ch-head"><div><p class="ch-meta"><span class="ts">~00:00</span> · Five conversations, one story</p><h2>Five Conversations, One Story</h2></div></div>
@@ -462,7 +462,7 @@ span.ptag, .ptag {
 <p><span class="tag fact">Source fact</span> DJ Seo breaks the device into numbers. The N1 implant carries 64 threads, each with 16 electrodes, for 1,024 channels total. Threads taper from 16 to 84 microns wide and are under 5 microns thick. Raw recording runs at just under 20 kHz with 10-bit precision, about 200 megabits per second streaming into the chip.</p>
 <p>That much data cannot leave a skull as heat. An on-board routine called the BOSS algorithm sorts spikes right on the implant and ships only the interesting events over Bluetooth to the Link app. The whole device is the size of a US quarter and 9 mm thick, and most of its volume is the rechargeable battery. Charging is inductive, but tissue may not rise more than 2 degrees Celsius, so a ferrite shield steers the charging field away from the battery can.</p>
 <p>The scaling path is explicit: 1,000 channels today, 3,000 to 6,000 by the end of 2024, 16,000 by the end of 2025. The hard parts are not the wires themselves. They are power per channel, wireless bandwidth for the spikes, and the hermetic seal against what Seo cheerfully calls the brain's attempts to kill the electronics.</p>
-<aside class="tag" data-chapter="ch-hardware" data-sign-label="Aisle" data-sign-num="1" id="nugget-2"><div class="tag-price"><span class="tag-big">2</span><span class="tag-unit">Measure the real bottleneck</span></div><div class="tag-body"><div class="tag-title">Measure the real bottleneck</div><div class="tag-eye">The lesson</div><p><b>What happened. </b>The implant records 200 megabits per second, but the usable output is a trickle of spike events, because heat, not silicon, is the limit inside a skull.</p><p><b>Why it matters. </b>The constraint that binds is rarely the headline spec. Design to the true bottleneck and compress everything else toward it.</p><p><b>The principle. </b>Find the binding constraint first, then optimize the system around it instead of the vanity metric.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 01</span></div></div></aside>
+<aside class="tag" data-chapter="ch-hardware" data-sign-label="Aisle" data-sign-num="1" id="nugget-2"><div class="tag-price"><span class="tag-big">200 Mb/s</span><span class="tag-unit">recorded, and the usable output is a trickle of spikes</span></div><div class="tag-body"><div class="tag-title">Measure the real bottleneck</div><div class="tag-eye">The lesson</div><p><b>What happened. </b>The implant records 200 megabits per second, but the usable output is a trickle of spike events, because heat, not silicon, is the limit inside a skull.</p><p><b>Why it matters. </b>The constraint that binds is rarely the headline spec. Design to the true bottleneck and compress everything else toward it.</p><p><b>The principle. </b>Find the binding constraint first, then optimize the system around it instead of the vanity metric.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 01</span></div></div></aside>
 </section>
 <section class="chapter col" data-chapter="1" data-time="~04:10" data-title="The R1 robot and the one-inch hole" id="ch-surgery"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">2</span></div><div><p class="ch-meta"><span class="ts">~04:10</span> · The R1 robot and the one-inch hole</p><h2>The R1 Robot and the One-Inch Hole</h2></div></div>
 <p><span class="tag fact">Source fact</span> Matthew McDougall, the neurosurgeon, does the human part: a one-inch hole in the skull over the hand-knob region of motor cortex, located by functional MRI. Then the R1 robot inserts each thread with computer vision steering around surface blood vessels. Before the first human surgery, the team practiced on a pulsing 3D-printed brain matched to the patient's anatomy.</p>
@@ -1219,5 +1219,19 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('ep04-neuralink-brain-implant-hero',{
+ init:function(F,FX){
+  F._m=FX.motes(F.stage,F.W,F.H,24,7);
+  F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.5,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];
+ },
+ pose:function(S,FX){
+  var F=S.F;F._m.tick(S.t);
+  F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);
+  return {'hero-subject':{x:7*Math.sin(S.t*0.6),y:5*Math.sin(S.t*0.83+1),r:0,s:1,o:1}};
+ } });
+})();
+</script>
+</body>
 </html>
