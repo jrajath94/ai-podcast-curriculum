@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <!DOCTYPE html>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -476,7 +478,7 @@ span.ptag, .ptag {
 <figure class="paint inset" data-entrance="bloom"><div class="frame"><div class="stage"><img alt="A utility pole crowded with tangled wires" class="base" loading="lazy" src="assets/ep09/poles.webp"/></div></div><figcaption>The usually-wrong kind: a real utility pole, wire running every which way. Photo via Resources for the Future.</figcaption></figure>
 </div>
 <div class="fig">
-<figure class="paint inset" data-entrance="sketch"><div class="frame"><div class="stage"><img alt="Watercolor cutaway of a city street with poles, pipes, and sewers exposed" class="base" loading="lazy" src="assets/ep09/wc-cityinfra.webp"/></div></div><figcaption>The city as a game level: everything that hides under and above the street. Watercolor illustration.</figcaption></figure>
+<figure class="paint inset" data-entrance="sketch" data-scene="p2-ty-ep09-cityinfra"><div class="frame"><div class="stage"><img alt="Watercolor cutaway of a city street with poles, pipes, and sewers exposed" class="base" height="1280" loading="lazy" src="assets/ep09/wc-cityinfra.webp" width="1920"/><img alt="" aria-hidden="true" class="ly mul" data-depth="14" data-obj="pole" src="assets/ep09/ep09-any-austin-hero-layer.png" style="left:14%;top:4%;width:10%;"/></div></div><figcaption>The city as a game level: everything that hides under and above the street. Watercolor illustration.</figcaption></figure>
 </div>
 </section>
 <section class="chapter col" data-chapter="1" data-title="Glitches in reality" id="ch04"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">3</span></div><div><h2>Glitches in reality</h2></div></div>
@@ -497,7 +499,7 @@ span.ptag, .ptag {
 <p class="pullattr">Any Austin, on where art's value lives · ~00:25</p>
 <p>Cowen insists artworks are in dialogue: Rodin makes Brancusi make sense, knowing the theology makes La Pieta make sense. Austin's test: put him in a room of AI-generated sculptures with no history attached. Do they mean nothing? Cowen says much, much less. Austin finds that really interesting.</p>
 <div class="fig">
-<figure class="paint inset" data-entrance="bloom"><div class="frame"><div class="stage"><img alt="Watercolor of a lone person before a giant cup on a plinth" class="base" loading="lazy" src="assets/ep09/wc-cup.webp"/></div></div><figcaption>The cup is the art, this is me, and the value is here somewhere. Watercolor illustration.</figcaption></figure>
+<figure class="paint inset" data-entrance="bloom" data-scene="p2-ty-ep09-cup"><div class="frame"><div class="stage"><img alt="Watercolor of a lone person before a giant cup on a plinth" class="base" height="1280" loading="lazy" src="assets/ep09/wc-cup.webp" width="1920"/></div></div><figcaption>The cup is the art, this is me, and the value is here somewhere. Watercolor illustration.</figcaption></figure>
 </div>
 <p>One Austin argument lands hard: we cannot even tell authentic human art from inauthentic now. Bands made records under duress they did not care about, and we call them authentic anyway. So we are unlikely to be good at detecting AI art either.</p>
 </section>
@@ -1306,5 +1308,48 @@ span.ptag, .ptag {
   });
 })();
 
+</script><script>
+<script>
+/* Phase 2 scenes (Builder 2): CompanionFX overlay life. Pure code, zero image cost. */
+(function(){
+var FX = window.CompanionFX; if(!FX) return;
+FX.registerScene("p2-ty-ep09-cityinfra", {
+  init: function(F, FX) {
+    F._fx_spark = FX.sparkles(F.stage, F.W, F.H, [[700, 500, 20], [1200, 700, 20]]);
+    F._fx_glows = FX.glows(F.stage, F.W, F.H, [[960, 640, 160]], 'screen', '#FFE9B0');
+  },
+  pose: function(S, FX) {
+    var t = S.t, F = S.F, et = S.et;
+    var k = FX.smoothstep(0, 1, Math.min(1, et/1.4));
+    F._fx_spark.forEach(function(st,i){
+      var tw = 0.55 + 0.45*FX.flicker(t, i*1.7);
+      st.style.transform = 'scale(' + (k*tw).toFixed(3) + ')';
+    });
+    F._fx_glows.forEach(function(c,i){
+      c.style.opacity = (0.3+0.22*FX.flicker(t, i*2.3)).toFixed(3);
+    });
+    return {"pole": {y: -3*Math.abs(Math.sin(t*0.5))}};
+  }
+});
+FX.registerScene("p2-ty-ep09-cup", {
+  init: function(F, FX) {
+    F._fx_glows = FX.glows(F.stage, F.W, F.H, [[960, 640, 150]], 'screen', '#FFE9B0');
+    F._fx_spark = FX.sparkles(F.stage, F.W, F.H, [[700, 600, 20]]);
+  },
+  pose: function(S, FX) {
+    var t = S.t, F = S.F, et = S.et;
+    F._fx_glows.forEach(function(c,i){
+      c.style.opacity = (0.3+0.22*FX.flicker(t, i*2.3)).toFixed(3);
+    });
+    var k = FX.smoothstep(0, 1, Math.min(1, et/1.4));
+    F._fx_spark.forEach(function(st,i){
+      var tw = 0.55 + 0.45*FX.flicker(t, i*1.7);
+      st.style.transform = 'scale(' + (k*tw).toFixed(3) + ')';
+    });
+    return {};
+  }
+});
+})();
+</script>
 </script></body>
 </html>
