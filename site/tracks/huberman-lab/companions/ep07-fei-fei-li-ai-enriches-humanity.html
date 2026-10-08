@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI That Enriches Humanity: Fei-Fei Li | Huberman Lab Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Dr. Fei-Fei Li: vision and intelligence, ImageNet and the 2012 convergence, the unchanged recipe, the gray cup, and human-centered AI.">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f4efe3; --ink:#23201a; --muted:#6e6455;
+    --line:#e0d6c0; --accent:#2f6f8f; --accent-ink:#1f5068; --soft:#e9f1f4;
+    --warn:#8a5a1d;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0ec}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:22px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.src{background:#dff0f7;color:var(--accent-ink);border:1px solid #bcd9e4}
+  .tag.int{background:#f5e8d4;color:var(--warn);border:1px solid #e3cda1}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .gap{background:#fdf6ec;border:1px dashed #d9b98a;padding:16px 20px;margin:26px 0;
+    font-family:var(--sans);font-size:13.5px;color:#6b5636;line-height:1.6}
+  .gap b{color:#4a3a22}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Huberman Lab · Track Companion</a>
+  <span class="sub">Episode 7 · Dr. Fei-Fei Li · 2026-08-10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode 7 · Companion</p>
+      <h1>AI That Enriches Humanity</h1>
+      <p class="dek">Fei-Fei Li led ImageNet, the dataset that ignited modern AI. She tells the inside story: the 2006 insight, the 15 million images, the 2012 convergence, and why the recipe never changed. Plus the gray cup: the dataset AI will never train on. This companion follows the conversation in order.</p>
+      <img src="assets/ep07-hero-first-light.webp" alt="Watercolor illustration of an ancient sea creature seeing the first light in a primordial ocean">
+      <p class="caption"><b>Illustration.</b> First light, 540 million years ago: vision as the cornerstone of intelligence. Made for this page. AI-generated watercolor in a New Yorker style, made for this page. It carries no words or labels.</p>
+      <div class="legend"><b>How to read this companion.</b>
+        Claims tagged <span class="tag src">SOURCE</span> trace to the episode or its transcript.
+        Claims tagged <span class="tag int">INTERPRETATION</span> are analysis added by this companion.
+        Numbers name their source line. Anything the episode never says is marked <b>Not in source</b>.</div>
+      <div class="stats">
+<div class="stat"><div class="n">540M yrs</div><div class="l">since animals first saw light</div><div class="s">Transcript, opening section</div></div>
+        <div class="stat"><div class="n">15M</div><div class="l">images in ImageNet, the first internet-scale AI dataset</div><div class="s">Transcript, ImageNet section</div></div>
+        <div class="stat"><div class="n">1,000</div><div class="l">object categories in the ImageNet challenge scoreboard</div><div class="s">Episode page</div></div>
+        <div class="stat"><div class="n">30 yrs</div><div class="l">Li's horizon for the full robotics vision</div><div class="s">Transcript, closing section</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/N5AQFYtqx8Q" title="Huberman Lab episode 7 with Dr. Fei-Fei Li, official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video on youtube-nocookie, the only external dependency on this page. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Vision is the cornerstone</a></li>
+          <li><a href="#nugget-2">The hierarchy, twice</a></li>
+          <li><a href="#nugget-3">The bottleneck was fuel</a></li>
+          <li><a href="#nugget-4">The triad</a></li>
+          <li><a href="#nugget-5">Same recipe, new data type</a></li>
+          <li><a href="#nugget-6">Tokenization</a></li>
+          <li><a href="#nugget-7">The gray cup</a></li>
+          <li><a href="#nugget-8">Hybrid creativity</a></li>
+          <li><a href="#nugget-9">Count the patterns</a></li>
+          <li><a href="#nugget-10">Agency</a></li>
+          <li><a href="#nugget-11">The eldercare test</a></li>
+        </ol>
+      </div>
+    </div>
+<section class="chapter" id="ch-vision">
+  <div class="chip">Opening · first light to first neurons</div>
+  <h2>540 million years of seeing</h2>
+  <p><span class="tag s">SOURCE FACT</span> Li opens 540 million years ago, when simple sea animals like trilobites developed vision. Before that there was very little sensing: touch existed, but no hearing, no smell, and no nervous system as we know it. <span class="tag i">INTERPRETATION</span> She frames vision as the sense that made intelligence possible at all. Two facts anchor this: about half the human brain is involved in visual function, and children are visual before they are verbal.</p>
+  <div class="nugget" id="nugget-1">
+    <h4>Nugget 1 · Vision is the cornerstone</h4>
+    <p><span class="tag s">SOURCE FACT</span> Half the brain serves vision. Children see before they speak. <span class="tag i">INTERPRETATION</span> Any theory of intelligence that ignores vision ignores half the hardware.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> The computational story starts in the early 1950s with Hubel and Wiesel. They recorded visual cells in the mammalian brain and found a hierarchy: layers of cells stacked on each other, passing information upward from light at the retina to the recognition of a shape. That architecture inspired the neural network. The episode's definition: a neural network is a stack of simple units, each a very simple function taking inputs and producing an output. Biological neurons are far more complex than these units. The artificial version is deliberately simple.</p>
+  <div class="nugget" id="nugget-2">
+    <h4>Nugget 2 · The hierarchy, twice</h4>
+    <p><span class="tag s">SOURCE FACT</span> Biology stacks cells from retina to shape. Silicon stacks simple functions from pixels to object names. <span class="tag i">INTERPRETATION</span> Stack simple units in a hierarchy, and recognition emerges. Same architecture, biology first, silicon second.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-imagenet">
+  <div class="chip">Early in the episode · the data insight</div>
+  <h2>ImageNet: the data insight</h2>
+  <figure>
+    <img src="assets/ep07-fei-fei-li-photo.jpg" alt="Photograph of Dr. Fei-Fei Li">
+    <figcaption>Dr. Fei-Fei Li, the Stanford professor who led ImageNet. Real photo for identification. Photograph by Andria Lo, via the Stanford Digital Economy Lab.</figcaption>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> In 2006 Li was a first-year faculty member at Princeton. The field tried algorithm after algorithm: Bayesian methods, support vector machines, early neural nets. Nothing worked well enough, and everyone blamed the algorithm. Li turned to the cognitive neuroscience literature and asked how much humans actually see. The numbers stunned: by age six, humans learn tens of thousands of object categories. Babies see from birth and are inundated with visual data. Her conjecture: the bottleneck was not the algorithm. It was the fuel, the lack of data.</p>
+  <div class="nugget" id="nugget-3">
+    <h4>Nugget 3 · The bottleneck was fuel</h4>
+    <p><span class="tag s">SOURCE FACT</span> The field optimized algorithms. Li measured what humans actually see, tens of thousands of categories by age six, and concluded data was the missing ingredient. <span class="tag i">INTERPRETATION</span> When every known method fails, question the input before the method.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> The result was ImageNet: the first internet-scale dataset for AI, 15 million images, built to drive machines to recognize everyday objects. Then three elements converged: data (the 15 million images), maturing neural-network algorithms, and GPU computing. By 2012 the convergence became the defining moment of modern AI. The ImageNet challenge, run from 2010, gave the field a public scoreboard: 1,000 object categories, a test set of more than 1 million images, name the main object in the picture. A Stanford graduate student later benchmarked human performance at roughly 4 percent error, while random chance on 1,000 categories is 0.1 percent correct.</p>
+  <div class="nugget" id="nugget-4">
+    <h4>Nugget 4 · The triad</h4>
+    <p><span class="tag s">SOURCE FACT</span> Data plus algorithms plus compute, together in 2012. Each alone was insufficient. <span class="tag i">INTERPRETATION</span> Revolutions are convergences, not inventions. This triad recurs across the whole episode.</p>
+  </div>
+  <figure class="chart">
+    <svg viewBox="0 0 640 330" role="img" aria-label="Timeline chart showing the 2012 convergence of data, algorithms, and compute">
+      <text x="20" y="30" class="t">The 2012 convergence</text>
+      <text x="20" y="48" class="c">The three elements met and modern AI ignited. Episode claim.</text>
+      <line x1="80" y1="80" x2="80" y2="270" class="axis"/>
+      <line x1="250" y1="80" x2="250" y2="270" class="axis"/>
+      <line x1="420" y1="80" x2="420" y2="270" class="axis"/>
+      <line x1="80" y1="270" x2="420" y2="270" class="axis"/>
+      <rect x="60" y="100" width="40" height="170" class="bar" fill="#8ecae6"/>
+      <rect x="230" y="140" width="40" height="130" class="bar" fill="#8ecae6"/>
+      <rect x="400" y="95" width="40" height="175" class="bar" fill="#8ecae6"/>
+      <rect x="300" y="95" width="80" height="60" class="bar" fill="#ffb703"/>
+      <text x="80" y="290" class="c">2006: data insight</text>
+      <text x="250" y="290" class="c">~2010: nets mature</text>
+      <text x="420" y="290" class="c">2012: GPUs online</text>
+      <text x="95" y="180" class="c" transform="rotate(-90 95 180)">algorithms alone</text>
+      <text x="340" y="130" class="t" fill="#ffb703">2012</text>
+      <text x="470" y="100" class="t">DATA: 15M images</text>
+      <text x="470" y="130" class="t">ALGORITHMS: nets mature</text>
+      <text x="470" y="160" class="t">COMPUTE: GPUs online</text>
+      <text x="470" y="200" class="c">After: every subfield</text>
+      <text x="470" y="220" class="c">accelerates at once</text>
+    </svg>
+    <div class="csrc">Source: episode claims (Huberman Lab, Fei-Fei Li, 2026-08-10)</div>
+    <div class="csub">Stylized timeline. The three elements converge at 2012. The exact sequencing is schematic.</div>
+  </figure>
+</section>
+
+<section class="chapter" id="ch-recipe">
+  <div class="chip">Middle of the episode · transformers to Sora</div>
+  <h2>The recipe does not change</h2>
+  <p><span class="tag s">SOURCE FACT</span> Li's punchline: the recipe has not changed since 2012. The transformer paper arrived around 2016 to 2017, a more powerful neural-network architecture. The field that advanced next was not vision but natural language processing, because the internet offered even more text data than image data. Same triad: better architecture, more data (text), more powerful GPUs. Companies like OpenAI and Google rallied around it. Five years later, 2017 to 2022, came the ChatGPT moment.</p>
+  <div class="nugget" id="nugget-5">
+    <h4>Nugget 5 · Same recipe, new data type</h4>
+    <p><span class="tag s">SOURCE FACT</span> Transformers plus text data plus GPUs produced ChatGPT. <span class="tag i">INTERPRETATION</span> When the recipe is stable, bet on the next data type, not the next architecture.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> Video entered the training data around 2023. In January 2024, Sora was released: ask for a cat chasing a mouse and get a short clip of plausible cat movement. Li's analysis: this is not as revolutionary as it looks. It is the same neural-network era. What changed is the data: video tokenized and processed at scale. Tokenization chops a continuous input into small discrete pieces called tokens. The model reads the pieces as a sequence. The algorithm does not know cat muscle anatomy. It saw so many cat videos that it knows what plausible movement looks like. Humans do the same: most of us cannot name a cat's muscles, but we know what running looks like because we saw it ten thousand times.</p>
+  <div class="nugget" id="nugget-6">
+    <h4>Nugget 6 · Tokenization</h4>
+    <p><span class="tag s">SOURCE FACT</span> Tokenization chops continuous input into discrete tokens. The model reads them as a sequence. Video tokenization chops frames into token blocks processed like words. <span class="tag i">INTERPRETATION</span> Sora statistics, not anatomy: millions of examples, not a model of cat muscle.</p>
+  </div>
+  <figure class="chart">
+    <svg viewBox="0 0 640 300" role="img" aria-label="Timeline showing the same recipe applied from 2012 to 2024">
+      <text x="20" y="30" class="t">One recipe, new data types</text>
+      <text x="20" y="48" class="c">The triad repeats at larger scale. Episode claim.</text>
+      <line x1="40" y1="120" x2="600" y2="120" class="axis"/>
+      <circle cx="110" cy="120" r="10" class="dot"/><text x="90" y="155" class="c">2012</text><text x="90" y="175" class="c">image data</text>
+      <circle cx="270" cy="120" r="10" class="dot"/><text x="245" y="155" class="c">2016-17</text><text x="245" y="175" class="c">transformers</text>
+      <circle cx="430" cy="120" r="10" class="dot"/><text x="410" y="155" class="c">2022</text><text x="410" y="175" class="c">text data at scale</text>
+      <circle cx="560" cy="120" r="10" class="dot"/><text x="540" y="155" class="c">2024</text><text x="540" y="175" class="c">video data</text>
+      <text x="40" y="220" class="t">2012: ImageNet moment</text>
+      <text x="40" y="245" class="t">2017-2022: ChatGPT moment (5 years)</text>
+      <text x="40" y="270" class="t">2024: Sora (Jan), video tokenized</text>
+    </svg>
+    <div class="csrc">Source: episode claims (Huberman Lab, Fei-Fei Li, 2026-08-10)</div>
+    <div class="csub">Stylized timeline. Each node is the same triad with a new dominant data type.</div>
+  </figure>
+</section>
+
+<section class="chapter" id="ch-limits">
+  <div class="chip">Middle-late · what AI cannot reach</div>
+  <h2>The gray cup</h2>
+  <figure>
+    <img src="assets/ep07-gray-cup.webp" alt="Watercolor illustration of a gray cup on a table glowing with warm memory">
+    <figcaption>Private meaning: the largest dataset AI will never train on. Made for this page.</figcaption>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> Li's most personal argument about AI's limits. She holds up a cup: others see a great cup, but for her it might evoke a childhood moment shared only with her best friend. That memory is completely inaccessible. It was never uploaded to the internet. No matter how mighty AI becomes, it cannot access it. The general principle: AI learns from data. Emotion, personal history, and private meaning are not in the data.</p>
+  <blockquote>That is a completely inaccessible piece of information in my brain that is never uploaded on the internet</blockquote>
+  <p class="attrib">Fei-Fei Li, on the gray cup.</p>
+  <div class="nugget" id="nugget-7">
+    <h4>Nugget 7 · The gray cup</h4>
+    <p><span class="tag s">SOURCE FACT</span> A cup's childhood meaning, shared with one friend, was never uploaded and cannot be reached by any model. <span class="tag i">INTERPRETATION</span> The interior of a human life is the largest dataset AI will never train on.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> Li connects this to her earlier line: features of brain function are inaccessible to AI because “they’ve never been uploaded to the internet”. On creativity, her position: AI combines existing elements in novel ways, which counts as a kind of creativity. But some problems need solutions that have not been invented. Her conjecture is hybrid: humans working alongside AI solve the problems whose solutions do not exist yet.</p>
+  <div class="nugget" id="nugget-8">
+    <h4>Nugget 8 · Hybrid creativity</h4>
+    <p><span class="tag s">SOURCE FACT</span> AI is combinatorial. The mathematician's test case needs solutions that do not exist yet. <span class="tag i">INTERPRETATION</span> The frontier belongs to humans working alongside AI, not to either alone.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-liver">
+  <div class="chip">Late in the episode · pattern abundance</div>
+  <h2>The liver surgery test</h2>
+  <p><span class="tag s">SOURCE FACT</span> Li's father had liver surgery at Stanford with the da Vinci robot system, driven by an expert surgeon. Deep human-machine collaboration. Afterward she asked the surgeon: if we aggregated every liver surgery ever performed, could we train an AI to do it alone? The answer was not clear. The liver is extremely vascular, every liver is different, and the number of liver surgeries per year is limited. Even aggregating the world's cases might not supply enough patterns to train the algorithm. The outcome: 10 times less blood lost than a typical surgery, thanks to the robot's laparoscopic capability.</p>
+  <div class="nugget" id="nugget-9">
+    <h4>Nugget 9 · Count the patterns</h4>
+    <p><span class="tag s">SOURCE FACT</span> Where patterns are abundant (faces, chat text), AI alone works. Where they are scarce (liver surgery), the human leads and AI assists. <span class="tag i">INTERPRETATION</span> Count the patterns before choosing the autonomy level. Abundant patterns license autonomy. Scarce patterns require the human in the lead.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> The reverse is also true: the human alone is limited by how many surgeries one surgeon can train on. The frontier question Li poses: can we build an artificial liver simulation to train on infinite possibilities? That is open science, waiting ahead. On intuition, Li reframes the supposedly mystical trait: intuition is experience over time, a dataset coupled to bodily and brain sensations and prediction cues. Machines can learn pattern-based intuition. Inner states like motivation may be the gray-cup problem again.</p>
+</section>
+
+<section class="chapter" id="ch-agency">
+  <div class="chip">Closing · who decides the future</div>
+  <h2>Agency: who decides the future</h2>
+  <p><span class="tag s">SOURCE FACT</span> Li directs the Stanford Institute for Human-Centered Artificial Intelligence. Her core political claim: humanity must have the agency to decide how the future is imagined. It cannot be one company or one investor deciding the world fills with metal robots. The public is currently reactive, watching others decide. The multi-stakeholder alternative: society proactively designs the future together. On regulation, AI must mature like other powerful technologies: professional norms, education (computer scientists are not trained in ethics, and Stanford is now adding it), and government guardrails fitted to the domain. Her warning: one person or a few people from industry telling everybody what to do would be dangerous, because market forces are not societal norms.</p>
+  <div class="nugget" id="nugget-10">
+    <h4>Nugget 10 · Agency</h4>
+    <p><span class="tag s">SOURCE FACT</span> Three pillars: agency (society designs together), norms (ethics education, professional standards), guardrails (domain-fitted regulation). <span class="tag i">INTERPRETATION</span> Market forces are not societal norms. Who is in the room is the whole question.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> Li's next frontier is embodied AI: spatial and physical intelligence beyond language. Humans developed preverbally, and evolution ran 500 million years without verbal communication. Her vehicle: World Labs, co-founded at the beginning of 2024, building foundation models for generating 3D and 4D worlds for creators, robot training, architecture, healthcare, and education. Her timeline: not 12 months (too fast for hardware), but think 30 years for the full vision, with robots already on the streets today.</p>
+  <div class="nugget" id="nugget-11">
+    <h4>Nugget 11 · The eldercare test</h4>
+    <p><span class="tag s">SOURCE FACT</span> Li cares for two advanced-aged, very sick parents who do not speak English. A robot that relieved the physical labor would not replace family responsibility, love, or communication. <span class="tag i">INTERPRETATION</span> The human-centered test: does the machine serve the human's life, or replace it?</p>
+  </div>
+</section>
+
+    <div class="takeaways">
+      <h3>Takeaways</h3>
+      <ol>
+<li>Li's 2006 insight: the bottleneck was data, not algorithms. ImageNet's 15 million images lit the fuse of modern AI.</li>
+      <li>The 2012 convergence: data plus algorithms plus GPUs. The recipe has not changed since. Transformers, ChatGPT, and Sora are the same triad at new scale.</li>
+      <li>Count the patterns before setting autonomy. Abundant patterns license AI autonomy. Scarce patterns need the human in the lead.</li>
+      <li>The gray cup: private emotional history was never uploaded and never will be. It is the largest dataset AI will never train on.</li>
+      <li>Human-centered AI means agency: society designs the future together, not one company or one investor.</li>
+      </ol>
+    </div>
+    <footer>
+      <p><b>Sources.</b> This companion narrates Huberman Lab Episode 7, Using AI to Increase Your Intelligence and Enrich Humanity with Dr. Fei-Fei Li (2026-08-10, video N5AQFYtqx8Q). All facts and figures come from the episode transcript (cleaned captions, not verbatim-certified) and the episode page in this track. Each chart names its source line. Illustrations are AI-generated watercolors made for this page. The photograph is real, with visible attribution in its caption. Transcripts carry no timestamps, so chapters are ordered by episode progression instead of clock time.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 25 words: one pull quote of 18 words on the gray cup, and one seven-word episode phrase. Both carry attribution where they appear. The pull quotes carry speaker attribution and their place in the episode. Everything else is original paraphrase and analysis. The transcript used here is cleaned captions, not a verbatim-certified record, so brief quoted phrases reproduce its wording, not necessarily the exact spoken word.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var title = ch.getAttribute('data-title') || '';
+    a.innerHTML = (t ? '<span class="t">' + t + '</span>' : '') + title;
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function onScroll(){
+    var best = null, by = 160;
+    chapters.forEach(function(ch){
+      var r = ch.getBoundingClientRect();
+      if (r.top <= by) best = ch;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', best && a.getAttribute('href') === '#' + best.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
