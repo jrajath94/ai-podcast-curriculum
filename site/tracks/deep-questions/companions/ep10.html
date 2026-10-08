@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stop Doom Scrolling: Deep Questions Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Deep Questions episode on fixing your relationship with social media: the tour, the toolkit, the 30-day declutter.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Deep Questions · Track Companion</a>
+  <span class="sub">Stop Doom Scrolling</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Deep Questions · Companion</p>
+      <h1>Stop Doom Scrolling</h1>
+      <p class="dek">Fresh eyes on the apps, the white-knuckle trap, the six-item toolkit, and the 30-day declutter.</p>
+<style>
+.tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.tag.sf{background:#e3f0e6;color:#1d5c2e;border:1px solid #bcd8c2}
+.tag.it{background:#fdf3e3;color:#8a5a12;border:1px solid #ecd9ac}
+.legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:24px 0;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.legend .k{font-weight:700;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+</style>
+      <img src="assets/cal-newport.jpg" alt="Portrait photograph of Cal Newport">
+      <p class="caption"><b>Cal Newport.</b> Photo: robertglazer.com (Elevate Podcast). Episode 288: the man who never used social media takes the tour.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">288</div><div class="l">Episode</div><div class="s">the deep dive on phones and distraction</div></div>
+        <div class="stat"><div class="n">10M</div><div class="l">Views</div><div class="s">on his 2016 TED talk, Quit Social Media</div></div>
+        <div class="stat"><div class="n">6</div><div class="l">Toolkit items</div><div class="s">the high-quality leisure kit, built before any declutter</div></div>
+        <div class="stat"><div class="n">30</div><div class="l">Days</div><div class="s">the declutter: step away, then decide what returns</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/PqXz2Yl_M6k" title="Deep Questions: Stop Doom Scrolling with Cal Newport (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The fresh-eyes tour</a></li>
+          <li><a href="#nugget-2">The 2005 test</a></li>
+          <li><a href="#nugget-3">The white-knuckle mistake</a></li>
+          <li><a href="#nugget-4">The void</a></li>
+          <li><a href="#nugget-5">The six-item toolkit</a></li>
+          <li><a href="#nugget-6">Higher fidelity wins</a></li>
+          <li><a href="#nugget-7">The 30-day declutter</a></li>
+          <li><a href="#nugget-8">The baseball rules</a></li>
+          <li><a href="#nugget-9">The National Enquirer test</a></li>
+          <li><a href="#nugget-10">Tolkien's stolen time</a></li>
+        </ol>
+      </div>
+      <div class="legend">
+        <span class="k">How to read this companion.</span>
+        <span class="tag sf">Source fact</span> marks claims stated in the episode.
+        <span class="tag it">Interpretation</span> marks analysis and transferable lessons drawn from those facts.
+        Every chart names its episode source. Illustrations are AI-generated watercolors made for this page.
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-tour" data-time="Part 1" data-title="The fresh-eyes tour">
+      <p class="ch-time">Part 1</p>
+      <h2>The Fresh-Eyes Tour</h2>
+      <p>Newport is famous for never using social media. His 2016 TED talk, Quit Social Media, passed 10 million views. His 2019 book Digital Minimalism sold hundreds of thousands of copies. But he wondered: what if the apps evolved into something genuinely valuable while he was not looking? So on the show, live and unrehearsed, he loaded up the apps to see.</p>
+      <p>Twitter served a smug takedown of Taylor Swift hugging Travis Kelsey after the Super Bowl, plus arguing over a farmers' protest in India. Instagram served gym bodies, vacations, and curated happiness. TikTok served an endless flip of oddities: a fried avocado, and a mashed-potato mountain with a gravy volcano and chicken-nugget dinosaurs, set to the Jurassic World theme.</p>
+      <div class="pull">
+        <blockquote>this stuff is really weird</blockquote>
+        <p class="who">Cal Newport, fresh eyes on social media · Deep Questions</p>
+      </div>
+      <img src="assets/dq-ep10-volcano.webp" alt="Watercolor illustration of a mashed-potato mountain volcano with gravy pouring down and small dinosaur shapes, playful and absurd">
+      <p class="caption"><b>Illustration.</b> The mashed-potato volcano: the state of the apps in 2024. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · The experiment</p>
+        <h4>The fresh-eyes tour</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport, who never used social media, toured Twitter, Instagram, and TikTok live on the show to find out if the apps had anything worth his time.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The outsider's view is data. Insiders stop seeing the water they swim in.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Audit your defaults with fresh eyes, on purpose, once in a while.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-2005" data-time="Part 2" data-title="The 2005 test">
+      <p class="ch-time">Part 2</p>
+      <h2>The 2005 Test</h2>
+      <p>His verdict: nothing he saw was intrinsically evil or bad in isolation. But as the foundation of a culture's leisure, it was strange. His test: bring a time traveler forward from 2005. The traveler would not be horrified by any single video. They would be perplexed that this is the core of how we engage with the world outside work. Gravy down a mashed-potato mountain is fine. As the main thing, it is not the Algonquin Roundtable.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · The perspective</p>
+        <h4>The 2005 test</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues a 2005 time traveler would find it perplexing that short videos and celebrity smugness form the foundation of modern leisure.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Judge a habit by its share of your life, not by its worst single instance.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Fine in isolation can still be a strange foundation.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-whiteknuckle" data-time="Part 3" data-title="The white-knuckle mistake">
+      <p class="ch-time">Part 3</p>
+      <h2>The White-Knuckle Mistake</h2>
+      <p>Convinced, what should you do? Newport names the biggest mistake first: white-knuckle abstinence. Fed up with the apps, people declare no more phone, then feel righteous about it. You know them because they announce it constantly: they will work their abstinence into any conversation, even in a burning building. It does not work, and the righteousness is the tell.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · The trap</p>
+        <h4>The white-knuckle mistake</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport says the biggest mistake is to jump straight to white-knuckle abstinence, which fails and breeds performative righteousness.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Abstinence as identity is still an identity built around the phone.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Do not start by banning. Start by building.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-void" data-time="Part 4" data-title="The void">
+      <p class="ch-time">Part 4</p>
+      <h2>The Void</h2>
+      <p>Why does abstinence fail? Digital minimalism's answer: the tools pushed other things out of your life, then filled the void those things left. Quit cold and you face the yawning void directly: boredom, your own thoughts, anxiety. It is deeply uncomfortable, like a detoxing addict shaking and wondering what to do next. The phone was a low-quality answer to real needs. Remove it with nothing in its place and the needs drag you back.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · The mechanism</p>
+        <h4>The void</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues the apps filled a void left by displaced activities, so pure abstinence leaves you facing boredom and anxiety with no alternative.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The craving is information. It tells you which needs are unfed.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Fill the void first. Then the phone has nothing to offer.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-toolkit" data-time="Part 5" data-title="The six-item toolkit">
+      <p class="ch-time">Part 5</p>
+      <h2>The Six-Item Toolkit</h2>
+      <p>So step one is not to touch the phone. It is to build the alternatives first, while still using the phone as before. Newport prescribes a high-quality leisure toolkit of six areas, each engaged to some degree. One, reading: lots of it, fun and serious. Two, high-quality video: TV, movies, documentaries, work with real creative energy behind it. Three, a skill-based hobby, where improving skill improves results and creates a feedback loop the mind finds more compelling than distraction.</p>
+      <p>Four, an exercise-based hobby with streaks and marks to hit, which lifts you out of the low-energy torpor the phone feeds on. Five, communities that meet regularly: standing movie nights, monthly dinners, leagues, groups. Six, adventures: the away game, the special exhibit, the waterfall at the end of a two-mile hike. Things above and beyond the easy.</p>
+      <div class="chart" id="chart-toolkit">
+        <h4>The high-quality leisure toolkit</h4>
+        <svg viewBox="0 0 680 300" role="img" aria-label="The six toolkit areas: reading, quality video, skill hobby, exercise hobby, regular communities, adventures">
+          <rect x="20" y="40" width="195" height="110" rx="8" fill="#1f6f8b" data-tip="Reading: lots of it, fun and serious."/>
+          <text x="117" y="86" text-anchor="middle" fill="#fff" font-size="15">Reading</text>
+          <text x="117" y="110" text-anchor="middle" fill="#e8dcc8" font-size="12">fun and serious</text>
+          <rect x="242" y="40" width="195" height="110" rx="8" fill="#1f6f8b" data-tip="Quality video: TV, movies, documentaries with real creative energy."/>
+          <text x="339" y="86" text-anchor="middle" fill="#fff" font-size="15">Quality video</text>
+          <text x="339" y="110" text-anchor="middle" fill="#e8dcc8" font-size="12">TV, film, docs</text>
+          <rect x="464" y="40" width="195" height="110" rx="8" fill="#1f6f8b" data-tip="Skill hobby: improving skill improves results; the feedback loop beats distraction."/>
+          <text x="561" y="86" text-anchor="middle" fill="#fff" font-size="15">Skill hobby</text>
+          <text x="561" y="110" text-anchor="middle" fill="#e8dcc8" font-size="12">feedback loop</text>
+          <rect x="20" y="170" width="195" height="110" rx="8" fill="#b4531f" data-tip="Exercise hobby: streaks and marks; lifts you out of low-energy torpor."/>
+          <text x="117" y="216" text-anchor="middle" fill="#fff" font-size="15">Exercise hobby</text>
+          <text x="117" y="240" text-anchor="middle" fill="#e8dcc8" font-size="12">streaks and marks</text>
+          <rect x="242" y="170" width="195" height="110" rx="8" fill="#b4531f" data-tip="Regular communities: standing nights, dinners, leagues, groups."/>
+          <text x="339" y="216" text-anchor="middle" fill="#fff" font-size="15">Communities</text>
+          <text x="339" y="240" text-anchor="middle" fill="#e8dcc8" font-size="12">meeting regularly</text>
+          <rect x="464" y="170" width="195" height="110" rx="8" fill="#b4531f" data-tip="Adventures: above and beyond the easy; the away game, the waterfall hike."/>
+          <text x="561" y="216" text-anchor="middle" fill="#fff" font-size="15">Adventures</text>
+          <text x="561" y="240" text-anchor="middle" fill="#e8dcc8" font-size="12">beyond the easy</text>
+        </svg>
+        <p class="csrc">Source: Deep Questions, Stop Doom Scrolling, the six-item high-quality leisure toolkit. Labels are paraphrase.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · The build</p>
+        <h4>The six-item toolkit</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport prescribes six leisure areas, reading, quality video, skill hobby, exercise hobby, regular communities, adventures, built up before any phone reduction.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Alternatives are infrastructure. Build them before you need them.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Add before you subtract. Every time.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · The competition</p>
+        <h4>Higher fidelity wins</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport argues the phone's monopoly on attention dissolves once it competes with higher-fidelity satisfactions of the same needs.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> You do not beat the phone by fighting it. You outbid it.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Make the alternative better, and the phone loses on merit.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-declutter" data-time="Part 6" data-title="The 30-day declutter">
+      <p class="ch-time">Part 6</p>
+      <h2>The 30-Day Declutter</h2>
+      <p>Step two is the declutter, and Newport stresses the word. Not a detox, a break before returning to old habits, but a declutter: step away to make permanent change. With the toolkit humming, take thirty days away from the optional digital technologies: TikTok, Instagram, Twitter. Lean hard into the six areas instead. You are not staring into the void. You are busy.</p>
+      <p>The thirty days teach you two things: what you actually miss, and what you actually care about. At the end, you decide what, if anything, comes back. Anything readmitted must clear two bars: it must be genuinely valuable, and it must return with clear rules for how and when you use it.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · The reset</p>
+        <h4>The 30-day declutter</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport prescribes thirty days away from optional social technologies, supported by the toolkit, ending with deliberate decisions about what returns and under what rules.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Distance creates the data that intention needs.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Nothing returns by default. Everything re-auditions.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-baseball" data-time="Part 7" data-title="The baseball rules">
+      <p class="ch-time">Part 7</p>
+      <h2>The Baseball Rules</h2>
+      <p>Newport's example shows what rule-bound return looks like. Suppose you realize you genuinely value baseball trade rumors during hot stove season. Twitter comes back, but on terms. Twenty minutes at lunch. You follow nobody. You bookmark four reporters, two for your team and two national. Desktop only, at work. Never on the phone, never the endless timeline.</p>
+      <p>The value is captured. The side effects are fenced out. That is a digital life on your terms. It supports what you value and trims the rest. The point is not whether the technology is good or bad. The point is intention, and intention needs a life better than the mashed-potato volcano.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · The terms</p>
+        <h4>The baseball rules</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport's example: Twitter returns for baseball rumors with rules, twenty minutes at lunch, four bookmarked reporters, desktop only, no follows, no phone.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Specificity is the whole trick. Vague rules are decorative.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Every returning app gets a written contract: what, when, where, how long.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-enquirer" data-time="Part 8" data-title="The National Enquirer test">
+      <p class="ch-time">Part 8</p>
+      <h2>The National Enquirer Test</h2>
+      <p>Newport offers a final analogy for the habit. Glancing at the apps now and then is like reading the tabloid at the supermarket checkout: who cares. But three to four hours a day, seven days a week, is the habit of someone who reads the National Enquirer for hours each day. At that point you say: buddy, we need a better hobby. That is implicitly what we have all ended up doing.</p>
+      <p>He adds a joke from the Super Bowl. Snapchat ran an ad arguing it was better than other social media, despite sitting at the core of the teen mental health crisis. His verdict:</p>
+      <div class="pull">
+        <blockquote>an anti-fentanyl ad sponsored by crack</blockquote>
+        <p class="who">Cal Newport on Snapchat's Super Bowl ad · Deep Questions</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · The mirror</p>
+        <h4>The National Enquirer test</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport compares casual app use to checkout-line tabloids and heavy use to a person who reads the National Enquirer three to four hours daily, and jokes that Snapchat's ad was an anti-fentanyl ad sponsored by crack.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> Dose makes the poison. Name your dose honestly.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Count the hours. Then decide if the tabloid deserves them.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-tolkien" data-time="Part 9" data-title="Tolkien's stolen time">
+      <p class="ch-time">Part 9</p>
+      <h2>Tolkien's Stolen Time</h2>
+      <p>The episode closes with a slow-productivity coda. A curator of medieval manuscripts at Oxford sent Newport a quote from a letter Tolkien wrote to his publisher, Stanley Unwin:</p>
+      <div class="pull">
+        <blockquote>writing stories in prose or verse has been stolen</blockquote>
+        <p class="who">J.R.R. Tolkien, in a letter to Stanley Unwin, via an Oxford curator · Deep Questions</p>
+      </div>
+      <p>Tolkien meant the writing was stolen, often guiltily, from time already mortgaged to the grind of professional duties: Oxford lecturing, administrative detail, grading, a field transforming under him. His peace came from returning to the fantastical worlds of his own making. Newport reads it as slow productivity a century early: fewer things, slower pace, obsession with the quality of the few. Not all of us will write The Lord of the Rings. But the joys of slowness are available to anyone who steals back the time.</p>
+      <img src="assets/dq-ep10-tolkien.webp" alt="Watercolor illustration of a writer's desk with a hand-drawn fantasy map, manuscripts, and a fountain pen, lamplit and quiet">
+      <p class="caption"><b>Illustration.</b> Tolkien's desk: the slower, more engaging world. AI-generated watercolor made for this page.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · The coda</p>
+        <h4>Tolkien's stolen time</h4>
+        <p><span class="lbl">What happened. </span><span class="tag sf">Source fact</span> Newport shares Tolkien's letter to Unwin about writing time stolen from mortgaged professional hours, reading it as an early exemplar of slow productivity: fewer things, slower, better.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag it">Interpretation</span> The overload is not new. Neither is the escape route.</p>
+        <p><span class="lbl">The principle. </span><span class="tag it">Interpretation</span> Steal back the hours. Spend them on the work that matters.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Fresh eyes see it: the apps are fine in isolation, strange as a foundation.</li>
+          <li>White-knuckle abstinence fails. It leaves the void untouched.</li>
+          <li>Build the six-item toolkit first: reading, quality video, skill, exercise, community, adventure.</li>
+          <li>Higher-fidelity satisfactions outbid the phone on merit.</li>
+          <li>Then declutter for thirty days. Nothing returns by default.</li>
+          <li>Readmitted apps get written contracts: what, when, where, how long.</li>
+          <li>Steal back the hours like Tolkien. Spend them on the work that matters.</li>
+        </ol>
+        <p class="src">Distilled from Deep Questions, Stop Doom Scrolling with Cal Newport (episode 288). Video: youtube.com/watch?v=PqXz2Yl_M6k.</p>
+      </div>
+    </section>
+
+    <footer>
+    <footer class="meth" id="methodology">
+      <h3>Methodology &amp; honesty notes</h3>
+      <div class="qcount"><span class="qn" id="qcount">20</span><span class="ql">quoted words in the body above (footer excluded), by the episode's stated recount method</span></div>
+      <p><b>How this companion was built.</b> This page narrates Deep Questions episode 288, Stop Doom Scrolling with Cal Newport, from the episode's full transcript. The numbers in the page are as follows. Episode 288. Ten million views on the 2016 TED talk Quit Social Media. Six items in the high-quality leisure toolkit. A 30-day declutter. The baseball example: 20 minutes at lunch, four bookmarked reporters, desktop only. Three to four hours a day in the National Enquirer analogy.</p>
+      <p><b>Quoted words, enumerated.</b> The footer count of 20 enumerates every word inside the episode's pull-quote markup, plus quoted phrases in the body prose. <i>this stuff is really weird</i> (5). <i>an anti-fentanyl ad sponsored by crack</i> (6). <i>writing stories in prose or verse has been stolen</i> (9). Total: 20. The transcript is auto-generated. Minor spellings were normalized in verbatim quotes (fentanyl, Algonquin) without changing meaning.</p>
+      <p><b>Source / interpretation.</b> Blocks tagged <span class="tag sf">Source fact</span> state what the episode says. Blocks tagged <span class="tag it">Interpretation</span> draw transferable lessons. The two illustrations are AI-generated watercolors made for this page and are labeled as such. The portrait photograph is real and credited.</p>
+      <p><b>Watch.</b> Official episode video: <a href="https://www.youtube-nocookie.com/embed/PqXz2Yl_M6k">youtube-nocookie.com/embed/PqXz2Yl_M6k</a>. Built with the shared companion pipeline (assemble + companion.css + companion.js).</p>
+    </footer>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+
+</script>
+</body>
+</html>
