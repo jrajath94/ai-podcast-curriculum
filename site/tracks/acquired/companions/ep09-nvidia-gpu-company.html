@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA Part I: The GPU Company, Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Acquired's NVIDIA Part I: the founding at Denny's, the quadrilateral bet, the Riva 128, the six-month cadence, and the 90-to-2 consolidation.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 9 &middot; NVIDIA I &middot; Mar 2022</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 9 &middot; Companion</p>
+      <h1>NVIDIA Part I: The GPU Company</h1>
+      <p class="dek">The origin story. Three founders, a $2 million seed at a $6 million valuation, two brushes with death, and the six-month ship cadence that killed 90 competitors. This companion follows the episode chapter by chapter, 1993 to 2006.</p>
+      <figure>
+        <img src="assets/ep09/illustration-dennys-dinner.webp" alt="Watercolor illustration of three engineers sketching a chip on a diner napkin">
+        <p class="caption"><b>Illustration.</b> The Denny's pitch: 3D graphics for everyone, over coffee. AI-generated watercolor.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">90&rarr;2</div><div class="l">Graphics competitors in 1993, down to two survivors by 2006</div><div class="s">Episode ~00:02</div></div>
+        <div class="stat"><div class="n">100x</div><div class="l">Seed at $6M post-money to the $600M IPO market cap</div><div class="s">Episode ~01:12</div></div>
+        <div class="stat"><div class="n">1M</div><div class="l">Riva 128 units sold within four months in 1997</div><div class="s">Episode ~00:54</div></div>
+        <div class="stat"><div class="n">83%</div><div class="l">Share of standalone GPUs NVIDIA held by the mid-2000s</div><div class="s">Episode ~00:02</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/wYUTMgGxZzc" title="Acquired: Nvidia Part I (official episode audio)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Listen.</b> The official Acquired episode audio (about 2 hr 20 min). Times below are proportional estimates from the transcript, which carries no timestamps.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The will to survive</a></li>
+          <li><a href="#nugget-2">The Superbird pitch</a></li>
+          <li><a href="#nugget-3">Two million at six million</a></li>
+          <li><a href="#nugget-4">Triangles beat quadrilaterals</a></li>
+          <li><a href="#nugget-5">One frame every 30 seconds</a></li>
+          <li><a href="#nugget-6">Speed is the strategy</a></li>
+          <li><a href="#nugget-7">Name the category</a></li>
+          <li><a href="#nugget-8">Revenue is vanity</a></li>
+          <li><a href="#nugget-9">Our perspective is that</a></li>
+          <li><a href="#nugget-10">Ninety to two</a></li>
+          <li><a href="#nugget-11">Reloading, not dying</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps.</p>
+    </div>
+
+    <section class="chapter" id="ch-beginnings" data-time="~00:02" data-title="Jensen's Beginning">
+      <p class="ch-time">~00:02</p>
+      <h2>Jensen's Beginning</h2>
+      <div class="pull">
+        <blockquote>My will to survive exceeds almost everybody else's will to kill me.</blockquote>
+        <p class="who">Jensen Huang, as quoted on the episode (~00:02). His own summary of 1993-2006.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> The story starts in the southern part of Taiwan, with the birth of Jen-Hsun Huang in February 1963, later Americanized to Jensen. He graduates in 1984 and joins AMD as the equivalent of a chip-design product manager, engineering-heavy junior management on a blazing-fast-for-the-time 1 MHz CPU chip. After a couple of years he follows his office to a startup called LSI Logic, which had just gone public in what was then the largest venture return in IPO history: Sequoia's Don Valentine made $153 million on day one.</p>
+      <p>LSI was one of the first ASIC companies, custom-designed chips built for other companies. Jensen spent eight years there while finishing his master's at Stanford, completed around Thanksgiving 1992. Two colleagues from Sun Microsystems, Chris Malachowski and Curtis Priem, in Jensen's words "really, really fantastic engineers," were unhappy and had an idea.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Founders</p>
+        <h4>The will to survive</h4>
+        <p><span class="lbl">What happened. </span>Jensen's own summary of the founding years: his will to survive exceeds almost everybody else's will to kill him. Two near-deaths followed. He was right to lead with it.</p>
+        <p><span class="lbl">Why it matters. </span>Strategy only compounds if the company survives to use it. The quote is the operating system under everything else in this episode.</p>
+        <p><span class="lbl">The principle. </span>Survive first, then compound, then control. In that order.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-idea" data-time="~00:24" data-title="The Idea: 3D Graphics for Everyone">
+      <p class="ch-time">~00:24</p>
+      <h2>The Idea: 3D Graphics for Everyone</h2>
+      <p><span class="tag fact">Source fact</span> Late 1992. 3D graphics turn mainstream. The way it works: you need SGI workstations, expensive machines from Silicon Graphics down the street. Jurassic Park is about to come out. Meanwhile, kids on PCs play Wolfenstein 3D, and Doom comes out in 1993 from id Software in Texas, where John Carmack does incredible engineering feats to get 3D running on consumer PCs. The market loves it.</p>
+      <p>Chris and Curtis's idea: make 3D graphics cheap and ubiquitous, not locked in workstations. They pitch Jensen over dinner at Denny's, his favorite spot. He worked at one in high school. His go-to dish is the Superbird. He joins them. They found NVIDIA in 1993.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Founding</p>
+        <h4>The Superbird pitch</h4>
+        <p><span class="lbl">What happened. </span>Two frustrated Sun engineers pitched Jensen at Denny's over his usual Superbird. The thesis: 3D graphics should be cheap and ubiquitous, not locked in workstations.</p>
+        <p><span class="lbl">Why it matters. </span>The founding insight was a distribution insight, not a chip insight. The technology existed. The price did not.</p>
+        <p><span class="lbl">The principle. </span>Look for the capability trapped in the expensive tier. Your pitch is the price cut.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-seed" data-time="~00:34" data-title="The $2M Seed">
+      <p class="ch-time">~00:34</p>
+      <h2>The $2M Seed</h2>
+      <p><span class="tag fact">Source fact</span> Sequoia and Sutter Hill invest, about $1 million each, $2 million total, at a $6 million post-money valuation. Between the seed and the IPO, they raise only about $20 million total. There were no stages of venture capital then. You raised venture money and then hopefully were profitable enough to go public.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Fundraising</p>
+        <h4>Two million at six million</h4>
+        <p><span class="lbl">What happened. </span>NVIDIA raised $2 million at a $6 million post-money valuation, then only about $20 million more before the IPO. The IPO priced at a $600 million market cap: a 100x return from the seed valuation.</p>
+        <p><span class="lbl">Why it matters. </span>Capital efficiency forced the discipline. With no mega-rounds, the company had to ship its way out of every crisis.</p>
+        <p><span class="lbl">The principle. </span>Raise little, ship much. Scarcity is a strategy when the market is crowded.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-death1" data-time="~00:39" data-title="Death #1: The Quadrilateral Bet">
+      <p class="ch-time">~00:39</p>
+      <h2>Death #1: The Quadrilateral Bet</h2>
+      <figure>
+        <img src="assets/ep09/illustration-quads-triangles.webp" alt="Watercolor illustration of a wireframe dragon built from quads on one side and triangles on the other">
+        <p class="caption"><b>Illustration.</b> The wrong primitive: quadrilaterals versus the industry's triangles. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> NVIDIA's first chip bets on quadrilaterals as the fundamental 3D primitive. The industry standardizes on triangles instead: a triangle is the fewest vertices in a closed shape, the cheapest way to describe a surface. NVIDIA is on board with Microsoft's ecosystem, which standardizes on the triangle paradigm. Sega, their one big customer, gets cold feet about quadrilaterals too, and in 1996 says they switch horses.</p>
+      <p>Meanwhile, memory prices drop thanks to Moore's law. NVIDIA's chips were designed to be super tight on memory: memory cost about $200 in components per chip, while competitors with more generous memory designs paid about $50. Everything goes wrong at once: wrong primitive, wrong memory economics, one customer walking away.</p>
+      <p>Then the turn. Jensen sits down with Curtis and Chris and tells them the pipe dream is over. The only shot is to standardize on the same Microsoft Direct3D as everyone else and compete on performance. Intellectual honesty, later the cornerstone of NVIDIA's culture, starts here: throw it all out.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Standards</p>
+        <h4>Triangles beat quadrilaterals</h4>
+        <p><span class="lbl">What happened. </span>NVIDIA bet on the cleverer primitive and lost. The industry picked triangles. NVIDIA swallowed its pride, standardized on Microsoft's Direct3D, and competed on raw performance instead.</p>
+        <p><span class="lbl">Why it matters. </span>The cleverer technology loses to the standard more often than the reverse. The episode notes the homage in NVIDIA's own headquarters, built from triangles, not quadrilaterals.</p>
+        <p><span class="lbl">The principle. </span>Bet on the industry's primitive, not your own cleverer one. Differentiate on performance, not on the standard.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Language</p>
+        <h4>Our perspective is that</h4>
+        <p><span class="lbl">What happened. </span>Jensen avoids the word vision. He calls it exclusionary: it implies one person's picture everyone else must follow. His phrasing: "our perspective is that we want to enable graphics as a new medium to tell stories."</p>
+        <p><span class="lbl">Why it matters. </span>Language assigns ownership. "Vision" makes the mission the founder's. "Our perspective" makes it the team's.</p>
+        <p><span class="lbl">The principle. </span>State the mission as shared perspective, not founder prophecy. People build what they co-own.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-riva" data-time="~00:54" data-title="The Riva 128: Nine Months or Death">
+      <p class="ch-time">~00:54</p>
+      <h2>The Riva 128: Nine Months or Death</h2>
+      <figure>
+        <img src="assets/ep09/riva-128.jpg" alt="Photograph of an NVIDIA Riva 128 graphics card">
+        <p class="caption"><b>Photo.</b> The Riva 128, the bet-the-company chip designed in nine months. Source: Wikimedia Commons, CC BY-SA 4.0.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> With Sega gone and cash running out, NVIDIA designs the Riva 128 in nine months. The tradeoff: they debug in software on an emulator running about one frame every 30 seconds, mind-numbing testing slowness in exchange for shipping at all. It works. The Riva 128 is a beast. Competitors need 18-24 months to ship their next generation. NVIDIA ships in six. They sell 1 million units of the Riva 128 within four months, in 1997.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Survival</p>
+        <h4>One frame every 30 seconds</h4>
+        <p><span class="lbl">What happened. </span>To ship in nine months, NVIDIA debugged on an emulator running one frame every 30 seconds. Normal monitors refresh 30 to 60 times a second. The tradeoff bought the only path with nonzero survival odds.</p>
+        <p><span class="lbl">Why it matters. </span>When the alternative is certain death, the "reckless" schedule is the rational one. Rationality is relative to the options.</p>
+        <p><span class="lbl">The principle. </span>When all options are bad, pick the one that can work. Measure the schedule against death, not comfort.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cadence" data-time="~01:02" data-title="The Six-Month Cadence">
+      <p class="ch-time">~01:02</p>
+      <h2>The Six-Month Cadence</h2>
+      <figure>
+        <img src="assets/ep09/illustration-cadence-race.webp" alt="Watercolor illustration of one runner far ahead of a fading pack">
+        <p class="caption"><b>Illustration.</b> The six-month cadence: lap the field by shipping. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Starting in 1997-1998, NVIDIA doubles the performance delivered at a given price point every six months. Compare: Moore's law says transistors double every 18-24 months. Competitors ship new architectures on that timeline. The episode's framing: NVIDIA competes on a different vector than the CPU manufacturers, and the thing it learns to do, execute more instructions simultaneously, parallelize, turns out to have uses far beyond graphics.</p>
+      <div class="toy" id="toy-cadence">
+        <h4>Toy: the cadence compounder</h4>
+        <p class="tsub">NVIDIA doubles performance-per-dollar every 6 months while rivals need 24. Set the cycle times and see the gap after 4 years. Illustrative model.</p>
+        <label for="cy">Your ship cycle (months) <span class="tval" id="cy-v">6</span></label>
+        <input type="range" id="cy" min="3" max="24" value="6" step="3">
+        <label for="cr">Rival ship cycle (months) <span class="tval" id="cr-v">24</span></label>
+        <input type="range" id="cr" min="6" max="36" value="24" step="6">
+        <div class="verdict" id="cadence-verdict"></div>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Speed</p>
+        <h4>Speed is the strategy</h4>
+        <p><span class="lbl">What happened. </span>Doubling performance-per-dollar every six months against 24-month rivals compounds to roughly 64x ahead in four years. Competitors designed against NVIDIA's last chip while it shipped the next two.</p>
+        <p><span class="lbl">Why it matters. </span>Speed was not an advantage. It was the entire strategy. Each cycle compounds the last.</p>
+        <p><span class="lbl">The principle. </span>Convert "ship faster" from slogan to math. Then find the organizational muscles that make the cycle possible.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gpu" data-time="~01:08" data-title="Inventing the GPU">
+      <p class="ch-time">~01:08</p>
+      <h2>Inventing the GPU</h2>
+      <p><span class="tag fact">Source fact</span> In 1999 NVIDIA rebrands its products. After the NV1 and Riva 128, they run a naming contest. The winner is "Geometry Force", "force" as in the Star Wars line may the force be with you, shortened to GeForce, still the gaming brand today. The first GeForce, the GeForce 256, delivers 5x better graphics performance than anything else on the market. And they coin the category: before this, these were "graphics cards" or "graphics chips." NVIDIA markets the GeForce 256 as the first GPU, the Graphics Processing Unit. Whoever names the category sets the buying criteria, and the criteria always favor the namer.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Positioning</p>
+        <h4>Name the category</h4>
+        <p><span class="lbl">What happened. </span>A naming contest produced GeForce. Then NVIDIA coined "GPU" and defined the category. Before it, buyers compared graphics cards on specs. After it, NVIDIA set the terms.</p>
+        <p><span class="lbl">Why it matters. </span>Categories are mental real estate. The name smuggles in buying criteria that favor the namer. Free, permanent positioning.</p>
+        <p><span class="lbl">The principle. </span>Define the category your product creates in one paragraph. If you cannot, you do not own it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ipo" data-time="~01:12" data-title="The IPO and the Xbox Deal">
+      <p class="ch-time">~01:12</p>
+      <h2>The IPO and the Xbox Deal</h2>
+      <p><span class="tag fact">Source fact</span> NVIDIA goes public at the beginning of 1999 at a $600 million market cap, a 100x return from the $6 million seed valuation. Then Microsoft comes calling with a secret project: the Xbox. NVIDIA signs a $500-million-a-year deal to supply the graphics, with a $200 million advance. The chip is a modified version of the new GeForce 3, the first with programmable shaders and programmable lighting on the GPU: instead of fixed-function hardware spitting out triangles, developers run little programs, shaders, on the chip.</p>
+      <p>The master-strategist move: the Xbox deal buys Microsoft's support for programmable shaders, which protects NVIDIA from Intel. But Microsoft extracts its pound of flesh: console is a crappy, low-gross-margin business. Of all the game consoles in history, NVIDIA powered exactly three consoles: the original Xbox, the PlayStation 3, and the Nintendo Switch. When the Xbox 360 generation arrives, NVIDIA loses it to ATI, and a huge chunk of topline revenue walks out the door.</p>
+      <div class="chart" id="chart-revenue">
+        <h4>The revenue rocket and the plateau</h4>
+        <p class="csub">Revenue in millions of dollars. Hover for detail.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of NVIDIA revenue 1999 to 2005">
+          <g id="rev-bars"></g>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part I, ~01:42. The fastest semiconductor company ever to $1B.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Partnerships</p>
+        <h4>Revenue is vanity</h4>
+        <p><span class="lbl">What happened. </span>The $500-million-a-year Xbox deal carried terrible gross margin, and Microsoft held all the bargaining power at renewal. NVIDIA lost the 360 to ATI. Only three consoles ever carried NVIDIA chips, by discipline, not accident.</p>
+        <p><span class="lbl">Why it matters. </span>Revenue that a partner can take away rents you. Revenue with margin and control builds you. NVIDIA walked away rather than bid down.</p>
+        <p><span class="lbl">The principle. </span>Run the Xbox test on any deal with a giant: margin, renewal power, walk-away price. Answer before the first meeting.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-plateau" data-time="~01:42" data-title="The Revenue Rocket and the Plateau">
+      <p class="ch-time">~01:42</p>
+      <h2>The Revenue Rocket and the Plateau</h2>
+      <p><span class="tag fact">Source fact</span> Fiscal year ending January 31, 1999: $158 million in revenue. Next year: $375 million. Then $735 million. Then, in calendar 2001, the Xbox year: about $1.4 billion, the fastest semiconductor company ever to reach a billion in revenue, and an S&amp;P 500 addition in the company's ninth year. Then the plateau: revenue sits near $2 billion, flat for a few years. $2.8 billion by 2005, barely profitable, net income a couple hundred million or less each year, not adding meaningfully to the cash pile. Competitors figure out programmable shaders. In 2006, AMD buys ATI.</p>
+      <div class="chart" id="chart-margin">
+        <h4>Pricing power, built not granted</h4>
+        <p class="csub">Gross margin. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of gross margin 2004 versus today">
+          <rect class="bar alt" x="150" y="172" width="110" height="68" data-tip="2004: 29% gross margin. Differentiation competed away."></rect>
+          <rect class="bar dark" x="400" y="80" width="110" height="160" data-tip="Today: 66% gross margin. The moat, priced."></rect>
+          <text class="vallab" x="205" y="164" text-anchor="middle">29%</text>
+          <text class="vallab" x="455" y="72" text-anchor="middle">66%</text>
+          <text class="axis" x="205" y="262" text-anchor="middle">2004</text>
+          <text class="axis" x="455" y="262" text-anchor="middle">today</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part I, ~01:42. The moat was still being built.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 &middot; S-curves</p>
+        <h4>Reloading, not dying</h4>
+        <p><span class="lbl">What happened. </span>Revenue flatlined near $2 billion while the company funded the next S-curve underneath: scientific computing, the CUDA bet. Flat revenue plus heavy investment reads as stagnation.</p>
+        <p><span class="lbl">Why it matters. </span>The market could not tell reloading from dying. That is why the stock lagged for a decade. The leading indicators were capability, not revenue.</p>
+        <p><span class="lbl">The principle. </span>Distinguish reloading from dying by checking whether the next S-curve is funded. Revenue lags capability by years.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-2006" data-time="~01:52" data-title="2006: Shoot to Kill">
+      <p class="ch-time">~01:52</p>
+      <h2>2006: Shoot to Kill</h2>
+      <div class="chart" id="chart-consol">
+        <h4>Ninety to two</h4>
+        <p class="csub">Graphics chip competitors, 1993 to 2006. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of industry consolidation">
+          <rect class="bar alt" x="150" y="40" width="110" height="200" data-tip="1993: 90 undifferentiated graphics competitors."></rect>
+          <rect class="bar dark" x="400" y="216" width="110" height="24" data-tip="2006: 2 survivors, NVIDIA and ATI. The cadence killed the rest."></rect>
+          <text class="vallab" x="205" y="32" text-anchor="middle">90</text>
+          <text class="vallab" x="455" y="208" text-anchor="middle">2</text>
+          <text class="axis" x="205" y="262" text-anchor="middle">1993</text>
+          <text class="axis" x="455" y="262" text-anchor="middle">2006</text>
+        </svg>
+        <p class="csrc">Source: Acquired, NVIDIA Part I, ~00:02. Proliferation, then consolidation.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Forbes runs a cover story called "Shoot to Kill." AMD moves on NVIDIA. With revenue flat and the machine-learning and scientific-computing markets invisible, the bear case says this company needs adult supervision, maybe an acquirer. The bull case, which Jensen holds alone: bet the farm on scientific computing, parallel compute for researchers. It turns out to be so much more than scientific computing. That bull case is the next episode.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Consolidation</p>
+        <h4>Ninety to two</h4>
+        <p><span class="lbl">What happened. </span>Ninety undifferentiated graphics startups in 1993. Two survivors by 2006: venture-backed NVIDIA and bootstrapped Canadian outsider ATI. The Buffett pattern: proliferation, then consolidation.</p>
+        <p><span class="lbl">Why it matters. </span>Consolidation rewards the already-winning. David's investing rule: pay up for the winner rather than buy the laggard cheap.</p>
+        <p><span class="lbl">The principle. </span>In a consolidating commodity market, back the one running away with it. Cheap laggards stay cheap.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Survive first, then compound, then control. In that order.</li>
+          <li>Bet on the industry's primitive, not your own cleverer one.</li>
+          <li>When all options are bad, pick the one that can work.</li>
+          <li>Speed is the strategy. Ship every six months while rivals ship every two years.</li>
+          <li>Name the category. Whoever names it owns it.</li>
+          <li>Revenue is vanity. Margin and control are sanity.</li>
+          <li>Flat revenue can mean reloading. Check whether the next S-curve is funded.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, NVIDIA Part I, March 2022. Full episode: youtube.com/watch?v=wYUTMgGxZzc. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="~02:15" data-title="Outro">
+      <p class="ch-time">~02:15</p>
+      <h2>Outro</h2>
+      <p><span class="tag fact">Source fact</span> The episode closes with the sign-off, who got the truth, and the hosts' takeaways from the first act of the NVIDIA story.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "Nvidia: The GPU Company (1993-2006)" (March 28, 2022, about 2 hr 20 min). All facts and figures come from the episode transcript (research/acquired/transcripts/wYUTMgGxZzc.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 49 words: Jensen Huang's will-to-survive line as a blockquote (12 words), "our perspective is that we want to enable graphics as a new medium to tell stories." (16 words), "really, really fantastic engineers," (4 words), "Shoot to Kill." (3 words), and nine short word-mentions totaling 14 words: "Geometry Force", "Our perspective", "ship faster", "graphics cards", "graphics chips.", "Vision", "reckless", "force", and "GPU". Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+
+  /* ---------- toy: cadence compounder ---------- */
+  (function(){
+    var cy = document.getElementById('cy'), cr = document.getElementById('cr');
+    var cyV = document.getElementById('cy-v'), crV = document.getElementById('cr-v');
+    var out = document.getElementById('cadence-verdict');
+    function upd(){
+      var y = +cy.value, r = +cr.value;
+      cyV.textContent = y; crV.textContent = r;
+      var yourCycles = (4 * 12) / y, rivalCycles = (4 * 12) / r;
+      var gap = Math.pow(2, yourCycles) / Math.pow(2, rivalCycles);
+      out.textContent = 'In 4 years you ship ' + yourCycles + ' generations against their ' +
+        rivalCycles + '. Doubling each cycle, you land ' + gap.toFixed(0) +
+        'x ahead on performance-per-dollar.';
+    }
+    cy.addEventListener('input', upd); cr.addEventListener('input', upd); upd();
+  })();
+
+  /* ---------- chart: revenue rocket ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var data = [
+      ['FY99','$158M',158,'Fiscal year ending Jan 31, 1999.'],
+      ['FY00','$375M',375,'More than double.'],
+      ['FY01','$735M',735,'Double again.'],
+      ['CY01','$1.4B',1400,'The Xbox year. Fastest semiconductor to $1B, ever.'],
+      ['02-04','$2B',2000,'Near $2B, flat. The plateau.'],
+      ['2005','$2.8B',2800,'Barely profitable. Reloading underneath.']
+    ];
+    var g = document.getElementById('rev-bars');
+    var maxV = 2800;
+    data.forEach(function(d, i){
+      var x = 14 + i * 103;
+      var hh = Math.max(10, (d[2] / maxV) * 250);
+      var y = 286 - hh;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', x); r.setAttribute('y', y);
+      r.setAttribute('width', 86); r.setAttribute('height', hh);
+      r.setAttribute('rx', 3);
+      r.setAttribute('fill', i < 4 ? '#1f5fb0' : (i === 5 ? '#3d352a' : '#ccd6e8'));
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x', x + 43); t.setAttribute('y', 308);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = d[0];
+      g.appendChild(t);
+      var v = document.createElementNS(svgNS,'text');
+      v.setAttribute('x', x + 43); v.setAttribute('y', y - 8);
+      v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+      v.setAttribute('font-size','10');
+      v.textContent = d[1];
+      g.appendChild(v);
+      r.addEventListener('mousemove', function(ev){ showTip(d[0] + ': ' + d[1] + ' revenue. ' + d[3], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
