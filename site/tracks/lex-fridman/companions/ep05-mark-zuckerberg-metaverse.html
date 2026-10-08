@@ -445,7 +445,7 @@ span.ptag, .ptag {
 <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
 </div>
 <p class="legend src-legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a person wearing a VR headset reaching toward floating translucent avatars" class="base" fetchpriority="high" src="assets/illustration-ep05.webp"/></div></div><figcaption><b>Illustration.</b> Presence: the feeling of being there with other people. AI-generated watercolor.</figcaption></figure><figure class="photo wide" data-hero="1">
+</div><figure data-phase2="1" data-scene="ep05-mark-zuckerberg-metaverse-hero" class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a person wearing a VR headset reaching toward floating translucent avatars" class="base" fetchpriority="high" src="assets/illustration-ep05.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/ep05-mark-zuckerberg-metaverse-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div><figcaption><b>Illustration.</b> Presence: the feeling of being there with other people. AI-generated watercolor.</figcaption></figure><figure class="photo wide" data-hero="1">
 <img alt="Photograph of Mark Zuckerberg" fetchpriority="high" src="assets/photo-mark-zuckerberg.jpg"/>
 <figcaption><b>Photo.</b> Mark Zuckerberg, CEO of Meta. Official White House photograph, public domain, via Wikimedia Commons.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="~00:00" data-title="A mirror held up to humanity" id="ch-open"><div class="ch-head"><div><p class="ch-meta"><span class="ts">~00:00</span> · A mirror held up to humanity</p><h2>A Mirror Held Up to Humanity</h2></div></div>
@@ -478,7 +478,7 @@ span.ptag, .ptag {
 <p class="who">Mark Zuckerberg · ~01:02</p>
 </div>
 <p>The mechanism: users give per-content feedback (like it, love it, makes me angry, makes me sad), and the system downranks what makes people angry. He also notes the critique is not unique to ads: subscription news has its own polarization incentives, since partisan outlets sell subscriptions to one side.</p>
-<aside class="tag" data-chapter="ch-dilemma" data-sign-label="Aisle" data-sign-num="4" id="nugget-3"><div class="tag-price"><span class="tag-big">3</span><span class="tag-unit">Optimize for the long-term user</span></div><div class="tag-body"><div class="tag-title">Optimize for the long-term user</div><div class="tag-eye">The lesson</div><p><b>What happened. </b>Zuckerberg argues the relevant incentive is not next quarter's engagement but whether people still find the product valuable years from now.</p><p><b>Why it matters. </b>Short-term metrics and long-term value often point opposite ways. Which one you pick defines what you build.</p><p><b>The principle. </b>When a metric rewards the near term, ask what the same system would optimize for over a decade.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 04</span></div></div></aside>
+<aside class="tag" data-chapter="ch-dilemma" data-sign-label="Aisle" data-sign-num="4" id="nugget-3"><div class="tag-price"><span class="tag-big">a decade</span><span class="tag-unit">the horizon that defines what gets built</span></div><div class="tag-body"><div class="tag-title">Optimize for the long-term user</div><div class="tag-eye">The lesson</div><p><b>What happened. </b>Zuckerberg argues the relevant incentive is not next quarter's engagement but whether people still find the product valuable years from now.</p><p><b>Why it matters. </b>Short-term metrics and long-term value often point opposite ways. Which one you pick defines what you build.</p><p><b>The principle. </b>When a metric rewards the near term, ask what the same system would optimize for over a decade.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 04</span></div></div></aside>
 </section>
 <section class="chapter col" data-chapter="1" data-time="~01:04" data-title="Does social media polarize us?" id="ch-polarization"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">5</span></div><div><p class="ch-meta"><span class="ts">~01:04</span> · Does social media polarize us?</p><h2>Does Social Media Polarize Us?</h2></div></div>
 <p><span class="tag fact">Source fact</span> Zuckerberg grounds the debate in research. Stanford economist Matthew Gentzkow's cross-country work finds social media is not a large driver of polarization: polarization falls in some countries and rises in the US, while social media is roughly equivalent everywhere. Affective polarization, negative feelings toward the other group, actually decreases with social media use. After the 2016 US election, the most polarized voters were the ones not on the internet.</p>
@@ -1230,5 +1230,19 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('ep05-mark-zuckerberg-metaverse-hero',{
+ init:function(F,FX){
+  F._m=FX.motes(F.stage,F.W,F.H,24,7);
+  F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.5,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];
+ },
+ pose:function(S,FX){
+  var F=S.F;F._m.tick(S.t);
+  F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);
+  return {'hero-subject':{x:7*Math.sin(S.t*0.6),y:5*Math.sin(S.t*0.83+1),r:0,s:1,o:1}};
+ } });
+})();
+</script>
+</body>
 </html>
