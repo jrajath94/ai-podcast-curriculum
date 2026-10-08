@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuralink: The Brain, the Robot, and the First Human · Lex Fridman Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Lex Fridman's Neuralink episode with Elon Musk, DJ Seo, Matthew McDougall, Bliss Chapman, and Nolan Arbaugh.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .crumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .crumb a{color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Lex Fridman &middot; Track Companion</a>
+  <span class="sub">Ep 4 · Neuralink: Elon Musk, the engineers, and Nolan Arbaugh · Aug 2024</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="crumb"><a href="../index.html">Lex Fridman track index</a> / Companion</p>
+      <p class="kicker">Lex Fridman Podcast · Episode 4 · Companion</p>
+      <h1>Neuralink: The Brain, the Robot, and the First Human</h1>
+      <p class="dek">The full N1 hardware chain, the robot surgery, the race to beat the best gaming mouse, and the first human implant, told by the people who built it and the man who wears it.</p>
+      <img src="assets/illustration-ep04.webp" alt="Watercolor illustration of a translucent human head in profile with golden threads connecting the brain to a small coin-sized device">
+      <p class="caption"><b>Illustration.</b> The N1 implant and its threads, imagined in watercolor. AI-generated illustration.</p>
+      <figure>
+        <img src="assets/photo-elon-musk.jpg" alt="Photograph of Elon Musk">
+        <p class="caption"><b>Photo.</b> Elon Musk, Neuralink co-founder. Photo by Gage Skidmore, CC BY-SA 4.0, via Wikimedia Commons.</p>
+      </figure>
+      <div class="stats">
+<div class="stat"><div class="n">1,024</div><div class="l">Recording channels: 64 threads x 16 electrodes</div><div class="s">Episode, DJ Seo</div></div><div class="stat"><div class="n">22 ms</div><div class="l">Brain spike to cursor movement</div><div class="s">Episode, Bliss Chapman</div></div><div class="stat"><div class="n">8.5</div><div class="l">Bits per second: Nolan’s world record</div><div class="s">Episode, Nolan Arbaugh</div></div><div class="stat"><div class="n">~10.5h</div><div class="l">Episode runtime, Lex’s longest</div><div class="s">Transcript word count</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/Kbk9BiPhm7o" title="Lex Fridman Podcast: Neuralink episode (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Solve the basics before the saga</a></li><li><a href="#nugget-2">Measure the real bottleneck</a></li><li><a href="#nugget-3">The user adapts to the model too</a></li><li><a href="#nugget-4">Ship the firmware fix</a></li><li><a href="#nugget-5">Augmentation starts with the disabled</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
+    </div>
+    <section class="chapter" id="ch-open" data-time="~00:00" data-title="Five conversations, one story">
+      <p class="ch-time">~00:00</p>
+      <h2>Five Conversations, One Story</h2>
+      <p><span class="tag fact">Source fact</span> Lex structures this episode as five separate interviews: Elon Musk, DJ Seo (VP of engineering), neurosurgeon Matthew McDougall, software lead Bliss Chapman, and Nolan Arbaugh, the first human to receive a Neuralink implant. At ~10.5 hours of transcript, it is Lex's longest episode.</p>
+      <p>Elon opens with the state of play. The second implant is in and working, with about 400 electrodes providing signal, and the plan is 10 human participants by the end of 2024, pending regulatory approval. Even with roughly 10-15% of Nolan's electrodes working, the team hit a world record:</p>
+      <div class="pull">
+        <blockquote>We were able to get to achieve a bits per second that's twice the world record.</blockquote>
+        <p class="who">Elon Musk on Nolan's early results · ~00:15</p>
+      </div>
+      <p>His roadmap is a ladder of data rates: 100 bits per second within a few years, a megabit within five. The long-term thesis is that AI-human symbiosis is a bandwidth problem. An AI that communicates at terabits per second will get bored waiting for a human typing a few words per second. The average human, Elon notes, communicates at less than one bit per second averaged over a full day.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Tech trees</p>
+        <h4>Solve the basics before the saga</h4>
+        <p><span class="lbl">What happened. </span>Elon describes Neuralink's work as a tech tree: you need literacy before you can have Lord of the Rings, and basic neuron repair before telepathy.</p>
+        <p><span class="lbl">Why it matters. </span>Sequencing a project wrong burns credibility. Solving the most basic real problem first buys the right to attempt the ambitious one.</p>
+        <p><span class="lbl">The principle. </span>Climb the tech tree in order. Each rung should produce something genuinely useful on its own.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-hardware" data-time="~01:39" data-title="The N1 implant: threads, chips, and heat">
+      <p class="ch-time">~01:39</p>
+      <h2>The N1 Implant: Threads, Chips, and Heat</h2>
+      <p><span class="tag fact">Source fact</span> DJ Seo breaks the device into numbers. The N1 implant carries 64 threads, each with 16 electrodes, for 1,024 channels total. Threads taper from 16 to 84 microns wide and are under 5 microns thick. Raw recording runs at just under 20 kHz with 10-bit precision, about 200 megabits per second streaming into the chip.</p>
+      <p>That much data cannot leave a skull as heat. An on-board routine called the BOSS algorithm sorts spikes right on the implant and ships only the interesting events over Bluetooth to the Link app. The whole device is the size of a US quarter and 9 mm thick, and most of its volume is the rechargeable battery. Charging is inductive, but tissue may not rise more than 2 degrees Celsius, so a ferrite shield steers the charging field away from the battery can.</p>
+      <p>The scaling path is explicit: 1,000 channels today, 3,000 to 6,000 by the end of 2024, 16,000 by the end of 2025. The hard parts are not the wires themselves. They are power per channel, wireless bandwidth for the spikes, and the hermetic seal against what Seo cheerfully calls the brain's attempts to kill the electronics.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Bottlenecks</p>
+        <h4>Measure the real bottleneck</h4>
+        <p><span class="lbl">What happened. </span>The implant records 200 megabits per second, but the usable output is a trickle of spike events, because heat, not silicon, is the limit inside a skull.</p>
+        <p><span class="lbl">Why it matters. </span>The constraint that binds is rarely the headline spec. Design to the true bottleneck and compress everything else toward it.</p>
+        <p><span class="lbl">The principle. </span>Find the binding constraint first, then optimize the system around it instead of the vanity metric.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-surgery" data-time="~04:10" data-title="The R1 robot and the one-inch hole">
+      <p class="ch-time">~04:10</p>
+      <h2>The R1 Robot and the One-Inch Hole</h2>
+      <p><span class="tag fact">Source fact</span> Matthew McDougall, the neurosurgeon, does the human part: a one-inch hole in the skull over the hand-knob region of motor cortex, located by functional MRI. Then the R1 robot inserts each thread with computer vision steering around surface blood vessels. Before the first human surgery, the team practiced on a pulsing 3D-printed brain matched to the patient's anatomy.</p>
+      <p>McDougall is honest about the trade. Humans adapt to surprises mid-surgery. The robot follows its plan. But no human hand can steer hair-thin flexible wires around blood vessels at this scale, and there are not enough neurosurgeons on Earth to serve millions of future patients. The robot exists because the procedure must eventually be ordinary.</p>
+      <p><span class="tag interp">Interpretation</span> The episode treats surgery as a manufacturing problem, not a heroics problem. Practicing on a bespoke pulsing brain model, with mock CT scans and a mannequin body, is quality engineering applied to an operating room.</p>
+    </section>
+
+    <section class="chapter" id="ch-software" data-time="~05:43" data-title="The best mouse in the world">
+      <p class="ch-time">~05:43</p>
+      <h2>The Best Mouse in the World</h2>
+      <p><span class="tag fact">Source fact</span> Bliss Chapman leads the decoding software, and his goal is stated as plainly as possible:</p>
+      <div class="pull">
+        <blockquote>I want to build the best mouse in the world.</blockquote>
+        <p class="who">Bliss Chapman · ~05:45</p>
+      </div>
+      <p>The numbers: brain spike to cursor movement takes about 22 milliseconds today. The best gaming mice do 5 milliseconds. The natural path, brain to hand muscle, takes about 75 milliseconds. The implant already beats the body's own wiring. Chapman predicts that within five to ten years, esports competitions could be dominated by players with paralysis, because they get the best input technology first and have the time to master it.</p>
+      <p>The bottleneck is Bluetooth, whose low-energy protocol batches updates no faster than every 7.5 milliseconds, plus the screen refresh rate. Calibration is the deeper problem: the model must infer true intention from noisy spike labels without ever observing the movement. The user adapts to the model while the model trains on the user, a co-adaptation loop Chapman calls an unsolved problem that more channels alone will not fix.</p>
+      <p><span class="tag fact">Source fact</span> DJ Seo frames the mission population: about 180,000 people live with quadriplegia in the US, and roughly 18,000 suffer a paralyzing spinal cord injury each year. The first product is what the team calls digital telepathy: controlling a computer by thought alone.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Co-adaptation</p>
+        <h4>The user adapts to the model too</h4>
+        <p><span class="lbl">What happened. </span>Nolan learned tricks to work around the decoder's quirks, the way people learn to work around buggy software, instead of the decoder getting fixed.</p>
+        <p><span class="lbl">Why it matters. </span>In any human-machine loop, both sides adapt. Optimizing only the machine side misses half the system.</p>
+        <p><span class="lbl">The principle. </span>When user and model train each other, debug the loop, not just the model.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-nolan" data-time="~08:17" data-title="Nolan: the yellow spike">
+      <p class="ch-time">~08:17</p>
+      <h2>Nolan: The Yellow Spike</h2>
+      <p><span class="tag fact">Source fact</span> Nolan Arbaugh had a diving accident in 2016 that left him paralyzed with no feeling below the shoulders. In January 2024 he became the first human to receive the N1 implant. The night before surgery he FaceTimed Elon Musk and said "let's rock and roll". After the call he told the twenty people around him, "I just hope he wasn't too star struck talking to me."</p>
+      <p>Days after surgery, the team showed him a tablet with eight channels of live neural data. He tried wiggling his fingers and spotted a yellow spike firing every time he moved his index finger. That became cursor control, then the WebGrid benchmark: 8 bits per second at first, then a world record of 8.5. His stated targets are 9, then 10. Bliss Chapman's own score is about 17.1.</p>
+      <p>Then the setback: some threads retracted from the cortex. Nolan called the news devastating. The team shipped an over-the-air firmware update, switching spike detection to spike-band power, and performance came back stronger than before. The dwell cursor replaced click calibration for a while: hover three seconds to click, adjustable down toward fractions of a second.</p>
+      <div class="pull">
+        <blockquote>have fun and work hard</blockquote>
+        <p class="who">Nolan Arbaugh, advice to future trial participants · ~10:05</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Recovery</p>
+        <h4>Ship the firmware fix</h4>
+        <p><span class="lbl">What happened. </span>When threads retracted, the team did not reopen the skull. They pushed a software update, like updating a phone, and recovered better-than-original performance.</p>
+        <p><span class="lbl">Why it matters. </span>Hardware failures are not always hardware problems. A system designed for remote repair turns a crisis into a patch.</p>
+        <p><span class="lbl">The principle. </span>Build the upgrade path into version one. The first failure will test it sooner than you expect.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-future" data-time="~10:10" data-title="Blindsight and the road to a megabit">
+      <p class="ch-time">~10:10</p>
+      <h2>Blindsight and the Road to a Megabit</h2>
+      <p><span class="tag fact">Source fact</span> Elon's two-track plan: medicine first, augmentation later. The medical track climbs from digital telepathy to spinal implants that bridge brain and body, then Blindsight, a second product that stimulates the visual cortex directly. About one million Americans are legally blind, and for many of them only cortical stimulation can work, since retinal devices fail when the optic nerve itself is damaged.</p>
+      <p>The augmentation track starts once thousands of patients and years of data push risk near zero. Communication rates that exceed normal humans, then vision in infrared and ultraviolet, beyond biological eyes. The five-year target: a megabit per second of neural data rate.</p>
+      <p><span class="tag interp">Interpretation</span> The episode never pretends the timeline is certain. Channel targets, megabit goals, and esports predictions are Elon's stated ambitions, recorded here as stated, not as verified outcomes.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Dual track</p>
+        <h4>Augmentation starts with the disabled</h4>
+        <p><span class="lbl">What happened. </span>Neuralink aims its superhuman goals at quadriplegic patients first, not at healthy volunteers seeking an edge.</p>
+        <p><span class="lbl">Why it matters. </span>The highest reward justifies the irreducible risk. Starting where the need is greatest earns both the data and the moral license.</p>
+        <p><span class="lbl">The principle. </span>Aim the ambitious version at the people who need it most. The edge cases become the proof.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Lex Fridman Podcast Neuralink episode with Elon Musk, DJ Seo, Matthew McDougall, Bliss Chapman, and Nolan Arbaugh, published 2 August 2024 (~10.5 hours). Facts, figures, and quoted phrases from the conversation come from the episode's auto-generated caption transcript on file (transcripts/Kbk9BiPhm7o.txt). Publish dates, episode numbers, and view counts come from the video and track metadata. Each chapter names its episode section. Times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors. The guest photo is a real photograph, attributed in the caption. The captions render 1,024 as 10,24; this companion uses standard formatting. Channel targets (3,000-6,000 by end of 2024, 16,000 by end of 2025) and the megabit goal are Elon's stated ambitions, not verified outcomes.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 46 words: three pull quotes plus two inline remarks, each verbatim from the episode transcript with speaker attribution: “We were able to get to achieve a bits per second that's twice the world record.” (16 words), “I want to build the best mouse in the world.” (10 words), “have fun and work hard” (5 words), “let's rock and roll” (4 words), and “I just hope he wasn't too star struck talking to me.” (11 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(scope){
+    scope.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+  window.__bindTips = bindTips;
+  window.__showTip = showTip;
+  window.__hideTip = hideTip;
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+
+})();
+</script>
+</body>
+</html>
