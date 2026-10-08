@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sam Altman on the Board Saga, Sora, and AGI · Lex Fridman Companion</title>
+
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .crumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .crumb a{color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Lex Fridman &middot; Track Companion</a>
+  <span class="sub">Ep 8 · Sam Altman: the Board Saga and the Road Ahead · Mar 2024</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="crumb"><a href="../index.html">Lex Fridman track index</a> / Companion</p>
+      <p class="kicker">Lex Fridman Podcast · Episode 8 · Companion</p>
+      <h1>Sam Altman on the Board Saga, Sora, and AGI</h1>
+      <p class="dek">What happened in November 2023, what Sora understands about the world, why compute is the currency of the future, and who should control AGI.</p>
+      <img src="assets/illustration-ep08.webp" alt="Watercolor illustration of a chessboard-like boardroom table with a storm cloud above it and a sunrise behind">
+      <p class="caption"><b>Illustration.</b> November 2023: four and a half days that nearly destroyed a company. AI-generated watercolor.</p>
+      <figure>
+        <img src="assets/photo-sam-altman.jpg" alt="Photograph of Sam Altman">
+        <p class="caption"><b>Photo.</b> Sam Altman, CEO of OpenAI. Photo by the Office of the Prime Minister of Japan, CC BY 4.0, via Wikimedia Commons.</p>
+      </figure>
+      <div class="stats">
+<div class="stat"><div class="n">9→3</div><div class="l">OpenAI board members: nine, then six, then three</div><div class="s">Episode</div></div><div class="stat"><div class="n">4.5</div><div class="l">Days of the November 2023 board saga</div><div class="s">Episode</div></div><div class="stat"><div class="n">8K→128K</div><div class="l">Context window: GPT-4 to GPT-4 Turbo</div><div class="s">Episode</div></div><div class="stat"><div class="n">~140 min</div><div class="l">Episode runtime</div><div class="s">Transcript word count</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/jvqFAi7vkBc" title="Lex Fridman Podcast: Sam Altman on the board saga (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Iterate through the power struggle</a></li><li><a href="#nugget-2">Watch what it gets right, not just wrong</a></li><li><a href="#nugget-3">Count tasks, not jobs</a></li><li><a href="#nugget-4">Price the input, not the device</a></li><li><a href="#nugget-5">No one person holds it</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
+    </div>
+    <section class="chapter" id="ch-saga" data-time="~00:01" data-title="The board saga">
+      <p class="ch-time">~00:01</p>
+      <h2>The Board Saga</h2>
+      <p><span class="tag fact">Source fact</span> On Thursday November 16 and Friday November 17, 2023, OpenAI's board fired Sam Altman. He calls it <span class="q">"that was definitely the most painful professional experience of my life"</span>. Over four and a half days of adrenaline, little sleep, and little food, the staff threatened to leave, two board members called back Saturday, a new interim CEO was named Sunday night, and Altman returned with a new board.</p>
+      <p>The structural lesson: the old board shrank from nine members to six to three over about a year, with few experienced directors. A nonprofit board answers to nobody but itself, unlike corporate boards answerable to shareholders. Altman now wants board members hired in slates for complementary expertise, and wants the board to answer, as much as practical, to the world as a whole.</p>
+      <div class="pull">
+        <blockquote>the road to AGI should be a giant power struggle</blockquote>
+        <p class="who">Sam Altman · ~00:05</p>
+      </div>
+      <p>He expected something explosive on the road to AGI and is glad it happened early: it built resilience for higher-stakes moments to come. The personal cost was a month and a half of fugue-state drift, and a changed philosophy of trust. He calls himself extremely trusting by default and dislikes what the shock did to that.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Governance</p>
+        <h4>Iterate through the power struggle</h4>
+        <p><span class="lbl">What happened. </span>Altman treats the firing as a preview of higher-stakes governance crises and uses it to redesign the board.</p>
+        <p><span class="lbl">Why it matters. </span>Power struggles are not bugs on the road to AGI. They are the road. Systems must be built to survive them.</p>
+        <p><span class="lbl">The principle. </span>Design governance for the crisis, not the calm. Test it before the stakes peak.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-elon" data-time="~00:29" data-title="Elon, open, and the lawsuit">
+      <p class="ch-time">~00:29</p>
+      <h2>Elon, Open, and the Lawsuit</h2>
+      <p><span class="tag fact">Source fact</span> On Musk's lawsuit, Altman says OpenAI started as a research lab with no idea it would need huge capital or products, and patched its structure repeatedly, each step reasonable at the time. On Musk's departure: he thought OpenAI would fail, wanted total control or a Tesla acquisition, and left when the team refused. Altman calls the lawsuit unbecoming of a builder and says he <span class="q">"missed the old Elon"</span>, quoting messages from others who felt the same.</p>
+      <p>On the word open: he would pick a different name with hindsight. What matters to him is that powerful tools reach people's hands for free, which he calls the most important thing OpenAI does. On open-sourcing models, he rejects the religious war: some open, some closed, nuance over battle lines. He would heavily discourage startups from copying the nonprofit-to-capped-profit path.</p>
+    </section>
+
+    <section class="chapter" id="ch-sora" data-time="~00:41" data-title="Sora and world models">
+      <p class="ch-time">~00:41</p>
+      <h2>Sora and World Models</h2>
+      <p><span class="tag fact">Source fact</span> Sora trains on visual patches the way LLMs train on text tokens, largely self-supervised on internet-scale data. Altman is struck by occlusions handled well: a person walks in front of an object and it is still there afterward, implying something like a 3D understanding emerging from 2D training. Weaknesses remain, like cats sprouting extra limbs, and he expects both better data and genuinely different approaches to be needed.</p>
+      <p>Release is gated on efficiency at scale and on thoughtfulness about deepfakes and misinformation. On copyright, his position: creators deserve compensation and an opt-out from style mimicry, and the economy needs a Napster-to-Spotify style reinvention for the AI era.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Capabilities</p>
+        <h4>Watch what it gets right, not just wrong</h4>
+        <p><span class="lbl">What happened. </span>Altman warns against staring at Sora's failures until you conclude it is all fake. Some of it genuinely works.</p>
+        <p><span class="lbl">Why it matters. </span>Weakness-spotting is cheap and feels smart. It also blinds you to the trajectory.</p>
+        <p><span class="lbl">The principle. </span>Study the successes as hard as the failures. The trend lives in what works.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gpt4" data-time="~00:54" data-title="GPT-4 kind of sucks">
+      <p class="ch-time">~00:54</p>
+      <h2>GPT-4 Kind of Sucks</h2>
+      <p><span class="tag fact">Source fact</span> Altman praises GPT-4, then says it kind of sucks, the way GPT-3 looks unimaginably horrible next to GPT-4. He expects the 4-to-5 delta to match the 3-to-4 delta. His job, as he frames it, is to live a few years in the future and remember today's tools will look broken from there.</p>
+      <p>On jobs, he rejects the frame. The better question is what percent of tasks AI will do: five-second tasks, five-minute tasks, five-hour tasks, five-day tasks, over lengthening horizons. People will operate at higher levels of abstraction until the change is qualitative, not just quantitative. Most YouTube videos will use AI tools in production while staying human-directed, because humans go back to humans after two days with anything cooler.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Economics</p>
+        <h4>Count tasks, not jobs</h4>
+        <p><span class="lbl">What happened. </span>Altman reframes automation anxiety from jobs replaced to tasks absorbed over expanding time horizons.</p>
+        <p><span class="lbl">Why it matters. </span>Jobs are bundles of tasks. The bundle survives longer than any single task inside it.</p>
+        <p><span class="lbl">The principle. </span>When a technology arrives, inventory your tasks by time horizon. The short ones go first.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-context" data-time="~01:01" data-title="Context, memory, and Q*">
+      <p class="ch-time">~01:01</p>
+      <h2>Context, Memory, and Q*</h2>
+      <p><span class="tag fact">Source fact</span> Context windows grew from 8K to 128K tokens between GPT-4 and GPT-4 Turbo. Altman dreams of billions: feed in your whole life and the model just knows you. Memory should be user choice all the way down, with transparency about what is kept. On Q*, the rumored reasoning project, he declines to discuss it, which Lex notes is itself an answer.</p>
+      <p>On slower thinking, he agrees the intuition is reasonable: harder problems deserve more compute, and a system should think harder about a hard proof than about today's date. How to implement it is wide open.</p>
+    </section>
+
+    <section class="chapter" id="ch-compute" data-time="~01:25" data-title="Compute is the currency">
+      <p class="ch-time">~01:25</p>
+      <h2>Compute Is the Currency</h2>
+      <p><span class="tag fact">Source fact</span> Altman denies tweeting the $7 trillion figure, calling it a meme built on a kernel of insight. His actual claim:</p>
+      <div class="pull">
+        <blockquote>compute is going to be the currency of the future</blockquote>
+        <p class="who">Sam Altman · ~01:26</p>
+      </div>
+      <p>His argument: compute is like energy, not phones. Phone markets saturate. At price X the world uses this much compute, at price Y it uses that much, because cheap intelligence gets woven into everything. The hard parts are energy first, then data centers, supply chains, and chip fabrication. His energy answer is nuclear: fission re-embraced, fusion raced toward, with Helion doing the best work in his view.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Resources</p>
+        <h4>Price the input, not the device</h4>
+        <p><span class="lbl">What happened. </span>Altman models compute demand like energy demand: the only question is how much the world uses at each price.</p>
+        <p><span class="lbl">Why it matters. </span>Unit markets saturate. Flow markets scale with price. Intelligence is a flow.</p>
+        <p><span class="lbl">The principle. </span>For a true commodity, forecast demand as a function of price, not as a number of units.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ads" data-time="~01:38" data-title="No ads, and writing the rules down">
+      <p class="ch-time">~01:38</p>
+      <h2>No Ads, and Writing the Rules Down</h2>
+      <p><span class="tag fact">Source fact</span> Altman says he kind of hates ads as an aesthetic choice and likes that ChatGPT users pay and know the answers are not advertiser-influenced. He believes the business can pay for its compute without ads. On safety, he proposes writing out the model's desired behavior in public, with edge cases, so the world can tell a bug from a policy and debate the policy honestly. He cites the Gemini image-generation episode as the kind of failure this would clarify.</p>
+      <p><span class="tag interp">Interpretation</span> The proposal shifts safety from hidden tuning to public contract. Disagreements move from vague bias claims to a concrete rule and a concrete misfire to debate.</p>
+    </section>
+
+    <section class="chapter" id="ch-agi" data-time="~01:50" data-title="AGI, power, and who controls it">
+      <p class="ch-time">~01:50</p>
+      <h2>AGI, Power, and Who Controls It</h2>
+      <p><span class="tag fact">Source fact</span> Altman expects quite capable systems by the end of this decade, possibly sooner. His personal AGI test: a system that significantly increases the rate of scientific discovery. On power, he is blunt: no one person should control AGI, himself included. He notes the governance failure plainly, that in practice the board could not really fire him, and still does not want super-voting control. He wants governments to set rules of the road and accepts being misunderstood as seeking regulatory capture.</p>
+      <p>On existential risk from the AI itself, he says it is not his top worry right now, though that ranking shifts over time. There are many other things to get right, and the theatrical risks crowd out the slow-burn ones in public discourse.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Power</p>
+        <h4>No one person holds it</h4>
+        <p><span class="lbl">What happened. </span>The man who survived his board's firing argues the board needed the real power to fire him.</p>
+        <p><span class="lbl">Why it matters. </span>Power that cannot be checked is a governance failure even when it lands on the right person this time.</p>
+        <p><span class="lbl">The principle. </span>Design the constraint for the office, not the occupant.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-misc" data-time="~02:06" data-title="Capitalism, simulation, and hope">
+      <p class="ch-time">~02:06</p>
+      <h2>Capitalism, Simulation, and Hope</h2>
+      <p><span class="tag fact">Source fact</span> On his uncapitalized tweets, Altman traces it to his youth as an online kid on messenger, plus a genuine belief that sentence capitalization is a fading construct. He still capitalizes strategy memos. On simulation, Sora nudges his probability up a little, but it is not his top evidence. On death, he is grateful rather than afraid: what a curious, interesting time to be alive. What gives him hope is the scaffolding: no one person builds the iPhone or discovers all of science, yet everyone gets to stand on it.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Lex Fridman Podcast episode with Sam Altman, his second appearance, published March 2024 (~2.3 hours). Facts, figures, and quoted phrases from the conversation come from the episode's auto-generated caption transcript on file (transcripts/jvqFAi7vkBc.txt). Publish dates, episode numbers, and view counts come from the video and track metadata. Each chapter names its episode section. Times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors. The guest photo is a real photograph, attributed in the caption. Altman's account of the board events is his perspective, presented as stated.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 35 words: two pull quotes plus two inline phrases, each verbatim from the episode transcript with speaker attribution: “the road to AGI should be a giant power struggle” (10 words), “compute is going to be the currency of the future” (10 words), “that was definitely the most painful professional experience of my life” (11 words), and “missed the old Elon” (4 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(scope){
+    scope.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+  window.__bindTips = bindTips;
+  window.__showTip = showTip;
+  window.__hideTip = hideTip;
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+
+})();
+</script>
+</body>
+</html>
