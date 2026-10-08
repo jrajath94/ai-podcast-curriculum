@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Essentials Cut: Lex Fridman | Huberman Lab Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab Essentials episode with Lex Fridman: three definitions of AI, self-supervised learning, AlphaZero's open ceiling, value alignment, the Tesla data engine, and the relationship theory in its sharpest form.">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f4efe3; --ink:#23201a; --muted:#6e6455;
+    --line:#e0d6c0; --accent:#2f6f8f; --accent-ink:#1f5068; --soft:#e9f1f4;
+    --warn:#8a5a1d;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0ec}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:22px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.src{background:#dff0f7;color:var(--accent-ink);border:1px solid #bcd9e4}
+  .tag.int{background:#f5e8d4;color:var(--warn);border:1px solid #e3cda1}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .gap{background:#fdf6ec;border:1px dashed #d9b98a;padding:16px 20px;margin:26px 0;
+    font-family:var(--sans);font-size:13.5px;color:#6b5636;line-height:1.6}
+  .gap b{color:#4a3a22}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Huberman Lab · Track Companion</a>
+  <span class="sub">Episode 8 · Dr. Lex Fridman · 2025-05-29</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode 8 · Companion</p>
+      <h1>The Essentials Cut</h1>
+      <p class="dek">The 42-minute distillation of the 3-hour Lex Fridman conversation: self-supervised learning, value alignment, the Tesla data engine, and why time is the master variable of relationships. This companion teaches only what is new or sharpened here and cross-references <a href="ep01-lex-fridman-machines-creativity-love.html">episode 1</a> for the shared core.</p>
+      <img src="assets/ep08-hero-data-engine.webp" alt="Watercolor illustration of a fleet of cars at dusk with streams of light flowing back to a glowing tower, the data engine">
+      <p class="caption"><b>Illustration.</b> The fleet is the sensor network. Failure is the data. Made for this page. AI-generated watercolor in a New Yorker style, made for this page. It carries no words or labels.</p>
+      <div class="legend"><b>How to read this companion.</b>
+        Claims tagged <span class="tag src">SOURCE</span> trace to the episode or its transcript.
+        Claims tagged <span class="tag int">INTERPRETATION</span> are analysis added by this companion.
+        Numbers name their source line. Anything the episode never says is marked <b>Not in source</b>.</div>
+      <div class="stats">
+<div class="stat"><div class="n">4.3:1</div><div class="l">compression ratio, episode 8 runtime vs episode 1</div><div class="s">Episode page (2,537 s vs 10,998 s, worked arithmetic)</div></div>
+        <div class="stat"><div class="n">200 lb</div><div class="l">Homer, Lex's Newfoundland, dead about 15 years</div><div class="s">Transcript, closing section</div></div>
+        <div class="stat"><div class="n">90 lb</div><div class="l">Costello, Huberman's bulldog, lost a week before recording</div><div class="s">Transcript, closing section</div></div>
+        <div class="stat"><div class="n">1-2</div><div class="l">labeled examples to teach a concept, after millions of unlabeled hours</div><div class="s">Transcript, self-supervised section</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/SCzecagKBjY" title="Huberman Lab Essentials episode 8 with Lex Fridman, official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video on youtube-nocookie, the only external dependency on this page. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Three true definitions</a></li>
+          <li><a href="#nugget-2">The working definition</a></li>
+          <li><a href="#nugget-3">Labels go last</a></li>
+          <li><a href="#nugget-4">The dream</a></li>
+          <li><a href="#nugget-5">No ceiling found</a></li>
+          <li><a href="#nugget-6">Value alignment</a></li>
+          <li><a href="#nugget-7">The loop</a></li>
+          <li><a href="#nugget-8">Edges, not averages</a></li>
+          <li><a href="#nugget-9">Time is the master variable</a></li>
+          <li><a href="#nugget-10">Flaws as a feature</a></li>
+          <li><a href="#nugget-11">The measure of love</a></li>
+        </ol>
+      </div>
+    </div>
+<section class="chapter" id="ch-ai">
+  <div class="chip">Opening · what AI is</div>
+  <h2>Three true definitions</h2>
+  <figure>
+    <img src="assets/ep01-lex-fridman-photo.webp" alt="Photograph of Dr. Lex Fridman">
+    <figcaption>Dr. Lex Fridman. Real photo, verified for the episode 1 companion.</figcaption>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> Lex gives three definitions of AI and says all three are true at once. First, the philosophical project: our longing to create other intelligent systems, perhaps more powerful than us. Second, the toolset: computational, mathematical tools that automate tasks. Third, the mirror: building systems that show intelligent behavior in order to understand our own minds, to learn what intelligence is in ourselves. <span class="tag i">INTERPRETATION</span> The definition you pick reveals which conversation you want to have.</p>
+  <div class="nugget" id="nugget-1">
+    <h4>Nugget 1 · Three true definitions</h4>
+    <p><span class="tag s">SOURCE FACT</span> Longing, toolset, mirror: all three hold at once. <span class="tag i">INTERPRETATION</span> Pick the definition that matches your audience. An engineer needs the toolset. A philosopher needs the longing.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> The research community's working definition is narrower: a set of computational techniques for solving problems. Within it, machine learning is the subfield about learning itself: how does a machine that knows very little follow a process and get better and better at a task? The last 15 years belong to deep learning: neural networks, stacks of small computational units called artificial neurons, with inputs and outputs, knowing nothing at the start, tasked with learning something.</p>
+  <div class="nugget" id="nugget-2">
+    <h4>Nugget 2 · The working definition</h4>
+    <p><span class="tag s">SOURCE FACT</span> The community's answer: techniques. The human answer: all three definitions. <span class="tag i">INTERPRETATION</span> When the room is technical, say techniques. When it is not, say all three.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-selfsupervised">
+  <div class="chip">Early in the episode · the most exciting direction</div>
+  <h2>Self-supervised learning</h2>
+  <p><span class="tag s">SOURCE FACT</span> Lex names self-supervised learning as the most exciting problem in the field. The setup: let the machine look at pictures or text on the internet with no ground-truth annotation, no human labels, and learn something generalizable about the core ideas of vision or language. Humans call the result common sense: the giant base of knowledge on which more sophisticated knowledge gets built, the fundamental visual ideas that make up a cat or a dog, learned without any human ever labeling them.</p>
+  <div class="nugget" id="nugget-3">
+    <h4>Nugget 3 · Labels go last</h4>
+    <p><span class="tag s">SOURCE FACT</span> Old way: humans label thousands of examples, then the machine learns the narrow task. New way: the machine builds common sense from unlabeled data, and labels arrive last. <span class="tag i">INTERPRETATION</span> Move the learning before the labels. Labels become the last step, not the first.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> The dream, stated plainly: let a self-supervised system watch YouTube videos for millions and millions of hours, with no supervision, until it is primed. Then a human shows up with one or two examples, the way parents teach children, and the system learns the concept immediately. The child parallel is deliberate: parents give one or two examples to teach a concept, and the dream is machines that do the same because the millions of unsupervised hours built the common-sense base first.</p>
+  <div class="nugget" id="nugget-4">
+    <h4>Nugget 4 · The dream</h4>
+    <p><span class="tag s">SOURCE FACT</span> Millions of unlabeled hours first, then one or two examples, like a parent teaching a child. <span class="tag i">INTERPRETATION</span> The subtle catch: the machine's common sense may be knowledge it cannot introspect or explain but can use. That is both the promise and the interpretability problem.</p>
+  </div>
+  <figure class="chart">
+    <svg viewBox="0 0 640 300" role="img" aria-label="Chart comparing supervised and self-supervised learning pipelines">
+      <text x="20" y="30" class="t">Labels first vs learning first</text>
+      <text x="20" y="48" class="c">The bottleneck moves off the human. Episode claim.</text>
+      <text x="20" y="90" class="t">OLD (supervised)</text>
+      <text x="20" y="115" class="c">human labels thousands of examples</text>
+      <text x="20" y="135" class="c">machine learns the narrow task</text>
+      <text x="20" y="160" class="c">bottleneck: human annotation</text>
+      <line x1="20" y1="185" x2="620" y2="185" class="axis"/>
+      <text x="20" y="220" class="t">NEW (self-supervised)</text>
+      <text x="20" y="245" class="c">machine watches millions of unlabeled hours, builds common sense</text>
+      <text x="20" y="265" class="c">human shows 1-2 examples, machine learns the concept</text>
+      <rect x="430" y="95" width="150" height="30" class="bar" fill="#ffb703"/>
+      <text x="445" y="115" class="c">labels move last</text>
+    </svg>
+    <div class="csrc">Source: episode claims (Huberman Lab Essentials, Lex Fridman, 2025-05-29)</div>
+    <div class="csub">Stylized comparison. The two pipelines show where the human labor sits.</div>
+  </figure>
+</section>
+
+<section class="chapter" id="ch-alphazero">
+  <div class="chip">Middle of the episode · the open ceiling</div>
+  <h2>AlphaZero and the open ceiling</h2>
+  <p><span class="tag s">SOURCE FACT</span> The self-improvement loop: start with a system slightly better than you, have it play a mutated version of itself, and everybody gets better and better until the system is several orders of magnitude better than the world champion. Chess is the worked example. David Silver, who led AlphaGo and AlphaZero, told Lex they have not found the ceiling. In chess that does not matter much. The question is what happens when the same runaway loop runs in a domain with deep effects on humans and societies.</p>
+  <blockquote>they haven't found the ceiling for Alpha Zero, meaning it could just arbitrarily keep improving</blockquote>
+  <p class="attrib">Lex Fridman, quoting David Silver.</p>
+  <div class="nugget" id="nugget-5">
+    <h4>Nugget 5 · No ceiling found</h4>
+    <p><span class="tag s">SOURCE FACT</span> The loop improves by playing itself, and the improvement has not stopped. <span class="tag i">INTERPRETATION</span> That terrifies or excites depending on supervision. Lex's frame: it excites if supervised correctly.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> The safety concept the episode names is value alignment: make sure the goals the AI optimizes are "aligned with human beings and human societies". The machine needs a formal objective function to be good at anything. Humans also optimize objective functions, but we cannot introspect ours. We do not know what we seek. The alignment problem in one line: the machine's objective is explicit and the human's is not, so we must align the explicit one with the unspoken one without fully knowing the unspoken one.</p>
+  <div class="nugget" id="nugget-6">
+    <h4>Nugget 6 · Value alignment</h4>
+    <p><span class="tag s">SOURCE FACT</span> The machine's goal is coded and explicit. The human's goal is unspoken and unintrospectable. <span class="tag i">INTERPRETATION</span> The fix is to learn what we actually want. The hard part is that nobody fully knows what that is.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-dataengine">
+  <div class="chip">Middle-late · the concrete learning loop</div>
+  <h2>The Tesla data engine</h2>
+  <p><span class="tag s">SOURCE FACT</span> Episode 1 discussed Autopilot as a human-robot dance. This episode adds the engineering mechanism: the data engine, a term from Andrej Karpathy, who led Autopilot, and he “calls it the data engine”. The loop: send a fairly clever AI system out into the world in customer cars, let it find the edge cases and fail just enough to reveal them, send the edge-case data back to the mothership, retrain on the edge cases, deploy the new version, and repeat. Each cycle improves the system at exactly the situations where it was weakest.</p>
+  <div class="nugget" id="nugget-7">
+    <h4>Nugget 7 · The loop</h4>
+    <p><span class="tag s">SOURCE FACT</span> Deploy, drive, find edge cases, send data back, retrain, redeploy. The fleet is the sensor network. <span class="tag i">INTERPRETATION</span> Failure is the data collection strategy. Most systems retrain on averages. The data engine retrains on the edges.</p>
+  </div>
+  <figure class="chart">
+    <svg viewBox="0 0 640 330" role="img" aria-label="Flow diagram of the Tesla data engine loop">
+      <text x="20" y="30" class="t">The data engine loop</text>
+      <text x="20" y="48" class="c">Competence expands at the boundary. Episode claim.</text>
+      <text x="250" y="90" class="t">DEPLOY</text>
+      <text x="200" y="110" class="c">fleet with current model</text>
+      <line x1="320" y1="125" x2="320" y2="150" class="axis"/>
+      <text x="240" y="170" class="t">DRIVE and FIND</text>
+      <text x="200" y="190" class="c">edge cases, fail just enough</text>
+      <line x1="320" y1="205" x2="320" y2="230" class="axis"/>
+      <text x="235" y="250" class="t">SEND to mothership</text>
+      <text x="210" y="270" class="c">edge-case data returns</text>
+      <line x1="320" y1="285" x2="320" y2="305" class="axis"/>
+      <text x="245" y="320" class="t">RETRAIN and REPEAT</text>
+    </svg>
+    <div class="csrc">Source: episode claims (Huberman Lab Essentials, Lex Fridman, 2025-05-29)</div>
+    <div class="csub">Stylized loop diagram. The arrows show where the failure data travels.</div>
+  </figure>
+  <div class="nugget" id="nugget-8">
+    <h4>Nugget 8 · Edges, not averages</h4>
+    <p><span class="tag s">SOURCE FACT</span> The general principle: any deployed AI system can run this loop. The requirements are a fleet, a channel back to the mothership, and the discipline to retrain on failures. <span class="tag i">INTERPRETATION</span> Averages measure the past. Edges mark where competence ends. Measure the boundary, not the mean.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-relationships">
+  <div class="chip">Late in the episode · the sharpened theory</div>
+  <h2>Relationships, sharpened</h2>
+  <p><span class="tag s">SOURCE FACT</span> Episode 1 gave four relationship variables: time, shared successes, shared struggles, peaceful time. This episode sharpens the claim: forget everything else, time alone changes everything. Sharing moments together, the collection of moments that make up the day, the week, the months, creates a depth of connection like nothing else. Lex's evidence: his closest friends are still his high-school friends. They are very different people now. What binds them is the shared moments and the memory of those moments. The machine version: an AI that remembers the collection of moments, that was there across the day and the week and the months, can build the same depth. That requires lifelong learning from episode 1. Without it, the machine cannot accumulate the moments.</p>
+  <div class="nugget" id="nugget-9">
+    <h4>Nugget 9 · Time is the master variable</h4>
+    <p><span class="tag s">SOURCE FACT</span> Depth of connection comes from the accumulated collection of shared moments across days, weeks, and months. <span class="tag i">INTERPRETATION</span> For machines, this means memory across time plus lifelong learning, or the depth never builds.</p>
+  </div>
+  <p><span class="tag s">SOURCE FACT</span> Beyond time, the episode names the interaction quality that matters: making the human feel truly heard, truly understood. The AI should ask the right questions and actually hear the answers. And the Roomba experiment, retold here in its sharpest form: Lex made his Roombas scream in pain when kicked, to see how he would feel. He felt they were human almost immediately. The voice of pain did it. Giving them a voice, especially a voice of dislike, crossed the entity line instantly.</p>
+  <div class="nugget" id="nugget-10">
+    <h4>Nugget 10 · Flaws as a feature</h4>
+    <p><span class="tag s">SOURCE FACT</span> A voice of pain crossed the entity line instantly. Lex concludes flaws should be a feature, not a bug: dumbness can be cute, delight is quiet. <span class="tag i">INTERPRETATION</span> The design inversion of the whole track: everyone else optimizes the flaw out, Lex optimizes the flaw in.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch-coda">
+  <div class="chip">Closing · the dog coda</div>
+  <h2>The dog coda</h2>
+  <figure>
+    <img src="assets/ep08-dog-coda.webp" alt="Watercolor illustration of a giant Newfoundland dog lying beside a person in warm lamplight">
+    <figcaption>Homer, the 200-pound Newfoundland: love measured at the loss. Made for this page.</figcaption>
+  </figure>
+  <p><span class="tag s">SOURCE FACT</span> The episode closes where episode 1's themes converge: Lex's dog Homer, the 200-pound Newfoundland, dead about 15 years, and Huberman's bulldog Costello, about 90 pounds, lost to spinal degeneration a week before recording. The shared grief is the point. Love's depth is measured at the loss. Letting yourself feel the loss instead of running from it is the move. Lex wants people to internalize the best traits of the beings they loved: tough underneath, sweet on the surface, kind by default.</p>
+  <div class="nugget" id="nugget-11">
+    <h4>Nugget 11 · The measure of love</h4>
+    <p><span class="tag s">SOURCE FACT</span> Homer, 200 pounds, 15 years gone. Costello, 90 pounds, a week gone. <span class="tag i">INTERPRETATION</span> Internalize the best traits of the beings you loved: tough underneath, sweet on the surface, kind by default.</p>
+  </div>
+</section>
+
+    <div class="takeaways">
+      <h3>Takeaways</h3>
+      <ol>
+<li>Self-supervised learning moves labels last: watch millions of unlabeled hours, then learn a concept from one or two examples, the way a parent teaches a child.</li>
+      <li>Value alignment: the machine's objective is explicit, the human's goal is unspoken. Align the explicit one with the unspoken one.</li>
+      <li>The Tesla data engine: deploy the fleet, let it find edge cases, send the failures to the mothership, retrain, repeat. The fleet is the lab and the road is the experiment.</li>
+      <li>AlphaZero's ceiling has not been found. That terrifies or excites depending on supervision.</li>
+      <li>Time is the master variable of relationships. And flaws are a feature, not a bug: vulnerability connects faster than perfection.</li>
+      </ol>
+    </div>
+    <footer>
+      <p><b>Sources.</b> This companion narrates Huberman Lab Episode 8, Essentials: Machines, Creativity and Love with Dr. Lex Fridman (2025-05-29, video SCzecagKBjY), a 42-minute re-release of the <a href="ep01-lex-fridman-machines-creativity-love.html">episode 1</a> conversation. All facts and figures come from the episode transcript (cleaned captions, not verbatim-certified) and the episode page in this track. Each chart names its source line. Illustrations are AI-generated watercolors made for this page. The photograph is the same real Lex Fridman photo verified for episode 1. Transcripts carry no timestamps, so chapters are ordered by episode progression instead of clock time.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 27 words: one pull quote of 15 words on AlphaZero, plus two short episode phrases of seven and five words. All carry attribution where they appear. The pull quotes carry speaker attribution and their place in the episode. Everything else is original paraphrase and analysis. The transcript used here is cleaned captions, not a verbatim-certified record, so brief quoted phrases reproduce its wording, not necessarily the exact spoken word.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var title = ch.getAttribute('data-title') || '';
+    a.innerHTML = (t ? '<span class="t">' + t + '</span>' : '') + title;
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function onScroll(){
+    var best = null, by = 160;
+    chapters.forEach(function(ch){
+      var r = ch.getBoundingClientRect();
+      if (r.top <= by) best = ch;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', best && a.getAttribute('href') === '#' + best.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
