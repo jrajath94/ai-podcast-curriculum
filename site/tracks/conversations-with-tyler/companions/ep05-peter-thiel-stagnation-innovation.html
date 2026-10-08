@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peter Thiel: Stagnation, Innovation, and What Not To Name Your Company · Conversations with Tyler Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Conversations with Tyler episode with Peter Thiel (April 2015): stagnation, Zero to One, company names, overrated versus underrated, and the lost art of building.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700}
+  .deck{font-size:21px;color:var(--muted);line-height:1.5;margin:0 0 24px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--sans);
+    font-size:13px;color:var(--muted);margin-bottom:26px}
+  .meta b{color:var(--ink);font-weight:600}
+  .herofig{margin:0 0 8px}
+  .herofig img{width:100%;height:auto;display:block;border-radius:6px}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 30px}
+  .pull{margin:38px 0;padding:6px 0 6px 26px;border-left:4px solid var(--accent);
+    font-size:25px;line-height:1.45;font-style:italic;color:var(--ink)}
+  .pullattr{font-family:var(--sans);font-size:13px;color:var(--muted);
+    margin:-28px 0 38px;padding-left:30px}
+  .warnbox{background:#fdf3e7;border:1px solid #e8cda2;border-radius:8px;
+    padding:16px 20px;margin:30px 0;font-size:16px}
+  .warnbox b{font-family:var(--sans)}
+  section.chapter{margin:0;padding:34px 0;border-top:1px solid var(--line)}
+  section.chapter h2{font-size:27px;margin:0 0 6px;line-height:1.25}
+  section.chapter .ts{font-family:var(--mono);font-size:12.5px;color:var(--accent-ink);
+    letter-spacing:.04em;margin:0 0 16px}
+  section.chapter p{margin:0 0 16px}
+  .fig{margin:26px 0}
+  .fig img{width:100%;height:auto;display:block;border-radius:6px}
+  .fig .caption{margin-top:8px}
+  .chart{background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:20px;margin:26px 0}
+  .chart h3{font-family:var(--sans);font-size:14px;margin:0 0 4px}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .bar{cursor:default}
+  .chart .bar rect{fill:var(--accent)}
+  .chart .bar.alt rect{fill:#8a9a5b}
+  .chart .bar.dim rect{fill:#c9bfae}
+  .chart text{font-family:var(--sans);font-size:12px;fill:var(--ink)}
+  .chart .grid{stroke:var(--line);stroke-width:1}
+  .nuggets{background:var(--paper2);border:1px solid var(--line);border-radius:8px;
+    padding:26px 30px;margin:40px 0}
+  .nuggets h2{font-size:23px;margin:0 0 14px}
+  .nuggets ol{margin:0;padding-left:22px}
+  .nuggets li{margin:0 0 12px;font-size:16.5px}
+  footer.sources{border-top:2px solid var(--ink);margin-top:60px;padding-top:26px;
+    font-size:15px}
+  footer.sources h2{font-size:20px;margin:0 0 12px}
+  footer.sources p{margin:0 0 14px}
+  .onquotes{background:var(--soft);border-radius:8px;padding:18px 22px;margin:20px 0}
+  .vid{margin:34px 0}
+  .vid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Conversations with Tyler</a>
+  <span class="sub">Episode companion · Peter Thiel on stagnation and innovation</span>
+</header>
+<nav class="chapnav" aria-label="Chapters">
+  <a href="#ch01"><span class="t">~00:00</span>Stagnation in atoms</a>
+  <a href="#ch02"><span class="t">~00:04</span>Boundary of bits and atoms</a>
+  <a href="#ch03"><span class="t">~00:06</span>The government that built Apollo</a>
+  <a href="#ch04"><span class="t">~00:09</span>Peak oil</a>
+  <a href="#ch05"><span class="t">~00:10</span>Tell me something true</a>
+  <a href="#ch06"><span class="t">~00:12</span>Original sin</a>
+  <a href="#ch07"><span class="t">~00:20</span>Stubborn and open-minded</a>
+  <a href="#ch08"><span class="t">~00:22</span>Do not be an entrepreneur</a>
+  <a href="#ch09"><span class="t">~00:26</span>Is culture stagnating too</a>
+  <a href="#ch10"><span class="t">~00:27</span>Japan</a>
+  <a href="#ch11"><span class="t">~00:29</span>Overrated or underrated</a>
+  <a href="#ch12"><span class="t">~00:37</span>What not to name your company</a>
+  <a href="#ch13"><span class="t">~00:40</span>E4, D4, and German pessimism</a>
+  <a href="#ch14"><span class="t">~00:43</span>When will you die</a>
+  <a href="#ch15"><span class="t">~00:45</span>Lord of the Rings and the New Testament</a>
+  <a href="#ch16"><span class="t">~00:49</span>Long substance, short status</a>
+  <a href="#ch17"><span class="t">~00:51</span>Vertical versus horizontal</a>
+  <a href="#ch18"><span class="t">~00:55</span>The average plumber</a>
+  <a href="#ch19"><span class="t">~00:56</span>Private cities and cruise ships</a>
+  <a href="#ch20"><span class="t">~00:59</span>We do not live in a democracy</a>
+  <a href="#ch21"><span class="t">~01:03</span>Government as investor</a>
+  <a href="#ch22"><span class="t">~01:06</span>Money, microregulations, and life itself</a>
+  <a href="#ch23"><span class="t">~01:12</span>Stagnation, not inequality</a>
+  <a href="#ch24"><span class="t">~01:17</span>Science got worse</a>
+  <a href="#ch25"><span class="t">~01:20</span>Watch the episode</a>
+</nav>
+<div class="layout">
+<aside class="sidenav" aria-label="Chapters">
+  <h4>Chapters</h4>
+  <a href="#ch01"><span class="t">~00:00</span>Stagnation in atoms</a>
+  <a href="#ch02"><span class="t">~00:04</span>Boundary of bits and atoms</a>
+  <a href="#ch03"><span class="t">~00:06</span>The government that built Apollo</a>
+  <a href="#ch04"><span class="t">~00:09</span>Peak oil</a>
+  <a href="#ch05"><span class="t">~00:10</span>Tell me something true</a>
+  <a href="#ch06"><span class="t">~00:12</span>Original sin</a>
+  <a href="#ch07"><span class="t">~00:20</span>Stubborn and open-minded</a>
+  <a href="#ch08"><span class="t">~00:22</span>Do not be an entrepreneur</a>
+  <a href="#ch09"><span class="t">~00:26</span>Is culture stagnating too</a>
+  <a href="#ch10"><span class="t">~00:27</span>Japan</a>
+  <a href="#ch11"><span class="t">~00:29</span>Overrated or underrated</a>
+  <a href="#ch12"><span class="t">~00:37</span>What not to name your company</a>
+  <a href="#ch13"><span class="t">~00:40</span>E4, D4, and German pessimism</a>
+  <a href="#ch14"><span class="t">~00:43</span>When will you die</a>
+  <a href="#ch15"><span class="t">~00:45</span>Lord of the Rings and the New Testament</a>
+  <a href="#ch16"><span class="t">~00:49</span>Long substance, short status</a>
+  <a href="#ch17"><span class="t">~00:51</span>Vertical versus horizontal</a>
+  <a href="#ch18"><span class="t">~00:55</span>The average plumber</a>
+  <a href="#ch19"><span class="t">~00:56</span>Private cities and cruise ships</a>
+  <a href="#ch20"><span class="t">~00:59</span>We do not live in a democracy</a>
+  <a href="#ch21"><span class="t">~01:03</span>Government as investor</a>
+  <a href="#ch22"><span class="t">~01:06</span>Money, microregulations, and life itself</a>
+  <a href="#ch23"><span class="t">~01:12</span>Stagnation, not inequality</a>
+  <a href="#ch24"><span class="t">~01:17</span>Science got worse</a>
+  <a href="#ch25"><span class="t">~01:20</span>Watch the episode</a>
+</aside>
+<main id="main">
+<div class="hero">
+  <p class="kicker">Conversations with Tyler · Episode companion</p>
+  <h1>Peter Thiel on Stagnation, Innovation, and What Not To Name Your Company</h1>
+  <p class="deck">Recorded live at George Mason University in April 2015, months after Zero to One became a bestseller, this episode is Thiel at his most expansive: the stagnation of atoms, the sclerosis of government, the art of naming companies, and a lightning round on everything from Keynes to death.</p>
+  <div class="meta">
+    <span><b>Episode:</b> Conversations with Tyler, Peter Thiel</span>
+    <span><b>Recorded:</b> April 2, 2015</span>
+    <span><b>Length:</b> about 81 minutes</span>
+    <span><b>Transcript:</b> about 12,300 words</span>
+  </div>
+  <figure class="herofig">
+    <img src="assets/ep05/thiel2015.webp" alt="Peter Thiel speaking at a conference in early 2015">
+    <figcaption class="caption">Peter Thiel in early 2015, months after the publication of Zero to One. Photo via The Guardian, January 2015.</figcaption>
+  </figure>
+</div>
+
+<blockquote class="pull">they promised us flying cars and all we got is 140 characters</blockquote>
+<p class="pullattr">Tyler Cowen, quoting Thiel's famous line · ~00:01</p>
+
+<section class="chapter" id="ch01">
+<p class="ts">~00:00</p>
+<h2>Stagnation in atoms, not bits</h2>
+<p>The central claim of the episode: innovation stalled in the world of atoms while it raced ahead in the world of bits. Computers got faster, phones got smarter, but supersonic travel, space flight, and energy saw little of the promised progress. Thiel ties the two-track story to regulation. The bits economy grew up largely unregulated, while atoms met the full weight of the state: to ship a new software product costs perhaps $100,000, but to get a new drug through the FDA costs roughly a billion dollars.</p>
+<p>He also introduces hysteresis, borrowed from economics. Stagnation is sticky in both directions. In a stagnant equilibrium, startups aim low, funders fund little, and talent drifts to finance. Break the spell with a real breakthrough, and the cycle can turn virtuous: ambition, capital, and talent feed one another again.</p>
+<div class="chart" id="chart-tracks">
+<h3>Two tracks of innovation since 1970</h3>
+<p class="csrc">Stylized summary of Thiel's argument. Bar lengths are illustrative, not measured data.</p>
+<svg viewBox="0 0 560 190" role="img" aria-label="Bar chart comparing progress in bits versus atoms">
+<line x1="150" y1="20" x2="150" y2="160" class="grid"/>
+<line x1="150" y1="160" x2="540" y2="160" class="grid"/>
+<g class="bar" data-tip="Software and telecoms progressed with little regulation"><rect x="150" y="38" width="360" height="34"/><text x="158" y="60" fill="#fff">Bits: rapid progress</text></g>
+<g class="bar dim" data-tip="Supersonic travel, space, and energy barely moved"><rect x="150" y="86" width="120" height="34"/><text x="158" y="108" fill="#fff">Atoms: stagnation</text></g>
+<text x="150" y="180">Illustrative only</text>
+</svg>
+</div>
+<div class="fig">
+<img src="assets/ep05/wc-flying-cars.webp" alt="Watercolor of retro-futurist flying cars above a glowing future city">
+<figcaption class="caption">The promised future: personal flying cars above the city of 2020, as the 1960s imagined it. Watercolor illustration.</figcaption>
+</div>
+</section>
+
+<section class="chapter" id="ch02">
+<p class="ts">~00:04</p>
+<h2>The boundary of bits and atoms</h2>
+<p>Cowen presses Thiel on which breakthroughs might actually arrive. Thiel is cautious. Artificial intelligence, he says, is slightly overhyped, further away than the consensus believes. Biotech could do more, but regulation chokes it. Self-driving cars are real and coming, but even success there would replace at most about one percent of the workforce.</p>
+<p>Then a sharper move: Thiel rejects the premise that the future is a number to forecast or a movie to watch. Forecasting treats the future as something that happens to us. His view is that the future gets built by people with plans and agency, not predicted by people with models. The disagreement with the Kurzweil-style exponential crowd is not about dates but about agency.</p>
+</section>
+
+<section class="chapter" id="ch03">
+<p class="ts">~00:06</p>
+<h2>The government that built Apollo</h2>
+<p>Thiel traces American institutional decline to the fading of mainline Protestantism, which he credits with building the great universities, hospitals, and civic institutions, then leaving behind a void no creed filled. In the 1930s and 1940s, he argues, government had real technocratic competence. The Manhattan Project and Apollo were thinkable. Today, he says, a letter from Einstein would be lost in the White House mail room, and neither project could happen.</p>
+<blockquote class="pull">a letter from Einstein to the White House would get lost in the mail room today</blockquote>
+<p class="pullattr">Peter Thiel · ~00:06</p>
+<p>The one exception he allows says a great deal: Elon Musk, doing with SpaceX and Tesla what states no longer attempt. In Thiel's telling, Musk is the bridge figure between the world of bits and the world of atoms, the founder willing to build physical things at civilizational scale.</p>
+<figure class="fig">
+<img src="assets/ep05/apollo11.webp" alt="The Apollo 11 Saturn V lifting off">
+<figcaption class="caption">Apollo 11 lifting off in 1969, the emblem of the era Thiel says modern government could no longer reproduce. NASA image via Wikimedia Commons, public domain.</figcaption>
+</figure>
+<div class="fig">
+<img src="assets/ep05/wc-rocket.webp" alt="Watercolor of a rocket rising over a desert launch site">
+<figcaption class="caption">The exception: a founder-built rocket, the kind of atomic-scale ambition Thiel credits to Musk. Watercolor illustration.</figcaption>
+</div>
+</section>
+
+<section class="chapter" id="ch04">
+<p class="ts">~00:09</p>
+<h2>Peak oil</h2>
+<p>Cowen asks about the collapse in energy prices. Thiel reframes the question. The energy story of the 2010s was not about prices but about technology: hydraulic fracturing cracked open resources the experts wrote off. He puts the scale of the fracking bet at roughly $450 billion of investment and offers it as a case study in how the world underestimated a physical technology.</p>
+<p>Asked what oil at $50 a barrel, down from $100, changes, he stays unimpressed by price talk. Prices are the surface. The deeper question is whether the industry keeps innovating past the cheap gains, or whether the low-hanging fruit of fracking gets picked and the atom world stalls again.</p>
+<div class="chart" id="chart-fracking">
+<h3>The fracking bet, as Thiel frames it</h3>
+<p class="csrc">Figures are Thiel's in-conversation estimates, April 2015.</p>
+<svg viewBox="0 0 560 200" role="img" aria-label="Bar chart of fracking investment versus oil price fall">
+<line x1="150" y1="20" x2="150" y2="165" class="grid"/>
+<line x1="150" y1="165" x2="540" y2="165" class="grid"/>
+<g class="bar" data-tip="Thiel puts total fracking investment near 450 billion dollars"><rect x="150" y="40" width="380" height="34"/><text x="158" y="62" fill="#fff">Investment in fracking: about $450B</text></g>
+<g class="bar alt" data-tip="Oil fell from about 100 to about 50 dollars a barrel"><rect x="150" y="92" width="190" height="34"/><text x="158" y="114" fill="#fff">Oil price fall: $100 to $50</text></g>
+<text x="150" y="185">Thiel's estimates, in conversation</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch05">
+<p class="ts">~00:10</p>
+<h2>Tell me something true</h2>
+<p>The famous interview question from Zero to One gets its live outing: tell me something true that very few people agree with you on. Thiel volunteers his own entry first, and it is an institutional one. The American university system is badly broken, he says, and the striking thing is that this is not even a heterodox or controversial idea anymore. When a TechCrunch writer framed the claim as super controversial, about 70 percent of the roughly 350 comments agreed with him.</p>
+<p>He also admits a borderline answer: that the monopoly idea, the core of his book, might not count as a true secret, since he wrote a whole book about it. The question works as a filter either way. It separates people who repeat the consensus from people who have actually thought.</p>
+</section>
+
+<section class="chapter" id="ch06">
+<p class="ts">~00:12</p>
+<h2>Original sin</h2>
+<p>Cowen offers a model of Thiel, borrowed from Nietzsche via Girard: that Thiel locates original sin not in the individual but in society, in mimetic crowds and status games. Thiel accepts the frame and adds his biography. He describes growing up with a quasi-conversion experience away from the tracked life: Stanford, a top law firm, then the escape after seven months and three days, which he calls an escape from Alcatraz.</p>
+<p>On Asperger's and founders, he ventures armchair psychology: the world of social convention rewards conformity, and people less attuned to those signals sometimes see further. The eccentric, asocial scientist is his endangered species, the figure institutions now select against.</p>
+<div class="warnbox"><b>Trap card.</b> Thiel's remarks about autism and Asperger's among founders are folk psychology, not clinical claims. The episode presents them as his own theorizing about selection effects in institutions. Treat them as a provocative hypothesis from a non-expert, not as evidence about neurodivergence and entrepreneurship.</div>
+</section>
+
+<section class="chapter" id="ch07">
+<p class="ts">~00:20</p>
+<h2>Stubborn and open-minded</h2>
+<p>Hiring for the Thiel Fellowship means hunting for Zen contradictions. The ideal fellow is stubborn and open-minded at once, traits that sit nearly 180 degrees apart. (Thiel jokes it might be 175 degrees, then corrects himself to 179.5.) A good founder needs the conviction to defy the world and the flexibility to be wrong.</p>
+<p>He extends the point to company formation itself. There is a prehistory to every great company, a set of relationships and shared convictions that predate the legal entity. PayPal worked because the founders already knew each other and already disagreed with the world in the same direction.</p>
+</section>
+
+<section class="chapter" id="ch08">
+<p class="ts">~00:22</p>
+<h2>Do not be an entrepreneur</h2>
+<p>Cowen proposes a Straussian reading of Zero to One: properly understood, the book tells most readers they should not be entrepreneurs. Thiel half-agrees. Entrepreneurship has become a vague, fashionable word. His real position is directional: the world needs more good businesses and fewer bad ones, and most people who call themselves entrepreneurs start the wrong kind.</p>
+<p>On bubbles, he is specific. The late 1990s dot-com mania was a genuine technology bubble, and the present is nothing like it. Technology stocks trade at reasonable multiples. The mania, if any, sits elsewhere: in finance, in government debt, in the credentialed tracks.</p>
+<div class="warnbox"><b>Trap card.</b> The Straussian reading is a deliberate paradox, not literal career advice. Thiel is not telling ambitious listeners to avoid startups. His actual claim is narrower: fashion-driven entrepreneurship produces bad companies, and bad companies should not exist.</div>
+<p>Cowen then asks for general career advice, and Thiel refuses the genre. There are no general answers, only specific ones. To the worker with zero marginal product, the advice is to stop being the person the market values at zero. To the shortage of IT talent, his answer is that the shortage is real and the training pipeline is broken. Petroleum engineering gets a contrarian nod as an unfashionable field with real demand.</p>
+</section>
+
+<section class="chapter" id="ch09">
+<p class="ts">~00:26</p>
+<h2>Is culture stagnating too</h2>
+<p>The stagnation thesis extends to culture. Hollywood, Thiel argues, makes fewer great movies than it did, recycling franchises instead of taking risks. Cowen counters with television: the great American art form of the 2010s might be the long-form series, Game of Thrones included, where the risk-taking migrated when film stopped.</p>
+<p>Thiel grants the partial exception but holds the line. A culture that cannot renew its forms is a stagnant one, whatever the medium. The question he keeps returning to is whether any domain still produces the new, or whether every field now remixes the old.</p>
+</section>
+
+<section class="chapter" id="ch10">
+<p class="ts">~00:27</p>
+<h2>Japan</h2>
+<p>Thiel calls Japan the least conformist country in the world, a deliberate provocation against the Western stereotype of Japanese groupthink. His evidence is economic. Japan was fifteen years ahead in seeing that finance-driven globalization would not save anyone, and it quietly converted its golf courses into solar farms while the West kept building financial instruments.</p>
+<p>The deeper point is about contrarian indicators. Countries and people that look strange to the consensus sometimes turn out to be early. Japan's long deflation and its inward focus, in Thiel's telling, were not failure but a head start on the post-globalization world.</p>
+<div class="warnbox"><b>Trap card.</b> The least-conformist claim is a deliberate contrarian provocation, not a measured finding from comparative sociology. Thiel uses it to unsettle the stereotype, then moves on. Read it as a debate move, not as data.</div>
+</section>
+
+<section class="chapter" id="ch11">
+<p class="ts">~00:29</p>
+<h2>Overrated or underrated</h2>
+<p>The lightning round is the episode's set piece. Keynes: massively overrated, a fair-weather theory for the long 25-year finance boom from 1982 to 2007. New York City: overrated. Thiel's geography trade is a long and short. Long California, short New York. Long Texas, short Virginia. The axis is globalization. New York and Washington are leveraged to a world order that peaked. California and Texas are inward-looking and will outlast it.</p>
+<p>With hindsight, he bets, we will see 2007 as the peak year of globalization, the way 1913 was the peak of the last one. The lucky difference: no world war followed, at least not yet. Japan gets a long rating as relatively underrated. France he would not be long, though even France may be underrated because its punitive tax rates will probably fall someday.</p>
+<p>China is the hard one. The growth story is tied to globalization, but the capital controls and the party-state make it separate, and Thiel notes that Americans ask about China far less than they did in 2005. His suspicion: we underestimate China, but it is very hard to invest there unless you are a well-connected party member, which he is not.</p>
+<p>Brazil gets the longest answer. Thiel counts four moments of hyper-bullishness over 150 years, each a false dawn, each tied to Brazil linking into globalization and then disappointing. The emblem is OGX, the energy company whose founder was worth $30 billion in 2011 and minus $1 billion a few years later, with a McLaren parked in his Rio living room. When Thiel visited, the newly divorced founder told him:</p>
+<blockquote class="pull">I can now park my car wherever I want.</blockquote>
+<p class="pullattr">The founder of OGX, as quoted by Thiel · ~00:33</p>
+<p>Thiel hedges the whole anecdote himself: maybe the oil never existed, maybe it was a giant fraud, very hard to tell. The pattern he trusts is the pattern: optimism arrives with globalization, disappointment arrives with reality.</p>
+<div class="warnbox"><b>Trap card.</b> The OGX figures are Thiel's recollections from a dinner anecdote, and he flags the uncertainty himself. The $30 billion to negative $1 billion arc is his telling of the story, with the fraud question explicitly left open. Do not cite it as audited financial history.</div>
+<div class="chart" id="chart-scoreboard">
+<h3>The overrated versus underrated scoreboard</h3>
+<p class="csrc">Thiel's live ratings, April 2015. Not investment advice.</p>
+<svg viewBox="0 0 560 260" role="img" aria-label="Scoreboard of Thiel's overrated and underrated ratings">
+<line x1="280" y1="20" x2="280" y2="230" class="grid"/>
+<text x="140" y="16">Overrated</text><text x="400" y="16">Underrated</text>
+<g data-tip="Keynes called massively overrated"><rect x="150" y="28" width="120" height="24" fill="#b4531f"/><text x="158" y="45" fill="#fff">Keynes</text></g>
+<g data-tip="New York City rated overrated"><rect x="170" y="58" width="100" height="24" fill="#b4531f"/><text x="178" y="75" fill="#fff">New York City</text></g>
+<g data-tip="Brazil got four false dawns in 150 years"><rect x="140" y="88" width="130" height="24" fill="#b4531f"/><text x="148" y="105" fill="#fff">Brazil</text></g>
+<g data-tip="The 1982 to 2007 finance boom has ebbed"><rect x="180" y="118" width="90" height="24" fill="#b4531f"/><text x="188" y="135" fill="#fff">Finance</text></g>
+<g data-tip="Japan rated relatively long"><rect x="290" y="28" width="110" height="24" fill="#8a9a5b"/><text x="298" y="45" fill="#fff">Japan</text></g>
+<g data-tip="France possibly underrated as taxes may fall"><rect x="290" y="58" width="80" height="24" fill="#8a9a5b"/><text x="298" y="75" fill="#fff">France</text></g>
+<g data-tip="China suspected to be underestimated but hard to invest"><rect x="290" y="88" width="130" height="24" fill="#8a9a5b"/><text x="298" y="105" fill="#fff">China</text></g>
+<g data-tip="New Zealand rated underrated for adaptability"><rect x="290" y="118" width="100" height="24" fill="#8a9a5b"/><text x="298" y="135" fill="#fff">New Zealand</text></g>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch12">
+<p class="ts">~00:37</p>
+<h2>What not to name your company</h2>
+<p>The title chapter. Thiel holds that company names are slightly predictive of success or failure, an aesthetic theory he believes strongly. PayPal was a friendly name, the friend that helps you pay. Napster was a bad name: you nap some music, you nap a kid, and it sounds like a bad thing to do. Small wonder, he jokes, that the government shut it down within a few years.</p>
+<p>In the sharing economy he prefers Airbnb to Uber by a wide margin. Airbnb sounds like an innocent virtual bed and breakfast, light and nonthreatening. Uber sounds like a bad name from Germany sometime in the 1930s, and he asks the audience what exactly the company thinks it is above: maybe the law. From a regulatory perspective, the innocent name is a vastly better name.</p>
+<p>The social network version is the richest. Both reading and writing happen on every social network, and unlike real life you must write before you read. Over time reading dominates writing. Facebook was about learning about real people around you, with real identities at Harvard. MySpace began among wannabe actors in Los Angeles, fictional narratives about themselves. Since reading dominates writing, Facebook would ultimately dominate MySpace. The whole product arc was implicit in the names.</p>
+<p>Asked about the United States as a name, Thiel admits we are too embedded in the history to judge it, but confesses sympathy for the 19th-century spelling with a lowercase u: the united states, a humbler construction.</p>
+</section>
+
+<section class="chapter" id="ch13">
+<p class="ts">~00:40</p>
+<h2>E4, D4, and German pessimism</h2>
+<p>In chess, D4 is probably marginally better now, because defenses to E4 like the Berlin have become very hard to break. Thiel still always plays E4. It is the attacking move, and below world-champion level he enjoys raising the risk and volatility of the game.</p>
+<p>Born in Germany, speaking German at home for his first twelve years, Thiel frames himself as a mix of two opposite cultures. California is super-optimistic but somewhat desperate: 20,000 people a year move to Los Angeles to become movie stars and maybe 20 make it. Germany is incredibly pessimistic but very comfortable. German pessimism, he says, is a helpful corrective amid Silicon Valley's hyper-optimism.</p>
+<p>The synthesis: extreme pessimism and extreme optimism are both unhealthy, and they converge on the same outcome, doing nothing. Extreme pessimism says there is no point in acting. Extreme optimism says there is no need. The healthy attitudes are the mild versions, and Thiel averages out somewhere in the middle.</p>
+</section>
+
+<section class="chapter" id="ch14">
+<p class="ts">~00:43</p>
+<h2>When will you die</h2>
+<p>Cowen asks for a maximum likelihood estimate of Thiel's own death. Thiel refuses to treat it as fixed: it depends on what he does and what he gets others to do. The straight-line forecast uses the long trend, life expectancy rising 2.2 to 2.5 years per decade since 1840, which puts him in his early to mid-90s, with perhaps ten more years in the upper case, somewhere between 100 and 110.</p>
+<p>The honest caveats follow. Early gains came from the young, and those are exhausted. Future gains must come from older people living longer and healthier. If the world stays stagnant, expect little more than the baseline. If things accelerate, much more is possible.</p>
+<div class="chart" id="chart-life">
+<h3>The straight-line forecast for one life</h3>
+<p class="csrc">Thiel's arithmetic, in conversation: 2.2 to 2.5 years per decade since 1840.</p>
+<svg viewBox="0 0 560 220" role="img" aria-label="Line chart of life expectancy extrapolation">
+<line x1="60" y1="30" x2="60" y2="180" class="grid"/>
+<line x1="60" y1="180" x2="530" y2="180" class="grid"/>
+<polyline points="60,160 180,140 300,118 420,96 530,78" fill="none" stroke="#b4531f" stroke-width="3"/>
+<circle cx="420" cy="96" r="5" fill="#b4531f" data-tip="Baseline forecast lands in the early to mid 90s"/>
+<circle cx="530" cy="78" r="5" fill="#8a9a5b" data-tip="Upper case adds about 10 years, reaching 100 to 110"/>
+<text x="60" y="200">1840</text><text x="490" y="200">Future</text>
+<text x="70" y="120" data-tip="Baseline forecast lands in the early to mid 90s">Baseline: early to mid-90s</text>
+<text x="380" y="60" data-tip="Upper case adds about 10 years, reaching 100 to 110">Upper case: 100 to 110</text>
+</svg>
+</div>
+</section>
+
+<section class="chapter" id="ch15">
+<p class="ts">~00:45</p>
+<h2>Lord of the Rings and the New Testament</h2>
+<p>His favorite novel is Lord of the Rings. The more intellectual pick is Bulgakov's The Master and Margarita, where the devil shows up in Stalinist Russia, gives everyone what they want, and everything goes haywire, while nobody believes he is real.</p>
+<p>On the Testaments, Thiel sides with the New Testament and disputes Cowen's preference for the Hebrew Bible's dialectic. Christ, he argues, is a complex and ambiguous figure, and almost everything he said was something true that most people did not agree on. The parables were a necessity: direct speech courted danger, a Straussian Christ speaking indirectly because the authorities would otherwise kill him sooner. He cites Locke's Reasonableness of Christianity for the same reading.</p>
+<p>Asked what he wants to think about in the next year, Thiel refuses the top-down agenda. His method is serendipitous: talk to remarkable people, find great technologies and entrepreneurs, and let the agenda emerge. The overarching goal stays fixed: get out of the stagnation by helping people start companies that change the world.</p>
+</section>
+
+<section class="chapter" id="ch16">
+<p class="ts">~00:49</p>
+<h2>Long substance, short status</h2>
+<p>Cowen asks what advice Thiel would give the Institute for Humane Studies and the Mercatus Center, treated as a startup. The answer is one line, repeated twice for emphasis:</p>
+<blockquote class="pull">I would always be long substance, short status.</blockquote>
+<p class="pullattr">Peter Thiel · ~00:49</p>
+<p>The temptation in academia is prestige: respectability within the university or the broader audience. Respectability always comes at the price of softening the edges and modulating what you say. Substance over status is the single overarching theme he would keep.</p>
+</section>
+
+<section class="chapter" id="ch17">
+<p class="ts">~00:51</p>
+<h2>Vertical versus horizontal</h2>
+<p>The audience Q and A opens on Zero to One's core distinction. Horizontal progress is globalization, copying what works, going from one to n. Vertical progress is technology, doing new things, going from zero to one. There is no formula for vertical progress. Globalization has something scientific about it. The history of technology is deeply unscientific, because every moment happens only once. Science starts with the number two. The next great founder will not build another social network or another search engine.</p>
+<p>The practical version: be passionate about something you are good at that other people are not doing. Line up those three and you have a start.</p>
+<p>On nonprofits, the contrarian question adapts. The contrarian business question asks what great businesses nobody starts. The contrarian nonprofit question asks what great causes are deeply unpopular. Thiel says he deflects donation requests by asking why the cause is popular or unpopular, because he only wants to fund unpopular causes. Popular causes are already funded. The Zen paradox: pushing a good but unpopular cause has enormous impact, but it is very hard to raise money for it.</p>
+<p>The counterfactual sense of mission matters everywhere. If we did not do this, nobody else in the world would do it. To the extent that is not true, make it more true. And beware the word social: it can mean good for society or good as seen by society, and in practice the second meaning always wins, producing me-too clones that lose every reason to exist.</p>
+</section>
+
+<section class="chapter" id="ch18">
+<p class="ts">~00:55</p>
+<h2>The average plumber</h2>
+<p>What should a person of modest cognitive ability do? Thiel starts with the unfashionable. Vocational careers are strikingly underexplored, considered uncool and unprestigious, yet the average plumber makes about as much as the average medical doctor. He will not name a most-admired person of modest intelligence, joking that the answer could only insult someone.</p>
+<p>The deeper cut is aimed at the smart. Brighter people, he argues, are more prone to fashionable thinking because they pick up on cues more easily, so they end up more trapped by trendiness than people of average ability. The unfashionable anchor is the advantage.</p>
+</section>
+
+<section class="chapter" id="ch19">
+<p class="ts">~00:56</p>
+<h2>Private cities and cruise ships</h2>
+<p>An audience member pitches privately funded, for-profit cities, built with governments but independent of them, and asks what it would take to enlist Thiel's support. Thiel is intrigued by the goal and brutal about the economics. Every surface of the planet is occupied. To get his attention, show him a version that starts for $50 million instead of $50 billion.</p>
+<p>Cowen's retort is the episode's driest line: private cities fully independent of government already exist. He calls them cruise ships. They work fine, he says, but they are no great blow for liberty, since passengers sign away liberties at boarding. He bets instead on large political units, where wealth and diversity create pockets of freedom, over bottom-up micro-units competing through exit.</p>
+</section>
+
+<section class="chapter" id="ch20">
+<p class="ts">~00:59</p>
+<h2>We do not live in a democracy</h2>
+<p>Asked for a 2015 update on his 2009 Cato essay about democracy and capitalism, Thiel revises the premise. It is not clear, he says, that we live in anything resembling a democracy. The system is a representative republic modified by a judiciary, largely superseded by unelected agencies that drive most decision-making. Calling it a democracy is deeply misleading. The hard question is how an advanced technological society could function in any way that is more republican or democratic at all, when the agencies are sclerotic and the political alternatives look worse.</p>
+<p>Smaller countries get a contrarian nod. New Zealand is underrated, not for its form of government but for its adaptability and size. His rough rule for the age of reverse globalization: go as far from the Middle East as possible, which lands you halfway between New Zealand and Tahiti. Of the two, he picks New Zealand.</p>
+</section>
+
+<section class="chapter" id="ch21">
+<p class="ts">~01:03</p>
+<h2>Government as investor</h2>
+<p>How good is the United States government as an investor in innovation? Thiel gives the libertarian answer and the non-libertarian answer. The libertarian answer is that it is extremely bad, in the present tense. The non-libertarian answer, which he thinks deserves more weight, is the tremendous decline: the 1930s and 1940s had real technocratic competence, and the 1970s were the decade the institutions started working much less well. Nixon's war on cancer is his signal case of things going badly wrong.</p>
+<p>The minimum criterion for investing in science, he says, is to understand it. By a generous count, no more than 35 members of the House and Senate hold degrees in engineering, science, or any technical field. Perhaps these are not the right people to drive such investments.</p>
+<p>Solyndra is his worked example. The Republican critique was process: kickbacks, corruption never quite proven. The Democratic defense was portfolio: fund many things and let a hundred flowers bloom. Thiel's objection is mathematical and brutal. A cylinder has 2 times pi times r the surface area of a flat panel, which makes it by definition 1 over pi as efficient. Ninth-grade geometry showed the technology could never be commercially viable. A Nobel laureate, Steven Chu, ran the Energy Department and was not allowed to use ninth-grade geometry in the evaluation. A government like that, Thiel says, should not be allowed to make investments in these areas at all.</p>
+</section>
+
+<section class="chapter" id="ch22">
+<p class="ts">~01:06</p>
+<h2>Money, microregulations, and life itself</h2>
+<p>What would money look like in the libertarian utopia, Bitcoin or PayPal? Thiel doubts the utopia will ever arrive and redirects the question. The fixation on money is misplaced. The real economy matters more. Given the choice between abolishing the Federal Reserve and abolishing the vast bulk of microregulations, zoning laws, and crazy rules, he would abolish the regulations every time. Money belongs to the world of bits. The regulations strangle the world of atoms.</p>
+<p>His instinct is that money should link back to something real, the way the gold standard at least kept the discipline that money cannot be printed without end. Perhaps link it to the equity market, something more real than fiat. But the microregulations are the critical thing.</p>
+<p>An Indonesian government adviser asks about terrorism and privacy. Thiel rejects the standard tradeoff, more security with more privacy invasion versus less of both, as a fake dichotomy, an NSA-versus-ACLU stalemate. The technological answer is more with less: more security with fewer invasions of privacy. That is what he would call actual innovation. Doing more with more, or less with less, is the boring ideological debate.</p>
+<p>Why want to live longer, and what is the life's mission? The two are independent. Life is worthwhile in itself, and death is bad in itself, so even adrift and missionless he would prefer the longer life. Our psychology of mortality mixes acceptance and denial: we accept that we will all die so we do nothing, and we believe we will not die soon so we need not worry. Like extreme pessimism and extreme optimism, the combination converges on doing nothing. He would like us to fight it a little more, for its own sake.</p>
+</section>
+
+<section class="chapter" id="ch23">
+<p class="ts">~01:12</p>
+<h2>Stagnation, not inequality</h2>
+<p>On inequality, Thiel separates three questions that the debate usually fuses. One: does the number even rise? Probably in the United States, not globally, and the world Gini is not clearly rising. Two: why is it happening? He blames globalization more than technology, and calls the causes overdetermined and hard to solve. Three: what to do about it? Most remedies are worse than the disease. Higher marginal rates just incent more loopholes, and officially redistributionist societies get more static the louder the rhetoric.</p>
+<p>His reframing: the issue is not inequality but stagnation. Living standards are not improving much, and that is the wound. The microsolutions matter. In San Francisco, the single biggest variable making people feel the stagnation is shelter costs through the roof, and the fix he names is to break the unholy alliance between urban slumlords and pseudo-environmentalists that blocks new development.</p>
+</section>
+
+<section class="chapter" id="ch24">
+<p class="ts">~01:17</p>
+<h2>Science got worse</h2>
+<p>The final stretch is bleak. A human physiological simulator after the Human Genome Project? Too hard, he agrees, and he is skeptical of the whole AI conversation. It feels like an extreme consensus that AI is just around the corner, and he thinks it is further away than people believe. The AI story fits too neatly into the conventional inequality narrative: rapid progress, no jobs, computers replace everyone. He suspects that is not quite correct.</p>
+<p>His data point: everyone gives the same example, self-driving cars. The sameness of the example suggests there is not that much to the story. Even full success might replace at most one percent of the workforce and add a few percent to productivity, phased in over a decade. Significant, but not transformative.</p>
+<p>The practice of science, he says, has gone dramatically for the worse over fifty years. The old ecosystem of idiosyncratic scientists drove research independently. The flood of money from the 1930s to the 1960s accelerated them but politicized the system. A good scientist is the opposite of a good politician: one seeks the truth, the other has a troubled relationship with it. Gresham's law took over. The bad scientists drove out the good, and people nimble at writing grant applications replaced the eccentric scientists who actually pushed research. That, he says, is the deep corruption of the process.</p>
+</section>
+
+<section class="chapter" id="ch25">
+<p class="ts">~01:20</p>
+<h2>Watch the episode</h2>
+<p>The full conversation runs about 81 minutes, recorded before a live audience at George Mason University on April 2, 2015. The transcript carries no timestamps. The times in this companion are proportional estimates from each passage's position in the transcript.</p>
+<div class="vid">
+<iframe src="https://www.youtube-nocookie.com/embed/i_yJTCDU4uE" title="Conversations with Tyler: Peter Thiel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</section>
+
+<div class="nuggets">
+<h2>Nuggets of wisdom</h2>
+<ol>
+<li>Stagnation is real in the world of atoms, not in the world of bits.</li>
+<li>The regulatory divide explains the two tracks: atoms got regulated, bits got a free pass.</li>
+<li>A software product costs about $100,000 to ship. An FDA drug costs about a billion dollars.</li>
+<li>Stagnation is sticky. Break it once and the cycle can turn virtuous.</li>
+<li>Do not forecast the future. Treat the future as something to build, not a movie to watch.</li>
+<li>AI is slightly overhyped. Biotech is strangled. Self-driving cars are real but slow.</li>
+<li>The eccentric scientist faces extinction, replaced by the grant writer.</li>
+<li>Einstein's letter would be lost in the White House mail room today.</li>
+<li>Be long substance and short status.</li>
+<li>Ask what is true that very few people agree with you on.</li>
+<li>Original sin lives in society, in mimetic crowds, not in the individual.</li>
+<li>Leave the tracked path early. Escape Alcatraz.</li>
+<li>Hire for stubborn plus open-minded, traits 179.5 degrees apart.</li>
+<li>Perhaps you should not be an entrepreneur. The world needs more good companies and fewer bad ones.</li>
+<li>Reading dominates writing, and the whole product arc was implicit in the names.</li>
+<li>Names predict failure. PayPal was friendly. Napster was bad. Airbnb was innocent. Uber was not.</li>
+<li>Long California, short New York. 2007 was the peak of globalization, like 1913.</li>
+<li>Extreme optimism and extreme pessimism both converge on doing nothing. Stay mild.</li>
+<li>The unfashionable career pays. The average plumber keeps pace with the average doctor.</li>
+<li>The issue is not inequality. The issue is stagnation.</li>
+</ol>
+</div>
+
+<footer class="sources">
+<h2>Sources and method</h2>
+<p><b>Transcript.</b> This companion narrates the Conversations with Tyler episode with Peter Thiel, recorded live at George Mason University and uploaded April 2, 2015. Source file: <span class="mono" style="font-family:var(--mono);font-size:13px">research/conversations-with-tyler/transcripts/i_yJTCDU4uE.txt</span> (about 12,300 words, 115 speaker turns, duration about 81 minutes). The transcript carries no timestamps, so every <span class="mono" style="font-family:var(--mono);font-size:13px">~HH:MM</span> marker in this companion is a proportional estimate from the passage's character offset within the transcript, always labeled with ~.</p>
+<p><b>Trap flags.</b> Four honesty hazards are called out in-line as trap cards: (1) Thiel's remarks about autism and Asperger's among founders are folk psychology, not clinical claims. (2) The Straussian do-not-be-an-entrepreneur reading is a deliberate paradox, not literal career advice. (3) the OGX $30-billion-to-negative-$1-billion arc is Thiel's dinner anecdote, hedged in the transcript itself with "very hard to tell." (4) The claim that Japan is the least conformist country in the world is a contrarian provocation, not a measured finding.</p>
+
+<div class="onquotes">
+<p><b>On quotes.</b> This artifact contains <b>45 quoted words</b> by mechanical recount (the recount script at <span class="mono" style="font-family:var(--mono);font-size:13px">~/workspace/companions/tools/recount_quotes.py</span>). The method counts every word inside pull-quote markup plus every double- or single-quoted phrase in the visible body text, footer excluded, including chart data-tips and attribute-embedded quotes. The count: pull quote one, 12 words (Cowen quoting Thiel's flying-cars line). Pull quote two, 16 words (Thiel on Einstein's letter). Pull quote three, 9 words (the OGX founder's parking line, via Thiel). Pull quote four, 8 words (Thiel on substance over status). No quoted phrase repeats anywhere in the body. Chart data-tips contain no quotation marks.</p>
+</div>
+<p><b>Video.</b> The embedded player uses youtube-nocookie. This file is self-contained and works from file://. The only network dependency is the video embed and the locally referenced images in assets/ep05/.</p>
+<p><b>Photos.</b> Peter Thiel, early 2015, via The Guardian (January 2015 image). Apollo 11 liftoff, NASA image via Wikimedia Commons, public domain. Watercolor illustrations were generated with Muse's native image tools.</p>
+</footer>
+</main>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.chapnav a,.sidenav a'));
+  var secs=[].slice.call(document.querySelectorAll('section.chapter'));
+  function onScroll(){
+    var y=window.scrollY+120,cur=null;
+    secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id;});
+    links.forEach(function(a){
+      a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
