@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mark Zuckerberg on the Metaverse, Free Speech, and Building · Lex Fridman Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Lex Fridman's Mark Zuckerberg interview on presence, avatars, content moderation, and the meaning of life.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .crumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .crumb a{color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Lex Fridman &middot; Track Companion</a>
+  <span class="sub">Ep 5 · Mark Zuckerberg on the Metaverse and Free Speech · Jun 2022</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="crumb"><a href="../index.html">Lex Fridman track index</a> / Companion</p>
+      <p class="kicker">Lex Fridman Podcast · Episode 5 · Companion</p>
+      <h1>Mark Zuckerberg on the Metaverse, Free Speech, and Building</h1>
+      <p class="dek">Presence as the key question, the avatar identity spectrum, the steelman of the Social Dilemma, what the polarization research actually says, and a father's philosophy of life.</p>
+      <img src="assets/illustration-ep05.webp" alt="Watercolor illustration of a person wearing a VR headset reaching toward floating translucent avatars">
+      <p class="caption"><b>Illustration.</b> Presence: the feeling of being there with other people. AI-generated watercolor.</p>
+      <figure>
+        <img src="assets/photo-mark-zuckerberg.jpg" alt="Photograph of Mark Zuckerberg">
+        <p class="caption"><b>Photo.</b> Mark Zuckerberg, CEO of Meta. Official White House photograph, public domain, via Wikimedia Commons.</p>
+      </figure>
+      <div class="stats">
+<div class="stat"><div class="n">1M</div><div class="l">People who take their own life each year. 20M attempt it</div><div class="s">Episode opening, Lex Fridman</div></div><div class="stat"><div class="n">6,000</div><div class="l">NVIDIA A100 GPUs in the AI Research SuperCluster, growing to 16,000</div><div class="s">Episode</div></div><div class="stat"><div class="n">100→300</div><div class="l">Translation languages: today vs near term</div><div class="s">Episode</div></div><div class="stat"><div class="n">54%</div><div class="l">Unfavorable rating in a US poll of tech leaders</div><div class="s">Episode</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/5zOHSysMmH0" title="Lex Fridman Podcast: Mark Zuckerberg (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Keep the criticism, drop the cynicism</a></li><li><a href="#nugget-2">One identity is dead</a></li><li><a href="#nugget-3">Optimize for the long-term user</a></li><li><a href="#nugget-4">Ground the narrative in research</a></li><li><a href="#nugget-5">Hire people you could work for</a></li><li><a href="#nugget-6">Create, and love</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
+    </div>
+    <section class="chapter" id="ch-open" data-time="~00:00" data-title="A mirror held up to humanity">
+      <p class="ch-time">~00:00</p>
+      <h2>A Mirror Held Up to Humanity</h2>
+      <p><span class="tag fact">Source fact</span> Lex opens with an unusually long personal monologue. At its best, he says, social media puts a mirror to humanity, revealing both its darkness and its capacity for love. He names what troubles him: hundreds of millions in extreme poverty, 1 million people who take their own life every year, 20 million who attempt it, and the war in Ukraine.</p>
+      <p>He sets the terms of the conversation: <span class="q">"criticism is essential but cynicism is not"</span>. He worries that cynicism masquerades as wisdom in public discourse and suffocates young builders. The episode is an attempt to understand the man and the company carrying what he calls a responsibility almost unlike any other in history.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Discourse</p>
+        <h4>Keep the criticism, drop the cynicism</h4>
+        <p><span class="lbl">What happened. </span>Lex asks for honest critique of Meta while rejecting the viral wave of cynicism that treats every builder as corrupt.</p>
+        <p><span class="lbl">Why it matters. </span>Criticism improves the thing. Cynicism just raises the cost of attempting anything, which selects for people who never try.</p>
+        <p><span class="lbl">The principle. </span>Attack the work, not the motive. Protect the builders while you question the building.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-presence" data-time="~00:05" data-title="Presence: the key question">
+      <p class="ch-time">~00:05</p>
+      <h2>Presence: The Key Question</h2>
+      <p><span class="tag fact">Source fact</span> Zuckerberg says the core property of VR and AR is presence: the feeling of being there with other people, which no phone or TV delivers. Spatial audio already makes Workrooms meetings feel better than Zoom in some ways. You can lean over and whisper to the person next to you, something video calls cannot do.</p>
+      <p>The roadmap is a five-to-ten-year program of unlocking human cues: face tracking, eye tracking for real eye contact, haptic gloves, temperature, even smell. One surprise finding: showing hands without arms feels fine, but a wrong elbow angle breaks presence badly. The brain cares about specific details, not overall fidelity.</p>
+      <div class="pull">
+        <blockquote>I want us to design the most human thing possible</blockquote>
+        <p class="who">Mark Zuckerberg on Meta's hardware philosophy · ~00:20</p>
+      </div>
+      <p><span class="tag interp">Interpretation</span> The trade is explicit: other companies may chase the lightest, thinnest device. Meta chases the richest sense of presence, accepting weight and thickness to capture micro-expressions, because a millimeter of eyebrow movement carries meaning.</p>
+    </section>
+
+    <section class="chapter" id="ch-identity" data-time="~00:33" data-title="Avatars, identity, and the dragon problem">
+      <p class="ch-time">~00:33</p>
+      <h2>Avatars, Identity, and the Dragon Problem</h2>
+      <p><span class="tag fact">Source fact</span> Avatars live on two axes: photorealistic to expressive, and representing you directly to fantasy identity. A photorealistic you fits a work meeting. A photorealistic dragon fits a military simulator. a meme avatar in VRChat is a built-in icebreaker. Zuckerberg's early Facebook belief in one identity is gone: people will have many.</p>
+      <p>The economy follows. A digital shirt for your photorealistic avatar could auto-translate, via style transfer, onto your cartoon self, or even onto the dragon. The scarier problem is impersonation: if someone who looks exactly like you walks into a meeting, how do you know it is you? The answer being explored is biometric proof at headset time, proving you are the owner of the avatar before you wear it.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Identity</p>
+        <h4>One identity is dead</h4>
+        <p><span class="lbl">What happened. </span>Zuckerberg abandoned the single-identity doctrine. Context decides which self you bring: the worker, the friend, the dragon.</p>
+        <p><span class="lbl">Why it matters. </span>Systems that force one identity onto every context serve none of them well and create the impersonation problem as a side effect.</p>
+        <p><span class="lbl">The principle. </span>Design for the spectrum of selves. Then secure the link between a person and each self.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-security" data-time="~00:50" data-title="Security: fortresses and phones">
+      <p class="ch-time">~00:50</p>
+      <h2>Security: Fortresses and Phones</h2>
+      <p><span class="tag fact">Source fact</span> Prompted by Lex's own ransomware attack on his QNAP storage, Zuckerberg compares models. WhatsApp is the largest encrypted service in the world: Meta cannot see message contents, so hacking Meta's servers yields nothing. The trade is that everything lives on your phone, and losing the phone loses the content.</p>
+      <p>His stance: neither pure centralization nor pure decentralization wins. Centralized systems, run by serious companies with red teams and bug bounties, can offer better personalization and faster hardening. The way forward is aggressive, open hardening, not pretending issues will not happen.</p>
+    </section>
+
+    <section class="chapter" id="ch-dilemma" data-time="~00:56" data-title="The Social Dilemma, steelmanned">
+      <p class="ch-time">~00:56</p>
+      <h2>The Social Dilemma, Steelmanned</h2>
+      <p><span class="tag fact">Source fact</span> Lex asks Zuckerberg to steelman the documentary's core claim: ad-funded algorithms maximize engagement, and anger drives it. Zuckerberg concedes the business model rewards usage, but disputes the jump. What grabs attention in the near term is not what people value over the long term, and he has run the company for 17 years with decades ahead.</p>
+      <div class="pull">
+        <blockquote>I don't want to build products that make people angry</blockquote>
+        <p class="who">Mark Zuckerberg · ~01:02</p>
+      </div>
+      <p>The mechanism: users give per-content feedback (like it, love it, makes me angry, makes me sad), and the system downranks what makes people angry. He also notes the critique is not unique to ads: subscription news has its own polarization incentives, since partisan outlets sell subscriptions to one side.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Incentives</p>
+        <h4>Optimize for the long-term user</h4>
+        <p><span class="lbl">What happened. </span>Zuckerberg argues the relevant incentive is not next quarter's engagement but whether people still find the product valuable years from now.</p>
+        <p><span class="lbl">Why it matters. </span>Short-term metrics and long-term value often point opposite ways. Which one you pick defines what you build.</p>
+        <p><span class="lbl">The principle. </span>When a metric rewards the near term, ask what the same system would optimize for over a decade.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-polarization" data-time="~01:04" data-title="Does social media polarize us?">
+      <p class="ch-time">~01:04</p>
+      <h2>Does Social Media Polarize Us?</h2>
+      <p><span class="tag fact">Source fact</span> Zuckerberg grounds the debate in research. Stanford economist Matthew Gentzkow's cross-country work finds social media is not a large driver of polarization: polarization falls in some countries and rises in the US, while social media is roughly equivalent everywhere. Affective polarization, negative feelings toward the other group, actually decreases with social media use. After the 2016 US election, the most polarized voters were the ones not on the internet.</p>
+      <p>On his own unpopularity: a US poll put his unfavorable rating at 54 percent, against 23 percent for Elon Musk. His explanation is structural. Meta arbitrates content for a polarized country without being a partisan company, so every controversial decision angers half the country while the satisfied half barely notices. Brand goes down with one side each time, and rarely up with the other.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Evidence</p>
+        <h4>Ground the narrative in research</h4>
+        <p><span class="lbl">What happened. </span>The viral story says social media drives polarization. The cross-country data says the story does not hold up.</p>
+        <p><span class="lbl">Why it matters. </span>Compelling anecdotes beat statistics in public debate. The only counterweight is the actual studies.</p>
+        <p><span class="lbl">The principle. </span>When a narrative feels true, check whether it varies the way the claimed cause varies. If it does not, the cause is elsewhere.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-teens" data-time="~01:24" data-title="Teens, bullying, and the heavy question">
+      <p class="ch-time">~01:24</p>
+      <h2>Teens, Bullying, and the Heavy Question</h2>
+      <p><span class="tag fact">Source fact</span> On the leaked Instagram teen well-being research: the study tracked about 20 metrics, and on 18 or 19 of them Instagram's effect was neutral or positive. Coverage focused on the one area needing improvement. Zuckerberg's frustration is that the company did the research to get better, and the act of studying was read as a cover-up.</p>
+      <p>On bullying and self-harm, he describes AI systems operating in hundreds of languages that detect cries for help and connect people with local first responders, which he says saved people in thousands of cases. Bullying itself is hard for AI because it is context-specific: the same comment reads as humor to one person and destruction to another, so the tools emphasize user agency, like quietly taking a break from someone without signaling it.</p>
+    </section>
+
+    <section class="chapter" id="ch-speech" data-time="~01:37" data-title="Free speech and the crowded theater">
+      <p class="ch-time">~01:37</p>
+      <h2>Free Speech and the Crowded Theater</h2>
+      <p><span class="tag fact">Source fact</span> Zuckerberg says his Georgetown 2019 stance on free expression has not fundamentally changed. The hard part is the definition of harm: everyone agrees you cannot yell fire in a crowded theater, but nobody agrees where the line sits for bullying, misinformation, or a pandemic. COVID was treated as an acute emergency that passed the crowded-theater test.</p>
+      <p>The machinery: about 20 categories of tracked harm, 18 of which are uncontroversial (terrorism, incitement, and the like), quarterly transparency reports, and an independent Oversight Board whose decisions are final. Lex pushes back that scientists failed at communication during COVID and that platforms should lean toward open debate rather than defining truth. Zuckerberg's answer is that the commitment to expression stands, but acute harm still draws a line.</p>
+    </section>
+
+    <section class="chapter" id="ch-ai" data-time="~01:58" data-title="Supercomputers and the end of language barriers">
+      <p class="ch-time">~01:58</p>
+      <h2>Supercomputers and the End of Language Barriers</h2>
+      <p><span class="tag fact">Source fact</span> Meta's AI Research SuperCluster runs 6,000 NVIDIA A100 GPUs, growing toward 16,000. One flagship application is translation: about 100 languages today, about 300 in the near term, any-to-any, with direct speech-to-speech models that skip the text intermediate. AR glasses become the first computing device with the wearer's own perspective: seeing what you see, hearing what you hear, enabling a genuinely first-person AI assistant.</p>
+      <p><span class="tag interp">Interpretation</span> Translation is the quiet metaverse prerequisite. Presence without shared language is just high-fidelity isolation. The Turing test Zuckerberg implies: an AI interpreter that outperforms both speakers' own second-language skills.</p>
+    </section>
+
+    <section class="chapter" id="ch-advice" data-time="~02:08" data-title="Advice: the good-night things">
+      <p class="ch-time">~02:08</p>
+      <h2>Advice: The Good-Night Things</h2>
+      <p><span class="tag fact">Source fact</span> Every night Zuckerberg runs his daughters through the good-night things: health, loving friends and family, something you are excited about for the future, and what you did today to help someone. For college graduates, his core advice is about people: <span class="q">"you become like the people you surround yourself with"</span>.</p>
+      <p>His hiring heuristic at Meta: only hire someone if you could see yourself working for them in an alternate universe. The same test applies to friends and partners. People are too objective-focused, he argues, and not focused enough on the connections they are building.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · People</p>
+        <h4>Hire people you could work for</h4>
+        <p><span class="lbl">What happened. </span>Zuckerberg's bar for a hire is whether he would happily be their employee in an alternate universe.</p>
+        <p><span class="lbl">Why it matters. </span>It tests for learning, values alignment, and respect at once, and it blocks the common failure of hiring down to fill seats fast.</p>
+        <p><span class="lbl">The principle. </span>Choose collaborators by who they would make you, not just by what they can do for you now.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-meaning" data-time="~02:19" data-title="Death, and the meaning of life">
+      <p class="ch-time">~02:19</p>
+      <h2>Death, and the Meaning of Life</h2>
+      <p><span class="tag fact">Source fact</span> Asked about mortality, Zuckerberg says constraints help: finiteness makes ice cream taste better. His philanthropy through the Chan Zuckerberg Initiative, which will receive 99 percent of his Meta shares, targets curing, preventing, or managing all disease within this century, deliberately not longevity itself. Asked what he would ask God, he answers: he would want to know his family will be okay.</p>
+      <p>On the meaning of life, he offers two answers. The first: human connection, the thing society systematically undervalues. <span class="q">"what if playing with your friends is the point"</span>. The second, from studying Genesis with a rabbi: that the point is to create and build things. His fusion: create, and love, which is the ultimate form of connection.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Meaning</p>
+        <h4>Create, and love</h4>
+        <p><span class="lbl">What happened. </span>Asked for life's meaning, Zuckerberg lands on connection as the point and creation as the method.</p>
+        <p><span class="lbl">Why it matters. </span>A builder who treats play as the point will build different things than one who treats play as the reward for work.</p>
+        <p><span class="lbl">The principle. </span>Make the work worth doing and the people worth doing it with. The rest is commentary.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Lex Fridman Podcast episode with Mark Zuckerberg, published June 2022 (~2.5 hours). Facts, figures, and quoted phrases from the conversation come from the episode's auto-generated caption transcript on file (transcripts/5zOHSysMmH0.txt). Publish dates, episode numbers, and view counts come from the video and track metadata. Each chapter names its episode section. Times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors. The guest photo is a real photograph, attributed in the caption. Research claims (Gentzkow, Klein) are Zuckerberg's characterizations of the studies, presented as stated in the episode.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 45 words: two pull quotes plus three inline phrases, each verbatim from the episode transcript with speaker attribution: “I want us to design the most human thing possible” (10 words), “I don't want to build products that make people angry” (10 words), “criticism is essential but cynicism is not” (7 words), “you become like the people you surround yourself with” (9 words), and “what if playing with your friends is the point” (9 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(scope){
+    scope.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+  window.__bindTips = bindTips;
+  window.__showTip = showTip;
+  window.__hideTip = hideTip;
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+
+})();
+</script>
+</body>
+</html>
