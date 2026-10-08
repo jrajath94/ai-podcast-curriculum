@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartphones &amp; Social Media: Jonathan Haidt · Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Jonathan Haidt on the great rewiring of childhood and the anxious generation.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#1f2a28; --muted:#6b7572;
+    --line:#ddd8c8; --accent:#0f766e; --accent-ink:#0b5c56; --soft:#e9f2ef;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#a9d6cf}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3a4542;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfd8d3}
+  .bar.dark{fill:#3a4542}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .flowbox{fill:#fff;stroke:var(--accent);stroke-width:1.5}
+  .flowlab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .normn{font-family:var(--sans);font-size:26px;font-weight:800;fill:var(--accent-ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6;
+    border:1px dashed var(--line);padding:12px 16px;margin:26px 0}
+  .legend b{color:var(--ink)}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#eef3f1;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#a9b6b2}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Fear and Social Freedom · Track Companion</a>
+  <span class="sub">Huberman Lab · Jonathan Haidt</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode Companion</p>
+      <h1>Smartphones &amp; Social Media</h1>
+      <p class="dek">Social psychologist Jonathan Haidt, author of The Anxious Generation, makes the case that childhood was rewired between 2010 and 2015, and the graphs show exactly when. This companion follows the evidence and his four norms for breaking out of the trap.</p>
+      <img src="assets/ep10-hero-phone.webp" alt="Watercolor illustration of a teenager in a dim bedroom lit by a smartphone while others play outside">
+      <p class="caption"><b>Illustration.</b> Inside with the phone, outside without it. AI-generated watercolor made for this page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">2010 to 2015</div><div class="l">The five-year window of the Great Rewiring of Childhood</div><div class="s">Episode ~00:12</div></div>
+        <div class="stat"><div class="n">2012</div><div class="l">The year girls' depression lines turned up like a hockey stick</div><div class="s">Episode ~00:15</div></div>
+        <div class="stat"><div class="n">50 to 150%</div><div class="l">Range of increases across youth mental-health measures</div><div class="s">Episode ~00:16</div></div>
+        <div class="stat"><div class="n">4 norms</div><div class="l">Haidt's realistic rules for breaking out of the trap</div><div class="s">Episode ~01:50</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/csubiPlvFWk" title="Huberman Lab: Jonathan Haidt on Smartphones and Social Media (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Huberman Lab episode video. Use the chapter menu above to move through this companion as you listen.</p>
+      </div>
+      <div class="legend"><b>How to read this page.</b> Each nugget has three parts. <b>What happened</b> states a fact from the episode. <b>Why it matters</b> and <b>The principle</b> are my interpretation of that fact. Charts built from episode numbers name their source. Charts drawn from his descriptions are labeled schematic.</div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The tool became the trap</a></li>
+          <li><a href="#nugget-2">Five years rewired childhood</a></li>
+          <li><a href="#nugget-3">The hockey stick</a></li>
+          <li><a href="#nugget-4">Close to a doubling</a></li>
+          <li><a href="#nugget-5">No smartphone before high school</a></li>
+          <li><a href="#nugget-6">No social media until 16</a></li>
+          <li><a href="#nugget-7">Phone-free schools, free play</a></li>
+          <li><a href="#nugget-8">Delay through the plastic years</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-intro" data-time="~00:01" data-title="Intro: the puzzle">
+      <p class="ch-time">~00:01</p>
+      <h2>Intro: The Puzzle</h2>
+      <p>Huberman introduces Jonathan Haidt, social psychologist at NYU and author of The Anxious Generation. The puzzle that drives the episode: youth mental health collapsed in the 2010s, and the timing is suspiciously precise. The question is when it started, and what arrived at exactly that moment.</p>
+      <p>Haidt's answer is a natural experiment. Take January 2010 and compare it to 2015, and you can watch childhood get rewired in real time.</p>
+    </section>
+
+    <section class="chapter" id="ch-2010" data-time="~00:10" data-title="January 2010: the tool">
+      <p class="ch-time">~00:10</p>
+      <h2>January 2010: The Tool</h2>
+      <figure>
+        <img src="assets/ep10-flip-phone.webp" alt="Watercolor illustration of an old flip phone beside a modern smartphone on a wooden table">
+        <p class="caption"><b>Illustration.</b> 2010: the flip phone as a tool. 2015: the smartphone as an environment. AI-generated watercolor made for this page.</p>
+      </figure>
+      <p>Picture a teenager in January 2010. There is no Instagram. There is no front-facing camera. The iPhone came out in 2007, but most teens do not have one. They have flip phones, and they use them as a tool: call each other, text each other, meet up. When technology helps us achieve our goals, Haidt says, that is good.</p>
+      <p>The flip phone could not hold a teenager for ten hours a day. Nobody could do that with a flip phone. The device served the plan. The plan did not serve the device.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Before</p>
+        <h4>The tool became the trap</h4>
+        <p><span class="lbl">What happened. </span>In 2010 the flip phone was a tool for calling, texting, and meeting up. Nobody could spend ten hours a day on it.</p>
+        <p><span class="lbl">Why it matters. </span>The question is not whether technology is good. It is whether the device serves your goals or replaces them.</p>
+        <p><span class="lbl">The principle. </span>Judge every device by the 2010 test: does it help you meet up, or keep you from it?</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-2015" data-time="~00:12" data-title="2015: the environment">
+      <p class="ch-time">~00:12</p>
+      <h2>2015: The Environment</h2>
+      <p>By 2015 everything is different. The great majority of teens have a smartphone with a front-facing camera. The girls are mostly on Instagram, the first social media platform you had to be on a smartphone for. High-speed internet, unlimited texting, and now it is possible to spend 10 to 15 hours a day on the phone.</p>
+      <p>Haidt points to that five-year period, 2010 to 2015, and names it <q>the Great rewiring of childhood</q>, because it affects everything about what children and teenagers do. He remembers his own first smartphone in New York City: up at 1:30 in the morning scrolling, thinking this is <q>unbelievably addicting</q>. He now thinks of it less as addicting and more as an OCD of sorts.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Rewiring</p>
+        <h4>Five years rewired childhood</h4>
+        <p><span class="lbl">What happened. </span>Between 2010 and 2015, the flip-phone tool became the smartphone environment: front-facing cameras, Instagram, unlimited texting, 10 to 15 hours a day possible.</p>
+        <p><span class="lbl">Why it matters. </span>Five years is one childhood. An entire generation's habits were rebuilt inside a single developmental window.</p>
+        <p><span class="lbl">The principle. </span>Big harms do not need big causes. They need a plastic brain and five years.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-hockey" data-time="~00:15" data-title="The hockey stick">
+      <p class="ch-time">~00:15</p>
+      <h2>The Hockey Stick</h2>
+      <div class="pull">
+        <blockquote>Like somebody turned on a light switch in 2012.</blockquote>
+        <p class="who">Jonathan Haidt · Episode ~00:15</p>
+      </div>
+      <p>The graphs are the argument. Before the collapse, around 12 to 15 percent of girls qualified as having had a major depression. The lines run pretty flat until around 2012, and then all of a sudden the lines for girls go up like a hockey stick. It is not subtle. There is an elbow.</p>
+      <p>Internationally the pattern repeats, not always in 2012, but the girls' graphs are very sharp everywhere. The boys are up too, on depression and anxiety, but their curves are smoother, beginning more like 2009 or 2010 and rising gradually. Haidt calls that difference a real clue to the two different stories.</p>
+      <div class="chart" id="chart-hockey">
+        <h4>Girls' depression: flat, then a hockey stick</h4>
+        <p class="csub">Stylized after the episode's graphs. Direction and timing per Haidt. Not plotted from his dataset.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Line chart showing flat depression rates until 2012 then a sharp rise">
+          <line x1="60" y1="260" x2="600" y2="260" stroke="#ddd8c8" stroke-width="1"></line>
+          <line x1="60" y1="260" x2="60" y2="40" stroke="#ddd8c8" stroke-width="1"></line>
+          <path d="M60,200 L280,195 L340,120 L420,70 L520,45 L600,38" fill="none" stroke="#0f766e" stroke-width="3.5" data-tip="Girls' depression: flat at 12 to 15 percent until about 2012, then up like a hockey stick"></path>
+          <line x1="280" y1="40" x2="280" y2="260" stroke="#cfd8d3" stroke-dasharray="4 4"></line>
+          <text class="vallab" x="280" y="30" text-anchor="middle">2012</text>
+          <text class="axis" x="170" y="230" text-anchor="middle">12 to 15%, flat</text>
+          <text class="axis" x="470" y="120" text-anchor="middle">hockey stick</text>
+          <text class="axis" x="60" y="290" text-anchor="start">2008</text>
+          <text class="axis" x="600" y="290" text-anchor="end">2020</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Smartphones and Social Media, ~00:15. Graph shape and timing per Haidt. Stylized, not plotted from the dataset.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Evidence</p>
+        <h4>The hockey stick</h4>
+        <p><span class="lbl">What happened. </span>Girls' depression ran flat at 12 to 15 percent until about 2012, then turned up like a hockey stick, with an elbow like a light switch.</p>
+        <p><span class="lbl">Why it matters. </span>Sudden, synchronized collapse across countries points at a shared cause, not a slow drift.</p>
+        <p><span class="lbl">The principle. </span>When every graph elbows at once, look for what arrived at the elbow.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Scale</p>
+        <h4>Close to a doubling</h4>
+        <p><span class="lbl">What happened. </span>Across measures, youth mental-health harms rose in the ballpark of 50 to 150 percent. Haidt stresses: <q>close to a doubling</q>, not the 10 or 20 percent of ordinary noise.</p>
+        <p><span class="lbl">Why it matters. </span>A doubling is not a trend. It is a different world.</p>
+        <p><span class="lbl">The principle. </span>Do not normalize the new baseline. The old one was the healthy one.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-norms" data-time="~01:50" data-title="The four norms">
+      <p class="ch-time">~01:50</p>
+      <h2>The Four Norms</h2>
+      <figure>
+        <img src="assets/ep10-playground.webp" alt="Watercolor illustration of children playing freely on a sunlit playground with no phones in sight">
+        <p class="caption"><b>Illustration.</b> Norm four: independence, free play, responsibility in the real world. AI-generated watercolor made for this page.</p>
+      </figure>
+      <p>Haidt offers four norms to break out of the trap, and he stresses they are norms, not just personal rules. A norm works because everyone follows it: no child is the odd one out.</p>
+      <div class="chart" id="chart-norms">
+        <h4>The four norms</h4>
+        <p class="csub">Per Haidt. The first two buy time through the plastic years.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="The four norms listed as numbered rules">
+          <text class="normn" x="40" y="70">1</text>
+          <rect class="flowbox" x="80" y="38" width="520" height="52" rx="4" data-tip="Norm one: no smartphone before high school. A flip phone is fine."></rect>
+          <text class="flowlab" x="100" y="60" text-anchor="start">No smartphone before high school</text>
+          <text class="axis" x="100" y="78" text-anchor="start">A flip phone is fine. Millennials had them and came out fine.</text>
+          <text class="normn" x="40" y="140">2</text>
+          <rect class="flowbox" x="80" y="108" width="520" height="52" rx="4" data-tip="Norm two: no social media until 16. There is no way to make it safe for children."></rect>
+          <text class="flowlab" x="100" y="130" text-anchor="start">No social media until 16</text>
+          <text class="axis" x="100" y="148" text-anchor="start">It turns children into brand managers. Nothing playful about it.</text>
+          <text class="normn" x="40" y="210">3</text>
+          <rect class="flowbox" x="80" y="178" width="520" height="52" rx="4" data-tip="Norm three: phone-free schools. Kids themselves say they want this."></rect>
+          <text class="flowlab" x="100" y="200" text-anchor="start">Phone-free schools</text>
+          <text class="axis" x="100" y="218" text-anchor="start">Kids say they want phone-free schools. Give them the norm.</text>
+          <text class="normn" x="40" y="280">4</text>
+          <rect class="flowbox" x="80" y="248" width="520" height="52" rx="4" data-tip="Norm four: far more independence, free play, and responsibility in the real world."></rect>
+          <text class="flowlab" x="100" y="270" text-anchor="start">Independence, free play, responsibility</text>
+          <text class="axis" x="100" y="288" text-anchor="start">Kids need adventure. The real world is the antidote.</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Smartphones and Social Media, ~01:50. The four norms per Haidt.</p>
+      </div>
+      <p>Norm one: no smartphone before high school. A flip phone, a simple watch phone, is fine. Do not give a child the entire internet in their pocket, and do not let the entire world reach your child whenever it wants. Norm two: no social media until 16. Haidt believes there is no way to make social media safe for children: it turns them into brand managers, performative instead of playful, exposed to things no child should see.</p>
+      <p>Norm three is phone-free schools. Norm four is the hardest and the most important: far more independence, free play, and responsibility in the real world. Kids need adventure. The first two norms delay the phone through the years of maximum plasticity. The last two rebuild the real world the phone replaced.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Norms</p>
+        <h4>No smartphone before high school</h4>
+        <p><span class="lbl">What happened. </span>Norm one: no smartphone of their own before high school. A flip phone is fine. The internet does not belong in a child's pocket.</p>
+        <p><span class="lbl">Why it matters. </span>A pocket internet means the world can reach your child at any hour. Delay is protection.</p>
+        <p><span class="lbl">The principle. </span>Give the tool, not the environment. Flip phones came out fine.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Norms</p>
+        <h4>No social media until 16</h4>
+        <p><span class="lbl">What happened. </span>Norm two: no social media until 16. It makes children brand managers, chasing likes and followers instead of play.</p>
+        <p><span class="lbl">Why it matters. </span>Prestige economies are not playgrounds. Performance replaces playfulness.</p>
+        <p><span class="lbl">The principle. </span>Childhood is for play, not personal branding. Hold the line at 16.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Norms</p>
+        <h4>Phone-free schools, free play</h4>
+        <p><span class="lbl">What happened. </span>Norm three: phone-free schools, which kids themselves say they want. Norm four: far more independence, free play, and responsibility in the real world.</p>
+        <p><span class="lbl">Why it matters. </span>Norms work because everyone follows them. No child is the odd one out.</p>
+        <p><span class="lbl">The principle. </span>Rebuild the real world. Adventure is the antidote.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Timing</p>
+        <h4>Delay through the plastic years</h4>
+        <p><span class="lbl">What happened. </span>The first two norms buy time through the period of maximum brain plasticity. Get past late puberty before the phone arrives.</p>
+        <p><span class="lbl">Why it matters. </span>The rewiring hit hardest when brains were most plastic. Delay is not avoidance. It is a question of timing.</p>
+        <p><span class="lbl">The principle. </span>Protect the plastic years. The adult brain can handle what the child brain cannot.</p>
+      </div>
+    </section>
+
+    <div class="takeaways" id="ch-takeaways">
+      <h3>The episode in seven lines</h3>
+      <ol>
+        <li>In January 2010, the phone was a tool: call, text, meet up. Nobody spent ten hours a day on a flip phone.</li>
+        <li>By 2015, the tool became an environment: front-facing cameras, Instagram, unlimited texting, 10 to 15 hours a day.</li>
+        <li>2010 to 2015 was the Great Rewiring of Childhood. Five years, one generation.</li>
+        <li>Girls' depression ran flat at 12 to 15 percent, then turned up like a hockey stick around 2012.</li>
+        <li>The increases run 50 to 150 percent: close to a doubling, not ordinary noise.</li>
+        <li>The four norms: no smartphone before high school, no social media until 16, phone-free schools, and real-world independence and free play.</li>
+        <li>Delay through the plastic years. Then rebuild the world the phone replaced.</li>
+      </ol>
+      <p class="src">Distilled from Huberman Lab, Jonathan Haidt on Smartphones and Social Media (~2h27m). Full episode: youtube.com/watch?v=csubiPlvFWk. The graphs and the four norms are Haidt's from The Anxious Generation. Timestamps marked ~ are proportional estimates from transcript position. They may be off by a few minutes.</p>
+    </div>
+  </main>
+</div>
+<div id="tip" role="status" aria-live="polite"></div>
+<footer>
+  <div class="layout" style="grid-template-columns:1fr">
+    <main style="border:none;padding:0;max-width:760px">
+      <p><b>On quotes.</b> Direct quotations in this companion total 20 words: the pull quote (9 words) and three short phrases in quotation marks (5, 2, and 4 words). The pull quote carries speaker and episode-timestamp attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>On sources.</b> All numbers, graphs, and norms come from the episode itself. The companion draws from a full transcript of the video. Chapter times marked ~ are proportional estimates and may be off by a few minutes. This companion is an unofficial study aid with no affiliation with Huberman Lab. Video embed is the official upload on youtube-nocookie.</p>
+      <p><b>Track.</b> Fear and Social Freedom · <a href="../index.html">Back to track index</a></p>
+    </main>
+  </div>
+</footer>
+<script>
+(function(){
+  var chaps=Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  var nav=document.getElementById('chapnav'), side=document.getElementById('sidenav');
+  var items=chaps.map(function(c){
+    return '<a href="#'+c.id+'"><span class="t">'+c.getAttribute('data-time')+'</span>'+c.getAttribute('data-title')+'</a>';
+  });
+  nav.innerHTML=items.join('');
+  side.innerHTML='<h4>Chapters</h4>'+items.join('');
+  var links=Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  var cur=null;
+  function activate(){
+    var best=chaps[0],i;
+    for(i=0;i<chaps.length;i++){if(chaps[i].getBoundingClientRect().top<160)best=chaps[i];}
+    if(best!==cur){cur=best;links.forEach(function(a){
+      a.classList.toggle('active',a.getAttribute('href')==='#'+best.id);});}
+  }
+  window.addEventListener('scroll',activate,{passive:true});activate();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var tip=document.getElementById('tip');
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mouseenter',function(){
+      tip.textContent=el.getAttribute('data-tip');tip.style.opacity='1';});
+    el.addEventListener('mousemove',function(ev){
+      tip.style.left=(ev.clientX+14)+'px';tip.style.top=(ev.clientY+14)+'px';});
+    el.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+  });
+})();
+</script>
+</body>
+</html>
