@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elon Musk: Dwarkesh Patel Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Dwarkesh Patel's interview with Elon Musk: space compute, solar math, Grok, Optimus, and the method.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-bottom:10px}
+  .tag.source{background:#e3ecdc;color:#3c5a2e;border:1px solid #b9cba6}
+  .tag.interp{background:#f3e9d6;color:#8f3f14;border:1px solid #dcc9a3}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:20px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:22px;font-weight:800;margin:12px 0 4px}
+  .toy .tnote{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-style:italic}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .legend{border:1px dashed var(--line);padding:14px 16px;margin:26px 0;font-family:var(--sans);font-size:13px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dwarkesh Patel · Track Companion</a>
+  <span class="sub">Ep 11 · Synthesis</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Dwarkesh Patel · Ep 11 · Companion</p>
+      <h1>Synthesis: Inside the Machine</h1>
+      <p class="dek">The track's synthesis chapter opens the box the episodes priced but never opened: the GPU die, the 8-GPU server, the rack, the cluster, and the gigawatt datacenter. This companion narrates that lesson section by section, with its provenance tags intact.</p>
+      <figure>
+        <img src="assets/ep11-gpu-rack.webp" alt="Watercolor illustration of a GPU die, a server rack, and a datacenter in layered cross-section">
+        <p class="caption"><b>Illustration.</b> Die, server, rack, cluster, datacenter: the five-layer stack in cross-section. AI-generated watercolor made for this page.</p>
+      </figure>
+      <div class="legend"><b>How to read this page.</b> This is a synthesis chapter, not an interview, so there are no guest quotes. <span class="tag source">Source fact</span> marks a claim from the lesson. <span class="tag interp">Interpretation</span> marks builder analysis. The lesson's own provenance tags are preserved: [episode] = what the track's guests said, [added] = what the synthesis adds from verified 2026 sources. No episode transcript exists for this chapter.</div>
+      <div class="stats">
+        <div class="stat"><div class="n">144</div><div class="l">Streaming multiprocessors on an H100, each carrying tensor cores for matrix math.</div><div class="s">Lesson §3 [added]</div></div>
+        <div class="stat"><div class="n">3 TB/s</div><div class="l">High-bandwidth memory throughput feeding the compute, ~80GB stacked next to the die.</div><div class="s">Lesson §3 [added]</div></div>
+        <div class="stat"><div class="n">8</div><div class="l">GPUs per server, NVLink-bound into one bigger machine.</div><div class="s">Lesson §4 [added]</div></div>
+        <div class="stat"><div class="n">330K</div><div class="l">GB300 GPUs ≈ 1 gigawatt: Elon's datacenter-scale number from ep01.</div><div class="s">Lesson §2 [episode]</div></div>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The guests priced the stack, and this chapter opens it</a></li>
+          <li><a href="#nugget-2">A GPU is multiply-add at scale</a></li>
+          <li><a href="#nugget-3">HBM feeds the beast</a></li>
+          <li><a href="#nugget-4">Eight GPUs: one bigger machine</a></li>
+          <li><a href="#nugget-5">Something is always broken</a></li>
+          <li><a href="#nugget-6">Tensor cores: the AI. HBM: the food. NVLink: the glue</a></li>
+          <li><a href="#nugget-7">Price each layer separately</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-why" data-time="§1" data-title="Why">
+      <p class="ch-time">§1 · Why this chapter matters</p>
+      <h2>The Guests Priced the Stack. This Chapter Opens It</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>The ten episodes cover two hardware angles well: why Nvidia is expensive (ep07's full-stack moat) and the economics of building at scale (ep01's power math, ep08's gigawatt datacenters and $10B models). The third angle, what is actually inside the machines, stays thin. Guests talk about GPUs the way economists talk about oil: as a priced input.</p>
+      <p>This synthesis opens the box: the GPU die, the rack, and the cluster, assembled from episode claims plus verified 2026 sources. Every claim carries its provenance: [episode] for what the guests said, [added] for what the synthesis adds.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Framing</p>
+        <h4>The guests priced the stack, and this chapter opens it</h4>
+        <p><span class="lbl">What happened. </span>Ten episodes priced compute without opening a single machine. The synthesis fills the missing layer.</p>
+        <p><span class="lbl">Why it matters. </span>Prices without internals are trivia. Internals turn prices into engineering decisions.</p>
+        <p><span class="lbl">The principle. </span>Whenever experts price a thing, ask what is inside it. The box is where the advantage hides.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gives" data-time="§2" data-title="Episodes">
+      <p class="ch-time">§2 · The story</p>
+      <h2>What the Episodes Give Us [episode]</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>Assembled from the track's own claims:</p>
+      <ul>
+        <li>Ep01 (Elon): about 330K GB300 GPUs ≈ 1GW of power. The power math: compute is electricity.</li>
+        <li>Ep07 (Jensen): the full-stack moat, silicon through networking through CUDA through supply chain to AI factories. The unit customers buy is the factory, not the chip.</li>
+        <li>Ep08 (Zuck): 1GW datacenters, power, cooling, networking, multi-year supply chain, and the path to $10B training runs.</li>
+        <li>Ep05 (Dario): the compute-buying arithmetic: hundreds of billions, not trillions, sized to survive being wrong.</li>
+      </ul>
+      <p>What none of the episodes open: the GPU itself, the rack that holds eight of them, and how racks become a cluster.</p>
+    </section>
+
+    <section class="chapter" id="ch-gpu" data-time="§3" data-title="GPU">
+      <p class="ch-time">§3 · Inside the GPU [added]</p>
+      <h2>A GPU Is Multiply-Add at Scale</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>A datacenter GPU of the H100/H200/GB200 generation is a small city of parallel arithmetic:</p>
+      <ul>
+        <li>Streaming multiprocessors: about 144 on an H100, each with tensor cores for matrix math. The tensor cores are the AI: they do the multiply-accumulate operations neural networks are made of, at low precision, very fast.</li>
+        <li>High-bandwidth memory: stacked memory dies next to the compute, about 80GB on an H100, with around 3TB/s of bandwidth. The bottleneck in AI is usually moving data, not computing. HBM is the answer.</li>
+        <li>NVLink: high-speed interconnects between GPUs, so eight GPUs in a server act as one bigger GPU.</li>
+        <li>The die is huge, about 800mm² on a 4nm-class process, which is why yields and cost are what they are. This is the physical reason behind ep07's silicon layer.</li>
+      </ul>
+      <p>The key intuition: a GPU is a machine for doing the same simple operation, multiply then add, billions of times in parallel, with the memory system designed to feed it. The rest is just pipes.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Hardware</p>
+        <h4>A GPU is multiply-add at scale</h4>
+        <p><span class="lbl">What happened. </span>Strip the marketing and the GPU is one operation, repeated billions of times, kept fed by exotic memory.</p>
+        <p><span class="lbl">Why it matters. </span>Simple repeated operations are what parallelize. Complexity is the enemy of scale.</p>
+        <p><span class="lbl">The principle. </span>Find the one operation that matters and repeat it. Elegance is repetition at speed.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Bottlenecks</p>
+        <h4>HBM feeds the beast</h4>
+        <p><span class="lbl">What happened. </span>AI is bottlenecked by moving data, not by arithmetic. HBM stacks memory against the die for 3TB/s.</p>
+        <p><span class="lbl">Why it matters. </span>Infinite FLOPs with slow memory starves. The feed matters more than the mouth.</p>
+        <p><span class="lbl">The principle. </span>Find the true bottleneck before optimizing. It is usually the pipe, not the pump.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-rack" data-time="§4" data-title="Rack">
+      <p class="ch-time">§4 · Inside the rack [added]</p>
+      <h2>Eight GPUs: One Bigger Machine</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>The DGX/HGX unit: 8 GPUs in one server chassis, connected by NVLink/NVSwitch so they share memory at high bandwidth. This is the "one machine" of ep07's networking layer:</p>
+      <ul>
+        <li>8 GPUs with NVLink: the compute.</li>
+        <li>CPUs: the coordinators, data loading and orchestration.</li>
+        <li>Networking: InfiniBand or Ethernet to connect servers.</li>
+        <li>Power: tens of kilowatts per rack. Cooling to match.</li>
+      </ul>
+      <p>The rack is the smallest unit that trains real models. One GPU is a toy. Eight is a workstation. The rack is where distributed training begins.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Units</p>
+        <h4>Eight GPUs: one bigger machine</h4>
+        <p><span class="lbl">What happened. </span>NVLink fuses eight GPUs into one memory-sharing machine. The rack is the smallest real training unit.</p>
+        <p><span class="lbl">Why it matters. </span>The unit of thought is the smallest assembly that does the job, not the chip.</p>
+        <p><span class="lbl">The principle. </span>Think in assemblies, not components. The machine is the unit, not the part.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-cluster" data-time="§5" data-title="Cluster">
+      <p class="ch-time">§5 · Building the cluster [added]</p>
+      <h2>Something Is Always Broken</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>From racks to the 1GW datacenter of ep08, in three steps:</p>
+      <ol>
+        <li>Racks become rows: dozens of 8-GPU servers, connected by the datacenter fabric.</li>
+        <li>Rows become a cluster: thousands of GPUs acting as one machine via collective communication, all-reduce for gradient synchronization.</li>
+        <li>The cluster becomes a datacenter: power (the 1GW of ep01/ep08), cooling (gigawatt-scale heat rejection), and the multi-year supply chain.</li>
+      </ol>
+      <p>The failure math: at thousands of GPUs, something is always broken. Cluster software must route around dead GPUs, checkpoint constantly, and restart. This is the operational reality behind "the factory": 10,000 GPUs with a few always broken and the system not caring, rather than 10,000 working ones.</p>
+      <div class="chart" id="chart-fail">
+        <h4>Failure regime by scale</h4>
+        <p class="csub">Hover any row for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of failure regimes at different scales">
+          <rect class="bar alt" x="120" y="60" width="40" height="60" data-tip="1 GPU: a toy. Nothing breaks that matters"></rect>
+          <rect class="bar alt" x="120" y="140" width="80" height="60" data-tip="8 GPUs: a workstation. Still nothing to operate"></rect>
+          <rect class="bar dark" x="120" y="220" width="400" height="60" data-tip="Thousands of GPUs: something is always broken. Checkpoint, route around, restart"></rect>
+          <text class="axis" x="110" y="95" text-anchor="end">1 GPU</text>
+          <text class="axis" x="110" y="175" text-anchor="end">8 GPUs</text>
+          <text class="axis" x="110" y="255" text-anchor="end">thousands</text>
+          <text class="vallab" x="530" y="255" text-anchor="start">always broken</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel track, ep11 synthesis lesson §5. Failure regimes are the lesson's characterization.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Operations</p>
+        <h4>Something is always broken</h4>
+        <p><span class="lbl">What happened. </span>At thousands of GPUs, dead hardware is the steady state. The software routes around it.</p>
+        <p><span class="lbl">Why it matters. </span>Scale changes the failure model from exception to environment. Design for the environment.</p>
+        <p><span class="lbl">The principle. </span>At scale, assume breakage. Checkpoint, route around, restart.</p>
+      </div>
+      <div class="toy" id="toy-sizer">
+        <h4>Toy: the cluster sizer</h4>
+        <p class="tsub">Pick a GPU count. See racks, rows, and power on the lesson's arithmetic.</p>
+        <label for="gpuRange">GPUs: <b id="gpuVal">8,000</b></label>
+        <input type="range" id="gpuRange" min="8" max="330000" step="8" value="8000">
+        <div class="out" id="gpuOut">1,000 racks · ~8 MW</div>
+        <p class="tnote">Arithmetic: 8 GPUs per server, tens of kW per rack at ~10 kW. The 1GW figure is Elon's ep01 number.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-stack" data-time="§6" data-title="Stack">
+      <p class="ch-time">§6 · The five-layer stack</p>
+      <h2>Die to Datacenter</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <div class="chart" id="chart-stack">
+        <h4>The five layers, die to datacenter</h4>
+        <p class="csub">Hover any bar for detail. Log scale on unit size.</p>
+        <svg viewBox="0 0 640 380" role="img" aria-label="Bar chart of the five-layer hardware stack">
+          <rect class="bar alt" x="100" y="290" width="60" height="30" data-tip="Die: 1 GPU. Parallel tensor math plus HBM [added]"></rect>
+          <rect class="bar alt" x="220" y="250" width="60" height="70" data-tip="Server: 8 GPUs. NVLink makes one bigger machine [added]"></rect>
+          <rect class="bar" x="340" y="210" width="60" height="110" data-tip="Rack and row: dozens of servers. Distributed training begins [added]"></rect>
+          <rect class="bar" x="460" y="160" width="60" height="160" data-tip="Cluster: thousands of GPUs. One machine via the fabric [episode: ep07 factory]"></rect>
+          <rect class="bar dark" x="560" y="110" width="60" height="210" data-tip="Datacenter: about 330K GPUs, about 1GW. The AI factory [episode: ep01, ep08]"></rect>
+          <text class="vallab" x="130" y="282" text-anchor="middle">1</text>
+          <text class="vallab" x="250" y="242" text-anchor="middle">8</text>
+          <text class="vallab" x="370" y="202" text-anchor="middle">dozens</text>
+          <text class="vallab" x="490" y="152" text-anchor="middle">1000s</text>
+          <text class="vallab" x="590" y="102" text-anchor="middle">330K</text>
+          <text class="axis" x="130" y="340" text-anchor="middle">die</text>
+          <text class="axis" x="250" y="340" text-anchor="middle">server</text>
+          <text class="axis" x="370" y="340" text-anchor="middle">rack/row</text>
+          <text class="axis" x="490" y="340" text-anchor="middle">cluster</text>
+          <text class="axis" x="590" y="340" text-anchor="middle">datacenter</text>
+        </svg>
+        <p class="csrc">Source: Dwarkesh Patel track, ep11 synthesis lesson. Provenance tags [episode]/[added] are the lesson's own.</p>
+      </div>
+      <div class="pull">
+        <blockquote>Tensor cores: the AI. HBM: the food. NVLink: the glue.</blockquote>
+        <p class="who">The lesson's memory aid · ep11 synthesis</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Memory aid</p>
+        <h4>Tensor cores: the AI. HBM: the food. NVLink: the glue</h4>
+        <p><span class="lbl">What happened. </span>The lesson compressed the whole stack into twelve words: compute, memory, interconnect.</p>
+        <p><span class="lbl">Why it matters. </span>Twelve words you can hold in your head beat a datasheet you cannot.</p>
+        <p><span class="lbl">The principle. </span>Compress ruthlessly. If it does not fit in a sentence, you do not own it yet.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-qa" data-time="§7" data-title="Q&amp;A">
+      <p class="ch-time">§7 · Questions and answers</p>
+      <h2>Five Questions, Answered</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p><b>What is a tensor core?</b> A specialized arithmetic unit that does matrix multiply-accumulate very fast at low precision. Neural networks are mostly matrix multiplications. Tensor cores are the hardware that makes them economical. The rest of the GPU exists to feed them.</p>
+      <p><b>Why does HBM matter more than raw compute?</b> Because AI is bottlenecked by moving data, not by arithmetic. HBM stacks memory next to the compute die for about 3TB/s of bandwidth. A GPU with infinite FLOPs and slow memory starves. HBM keeps it fed.</p>
+      <p><b>Why 8 GPUs per server?</b> NVLink connects 8 GPUs at high enough bandwidth that they share memory effectively, acting as one bigger GPU. Beyond 8, the interconnect physics gets harder. The datacenter fabric takes over between servers.</p>
+      <p><b>What breaks at cluster scale?</b> Everything, constantly. At thousands of GPUs, some are always dead. The software must checkpoint, route around failures, and restart without losing the training run. Operating the factory means operating broken hardware gracefully.</p>
+      <p><b>How does this connect to the episode claims?</b> Elon's 330K GPUs at 1GW is the top of this stack. Jensen's factory is the whole stack as a product. Zuck's 1GW datacenter is the physical plant. Dario's hundreds of billions is what the stack costs. This chapter fills in the layers the episodes price but do not open.</p>
+    </section>
+
+    <section class="chapter" id="ch-apply" data-time="§8" data-title="Apply">
+      <p class="ch-time">§8 · Use it</p>
+      <h2>Price Each Layer Separately</h2>
+      <p><span class="tag source">Source fact</span></p>
+      <p>The lesson's applied rule: if you size a cluster, the unit of thought is the rack (8 GPUs) for development, the cluster (thousands) for training, the datacenter (hundreds of thousands) for the frontier. Price each layer separately: GPUs, networking, power, cooling, and the operations to keep broken hardware from stopping you.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Applied</p>
+        <h4>Price each layer separately</h4>
+        <p><span class="lbl">What happened. </span>The lesson gave a sizing discipline: rack for dev, cluster for training, datacenter for the frontier.</p>
+        <p><span class="lbl">Why it matters. </span>Single-number estimates hide which layer bites. Layered prices show where to optimize.</p>
+        <p><span class="lbl">The principle. </span>Decompose before you budget. Five prices beat one guess.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The chapter in seven lines</h3>
+        <ol>
+          <li>The episodes priced compute. This chapter opens the machines.</li>
+          <li>A GPU is multiply-accumulate at scale: 144 SMs, tensor cores, 3TB/s of HBM.</li>
+          <li>Eight GPUs with NVLink make one bigger machine. That is the rack.</li>
+          <li>Racks become rows, rows become clusters, clusters become the 1GW datacenter.</li>
+          <li>At thousands of GPUs, something is always broken. Checkpoint, route around, restart.</li>
+          <li>Tensor cores: the AI. HBM: the food. NVLink: the glue.</li>
+          <li>Size by layer: rack for dev, cluster for training, datacenter for the frontier.</li>
+        </ol>
+        <p class="src">Distilled from the track's ep11 synthesis lesson (ep11-synthesis.html). Provenance: [episode] claims from the track's guests, [added] from verified 2026 sources per the lesson.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Dwarkesh Patel track's ep11 synthesis lesson (ep11-synthesis.html), not a podcast episode. No episode transcript exists for this chapter, so no guest quotations are possible here. Facts come from the lesson itself. Provenance tags [episode] and [added] are the lesson's own: [episode] marks claims from the track's guests, [added] marks material the synthesis adds from verified 2026 sources. The illustration is an AI-generated watercolor made for this page. There is no guest video for a synthesis chapter.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 14 words: the lesson's memory-aid pull quote (10 words), "one machine" (2 words), and "the factory" (2 words). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> This page embeds no video. Everything, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+  });
+  var gr = document.getElementById('gpuRange'), gv = document.getElementById('gpuVal'), mo = document.getElementById('mwOut');
+  if(gr){
+    gr.addEventListener('input', function(){
+      var n = parseInt(gr.value, 10);
+      gv.textContent = n.toLocaleString('en-US');
+      mo.textContent = '\u2248 ' + Math.round(n / 110000 * 300).toLocaleString('en-US') + ' MW all-in';
+    });
+  }
+
+  /* ---------- toy: cluster sizer ---------- */
+  (function(){
+    var r = document.getElementById('gpuRange'), v = document.getElementById('gpuVal'), o = document.getElementById('gpuOut');
+    if(!r) return;
+    function upd(){
+      var g = parseInt(r.value, 10);
+      var racks = Math.round(g / 8).toLocaleString('en-US');
+      var mw = (Math.round(g / 8) * 10 / 1000);
+      var mwStr = mw >= 100 ? Math.round(mw).toLocaleString('en-US') : mw.toFixed(1);
+      v.textContent = g.toLocaleString('en-US');
+      o.textContent = racks + ' racks ~ ' + mwStr + ' MW';
+    }
+    r.addEventListener('input', upd); upd();
+  })();
+
+})();
+</script>
+</body>
+</html>
