@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mark Zuckerberg Inside the Metaverse: Codec Avatars · Lex Fridman Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Lex Fridman's metaverse interview with Mark Zuckerberg, conducted as photorealistic codec avatars.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e7f0e9;color:#14532d;border:1px solid #bcd6c4}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .crumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .crumb a{color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Lex Fridman &middot; Track Companion</a>
+  <span class="sub">Ep 7 · Mark Zuckerberg: Inside the Metaverse · Sep 2023</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="crumb"><a href="../index.html">Lex Fridman track index</a> / Companion</p>
+      <p class="kicker">Lex Fridman Podcast · Episode 7 · Companion</p>
+      <h1>Mark Zuckerberg Inside the Metaverse: Codec Avatars</h1>
+      <p class="dek">A whole interview conducted as photorealistic avatars: how codec avatars work, the 2-minute phone scan goal, Quest 3, holograms, AI personas, and what the real world becomes.</p>
+      <img src="assets/illustration-ep07.webp" alt="Watercolor illustration of two photorealistic-style avatars facing each other across a dark room, connected by light">
+      <p class="caption"><b>Illustration.</b> Two people, hundreds of miles apart, in the same room. AI-generated watercolor.</p>
+      <figure>
+        <img src="assets/photo-mark-zuckerberg.jpg" alt="Photograph of Mark Zuckerberg">
+        <p class="caption"><b>Photo.</b> Mark Zuckerberg, CEO of Meta. Official White House photograph, public domain, via Wikimedia Commons.</p>
+      </figure>
+      <div class="stats">
+<div class="stat"><div class="n">2-3 min</div><div class="l">Phone-scan goal for codec-avatar quality</div><div class="s">Episode</div></div><div class="stat"><div class="n">$500</div><div class="l">Quest 3 price, vs $1,500 for Quest Pro</div><div class="s">Episode</div></div><div class="stat"><div class="n">40%</div><div class="l">Thinner than Quest Pro, with a stronger chipset</div><div class="s">Episode</div></div><div class="stat"><div class="n">~86 min</div><div class="l">Episode runtime, conducted entirely in VR</div><div class="s">Transcript word count</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/MVYrJJNdrEg" title="Lex Fridman Podcast: Mark Zuckerberg in the Metaverse (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Chapter times above are proportional estimates. Use the chapter menu to follow along.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">Intimacy is the product</a></li><li><a href="#nugget-2">Start from how people actually emote</a></li><li><a href="#nugget-3">Price for the flywheel, not the showcase</a></li><li><a href="#nugget-4">Grief needs norms, not just features</a></li><li><a href="#nugget-5">Empower everyone instead of building one mind</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Facts carry episode times. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps. Transcripts are auto-generated captions, so chapters paraphrase rather than quote.</p>
+    </div>
+    <section class="chapter" id="ch-open" data-time="~00:00" data-title="An interview inside the metaverse">
+      <p class="ch-time">~00:00</p>
+      <h2>An Interview Inside the Metaverse</h2>
+      <p><span class="tag fact">Source fact</span> Lex and Mark Zuckerberg hold this entire conversation hundreds of miles apart, appearing to each other as photorealistic codec avatars in 3D with spatial audio. Lex calls it the most incredible thing he has ever seen and says it feels like they are in the same room. The avatars capture the nuances of facial expression that carry most of human communication.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Presence</p>
+        <h4>Intimacy is the product</h4>
+        <p><span class="lbl">What happened. </span>Lex, who insists on in-person podcasts, admits this remote conversation broke his rule: the intimacy felt real.</p>
+        <p><span class="lbl">Why it matters. </span>The test of a communication medium is not fidelity specs. It is whether a skeptic forgets the medium.</p>
+        <p><span class="lbl">The principle. </span>Judge presence technology by the feeling it produces, not the pixels it renders.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-codec" data-time="~00:09" data-title="How codec avatars work">
+      <p class="ch-time">~00:09</p>
+      <h2>How Codec Avatars Work</h2>
+      <p><span class="tag fact">Source fact</span> Instead of transmitting video, Meta scans each person in many expressions, builds a computer model of the face and body, and collapses it into a codec. The headset reads the wearer's expressions and sends an encoded version over the wire. The result is more bandwidth-efficient than video and more expressive than cartoon avatars.</p>
+      <p>The surprise: flaws drive immersion. Freckles, asymmetry, wrinkles, the corners of the eyes when you smile. As Lex puts it:</p>
+      <div class="pull">
+        <blockquote>Perfection isn't the thing that leads to immersion</blockquote>
+        <p class="who">Lex Fridman on what makes avatars feel real · ~00:12</p>
+      </div>
+      <p>The goal is a phone scan of <span class="q">"two to three minutes"</span>: wave the phone in front of your face, say a few sentences, make expressions, and get today's hours-long-scan quality. That scan pipeline is described as one of the last big pieces to nail.</p>
+    </section>
+
+    <section class="chapter" id="ch-uncanny" data-time="~00:22" data-title="Beyond the uncanny valley">
+      <p class="ch-time">~00:22</p>
+      <h2>Beyond the Uncanny Valley</h2>
+      <p><span class="tag fact">Source fact</span> Both agree the uncanny valley is crossed here. The remaining work is calibration: how wide is your smile, and how wide do you want it to be? Some people may prefer an avatar more emotive than their physical face. Zuckerberg notes he gets critiqued for a stiff expression while feeling happy inside, so his avatar might legitimately express him better than his face does.</p>
+      <p><span class="tag interp">Interpretation</span> This reframes the avatar from a mirror to an instrument. The baseline is how you emote today, but the product question is how much control you get over the performance.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Expression</p>
+        <h4>Start from how people actually emote</h4>
+        <p><span class="lbl">What happened. </span>Meta's calibration problem is per-person: the same smile width reads differently on different faces.</p>
+        <p><span class="lbl">Why it matters. </span>Presence is personal. Averages produce mannequins. Calibration produces people.</p>
+        <p><span class="lbl">The principle. </span>Build the baseline from the individual, then offer the dials.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-quest" data-time="~00:42" data-title="Quest 3 and the price of the future">
+      <p class="ch-time">~00:42</p>
+      <h2>Quest 3 and the Price of the Future</h2>
+      <p><span class="tag fact">Source fact</span> Quest Pro shipped at fifteen hundred dollars. Quest 3 arrives at $500, 40 percent thinner, with mixed-reality cameras multiple times better than the Pro's, and a newer Qualcomm chipset that is actually stronger than the Pro's at a third of the cost. Zuckerberg calls it the first mainstream mixed-reality device.</p>
+      <p>The pitch for mixed reality over pure VR: experiences that do not need full immersion feel safer and more comfortable when anchored to the physical world. Hide behind your real couch from virtual zombies. Add windows to a windowless room. And hand tracking with no controllers now works with no perceptible latency, demoed by playing piano on a table.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Adoption</p>
+        <h4>Millions of users make the platform</h4>
+        <p><span class="lbl">What happened. </span>Zuckerberg says the developer flywheel only starts when millions own the device, which is why the $500 price matters more than the Pro's specs.</p>
+        <p><span class="lbl">Why it matters. </span>The best hardware without distribution is a demo. Distribution turns demos into platforms.</p>
+        <p><span class="lbl">The principle. </span>Price for the flywheel, not the showcase.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-holograms" data-time="~00:55" data-title="Holograms and the real world">
+      <p class="ch-time">~00:55</p>
+      <h2>Holograms and the Real World</h2>
+      <p><span class="tag fact">Source fact</span> Looking ahead, Zuckerberg imagines normal-looking glasses within about five years, and by the end of the decade a world with as many holograms in a room as physical objects. Any screen, book, or board game becomes a hologram you summon and dismiss. Meetings mix physical attendees with photorealistic holograms, plus embodied AIs like a hypothetical Bob the AI, an engineer on the team.</p>
+      <div class="pull">
+        <blockquote>the real world is the combination of the physical world and the digital worlds coming together</blockquote>
+        <p class="who">Mark Zuckerberg · ~01:00</p>
+      </div>
+      <p>He rejects the phrase that calls only the physical world real. The physical stays essential because we are physical beings, but the digital is too large to stay locked on small screens. The future is one coherent experience blending both.</p>
+    </section>
+
+    <section class="chapter" id="ch-dead" data-time="~01:05" data-title="Talking to those who are gone">
+      <p class="ch-time">~01:05</p>
+      <h2>Talking to Those Who Are Gone</h2>
+      <p><span class="tag fact">Source fact</span> Lex raises the thought that jumped into his own mind: talking to loved ones who died. Zuckerberg says norms need study: reliving memories could help the grieving or become unhealthy. Meta already runs memorialization protocols for the deceased on its social apps, giving families partial access while keeping messages private.</p>
+      <p>The adjacent idea is AI versions of the living: a creator's AI that talks to fans who will never get a direct hour, clearly labeled as AI. The hard part is reliability, making sure the AI stays within bounds the creator sets.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Grief</p>
+        <h4>Grief needs norms, not just features</h4>
+        <p><span class="lbl">What happened. </span>The technology to simulate the dead will arrive before society agrees on when it should be used.</p>
+        <p><span class="lbl">Why it matters. </span>Some features need ethics research alongside engineering, or the first deployments will be the experiments.</p>
+        <p><span class="lbl">The principle. </span>For the most sensitive capabilities, study the human impact before the launch, not after.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-personas" data-time="~01:12" data-title="A universe of AIs, not one superintelligence">
+      <p class="ch-time">~01:12</p>
+      <h2>A Universe of AIs, Not One Superintelligence</h2>
+      <p><span class="tag fact">Source fact</span> Meta's stated direction is many AIs, not one big superintelligence: a plain Meta AI assistant in every chat thread, business AIs that take reservations instead of phone trees, and fun personas. In internal testing the most loved was a text-adventure dungeon master played by Snoop Dogg. They also built Jane Austen and Marcus Aurelius personas. AI Studio will eventually let anyone create these like any other user-generated content.</p>
+      <p>Creating a persona from scratch is easy. Embodying a real creator is hard, because the AI must not say things the person would never say. That reliability problem is why creator-AIs come later than fictional characters.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · AI strategy</p>
+        <h4>Empower everyone instead of building one mind</h4>
+        <p><span class="lbl">What happened. </span>Meta bets on a diversity of AIs for different jobs rather than a single superintelligence.</p>
+        <p><span class="lbl">Why it matters. </span>One AI is a bottleneck and a single point of failure. Many AIs match how humans already divide labor among specialists.</p>
+        <p><span class="lbl">The principle. </span>Distribute the intelligence the way you want to distribute the power.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-llama" data-time="~01:22" data-title="Llama 2, open sourced">
+      <p class="ch-time">~01:22</p>
+      <h2>Llama 2, Open Sourced</h2>
+      <p><span class="tag fact">Source fact</span> Zuckerberg says the value of open-sourcing Llama 2 outweighed the risks after rigorous assessment and red-teaming, and downloads exceeded his optimistic expectations. Llama 2 is infrastructure, not a consumer product. The priority is fine-tuning it into the consumer AIs. A next model is in training, with the same open-source debate to come, and no date announced.</p>
+      <p><span class="tag interp">Interpretation</span> The episode's arc lands here: codec avatars for presence, many AIs for company, open models for the ecosystem. Each piece assumes the others.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Lex Fridman Podcast episode with Mark Zuckerberg recorded inside the metaverse, published September 2023 (~86 minutes). Facts, figures, and quoted phrases from the conversation come from the episode's auto-generated caption transcript on file (transcripts/MVYrJJNdrEg.txt). Publish dates, episode numbers, and view counts come from the video and track metadata. Each chapter names its episode section. Times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors. The guest photo is a real photograph, attributed in the caption. Product plans and timelines are Meta's stated intentions, presented as stated.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 28 words: two pull quotes plus one inline phrase, each verbatim from the episode transcript with speaker attribution: “Perfection isn't the thing that leads to immersion” (8 words, Lex Fridman), “the real world is the combination of the physical world and the digital worlds coming together” (16 words, Mark Zuckerberg), and “two to three minutes” (4 words, Mark Zuckerberg). Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  function bindTips(scope){
+    scope.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+      el.style.cursor = 'pointer';
+    });
+  }
+  bindTips(document);
+  window.__bindTips = bindTips;
+  window.__showTip = showTip;
+  window.__hideTip = hideTip;
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+
+})();
+</script>
+</body>
+</html>
