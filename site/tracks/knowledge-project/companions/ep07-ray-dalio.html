@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ray Dalio: Principles for a Life Well Lived: The Knowledge Project Companion</title>
+<meta name="description" content="Ray Dalio lost everything in 1982 and rebuilt on principles. This companion follows the full episode and pulls out the ideas on radical open-mindedness, the idea meritocracy, the five-step loop, and what money cannot buy.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">The Knowledge Project · Track Companion</a>
+  <span class="sub">Ray Dalio · Episode 7</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">The Knowledge Project · Episode 7 · Companion</p>
+      <h1>Ray Dalio</h1>
+      <p class="dek">Ray Dalio lost everything in 1982 and rebuilt on principles. This companion follows the full episode and pulls out the ideas on radical open-mindedness, the idea meritocracy, the five-step loop, and what money cannot buy.</p>
+      <img src="assets/ep07-dalio-illustration.webp" alt="Watercolor illustration of a small ship navigating repeating ocean waves">
+      <p class="caption"><b>Illustration.</b> Another one of those. Dalio reads history as repeating patterns and sails accordingly. AI-generated watercolor made for this page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">1982</div><div class="l">Mexico defaults. Dalio nearly ruined</div><div class="s">Episode transcript</div></div>
+        <div class="stat"><div class="n">250%</div><div class="l">Bank capital lent to debtor nations</div><div class="s">Episode transcript</div></div>
+        <div class="stat"><div class="n">$4,000</div><div class="l">Borrowed from his dad at the bottom</div><div class="s">Episode transcript</div></div>
+        <div class="stat"><div class="n">2017</div><div class="l">Second life stage to third</div><div class="s">Episode transcript</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/pl2_6KP2HpY" title="Ray Dalio: Principles for a Life Well Lived (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Let the failure teach, then rebuild</a></li>
+          <li><a href="#nugget-2">Weight votes by believability</a></li>
+          <li><a href="#nugget-3">Turn pain into a procedure</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-1982" data-time="Part 1" data-title="1982">
+      <p class="ch-time">Part 1</p>
+      <h2>1982: The Call That Broke Him</h2>
+      <p>Dalio built his business for seven years, then bet it on one call. He calculated that debtor nations could not repay American banks, which had lent out two hundred fifty percent of their capital. In August 1982 Mexico defaulted.</p>
+      <p>He was wrong about what came next, and the mistake nearly ended him. He lost his clients, his staff, and his money. He was so broke he borrowed four thousand dollars from his dad.</p>
+      <div class="chart" id="chart-exposure">
+        <h4>Banks lent 250 percent of their capital</h4>
+        <p class="csub">Hover any bar for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of bank loan exposure versus capital">
+          <rect class="bar alt" x="140" y="150" width="110" height="80" data-tip="Bank capital: 100 percent, the base"></rect>
+          <rect class="bar" x="390" y="50" width="110" height="180" data-tip="Loans to debtor nations: 250 percent of capital"></rect>
+          <text class="vallab" x="195" y="142" text-anchor="middle">100%</text>
+          <text class="vallab" x="445" y="42" text-anchor="middle">250%</text>
+          <text class="axis" x="195" y="252" text-anchor="middle">capital</text>
+          <text class="axis" x="445" y="252" text-anchor="middle">loans out</text>
+        </svg>
+        <p class="csrc">Source: episode transcript. Dalio says American banks had 250 percent of their capital out in loans to debtor nations.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Failure</p>
+        <h4>Let the failure teach, then rebuild</h4>
+        <p><span class="lbl">What happened. </span>Dalio's 1982 call was right about the default and wrong about everything after. He lost the firm and borrowed from his dad.</p>
+        <p><span class="lbl">Why it matters. </span>The worst professional moment of his life became the foundation of every principle that followed.</p>
+        <p><span class="lbl">The principle. </span>Study your failures instead of burying them. The tuition is already paid, so collect the lesson.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-learnings" data-time="Part 2" data-title="Three learnings">
+      <p class="ch-time">Part 2</p>
+      <h2>Three Learnings</h2>
+      <p>From the wreckage Dalio drew three lessons. First, radical open-mindedness: the tragedy is not being wrong but refusing to see it. Second, balance risks instead of betting the firm. Third, history repeats, so study it.</p>
+      <p>Open-mindedness became the operating system. He built a company where disagreement is the job and the best idea wins no matter whose mouth it comes from.</p>
+    </section>
+
+    <section class="chapter" id="ch-meritocracy" data-time="Part 3" data-title="The idea meritocracy">
+      <p class="ch-time">Part 3</p>
+      <h2>The Idea Meritocracy</h2>
+      <p>Bridgewater runs on believability-weighted voting. Every view counts, but views from people with a record of being right count more. Three believable people who disagree with the boss outvote the boss.</p>
+      <p>The design fights the brain itself. Dalio describes two minds inside each person: the thoughtful prefrontal cortex and the reactive emotional brain. Disagreement feels like an attack to the second and like data to the first. The tools, the pain button, the dispute resolver, the Dot Collector, exist to keep the first mind in charge.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Decisions</p>
+        <h4>Weight votes by believability</h4>
+        <p><span class="lbl">What happened. </span>Bridgewater scores people on their track records and weights their votes accordingly, so the best-tested views win.</p>
+        <p><span class="lbl">Why it matters. </span>Equal votes give equal weight to the expert and the novice. Hierarchy gives all weight to the boss. Both waste truth.</p>
+        <p><span class="lbl">The principle. </span>Track who is right about what. Then let the record, not the rank, decide.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-algorithms" data-time="Part 4" data-title="Principles as algorithms">
+      <p class="ch-time">Part 4</p>
+      <h2>Principles as Algorithms</h2>
+      <p>Dalio converts life into a five-step loop. Set audacious goals. Find the problems blocking them. Diagnose the problems to their roots. Design plans around the diagnosis. Do what the plans require. Then repeat.</p>
+      <p>Two lines carry the whole method. The first is his equation for growth:</p>
+      <div class="pull">
+        <blockquote>pain plus reflection equals progress</blockquote>
+        <p class="who">Ray Dalio, in the episode</p>
+      </div>
+      <p>The second is his lens on history:</p>
+      <div class="pull">
+        <blockquote>everything is another one of those</blockquote>
+        <p class="who">Ray Dalio on pattern recognition, in the episode</p>
+      </div>
+      <div class="chart" id="chart-loop">
+        <h4>The five-step loop</h4>
+        <p class="csub">Hover any step for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Diagram of the five step process loop">
+          <rect class="bar" x="30" y="110" width="96" height="80" data-tip="Step 1: set audacious goals"></rect>
+          <rect class="bar alt" x="146" y="110" width="96" height="80" data-tip="Step 2: find the problems in the way"></rect>
+          <rect class="bar" x="262" y="110" width="96" height="80" data-tip="Step 3: diagnose to the roots"></rect>
+          <rect class="bar alt" x="378" y="110" width="96" height="80" data-tip="Step 4: design plans around the diagnosis"></rect>
+          <rect class="bar" x="494" y="110" width="96" height="80" data-tip="Step 5: do what the plans require, then repeat"></rect>
+          <text class="axis" x="78" y="145" text-anchor="middle">goals</text>
+          <text class="axis" x="194" y="145" text-anchor="middle">problems</text>
+          <text class="axis" x="310" y="145" text-anchor="middle">diagnose</text>
+          <text class="axis" x="426" y="145" text-anchor="middle">design</text>
+          <text class="axis" x="542" y="145" text-anchor="middle">do</text>
+          <text class="axis" x="320" y="240" text-anchor="middle">repeat for life</text>
+        </svg>
+        <p class="csrc">Source: episode transcript. Dalio describes the five steps: goals, problems, diagnose, design, do.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Process</p>
+        <h4>Turn pain into a procedure</h4>
+        <p><span class="lbl">What happened. </span>Dalio runs every setback through the same loop: reflect on the pain, extract the principle, encode it as an algorithm.</p>
+        <p><span class="lbl">Why it matters. </span>Unprocessed pain just hurts. Processed pain becomes a rule that prevents the next one.</p>
+        <p><span class="lbl">The principle. </span>Write the principle down while the pain is fresh. Your future self will need it more than your present self wants to.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-meditation" data-time="Part 5" data-title="Meditation and the third stage">
+      <p class="ch-time">Part 5</p>
+      <h2>Meditation and the Third Stage</h2>
+      <p>Dalio practices Transcendental Meditation since 1969, when the Beatles' trip to India put it on the map. He credits it with the calm that lets the prefrontal cortex stay in charge.</p>
+      <p>In 2017 he moved from the second stage of life to the third: from winning his own success to the success of others, built without him. The book, the principles, the passing of the baton all belong to that transition.</p>
+    </section>
+
+    <section class="chapter" id="ch-money" data-time="Part 6" data-title="Money and usefulness">
+      <p class="ch-time">Part 6</p>
+      <h2>Money and Usefulness</h2>
+      <p>Past basic needs, Dalio sees no link between money and happiness. The strongest link he knows is relationships. The second is feeling useful.</p>
+      <p>That frames his worry about basic income. Money covers the physical needs, but work gives people colleagues, purpose, and proof they can produce their own subsistence. He cites a Connecticut study: twenty-two percent of high school students are disengaged or disconnected, about one in five.</p>
+      <div class="chart" id="chart-students">
+        <h4>One in five students disconnected</h4>
+        <p class="csub">Hover any bar for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of disengaged Connecticut students">
+          <rect class="bar" x="150" y="120" width="110" height="110" data-tip="Disengaged or disconnected: 22 percent of Connecticut high school students"></rect>
+          <rect class="bar alt" x="390" y="50" width="110" height="180" data-tip="Engaged: the remaining 78 percent"></rect>
+          <text class="vallab" x="205" y="112" text-anchor="middle">22%</text>
+          <text class="vallab" x="445" y="42" text-anchor="middle">78%</text>
+          <text class="axis" x="205" y="252" text-anchor="middle">disengaged</text>
+          <text class="axis" x="445" y="252" text-anchor="middle">engaged</text>
+        </svg>
+        <p class="csrc">Source: episode transcript. Dalio cites 22 percent, about one in five, of Connecticut high school students.</p>
+      </div>
+      <div class="takeaways">
+        <h3>Takeaways</h3>
+        <ol>
+          <li>Study your worst failure until it yields principles. The tuition is paid.</li>
+          <li>Weight decisions by track record, not by rank. Let believability vote.</li>
+          <li>Run the five-step loop on everything: goals, problems, diagnose, design, do.</li>
+          <li>Past basic needs, happiness comes from relationships and usefulness, not money.</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates The Knowledge Project episode with Ray Dalio on principles for a life well lived (Episode 7). All facts and figures come from the episode transcript. Each chart names its episode source. The transcript had timestamps stripped, so chapter markers show episode order, not clock times. Illustrations are AI-generated watercolors made for this page. No photographs are used.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 11 words: "pain plus reflection equals progress" (5 words), "everything is another one of those" (6 words). The pull quotes carry speaker attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+})();
+</script>
+
+</body>
+</html>
