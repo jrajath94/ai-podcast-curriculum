@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep Canvassing, Street Epistemology, and Other Tools of Persuasion with David McRaney: Clearer Thinking Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Clearer Thinking episode with David McRaney: what persuasion is, the elaboration likelihood model, motivated reasoning, the affective tipping point, deep canvassing, street epistemology, and the ethics of changing minds.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#23201a; --muted:#6e655a;
+    --line:#e3dccb; --accent:#0e6e6e; --accent-ink:#0a5454; --soft:#e8f1f0;
+    --warn:#fdf3e3; --warnline:#d9a441;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0dd}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d3830;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  figure.photo img{max-width:460px;margin:0 auto}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .warnbox{background:var(--warn);border:1px solid var(--warnline);border-left:4px solid var(--warnline);
+    padding:14px 18px;margin:22px 0;font-family:var(--sans);font-size:14px;line-height:1.6}
+  .warnbox b{color:#7a4d0a}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfdcd9}
+  .bar.dark{fill:#3d3830}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e4eaea;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .curve{fill:none;stroke:var(--accent);stroke-width:3}
+  .curve2{fill:none;stroke:#b0873f;stroke-width:3;stroke-dasharray:6 4}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{font-family:var(--sans);font-size:14px;line-height:1.5;counter-increment:w}
+  .wisdom li:before{content:counter(w,decimal-leading-zero);font-family:var(--mono);
+    font-size:11px;color:var(--accent-ink);display:block;margin-bottom:2px}
+  .takeaways{background:#fff;border:1px solid var(--line);padding:22px;margin:30px 0}
+  .takeaways h3{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .takeaways ol{margin:0 0 14px;padding-left:22px}
+  .takeaways li{margin-bottom:8px}
+  .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-right:8px;white-space:nowrap}
+  .tag.fact{background:#e2efed;color:var(--accent-ink)}
+  .tag.interp{background:#efe9dc;color:#6b5320}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);border:1px dashed var(--line);
+    padding:10px 14px;margin:0 0 26px}
+  .video{margin:26px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+    border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .toy{border:1px solid var(--line);background:var(--paper2);padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 12px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:10px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:12px;color:var(--accent-ink)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 10px;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  footer p{margin:0 0 14px}
+  footer b{color:var(--ink)}
+  .backlink{font-family:var(--sans);font-size:13px;margin:18px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Clearer Thinking companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+
+<div class="hero">
+<p class="kicker">Clearer Thinking with Spencer Greenberg &middot; Episode 3</p>
+<h1>Deep Canvassing, Street Epistemology, and Other Tools of Persuasion with David McRaney</h1>
+<p class="dek">Spencer Greenberg talks with David McRaney about how minds actually change: why facts bounce off, what the elaboration likelihood model teaches, how 17,000 doorstep conversations converged on one technique, and when persuasion is ethical.</p>
+<img src="assets/ep03/ep03-hero.webp" alt="Watercolor of two people sitting shoulder to shoulder on a doorstep in conversation">
+<p class="caption"><b>Illustration.</b> AI-generated watercolor made for this page: shoulder to shoulder, the posture of every technique in this episode.</p>
+<div class="stats">
+<div class="stat"><div class="n">80 min</div><div class="l">Episode length</div><div class="s">4806 seconds of audio</div></div>
+<div class="stat"><div class="n">17,000</div><div class="l">Conversations</div><div class="s">Deep canvassers A/B tested door to door</div></div>
+<div class="stat"><div class="n">~30%</div><div class="l">Tipping point</div><div class="s">Counter-evidence share that flips updating</div></div>
+<div class="stat"><div class="n">2 routes</div><div class="l">Of persuasion</div><div class="s">Central and peripheral, per the ELM</div></div>
+</div></div>
+<figure class="photo"><img src="assets/ep03/david-mcraney.jpg" alt="Photograph of David McRaney"><figcaption class="caption"><b>Photograph.</b> David McRaney. Real photograph via WMFE, an NPR member station, wmfeimages.s3.amazonaws.com.</figcaption></figure>
+<div class="video"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/JFVOLdwsKb0" title="Episode video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p class="caption"><b>Video.</b> The full episode on YouTube.</p></div>
+<section class="chapter" id="ch-what-persuasion" data-time="~00:02" data-title="What Persuasion Is Not">
+
+<p class="ch-time">~00:02</p>
+<h2>What Persuasion Is Not</h2>
+<div class="legend"><span class="tag fact">Source fact</span> a claim traceable to the episode transcript. <span class="tag interp">Interpretation</span> the companion author's analysis or transfer, not the guest's claim.</div>
+<p><span class="tag fact">Source fact</span> David opens by clearing the field. Persuasion excludes coercion: nothing that takes away the other person agency. It excludes defeating an opponent with a superior argument, and it excludes debate with a winner and a loser. The real thing guides another person along in stages toward better understanding of their own thinking, and shows how that thinking could align with the message.</p>
+<div class="pull">
+<blockquote>Persuasion is not coercion.</blockquote>
+<p class="who">David McRaney &middot; Episode ~00:04</p>
+</div>
+<p><span class="tag fact">Source fact</span> The punchline of his research: all persuasion is self-persuasion. People change or refuse based on their own desires and their own internal counter-arguing, roughly in proportion to their certainty. The best techniques do not push. They get metacognitive: examine the certainty, examine what feeds it, and people often find they are more open than they thought.</p>
+<p><span class="tag fact">Source fact</span> David sorts persuasion into kinds, because the target changes the method. Affecting behavior, like getting someone to buy a razor, is one silo. Correcting a false belief is another. Moral or attitudinal persuasion, which runs on identity and emotion, is a third. People tangle their Venn diagrams by treating beliefs, opinions, attitudes, and values as one thing. They are not.</p>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 &middot; Definition</p>
+<h4>Nobody gets persuaded against their will</h4>
+<p><span class="lbl">What happened. </span>David defines persuasion by exclusion: not coercion, not debate victory, not fact-dumping. The real thing is guided self-examination of certainty.</p>
+<p><span class="lbl">Why it matters. </span>Most persuasion attempts fail because they aim at the wrong target with the wrong weapon: facts at an attitude, debate at a person.</p>
+<p><span class="lbl">The principle. </span>Name the target first: behavior, belief, or attitude. Then pick the method that fits the target.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-attitudes" data-time="~00:08" data-title="Beliefs Are Not Attitudes">
+
+<p class="ch-time">~00:08</p>
+<h2>Beliefs Are Not Attitudes</h2>
+<p><span class="tag fact">Source fact</span> Saying the president is a bad president feels like stating a belief. David says it is really an attitude: a response that comes online whenever you contemplate the object. Beliefs feed it, some true and some false, but attacking the beliefs misses the engine. To move the attitude, you have to ask what generates it, what certainties live inside it, what confidence fuels it.</p>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 &middot; Targeting</p>
+<h4>Aim at the attitude, not the belief</h4>
+<p><span class="lbl">What happened. </span>The president example shows the misfire: fact-checking an attitude is like repairing the paint when the engine smokes.</p>
+<p><span class="lbl">Why it matters. </span>Attitudes run on identity and feeling. Belief-level rebuttals slide off because they never touch the fuel.</p>
+<p><span class="lbl">The principle. </span>Before you argue, ask whether you face a belief, an attitude, or a value. Argue with the thing you actually face.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-elm" data-time="~00:12" data-title="The Elaboration Likelihood Model">
+
+<p class="ch-time">~00:12</p>
+<h2>The Elaboration Likelihood Model</h2>
+<p><span class="tag fact">Source fact</span> For behavior change, David reaches for the elaboration likelihood model, built by Richard Petty and John Cacioppo. The backstory delights: as graduate students drowning in contradictory persuasion studies, they painted a rented room with blackboard paint, wrote every finding on the walls, and stared until the pattern emerged.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the founders as Pity and Kim. Ciopo. The ELM founders are Richard Petty and John Cacioppo. Corrected in this companion. Original noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> The model has two routes. When elaboration likelihood is high, people take the central route: they weigh the argument merits, its logic, its accuracy. When it is low, they take the peripheral route: speaker attractiveness, big words, prestigious degrees, even the promise of pizza after the lecture. Same soap commercial, two minds: one hears flowers and wants them, the other hears flowers and fears mockery at work.</p>
+<p><span class="tag fact">Source fact</span> The signature experiment: students were told a comprehensive final exam would decide their degrees, either at their own university or at another one. Then they heard strong arguments (prestigious universities require such exams) or weak ones (it harkens back to the Greeks). High-elaboration students, the ones facing the exam themselves, dissected the weak arguments and rejected them. Strikingly, nine weak arguments persuaded them less than three weak arguments did: more flaws to notice. Low-elaboration students used a different heuristic entirely: more arguments equals better, regardless of quality.</p>
+<div class="chart">
+<h4>The exam study: what persuades whom</h4>
+<p class="csub">Same arguments, opposite effects, depending on elaboration. Bar heights illustrative of the stated pattern.</p>
+<svg viewBox="0 0 640 340" role="img" aria-label="Grouped bar chart of the ELM exam experiment">
+<text class="vallab" x="160" y="30" text-anchor="middle">High elaboration</text>
+<text class="vallab" x="480" y="30" text-anchor="middle">Low elaboration</text>
+<rect class="bar" x="80" y="90" width="60" height="150" data-tip="High elaboration, strong arguments: persuasive. Central route engaged."/>
+<rect class="bar alt" x="160" y="180" width="60" height="60" data-tip="High elaboration, 3 weak arguments: weak. Flaws visible."/>
+<rect class="bar dark" x="240" y="210" width="60" height="30" data-tip="High elaboration, 9 weak arguments: worse than 3. More flaws to find."/>
+<rect class="bar alt" x="400" y="150" width="60" height="90" data-tip="Low elaboration, few arguments: mildly persuasive via the more-is-better heuristic."/>
+<rect class="bar" x="480" y="90" width="60" height="150" data-tip="Low elaboration, many arguments: more persuasive. Quality ignored."/>
+<g class="axis"><line class="gridln" x1="40" y1="240" x2="600" y2="240"/></g>
+<text class="axis" x="110" y="260" text-anchor="middle">strong</text>
+<text class="axis" x="190" y="260" text-anchor="middle">3 weak</text>
+<text class="axis" x="270" y="260" text-anchor="middle">9 weak</text>
+<text class="axis" x="430" y="260" text-anchor="middle">few</text>
+<text class="axis" x="510" y="260" text-anchor="middle">many</text>
+<text class="axis" x="320" y="300" text-anchor="middle">Pattern as stated on air. Heights illustrative, not measured values.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, David McRaney episode, ~00:16. The 9-vs-3 weak argument reversal and the more-is-better heuristic are stated findings. Magnitudes are illustrative.</p>
+</div>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 &middot; Model</p>
+<h4>Match the route to the mind</h4>
+<p><span class="lbl">What happened. </span>Petty and Cacioppo found that motivated minds audit arguments while unmotivated minds count them. Nine bad reasons lose to three bad reasons, but only for the engaged.</p>
+<p><span class="lbl">Why it matters. </span>Piling on arguments backfires exactly when the audience pays attention. Know which route your listener is on before you choose your ammunition.</p>
+<p><span class="lbl">The principle. </span>For the engaged, bring few strong arguments. For the distracted, the peripheral cues do the work.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-elaboration" data-time="~00:20" data-title="What Raises the Likelihood">
+
+<p class="ch-time">~00:20</p>
+<h2>What Raises the Likelihood</h2>
+<p><span class="tag fact">Source fact</span> Elaboration likelihood comes down to motivation plus ability. Motivation rises when you must teach the material to someone, when you already know the topic, or when social costs loom: shame or ostracism for a poor position. Ability is cognitive bandwidth, and it falls with load, noise, hunger, anger, or even yellow text on a white background.</p>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 &middot; Conditions</p>
+<h4>Teach it to learn it</h4>
+<p><span class="lbl">What happened. </span>Being told you will teach something spikes elaboration more than almost anything. Hunger, noise, and anger crush it.</p>
+<p><span class="lbl">Why it matters. </span>Persuasion is situational. The same person on the same issue elaborates or coasts depending on the room, the stomach, and the stakes.</p>
+<p><span class="lbl">The principle. </span>To persuade, first raise the likelihood: give them a reason to care and a clear head to care with.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-assimilation" data-time="~00:23" data-title="Assimilation and Accommodation">
+
+<p class="ch-time">~00:23</p>
+<h2>Assimilation and Accommodation</h2>
+<p><span class="tag fact">Source fact</span> Minds change through two engines. A child learns dog, then points at a horse and says dog, or big dog. Corrected, the child must accommodate: build a higher category, animal, that holds both. Assimilation fits the novelty into the old model. Accommodation rebuilds the model around the novelty.</p>
+<p><span class="tag fact">Source fact</span> Novelty triggers a dopamine response that grabs attention and pushes you to resolve the mismatch. But adult models are complex, so assimilation is cheaper, and the brain walks a tightrope: small amounts of incongruity alert us, and we err on the side of our priors. Updating wrongly is dangerous, and so is a failure to update. Something has to make standing pat feel riskier than changing.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the key word as incoguency. The term is incongruity. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-5">
+<p class="eyebrow">Nugget 5 &middot; Change</p>
+<h4>Assimilation is cheap. Accommodation is the change.</h4>
+<p><span class="lbl">What happened. </span>Every surprise gets sorted: force it into the old categories, or rebuild the categories. Adults default to force.</p>
+<p><span class="lbl">Why it matters. </span>Most failed persuasion is failed accommodation: the listener assimilated your point into their old model and kept the model.</p>
+<p><span class="lbl">The principle. </span>Make not-updating feel riskier than updating. That is the only toll that opens the accommodation road.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-magnetic" data-time="~00:31" data-title="The Magnetic Concept">
+
+<p class="ch-time">~00:31</p>
+<h2>The Magnetic Concept</h2>
+<p><span class="tag fact">Source fact</span> Spencer names a teaching headache: the magnetic concept. You explain something new, and the listener already owns a nearby category that is not quite right. Everything you say sticks to their magnet. David agrees completely: priors filter every novelty through a thousand lenses of past experience, some emotional, some just the blueprint in the mind that already makes sense.</p>
+<p><span class="tag fact">Source fact</span> He adds two honest footnotes on quotation. The line about trouble coming not from what you do not know but from what you know for sure that just is not so is often attributed to Mark Twain, who never said it. A Jungian line about the mind oscillating between sense and nonsense, not right and wrong, is also misattributed. The episode flags both on air.</p>
+<div class="nugget reveal" id="nugget-6">
+<p class="eyebrow">Nugget 6 &middot; Teaching</p>
+<h4>Near-miss categories eat new ideas</h4>
+<p><span class="lbl">What happened. </span>A close-but-wrong prior acts like a magnet: every explanation gets pulled into the old shape.</p>
+<p><span class="lbl">Why it matters. </span>The hardest ideas to teach are not the alien ones but the adjacent ones. The listener thinks they already understand.</p>
+<p><span class="lbl">The principle. </span>Name the nearby wrong category explicitly, then show the seam where it fails.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-motivated" data-time="~00:34" data-title="Motivated Reasoning">
+
+<p class="ch-time">~00:34</p>
+<h2>Motivated Reasoning</h2>
+<p><span class="tag fact">Source fact</span> David favorite exhibit: ask someone newly in love why, and you hear about the walk, the talk, the music, the way they cut their food. Ask the same person during the breakup, and those exact traits become the reasons to leave. The reasons did not change. The motivation to search for reasons changed.</p>
+<p><span class="tag fact">Source fact</span> In psychology, reasoning simply means coming up with reasons for what you think, feel, and believe. We deploy it defensively, for reputation management among trusted peers, and we cherry-pick accordingly. The person googling for proof that vaccines cause autism runs the same machinery as the dinner-table debater. Dumping facts on either of them just feeds the cherry-picker.</p>
+<p><span class="tag fact">Source fact</span> Spencer connects this to Julia Galef scout and soldier mindsets, the subject of episode 6 of this track. Late for a wedding, you are a scout: accuracy matters, so you truly listen about routes. At the wedding, debating a hated politician, you are a soldier: the feeling came first, and the reasons are reinforcements.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the name as Julia Gailoff. The researcher is Julia Galef. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-7">
+<p class="eyebrow">Nugget 7 &middot; Reasoning</p>
+<h4>Reasons follow feelings</h4>
+<p><span class="lbl">What happened. </span>The love-to-breakup flip shows reasoning as a lawyer, not a judge: it argues for the client feeling, whichever way the feeling points.</p>
+<p><span class="lbl">Why it matters. </span>Fact-dumping fails because it argues with the lawyer while the client sits untouched. The machinery just finds better briefs.</p>
+<p><span class="lbl">The principle. </span>Do not debate the reasons. Ask what the reasons are for.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-goals" data-time="~00:42" data-title="Goals, Not Truth">
+
+<p class="ch-time">~00:42</p>
+<h2>Goals, Not Truth</h2>
+<p><span class="tag fact">Source fact</span> Every bout of reasoning has a goal. Rushing to the wedding, the goal is accuracy. Debating politics, the believed goal is accuracy but the real goal is usually group membership: am I showing I am a good member of my group. Jonathan Haidt moral dumbfounding studies make the gap visible. People instantly condemn the man who misuses a dead chicken, then flail when asked why, generating and abandoning reasons until only I do not know why, it is just wrong remains.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the researcher as Jonathan Heitz, Jonathan Hight, and Hyde. The researcher is Jonathan Haidt. Corrected in this companion. Originals noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> David relays a line from the sociologist Brooke Harrington: if social science had an E equals MC squared, it would be that the fear of social death is greater than the fear of physical death.</p>
+<div class="pull">
+<blockquote>The fear of social death is greater than the fear of physical death.</blockquote>
+<p class="who">Brooke Harrington, via David McRaney &middot; Episode ~00:46</p>
+</div>
+<p><span class="tag fact">Source fact</span> Flat earthers are his neutral example. Whatever curiosity brought someone in, the community becomes the point: the number one motivation becomes looking like a good member of the group. The antecedents of our thoughts and drives are mostly unavailable to us, which is why the working techniques all aim at helping people uncover the hidden motivation behind the stated position.</p>
+<div class="nugget reveal" id="nugget-8">
+<p class="eyebrow">Nugget 8 &middot; Motivation</p>
+<h4>Find the goal behind the argument</h4>
+<p><span class="lbl">What happened. </span>Haidt subjects and flat earthers alike show reasoning serving undeclared goals: group standing, identity, the avoidance of social death.</p>
+<p><span class="lbl">Why it matters. </span>You cannot win an accuracy debate with someone playing a membership game. Different game, different moves.</p>
+<p><span class="lbl">The principle. </span>Ask what winning looks like for them. Persuade the goal, not the argument.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-interpreter" data-time="~00:50" data-title="The Interpreter and the Confabulator">
+
+<p class="ch-time">~00:50</p>
+<h2>The Interpreter and the Confabulator</h2>
+<p><span class="tag fact">Source fact</span> Split-brain research gives the machinery a name. After the corpus callosum was severed to treat epilepsy, the speaking left hemisphere, the left-brain interpreter, would explain actions it never saw. Shown a car wreck to the silent half, the body gasps, and the interpreter blames lunch. Handed a note saying stand up and walk, it invents a reason about a pencil across the room. Confabulation: no access to the antecedents, fluent production of justifications anyway.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the surgery as corpus colostomy. The procedure is corpus callosotomy. Corrected in this companion. Original noted in the footer.</div>
+<p><span class="tag fact">Source fact</span> David ties this to Hugo Mercier and Dan Sperber interactionist model: one system receives information, another delivers arguments, and the arguer may never meet the motive. Spencer adds the introspection caveat: private root-seeking can work, but introspection performed for an audience mostly manufactures confabulations tuned to reputation.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the theorist as hugomercy. The researcher is Hugo Mercier. Corrected in this companion. Original noted in the footer.</div>
+<div class="nugget reveal" id="nugget-9">
+<p class="eyebrow">Nugget 9 &middot; Mind</p>
+<h4>The narrator is not the author</h4>
+<p><span class="lbl">What happened. </span>Split-brain patients and dumbfounded moralists both show the same gap: fluent reasons, absent access to the real causes.</p>
+<p><span class="lbl">Why it matters. </span>If even the speaker does not know why they believe it, your counter-reasons answer a press release.</p>
+<p><span class="lbl">The principle. </span>Treat stated reasons as hypotheses about motives, not as the motives.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-tipping" data-time="~00:55" data-title="The Affective Tipping Point">
+
+<p class="ch-time">~00:55</p>
+<h2>The Affective Tipping Point</h2>
+<p><span class="tag fact">Source fact</span> David favorite finding comes from David Redlawsk: the affective tipping point. How much counter-evidence does a motivated reasoner need before the defense collapses? In a fake presidential primary, subjects picked a candidate, then received escalating shares of counter-evidence. Up to about 3 out of 10 counter items, people liked their candidate more than controls did: the backfire zone, where defense deepens the attachment. Past about 30 percent, resistance exhausted itself and active learning began. Doubt, Redlawsk says, starts around 15 percent.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the researcher as David Redloss and red laws. The researcher is David Redlawsk. Corrected in this companion. Originals noted in the footer.</div>
+<div class="chart">
+<h4>The affective tipping point</h4>
+<p class="csub">Share of incoming information that contradicts your candidate. Stated figures from Redlawsk study as described on air.</p>
+<svg viewBox="0 0 640 340" role="img" aria-label="Chart of the affective tipping point">
+<g class="axis">
+<line class="gridln" x1="80" y1="60" x2="80" y2="270"/>
+<line class="gridln" x1="80" y1="270" x2="600" y2="270"/>
+</g>
+<path class="curve" d="M 80 220 C 160 200, 220 190, 290 175 S 380 150, 420 120 S 500 80, 600 70" data-tip="Attachment under counter-evidence: first it deepens (backfire), then it breaks and updating starts."/>
+<circle cx="208" cy="196" r="7" class="bar alt" data-tip="About 15 percent: doubt begins, per Redlawsk."/>
+<circle cx="336" cy="152" r="7" class="bar" data-tip="About 30 percent: the tipping point. Resistance exhausts, active learning starts."/>
+<text class="vallab" x="208" y="230">~15%: doubt</text>
+<text class="vallab" x="336" y="185">~30%: tipping</text>
+<text class="axis" x="140" y="292">0%</text>
+<text class="axis" x="590" y="292">50% counter-evidence</text>
+<text class="axis" x="340" y="320" text-anchor="middle">Below 30%: backfire zone. Above it: updating. Curve shape illustrative.</text>
+</svg>
+<p class="csrc">Source: Clearer Thinking, David McRaney episode, ~00:57. The 15 and 30 percent marks are Redlawsk figures as reported on air. The curve shape is illustrative. Real-world numbers run higher for identity-loaded topics, per Redlawsk caveat.</p>
+</div>
+<p><span class="tag fact">Source fact</span> Redlawsk own caveat: the lab is not the world. People control their information diet, avoiding disconfirming sources, so many never reach their tipping point. And the tipping point cuts both ways: whoever controls the media diet and the reality tests can hijack it, which is why propaganda and gaslighting work. Spencer tests the intuition with escalating absurdities: frogs marching in the kitchen get assimilated as a trick, but oceans turning to wine would eventually break anyone.</p>
+<div class="nugget reveal" id="nugget-10">
+<p class="eyebrow">Nugget 10 &middot; Evidence</p>
+<h4>Below 30 percent, evidence backfires</h4>
+<p><span class="lbl">What happened. </span>Redlawsk subjects met counter-evidence with deeper love for their candidate until the share hit about 30 percent. Then the defense broke.</p>
+<p><span class="lbl">Why it matters. </span>Dribbling facts at a motivated mind strengthens it. Only overwhelming, inescapable counter-evidence flips the mode.</p>
+<p><span class="lbl">The principle. </span>Do not spend your facts below the tipping point. Change the diet or wait for the flood.</p>
+</div>
+
+</section>
+<section class="chapter" id="ch-techniques" data-time="~01:03" data-title="The Convergent Techniques">
+
+<p class="ch-time">~01:03</p>
+<h2>The Convergent Techniques</h2>
+<p><span class="tag fact">Source fact</span> David went looking for what actually works and found separate groups, street epistemology, deep canvassing, smart politics, and the therapy world motivational interviewing, that had never met yet converged on the same steps in the same order, each through thousands of A/B tested conversations. Brains work a certain way, and independent trial and error found it repeatedly.</p>
+<p><span class="tag fact">Source fact</span> Deep canvassing is the showpiece. Activists in California knocked on doors in hostile territory on same-sex marriage and transgender bathroom laws, asked residents for their 1-to-10 feeling, and ran 17,000 conversations, keeping what worked. Street epistemology, which David studied in Texas, fits fact-based topics like flat earth. Deep canvassing fits political and moral attitudes.</p>
+<p><span class="tag fact">Source fact</span> Step one is always rapport. Humans scan instantly for enemy or ally, for threats to agency, for shame risk. So you ask consent to explore, you make clear you are not there to win, and you turn face-to-face into shoulder-to-shoulder: two people marveling at a disagreement. Then, for facts: get the claim, repeat it back, confirm the summary, pin down their definitions, and ask for confidence on 1 to 10 or 0 to 100 percent. The rest of the conversation lives in that number: what are your reasons for this confidence, and what methods told you those reasons are good?</p>
+<p><span class="tag fact">Source fact</span> For attitudes, the rhythm is similar: the 1-to-10, a story or ad from either side, then the power question, do you still have the same number, and why does that number feel right. Asking why the respondent is not one notch stronger or weaker makes people generate arguments on both sides themselves, and the self-made dissonance does the moving. David stresses technique rebuttals over topic rebuttals. In a real conversation, help them inspect their confidence machinery. Save fact-vs-fact for good-faith expert settings.</p>
+<div class="toy">
+<h4>Try it: the confidence explorer</h4>
+<p class="csub" style="font-family:var(--sans);font-size:12.5px;color:var(--muted)">The street epistemology move, compressed. Pick a belief and a confidence.</p>
+<label for="ce-belief">A belief you hold</label>
+<input type="text" id="ce-belief" style="width:100%;padding:8px;font-family:var(--sans);font-size:14px">
+<label for="ce-conf">Confidence: <span id="ce-conf-v">7</span> / 10</label>
+<input type="range" id="ce-conf" min="1" max="10" value="7">
+<p style="margin-top:12px"><button id="ce-go" style="font-family:var(--sans);font-size:14px;padding:8px 16px;cursor:pointer">Ask the two questions</button></p>
+<p class="out" id="ce-out"></p>
+</div>
+<script>
+(function(){
+  var conf = document.getElementById('ce-conf');
+  var cv = document.getElementById('ce-conf-v');
+  var out = document.getElementById('ce-out');
+  conf.addEventListener('input', function(){ cv.textContent = conf.value; });
+  document.getElementById('ce-go').addEventListener('click', function(){
+    var b = document.getElementById('ce-belief').value.trim() || 'that belief';
+    var n = +conf.value;
+    var up = n < 10 ? 'Why are you not at ' + (n+1) + '?' : 'What keeps you from total certainty?';
+    var down = n > 1 ? 'Why are you not at ' + (n-1) + '?' : 'What keeps you above zero?';
+    out.textContent = 'On ' + b + ' at ' + n + '/10: ' + up + ' ' + down +
+      ' Notice which question is harder. That is where your reasons live.';
+  });
+})();
+</script>
+
+</section>
+<section class="chapter" id="ch-roleplay" data-time="~01:14" data-title="The Flat-Earth Role Play">
+
+<p class="ch-time">~01:14</p>
+<h2>The Flat-Earth Role Play</h2>
+<p><span class="tag fact">Source fact</span> Spencer volunteers as a flat earther, 90 percent confident, ice wall included, and David runs the technique live. Consent first, then the claim in Spencer own words, repeated back and confirmed. Then the number: 90 percent. Then the dissonance probes: what evidence would move confidence to 100 percent, and what if the voyage to the ice wall found nothing?</p>
+<p><span class="tag fact">Source fact</span> David reads the green lights: Spencer said trust, and named evidence as the standard. For most flat earthers, he says, the facts are not the point. The point is distrust: of the military-industrial complex, of NASA, of the scientific community folded into it, plus a hunger for autonomy and for sources with your interests at heart. The conversation to have is not about the shape of the earth but about how to vet experts when you cannot be one yourself.</p>
+<p><span class="tag fact">Source fact</span> He also sets expectations: 180-degree flips are not the goal. Any movement counts, and it usually takes many conversations. A 100 percent or 0 percent confidence is a red flag for pre-contemplation, the state before active learning even starts, and there is separate literature on how to move someone into contemplation. David signature dissonance probe in the role play asks what evidence would move the number to 100 percent.</p>
+<div class="warnbox"><b>Trap card.</b> The transcript renders the role as flat Arthur. The term is flat earther. Corrected in this companion. Original noted in the footer.</div>
+
+</section>
+<section class="chapter" id="ch-ethics" data-time="~01:20" data-title="Step Zero: Ethics">
+
+<p class="ch-time">~01:20</p>
+<h2>Step Zero: Ethics</h2>
+<p><span class="tag fact">Source fact</span> Before any technique comes step zero: why do you want to change this person mind? Be honest. Wanting to be right, wanting your side to win, these are unethical fuel. Persuasion is ethical, David says, when the other person keeps full agency throughout, when both sides admit the mystery, and when you stay willing to change your own mind. For facts, the shared goal is accuracy. For values, the aim is less harm, which requires agreeing on what good looks like.</p>
+<p><span class="tag fact">Source fact</span> Spencer names the symmetry problem: everyone feels they are on the good side, so I am right cannot license persuasion, or it licenses everyone. David agrees, and adds the evolutionary frame: we are set up for 12-angry-men moments, limited perspectives pooling into something better, but also wired to want our side ahead. Roll all of that into step zero.</p>
+<div class="nugget reveal" id="nugget-11">
+<p class="eyebrow">Nugget 11 &middot; Ethics</p>
+<h4>Step zero before step one</h4>
+<p><span class="lbl">What happened. </span>Every technique in the episode opens with rapport, but David insists the real opening is private: audit your own motive.</p>
+<p><span class="lbl">Why it matters. </span>Techniques are symmetrical. The same moves persuade toward truth or away from it. Only the motive differs.</p>
+<p><span class="lbl">The principle. </span>Ask why you want the mind changed. If you cannot be changed by the conversation, do not start it.</p>
+</div>
+<div class="takeaways">
+<h3>The episode in eight lines</h3>
+<ol>
+<li>Persuasion is not coercion. All of it is self-persuasion.</li>
+<li>Name the target: behavior, belief, or attitude. Then choose the weapon.</li>
+<li>Motivated minds audit arguments. Unmotivated minds count them.</li>
+<li>Assimilation is cheap. Real change is accommodation.</li>
+<li>Reasons are lawyers for feelings. Find the client.</li>
+<li>Below 30 percent counter-evidence, facts backfire. Above it, minds update.</li>
+<li>Rapport first, confidence number second, dissonance does the rest.</li>
+<li>Step zero: know why you want the mind changed, and stay changeable yourself.</li>
+</ol>
+<p class="src">Distilled from Clearer Thinking, Deep canvassing, street epistemology, and other tools of persuasion with David McRaney, 2021 podcast release, YouTube re-upload June 2023. Full episode: youtube.com/watch?v=JFVOLdwsKb0. Times marked ~ are proportional estimates from word position.</p>
+</div>
+
+</section>
+<div class="wisdom"><h3>Nugget index</h3><ol>
+<li>Nobody gets persuaded against their will</li>
+<li>Aim at the attitude, not the belief</li>
+<li>Match the route to the mind</li>
+<li>Teach it to learn it</li>
+<li>Assimilation is cheap. Accommodation is the change.</li>
+<li>Near-miss categories eat new ideas</li>
+<li>Reasons follow feelings</li>
+<li>Find the goal behind the argument</li>
+<li>The narrator is not the author</li>
+<li>Below 30 percent, evidence backfires</li>
+<li>Step zero before step one</li>
+</ol></div>
+<p class="backlink"><a href="../index.html">&larr; Back to the Clearer Thinking track index</a></p>
+<footer><p><b>Sources.</b> This companion narrates the Clearer Thinking episode Deep canvassing, street epistemology, and other tools of persuasion with David McRaney (podcast release 2021, YouTube re-upload June 2023, 80 minutes). All facts and figures come from the episode transcript (research/clearer-thinking/transcripts/JFVOLdwsKb0.txt), a Whisper base.en transcription of the official podcast audio. The transcript carries no timestamps. All chapter times marked ~ are proportional estimates from word position. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p><p id="on-quotes"><b>On quotes.</b> Direct quotations in this companion total 39 words: two pull quotes, each carrying speaker and proportional episode-time attribution, plus nine short quoted transcript fragments in the corrections note below. Everything else is original paraphrase and analysis.</p><p><b>On transcript corrections.</b> The transcript is a machine transcription with rough edges. Applied corrections, with originals. The ELM founders are Richard Petty and John Cacioppo (transcript: "Pity and Kim. Ciopo"). The moral psychologist is Jonathan Haidt (transcript: "Jonathan Heitz", "Jonathan Hight", "Hyde"). The tipping-point researcher is David Redlawsk (transcript: "David Redloss", "red laws"). The theorist is Hugo Mercier (transcript: "hugomercy"). The term is incongruity (transcript: "incoguency"). The surgery is corpus callosotomy (transcript: "corpus colostomy"). The scout-mindset researcher is Julia Galef (transcript: "Julia Gailoff"). The influence researcher is Robert Cialdini (transcript: "Chaldini"). The role-play role is flat earther (transcript: "flat Arthur").</p><p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p></footer>
+
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var ttl = ch.getAttribute('data-title') || '';
+    a.innerHTML = '<span class="t">' + t + '</span>' + ttl;
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(txt, x, y){
+    tip.textContent = txt;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
