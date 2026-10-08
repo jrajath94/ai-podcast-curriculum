@@ -445,7 +445,7 @@ span.ptag, .ptag {
 </div>
 <p class="caption"><b>Watch.</b> The official Modern Wisdom episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p></div>
 <div class="legend src-legend"><b>How to read this companion.</b> <span class="srctag src">Source</span> marks claims taken straight from the episode. <span class="srctag int">Interpretation</span> marks analysis that goes beyond the episode. Every chart carries its source line. Brief quoted phrases are counted in the footer.</div>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a lighthouse beaming warm light over a stormy sea dotted with dark data center blocks" class="base" fetchpriority="high" src="assets/illustration-ep02-hero.webp"/></div></div><figcaption><b>Illustration.</b> Steering instead of hiding: the episode argues for laws and coordination over bunkers. AI-generated watercolor made for this page.</figcaption></figure>
+</div><figure class="paint wide" data-entrance="bloom" data-hero="1" data-phase2="1" data-scene="mw-ep02-lighthouse"><div class="frame"><div class="stage"><img alt="Watercolor illustration of a lighthouse beaming warm light over a stormy sea dotted with dark data center blocks" class="base" fetchpriority="high" src="assets/illustration-ep02-hero.webp"/><img class="ly mul" data-obj="hero-subject" data-depth="8" src="assets/ep02-hero-layer.png" alt="" aria-hidden="true" style="left:18%;top:6%;width:64%"/></div></div><figcaption><b>Illustration.</b> Steering instead of hiding: the episode argues for laws and coordination over bunkers. AI-generated watercolor made for this page.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="Ch 1" data-title="The design ethicist" id="ch-1"><div class="ch-head"><div><p class="ch-meta"><span class="ts">Chapter 1</span> · The design ethicist</p><h2>The design ethicist</h2></div></div>
 <p>Harris starts with his origin story. In 2012 and 2013 he worked at Google as a design ethicist, asking how to build technology that reshapes human attention without wrecking it.</p>
 <p>He watched friends get pulled into an arms race for human attention. The winning move was to go lower on the brainstem: exploit the back doors in human psychology the way hackers exploit back doors in software.</p>
@@ -506,7 +506,7 @@ span.ptag, .ptag {
 <text class="axis" text-anchor="middle" x="479.0" y="300.0">ChatGPT</text>
 </svg>
 <p class="csrc">Source: Modern Wisdom episode 2. The episode states about 2 years for Instagram and 2 months for ChatGPT.</p>
-</div>
+<div class="simrow" style="display:flex;align-items:center;gap:.7rem;margin-top:.9rem;flex-wrap:wrap"><label for="sim-adopt" style="font:600 .9rem/1.4 var(--f-ui)">Months since launch</label><input aria-label="Months since launch" id="sim-adopt" max="26" min="0" step="1" type="range" value="24"/><span id="sim-adopt-out" role="status" style="font:600 .95rem/1.4 var(--f-ui)"></span></div></div>
 </section>
 <section class="chapter col" data-chapter="1" data-time="Ch 4" data-title="Intelligence is not wisdom" id="ch-4"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">3</span></div><div><p class="ch-meta"><span class="ts">Chapter 4</span> · Intelligence is not wisdom</p><h2>Intelligence is not wisdom</h2></div></div>
 <p>The episode draws its central distinction. Intelligence is the shortest path between a goal and its achievement: persuasion, negotiation, strategy. Wisdom is the choice of which goals deserve pursuit and which designs serve human flourishing.</p>
@@ -1262,5 +1262,37 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>/* Phase 2 Tier 3 scene life (builder 3) */
+(function(){var FX=window.CompanionFX;if(!FX||!FX.registerScene)return;
+FX.registerScene('mw-ep02-lighthouse',{init:function(F,FX){F._a=FX.glows(F.stage,F.W,F.H,[[992,324,190]],'soft','#FFD77A');},pose:function(S,FX){S.F._a.forEach(function(c,k){c.style.opacity=(0.35+0.3*FX.flicker(S.t,k)).toFixed(2);}); return {};}});
+})();</script><script>/* Phase 2 chart upgrade (builder 3) */
+
+(function(){var cid='chart-adoption';var root=document.getElementById(cid);if(!root)return;
+var svg=root.querySelector('svg');if(!svg)return;var NS='http://www.w3.org/2000/svg';
+var STEPS=[{"cx": 197, "cy": 164, "bx": 80, "by": 140, "cap": "Instagram: about 24 months from zero to 100 million users."}, {"cx": 479, "cy": 267, "bx": 80, "by": 45, "cap": "ChatGPT: about 2 months from zero to 100 million users."}];var groups=[];
+function ctr(el){var x=el.getAttribute('x'),y=el.getAttribute('y'),w=el.getAttribute('width'),hh=el.getAttribute('height');
+var cx=el.getAttribute('cx'),cy=el.getAttribute('cy');
+var px=cx!==null?parseFloat(cx):(x!==null?parseFloat(x)+(w?parseFloat(w)/2:0):null);
+var py=cy!==null?parseFloat(cy):(y!==null?parseFloat(y)+(hh?parseFloat(hh)/2:0):null);
+return [px,py];}
+STEPS.forEach(function(st,i){var g=document.createElementNS(NS,'g');g.setAttribute('class','p2-step');g.setAttribute('data-step',i);
+var bx=st.bx||80,by=st.by||80;
+var keep=[];Array.prototype.slice.call(svg.children).forEach(function(el){
+if(el.tagName==='line')return;var p=ctr(el);if(p[0]===null||p[1]===null)return;
+if(Math.abs(p[0]-st.cx)<=bx&&Math.abs(p[1]-st.cy)<=by)keep.push(el);});
+keep.forEach(function(el){g.appendChild(el);});svg.appendChild(g);groups.push(g);});
+var ctrl=document.createElement('div');ctrl.className='ctrl';
+ctrl.innerHTML='<button type="button" class="btn" data-n="-1">&larr; Back</button><span class="ui p2-pos">1 of N</span><button type="button" class="btn primary" data-n="1">Next &rarr;</button>';
+var cap=document.createElement('p');cap.className='fig-note p2-cap';
+root.insertBefore(ctrl,svg);root.insertBefore(cap,svg.nextSibling);
+var i=0;function show(k){i=Math.max(0,Math.min(STEPS.length-1,k));
+groups.forEach(function(g,j){g.style.opacity=j===i?'1':'0.14';g.style.transition='opacity .4s ease';});
+ctrl.querySelector('.p2-pos').textContent=(i+1)+' of '+STEPS.length;cap.textContent=STEPS[i].cap;
+svg.setAttribute('aria-label',STEPS[i].cap);}
+ctrl.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){show(i+parseInt(b.getAttribute('data-n'),10));});});
+show(0);})();
+</script><script>
+(function(){var r=document.getElementById('sim-adopt'),o=document.getElementById('sim-adopt-out');if(!r||!o)return;function f(){var n=+r.value,c=n>=2?'ChatGPT: 100M users':'ChatGPT: not yet (2 mo)';var g=n>=24?'Instagram: 100M users':'Instagram: not yet (24 mo)';o.textContent='At month '+n+': '+c+'. '+g+'.';} r.addEventListener('input',f);f();})();
+</script>
+</body>
 </html>
