@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Volume I: Founding through Windows 95: Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Acquired's Microsoft Volume I: the $75,000 operating system, the IBM deal, the clones, and software's best business model.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 6 &middot; Microsoft Volume I: Founding through Windows 95 &middot; Apr 2024</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 6 &middot; Companion</p>
+      <h1>Microsoft Volume I: Founding through Windows 95</h1>
+      <p class="dek">Two teenagers turned a $75,000 operating system into the world's most valuable company. The IBM deal, the clone wave, the hedge called Windows: this is the story of software's best business model, chapter by chapter.</p>
+      <figure>
+        <img src="assets/ep06/illustration-chess.webp" alt="Watercolor illustration of a chessboard with checker pieces on one side and a single glowing knight moved by a shadowy hand">
+        <p class="caption"><b>Illustration.</b> IBM played checkers. Bill played chess. AI-generated watercolor.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">$75K</div><div class="l">Total paid for QDOS, the seed of DOS and of the empire</div><div class="s">Episode ~01:36</div></div>
+        <div class="stat"><div class="n">$180K</div><div class="l">The lifetime revenue cap in the MITS contract that nearly killed Microsoft</div><div class="s">Episode ~00:40</div></div>
+        <div class="stat"><div class="n">49%</div><div class="l">Bill Gates's ownership at the 1986 IPO, unprecedented after dilution</div><div class="s">Episode ~03:18</div></div>
+        <div class="stat"><div class="n">98%</div><div class="l">PC unit compound annual growth, 1975-1986: 4,000 units to 9 million</div><div class="s">Episode ~03:24</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/ycI_xXjpElY" title="Acquired: Microsoft Volume I, Founding through Windows 95 (official episode audio)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Listen.</b> The official Acquired episode audio (about 4 hr 5 min). Times below are proportional estimates from the transcript, which carries no timestamps.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The dinner table is a curriculum</a></li>
+          <li><a href="#nugget-2">Royalty, not hourly</a></li>
+          <li><a href="#nugget-3">Code to the manual</a></li>
+          <li><a href="#nugget-4">The escape clause is the deal</a></li>
+          <li><a href="#nugget-5">The $75,000 empire</a></li>
+          <li><a href="#nugget-6">The price sheet chose the winner</a></li>
+          <li><a href="#nugget-7">Let the giant build demand, then tax the clones</a></li>
+          <li><a href="#nugget-8">Hedge, then read the world</a></li>
+          <li><a href="#nugget-9">49 percent: control is a strategy</a></li>
+          <li><a href="#nugget-10">Software is never done</a></li>
+          <li><a href="#nugget-11">Copy without shame, win on the platform shift</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps.</p>
+    </div>
+    <section class="chapter" id="ch-household" data-time="~00:09" data-title="The Household That Bred a CEO">
+      <p class="ch-time">~00:09</p>
+      <h2>The Household That Bred a CEO</h2>
+      <p><span class="tag fact">Source fact</span> Bill Gates III, "Trey," was born in 1955 in Seattle. His father, Bill Gates Sr., came from Bremerton, served in the Army in World War II, then earned an undergraduate and law degree at the University of Washington in four years on the GI Bill. He co-founded the firm Preston Gates and Ellis, today K&amp;L Gates, one of the world's largest law firms. He later joined Costco's board, started Seattle's Tech Alliance, and became a prolific angel investor.</p>
+      <p>His mother, Mary Maxwell Gates, was, in the episode's word, a force. From a banking family, she joined nonprofit boards as a young woman: the Seattle Symphony, the Chamber of Commerce, Children's Hospital, the United Way. She was so effective that corporate boards recruited her: First Interstate Bank, KIRO television in Seattle, Pacific Northwest Bell Telephone, the University of Washington Board of Regents, the national United Way board. She never worked full-time in a corporation and became one of the most powerful business people in the Pacific Northwest.</p>
+      <p>Young Bill grew up with CEOs, senators, and governors at the dinner table, absorbing business conversation nightly. At 13, he and his best friend Paul Allen discussed not whether but which company Bill would be CEO of someday. He was insanely competitive about everything.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Origins</p>
+        <h4>The dinner table is a curriculum</h4>
+        <p><span class="lbl">What happened. </span>Bill absorbed business nightly from CEOs, senators, and governors at his own dinner table. His mother ran boards without ever holding a corporate job. Ambition was the household language before it was a plan.</p>
+        <p><span class="lbl">Why it matters. </span>At 13 he and Paul Allen debated which company he would lead, not whether. Exposure sets the ceiling of imaginable outcomes. Most founders never get the ceiling raised early.</p>
+        <p><span class="lbl">The principle. </span>You cannot want what you have never seen. Put yourself, early and often, in rooms where your target outcome is normal conversation.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-lakeside" data-time="~00:12" data-title="Lakeside: The Teletype and Traf-O-Data">
+      <p class="ch-time">~00:12</p>
+      <h2>Lakeside: The Teletype and Traf-O-Data</h2>
+      <p><span class="tag fact">Source fact</span> In 1968, the Lakeside mothers' club bought the school a teletype terminal and rented time on a GE computer downtown. Bill and Paul fell in. Their first venture, Traf-O-Data, analyzed traffic data. The key decision: instead of charging hourly for their time, they took a royalty on the revenue their software generated. Teenagers, inventing the software business model. They made at least $10,000 from the royalties when average US household income was below $10,000.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Business models</p>
+        <h4>Royalty, not hourly</h4>
+        <p><span class="lbl">What happened. </span>Two teenagers chose a royalty on revenue their software generated instead of hourly billing, and out-earned the average American household. The pricing decision, not the code, was the innovation.</p>
+        <p><span class="lbl">Why it matters. </span>Hourly billing caps you at your hours. A royalty ties you to the value created, which scales without you. Microsoft's entire later fortune is this decision at planetary scale.</p>
+        <p><span class="lbl">The principle. </span>Price on the value the work creates, not the time it takes. If the value scales and you do not, you priced wrong.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-altair" data-time="~00:35" data-title="The Altair: Code to the Manual">
+      <p class="ch-time">~00:35</p>
+      <h2>The Altair: Code to the Manual</h2>
+      <figure>
+        <img src="assets/ep06/altair-8800.jpg" alt="Photograph of an Altair 8800 computer at the Computer History Museum">
+        <p class="caption"><b>Photo.</b> The Altair 8800, the $397 kit that started the microcomputer era. Source: Wikimedia Commons, Computer History Museum exhibit photo.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> In 1975, Popular Electronics put the Altair 8800 on its cover: a $397 computer kit from Ed Roberts's MITS. The next cheapest computer anyone could buy cost around $120,000. Paul saw the cover and knew the microcomputer era began, and that it needed software. They had no Altair. Paul wrote an emulator for the Intel 8080 chip on Harvard's computer, working from the chip manual. Bill wrote the BASIC interpreter against the emulator in a few weeks. They built software for a machine they never touched. The manual was their only spec.</p>
+      <p>The partnership started at 60/40, Bill to Paul, later 64/36. Bill's argument: Paul held a job and worked on the side. Bill was all in. Paul agreed.</p>
+      <p>The MITS contract had two fateful terms. First, Microsoft's lifetime revenue from MITS was capped at $180,000: effectively, Ed Roberts offered $180,000 for exclusive rights to everything. Second, the contract required MITS to use its best efforts to license and commercialize BASIC broadly, with failure as grounds for termination. The hosts' verdict: <q>Thank God Bill's dad is a lawyer.</q></p>
+      <p>Reality: 1975 revenue was $16,000. 1976 was $22,000, less than Traf-O-Data money. MITS controlled sales, sat on licensing deals with NCR, GE, and Control Data, each worth about $100,000, and turned most away. Then in May 1977, Pertec bought MITS for $6.5 million. Pertec figured it could handle "this kid." Ed Roberts later said it was like Roosevelt telling Churchill he could deal with Stalin.</p>
+      <p>Microsoft invoked the best-efforts clause and won free of MITS at the end of 1977. Revenue that year: $381,000, nearly all of it in the last month, after zero for the first eleven. Bill bought a green Porsche 911 and collected speeding tickets around Albuquerque, and his mug shot.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Execution</p>
+        <h4>Code to the manual</h4>
+        <p><span class="lbl">What happened. </span>With no Altair in hand, Paul emulated the 8080 from its manual and Bill wrote BASIC against the emulator. They shipped working software for a machine they had never touched.</p>
+        <p><span class="lbl">Why it matters. </span>Waiting for the hardware would have meant missing the window. Abstraction let them build in parallel with reality. Speed came from refusing to be blocked.</p>
+        <p><span class="lbl">The principle. </span>When the platform is not ready, build against its spec. The emulator is always faster than the hardware.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Contracts</p>
+        <h4>The escape clause is the deal</h4>
+        <p><span class="lbl">What happened. </span>The $180,000 cap gave MITS all the upside and starved Microsoft to $22,000 in 1976. The best-efforts clause, written by a lawyer's son, gave Microsoft the exit. Arbitration set them free at the end of 1977.</p>
+        <p><span class="lbl">Why it matters. </span>The clause that saved the company was negotiated when they had no power and no idea they would need it. Contracts are written for the future you cannot see.</p>
+        <p><span class="lbl">The principle. </span>Name the one term in your most important agreement that lets you leave if the other side stops trying. If you cannot name it, you are in the MITS position.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-team" data-time="~01:10" data-title="1978-1980: The Team Assembles">
+      <p class="ch-time">~01:10</p>
+      <h2>1978-1980: The Team Assembles</h2>
+      <p><span class="tag fact">Source fact</span> Revenue: $1.3 million in 1978 with 13 employees, $2.4 million in 1979 with 25 employees. The company moved from Albuquerque to Seattle. In 1980, two pillars arrived: Steve Ballmer joined in June as employee number 30, and Charles Simonyi, poached from Xerox PARC, brought structured programming discipline.</p>
+      <p>Context the episode insists on: in 1980, IBM was the most valuable company in the world, bigger than all the oil companies. The IBM PC project, codenamed Project Chess, was Big Blue's skunkworks attempt to enter microcomputers in a year. The technical opening: Intel's 8086, a 16-bit processor, enough for real business software. Moore's law compounded invisibly underneath everything.</p>
+    </section>
+
+    <section class="chapter" id="ch-ibm" data-time="~01:25" data-title="The IBM Deal: The Best Negotiation in Business History">
+      <p class="ch-time">~01:25</p>
+      <h2>The IBM Deal: The Best Negotiation in Business History</h2>
+      <p><span class="tag fact">Source fact</span> By August 1980, Microsoft and IBM were in serious talks. The whole 30-person company pivoted to Project Chess, a bigger team than IBM's own. Microsoft needed an operating system for the 16-bit machine and had none. Tim Paterson at nearby Seattle Computer Products wrote QDOS, the "quick and dirty operating system." Microsoft first licensed it, then paid another $50,000 for full rights to own, sell, and license it to anyone else indefinitely. Total changing hands: about $75,000. Microsoft did substantial work turning it into DOS, but the seed was $75,000.</p>
+      <p>The IBM contract's shape is the whole story. Per Paul Allen's memoir, IBM paid Microsoft $75,000 for testing and consultation, $45,000 for DOS, and $310,000 for language interpreters and compilers: $430,000 fixed, with no ongoing obligation, no per-copy royalties. Every copy IBM sold paid Microsoft nothing more.</p>
+      <p>Then IBM's price sheet did Microsoft's work. On the IBM PC, the operating system was a menu: Pascal for an extra $450, CP/M for an extra $175, DOS for $60. DOS was built for the machine and cheapest. IBM kept the $60 as pure margin, so its incentives pointed customers at DOS. Everyone chose DOS.</p>
+      <div class="chart" id="chart-pricesheet">
+        <h4>The price sheet that chose DOS</h4>
+        <p class="csub">What IBM charged for each operating system on the PC. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of IBM PC operating system prices">
+          <rect class="bar dark" x="110" y="216" width="100" height="44" data-tip="DOS: $60. Built for the PC, cheapest on the menu. IBM kept the $60 as pure margin, so it pushed DOS."></rect>
+          <rect class="bar" x="280" y="140" width="100" height="120" data-tip="CP/M-86: $175. Nearly three times the price of DOS."></rect>
+          <rect class="bar alt" x="450" y="40" width="100" height="220" data-tip="Pascal: $450. Seven and a half times the price of DOS."></rect>
+          <text class="vallab" x="160" y="208" text-anchor="middle">$60</text>
+          <text class="vallab" x="330" y="132" text-anchor="middle">$175</text>
+          <text class="vallab" x="500" y="32" text-anchor="middle">$450</text>
+          <text class="axis" x="160" y="282" text-anchor="middle">DOS</text>
+          <text class="axis" x="330" y="282" text-anchor="middle">CP/M-86</text>
+          <text class="axis" x="500" y="282" text-anchor="middle">Pascal</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Microsoft Volume I, ~01:32.</p>
+      </div>
+      <p>And the masterstroke: the deal let Microsoft license DOS to anyone else. IBM created the demand. The clone makers would let Microsoft capture the value.</p>
+      <p>Ben calls it arguably the single best business negotiation of all time. It created not just Microsoft's trillions but at least twice that in value built on top. Project Chess's irony is the epitaph: IBM played checkers. Bill played chess. Microsoft became the point of integration for the whole ecosystem, the lynchpin everyone had to target.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Deals</p>
+        <h4>The $75,000 empire</h4>
+        <p><span class="lbl">What happened. </span>Microsoft bought QDOS for about $75,000, did the real work to make it DOS, and sold IBM a fixed-fee deal with no royalties while keeping the right to license it to every clone maker on earth.</p>
+        <p><span class="lbl">Why it matters. </span>The price of the asset was trivial. The structure of the deal was everything. Fixed fee plus freedom to license broadly beats royalties from one partner, forever.</p>
+        <p><span class="lbl">The principle. </span>In any platform negotiation, optimize for the right to sell to everyone, not the size of the check from one buyer.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Strategy</p>
+        <h4>The price sheet chose the winner</h4>
+        <p><span class="lbl">What happened. </span>DOS was not the best technology. It was the cheapest good option on IBM's menu, and IBM kept the $60 as pure margin, so IBM's own salespeople pushed it. The menu chose the winner.</p>
+        <p><span class="lbl">Why it matters. </span>Whoever sets the menu chooses the outcome. Microsoft won not by being best but by being the choice the seller profits from recommending.</p>
+        <p><span class="lbl">The principle. </span>Before your next negotiation, read the other party's price sheet. Structure the deal so their incentives sell your product.</p>
+      </div>
+      <div class="toy" id="toy-deal">
+        <h4>Toy: the software tax machine</h4>
+        <p class="tsub">The clone wave as arithmetic. Set how many PCs the clones sell and what share run DOS, and watch Microsoft's near-100%-margin tax compound. Illustrative model.</p>
+        <label for="pcs">Clone PCs sold per year (millions) <span class="tval" id="pcs-v">5</span></label>
+        <input type="range" id="pcs" min="1" max="20" value="5">
+        <label for="share">Share running DOS (%) <span class="tval" id="share-v">80</span></label>
+        <input type="range" id="share" min="10" max="100" value="80">
+        <label for="fee">DOS license fee per PC ($) <span class="tval" id="fee-v">30</span></label>
+        <input type="range" id="fee" min="5" max="60" value="30">
+        <div class="verdict" id="deal-verdict"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-clones" data-time="~01:47" data-title="The Clones: Value Flows to Software">
+      <p class="ch-time">~01:47</p>
+      <h2>The Clones: Value Flows to Software</h2>
+      <figure>
+        <img src="assets/ep06/illustration-clones.webp" alt="Watercolor illustration of a river of identical computers flowing uphill into a glowing funnel with coins rising">
+        <p class="caption"><b>Illustration.</b> The clone wave: hardware races to the bottom, value flows uphill to software. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Compaq was founded in 1982 by three Texas Instruments engineers who legally reverse-engineered the IBM PC's BIOS and sold the same machine cheaper. First-year revenue: $111 million. Public in 1983, before Microsoft. By 1994, the largest PC maker in the world, the youngest Fortune 500 entrant, the fastest to $1 billion in revenue.</p>
+      <p>But hardware is a race to the bottom. Compaq's $111 million came with real cost of goods. Microsoft's revenue in the same era: $25 million in calendar 1982, $98 million in fiscal 1984, essentially 100 percent gross margin software. Every clone sold needed DOS. Every DOS sale was nearly pure profit. The episode's formula: Microsoft used IBM to generate demand for its software, then used every other PC manufacturer to capture the value that demand created. The PC industry's profits flowed uphill to the one company with zero marginal cost.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Platforms</p>
+        <h4>Let the giant build demand, then tax the clones</h4>
+        <p><span class="lbl">What happened. </span>IBM created the PC market. The clones commoditized the hardware. Microsoft, owning the scarce software layer with zero marginal cost, taxed every unit sold by anyone.</p>
+        <p><span class="lbl">Why it matters. </span>Commoditization of your complement is the best thing that can happen to you. The race to the bottom in hardware was a race to the top for the software tax. Compaq's $111 million cost real money. Microsoft's $25 million was nearly pure profit.</p>
+        <p><span class="lbl">The principle. </span>Own the scarce layer. Cheer when your complement gets commoditized, and fear the day you become the complement.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-windows" data-time="~02:35" data-title="Windows: The Hedge That Won">
+      <p class="ch-time">~02:35</p>
+      <h2>Windows: The Hedge That Won</h2>
+      <figure>
+        <img src="assets/ep06/illustration-windows95.webp" alt="Watercolor illustration of fireworks over a city with a glowing window shape radiating light">
+        <p class="caption"><b>Illustration.</b> August 24, 1995: an operating system launched like a movie. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Microsoft never bet on just one future. While contractually building OS/2 with IBM, it kept building Windows. The hosts call this the key lesson: conviction that software would be huge, flexibility about the exact path, and the hedge far enough along to jump to. IBM tried to reassert control with the PC AT and the Intel 286, a chip Gates called "brain dead": not powerful enough for a real graphical interface or multitasking. Windows 1.0 and 2.0 were weak, reaching only a small fraction of the DOS installed base, an interface running on top of DOS.</p>
+      <p>Windows 3.0, May 1990, changed everything. It doubled Windows penetration in six months. Revenue: fiscal 1990, $1.2 billion, the first software company ever past a billion. Fiscal 1991: $1.8 billion. In 1992, Microsoft won Apple's look-and-feel lawsuit. Apple agreed future Windows versions could use its UI paradigms, and the Supreme Court declined Apple's appeal. Both borrowed from Xerox PARC's Alto. Fiscal 1992: $2.8 billion.</p>
+      <p>Windows 95, codenamed Chicago, launched August 24, 1995: 1 million copies the first week, 7 million the first month. They lit up the CN Tower and treated an operating system launch like a movie premiere. Technically, it was the first true 32-bit Windows, with DOS only as fallback for old drivers. Brad Silverberg's management: lay out product principles, push responsibility down, let developers be their own PMs. Everyone felt personally responsible. Fiscal 1995: $5.9 billion. Fiscal 1996: $8.7 billion. Fiscal 1997: about $12 billion, the first software company past $10 billion.</p>
+      <p>The episode notes what did not ship: Cairo, the grand ambitious future, never arrived. Chicago, the concrete near-term goal you could drive to, did. Name your projects accordingly.</p>
+      <div class="chart" id="chart-revenue">
+        <h4>Revenue, 1975-1997</h4>
+        <p class="csub">Revenue in $ millions (log scale). Hover for detail.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of Microsoft revenue 1975 to 1997">
+          <g id="rev-bars"></g>
+        </svg>
+        <p class="csrc">Source: Acquired, Microsoft Volume I. From $16K to ~$12B in 22 years.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Strategy</p>
+        <h4>Hedge, then read the world</h4>
+        <p><span class="lbl">What happened. </span>Microsoft built OS/2 for IBM and Windows for itself, in parallel. When the world chose Windows, the hedge was far enough along to become the strategy. Windows 1.0 was weak but real and shipping.</p>
+        <p><span class="lbl">Why it matters. </span>Hedging is not indecision. It keeps two futures alive until the world votes. A hedge must be staffed, shipping, and close enough to win if called. A slide deck is not a hedge.</p>
+        <p><span class="lbl">The principle. </span>Hold conviction about the destination and flexibility about the path. Name your OS/2 and your Windows out loud, and fund both until the vote.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-capital" data-time="~03:15" data-title="The 49-Percent Company">
+      <p class="ch-time">~03:15</p>
+      <h2>The 49-Percent Company</h2>
+      <p><span class="tag fact">Source fact</span> The cap table is unlike anything today. The partnership became a corporation in 1981. Ballmer got about 8.75 percent in 1980. The venture firm Technology Venture Investors (TVI) invested $1 million for 5 percent, a $20 million post-money valuation, when Microsoft earned $17 million in revenue and stood about to sign the IBM deal. The employee option pool was created late, yet produced 10,000 Seattle-area millionaires.</p>
+      <p>At the 1986 IPO ($750 million market cap on $200 million of trailing revenue, growing 100 percent), Gates still owned 49 percent, Allen 28 percent, Ballmer 7.5 percent, TVI about 6 percent. Not a single dollar of investment was ever actually needed. The 1986 raise of $45 million was never spent. Free cash flow exceeded it that year. Microsoft went public because option grants were about to breach the SEC's 500-shareholder rule, and because a company negotiating with Fortune 500 CEOs and governments needed to be public.</p>
+      <div class="chart" id="chart-cap">
+        <h4>Ownership at the 1986 IPO</h4>
+        <p class="csub">Who owned Microsoft at IPO. Hover for detail.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of IPO ownership">
+          <rect class="bar dark" x="80" y="60" width="90" height="200" data-tip="Bill Gates: 49%. Unprecedented founder ownership after dilution."></rect>
+          <rect class="bar" x="210" y="148" width="90" height="112" data-tip="Paul Allen: 28%."></rect>
+          <rect class="bar alt" x="340" y="230" width="90" height="30" data-tip="Steve Ballmer: 7.5%. Joined 1980 as employee 30."></rect>
+          <rect class="bar alt" x="470" y="236" width="90" height="24" data-tip="TVI: about 6%. $1M for 5% in 1981."></rect>
+          <text class="vallab" x="125" y="52" text-anchor="middle">49%</text>
+          <text class="vallab" x="255" y="140" text-anchor="middle">28%</text>
+          <text class="vallab" x="385" y="222" text-anchor="middle">7.5%</text>
+          <text class="vallab" x="515" y="228" text-anchor="middle">~6%</text>
+          <text class="axis" x="125" y="282" text-anchor="middle">Gates</text>
+          <text class="axis" x="255" y="282" text-anchor="middle">Allen</text>
+          <text class="axis" x="385" y="282" text-anchor="middle">Ballmer</text>
+          <text class="axis" x="515" y="282" text-anchor="middle">TVI</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Microsoft Volume I, ~03:18. IPO: $750M market cap on $200M revenue.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> The tailwind stat: from 1975 to 1986, PCs grew from 4,000 units a year to 9 million, a 98 percent compound annual growth rate. The episode's line: <q>you can almost not mess up when you have a tailwind like that</q>, especially as the lynchpin player.</p>
+      <div class="chart" id="chart-tailwind">
+        <h4>The tailwind: 98% CAGR</h4>
+        <p class="csub">PC units shipped per year, 1975 vs 1986. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of PC unit growth">
+          <rect class="bar alt" x="140" y="252" width="110" height="8" data-tip="1975: 4,000 units a year. The Altair era."></rect>
+          <rect class="bar dark" x="390" y="40" width="110" height="220" data-tip="1986: 9 million units a year. 98% compound annual growth for 11 years."></rect>
+          <text class="vallab" x="195" y="244" text-anchor="middle">4,000</text>
+          <text class="vallab" x="445" y="32" text-anchor="middle">9M</text>
+          <text class="axis" x="195" y="282" text-anchor="middle">1975</text>
+          <text class="axis" x="445" y="282" text-anchor="middle">1986</text>
+        </svg>
+        <p class="csrc">Source: Acquired, Microsoft Volume I, ~03:24.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Control</p>
+        <h4>49 percent: control is a strategy</h4>
+        <p><span class="lbl">What happened. </span>Gates owned 49 percent at IPO because the company never needed the money. Capital efficiency bought founder control, and control bought the audacious pivots no hired CEO could make.</p>
+        <p><span class="lbl">Why it matters. </span>The hosts contrast founder-CEOs, who can bet the company on a pivot, with professional CEOs, who cannot. You cannot hedge and pivot like Microsoft did without the votes.</p>
+        <p><span class="lbl">The principle. </span>If your strategy needs a decade-scale pivot, secure the ownership first. Dilution is not just money. It is permission.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-playbook" data-time="~03:22" data-title="The Playbook">
+      <p class="ch-time">~03:22</p>
+      <h2>The Playbook</h2>
+      <p><span class="tag fact">Source fact</span> Platform shifts move the point of integration. Mainframes: IBM owned it. PCs: whoever owned the operating system owned it. New generations let outsiders seize the choke point. But incumbents die slowly: IBM's revenue did not peak until 2012, and Microsoft did not pass IBM's revenue until 2015. "Over" in the press and over in the accounts are decades apart.</p>
+      <p><span class="tag fact">Source fact</span> Scale through others: the Windows OEM team was about 20 people. HP, Compaq, Dell, and Gateway did the scaling, like Visa's banks. Apple, building everything itself, was structurally niche. Go international early: country subsidiaries with local owners, real localization as a strategic pillar. Copy without shame, win on the platform shift: Microsoft was rarely first. Multiplan lost to Lotus 1-2-3 until the graphical paradigm let Excel win, and Excel kept Lotus's keyboard shortcuts so switching was painless. First versions were bad. Third versions were good. The strategy: no market risk, just execution risk, positioned for the paradigm shift.</p>
+      <p><span class="tag fact">Source fact</span> Software is never done. Hardware companies ship and move on. Microsoft shipped and kept shipping: versions, patches, Office every three years, a 6,000-person org hitting an RTM date set three years in advance. The hosts note Apple still ships yearly, which they call ridiculous, while Microsoft went continuous.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Operations</p>
+        <h4>Software is never done</h4>
+        <p><span class="lbl">What happened. </span>Microsoft shipped and kept shipping: versions, patches, feedback, the next release. Competitors who thought software was done, Lotus and WordPerfect, optimized for a single release and lost to a machine that never stopped.</p>
+        <p><span class="lbl">Why it matters. </span>The sale is the beginning, not the end. In the cloud and AI era, the company that ships continuously compounds against the company that ships versions.</p>
+        <p><span class="lbl">The principle. </span>Find one "finished" deliverable in your work and convert it to a living system. Put the next version date on the calendar.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 &middot; Competition</p>
+        <h4>Copy without shame, win on the platform shift</h4>
+        <p><span class="lbl">What happened. </span>Microsoft was rarely first. It copied the winners, kept their keyboard shortcuts to make switching painless, shipped bad first versions, and won when the paradigm shifted underneath the incumbent.</p>
+        <p><span class="lbl">Why it matters. </span>Copying removes market risk and leaves only execution risk. The incumbent is optimized for the old paradigm. You are positioned for the new one.</p>
+        <p><span class="lbl">The principle. </span>Copy the mechanism, keep the incumbent's shortcuts, and be ready when the platform shifts. Third versions win.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-powers" data-time="~03:38" data-title="The Seven Powers">
+      <p class="ch-time">~03:38</p>
+      <h2>The Seven Powers</h2>
+      <p><span class="tag fact">Source fact</span> The episode runs Hamilton Helmer's framework, and Microsoft 1975-1995 scores all seven. Counter-positioning: no hardware baggage, so Microsoft could be the ecosystem's point of integration by shipping bits. Gates's line: the ecosystem around you should generate more revenue than you take. Scale economies: one Excel feature's dev cost amortized over tens of millions of users. Switching costs: high. Network economies: developers, OEMs, applications, file formats. Word documents were a network effect before networks. Process power: weakest early, real later, with Office's three-year RTM discipline as the exhibit. Branding: "nobody gets fired for buying Microsoft," the power they relied on least. Cornered resource: DOS, not born cornered, made so by IBM's distribution.</p>
+      <div class="chart" id="chart-powers">
+        <h4>Seven powers, all present</h4>
+        <p class="csub">Microsoft 1975-1995. Hover a row for the episode's exhibit.</p>
+        <svg viewBox="0 0 640 380" role="img" aria-label="List of seven powers with exhibits">
+          <g id="powers-list"></g>
+        </svg>
+        <p class="csrc">Source: Acquired, Microsoft Volume I, ~03:38. Seven powers per Hamilton Helmer.</p>
+      </div>
+      <p><span class="tag interp">Interpretation</span> The takeaway the hosts cannot shake: Microsoft figured out how to take someone else's dominance and transfer it wholesale into dominance for the next generation.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Price on value created, not hours spent.</li>
+          <li>Negotiate the escape clause when you have no power.</li>
+          <li>Buy the asset cheap. Structure the deal rich.</li>
+          <li>Own the scarce layer. Let the complement commoditize.</li>
+          <li>Hedge the path, not the destination.</li>
+          <li>Keep 49 percent. Control is a strategy.</li>
+          <li>Ship forever. Software is never done.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, Microsoft Volume I: Founding through Windows 95, Apr 2024. Full episode: youtube.com/watch?v=ycI_xXjpElY. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="~03:58" data-title="Outro">
+      <p class="ch-time">~03:58</p>
+      <h2>Outro</h2>
+      <p><span class="tag fact">Source fact</span> The episode closes with the sign-off, who got the truth, and the promise of Volume II: the internet tidal wave, the antitrust trial, and the lost decade.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "Microsoft Volume I: Founding through Windows 95" (April 2024, about 4 hr 5 min). All facts and figures come from the episode transcript (research/acquired/transcripts/ycI_xXjpElY.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. The photograph is real, with attribution in its caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 38 words: the lawyer line (7 words), the tailwind line (13 words), "brain dead" (2 words), the branding line (6 words), and five short phrases totaling 10 words. The Roosevelt-Churchill-Stalin comparison appears as paraphrase, not a quotation. The pull quotes carry episode-time attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: the software tax machine ---------- */
+  (function(){
+    var pcs = document.getElementById('pcs'), share = document.getElementById('share'), fee = document.getElementById('fee');
+    var pcsV = document.getElementById('pcs-v'), shareV = document.getElementById('share-v'), feeV = document.getElementById('fee-v');
+    var out = document.getElementById('deal-verdict');
+    function upd(){
+      var p = +pcs.value, sh = +share.value, f = +fee.value;
+      pcsV.textContent = p; shareV.textContent = sh; feeV.textContent = f;
+      var rev = p * 1000000 * (sh / 100) * f;
+      var revB = (rev / 1e9).toFixed(2);
+      out.textContent = 'Microsoft collects about $' + revB + 'B a year at near-100% margin, ' +
+        'while the clone makers split the hardware scraps. The scarce layer wins.';
+      out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f';
+    }
+    [pcs, share, fee].forEach(function(el){ el.addEventListener('input', upd); });
+    upd();
+  })();
+
+  /* ---------- chart: revenue 1975-1997 ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var data = [
+      ['1975','$16K',16000,'Altair BASIC.'],
+      ['1976','$22K',22000,'MITS strangles sales.'],
+      ['1977','$381K',381000,'Free of MITS, almost all in December.'],
+      ['1978','$1.3M',1300000,'13 employees.'],
+      ['1979','$2.4M',2400000,'Move to Seattle.'],
+      ['1982','$25M',25000000,'IBM PC plus clones.'],
+      ['FY84','$98M',98000000,'The clone wave.'],
+      ['FY90','$1.2B',1200000000,'First software $1B, Windows 3.0.'],
+      ['FY92','$2.8B',2800000000,'Lawsuit won.'],
+      ['FY95','$5.9B',5900000000,'Pre-Windows 95.'],
+      ['FY97','$12B',12000000000,'Post-Windows 95.']
+    ];
+    var g = document.getElementById('rev-bars');
+    var maxL = Math.log10(12000000000);
+    data.forEach(function(d, i){
+      var x = 20 + i * 56;
+      var h = Math.max(6, (Math.log10(d[2]) / maxL) * 250);
+      var y = 290 - h;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', x); r.setAttribute('y', y);
+      r.setAttribute('width', 40); r.setAttribute('height', h);
+      r.setAttribute('rx', 3);
+      r.setAttribute('fill', i > 7 ? '#3d352a' : (i > 4 ? '#1f5fb0' : '#ccd6e8'));
+      r.setAttribute('data-tip', d[0] + ': ' + d[1] + ' revenue. ' + d[3]);
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x', x + 20); t.setAttribute('y', 312);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = d[0];
+      g.appendChild(t);
+      var v = document.createElementNS(svgNS,'text');
+      v.setAttribute('x', x + 20); v.setAttribute('y', y - 8);
+      v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+      v.setAttribute('font-size','10');
+      v.textContent = d[1];
+      g.appendChild(v);
+      r.addEventListener('mousemove', function(ev){ showTip(d[0] + ': ' + d[1] + ' revenue. ' + d[3], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+    });
+  })();
+
+  /* ---------- chart: seven powers ---------- */
+  (function(){
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var rows = [
+      ['Counter-positioning','No hardware baggage; the ecosystem\'s point of integration.'],
+      ['Scale economies','One Excel feature\'s dev cost over tens of millions of users.'],
+      ['Switching costs','High once the ecosystem standardized on Microsoft formats.'],
+      ['Network economies','Developers, OEMs, applications, file formats.'],
+      ['Process power','Weakest early, real later: Office\'s three-year RTM discipline.'],
+      ['Branding','"don\'t get fired for buying Microsoft." The power they relied on least.'],
+      ['Cornered resource','DOS: not born cornered, made so by IBM\'s distribution.']
+    ];
+    var g = document.getElementById('powers-list');
+    rows.forEach(function(rw, i){
+      var y = 14 + i*50;
+      var r = document.createElementNS(svgNS,'rect');
+      r.setAttribute('x', 10); r.setAttribute('y', y);
+      r.setAttribute('width', 620); r.setAttribute('height', 42);
+      r.setAttribute('rx', 4);
+      r.setAttribute('fill', i % 2 ? '#f5f0e6' : '#e9eff9');
+      r.setAttribute('stroke', '#e2d8c3');
+      r.setAttribute('data-tip', rw[0] + ': ' + rw[1]);
+      r.style.cursor = 'pointer';
+      g.appendChild(r);
+      var t1 = document.createElementNS(svgNS,'text');
+      t1.setAttribute('x', 26); t1.setAttribute('y', y+26);
+      t1.setAttribute('class','vallab'); t1.textContent = (i+1) + '. ' + rw[0];
+      g.appendChild(t1);
+      var t2 = document.createElementNS(svgNS,'text');
+      t2.setAttribute('x', 614); t2.setAttribute('y', y+26);
+      t2.setAttribute('text-anchor','end'); t2.setAttribute('class','axis');
+      t2.textContent = 'present';
+      g.appendChild(t2);
+      r.addEventListener('mousemove', function(ev){ showTip(rw[0] + ': ' + rw[1], ev.clientX, ev.clientY); });
+      r.addEventListener('mouseleave', hideTip);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
