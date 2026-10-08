@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memorability: Hidden Brain Interactive Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Hidden Brain episode on memorability: the visual Mandela effect, the museum experiment, and ResMem.">
+<style>
+:root{
+  --paper:#fbf9f3; --paper2:#f4eee1; --ink:#24201a; --muted:#6f6455;
+  --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+  --green:#2e6b34; --blue:#2c5f8a;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:18px;line-height:1.65}
+a{color:var(--accent-ink)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+.topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+  align-items:center;gap:14px}
+.topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+.chapnav{position:sticky;top:52px;z-index:99;background:var(--paper2);
+  border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+  padding:8px 12px}
+.chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+  color:var(--muted);text-decoration:none;padding:6px 10px;margin-right:6px;
+  border:1px solid transparent;border-radius:20px}
+.chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+.chapnav a:hover{border-color:var(--line);color:var(--ink)}
+.chapnav a.active{background:var(--ink);color:#fff}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;padding:0 20px}
+@media(min-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,760px)}
+  .chapnav{display:none}
+  .sidenav{display:block}
+}
+.sidenav{display:none;position:sticky;top:70px;align-self:start;
+  max-height:calc(100vh - 90px);overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+.sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+.sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+.sidenav a:hover{color:var(--ink)}
+.sidenav a.active{border-left-color:var(--accent);color:var(--ink);font-weight:700}
+.content{min-width:0;padding:26px 0 60px}
+.breadcrumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px}
+h1{font-size:40px;line-height:1.15;margin:0 0 10px}
+.meta-line{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.sourcebox{border:1px solid var(--line);background:var(--paper2);padding:14px 16px;
+  margin:0 0 26px;font-family:var(--sans);font-size:13px;line-height:1.55}
+.sourcebox .badge{display:inline-block;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-right:8px}
+.badge.transcript{background:#e5f0e2;color:var(--green)}
+.badge.descr{background:#f6e8d4;color:var(--accent-ink)}
+.legend{margin-top:10px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 8px;border-radius:10px;margin:0 6px 4px 0}
+.tag.sf{background:#e5f0e2;color:var(--green)}
+.tag.in{background:#e6ecf5;color:var(--blue)}
+p{margin:0 0 16px}
+h2{font-size:28px;margin:44px 0 12px;scroll-margin-top:130px}
+h3{font-size:21px;margin:28px 0 8px}
+section.chapter{scroll-margin-top:120px}
+figure{margin:26px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+figcaption .kind{font-weight:700;color:var(--ink)}
+.nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+.nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+.nugget h4{font-size:20px;margin:0 0 10px}
+.nugget p{font-size:16.5px;margin:0 0 10px}
+.nugget p:last-child{margin-bottom:0}
+.nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.nugget .nsrc{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.pull{margin:34px 0;padding:6px 0;text-align:center}
+.pull blockquote{font-size:25px;line-height:1.4;margin:0 0 10px;font-style:italic}
+.pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+  background:var(--accent);margin:0 auto 18px}
+.pull:after{margin:18px auto 0}
+.chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+.chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+.chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:12px 0 0}
+.chart .illust{font-family:var(--sans);font-size:11.5px;color:var(--accent-ink);margin:6px 0 0;font-style:italic}
+.video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--line)}
+.video .frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.nugindex{columns:2;column-gap:28px;font-family:var(--sans);font-size:13.5px}
+.nugindex li{margin-bottom:8px;break-inside:avoid}
+footer.honesty{border-top:2px solid var(--ink);margin-top:50px;padding:24px 0 10px;
+  font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+footer.honesty h3{font-size:15px;color:var(--ink);margin:18px 0 8px}
+footer.honesty .big{font-size:15px;color:var(--ink);font-weight:700}
+footer.honesty code{font-family:var(--mono);font-size:12px;background:var(--paper2);padding:1px 5px}
+#tip{position:fixed;pointer-events:none;background:#1d1a15;color:#f7f3ea;
+  font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:6px;
+  max-width:280px;opacity:0;transition:opacity .15s;z-index:300}
+.stat-row{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.stat{flex:1 1 150px;border:1px solid var(--line);background:#fff;padding:14px;text-align:center}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent-ink)}
+.stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.stat .s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:4px}
+@media(max-width:700px){h1{font-size:30px}.nugindex{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Hidden Brain &middot; Interactive companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <aside class="sidenav" id="sidenav" aria-label="Chapters"></aside>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../index.html">Hidden Brain</a> / <span>Memorability</span></nav>
+      <p class="eyebrow">Interactive companion</p>
+      <h1>Memorability</h1>
+      <p class="meta-line">Episode 6 &middot; Hidden Brain &middot; Guest: Wilma Bainbridge, University of Chicago &middot; Published 2026-04-10 &middot; 6,799 views &middot; 16 min 16 s</p>
+      <div class="sourcebox"><span class="badge transcript">Full transcript</span> Narrated from the full episode transcript on disk (<i>research/hidden-brain/transcripts/PFY96JwLHTQ.txt</i>, 2,617 words, from the official YouTube captions), checked against the episode description and research notes.
+      <div class="legend"><span class="tag sf">Source fact</span> claim verified in the source named beside it. <span class="tag in">Interpretation</span> my analysis, clearly separated from source facts.</div></div>
+      <figure class="reveal"><img src="img/ep06-memorability-a.webp" alt="Watercolor: gallery glowing painting" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> One painting glows while the rest fade: memorability you can see.</figcaption></figure>
+      <section class="chapter" id="paintings" data-time="00:00"><h2>Two paintings</h2><p class="reveal">Imagine two paintings. Same year, same city, same pigments, same subject matter. One hangs in a climate-controlled vault in Paris or New York, insured for a hundred million dollars, among the Picassos, the Matisses, the Georgia O'Keeffes, the Salvador Dalis. A masterpiece. The other languishes in a basement in North Carolina, or in a thrift store bin priced at five dollars. Forgotten.</p><p class="reveal">We say beauty is in the eye of the beholder, that there is no accounting for taste. But if art is subjective, why do so many people agree on which paintings are masterpieces? For a painting to stay famous for decades, multitudes must agree it is a masterpiece. Are they sheep following one another? Or do specific combinations of color and texture make paintings evocative and memorable? Is there a formula for masterpieces?</p><p class="reveal"><span class="tag sf">Source fact</span> The episode answer: the place to look is not in the paintings. It is inside your brain.</p><div class="stat-row"><div class="stat reveal"><div class="n">$100M</div><div class="l">Insurance on the vault painting</div><div class="s">Episode transcript</div></div><div class="stat reveal"><div class="n">$5</div><div class="l">Price in the thrift store bin</div><div class="s">Episode 00:00:42</div></div></div></section><section class="chapter" id="mandela" data-time="00:02:27"><h2>The visual Mandela effect</h2><p class="reveal">The investigation starts with failure, and a game. Look at two versions of the Monopoly Man. Which is real? If you picked the one with the monocle, you are wrong. The Monopoly Man has no monocle. He never had one. He wears no eyewear at all.</p><p class="reveal">Try C-3PO. Entirely gold, or one silver leg? If you said all gold, wrong again. C-3PO always had a silver left leg. And Waldo, the figure you hunted for hours: does he hold a cane, or are his hands empty? Most people say no cane. He does hold one.</p><p class="reveal">The remarkable part is not that you forgot. It is that multitudes make the same identical mistake. We remember a monocle that never existed, because it feels right. This shared false memory has a name: the Mandela effect, coined by paranormal researcher Fiona Broome after she discovered she shared a false memory with many others that Nelson Mandela died in prison in the 1980s. He did not. He spent more than 25 years in a South African prison, survived it, became president, and lived a long life.</p><p class="reveal">Some people online call this evidence of parallel universes. Wilma Bainbridge, a psychologist at the University of Chicago, had a different theory: the human mind makes predictable errors in memory. She called her version the visual Mandela effect and took it into the lab.</p><div class="nugget reveal" id="n1"><p class="eyebrow">Nugget 1 &middot; Visual Mandela effect</p><h4>We misremember together, in the same direction</h4><p><span class="lbl">What happened.</span> Crowds share identical false memories of famous images: a monocle that never existed, a cane people deny, a cornucopia missing from the Fruit of the Loom logo.</p><p><span class="lbl">Why it matters.</span> The errors are not random noise. They point the same way, which means the machinery has a grain, and the grain can be studied.</p><p><span class="lbl">The principle.</span> When everyone makes the same mistake, study the mistake. It maps the machine.</p><p class="nsrc">Source: episode transcript, 00:02:27 to 00:04:20. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="lab" data-time="00:05:30"><h2>The lab test</h2><p class="reveal">Bainbridge started with 40 altered images and showed versions to hundreds of people. The Fruit of the Loom logo lives in most minds as fruit spilling from a woven basket or cornucopia. The real logo is just fruit. No basket, no cornucopia, never was.</p><p class="reveal">Two theories competed. Perhaps wrong versions flood the internet and we absorb misinformation. Or perhaps mental associations lead us astray: a rich 1930s banker simply must have a monocle. Bainbridge tested both. Both were wrong.</p><div class="pull reveal"><blockquote>&ldquo;The wrong version of the image is just more sticky.&rdquo;</blockquote><p class="who">Narration, Hidden Brain episode 6</p></div><p class="reveal"><span class="tag in">Interpretation</span> The brain has a propensity to remember certain images. Stickiness is a property of the image meeting the brain, not of truth. And that raised the next question: if some images are stickier than others, are some simply easier to remember, full stop?</p><div class="stat-row"><div class="stat reveal"><div class="n">40</div><div class="l">Altered images in the lab study</div><div class="s">Episode transcript</div></div><div class="stat reveal"><div class="n">100s</div><div class="l">People tested on the false memories</div><div class="s">Episode transcript</div></div></div></section><section class="chapter" id="faces" data-time="00:07:09"><h2>10,000 faces</h2><p class="reveal">You might object that we remember famous faces because we saw them on screens. Bainbridge answered by building a database of more than 10,000 ordinary faces and showing them to thousands of people. The result surprised the team: some faces everyone remembered, and some faces everyone forgot.</p><p class="reveal">Do we remember beautiful faces? Not necessarily. Attractiveness had a weak connection to memorability, and beauty could even make a face easier to confuse with someone else. Do we remember faces for the emotions they show? Looking irresponsible helped slightly, but explained only a tiny fraction of the data. Something else, an X factor, a hidden visual code, made certain images stick.</p><div class="nugget reveal" id="n2"><p class="eyebrow">Nugget 2 &middot; 10,000 faces</p><h4>Memorability is not beauty, and not fame</h4><p><span class="lbl">What happened.</span> With fame removed from the equation, ordinary faces still split cleanly into the remembered and the forgotten, and beauty did not predict the split.</p><p><span class="lbl">Why it matters.</span> Taste feels personal, but the data says some of it runs on shared, impersonal machinery.</p><p><span class="lbl">The principle.</span> Do not confuse what you like with what sticks. They are different systems.</p><p class="nsrc">Source: episode transcript, 00:07:09. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="museum" data-time="00:12:19"><h2>The museum experiment</h2><p class="reveal">If the code works for faces, does it work for art? Bainbridge went to the Art Institute of Chicago, one of the largest and most prestigious museums in the world. Volunteers explored the American Art Wing freely, at their own pace, talking with friends. Then, on a bench outside, they took a surprise quiz on their phones: paintings from the exhibit mixed with similar ones they had not seen. Do you remember this painting?</p><p class="reveal">Tastes differ, viewing times differ, yet the same split appeared. Some pieces everyone remembered, some everyone forgot. Size mattered: bigger paintings stuck better. Context mattered: works in the modern, spacious wing beat works in the cluttered, traditional rooms, perhaps for facing less competition for attention.</p><p class="reveal">Then the kicker. She tested beauty. She tested emotion. She tested colorfulness. None of them predicted memorability. A heartbreakingly beautiful painting could vanish from memory in five minutes. A weird, jarring abstract piece could stick. The stickiness came from some mysterious arrangement of the pieces that appealed to the brain.</p><div class="chart reveal"><h4>What predicted memorability in the museum</h4><p class="csub">Factors tested against what visitors actually remembered</p><svg viewBox="0 0 560 210" role="img">
+<g>
+<title>Size: bigger stuck better: 1 (Size mattered)</title>
+<text x="0" y="28" font-size="13" fill="#24201a" font-family="sans-serif">Size: bigger stuck better</text>
+<rect x="200" y="10" width="290.0" height="26" fill="#2e6b34"/>
+<text x="498.0" y="28" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">1</text>
+</g>
+<g>
+<title>Context: spacious wing beat cluttered rooms: 1 (Context mattered)</title>
+<text x="0" y="66" font-size="13" fill="#24201a" font-family="sans-serif">Context: spacious wing beat cluttered rooms</text>
+<rect x="200" y="48" width="290.0" height="26" fill="#2e6b34"/>
+<text x="498.0" y="66" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">1</text>
+</g>
+<g>
+<title>Beauty: 0 (Beauty did not predict memorability)</title>
+<text x="0" y="104" font-size="13" fill="#24201a" font-family="sans-serif">Beauty</text>
+<rect x="200" y="86" width="0.0" height="26" fill="#6f6455"/>
+<text x="208.0" y="104" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">0</text>
+</g>
+<g>
+<title>Emotion: 0 (Emotion did not predict memorability)</title>
+<text x="0" y="142" font-size="13" fill="#24201a" font-family="sans-serif">Emotion</text>
+<rect x="200" y="124" width="0.0" height="26" fill="#6f6455"/>
+<text x="208.0" y="142" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">0</text>
+</g>
+<g>
+<title>Colorfulness: 0 (Colorfulness did not predict memorability)</title>
+<text x="0" y="180" font-size="13" fill="#24201a" font-family="sans-serif">Colorfulness</text>
+<rect x="200" y="162" width="0.0" height="26" fill="#6f6455"/>
+<text x="208.0" y="180" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">0</text>
+</g>
+</svg><p class="csrc">Source: episode transcript, 00:12:19. <span class="tag sf">Source fact</span></p><p class="illust">Illustrative: the episode reports which factors mattered, not numeric effect sizes. The bars mark yes or no.</p></div><figure class="reveal"><img src="img/ep06-memorability-b.webp" alt="Watercolor: eye reflecting scene" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> The hidden code, imagined: what the eye keeps was decided before taste arrived.</figcaption></figure></section><section class="chapter" id="resmem" data-time="00:11:46"><h2>ResMem</h2><p class="reveal">The human brain holds billions of neurons with trillions of connections. Somewhere in that network sits the answer. Bainbridge could not pinpoint it, but she could do the next best thing: train an AI to learn the secret patterns the way a student would.</p><p class="reveal">Show the AI a face, let it guess how memorable it is, and reward correct guesses by strengthening the connections it used, weaken them when it errs. Repeat. Eventually the AI learns the patterns humans use. Bainbridge team built exactly this and called it ResMem. You can upload a picture and it scores it: 1 means 100 percent of people remember it, 0 means no one will.</p><p class="reveal">They trained it on regular photographs: faces, scenes, everyday objects. They did not train it on art history. The AI knew nothing about Picasso, nothing about Van Gogh, nothing about what a masterpiece is supposed to look like. Then came the ultimate test: feed it the Art Institute paintings, famous and obscure, and ask which are memorable.</p><p class="reveal">The result staggered the team. The AI tended to pick the paintings humans considered masterpieces. ResMem predicted the famous pieces were more memorable than the non-famous ones. American Gothic is not famous only because critics praised it and crowds followed. Grant Wood arranged visual information in a way that hacked the human brain. The AI, blind to culture and history, found masterpieces by reading pixels.</p><div class="chart reveal"><h4>The ResMem scale</h4><p class="csub">An AI blind to art history scores memorability from pixels alone</p><svg viewBox="0 0 560 170" role="img">
+<title>ResMem memorability scale: 1 means 100 percent of people remember the image, 0 means no one does</title>
+<defs><linearGradient id="rmg" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#b4531f"/><stop offset="1" stop-color="#e2d8c3"/>
+</linearGradient></defs>
+<rect x="60" y="60" width="440" height="26" fill="url(#rmg)"/>
+<text x="60" y="45" font-size="13" font-weight="bold" fill="#24201a" font-family="sans-serif">1 = everyone remembers</text>
+<text x="500" y="45" font-size="13" fill="#6f6455" font-family="sans-serif" text-anchor="end">0 = no one does</text>
+<text x="60" y="115" font-size="12" fill="#6f6455" font-family="sans-serif">Famous pieces scored high.</text>
+<text x="60" y="135" font-size="12" fill="#6f6455" font-family="sans-serif">Obscure pieces by the same artists scored low.</text>
+<text x="60" y="160" font-size="12" fill="#8f3f14" font-family="sans-serif">The AI knew nothing about art history. It read pixels.</text>
+</svg><p class="csrc">Source: episode transcript, 00:11:46. <span class="tag sf">Source fact</span></p></div><div class="nugget reveal" id="n3"><p class="eyebrow">Nugget 3 &middot; ResMem</p><h4>The machine found the masterpieces without knowing art</h4><p><span class="lbl">What happened.</span> An AI trained only on ordinary photos, never on art, picked the famous paintings as the most memorable ones.</p><p><span class="lbl">Why it matters.</span> Fame has a physical substrate. The visual hook that makes a painting stick can be measured in pixels.</p><p><span class="lbl">The principle.</span> When experts and crowds agree for decades, look for the mechanism underneath the agreement.</p><p class="nsrc">Source: episode transcript, 00:11:46. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="canaries" data-time="00:14:00"><h2>Canaries in a coal mine</h2><p class="reveal">The episode closes with a profound application. Healthy brains tend to remember similar images. But people in the early stages of cognitive decline, like Alzheimer disease, start to diverge from healthy people in which images they find memorable. A study found special images that stay memorable for healthy people yet turn forgettable in early Alzheimer.</p><p class="reveal">Researchers might one day use these images like canaries in a coal mine: if everyone remembers certain images but your friend forgets them, it could warn that something is wrong in her brain.</p><p class="reveal">The episode closes on the real contest: not the scramble for attention in the moment, but the struggle to be remembered in the brains of other people.</p><p class="reveal"><span class="tag in">Interpretation</span> The fight is rigged, the episode says, but now you know something about the rules. Memorability is not meaning: a car crash photo scores high and belongs nowhere near your sofa. Still, the romantic idea that art is purely mysterious no longer survives the data. Deep, ancient currents in the brain decide which images last.</p></section>
+      <section class="chapter video" id="watch" data-time="video"><h2>Watch the episode</h2><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/PFY96JwLHTQ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><span style="position:absolute;left:-9999px">Official Hidden Brain episode video for Memorability.</span><p style="font-family:var(--sans);font-size:13px;color:var(--muted)">The official Hidden Brain episode video, embedded via youtube-nocookie.com, the only external dependency on this page.</p></section>
+      <section class="chapter" id="nuggets" data-time="index">
+        <h2>Nugget index</h2>
+        <ol class="nugindex"><li><a href="#n1"><b>Nugget 1.</b> We misremember together, in the same direction</a> <span style="color:var(--muted)">(The visual Mandela effect)</span></li><li><a href="#n2"><b>Nugget 2.</b> Memorability is not beauty, and not fame</a> <span style="color:var(--muted)">(10,000 faces)</span></li><li><a href="#n3"><b>Nugget 3.</b> The machine found the masterpieces without knowing art</a> <span style="color:var(--muted)">(ResMem)</span></li></ol>
+      </section>
+    </article>
+    <footer class="honesty" id="honesty"><h3>How this companion was built</h3><p><span class="big">Sourcing.</span> Every factual claim in this companion traces to the full episode transcript, with timestamps from the caption file. The 00:05:30, 00:14:00, and closing section markers are approximate, placed by narrative order where the caption search returned no anchor phrase. Interpretive passages carry the Interpretation tag.</p><h3>Sources</h3><ul><li>Episode transcript: research/hidden-brain/transcripts/PFY96JwLHTQ.txt (2,617 words, from official YouTube captions, with timestamps from PFY96JwLHTQ.en.srt).</li><li>Episode description: research/hidden-brain/descriptions.txt (entry PFY96JwLHTQ).</li><li>Episode metadata: research/hidden-brain/episodes.json (views 6,799, upload 2026-04-10, duration 976 s).</li><li>Research notes: research/hidden-brain/research-notes.md (channel verification, transcript provenance).</li></ul><h3>On quotes</h3><p><span class="big">Quoted words in this companion: 10.</span> The quote budget allows at most 50 words of direct quotation per artifact. This is the mechanical recount defined in the build notes: every word inside pull-quote or blockquote markup, plus every quoted phrase in body text and attributes, footer excluded. Unquoted image alt text is not a quoted phrase, so it is excluded from this count. Every quoted phrase below was verified character-for-character against the source on disk.</p><ul><li><code>The wrong version of the image is just more sticky.</code> &middot; 10 words (Narration, Hidden Brain episode 6)</li></ul><p>The phrase appears in the transcript with the wording shown. The quiz questions and the Bainbridge interview answers are paraphrased, not quoted.</p><h3>What was not invented</h3><p>No numbers were invented. The 100 million dollars, the 5 dollars, the 40 images, the hundreds of people, the 10,000 faces, the thousands of volunteers, the more than 25 years, and the billions and trillions all come verbatim from the transcript. The museum factor chart is labeled illustrative because the episode reports directions, not effect sizes. The ResMem scale (1 to 0) is stated exactly as the episode states it.</p><h3>Images and video</h3><p>Illustrations on this page are AI-generated watercolors made for this companion and are labeled as illustrations. No real photographs appear, so no attribution is owed. The video embed uses youtube-nocookie.com, the only external dependency. Everything else loads from local relative paths and works from file://.</p><p>Companion to the <a href="../index.html">Hidden Brain track index</a> and <a href="../ep06.html">the track chapter</a>. Built for study, not affiliated with the show.</p></footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+"use strict";
+var tip=document.getElementById("tip");
+document.addEventListener("mousemove",function(e){
+  var t=e.target.closest("[data-tip]");
+  if(t){tip.textContent=t.getAttribute("data-tip");
+    tip.style.opacity="1";
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-300)+"px";
+    tip.style.top=(e.clientY+16)+"px";}
+  else{tip.style.opacity="0";}
+});
+var chapters=Array.prototype.slice.call(document.querySelectorAll("section.chapter"));
+function navLink(ch){
+  var a=document.createElement("a");
+  a.href="#"+ch.id;
+  var sp=document.createElement("span");sp.className="t";
+  sp.textContent=ch.getAttribute("data-time");
+  a.appendChild(sp);
+  var h=ch.querySelector("h2");
+  a.appendChild(document.createTextNode(h?h.textContent:ch.id));
+  a.setAttribute("data-ch",ch.id);
+  return a;
+}
+var navs=[document.getElementById("chapnav"),document.getElementById("sidenav")];
+navs.forEach(function(n){if(!n)return;chapters.forEach(function(ch){n.appendChild(navLink(ch));});});
+function spy(){
+  var cur=null;
+  chapters.forEach(function(ch){if(ch.getBoundingClientRect().top<160)cur=ch.id;});
+  var links=document.querySelectorAll("[data-ch]");
+  Array.prototype.forEach.call(links,function(a){
+    a.classList.toggle("active",a.getAttribute("data-ch")===cur);});
+}
+document.addEventListener("scroll",spy,{passive:true});spy();
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+  });
+},{threshold:.08});
+Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
