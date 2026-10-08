@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Will Take Art, Then Jobs, Then Everything Else: Modern Wisdom Companion</title>
+<meta name="description" content="A clip companion: the intelligence curse, extracted from the full Harris conversation. When GDP comes from data centers instead of people, what happens to the p">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fa8; --accent-ink:#174a85; --soft:#e6eef7;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bcd6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#c9d8ea}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .gridln{stroke:#e4e9f0;stroke-width:1}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{border:1px dashed var(--line);padding:16px 18px;margin:26px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .srctag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:6px}
+  .srctag.src{background:#dce8f7;color:#174a85}
+  .srctag.int{background:#f3e9d6;color:#8f5a14}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="../index.html">Modern Wisdom · Track Companion</a><span class="sub">AI Will Take Art, Then Jobs, Then Everything Else · Tristan Harris · 2026</span></header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+<nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+<main id="main">
+<div class="hero">
+<p class="kicker">Modern Wisdom · 2026 · Episode 10 · Companion</p>
+<h1>AI Will Take Art, Then Jobs, Then Everything Else</h1>
+<p class="dek">A clip companion: the intelligence curse, extracted from the full Harris conversation. When GDP comes from data centers instead of people, what happens to the people?</p>
+<img src="assets/illustration-ep10-hero.webp" alt="Watercolor illustration of a massive dark data center on a hill overlooking a small town with dimming lights">
+<p class="caption"><b>Illustration.</b> The intelligence curse: when the economy stops needing people. AI-generated watercolor made for this page.</p>
+<div class="stats">
+<div class="stat"><div class="n">112K</div><div class="l">Clip views, per the track index</div><div class="s">Modern Wisdom, 2026</div></div>
+<div class="stat"><div class="n">20%</div><div class="l">Unemployment that preceded political detonation, per the episode’s historical claim</div><div class="s">The tripwire</div></div>
+<div class="stat"><div class="n">1</div><div class="l">Economist named: Luke Drago, who coined the intelligence curse</div><div class="s">Attribution, per the episode</div></div>
+<div class="stat"><div class="n">2</div><div class="l">Historical cases cited: Venezuela and Sudan for the resource curse</div><div class="s">The analogy</div></div>
+</div>
+<div class="video"><div class="frame">
+<iframe src="https://www.youtube-nocookie.com/embed/3KHSBrBWxSE" title="Modern Wisdom episode video: AI Will Take Art, Then Jobs, Then Everything Else" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="caption"><b>Watch.</b> The official Modern Wisdom episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p></div>
+<div class="wisdom" id="wisdom-index"><h3>The Wisdom Index: every nugget in this companion</h3><ol>
+<li><a href="#nugget-1">Check the direction, not the paycheck</a></li>
+<li><a href="#nugget-2">Read the design intent</a></li>
+<li><a href="#nugget-3">The intelligence curse</a></li>
+<li><a href="#nugget-4">The tripwire comes early</a></li>
+</ol></div>
+<div class="legend"><b>How to read this companion.</b> <span class="srctag src">Source</span> marks claims taken straight from the episode. <span class="srctag int">Interpretation</span> marks analysis that goes beyond the episode. Every chart carries its source line. Brief quoted phrases are counted in the footer.</div>
+</div>
+<section class="chapter" id="ch-1" data-time="Ch 1" data-title="The coffin builder">
+<p class="ch-time">Chapter 1</p>
+<h2>The coffin builder</h2>
+<p>The segment opens with a dark joke. Your job is to create the thing that replaces you. You are building the coffin for your future obsolescence.</p>
+<p>Harris applies it to the present. Electricians and plumbers get work building data centers now. Programmers get productivity from coding assistants now. Both are short-term wins inside a long-term replacement.</p>
+<p>The point is not that every job vanishes tomorrow. The direction of travel is replacement, and the paychecks along the way do not change the destination.</p>
+<p>The full conversation this clip comes from is narrated in the Episode 2 companion, which covers the Harris interview in depth.</p>
+<div class="pull">
+<blockquote>building the coffin for your future obsolescence</blockquote>
+<p class="who">Tristan Harris, in the episode</p>
+</div>
+<div class="nugget reveal" id="nugget-1">
+<p class="eyebrow">Nugget 1 · Replacement direction</p>
+<h4>Check the direction, not the paycheck</h4>
+<p><span class="lbl">What happened · </span>Short-term gains from AI tooling do not change the long-term direction: the tools exist to replace the worker.</p>
+<p><span class="lbl">Why it matters · </span>Comfort comes from the paycheck. Clarity comes from the roadmap. They point in opposite directions.</p>
+<p><span class="lbl">Transferable principle · </span>Judge a technology by what it is designed to replace, not by what it pays you today.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-2" data-time="Ch 2" data-title="Designed to replace, not augment">
+<p class="ch-time">Chapter 2</p>
+<h2>Designed to replace, not augment</h2>
+<p>Harris makes the design claim explicit. The companies design to replace all human labor, not to augment or support or enhance it.</p>
+<p>The reason is financial. The sums raised in debt only make sense if the growth justifies them, and growth of that size requires replacing labor, not assisting it.</p>
+<p>This reframes every augmentation story. The assistant that helps you today is the prototype of the replacement that retires you tomorrow, because replacement is what the balance sheet demands.</p>
+<p>The episode calls the resulting economy the replacement economy. The name is the argument.</p>
+<div class="pull">
+<blockquote>designing to replace all human labor</blockquote>
+<p class="who">Tristan Harris, in the episode</p>
+</div>
+<div class="nugget reveal" id="nugget-2">
+<p class="eyebrow">Nugget 2 · Design intent</p>
+<h4>Read the design intent</h4>
+<p><span class="lbl">What happened · </span>The systems are designed for replacement, because only replacement justifies the capital invested.</p>
+<p><span class="lbl">Why it matters · </span>Marketing sells augmentation. The cap table demands replacement. Follow the money, not the messaging.</p>
+<p><span class="lbl">Transferable principle · </span>When messaging and incentives conflict, the incentives are the truth.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-3" data-time="Ch 3" data-title="The intelligence curse">
+<p class="ch-time">Chapter 3</p>
+<h2>The intelligence curse</h2>
+<p>The segment introduces the economics. The resource curse is well known: countries like Venezuela or Sudan that get rich from oil stop developing everything else, because GDP no longer depends on people.</p>
+<p>Luke Drago named the sequel: the intelligence curse. When GDP comes from data centers and AI rather than human labor, governments lose the incentive to invest in childcare, health care, and education.</p>
+<p>The mechanism is the same. Oil made the population economically optional. AI makes the population economically optional at a larger scale and a faster speed.</p>
+<p>The episode notes the wealth math. A handful of companies and soon-to-be trillionaires capture the gains. The intelligence dividend, if it ever arrives, is a policy choice, not a market outcome.</p>
+<div class="nugget reveal" id="nugget-3">
+<p class="eyebrow">Nugget 3 · Intelligence curse</p>
+<h4>The intelligence curse</h4>
+<p><span class="lbl">What happened · </span>When revenue decouples from human labor, the institutions that served humans lose their funding logic.</p>
+<p><span class="lbl">Why it matters · </span>Oil states show the pattern. The pattern is about incentives. The resource lets the powerful stop investing in people, and that is the curse.</p>
+<p><span class="lbl">Transferable principle · </span>Follow the revenue. Whoever the economy does not need is whoever the economy will not serve.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+</section>
+<section class="chapter" id="ch-4" data-time="Ch 4" data-title="The 20 percent tripwire">
+<p class="ch-time">Chapter 4</p>
+<h2>The 20 percent tripwire</h2>
+<p>Harris adds the political tripwire. It took only about 20 percent unemployment for a couple of years to help bring fascism to Germany, in his telling. A similar figure preceded the French Revolution.</p>
+<p>The implication is stark. You do not need full automation to get political detonation. A fifth of the workforce displaced is enough to break the system.</p>
+<p>This reframes the timeline debate. The question is not when AI can do everything. It is when it displaces enough to destabilize, which comes much earlier.</p>
+<p>The segment ends inside the larger argument of the full episode: coordination or bust. The Episode 2 companion narrates the complete Harris interview, including the proposed way out.</p>
+<div class="nugget reveal" id="nugget-4">
+<p class="eyebrow">Nugget 4 · Tripwire</p>
+<h4>The tripwire comes early</h4>
+<p><span class="lbl">What happened · </span>Political destabilization does not wait for full automation. The episode puts the tripwire near 20 percent unemployment.</p>
+<p><span class="lbl">Why it matters · </span>Debates about total replacement miss the point. Systems break at partial displacement.</p>
+<p><span class="lbl">Transferable principle · </span>Plan for the tripwire, not the endpoint. Partial disruption breaks things first.</p>
+<p><span class="srctag src">Source</span><span class="srctag int">Interpretation</span></p>
+</div>
+<div class="chart" id="chart-tripwire">
+<h4>The tripwire, per the episode</h4>
+<p class="csub">Unemployment levels cited as historically destabilizing</p>
+<svg viewBox="0 0 640 340" role="img" aria-label="The tripwire, per the episode">
+<line x1="56" x2="620" y1="276.0" y2="276.0" class="gridln"/>
+<text x="48" y="280.0" text-anchor="end" class="axis">0%</text>
+<line x1="56" x2="620" y1="253.7" y2="253.7" class="gridln"/>
+<text x="48" y="257.7" text-anchor="end" class="axis">2%</text>
+<line x1="56" x2="620" y1="231.4" y2="231.4" class="gridln"/>
+<text x="48" y="235.4" text-anchor="end" class="axis">4%</text>
+<line x1="56" x2="620" y1="209.0" y2="209.0" class="gridln"/>
+<text x="48" y="213.0" text-anchor="end" class="axis">6%</text>
+<line x1="56" x2="620" y1="186.7" y2="186.7" class="gridln"/>
+<text x="48" y="190.7" text-anchor="end" class="axis">8%</text>
+<line x1="56" x2="620" y1="164.4" y2="164.4" class="gridln"/>
+<text x="48" y="168.4" text-anchor="end" class="axis">10%</text>
+<line x1="56" x2="620" y1="142.1" y2="142.1" class="gridln"/>
+<text x="48" y="146.1" text-anchor="end" class="axis">12%</text>
+<line x1="56" x2="620" y1="119.8" y2="119.8" class="gridln"/>
+<text x="48" y="123.8" text-anchor="end" class="axis">14%</text>
+<line x1="56" x2="620" y1="97.4" y2="97.4" class="gridln"/>
+<text x="48" y="101.4" text-anchor="end" class="axis">16%</text>
+<line x1="56" x2="620" y1="75.1" y2="75.1" class="gridln"/>
+<text x="48" y="79.1" text-anchor="end" class="axis">18%</text>
+<line x1="56" x2="620" y1="52.8" y2="52.8" class="gridln"/>
+<text x="48" y="56.8" text-anchor="end" class="axis">20%</text>
+<line x1="56" x2="620" y1="30.5" y2="30.5" class="gridln"/>
+<text x="48" y="34.5" text-anchor="end" class="axis">22%</text>
+<rect x="165.0" y="52.8" width="64" height="223.2" class="bar" data-tip="About 20 percent unemployment for a couple of years preceded the rise of fascism in Germany, per the episode"/>
+<text x="197.0" y="42.8" text-anchor="middle" class="vallab">20%</text>
+<text x="197.0" y="300.0" text-anchor="middle" class="axis">Germany, per the episode</text>
+<rect x="447.0" y="52.8" width="64" height="223.2" class="bar" data-tip="A similar figure preceded the French Revolution, per the episode"/>
+<text x="479.0" y="42.8" text-anchor="middle" class="vallab">20%</text>
+<text x="479.0" y="300.0" text-anchor="middle" class="axis">France, per the episode</text>
+</svg>
+<p class="csrc">Source: Modern Wisdom episode 10. The 20 percent figure is the episode’s historical claim about Germany and France, not a verified historical statistic. The chart presents the episode’s claims.</p>
+</div>
+</section>
+<div class="takeaways"><h3>Takeaways</h3><ol>
+<li>Your job is to create the thing that replaces you: the coffin-builder economy.</li>
+<li>The systems are designed to replace all human labor, not augment it, because the debt demands it.</li>
+<li>The intelligence curse: when GDP comes from data centers, governments stop investing in people.</li>
+<li>The tripwire is early. About 20 percent unemployment, per the episode, is enough for political detonation.</li>
+<li>This is a clip from the full Harris conversation. The Episode 2 companion narrates the whole interview.</li>
+</ol></div>
+<footer>
+<p><b>Sources.</b> This companion narrates the Modern Wisdom clip with Tristan Harris (2026, 112K views per the track index), sourced from the clip transcript on file. This segment also appears inside the full Harris conversation narrated in the Episode 2 companion. All facts come from the episode. The illustration is an AI-generated watercolor made for this page. No real photographs are used.</p>
+<p><b>On quotes.</b> Brief quoted phrases in this companion total 13 words (7-words pull quote, 6-words pull quote). Every quoted phrase is a verbatim string from the episode transcript, verified by search before publication.</p>
+<p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+<p><b>Honesty notes.</b> This is a clip-companion: the transcript is the intelligence-curse segment of the longer Harris interview, and the same material is narrated in the Episode 2 companion. The 20 percent unemployment figure is the episode’s historical claim, flagged as such in the chart source line. No timestamps are shown because the transcript carries none.</p>
+</footer>
+</main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.textContent = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
