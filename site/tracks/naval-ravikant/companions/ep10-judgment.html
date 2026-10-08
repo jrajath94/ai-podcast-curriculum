@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Judgment: Naval Ravikant Episode Companion</title>
+<meta name="description" content="The finale of the tweetstorm&#x27;s skill sequence: in an age of nearly infinite tools, judgment is the most important skill. The tanker image, the Buffett">
+<style>
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;
+    margin:0 6px 8px 0}
+  .tag.src{background:#e8f0e4;color:#3d6b34;border:1px solid #c4d8bb}
+  .tag.int{background:#efe6f5;color:#5f3f7a;border:1px solid #d8c4e8}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted)}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--mono);font-size:15px;color:var(--accent-ink);margin-top:10px}
+  .toy button{font-family:var(--sans);font-size:13px;padding:8px 14px;background:var(--ink);
+    color:#fff;border:none;border-radius:4px;cursor:pointer;margin:6px 6px 0 0}
+  .toy button:hover{background:#3a3226}
+  .toy label{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Naval Ravikant &middot; Track Companion</a>
+  <span class="sub">Ep 10 of 10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Naval Ravikant · The Decisive Skill · Companion</p>
+      <h1>Judgment</h1>
+      <p class="dek">The finale of the tweetstorm's skill sequence: in an age of nearly infinite tools, judgment is the most important skill. The tanker image, the Buffett proof, why intellect without experience is worse than useless, 10,000 tries, and the outrage heuristic.</p>
+      <img src="assets/ep10-judgment/illustration-compass.webp" alt="Watercolor illustration of a glowing brass compass in thick fog">
+      <p class="caption"><b>Illustration.</b> The compass in fog: steady direction through murk. AI-generated watercolor made for this page.</p>
+      <div class="legend"><span class="tag src">Source fact</span><span style="align-self:center">A claim from the episode itself.</span><span class="tag int">Interpretation</span><span style="align-self:center">My reading of what it means for you.</span></div>
+      <div class="stats">
+        <div class="stat"><div class="n">$100B</div><div class="l">What investors would hand Buffett even from zero</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">10-20%</div><div class="l">Better judgment that earns hundreds of millions on a big ship</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">10,000</div><div class="l">Tries, not hours, that build judgment</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">1</div><div class="l">Most important skill in the age of infinite tools</div><div class="s">Episode</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/eoLAIDGM4zI" title="Naval Ravikant — Judgment Is the Decisive Skill (official Naval podcast)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Naval podcast episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Earn the multiplier, then respect it</a></li>
+          <li><a href="#nugget-2">Slow down when the payload grows</a></li>
+          <li><a href="#nugget-3">Build a public record of being right</a></li>
+          <li><a href="#nugget-4">Get paid for the delta</a></li>
+          <li><a href="#nugget-5">Think in decades, decide in minutes</a></li>
+          <li><a href="#nugget-6">Earn judgment the expensive way</a></li>
+          <li><a href="#nugget-7">Cool the emotions, clear the lens</a></li>
+          <li><a href="#nugget-8">Study everything, especially philosophy</a></li>
+          <li><a href="#nugget-9">Read the feed, judge the mind</a></li>
+        </ol>
+      </div>
+    </div>
+
+<section class="chapter" id="ch-setup" data-time="00:00" data-title="Tools multiply judgment">
+<p class="ch-time">00:00</p>
+<h2>Tools multiply judgment</h2>
+<p>Nivi sets up the finale of the tweetstorm's skill sequence. They covered specific knowledge, accountability, and tools. The last skill is judgment, and Naval's tweet frames the relationship: tools are a force multiplier for your judgment.</p>
+<p>The order matters. The first part of your career is spent hustling to obtain tools. Once you have them, the game changes completely, because the multiplier now applies to every decision you make.</p>
+<div class="nugget reveal" id="nugget-1"><p class="eyebrow">Wisdom nugget 1</p><span class="tag src">Source fact</span><h4>Earn the multiplier, then respect it</h4><p><b>What happened.</b> Naval says tools multiply judgment, so the career splits into two phases: acquiring tools, then applying judgment.</p><p><b>Why it matters.</b> Most people never switch phases. They keep hustling with a tanker as if it were a sailboat.</p><p><b>Principle.</b> Hustle early for tools. Once tooled, slow down and think. Every decision now carries a payload.</p></div>
+</section>
+<section class="chapter" id="ch-tanker" data-time="00:02" data-title="From sailboat to tanker">
+<p class="ch-time">00:02</p>
+<h2>From sailboat to tanker</h2>
+<p>We live, Naval says, in an age of nearly infinite tools, and all the great fortunes are created through them. You get tools with permission, by getting people to work for you or raising capital, or without permission, by learning to code or becoming a communicator who podcasts, broadcasts, writes, and makes video.</p>
+<p>Then the image: your vessel grows from a sailboat to an ocean liner or a tanker. More at risk, more to gain, a much higher payload. In an age of nearly infinite tools, judgment becomes the most important skill.</p>
+<div class="pull reveal"><blockquote>In an age of infinite leverage, judgment becomes the most important skill.</blockquote><p class="who">Naval Ravikant, from the episode</p></div><div class="chart reveal" id="c-ships-chart"><h4>From sailboat to tanker</h4>
+<p class="csub">The episode's central image: tools multiply your payload, so your steering matters more.</p>
+<svg viewBox="0 0 680 260" width="100%" role="img" aria-label="Diagram comparing a sailboat and a tanker">
+<g data-tip="Early career: you steer a sailboat. Small payload, small consequences.">
+<rect x="40" y="40" width="260" height="180" fill="#fbf9f3" stroke="#8a7c66" stroke-width="2" rx="8"/>
+<text x="170" y="80" text-anchor="middle" style="font-size:44px">⛵</text>
+<text x="170" y="130" text-anchor="middle" class="vallab">Sailboat</text>
+<text x="170" y="155" text-anchor="middle" class="axis">early career</text>
+<text x="170" y="178" text-anchor="middle" class="axis">hustle for tools</text>
+<text x="170" y="201" text-anchor="middle" class="axis">small payload</text></g>
+<text x="330" y="140" text-anchor="middle" style="font-size:30px">→</text>
+<g data-tip="Later: you steer a tanker. Enormous payload, so judgment is everything.">
+<rect x="380" y="40" width="260" height="180" fill="#eef3e6" stroke="#3d6b34" stroke-width="3" rx="8"/>
+<text x="510" y="80" text-anchor="middle" style="font-size:44px">🚢</text>
+<text x="510" y="130" text-anchor="middle" class="vallab">Tanker</text>
+<text x="510" y="155" text-anchor="middle" class="axis">with tools</text>
+<text x="510" y="178" text-anchor="middle" class="axis">slow down</text>
+<text x="510" y="201" text-anchor="middle" class="axis">judgment decides</text></g>
+</svg>
+<p class="csub"><b>Source.</b> Diagram of the episode's sailboat-to-tanker image. The verdict, slow down once you have tools, is the episode's own.</p></div><figure class="reveal"><img src="assets/ep10-judgment/illustration-tanker.webp" alt="Watercolor illustration of a tiny sailboat beside a colossal ocean tanker at dusk"><p class="caption"><b>Illustration.</b> The sailboat and the tanker: small steering, enormous payload. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-2"><p class="eyebrow">Wisdom nugget 2</p><span class="tag src">Source fact</span><h4>Slow down when the payload grows</h4><p><b>What happened.</b> Naval says the tooled-up operator must slow down because judgment now steers a tanker, not a sailboat.</p><p><b>Why it matters.</b> Speed is a sailboat virtue. With a tanker, one bad turn is a catastrophe and one good turn is a fortune.</p><p><b>Principle.</b> Match your decision speed to your payload. Big tools, slow steering.</p></div>
+</section>
+<section class="chapter" id="ch-buffett" data-time="00:04" data-title="The Buffett proof">
+<p class="ch-time">00:04</p>
+<h2>The Buffett proof</h2>
+<p>Warren Buffett is the existence proof. He is wealthy because of his judgment. Take away all his money tomorrow, and investors would come out of the woodwork and hand him a $100 billion, because his judgment is that good, and they would give him a big chunk of it to invest.</p>
+<p>Nobody asks Buffett how hard he works, when he wakes up, or when he sleeps. The instruction is simple: Warren, just do your thing. Demonstrated judgment with high accountability and a clear public track record is the scarcest asset in the market.</p>
+<div class="nugget reveal" id="nugget-3"><p class="eyebrow">Wisdom nugget 3</p><span class="tag src">Source fact</span><h4>Build a public record of being right</h4><p><b>What happened.</b> Naval says Buffett's judgment is so credible that capital would flow back to him instantly even from zero.</p><p><b>Why it matters.</b> Judgment you cannot demonstrate is a rumor. Judgment on the record is a magnet for infinite tools.</p><p><b>Principle.</b> Make predictions in public, keep score honestly, and stay accountable. The record is the asset.</p></div>
+</section>
+<section class="chapter" id="ch-ceo" data-time="00:06" data-title="Why CEOs earn what they earn">
+<p class="ch-time">00:06</p>
+<h2>Why CEOs earn what they earn</h2>
+<p>The CEO-pay debate gets a cold answer. Yes, crony capitalism exists: CEOs capture boards and boards overpay. But some CEOs earned it, because their judgment is better. Steer Google or Apple with judgment 10 or 20 percent better than the next person's, and society will pay you hundreds of millions more, because you steer a $100 billion ship and the compounding of being right more often dwarfs your pay.</p>
+<p>Demonstrated judgment plus credibility is the whole game. People throw infinite tools behind it.</p>
+<div class="nugget reveal" id="nugget-4"><p class="eyebrow">Wisdom nugget 4</p><span class="tag src">Source fact</span><h4>Get paid for the delta</h4><p><b>What happened.</b> Naval defends high CEO pay for the few whose judgment is measurably better, because the compounding on a huge ship dwarfs the salary.</p><p><b>Why it matters.</b> It reframes the career goal: not a bigger title, but a bigger demonstrable edge in judgment.</p><p><b>Principle.</b> Aim to be 10 percent righter than the alternative on big decisions. On a big enough ship, that is worth a fortune.</p></div>
+</section>
+<section class="chapter" id="ch-define" data-time="00:08" data-title="Judgment is foresight about consequences">
+<p class="ch-time">00:08</p>
+<h2>Judgment is foresight about consequences</h2>
+<p>Nivi offers a definition: knowing the long-term effects of your decisions. Naval agrees and links it to wisdom: "Wisdom is just judgment on a personal domain." Wisdom applied to external problems is judgment. Both come down to "knowing the long term consequences of your actions" and then making the right decision to capitalize on that.</p>
+<p>Everything else you do, he says, is setting you up to apply judgment. The skills are the runway. The decisions are the flight.</p>
+<figure class="reveal"><img src="assets/ep10-judgment/illustration-compass.webp" alt="Watercolor illustration of a glowing brass compass on a chart table in thick fog"><p class="caption"><b>Illustration.</b> The compass in fog: judgment as steady direction through murk. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-5"><p class="eyebrow">Wisdom nugget 5</p><span class="tag src">Source fact</span><h4>Think in decades, decide in minutes</h4><p><b>What happened.</b> Naval defines judgment as foresight about long-term consequences and equates wisdom with judgment turned inward.</p><p><b>Why it matters.</b> Most decisions optimize the quarter. The edge lives in the decade.</p><p><b>Principle.</b> For every big decision, write down the 10-year consequences first. If you cannot, you are not ready to decide.</p></div>
+</section>
+<section class="chapter" id="ch-experience" data-time="00:10" data-title="Intellect without experience is worse than useless">
+<p class="ch-time">00:10</p>
+<h2>Intellect without experience is worse than useless</h2>
+<p>Judgment is hard to build because it needs both intellect and experience. The ivory-tower intellectuals fail here: as Nassim Taleb argues, they have no skin in the game, so they apply pure intellect with borrowed confidence and throw darts. "Without experience, judgment is often less than useless."</p>
+<p>The real world is far more complex than any model of it, especially at the fast-moving edge. The fix is iteration: not 10,000 hours, but 10,000 tries. Smart, fast, skin in the game.</p>
+<div class="chart reveal" id="c-tries-chart"><h4>10,000 tries beat 10,000 hours</h4><p class="csub">Naval corrects the famous rule: hours logged do not build it. Iterations attempted do.</p><svg viewBox="0 0 680 148" width="100%" role="img" aria-label="10,000 tries beat 10,000 hours"><g id="c-tries"><text x="190" y="32" text-anchor="end" class="axis">10,000 hours (the old rule)</text><rect x="200" y="16" width="450.0" height="24" class="bar" data-tip="Hours of practice: the famous but wrong unit."/><text x="658.0" y="33" class="vallab">10000</text><text x="190" y="76" text-anchor="end" class="axis">10,000 tries (the correction)</text><rect x="200" y="60" width="450.0" height="24" class="bar" data-tip="Tries at something: fast iteration with skin in the game."/><text x="658.0" y="77" class="vallab">10000</text></g></svg><p class="csub"><b>Source.</b> Episode: you take 10,000 tries at something. The comparison reframes the 10,000-hour rule.</p></div><div class="toy reveal" id="toy-judge">
+  <h4>Toy: the judgment drill</h4>
+  <p class="csub">The episode defines judgment as knowing the long-term consequences. Pick the answer with the longest view.</p>
+  <div id="judge-q" style="font-size:17px;margin:12px 0;min-height:56px"></div>
+  <div id="judge-opts"></div>
+  <p class="out" id="judge-out"></p>
+</div><div class="nugget reveal" id="nugget-6"><p class="eyebrow">Wisdom nugget 6</p><span class="tag src">Source fact</span><h4>Earn judgment the expensive way</h4><p><b>What happened.</b> Naval says intellect without real-world accountability produces confident dart-throwing, and prescribes 10,000 tries instead of 10,000 hours.</p><p><b>Why it matters.</b> Reading about risk is not risk. Only iterated exposure with consequences builds the pattern library.</p><p><b>Principle.</b> Shrink the bet, multiply the tries. Keep skin in every game that teaches you.</p></div>
+</section>
+<section class="chapter" id="ch-calm" data-time="00:12" data-title="The best judgment is the least emotional">
+<p class="ch-time">00:12</p>
+<h2>The best judgment is the least emotional</h2>
+<p>The people with the best judgment are among the least emotional. The best investors look almost robotic. The passionate-entrepreneur archetype has truth in it, they must care, but they must also see clearly, and emotions cloud the seeing. In investing, companies, and products, emotions get in the way until reality breaks the fantasy and forces suffering.</p>
+<p>Nivi connects the chain: you are accountable for your judgment, judgment is the exercise of wisdom, wisdom comes from experience, and experience accelerates through short iterations.</p>
+<div class="nugget reveal" id="nugget-7"><p class="eyebrow">Wisdom nugget 7</p><span class="tag src">Source fact</span><h4>Cool the emotions, clear the lens</h4><p><b>What happened.</b> Naval argues that emotions prevent seeing what is actually happening, and that the best decision-makers look unemotional.</p><p><b>Why it matters.</b> Every strong emotion is a tax on perception. You pay it before you decide.</p><p><b>Principle.</b> Never decide at peak emotion. Wait for the flat state, then look again. The truth did not move. You did.</p></div>
+</section>
+<section class="chapter" id="ch-philosophers" data-time="00:14" data-title="Top investors sound like philosophers">
+<p class="ch-time">00:14</p>
+<h2>Top investors sound like philosophers</h2>
+<p>Read Jeremy Grantham, Warren Buffett, or Michael Burry and you find philosophers, or at least heavy readers of history and science. Investment books are the worst place to learn investing, Naval says, because investing is a real-world, multivariate, constantly-competed activity. What you need is broad-based judgment, and the way there is broad study of everything, including philosophy, which also makes you more stoic and less emotional.</p>
+<p>Philosophy is not decoration here. It is exercise equipment for the judgment muscle.</p>
+<div class="nugget reveal" id="nugget-8"><p class="eyebrow">Wisdom nugget 8</p><span class="tag src">Source fact</span><h4>Study everything, especially philosophy</h4><p><b>What happened.</b> Naval says the best investors read philosophy and history rather than investing manuals, because edge comes from broad judgment.</p><p><b>Why it matters.</b> Domain manuals teach the current meta, which gets competed away. Broad judgment compounds across metas.</p><p><b>Principle.</b> Read outside your field every week. Philosophy for stoicism, history for pattern, science for method.</p></div>
+</section>
+<section class="chapter" id="ch-outrage" data-time="00:16" data-title="Outrage is the tell">
+<p class="ch-time">00:16</p>
+<h2>Outrage is the tell</h2>
+<p>The closing heuristic is a weapon. The more outraged somebody is, the worse their judgment. Half of Twitter is outraged at something at all times. Read someone's feed and you can see what it is like inside their head.</p>
+<p>The test is practical. You would not hand an enraged stranger your car keys. Do not hand them your company, your capital, or your attention either.</p>
+<div class="pull reveal"><blockquote>The more outraged somebody is, I guarantee you, the worse their judgment is.</blockquote><p class="who">Naval Ravikant, from the episode</p></div><div class="nugget reveal" id="nugget-9"><p class="eyebrow">Wisdom nugget 9</p><span class="tag src">Source fact</span><h4>Read the feed, judge the mind</h4><p><b>What happened.</b> Naval says chronic public outrage reliably signals bad judgment, and offers it as a filter for trust.</p><p><b>Why it matters.</b> Outrage is cheap to fake and expensive to follow. The signal is free if you look.</p><p><b>Principle.</b> Before trusting someone's judgment, scan their public emotions. Constant outrage is a disqualifier.</p></div>
+</section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Naval podcast episode "Judgment Is the Decisive Skill" (YouTube eoLAIDGM4zI), from the full official transcript at nav.al/rich. Timestamps are proportional estimates. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 49 words: the "In an age of infinite leverage, judgment becomes the most important skill." pull quote (12 words), "knowing the long term consequences of your actions" (8 words), "Wisdom is just judgment on a personal domain." (8 words), "Without experience, judgment is often less than useless" (8 words), and the "The more outraged somebody is, I guarantee you, the worse their judgment is." pull quote (13 words). Two quotations keep Naval's original term. Both are verbatim. Each quotation was verified by search against the official transcript. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+
+
+/* ---------- toy: judgment drill ---------- */
+(function(){
+  var qs = [
+    {q: 'A competitor launches a copy of your product. You…',
+     o: ['A: rush a copycat feature this week', 'B: call your lawyer immediately',
+        'C: study why users might switch, then decide in a month'],
+     w: 'C. The rushed feature and the reflex lawsuit optimize the week. The month-long study optimizes the decade.'},
+    {q: 'An investment doubles in a month. You…',
+     o: ['A: double down, it is working', 'B: sell everything, take the win',
+        'C: re-check the original thesis, then act'],
+     w: 'C. Doubling down chases heat; panic-selling chases fear. The thesis is the only adult in the room.'},
+    {q: 'A key employee quits angrily. You…',
+     o: ['A: fire off a company-wide response today', 'B: match their anger in the exit interview',
+        'C: wait 48 hours, then have a calm conversation'],
+     w: 'C. The episode is explicit: the least emotional mind has the best judgment. Wait for the flat state.'}
+  ];
+  var box = document.getElementById('judge-q'), opts = document.getElementById('judge-opts'),
+      out = document.getElementById('judge-out');
+  if(!box) return;
+  var i = 0, score = 0;
+  function show(){
+    if(i >= qs.length){
+      box.textContent = 'Done. You scored ' + score + ' of ' + qs.length + '.';
+      out.textContent = score === qs.length
+        ? 'Decade thinking, every time. That is judgment.'
+        : 'Review the misses: the longest view usually wins.';
+      return;
+    }
+    box.textContent = (i + 1) + '. ' + qs[i].q;
+    opts.innerHTML = ''; out.textContent = '';
+    qs[i].o.forEach(function(label, k){
+      var b = document.createElement('button');
+      b.textContent = label;
+      b.addEventListener('click', function(){
+        var ok = (k === 2);
+        if(ok) score++;
+        out.textContent = (ok ? 'Right. ' : 'Not quite. ') + qs[i].w;
+        i++; setTimeout(show, 2600);
+      });
+      opts.appendChild(b);
+    });
+  }
+  show();
+})();
+
+</script>
+</body>
+</html>
