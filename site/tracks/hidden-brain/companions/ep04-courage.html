@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courage: Hidden Brain Interactive Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Hidden Brain episode on courage: the freeway rescuer, the kidney donors, and the larger amygdala.">
+<style>
+:root{
+  --paper:#fbf9f3; --paper2:#f4eee1; --ink:#24201a; --muted:#6f6455;
+  --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+  --green:#2e6b34; --blue:#2c5f8a;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:18px;line-height:1.65}
+a{color:var(--accent-ink)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+.topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+  align-items:center;gap:14px}
+.topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+.chapnav{position:sticky;top:52px;z-index:99;background:var(--paper2);
+  border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+  padding:8px 12px}
+.chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+  color:var(--muted);text-decoration:none;padding:6px 10px;margin-right:6px;
+  border:1px solid transparent;border-radius:20px}
+.chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+.chapnav a:hover{border-color:var(--line);color:var(--ink)}
+.chapnav a.active{background:var(--ink);color:#fff}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;padding:0 20px}
+@media(min-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,760px)}
+  .chapnav{display:none}
+  .sidenav{display:block}
+}
+.sidenav{display:none;position:sticky;top:70px;align-self:start;
+  max-height:calc(100vh - 90px);overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+.sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+.sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+.sidenav a:hover{color:var(--ink)}
+.sidenav a.active{border-left-color:var(--accent);color:var(--ink);font-weight:700}
+.content{min-width:0;padding:26px 0 60px}
+.breadcrumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px}
+h1{font-size:40px;line-height:1.15;margin:0 0 10px}
+.meta-line{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.sourcebox{border:1px solid var(--line);background:var(--paper2);padding:14px 16px;
+  margin:0 0 26px;font-family:var(--sans);font-size:13px;line-height:1.55}
+.sourcebox .badge{display:inline-block;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-right:8px}
+.badge.transcript{background:#e5f0e2;color:var(--green)}
+.badge.descr{background:#f6e8d4;color:var(--accent-ink)}
+.legend{margin-top:10px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 8px;border-radius:10px;margin:0 6px 4px 0}
+.tag.sf{background:#e5f0e2;color:var(--green)}
+.tag.in{background:#e6ecf5;color:var(--blue)}
+p{margin:0 0 16px}
+h2{font-size:28px;margin:44px 0 12px;scroll-margin-top:130px}
+h3{font-size:21px;margin:28px 0 8px}
+section.chapter{scroll-margin-top:120px}
+figure{margin:26px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+figcaption .kind{font-weight:700;color:var(--ink)}
+.nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+.nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+.nugget h4{font-size:20px;margin:0 0 10px}
+.nugget p{font-size:16.5px;margin:0 0 10px}
+.nugget p:last-child{margin-bottom:0}
+.nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.nugget .nsrc{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.pull{margin:34px 0;padding:6px 0;text-align:center}
+.pull blockquote{font-size:25px;line-height:1.4;margin:0 0 10px;font-style:italic}
+.pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+  background:var(--accent);margin:0 auto 18px}
+.pull:after{margin:18px auto 0}
+.chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+.chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+.chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:12px 0 0}
+.chart .illust{font-family:var(--sans);font-size:11.5px;color:var(--accent-ink);margin:6px 0 0;font-style:italic}
+.video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--line)}
+.video .frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.nugindex{columns:2;column-gap:28px;font-family:var(--sans);font-size:13.5px}
+.nugindex li{margin-bottom:8px;break-inside:avoid}
+footer.honesty{border-top:2px solid var(--ink);margin-top:50px;padding:24px 0 10px;
+  font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+footer.honesty h3{font-size:15px;color:var(--ink);margin:18px 0 8px}
+footer.honesty .big{font-size:15px;color:var(--ink);font-weight:700}
+footer.honesty code{font-family:var(--mono);font-size:12px;background:var(--paper2);padding:1px 5px}
+#tip{position:fixed;pointer-events:none;background:#1d1a15;color:#f7f3ea;
+  font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:6px;
+  max-width:280px;opacity:0;transition:opacity .15s;z-index:300}
+.stat-row{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.stat{flex:1 1 150px;border:1px solid var(--line);background:#fff;padding:14px;text-align:center}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent-ink)}
+.stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.stat .s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:4px}
+@media(max-width:700px){h1{font-size:30px}.nugindex{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Hidden Brain &middot; Interactive companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <aside class="sidenav" id="sidenav" aria-label="Chapters"></aside>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../index.html">Hidden Brain</a> / <span>Courage</span></nav>
+      <p class="eyebrow">Interactive companion</p>
+      <h1>Courage</h1>
+      <p class="meta-line">Episode 4 &middot; Hidden Brain &middot; Guest: Abigail Marsh, psychologist and neuroscientist &middot; Published 2026-04-10 &middot; 8,972 views &middot; 15 min 4 s</p>
+      <div class="sourcebox"><span class="badge transcript">Full transcript</span> Narrated from the full episode transcript on disk (<i>research/hidden-brain/transcripts/aJX2H54MPXY.txt</i>, 2,667 words, from the official YouTube captions), checked against the episode description and research notes.
+      <div class="legend"><span class="tag sf">Source fact</span> claim verified in the source named beside it. <span class="tag in">Interpretation</span> my analysis, clearly separated from source facts.</div></div>
+      <figure class="reveal"><img src="img/ep04-courage-a.webp" alt="Watercolor: highway rescue" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> Six lanes of traffic, one stranger, three risks: the night Abigail Marsh learned what courage looks like.</figcaption></figure>
+      <section class="chapter" id="platform" data-time="00:00"><h2>The platform</h2><p class="reveal">The philosopher Aristotle counted courage among the foundational virtues. Without courage, how do you stand up for the right thing, pursue your true calling, or be a good leader, parent, or friend? One reason we fail these challenges: we misunderstand what bravery is.</p><p class="reveal">April 2017. Two trains stop on a Bronx subway platform in New York City. Through the doors of one train, someone shoots a video. On the other side of the platform, a woman stands trapped between subway doors: her head outside the car, her body caught inside, motionless, half in and half out.</p><p class="reveal">One person walks by, slowly. Then another, then a third. Nobody hurries. Nobody helps. The seconds tick by and you want to shout at the screen. Psychologists call this the bystander effect: many people could help, nobody steps forward, everyone waits for somebody else.</p><div class="nugget reveal" id="n1"><p class="eyebrow">Nugget 1 &middot; The platform</p><h4>Horrors happen while the world watches</h4><p><span class="lbl">What happened.</span> A trapped woman, a platform of passersby, and a viral video of nobody helping.</p><p><span class="lbl">Why it matters.</span> The video spread because it named a fear we all carry: in a crisis, will people walk past us?</p><p><span class="lbl">The principle.</span> Waiting for someone else is the default. Courage starts by refusing the default.</p><p class="nsrc">Source: episode transcript, 00:00:51. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="camera" data-time="00:02:00"><h2>The person holding the phone</h2><p class="reveal">An Instagram story about the incident carried the message that if you thought your day was bad, you should be glad you were not her. But the episode points at someone the video never shows: the person holding the phone.</p><p class="reveal"><span class="tag in">Interpretation</span> If you feel shock that people walk by without helping, what does it say that you shoot a video about it? Help was in fact on the way. Subway employees worked to open the doors. The question is not whether strangers are cruel. It is what you do with your own two hands.</p><div class="pull reveal"><blockquote>&ldquo;All it takes for the triumph of evil is for good men to do nothing.&rdquo;</blockquote><p class="who">Misattributed to Edmund Burke, via the episode</p></div></section><section class="chapter" id="freeway" data-time="00:03:33"><h2>Abigail on I-5</h2><p class="reveal">The episode host once interviewed Abigail Marsh on his podcast. Years ago, Abigail was in college, home for the summer in Washington state. After dinner with a friend in Seattle, she drove toward Tacoma on Interstate 5 around midnight, a busy, heavily trafficked freeway.</p><p class="reveal">Near the crest of the highway she saw a dog running across the freeway. She swerved, hit the dog anyway, and the car fishtailed across several lanes, spun around, and came to rest in the fast lane, facing backward into oncoming traffic just past the crest of the overpass. She called it the most terrified she had ever been.</p><p class="reveal">Cars came over the crest and swerved at the last second, shaking her car each time. She knew it was a matter of time before one hit her. Then a man appeared at her passenger window and offered help.</p><p class="reveal">She remembered her mother advice: do not let strange men into your car. As more cars whooshed over the crest, she said she did need help. He had her move to the passenger seat, waited for a break in traffic, ran around the car, climbed into the driver seat, figured out the car was still in drive, put it in park, started the engine, waited again, gunned it, pulled a sharp U-turn on the interstate, and reached an off-ramp. Then he walked back to his own car and drove off into the night. She never saw him again.</p><p class="reveal">Piecing it together later, Abigail realized the man risked his life three times: running across six lanes of highway to reach her, running around the car to the driver seat, and gunning the U-turn. At the moment he decided, she was a stranger. The question stayed with her through her career as a psychologist and neuroscientist: why had he done it?</p><div class="stat-row"><div class="stat reveal"><div class="n">6</div><div class="l">Highway lanes the stranger crossed on foot</div><div class="s">Episode transcript</div></div><div class="stat reveal"><div class="n">3</div><div class="l">Separate times he risked his life</div><div class="s">Episode transcript</div></div><div class="stat reveal"><div class="n">12am</div><div class="l">Around midnight on Interstate 5</div><div class="s">Episode 00:03:33</div></div></div><div class="nugget reveal" id="n2"><p class="eyebrow">Nugget 2 &middot; Three risks</p><h4>He decided in a split second, for a stranger</h4><p><span class="lbl">What happened.</span> A driver saw a spun-out car in the fast lane, pulled over at midnight, and crossed six lanes of traffic three times to save a woman he had never met.</p><p><span class="lbl">Why it matters.</span> There was no time for calculation and no personal gain. The decision came from somewhere faster than thought.</p><p><span class="lbl">The principle.</span> Courage often looks like a reflex, not a choice. Train the reflex by widening the circle of who counts.</p><p class="nsrc">Source: episode transcript, 00:03:33. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="donors" data-time="00:07:06"><h2>The kidney donors</h2><p class="reveal">Abigail went on to study extraordinary altruists, including non-directed kidney donors: people who donate a kidney not to family or friends but to total strangers. One listener, Lucia Lloyd, heard a podcast episode on the topic and wrote in. She was struck by a donor who said he believed God put us on earth to help people, and she thought she believed that too.</p><div class="pull reveal"><blockquote>&ldquo;I think God put us on this earth to help people.&rdquo;</blockquote><p class="who">Lucia Lloyd, listener note, via the episode</p></div><p class="reveal">Lucia wrote that the obvious answer, if she wanted to resemble the donors, was to donate her own kidney to a stranger, and that she started the process. The host called it one of the best notes in a decade of producing the show.</p><div class="nugget reveal" id="n3"><p class="eyebrow">Nugget 3 &middot; The donor</p><h4>The question that made no sense</h4><p><span class="lbl">What happened.</span> Asked why they donated a kidney to a stranger, many donors found the question strange. If you have two kidneys and someone will die without one, the choice felt obvious.</p><p><span class="lbl">Why it matters.</span> What looks like extreme sacrifice from the outside feels like plain logic from the inside.</p><p><span class="lbl">The principle.</span> Moral clarity is a function of the circle you draw. Draw it wider and hard choices get easy.</p><p class="nsrc">Source: episode transcript, 00:07:06. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="discounting" data-time="00:08:42"><h2>Social discounting</h2><p class="reveal">Most of us live inside a phenomenon called social discounting. We are generous to the people closest to us and grow far less generous as the connection grows even slightly more remote. Asked whether you would donate a kidney to your child, most say yes. To a friend? A co-worker? A stranger? The generosity falls off a cliff.</p><p class="reveal">The altruistic donors Abigail studied made little distinction between their innermost circle and strangers. For people like Lucia, there is not much of a line between us and them. Extraordinary altruists treat people they never met as deserving the same kindness.</p><div class="chart reveal"><h4>Social discounting: the generosity curve</h4><p class="csub">Willingness to help as social distance grows</p><svg viewBox="0 0 560 300" role="img">
+<title>Social discounting: generosity falls with distance for most people, stays flat for extreme altruists (illustrative curves)</title>
+<line x1="60" y1="20" x2="60" y2="260" stroke="#e2d8c3" stroke-width="2"/>
+<line x1="60" y1="260" x2="540" y2="260" stroke="#e2d8c3" stroke-width="2"/>
+<text x="60" y="285" font-size="12" fill="#6f6455" font-family="sans-serif">Child / sibling</text>
+<text x="230" y="285" font-size="12" fill="#6f6455" font-family="sans-serif">Friend</text>
+<text x="360" y="285" font-size="12" fill="#6f6455" font-family="sans-serif">Co-worker</text>
+<text x="470" y="285" font-size="12" fill="#6f6455" font-family="sans-serif">Stranger</text>
+<text x="10" y="150" font-size="12" fill="#6f6455" font-family="sans-serif" transform="rotate(-90 18 150)">Willingness to help</text>
+<polyline points="70,50 200,110 330,190 500,240" fill="none" stroke="#b4531f" stroke-width="3"/>
+<polyline points="70,60 200,70 330,80 500,90" fill="none" stroke="#2e6b34" stroke-width="3" stroke-dasharray="8,5"/>
+<circle cx="70" cy="50" r="5" fill="#b4531f"/><circle cx="200" cy="110" r="5" fill="#b4531f"/>
+<circle cx="330" cy="190" r="5" fill="#b4531f"/><circle cx="500" cy="240" r="5" fill="#b4531f"/>
+<text x="380" y="130" font-size="13" fill="#b4531f" font-family="sans-serif">Most of us: steep fall</text>
+<text x="380" y="60" font-size="13" fill="#2e6b34" font-family="sans-serif">Extreme altruists: nearly flat</text>
+</svg><p class="csrc">Source: episode transcript, 00:08:42. <span class="tag sf">Source fact</span></p><p class="illust">Illustrative: the episode describes the steep fall and the flat curve but gives no numbers. The shapes are the claim.</p></div><figure class="reveal"><img src="img/ep04-courage-b.webp" alt="Watercolor: clasped hands" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> The flat curve as an image: a stranger treated like kin.</figcaption></figure></section><section class="chapter" id="amygdala" data-time="00:10:00"><h2>The amygdala</h2><p class="reveal">Abigail scanned the brains of altruistic kidney donors and compared them with less altruistic people. She found a difference in the amygdala. Extremely altruistic people seem to have larger amygdalas than the rest of us.</p><p class="reveal">The amygdala helps us recognize distress in other people. Extreme altruists appear more sensitive to the pain of others. Psychopaths, tellingly, tend to have smaller amygdalas, which fits their trouble recognizing distress.</p><p class="reveal">Think of people who rush into danger for strangers: diving into stormy seas, dashing into burning buildings. They are not seeing strangers as strangers. They see them as brothers and sisters.</p><div class="nugget reveal" id="n4"><p class="eyebrow">Nugget 4 &middot; The amygdala</p><h4>Courage starts as sensitivity</h4><p><span class="lbl">What happened.</span> Brain scans showed larger amygdalas in extreme altruists and smaller ones in psychopaths.</p><p><span class="lbl">Why it matters.</span> Bravery may begin one step earlier than action: in noticing that someone is in pain.</p><p><span class="lbl">The principle.</span> If you want to act bravely, first practice noticing. Attention is the on-ramp to courage.</p><p class="nsrc">Source: episode transcript. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="fire" data-time="00:11:18"><h2>The burning house</h2><p class="reveal">Some years ago, the mayor of Newark, New Jersey, Cory Booker, came home from work to find his neighbor house on fire, with the neighbor screaming that her daughter was trapped inside. Without thinking, Booker raced in with his security detail behind him, fought through smoke to the bedroom, found the daughter barely conscious, flung her over his shoulder, and staggered back through a kitchen engulfed in flames as embers rained down. He reached the yard and collapsed, and an ambulance took him to the hospital with smoke inhalation and second-degree burns to his hands.</p><p class="reveal">Interviewed afterward on CBS, Booker said the experience terrified him, that he could see nothing but flames, and that at one point he thought they were trapped and could not get out. He did not sound like an action hero. He sounded frightened. That is the point.</p><p class="reveal"><span class="tag in">Interpretation</span> In our minds we confuse courage with fearlessness. When we feel frightened in a hard situation, we tell ourselves this proves we are not brave, because brave people feel no fear. The episode rejects that idea completely. Courageous people are not fearless. They expanded their circle of love until strangers counted the way family counts.</p></section><section class="chapter" id="reframe" data-time="00:13:22"><h2>The reframe</h2><div class="pull reveal"><blockquote>&ldquo;Ask how you can love more. How you can love better.&rdquo;</blockquote><p class="who">Narration, Hidden Brain episode 4</p></div><p class="reveal">That is the great lesson of the altruism research, in the episode own words: if you want to be brave, do not ask how to be less frightened. Ask how to love more.</p><div class="nugget reveal" id="n5"><p class="eyebrow">Nugget 5 &middot; The reframe</p><h4>Stop fighting fear. Start widening love.</h4><p><span class="lbl">What happened.</span> Booker felt terror in the fire. The freeway stranger acted in seconds. The donors gave kidneys to strangers. None of them were fearless.</p><p><span class="lbl">Why it matters.</span> The fearlessness model makes courage unreachable. The love model makes it trainable.</p><p><span class="lbl">The principle.</span> Do not ask how to feel less afraid. Ask who else counts as yours.</p><p class="nsrc">Source: episode transcript, 00:13:22. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="shankar" data-time="00:14:00"><h2>The host own story</h2><p class="reveal">The host closes with a personal story about a different kind of risk. He finished college with an engineering degree, all set for an MBA and corporate life. Given a couple of months off, he worked at a local newspaper and fell in love with journalism: the delight of sharing ideas and explaining things.</p><p class="reveal">Telling his parents he would chuck the engineering degree for journalism worried his father, who asked how he would make ends meet. People later called the choice brave. He says he was not being brave. He was in love with the work. The podcast now receives millions of downloads every month, airs on more than 400 public radio stations, and in 2025 alone he visited 16 cities on a live tour. Things worked out, he says, not because he was fearless, but because he found something bigger than his fear.</p><div class="stat-row"><div class="stat reveal"><div class="n">Millions</div><div class="l">Podcast downloads every month</div><div class="s">Episode transcript</div></div><div class="stat reveal"><div class="n">400+</div><div class="l">Public radio stations carrying the show</div><div class="s">Episode transcript</div></div><div class="stat reveal"><div class="n">16</div><div class="l">Cities visited on the 2025 live tour</div><div class="s">Episode transcript</div></div></div></section>
+      <section class="chapter video" id="watch" data-time="video"><h2>Watch the episode</h2><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/aJX2H54MPXY" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><span style="position:absolute;left:-9999px">Official Hidden Brain episode video for Courage.</span><p style="font-family:var(--sans);font-size:13px;color:var(--muted)">The official Hidden Brain episode video, embedded via youtube-nocookie.com, the only external dependency on this page.</p></section>
+      <section class="chapter" id="nuggets" data-time="index">
+        <h2>Nugget index</h2>
+        <ol class="nugindex"><li><a href="#n1"><b>Nugget 1.</b> Horrors happen while the world watches</a> <span style="color:var(--muted)">(The platform)</span></li><li><a href="#n2"><b>Nugget 2.</b> He decided in a split second, for a stranger</a> <span style="color:var(--muted)">(Abigail on I-5)</span></li><li><a href="#n3"><b>Nugget 3.</b> The question that made no sense</a> <span style="color:var(--muted)">(The kidney donors)</span></li><li><a href="#n4"><b>Nugget 4.</b> Courage starts as sensitivity</a> <span style="color:var(--muted)">(The amygdala)</span></li><li><a href="#n5"><b>Nugget 5.</b> Stop fighting fear. Start widening love.</a> <span style="color:var(--muted)">(The reframe)</span></li></ol>
+      </section>
+    </article>
+    <footer class="honesty" id="honesty"><h3>How this companion was built</h3><p><span class="big">Sourcing.</span> Every factual claim in this companion traces to the full episode transcript, with timestamps from the caption file. The 00:02:00, 00:10:00, and 00:14:00 section markers are approximate, placed by narrative order where the caption search returned no anchor phrase. Interpretive passages carry the Interpretation tag.</p><h3>Sources</h3><ul><li>Episode transcript: research/hidden-brain/transcripts/aJX2H54MPXY.txt (2,667 words, from official YouTube captions, with timestamps from aJX2H54MPXY.en.srt).</li><li>Episode description: research/hidden-brain/descriptions.txt (entry aJX2H54MPXY).</li><li>Episode metadata: research/hidden-brain/episodes.json (views 8,972, upload 2026-04-10, duration 904 s).</li><li>Research notes: research/hidden-brain/research-notes.md (channel verification, transcript provenance).</li></ul><h3>On quotes</h3><p><span class="big">Quoted words in this companion: 37.</span> The quote budget allows at most 50 words of direct quotation per artifact. This is the mechanical recount defined in the build notes: every word inside pull-quote or blockquote markup, plus every quoted phrase in body text and attributes, footer excluded. Unquoted image alt text is not a quoted phrase, so it is excluded from this count. Every quoted phrase below was verified character-for-character against the source on disk.</p><ul><li><code>All it takes for the triumph of evil is for good men to do nothing.</code> &middot; 15 words (Misattributed to Edmund Burke, via the episode)</li><li><code>I think God put us on this earth to help people.</code> &middot; 11 words (Lucia Lloyd, via the episode)</li><li><code>Ask how you can love more. How you can love better.</code> &middot; 11 words (Narration, Hidden Brain episode 4)</li></ul><p>All three phrases appear in the transcript with the wording shown. The Burke line is flagged in the episode as misattributed, and the companion repeats the flag.</p><h3>What was not invented</h3><p>No numbers were invented. The six lanes, the three risks, the 400 stations, and the 16 cities all come verbatim from the transcript. The social-discounting chart is labeled illustrative because the episode describes the curve shapes without numbers. Abigail surname is never stated in the source, and the companion does not supply one.</p><h3>Images and video</h3><p>Illustrations on this page are AI-generated watercolors made for this companion and are labeled as illustrations. No real photographs appear, so no attribution is owed. The video embed uses youtube-nocookie.com, the only external dependency. Everything else loads from local relative paths and works from file://.</p><p>Companion to the <a href="../index.html">Hidden Brain track index</a> and <a href="../ep04.html">the track chapter</a>. Built for study, not affiliated with the show.</p></footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+"use strict";
+var tip=document.getElementById("tip");
+document.addEventListener("mousemove",function(e){
+  var t=e.target.closest("[data-tip]");
+  if(t){tip.textContent=t.getAttribute("data-tip");
+    tip.style.opacity="1";
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-300)+"px";
+    tip.style.top=(e.clientY+16)+"px";}
+  else{tip.style.opacity="0";}
+});
+var chapters=Array.prototype.slice.call(document.querySelectorAll("section.chapter"));
+function navLink(ch){
+  var a=document.createElement("a");
+  a.href="#"+ch.id;
+  var sp=document.createElement("span");sp.className="t";
+  sp.textContent=ch.getAttribute("data-time");
+  a.appendChild(sp);
+  var h=ch.querySelector("h2");
+  a.appendChild(document.createTextNode(h?h.textContent:ch.id));
+  a.setAttribute("data-ch",ch.id);
+  return a;
+}
+var navs=[document.getElementById("chapnav"),document.getElementById("sidenav")];
+navs.forEach(function(n){if(!n)return;chapters.forEach(function(ch){n.appendChild(navLink(ch));});});
+function spy(){
+  var cur=null;
+  chapters.forEach(function(ch){if(ch.getBoundingClientRect().top<160)cur=ch.id;});
+  var links=document.querySelectorAll("[data-ch]");
+  Array.prototype.forEach.call(links,function(a){
+    a.classList.toggle("active",a.getAttribute("data-ch")===cur);});
+}
+document.addEventListener("scroll",spy,{passive:true});spy();
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+  });
+},{threshold:.08});
+Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
