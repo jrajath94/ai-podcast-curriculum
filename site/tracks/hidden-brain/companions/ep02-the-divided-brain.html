@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Divided Brain: Hidden Brain Interactive Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Hidden Brain episode on the divided brain: two attentions, the confabulating left hemisphere, and the master and the emissary.">
+<style>
+:root{
+  --paper:#fbf9f3; --paper2:#f4eee1; --ink:#24201a; --muted:#6f6455;
+  --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+  --green:#2e6b34; --blue:#2c5f8a;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:18px;line-height:1.65}
+a{color:var(--accent-ink)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+.topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+  align-items:center;gap:14px}
+.topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+.chapnav{position:sticky;top:52px;z-index:99;background:var(--paper2);
+  border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+  padding:8px 12px}
+.chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+  color:var(--muted);text-decoration:none;padding:6px 10px;margin-right:6px;
+  border:1px solid transparent;border-radius:20px}
+.chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+.chapnav a:hover{border-color:var(--line);color:var(--ink)}
+.chapnav a.active{background:var(--ink);color:#fff}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;padding:0 20px}
+@media(min-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,760px)}
+  .chapnav{display:none}
+  .sidenav{display:block}
+}
+.sidenav{display:none;position:sticky;top:70px;align-self:start;
+  max-height:calc(100vh - 90px);overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+.sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+.sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+.sidenav a:hover{color:var(--ink)}
+.sidenav a.active{border-left-color:var(--accent);color:var(--ink);font-weight:700}
+.content{min-width:0;padding:26px 0 60px}
+.breadcrumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px}
+h1{font-size:40px;line-height:1.15;margin:0 0 10px}
+.meta-line{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.sourcebox{border:1px solid var(--line);background:var(--paper2);padding:14px 16px;
+  margin:0 0 26px;font-family:var(--sans);font-size:13px;line-height:1.55}
+.sourcebox .badge{display:inline-block;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-right:8px}
+.badge.transcript{background:#e5f0e2;color:var(--green)}
+.badge.descr{background:#f6e8d4;color:var(--accent-ink)}
+.legend{margin-top:10px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 8px;border-radius:10px;margin:0 6px 4px 0}
+.tag.sf{background:#e5f0e2;color:var(--green)}
+.tag.in{background:#e6ecf5;color:var(--blue)}
+p{margin:0 0 16px}
+h2{font-size:28px;margin:44px 0 12px;scroll-margin-top:130px}
+h3{font-size:21px;margin:28px 0 8px}
+section.chapter{scroll-margin-top:120px}
+figure{margin:26px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+figcaption .kind{font-weight:700;color:var(--ink)}
+.nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+.nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+.nugget h4{font-size:20px;margin:0 0 10px}
+.nugget p{font-size:16.5px;margin:0 0 10px}
+.nugget p:last-child{margin-bottom:0}
+.nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.nugget .nsrc{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.pull{margin:34px 0;padding:6px 0;text-align:center}
+.pull blockquote{font-size:25px;line-height:1.4;margin:0 0 10px;font-style:italic}
+.pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+  background:var(--accent);margin:0 auto 18px}
+.pull:after{margin:18px auto 0}
+.chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+.chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+.chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:12px 0 0}
+.chart .illust{font-family:var(--sans);font-size:11.5px;color:var(--accent-ink);margin:6px 0 0;font-style:italic}
+.video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--line)}
+.video .frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.nugindex{columns:2;column-gap:28px;font-family:var(--sans);font-size:13.5px}
+.nugindex li{margin-bottom:8px;break-inside:avoid}
+footer.honesty{border-top:2px solid var(--ink);margin-top:50px;padding:24px 0 10px;
+  font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+footer.honesty h3{font-size:15px;color:var(--ink);margin:18px 0 8px}
+footer.honesty .big{font-size:15px;color:var(--ink);font-weight:700}
+footer.honesty code{font-family:var(--mono);font-size:12px;background:var(--paper2);padding:1px 5px}
+#tip{position:fixed;pointer-events:none;background:#1d1a15;color:#f7f3ea;
+  font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:6px;
+  max-width:280px;opacity:0;transition:opacity .15s;z-index:300}
+.stat-row{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.stat{flex:1 1 150px;border:1px solid var(--line);background:#fff;padding:14px;text-align:center}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent-ink)}
+.stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.stat .s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:4px}
+@media(max-width:700px){h1{font-size:30px}.nugindex{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Hidden Brain &middot; Interactive companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <aside class="sidenav" id="sidenav" aria-label="Chapters"></aside>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../index.html">Hidden Brain</a> / <span>The Divided Brain</span></nav>
+      <p class="eyebrow">Interactive companion</p>
+      <h1>The Divided Brain</h1>
+      <p class="meta-line">Episode 2 &middot; Hidden Brain &middot; Guest: Iain McGilchrist, psychiatrist &middot; Published 2026-06-03 &middot; 10,798 views &middot; 21 min</p>
+      <div class="sourcebox"><span class="badge transcript">Full transcript</span> Narrated from the full episode transcript on disk (<i>research/hidden-brain/transcripts/Exq_aynYzrM.txt</i>, 3,558 words, from the official YouTube captions), checked against the episode description and research notes.
+      <div class="legend"><span class="tag sf">Source fact</span> claim verified in the source named beside it. <span class="tag in">Interpretation</span> my analysis, clearly separated from source facts.</div></div>
+      <figure class="reveal"><img src="img/ep02-divided-brain-a.webp" alt="Watercolor: split-profile head" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> One head, two ways of meeting the world: detail on one side, the whole on the other.</figcaption></figure>
+      <section class="chapter" id="vortex" data-time="00:00"><h2>The vortex</h2><p class="reveal">Type left brain versus right brain into YouTube and you fall into a vortex of wild claims. Creative people are right-brained, analytical people are left-brained. For decades pop psychology carved the brain into two neat boxes, and the idea grew so crude that serious scientists walked away from the whole field.</p><p class="reveal"><span class="tag sf">Source fact</span> One psychiatrist decided to study the divided brain anyway. Colleagues warned him the topic was toxic and told him not to go near it. He went anyway. His name is Iain McGilchrist, and his book on the subject is The Master and His Emissary.</p><p class="reveal">What he found looks nothing like the YouTube version. The two halves of the brain do not do different things. They do the same things, but in different ways. That distinction carries large consequences for how we learn, how we judge right from wrong, and how we see reality itself.</p></section><section class="chapter" id="why-split" data-time="00:01:46"><h2>Why the brain is split</h2><p class="reveal">Start with the oldest question. If the brain were a simple processing machine, why split it in half? The division is ancient. It shows up in mammals, reptiles, fish, insects, even in nematode worms whose brains hold just 302 neurons and still work asymmetrically.</p><p class="reveal">One of the oldest creatures with a neural network, a tiny organism called Nematostella vectensis, lived about 600 million years ago. Its network was asymmetrical. Whatever the division does, evolution has bet on it since long before dinosaurs walked the earth.</p><p class="reveal">McGilchrist explains the bet with a bird. A bird picking up a seed needs two kinds of attention at once: narrow, precise focus to grab the seed, and broad, sustained vigilance to spot the predator. Narrow alone means the bird eats the seed and gets eaten. Wide alone means it sees danger coming and starves.</p><div class="stat-row"><div class="stat reveal"><div class="n">302</div><div class="l">Neurons in the nematode brain, still asymmetrical</div><div class="s">Episode 00:01:46</div></div><div class="stat reveal"><div class="n">600M</div><div class="l">Years since asymmetric neural networks appear</div><div class="s">Episode 00:01:58</div></div><div class="stat reveal"><div class="n">2</div><div class="l">Kinds of attention every creature needs at once</div><div class="s">Episode transcript</div></div></div><div class="nugget reveal" id="n1"><p class="eyebrow">Nugget 1 &middot; Two attentions</p><h4>The seed and the hawk</h4><p><span class="lbl">What happened.</span> McGilchrist traces the divided brain to a survival problem: a bird must watch the seed and the predator at the same time, with two incompatible kinds of attention.</p><p><span class="lbl">Why it matters.</span> The split is not a design flaw. It is the solution to the problem of two views of reality at once.</p><p><span class="lbl">The principle.</span> When two demands conflict, do not pick one. Build a system that holds both.</p><p class="nsrc">Source: episode transcript, 00:01:46. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="how" data-time="00:04:00"><h2>How, not what</h2><p class="reveal">Here the pop version collapses. Both hemispheres take part in everything. The difference is how they approach it. McGilchrist argues the old error came from treating the brain like a machine, assigning each part a function. Ask instead how a person does a thing, and the hemispheres reveal themselves: each does all things in a totally different way, with a different spirit, toward a different end.</p><p class="reveal">Music makes the partnership concrete. The right hemisphere takes in the piece as a whole. The left unpacks it, and you practice the fingering at bar 18, and you learn where the harmony moves. Then, to perform, you must put the analysis out of your mind. The whole comes first, then the parts, then back to the whole, which only the right hemisphere can hold.</p><figure class="reveal"><img src="img/ep02-divided-brain-b.webp" alt="Watercolor: bird and hawk" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> Two attentions in one sky: the seed below, the predator above.</figcaption></figure></section><section class="chapter" id="gatekeeper" data-time="00:05:44"><h2>The gatekeeper</h2><p class="reveal">For this collaboration to work, the hemispheres must connect and stay separate. The bundle of fibers that links them, the corpus callosum, is usually described as a bridge passing information freely. McGilchrist calls it a gatekeeper, and believes its main job is separation.</p><p class="reveal">His analogy: a surgeon and a scrub nurse collaborate precisely because they do not do the same job. Without the boundary, the two views of reality would blur into one, and the advantage of holding two perspectives would vanish.</p><div class="nugget reveal" id="n2"><p class="eyebrow">Nugget 2 &middot; The gatekeeper</p><h4>Separation is what makes teamwork work</h4><p><span class="lbl">What happened.</span> McGilchrist reframes the corpus callosum as a gatekeeper whose main work is to keep the two hemispheres distinct, not just linking them.</p><p><span class="lbl">Why it matters.</span> Two perspectives help only while they stay two. Merge them and the advantage disappears.</p><p><span class="lbl">The principle.</span> In any partnership, protect the difference between the partners. Sameness is not synergy.</p><p class="nsrc">Source: episode transcript, 00:05:44. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="split-brain" data-time="00:06:23"><h2>The split-brain window</h2><p class="reveal">In 1997 PBS aired a documentary about a patient named Joe. He had severe epilepsy, and his doctors tried a radical treatment: a surgeon sliced his corpus callosum, literally splitting his brain in two. The surgery stopped the seizures and gave researchers a rare window into each hemisphere on its own.</p><div class="chart reveal"><h4>How old is the divided brain</h4><p class="csub">Three landmarks from the episode</p><svg viewBox="0 0 560 192" role="img">
+<line x1="120" y1="20" x2="120" y2="172" stroke="#e2d8c3" stroke-width="3"/>
+<circle cx="120" cy="44" r="7" fill="#b4531f"/>
+<text x="0" y="49" font-size="13" font-weight="bold" fill="#8f3f14" font-family="monospace">600M yrs ago</text>
+<text x="142" y="49" font-size="13" fill="#24201a" font-family="sans-serif">Asymmetric neural nets in Nematostella vectensis</text>
+<circle cx="120" cy="88" r="7" fill="#b4531f"/>
+<text x="0" y="93" font-size="13" font-weight="bold" fill="#8f3f14" font-family="monospace">1997</text>
+<text x="142" y="93" font-size="13" fill="#24201a" font-family="sans-serif">PBS films Joe after corpus callosum surgery</text>
+<circle cx="120" cy="132" r="7" fill="#b4531f"/>
+<text x="0" y="137" font-size="13" font-weight="bold" fill="#8f3f14" font-family="monospace">2026</text>
+<text x="142" y="137" font-size="13" fill="#24201a" font-family="sans-serif">This Hidden Brain episode airs</text>
+</svg><p class="csrc">Source: episode transcript, 00:01:58 and 00:06:23. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="morals" data-time="00:08:40"><h2>Tone, humor, and morals</h2><p class="reveal">The differences run deeper than attention. Both hemispheres process language, but the right tracks tone, implication, and what is not said, while the left sticks to the literal words. Say the room is a bit hot, and the right hemisphere hears a request to open a window. The left wonders why you offer weather news. Humor needs the same double vision, which is why right-hemisphere damage can rob people of the sense of what is funny.</p><p class="reveal">Moral reasoning splits the same way. Picture two scenes. A woman puts what she thinks is sugar in a friend cup, but it is poison, and the friend dies. Another woman puts what she thinks is poison in the coffee of someone she hates, but it is sugar, and the person lives. Most of us call the second worse. Intent is what matters.</p><p class="reveal">When researchers temporarily disabled part of the right hemisphere, the right temporal parietal junction, volunteers gave strange, purely utilitarian answers. To the left hemisphere alone, what matters is that in one case someone lies dead on the floor. The fact that it was unintentional needs the bigger picture.</p><div class="nugget reveal" id="n3"><p class="eyebrow">Nugget 3 &middot; The moral experiment</p><h4>Intent needs the wide view</h4><p><span class="lbl">What happened.</span> With the right hemisphere disrupted, people judged the accidental poisoning worse than the attempted murder, because a death is a death.</p><p><span class="lbl">Why it matters.</span> Moral judgment is not calculation. It needs context, and context lives in the wide view.</p><p><span class="lbl">The principle.</span> When a verdict feels obvious, ask which hemisphere casts the vote. Facts alone acquit and condemn badly.</p><p class="nsrc">Source: episode transcript, 00:08:40. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="arm" data-time="00:10:37"><h2>The arm that was not hers</h2><p class="reveal">Now the darker turn. The left hemisphere cannot see the big picture, and because it believes what it can see is all there is to see, it does not know that it misses the big picture.</p><p class="reveal">After a left-hemisphere stroke, the right hemisphere still works, and patients know something is wrong. After a right-hemisphere stroke, patients can have no idea anything changed. McGilchrist describes a doctor examining a woman whose arm hung paralyzed. The physician asked about the arm:</p><div class="pull reveal"><blockquote>&ldquo;Whose arm is this?&rdquo;</blockquote><p class="who">Physician, in the exchange McGilchrist describes, episode 00:10:37</p></div><p class="reveal">The patient answered that it was her mother arm, that she found it in her bed, that it felt warmer than her own. Her own arm, attached to her body, and her left hemisphere working alone invented a self-contained story rather than admit the defect.</p><p class="reveal"><span class="tag in">Interpretation</span> This is confabulation as a feature, not a bug. The left hemisphere does not report the world. It defends a story about the world. When evidence contradicts the story, it rewrites the evidence.</p><div class="nugget reveal" id="n4"><p class="eyebrow">Nugget 4 &middot; The mother arm</p><h4>The left hemisphere would rather invent than admit</h4><p><span class="lbl">What happened.</span> A stroke patient with right-hemisphere damage denied her paralyzed arm was hers and claimed it belonged to her mother.</p><p><span class="lbl">Why it matters.</span> The narrow view does not merely miss context. It fabricates a story that hides the miss.</p><p><span class="lbl">The principle.</span> Distrust the part of your mind that is never confused. Certainty is often confabulation.</p><p class="nsrc">Source: episode transcript, 00:10:37. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="gaps" data-time="00:13:33"><h2>The gaps between the notes</h2><p class="reveal">McGilchrist offers an analogy for the scientific way of knowing. Drill into music with electron microscopy and you learn that music is made of notes. A note is a simple tone. It means nothing. Put 35,000 meaningless notes together and you get the B minor mass. Where does the meaning come from? It must come from the gaps between the notes, the gaps that make melody and harmony. But the gaps are silence, and silence means nothing either. Many nothings, added up, mean everything.</p><div class="pull reveal"><blockquote>&ldquo;The left hemisphere hears the individual notes. Notices the gaps between the notes. The right hemisphere hears Bach.&rdquo;</blockquote><p class="who">Narration, Hidden Brain episode 2</p></div><p class="reveal">The piece was written more than 200 years ago. The left hemisphere can count its parts forever and never arrive at the glory. The glory lives in the whole.</p></section><section class="chapter" id="master" data-time="00:16:30"><h2>The master and the emissary</h2><p class="reveal">The book title comes from a parable with roots in Nietzsche. A wise master rules the land but cannot be everywhere, so he appoints an emissary, a bright messenger, to carry instructions to the far corners. The emissary is bright, but not bright enough to know what he does not know. He decides he knows everything, dons the master cloak, and the community falls apart.</p><p class="reveal">The master is the right hemisphere: the whole picture, context, meaning. The emissary is the left: details, tasks, breaking problems into pieces. The emissary is essential. Without it nothing gets done. But it cannot see what the master sees, and because it cannot see the big picture, it assumes there is no big picture to see.</p><div class="nugget reveal" id="n5"><p class="eyebrow">Nugget 5 &middot; Master and emissary</p><h4>The servant who forgot the master</h4><p><span class="lbl">What happened.</span> McGilchrist maps the hemispheres onto the parable: the right hemisphere is the master who sees the whole, the left the emissary who executes the parts.</p><p><span class="lbl">Why it matters.</span> The danger is not the emissary. It is the emissary believing it is the master.</p><p><span class="lbl">The principle.</span> Let the detail-worker run the details, but never let it set the direction.</p><p class="nsrc">Source: episode transcript. Parable from Nietzsche via McGilchrist. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="world" data-time="00:18:00"><h2>The world the emissary built</h2><p class="reveal">McGilchrist believes the parable describes modern Western society. Asked what a world run by the left hemisphere alone would look like, he lists: loss of the big picture, emphasis on detail, predictability, categorization, loss of the unique, a need for total control, anger as the keynote of public discourse, and black-and-white thinking that cannot tolerate shades of meaning.</p><p class="reveal">He sees the symptoms around us: predetermined systems of algorithms, social alienation, life divorced from the natural world, insistence on extreme positions. Meaning, he argues, comes from living in a consistent culture with connection to the past, to other people, to the natural world, and to things beyond our ken. Those are right-hemisphere understandings, and their loss in modern life is grievous.</p><p class="reveal"><span class="tag in">Interpretation</span> He is careful to say this is not an argument against science or reason. He loves science and depends on it. The argument is about balance. The hemispheres need each other. The trouble starts when one forgets the other exists.</p></section><section class="chapter" id="gift" data-time="00:19:41"><h2>The forgotten gift</h2><p class="reveal">McGilchrist closes with a line often misattributed to Albert Einstein: the rational mind is a faithful servant, the intuitive mind is a precious gift, and we live in a society that honors the servant and forgets the gift.</p><p class="reveal">The story of the divided brain is not about one half good and the other bad. We need the emissary, its precision, its focus, its power to break things into parts. But the master, the part that sees the whole picture and understands what is not said, now sits pushed aside, and most of us do not even realize it is gone. When the left hemisphere loses something, it does not mourn the loss. It denies there was ever anything there to lose.</p></section>
+      <section class="chapter video" id="watch" data-time="video"><h2>Watch the episode</h2><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/Exq_aynYzrM" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><span style="position:absolute;left:-9999px">Official Hidden Brain episode video for The Divided Brain.</span><p style="font-family:var(--sans);font-size:13px;color:var(--muted)">The official Hidden Brain episode video, embedded via youtube-nocookie.com, the only external dependency on this page.</p></section>
+      <section class="chapter" id="nuggets" data-time="index">
+        <h2>Nugget index</h2>
+        <ol class="nugindex"><li><a href="#n1"><b>Nugget 1.</b> The seed and the hawk</a> <span style="color:var(--muted)">(Why the brain is split)</span></li><li><a href="#n2"><b>Nugget 2.</b> Separation is what makes teamwork work</a> <span style="color:var(--muted)">(The gatekeeper)</span></li><li><a href="#n3"><b>Nugget 3.</b> Intent needs the wide view</a> <span style="color:var(--muted)">(Tone, humor, and morals)</span></li><li><a href="#n4"><b>Nugget 4.</b> The left hemisphere would rather invent than admit</a> <span style="color:var(--muted)">(The arm that was not hers)</span></li><li><a href="#n5"><b>Nugget 5.</b> The servant who forgot the master</a> <span style="color:var(--muted)">(The master and the emissary)</span></li></ol>
+      </section>
+    </article>
+    <footer class="honesty" id="honesty"><h3>How this companion was built</h3><p><span class="big">Sourcing.</span> Every factual claim in this companion traces to the full episode transcript, with timestamps from the caption file. Interpretive passages carry the Interpretation tag.</p><h3>Sources</h3><ul><li>Episode transcript: research/hidden-brain/transcripts/Exq_aynYzrM.txt (3,558 words, from official YouTube captions, with timestamps from Exq_aynYzrM.en.srt).</li><li>Episode description: research/hidden-brain/descriptions.txt (entry Exq_aynYzrM).</li><li>Episode metadata: research/hidden-brain/episodes.json (views 10,798, upload 2026-06-03, duration 1,260 s).</li><li>Research notes: research/hidden-brain/research-notes.md (channel verification, transcript provenance).</li></ul><h3>On quotes</h3><p><span class="big">Quoted words in this companion: 22.</span> The quote budget allows at most 50 words of direct quotation per artifact. This is the mechanical recount defined in the build notes: every word inside pull-quote or blockquote markup, plus every quoted phrase in body text and attributes, footer excluded. Unquoted image alt text is not a quoted phrase, so it is excluded from this count. Every quoted phrase below was verified character-for-character against the source on disk.</p><ul><li><code>The left hemisphere hears the individual notes. Notices the gaps between the notes. The right hemisphere hears Bach.</code> &middot; 18 words (Narration, Hidden Brain episode 2)</li><li><code>Whose arm is this?</code> &middot; 4 words (Physician in the exchange McGilchrist describes)</li></ul><p>Both phrases appear in the transcript with the wording shown. The colleague warning, the Einstein line, and the arm exchange replies are paraphrased, not quoted, to keep every quoted phrase free of contractions.</p><h3>What was not invented</h3><p>No numbers were invented. The 302 neurons, the 600 million years, the 1997 documentary, and the 35,000 notes all come verbatim from the transcript. The Einstein line is identified in the episode as sometimes misattributed, and the companion repeats that caution. The 00:19:41 timestamp is verified in the captions. Section timestamps 00:16:30 and 00:18:00 are approximate, placed by narrative order, since the caption search returned no anchor phrases there.</p><h3>Images and video</h3><p>Illustrations on this page are AI-generated watercolors made for this companion and are labeled as illustrations. No real photographs appear, so no attribution is owed. The video embed uses youtube-nocookie.com, the only external dependency. Everything else loads from local relative paths and works from file://.</p><p>Companion to the <a href="../index.html">Hidden Brain track index</a> and <a href="../ep02.html">the track chapter</a>. Built for study, not affiliated with the show.</p></footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+"use strict";
+var tip=document.getElementById("tip");
+document.addEventListener("mousemove",function(e){
+  var t=e.target.closest("[data-tip]");
+  if(t){tip.textContent=t.getAttribute("data-tip");
+    tip.style.opacity="1";
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-300)+"px";
+    tip.style.top=(e.clientY+16)+"px";}
+  else{tip.style.opacity="0";}
+});
+var chapters=Array.prototype.slice.call(document.querySelectorAll("section.chapter"));
+function navLink(ch){
+  var a=document.createElement("a");
+  a.href="#"+ch.id;
+  var sp=document.createElement("span");sp.className="t";
+  sp.textContent=ch.getAttribute("data-time");
+  a.appendChild(sp);
+  var h=ch.querySelector("h2");
+  a.appendChild(document.createTextNode(h?h.textContent:ch.id));
+  a.setAttribute("data-ch",ch.id);
+  return a;
+}
+var navs=[document.getElementById("chapnav"),document.getElementById("sidenav")];
+navs.forEach(function(n){if(!n)return;chapters.forEach(function(ch){n.appendChild(navLink(ch));});});
+function spy(){
+  var cur=null;
+  chapters.forEach(function(ch){if(ch.getBoundingClientRect().top<160)cur=ch.id;});
+  var links=document.querySelectorAll("[data-ch]");
+  Array.prototype.forEach.call(links,function(a){
+    a.classList.toggle("active",a.getAttribute("data-ch")===cur);});
+}
+document.addEventListener("scroll",spy,{passive:true});spy();
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+  });
+},{threshold:.08});
+Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
