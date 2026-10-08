@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TSMC Founder Morris Chang: Acquired Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Acquired interview with TSMC founder Morris Chang: the pure-play foundry, the 1997 Jensen letter, the 2009 crisis, the 28nm bet, and winning Apple.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5f7a; --accent-ink:#14455a; --soft:#e8f0f4;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bcd9e4}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd8dd}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e8edef;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2edf2;color:#14455a;border:1px solid #bcd2dd}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Acquired &middot; Track Companion</a>
+  <span class="sub">Ep 2 &middot; TSMC Founder Morris Chang &middot; Jan 2025</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Acquired &middot; Episode 2 &middot; Companion</p>
+      <h1>TSMC Founder Morris Chang</h1>
+      <p class="dek">Ben and David flew to Taiwan for a rare English interview with the 93-year-old founder of TSMC. He tells stories from his Chinese-only memoirs: the 1997 letter from Jensen, the 2009 crisis that pulled him back at 78, the 28-nanometer bet, and how TSMC won Apple from Intel.</p>
+      <img src="assets/ep02/morris-chang.jpg" alt="Photograph of Morris Chang, founder of TSMC">
+      <p class="caption"><b>Photo.</b> Morris Chang, founder of TSMC. Source: macmagazine.com.br.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">56</div><div class="l">Morris's age when he founded TSMC in 1987, inventing the pure-play foundry</div><div class="s">Episode @00:00</div></div>
+        <div class="stat"><div class="n">$1B</div><div class="l">TSMC revenue in 1995, ten years in, when Nvidia was a 50-person company facing bankruptcy</div><div class="s">Episode @00:03:22</div></div>
+        <div class="stat"><div class="n">$100M+</div><div class="l">Morris's offer to Jensen to settle the 2009 dispute, expiring in 48 hours</div><div class="s">Episode @00:29:08</div></div>
+        <div class="stat"><div class="n">$6B</div><div class="l">Capex in 2010 for the all-in 28nm bet, triple the prior yearly level</div><div class="s">Episode @00:43:04</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/FZItbr4ZJnc" title="Acquired: TSMC founder Morris Chang (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Acquired episode video (2 hr 21 min). Chapter times below match the official YouTube chapter marks.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Never be negligent with a future customer</a></li>
+          <li><a href="#nugget-2">Do the unglamorous first five years</a></li>
+          <li><a href="#nugget-3">Never compete with your customers</a></li>
+          <li><a href="#nugget-4">Layoffs are stupid arithmetic</a></li>
+          <li><a href="#nugget-5">The 48-hour fair offer</a></li>
+          <li><a href="#nugget-6">Fix R and D at 8 percent, end the annual fight</a></li>
+          <li><a href="#nugget-7">Take half and borrow</a></li>
+          <li><a href="#nugget-8">Why Intel could not be the foundry</a></li>
+          <li><a href="#nugget-9">Price at end-game cost</a></li>
+          <li><a href="#nugget-10">Combine, do not split</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript has no timestamps.</p>
+    </div>
+    <section class="chapter" id="ch-intro" data-time="00:00" data-title="Intro: Inventing the Pure-Play Foundry">
+      <p class="ch-time">00:00</p>
+      <h2>Intro: Inventing the Pure-Play Foundry</h2>
+      <figure>
+        <img src="assets/ep02/illustration-foundry-dawn.webp" alt="Watercolor illustration of an older man in a suit before a glowing semiconductor fab at dawn">
+        <p class="caption"><b>Illustration.</b> Taiwan, 1987: the pure-play foundry did not exist until Morris built it. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Morris founded TSMC in 1987 at age 56. Everyone thought the idea was crazy. The industry was vertically integrated: you designed your chips and you built your own fabs. A company that only manufactured, for anyone who walked in, seemed like a contradiction.</p>
+      <p>A foundry manufactures chips designed by other companies. A pure-play foundry does only manufacturing and never sells its own chip designs, so it never competes with its customers. An IDM, integrated device manufacturer, like Intel designs and manufactures its own chips.</p>
+      <p>Morris saw the future before founding. At General Instrument, a founder came asking for a 50 million dollar investment, then called back to say he only needed 5 million. Why? He was not going to build a fab. That was the start for Morris: chip companies without factories, fabless companies, were on the way. Morris says he was within about 12 months of when he thought fabless would arrive.</p>
+      <p>Don Valentine's line about Sequoia, which Morris quotes:</p>
+      <div class="pull">
+        <blockquote>I had an advantage I knew the future</blockquote>
+        <p class="who">Don Valentine, quoted by Morris Chang &middot; Episode ~01:43</p>
+      </div>
+      <p>Morris says he had a glimpse of it.</p>
+      <p>But the first five-plus years were unglamorous. TSMC's real business was to take other IDMs' least critical, least interesting overflow orders. Ben calls the original business plan kind of bad: rent out spare capacity for anyone's boring chips. Morris does not dispute it. He did the unglamorous business deliberately to build competency, volume, capacity, and literal fabs, so TSMC would stand ready when the fabless revolution arrived.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 &middot; Beginnings</p>
+        <h4>Do the unglamorous first five years</h4>
+        <p><span class="lbl">What happened. </span>For five-plus years TSMC lived on other companies' boring overflow orders. Nobody celebrated. Morris ran it that way on purpose to build competency, volume, and fabs.</p>
+        <p><span class="lbl">Why it matters. </span>When the fabless wave arrived, TSMC was the only factory ready. The boring years were the price of being there.</p>
+        <p><span class="lbl">The principle. </span>Serve the unglamorous demand first if it builds the capability the glamorous demand will need.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 &middot; Business model</p>
+        <h4>Never compete with your customers</h4>
+        <p><span class="lbl">What happened. </span>The pure-play foundry's founding promise: TSMC manufactures and never designs, so it never competes with the companies it serves. Intel designs chips that compete with its foundry customers' designs.</p>
+        <p><span class="lbl">Why it matters. </span>This single structural choice is why Apple trusted TSMC over Intel decades later. Trust compounds. Conflicts of interest compound faster.</p>
+        <p><span class="lbl">The principle. </span>Design the business so your success never requires your customer's failure. Structure beats reassurance.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-letter" data-time="00:03:22" data-title="1997: The Letter from Jensen">
+      <p class="ch-time">00:03:22</p>
+      <h2>1997: The Letter from Jensen</h2>
+      <p><span class="tag fact">Source fact</span> Morris's relationship with Jensen started with a letter in 1997. Nvidia was four years old, had 50 or 60 employees, and faced bankruptcy. TSMC had a few thousand employees and already passed 1 billion dollars in revenue in 1995. Nvidia approached TSMC's San Jose office and got no answer.</p>
+      <p>Morris had always told his salespeople never to be negligent with a future customer, even a tiny one, so the silence irritated him. The letter also raised his curiosity. He planned to fly to California the next week anyway. He called Jensen with no advance notice. Jensen picked up himself, background noise of an argument in progress, and shouted to his people to be quiet, because Morris Chang was on the line.</p>
+      <p>Jensen impressed Morris with articulateness and optimism, and with frankness: Nvidia was in financial difficulty, but the chip he wanted built would not only save the company, it would make Nvidia a major TSMC customer. Major meant at least 50 million dollars a year in TSMC revenue. Morris calls it quite a bold statement from a company that size.</p>
+      <p>The prediction came true. The chip was a successful games chip, it solved Nvidia's financial problems, and within two or three years Nvidia was one of TSMC's five biggest customers. The partnership has run from that day to the present at immense scale.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 &middot; Customers</p>
+        <h4>Never be negligent with a future customer</h4>
+        <p><span class="lbl">What happened. </span>A 50-person company facing bankruptcy wrote a letter. TSMC's San Jose office ignored it. Morris called back personally, because his rule forbids neglecting future customers no matter how small they look.</p>
+        <p><span class="lbl">Why it matters. </span>That letter became the most valuable customer relationship in TSMC's history. The San Jose office's non-answer nearly cost TSMC everything Nvidia later brought.</p>
+        <p><span class="lbl">The principle. </span>Answer the small customer today. You cannot tell which tiny company carries your future biggest account.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-40nm" data-time="00:09:50" data-title="2009: The 40-Nanometer Crisis">
+      <p class="ch-time">00:09:50</p>
+      <h2>2009: The 40-Nanometer Crisis</h2>
+      <figure>
+        <img src="assets/ep02/tsmc-fab-night.jpg" alt="Photograph of a TSMC fab building at night">
+        <p class="caption"><b>Photo.</b> A TSMC fab at night. Source: newbloommag.net.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Morris gave the CEO job to a successor, Rick Tsai, while keeping the chairmanship. In Taiwan, he notes, the chairman is the top person anyway. During those years, TSMC hit a crisis on the 40-nanometer node: manufacturing problems and, worse, quality problems. Yields were low. Yield is the percentage of chips on a wafer that actually work. A yield problem means you pay to manufacture chips you must throw away.</p>
+      <p>Nvidia was perhaps the biggest customer on that node, and it lost time and money. But the CEO insisted TSMC was not at fault and offered Nvidia nothing. Zero. Morris, watching as chairman, grew impatient. Other problems piled up: pricing fell faster than manufacturing cost, so gross margin kept dropping, and the CEO had laid off 600 to 700 people.</p>
+      <p>The layoffs violated Morris's deepest management principle, learned at Texas Instruments in the early 1970s. TI's first instinct in a downturn was to lay off by performance rating. Morris was the only one who objected. His argument: performance ratings are subjective. Seven hundred bad ratings come from seven hundred supervisors. Nobody will respect the decision. Worse, the arithmetic fails: separation costs about half a year of pay, and training a replacement takes at least half a year. If you need the people back within a year, the layoff was stupid.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 &middot; Management</p>
+        <h4>Layoffs are stupid arithmetic</h4>
+        <p><span class="lbl">What happened. </span>Morris opposed layoffs at TI and banned them at TSMC. Separation costs half a year of pay, retraining takes half a year, and ratings are subjective. A struggling employee got six months of probation instead, and most returned to their jobs.</p>
+        <p><span class="lbl">Why it matters. </span>Under Morris, TSMC essentially never did layoffs. The 600 to 700 layoffs under his successor triggered a protest at his home and pulled him back to the CEO chair at 78.</p>
+        <p><span class="lbl">The principle. </span>Do the arithmetic before the layoff. If you will need the people within a year, the cut is not savings. It is a loan at terrible rates.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-protest" data-time="00:20:55" data-title="The Protest at Morris's Home">
+      <p class="ch-time">00:20:55</p>
+      <h2>The Protest at Morris's Home</h2>
+      <p><span class="tag fact">Source fact</span> The 600 to 700 laid-off employees came to Morris's home to protest. The company called the police, who sent 50 to 60 officers. Morris had food prepared for 25 to 30 people and served pizza and salad to the protesters in the park. They were thankful, and they told his wife they would not march on the presidential palace that day. Morris warned the previous CEO before the layoffs happened. The episode, he says, precipitated his return.</p>
+      <p>At 78, in 2009, Morris took the CEO job back.</p>
+      <p>His first days: he called every major customer, including Jensen. Jensen was friendly but serious: the 40-nanometer quality, delivery, and manufacturing problems were real. Morris said: give me a couple of weeks.</p>
+      <p><span class="tag interp">Interpretation</span> The pizza matters more than the protest. Morris fed the people his successor fired. That single act told every TSMC employee which management philosophy was back.</p>
+    </section>
+
+    <section class="chapter" id="ch-dispute" data-time="00:29:08" data-title="Resolving the 2009 NVIDIA Dispute">
+      <p class="ch-time">00:29:08</p>
+      <h2>Resolving the 2009 NVIDIA Dispute</h2>
+      <figure>
+        <img src="assets/ep02/illustration-pizza-negotiation.webp" alt="Watercolor illustration of two businessmen across a home dining table with pizza boxes at night">
+        <p class="caption"><b>Illustration.</b> Salad and pizza at 6:00, business at 8:00: the dinner that settled the Nvidia dispute. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Then the famous dinner. Morris invited Jensen to his home at 6:00 for salad and pizza, something they had done many times before. Jensen emailed back: when do we discuss business? Morris answered: 6:30 we eat, 8:00 we go to your home office and discuss business. Ninety minutes of family dinner with no business talk. Then the negotiation.</p>
+      <p>Morris offered more than 100 million dollars. The offer expired in 48 hours. No bargaining, no arguing. If Jensen refused, they would go to arbitration, which Jensen himself proposed to the previous CEO, who had not even named a number. Morris had spent weeks arriving at the figure and believed it was fair to both sides. Jensen accepted within two days.</p>
+      <p>Since then, the two companies have done many billions of dollars of business together. Morris included the story in his autobiography because it shows what a long partnership makes possible: a large sum, a hard deadline, and a relationship strong enough to survive both.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 &middot; Negotiation</p>
+        <h4>The 48-hour fair offer</h4>
+        <p><span class="lbl">What happened. </span>After weeks of homework, Morris named a number over $100 million, gave Jensen 48 hours, and ruled out bargaining. The alternative was arbitration. Jensen accepted within two days.</p>
+        <p><span class="lbl">Why it matters. </span>The previous CEO offered nothing and named no number. A fair number plus a hard deadline beat endless haggling and saved a partnership worth many billions.</p>
+        <p><span class="lbl">The principle. </span>Do the homework, name the fair number, set the deadline, remove bargaining. Fairness plus finality resolves what haggling cannot.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-28nm" data-time="00:43:04" data-title="Going All-In on 28nm">
+      <p class="ch-time">00:43:04</p>
+      <h2>Going All-In on 28nm</h2>
+      <figure>
+        <img src="assets/ep02/illustration-sweet-spot.webp" alt="Watercolor illustration of a tennis racket with a glowing sweet spot at night">
+        <p class="caption"><b>Illustration.</b> 28 nanometers: the sweet spot, like a tennis racket. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> After fixing 40nm, Morris committed to the 28-nanometer node with everything TSMC had. Two numbers define the bet.</p>
+      <p>First, R and D at 8 percent of revenue, set by fiat, recession or not. The origin: at Texas Instruments, Morris ran worldwide semiconductors and asked to raise R and D from 4.8 to 5.5 percent. Denied, every time. At TSMC he refused to repeat the annual argument. The company ran 6 or 7 percent, renegotiated yearly between the R and D director and the CEO. Morris said: 8 percent, no negotiation, no annual fight. He calls it the best news the R and D organization ever got. Freed from budget warfare, the engineers started thinking big. Their phrase for 28nm: the <q>sweet spot</q>, like a tennis racket.</p>
+      <p>Second, capital expenditure of almost 6 billion dollars in 2010, roughly triple the 2 to 2.5 billion TSMC had spent yearly for the previous decade. Morris calls it a virtuous cycle: secure the R and D budget, the engineers bring bigger ideas, the bigger ideas justify the capex.</p>
+      <p>At 28nm, TSMC became the clear leader among foundries. Morris dates TSMC's technology leadership to this node.</p>
+      <div class="chart" id="chart-28nm">
+        <h4>The 28nm commitment: capex and R and D</h4>
+        <p class="csub">Two numbers, both set by fiat. Hover for detail.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Bar chart of TSMC capital expenditure before and during the 28nm bet">
+          <rect class="bar alt" x="120" y="180" width="110" height="100" data-tip="Before 2010: about 2 to 2.5 billion dollars of capex per year."></rect>
+          <rect class="bar" x="330" y="40" width="110" height="240" data-tip="2010: almost 6 billion dollars, roughly triple the prior level."></rect>
+          <text class="vallab" x="175" y="172" text-anchor="middle">~$2.25B</text>
+          <text class="vallab" x="385" y="32" text-anchor="middle">~$6B</text>
+          <text class="axis" x="175" y="302" text-anchor="middle">yearly capex</text>
+          <text class="axis" x="175" y="320" text-anchor="middle">before 2010</text>
+          <text class="axis" x="385" y="302" text-anchor="middle">capex in 2010</text>
+          <text class="axis" x="385" y="320" text-anchor="middle">28nm all-in</text>
+        </svg>
+        <p class="csrc">Source: Acquired, TSMC founder Morris Chang, @00:43:04. R and D fixed at 8 percent of revenue by fiat, up from 6 to 7 percent renegotiated yearly.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 &middot; Investment</p>
+        <h4>Fix R and D at 8 percent, end the annual fight</h4>
+        <p><span class="lbl">What happened. </span>Morris set R and D at 8 percent of revenue by fiat, recession or not, ending the yearly budget war. Capex tripled to almost $6 billion in 2010. The engineers called 28nm the sweet spot.</p>
+        <p><span class="lbl">Why it matters. </span>Freed from budget warfare, the engineers thought big. The mutual feeding of secure R and D and bigger ideas made TSMC the foundry leader.</p>
+        <p><span class="lbl">The principle. </span>Fix the investment rate and remove the negotiation. Certainty of funding buys boldness of thought.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-apple" data-time="00:52:05" data-title="Meeting Apple and Jeff Williams">
+      <p class="ch-time">00:52:05</p>
+      <h2>Meeting Apple and Jeff Williams</h2>
+      <p><span class="tag fact">Source fact</span> The Apple story starts with a surprise dinner. Terry Gou, the founder of Foxconn and a second cousin of Morris's wife Sophie, called to say he would come to dinner and bring an Apple vice president. Morris assumed it would not be an ordinary VP. At 8 p.m., Jeff Williams walked in. He was Apple's chief operating officer.</p>
+      <p>Williams barely made small talk. He talked 80 percent of the dinner. His pitch: Apple wanted TSMC to make iPhone wafers. On economics, he said Apple would let TSMC have 40 percent gross margin. Morris said nothing at the time, but his thought was: we are already at 45 percent, and I want 50.</p>
+      <p>The surprise: Apple did not want 28nm. It wanted 20nm, a half step. In Moore's-law progression, 28 was supposed to go to 16. A half step is a detour: TSMC would spend effort on 20 that would help 16 later, but it would delay 16, and at the time TSMC's R and D could not do two nodes at once. The cost of the detour: on the order of 10 billion dollars over the next few years. And TSMC planned its 28nm capex without Apple in mind. Apple was a pure surprise on top.</p>
+      <p>So Morris did the financial planning. Options: cut the dividend, sell new stock, borrow, or take only part of Apple's order. He planted a relationship with Goldman Sachs early in TSMC's life and even served on Goldman's board, so high-level advice was a phone call away. Decision: keep the dividend, sell no stock, borrow billions, and take half of what Apple said it needed. His reasoning on the half: customers have no skin in the game when they state demand. They will happily take your billions in capacity and leave you holding it.</p>
+      <p>C.C. Wei, the business development director, first carried the half message to Apple's purchasing people. Their answer: you must be crazy. Morris went to Cupertino himself and told Jeff Williams: after prudent financial planning, we will issue corporate bonds and take half. Williams's only suggestion was to eliminate the dividend. Morris refused. About a third of TSMC's shareholders cared seriously about dividends, and cutting would crash the stock. Williams let it lie. The deal was set.</p>
+      <div class="toy" id="toy-half">
+        <h4>Toy: take half or take all?</h4>
+        <p class="tsub">Morris's dilemma as a machine. The learning curve says take everything for maximum volume. Survival says take half. Move the slider and see his logic.</p>
+        <label for="share">Share of Apple's stated order taken <span class="tval" id="share-v">50%</span></label>
+        <input type="range" id="share" min="0" max="100" value="50" step="5">
+        <div class="verdict" id="half-verdict">Take half and borrow. Volume helps, but a 5 to 10 percent forecast miss on the full order would collapse the node's profitability.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 &middot; Risk</p>
+        <h4>Take half and borrow</h4>
+        <p><span class="lbl">What happened. </span>Faced with Apple's surprise 20nm order, Morris kept the dividend, sold no stock, borrowed billions, and took half of Apple's stated demand. Customers have no skin in the game when they state demand.</p>
+        <p><span class="lbl">Why it matters. </span>The learning curve says take it all for maximum volume. But if iPhone demand misses by 5 or 10 percent, the node's profitability collapses and the next node goes unfunded. Half was the compromise between the curve and survival.</p>
+        <p><span class="lbl">The principle. </span>Size the commitment to your forecast error, not your forecast. The customer states demand with your money.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-intel" data-time="01:36:01" data-title="Why Intel Could Not Be the Foundry">
+      <p class="ch-time">01:36:01</p>
+      <h2>Why Intel Could Not Be the Foundry</h2>
+      <p><span class="tag fact">Source fact</span> In February 2011, Jeff Williams called: pause discussions for two months. The highest level of Intel approached Tim Cook about making Apple's chips. Morris was not worried. In the 1990s, hearing Intel's name made competitors tremble. By 2011, Intel was no longer that name.</p>
+      <p>Morris's read of what Apple wanted: technology at parity with Intel, which he believed TSMC reached or passed, and customer trust. He knew Intel's customers in Taiwan, the PC makers. None of them liked or trusted Intel. Intel always acted like the only supplier. And Intel had a structural conflict: it designs chips that compete with its foundry customers' designs.</p>
+      <p>A month later Morris visited. Williams was away and had Tim Cook meet him instead, an unusual upward delegation. Cook took him to the Apple cafeteria, they carried their trays back to Cook's office, and Cook said:</p>
+      <div class="pull">
+        <blockquote>there's nothing to worry about because Intel just does not know how to be a foundry</blockquote>
+        <p class="who">Tim Cook to Morris Chang &middot; Episode ~01:38</p>
+      </div>
+      <p><span class="tag interp">Interpretation</span> Morris's interpretation: a foundry must respond to every customer request, even the crazy and irrational ones, courteously. Intel had never learned that. The pure-play promise, never compete with your customers, was the trust Apple bought.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 &middot; Trust</p>
+        <h4>Why Intel could not be the foundry</h4>
+        <p><span class="lbl">What happened. </span>Apple paused TSMC talks to hear Intel's pitch, then chose TSMC. Cook's verdict: Intel does not know how to be a foundry. Intel's own customers did not trust it, and its chip designs compete with its foundry customers.</p>
+        <p><span class="lbl">Why it matters. </span>Technology was at parity. Trust decided. Thirty years of never competing with customers became the decisive asset in the biggest deal in foundry history.</p>
+        <p><span class="lbl">The principle. </span>Structure your business so customers never have to wonder whose side you are on. Then let time prove it.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-20nm" data-time="01:46:45" data-title="The 20nm Detour and the Pricing">
+      <p class="ch-time">01:46:45</p>
+      <h2>The 20nm Detour and the Pricing</h2>
+      <p><span class="tag fact">Source fact</span> Pricing was settled separately, after homework on costs and yields. When it closed, Morris invited Williams to a three-star Taipei restaurant. Williams joked: if you had not liked the pricing, <q>we probably could be going to a McDonald's</q>.</p>
+      <p>The tradeoff was real. TSMC spent the billions on 20nm, which delayed 16nm. Samsung skipped 20, went straight to 16, and won Apple's first 16nm orders. Morris describes the shock plainly: TSMC invested tens of billions on the bet that 80 to 90 percent of its 20nm equipment would convert to 16. If Apple bought 16 from Samsung, where did that leave TSMC? He emailed Williams immediately. Williams replied: do not worry, I will be in Taiwan next week to explain. He came, and he said: as soon as you are ready with 16, we will buy all our needs from you. Half a year later TSMC had its own 16nm, and most of Apple's 16nm business stayed with TSMC.</p>
+      <div class="chart" id="chart-market">
+        <h4>The world semiconductor market since TSMC's founding</h4>
+        <p class="csub">Moore's law as a demand law: the world wants roughly twice the computing power every two years. Hover for detail.</p>
+        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart of semiconductor market size 1987 versus recent">
+          <rect class="bar alt" x="140" y="250" width="110" height="20" data-tip="1987, the year TSMC was founded: the world semiconductor market was 26 billion dollars."></rect>
+          <rect class="bar" x="390" y="40" width="110" height="230" data-tip="Recent: 527 billion dollars, about twenty times larger."></rect>
+          <text class="vallab" x="195" y="242" text-anchor="middle">$26B</text>
+          <text class="vallab" x="445" y="32" text-anchor="middle">$527B</text>
+          <text class="axis" x="195" y="292" text-anchor="middle">1987</text>
+          <text class="axis" x="445" y="292" text-anchor="middle">recent</text>
+        </svg>
+        <p class="csrc">Source: Acquired, TSMC founder Morris Chang, episode figures cited by Ben and David.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-learning" data-time="~01:58" data-title="The Learning Curve">
+      <p class="ch-time">~01:58</p>
+      <h2>The Learning Curve</h2>
+      <p><span class="tag fact">Source fact</span> Morris did not invent the learning curve, but he refined it into a weapon at Texas Instruments. The simple version: as you make more of anything, unit cost falls. Bruce Henderson, the founder of the Boston Consulting Group, brought the theory to TI around 1970 with Bill Bain. Morris was TI's guy.</p>
+      <p>Morris's warning: anyone who takes the simple explanation and thinks that is all there is knows nothing. The real learning curve is a strategy. The goal is to be the largest-volume player at the end of the game, because this is a fixed-cost business and the winner spreads fixed costs over the most customers. So you price early at where costs will be at the end. You cut prices aggressively, even starting unprofitable on a new node, to win the volume that drives you down the curve fastest.</p>
+      <p>A fab costs 20 billion dollars today and will cost 40, 80, 100 billion. Almost nobody else can deploy that. TSMC's capex grows alongside its net income, and on top of that it funds separate R and D for the next node. Add proprietary packaging like CoWoS for AI chips, which makes it even harder for customers to dual-source, and the leader pulls away every year.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 &middot; Strategy</p>
+        <h4>Price at end-game cost</h4>
+        <p><span class="lbl">What happened. </span>TSMC prices early at where costs will be when the node matures, even starting unprofitable, to win the volume that drives costs down fastest. The fixed-cost game goes to the largest-volume player.</p>
+        <p><span class="lbl">Why it matters. </span>This is why the industry ends with a dominant player. Of course the company that takes all the orders gets the lowest price. The curve rewards the bold and punishes the hesitant.</p>
+        <p><span class="lbl">The principle. </span>Work backward from mature demand. Price for the end of the curve, then run down it faster than anyone else.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-org" data-time="~02:05" data-title="Combine, Do Not Split">
+      <p class="ch-time">~02:05</p>
+      <h2>Combine, Do Not Split</h2>
+      <p><span class="tag fact">Source fact</span> Rick Tsai, the CEO between 2005 and 2009, split operations into advanced technology and mainstream technology, each with its own small business development group. Morris never thought the split was a good idea. When he returned, he recombined them: about 10,000 people in advanced, 7,000 to 8,000 in mainstream.</p>
+      <p>The mainstream group is the old fabs finding customers who do not need the leading edge: automotive, sensors, replacement parts. It is the institutional form of the keep-every-generation-running philosophy. TSMC still runs fabs 2 and 3 from the late 1980s. On an accounting basis they are fully depreciated, so they generate nearly free high-margin revenue.</p>
+      <p>He had fought the same battle in 1996, when McKinsey proposed a functional organization. Asked to name one big functional company, McKinsey answered Boeing. Morris's reply: Boeing has commercial and government divisions, not a 707 division and a 747 division. Splitting by fab would be like splitting Boeing by airplane model.</p>
+      <p>On C.C. Wei: Morris once offered him the business development job to round him out as an executive. Wei had 10,000 people reporting to him and balked at a 60-to-70-person department. Morris's analogy: Kissinger had a couple hundred people as National Security Advisor while the Secretary of State had thousands worldwide. Power is not headcount. Wei took the job, and he is now TSMC's chairman and CEO.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 &middot; Organization</p>
+        <h4>Combine, do not split</h4>
+        <p><span class="lbl">What happened. </span>Morris recombined the split advanced and mainstream operations into one, and kept every fab generation running. Old fabs, fully depreciated, print high-margin revenue on automotive and sensor demand.</p>
+        <p><span class="lbl">Why it matters. </span>Splitting by technology node fragments the learning curve. One organization learns once and applies everywhere. Keeping old fabs running turns sunk cost into free cash flow.</p>
+        <p><span class="lbl">The principle. </span>Organize around the customer, not the technology generation. Power is not headcount.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-never" data-time="~02:12" data-title="What Morris Never Compromised">
+      <p class="ch-time">~02:12</p>
+      <h2>What Morris Never Compromised</h2>
+      <p><span class="tag fact">Source fact</span> Two through-lines. First, never compete with your customers. It is the pure-play foundry's founding promise, and it is why Apple trusted TSMC over Intel. Second, never be negligent with a future customer. The San Jose office ignoring Nvidia's 1997 letter is the cautionary tale inside the success story.</p>
+      <p>On margins, Morris is philosophical. TSMC earns mid-50s gross margins today. He retired just short of 50, still pushing. Its customers earn 70 to 80. Pricing, he says, comes down to cost plus what the customer will accept. Value is created jointly. The split is negotiated, and it is personal to each CEO.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Answer the small customer. The 1997 letter became the most valuable relationship in TSMC history.</li>
+          <li>Do the boring years. Five years of overflow orders built the factory the fabless wave needed.</li>
+          <li>Never compete with your customers. Structure beats reassurance. Apple chose trust over Intel.</li>
+          <li>Name the fair number and the deadline. A $100M offer with 48 hours beat haggling.</li>
+          <li>Fix the investment rate. Eight percent R and D by fiat ended the annual budget war.</li>
+          <li>Size commitments to forecast error. Take half, borrow, keep the dividend.</li>
+          <li>Price at end-game cost. The learning curve rewards whoever runs down it fastest.</li>
+        </ol>
+        <p class="src">Distilled from Acquired, TSMC founder Morris Chang, Jan 2025. Full episode: youtube.com/watch?v=FZItbr4ZJnc. Chapter times match the official YouTube chapter marks.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-outro" data-time="~02:18" data-title="Outro">
+      <p class="ch-time">~02:18</p>
+      <h2>Outro</h2>
+      <p><span class="tag fact">Source fact</span> The episode closes with the post-game: Ben and David's analysis after crossing the ocean. The idea that keeps sitting with them is the genius in hindsight of not competing with your customers, the dedicated pure-play foundry. They saw the original pitch in the TSMC Museum of Innovation: the original slide deck Morris pitched to the Taiwanese government. Then the carve-outs and the sign-off.</p>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Acquired episode "TSMC founder Morris Chang" (January 2025, 2 hr 21 min). All facts and figures come from the episode transcript (research/acquired/transcripts/FZItbr4ZJnc.txt). Chapter times use the official YouTube chapter marks. times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 34 words: two pull quotes (8 and 16 words) and two short phrases in quotation marks (2 and 8 words). The pull quotes carry speaker and episode-time attribution. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: take half or take all ---------- */
+  (function(){
+    var share = document.getElementById('share');
+    var shareV = document.getElementById('share-v');
+    var out = document.getElementById('half-verdict');
+    function upd(){
+      var s = +share.value;
+      shareV.textContent = s + '%';
+      if(s <= 50){
+        out.textContent = 'Take half and borrow. Volume helps, but a 5 to 10 percent forecast miss on the full order would collapse the node\u2019s profitability.';
+        out.style.borderColor = '#1f5f7a'; out.style.color = '#14455a';
+      } else if(s <= 80){
+        out.textContent = 'Danger zone. The learning curve pulls you toward more, but one soft iPhone cycle leaves you holding billions in idle capacity.';
+        out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14';
+      } else {
+        out.textContent = 'Do not take it all. Customers state demand with your money. If the forecast misses, the next node goes unfunded.';
+        out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f';
+      }
+    }
+    share.addEventListener('input', upd); upd();
+  })();
+})();
+</script>
+</body>
+</html>
