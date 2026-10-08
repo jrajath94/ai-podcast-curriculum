@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cues: How Body Language Decides Before You Speak: Charisma Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to Vanessa Van Edwards on Diary of a CEO: the four cue channels, the warmth-competence thermostat, the five power cues, the five warmth cues, and the habits that make people trust you.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#1f5fb0; --accent-ink:#144a8f; --soft:#e9eff9;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#c3d6f2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#ccd6e8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .gridln{stroke:#e7ebf2;stroke-width:1}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .tsub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .toy label{font-family:var(--sans);font-size:13px;display:block;margin:12px 0 4px}
+  .toy input[type=range]{width:100%}
+  .toy .tval{font-family:var(--mono);font-size:12px;color:var(--accent-ink)}
+  .toy .verdict{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:14px;
+    padding:12px;border:1px solid var(--line);background:var(--paper)}
+  .toy .check{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-family:var(--sans);font-size:14px}
+  .toy .check input{margin-top:4px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.fact{background:#e2eaf6;color:#144a8f;border:1px solid #bccde9}
+  .tag.interp{background:#f4ecd9;color:#7a5c1e;border:1px solid #e0cfa0}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .warnbox{background:#fdf6ec;border:1px solid #e0cfa0;border-left:4px solid #b4531f;
+    padding:14px 18px;margin:26px 0;font-family:var(--sans);font-size:14px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Charisma · Track Companion</a>
+  <span class="sub">Ep 1 · Cues: How Body Language Decides Before You Speak · Dec 2024</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Charisma · Episode 1 · Companion</p>
+      <h1>Cues: How Body Language Decides Before You Speak</h1>
+      <p class="dek">Vanessa Van Edwards runs a human behavior research lab. In this Diary of a CEO conversation she argues that people decide whether they like, trust, and want to listen to you before you finish your first sentence. The decision runs on cues. Charisma is not a gift. It is a recipe. This companion follows the episode chapter by chapter.</p>
+      <img src="assets/ep01/photo-van-edwards.jpg" alt="Photograph of Vanessa Van Edwards">
+      <p class="caption"><b>Photo.</b> Vanessa Van Edwards. Source: bigspeak.com, her official speaker profile page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">97</div><div class="l">Cues cataloged in her lab</div><div class="s">Episode 18:00</div></div>
+        <div class="stat"><div class="n">82%</div><div class="l">Of first impressions from warmth plus competence</div><div class="s">Fiske 2002, cited 18:00</div></div>
+        <div class="stat"><div class="n">12.5x</div><div class="l">How much more your brain believes a gesture than words</div><div class="s">Episode 00:00</div></div>
+        <div class="stat"><div class="n">465 vs 271</div><div class="l">Hand gestures per 18 min: most vs least popular TED talks</div><div class="s">Episode 41:26</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/VHUrdELKjDw" title="Diary of a CEO: Vanessa Van Edwards, The Science of Charisma (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Diary of a CEO episode video. Chapter times below follow the show's published chapter list.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Charisma is a recipe, not a gift</a></li>
+          <li><a href="#nugget-2">Broadcast bigger: signal amplification bias</a></li>
+          <li><a href="#nugget-3">Set the thermostat</a></li>
+          <li><a href="#nugget-4">End sentences down</a></li>
+          <li><a href="#nugget-5">The triple nod</a></li>
+          <li><a href="#nugget-6">Keep a liked-list</a></li>
+          <li><a href="#nugget-7">Prove you remember</a></li>
+          <li><a href="#nugget-8">Luck is attention</a></li>
+          <li><a href="#nugget-9">Audit your 25 feet</a></li>
+          <li><a href="#nugget-10">Count, do not guess</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript or the show's published chapter list. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps.</p>
+    </div>
+
+    <section class="chapter" id="ch-opening" data-time="00:00" data-title="The Hidden Language">
+      <p class="ch-time">00:00</p>
+      <h2>The Hidden Language</h2>
+      <p><span class="tag fact">Source fact</span> She opens with a test. Say five while holding up three fingers. It is hard. The words and the hands fight each other. That fight is the thesis: gestures resist lies in a way words do not.</p>
+      <div class="pull">
+        <blockquote>Your brain is 12.5 times more likely to believe my gesture over my words.</blockquote>
+        <p class="who">Vanessa Van Edwards · Episode 00:00</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> She describes herself as a recovering awkward person. She thought charisma was genetic and that she lacked it. Then she discovered that highly successful people speak a hidden language: cues. The episode states the number plainly. The lab catalogs 97 of them.</p>
+      <p><span class="tag interp">Interpretation</span> The opening does two jobs. It proves the claim in your own body with the five-versus-three test, and it lowers the barrier: the teacher starts as the awkward student.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Beginnings</p>
+        <h4>Charisma is a recipe, not a gift</h4>
+        <p><span class="lbl">What happened. </span>A self-described recovering awkward person built a lab, cataloged 97 cues, and now teaches charisma as a trainable system.</p>
+        <p><span class="lbl">Why it matters. </span>A gift cannot be trained. A recipe can. The belief that charisma is fixed is the only part of charisma that is truly fixed.</p>
+        <p><span class="lbl">The principle. </span>Pick the cues that fit your personality and drill them until they run without thought.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-channels" data-time="01:45" data-title="Four Channels">
+      <p class="ch-time">01:45 · The Crucial Role of Cues for Success</p>
+      <h2>Four Channels</h2>
+      <figure>
+        <img src="assets/ep01/illustration-channels.webp" alt="Watercolor illustration of a speaker broadcasting signals on four channels">
+        <p class="caption"><b>Illustration.</b> One speaker, four simultaneous broadcasts. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Everything you broadcast travels on four channels at once. Body cues: posture, gestures, facial expression, eye contact, touch. Vocal cues: pitch, pace, volume, inflection, pauses. Verbal cues: the words you choose and the order you put them in. Ornament cues: clothes, jewelry, hair, background, everything people see around you.</p>
+      <p><span class="tag fact">Source fact</span> Signal amplification bias is the false belief that other people read your cues louder than they do. You think your nerves scream. They whisper. You think your confidence shines. It glows dimly.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Calibration</p>
+        <h4>Broadcast bigger: signal amplification bias</h4>
+        <p><span class="lbl">What happened. </span>People underestimate how quietly they signal. Nerves read as a whisper, confidence as a dim glow.</p>
+        <p><span class="lbl">Why it matters. </span>If you calibrate to what you feel inside, the room receives a fraction of it. The fix is mechanical: turn the volume up on purpose.</p>
+        <p><span class="lbl">The principle. </span>Bigger gestures, clearer inflection, deliberate warmth. Broadcast at the level you want received, not the level you feel.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-recipe" data-time="03:16" data-title="The Recipe and the Ambivert">
+      <p class="ch-time">03:16 · I Am a Recovered Awkward Person · 05:07 What's an Ambivert?</p>
+      <h2>The Recipe and the Ambivert</h2>
+      <p><span class="tag fact">Source fact</span> You do not need all 97 cues. An ambivert, someone between introvert and extrovert, picks a different recipe from a high-energy extrovert. The recipe must fit the cook.</p>
+      <p><span class="tag fact">Source fact</span> The Jamie Siminoff story makes the business case. Siminoff pitched Ring on Shark Tank and walked away without a deal. He later sold the company to Amazon for a large sum. One room of investors reading your cues wrong can cost you the outcome, while the cues themselves stay trainable.</p>
+    </section>
+
+    <section class="chapter" id="ch-face" data-time="12:13" data-title="Your Resting Face">
+      <p class="ch-time">12:13 · The Resting Face Effect</p>
+      <h2>Your Resting Face</h2>
+      <p><span class="tag fact">Source fact</span> Most people walk around with a resting bothered face: a default expression that reads as sad, angry, or afraid. The camera version shows up in profile pictures. She names three mistakes. Fear eyes: wide eyes that signal alarm. Contempt: a one-sided smirk that reads as superiority. A fake smile: the mouth smiles and the eyes stay dead.</p>
+      <div class="toy" id="toy-face">
+        <h4>Toy: the resting-face audit</h4>
+        <p class="tsub">Open your current profile picture. Check it against the three mistakes from the episode.</p>
+        <div class="check"><input type="checkbox" id="fa1"><label for="fa1">Fear eyes: the eyes look wide, alarmed, startled</label></div>
+        <div class="check"><input type="checkbox" id="fa2"><label for="fa2">Contempt: a one-sided smirk, one corner of the mouth lifted</label></div>
+        <div class="check"><input type="checkbox" id="fa3"><label for="fa3">Dead-eye smile: the mouth smiles, the eyes do not join in</label></div>
+        <div class="verdict" id="face-verdict">Check the boxes that apply. The verdict appears here.</div>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-smile" data-time="15:33" data-title="Do Not Fake the Smile">
+      <p class="ch-time">15:33 · Do Not Fake Smile!</p>
+      <h2>Do Not Fake the Smile</h2>
+      <p><span class="tag fact">Source fact</span> Dr. Barbara Wild ran a study on smiles, cited in the episode. Genuine smiles engage the muscles around the eyes. The mouth alone is not enough.</p>
+      <p><span class="tag fact">Source fact</span> The fix she offers is the pen trick: hold a pen between your teeth for a few seconds. The teeth grip forces the smiling muscles into the genuine position. Your face then sends the warmth cue even when you start from neutral.</p>
+    </section>
+
+    <section class="chapter" id="ch-thermostat" data-time="18:00" data-title="The Thermostat">
+      <p class="ch-time">18:00 · The 97 Cues to Be Warm and Competent</p>
+      <h2>The Thermostat</h2>
+      <figure>
+        <img src="assets/ep01/illustration-thermostat.webp" alt="Watercolor illustration of a brass thermostat with two dials">
+        <p class="caption"><b>Illustration.</b> Two dials, one room. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Susan Fiske published the finding in 2002, cited in the episode: warmth and competence explain about 82 percent of the impression you make. Warmth answers the question whether you are a friend or a foe. Competence answers whether you can act on your intentions. Every cue you send tilts one of the two dials.</p>
+      <div class="pull">
+        <blockquote>This is like a thermostat. You can dial up warmth cues and dial up competence cues, and this changes the way people treat you.</blockquote>
+        <p class="who">Vanessa Van Edwards · Episode ~00:32</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> She frames the pair as a thermostat. You do not set both dials to maximum. Too much warmth with no competence reads as a pushover. Too much competence with no warmth reads as cold. The sweet spot sits just past the middle on both.</p>
+      <div class="chart" id="chart-thermostat">
+        <h4>The warmth-competence map</h4>
+        <p class="csub">Two dials, four rooms. Hover for what each room feels like.</p>
+        <svg viewBox="0 0 640 360" role="img" aria-label="Two by two grid of warmth and competence">
+          <rect x="20" y="20" width="300" height="140" fill="#e9eff9" stroke="#e2d8c3" data-tip="High warmth, low competence: liked, not followed. The danger zone of the pushover."></rect>
+          <rect x="320" y="20" width="300" height="140" fill="#dcefe0" stroke="#e2d8c3" data-tip="High warmth, high competence: trusted and followed. The sweet spot, just past the middle on both dials."></rect>
+          <rect x="20" y="160" width="300" height="140" fill="#f5f0e6" stroke="#e2d8c3" data-tip="Low warmth, low competence: ignored. Neither dial is sending."></rect>
+          <rect x="320" y="160" width="300" height="140" fill="#f4ecd9" stroke="#e2d8c3" data-tip="Low warmth, high competence: respected, not trusted. The danger zone of the cold expert."></rect>
+          <text class="vallab" x="170" y="82" text-anchor="middle">Liked,</text>
+          <text class="vallab" x="170" y="102" text-anchor="middle">not followed</text>
+          <text class="axis" x="170" y="126" text-anchor="middle">danger zone</text>
+          <text class="vallab" x="470" y="82" text-anchor="middle">Trusted and</text>
+          <text class="vallab" x="470" y="102" text-anchor="middle">followed</text>
+          <text class="axis" x="470" y="126" text-anchor="middle">sweet spot</text>
+          <text class="vallab" x="170" y="222" text-anchor="middle">Ignored</text>
+          <text class="vallab" x="470" y="222" text-anchor="middle">Respected,</text>
+          <text class="vallab" x="470" y="242" text-anchor="middle">not trusted</text>
+          <text class="axis" x="470" y="266" text-anchor="middle">danger zone</text>
+          <text class="axis" x="170" y="330" text-anchor="middle">Low competence</text>
+          <text class="axis" x="470" y="330" text-anchor="middle">High competence</text>
+          <text class="axis" x="8" y="100" text-anchor="middle" transform="rotate(-90 8 100)">High warmth</text>
+          <text class="axis" x="8" y="240" text-anchor="middle" transform="rotate(-90 8 240)">Low warmth</text>
+        </svg>
+        <p class="csrc">Source: Diary of a CEO, Vanessa Van Edwards, 18:00. Fiske, Cuddy, and Glick 2002 for the 82 percent finding.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Calibration</p>
+        <h4>Set the thermostat</h4>
+        <p><span class="lbl">What happened. </span>Warmth and competence explain about 82 percent of first impressions. The pair works like a thermostat: two dials, tuned to the room.</p>
+        <p><span class="lbl">Why it matters. </span>Maximizing both dials fails. Too much warmth without competence reads as a pushover. Too much competence without warmth reads as cold.</p>
+        <p><span class="lbl">The principle. </span>Before you enter a room, decide which dial it needs. Set both just past the middle, then lean toward the need.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-danger" data-time="56:19" data-title="The Danger Zone">
+      <p class="ch-time">56:19 · The Danger Zone of Being Too Warm or Competent</p>
+      <h2>The Danger Zone</h2>
+      <p><span class="tag fact">Source fact</span> The episode names the off-balance regions the danger zone. High warmth and low competence makes people like you but not follow you. High competence and low warmth makes people respect you but not trust you.</p>
+      <div class="toy" id="toy-thermo">
+        <h4>Toy: set your dials</h4>
+        <p class="tsub">Move the sliders to a recent meeting. See which room you were in.</p>
+        <label for="warmth">Warmth <span class="tval" id="warmth-v">50</span></label>
+        <input type="range" id="warmth" min="0" max="100" value="50">
+        <label for="comp">Competence <span class="tval" id="comp-v">50</span></label>
+        <input type="range" id="comp" min="0" max="100" value="50">
+        <div class="verdict" id="thermo-verdict"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-power" data-time="58:16" data-title="The Five Power Cues">
+      <p class="ch-time">58:16 · The Power Cues</p>
+      <h2>The Five Power Cues</h2>
+      <p><span class="tag fact">Source fact</span> Power cues turn up the competence dial.</p>
+      <p><span class="tag fact">Source fact</span> One, the steeple: fingertips touch, palms apart, forming a church-steeple shape. It signals confidence because only a calm person holds the hands still in that shape. Two, earlobe-to-shoulder distance: drop the shoulders so the gap grows. Short gaps read as tense. Long gaps read as relaxed and in command. Three, end-of-sentence eye contact: hold eye contact for about 60 to 70 percent of a conversation, and land it at the end of your sentences. The end is where the claim lands, so the eyes should be there to back it. Four, lower lid flex: a slight tightening of the lower eyelid. It reads as focus and authority. Five, downward inflection: let the pitch fall at the end of statements.</p>
+      <p><span class="tag fact">Source fact</span> Rising pitch at the end, called uptalk, turns statements into questions. The episode cites a surgeon voice study: patients judged surgeons as more likely to face malpractice claims from the tone of voice alone. In a two-truths-and-a-lie exercise, listeners catch the lie partly because the liar's pitch rises.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Voice</p>
+        <h4>End sentences down</h4>
+        <p><span class="lbl">What happened. </span>Downward inflection is the fifth power cue. Uptalk turns claims into questions. In the cited surgeon study, tone of voice alone moved malpractice predictions.</p>
+        <p><span class="lbl">Why it matters. </span>Content can be perfect while the delivery asks permission. The last sound of the sentence is the one the room keeps.</p>
+        <p><span class="lbl">The principle. </span>Land every statement with a falling pitch and eyes on the listener. Let questions be the only things that rise.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-warmth" data-time="~01:02" data-title="The Five Warmth Cues">
+      <p class="ch-time">~01:02</p>
+      <h2>The Five Warmth Cues</h2>
+      <p><span class="tag fact">Source fact</span> Warmth cues turn up the friend dial. One, the triple nod: nod three times while someone speaks. In the cited research, people talked 67 percent longer to a triple nodder. It signals the listener to keep going, that you are with them. Two, the head tilt: a slight tilt exposes the neck, a vulnerable area, and reads as openness. Three, the authentic smile: eyes engaged, the Barbara Wild finding. The mouth alone is not enough. Four, the lean: lean in slightly when someone speaks. Distance reads as disinterest. Five, the nonverbal bridge: point a foot, a knee, or a torso toward the person you want to welcome. The body forms a bridge they can walk across.</p>
+      <p><span class="tag fact">Source fact</span> One warning: do not bow. A bow reads as submission in most Western rooms and drops the competence dial.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Listening</p>
+        <h4>The triple nod</h4>
+        <p><span class="lbl">What happened. </span>Three nods while someone speaks made people talk 67 percent longer in the cited research.</p>
+        <p><span class="lbl">Why it matters. </span>It is the cheapest warmth cue in the episode. It costs nothing, works silently, and tells the speaker the floor is theirs.</p>
+        <p><span class="lbl">The principle. </span>When someone speaks, nod three times. Then keep listening instead of planning your reply.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-popular" data-time="24:09" data-title="The Popular Kids">
+      <p class="ch-time">24:09 · Science Reveals Why Some People Are Extremely Popular</p>
+      <h2>The Popular Kids</h2>
+      <p><span class="tag fact">Source fact</span> The Van Sloan study, cited in the episode: the popular kids were not the funniest or the best looking. They kept the longest liked-list. They could name the most people they liked. Liking people at scale made people like them back.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Liking</p>
+        <h4>Keep a liked-list</h4>
+        <p><span class="lbl">What happened. </span>The popular kids were not the funniest or the best looking. They were the ones who could name the most people they liked.</p>
+        <p><span class="lbl">Why it matters. </span>Liking is a cue system. People detect genuine liking through hundreds of micro-cues, and they return it.</p>
+        <p><span class="lbl">The principle. </span>Keep a real list of people you like. Grow it on purpose. Popularity follows liking, not the reverse.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-phrases" data-time="28:06" data-title="Three Magic Phrases">
+      <p class="ch-time">28:06 · Message People Telling Them This...</p>
+      <h2>Three Magic Phrases</h2>
+      <p><span class="tag fact">Source fact</span> One: I was just thinking of you. It tells the person they occupy space in your mind. Two: you are always so... followed by a genuine trait. It tells them their pattern is seen. Three: the last time you mentioned... It proves you listened and remembered.</p>
+      <p><span class="tag fact">Source fact</span> The three phrases share one mechanism. They move the conversation down the three intimacy levels she borrows from personality research: general traits, personal concerns, and self narrative. Small talk lives at level one. Friendship needs level two and three.</p>
+      <p><span class="tag fact">Source fact</span> Hero, healer, and victim are the three narratives people tell about themselves. The hero overcame. The healer helps. The victim was harmed. You do not argue with someone's narrative. You hear which one they tell and respond inside it.</p>
+      <p><span class="tag fact">Source fact</span> She also describes personal-brand neural networks. Everyone you meet files you in a network of associations. Allergies are the traits that repel people from your network. Attractors are the traits that draw them in. Audit both lists on purpose. Her dating-profile example: every picture should create allergies in the wrong person and attractors in the right one.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Memory</p>
+        <h4>Prove you remember</h4>
+        <p><span class="lbl">What happened. </span>Three phrases prove a person lives in your mind: thinking of you, naming their pattern, quoting their last mention.</p>
+        <p><span class="lbl">Why it matters. </span>Attention is the scarcest gift in a distracted world. Proof of attention moves a conversation down the intimacy levels faster than any clever line.</p>
+        <p><span class="lbl">The principle. </span>Keep notes on people. Then say the thing that proves you kept them.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-luck" data-time="32:53" data-title="The Luck Experiment">
+      <p class="ch-time">32:53 · The Luck Experiment</p>
+      <h2>The Luck Experiment</h2>
+      <p><span class="tag fact">Source fact</span> The Richard Wiseman luck study, cited in the episode: lucky and unlucky people read the same newspaper. The paper hid 42 images and a message in big print on the second page: "Stop counting. There are 42 images in this newspaper." Lucky people spotted the opportunities. Unlucky people missed them while hunting only for what they were told to find.</p>
+      <div class="warnbox"><b>Trap card.</b> The episode retells this as Wiseman's study without naming the original paper on air. Quote the 42 images only with that flag.</div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Attention</p>
+        <h4>Luck is attention</h4>
+        <p><span class="lbl">What happened. </span>Both groups saw the same newspaper. Lucky people kept attention open and found the hidden wins. Unlucky people saw only their assigned target.</p>
+        <p><span class="lbl">Why it matters. </span>In rooms, the same split decides who meets the right person. Narrow focus finds the target and misses the room.</p>
+        <p><span class="lbl">The principle. </span>Enter rooms with open attention. Notice the anomalies, the side conversations, the unguarded moments.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-proximity" data-time="34:36" data-title="Proximity Is a Delivery System">
+      <p class="ch-time">34:36 · Being Around Successful People Is Contagious</p>
+      <h2>Proximity Is a Delivery System</h2>
+      <p><span class="tag fact">Source fact</span> The 58,000-hour study, cited in the episode: sit within 25 feet of a high performer and your own performance rises by about 15 percent. Sit within 25 feet of a low performer and it falls by about 30 percent. Proximity is a cue delivery system.</p>
+      <div class="chart" id="chart-proximity">
+        <h4>Who sits within 25 feet of you</h4>
+        <p class="csub">The 58,000-hour study. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of proximity effects on performance">
+          <line class="gridln" x1="60" y1="150" x2="620" y2="150"></line>
+          <rect class="bar" x="150" y="80" width="110" height="70" data-tip="Within 25 feet of a high performer: your performance rises by about 15 percent."></rect>
+          <rect class="bar dark" x="390" y="150" width="110" height="110" data-tip="Within 25 feet of a low performer: your performance falls by about 30 percent."></rect>
+          <text class="vallab" x="205" y="70" text-anchor="middle">+15%</text>
+          <text class="vallab" x="445" y="276" text-anchor="middle">-30%</text>
+          <text class="axis" x="205" y="172" text-anchor="middle">near a high performer</text>
+          <text class="axis" x="445" y="172" text-anchor="middle">near a low performer</text>
+          <text class="axis" x="60" y="154" text-anchor="end">0</text>
+        </svg>
+        <p class="csrc">Source: Diary of a CEO, Vanessa Van Edwards, 34:36. The 58,000-hour study, as cited on air.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> The sweat study: researchers collected sweat from frightened people and had others smell it in an fMRI scanner. The fear centers of the smellers lit up. Emotion travels through channels you never notice.</p>
+      <p><span class="tag fact">Source fact</span> The cue cycle: actors saw faces flashing rejection cues too fast to notice consciously. Their pupils dilated. Your body reads cues your mind misses, and then your body answers.</p>
+      <p><span class="tag fact">Source fact</span> Matthew Lieberman's finding completes the defense: label the emotion to tame it. Naming what you feel, silently and precisely, lowers the brain's alarm response.</p>
+      <p><span class="tag fact">Source fact</span> The Pygmalion loop: expectations shape behavior, which shapes outcomes, which confirm the expectations. Expect the best from people and your cues change, and their results follow.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Environment</p>
+        <h4>Audit your 25 feet</h4>
+        <p><span class="lbl">What happened. </span>Within 25 feet of a high performer, performance rises about 15 percent. Within 25 feet of a low performer, it falls about 30 percent.</p>
+        <p><span class="lbl">Why it matters. </span>Cues are contagious through proximity. Your seat is a performance input, not a neutral fact.</p>
+        <p><span class="lbl">The principle. </span>Map the 25 feet around your desk. Move closer to the high performers. Move the low-performer seats farther away.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-gestures" data-time="41:26" data-title="The Gesture Gap">
+      <p class="ch-time">41:26 · The Importance of Hand Gestures · 43:10 Hand Tricks to Be Liked</p>
+      <h2>The Gesture Gap</h2>
+      <figure>
+        <img src="assets/ep01/illustration-gestures.webp" alt="Watercolor illustration of a speaker's hands mid-gesture">
+        <p class="caption"><b>Illustration.</b> Hands do the believing. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The TED study behind the headline: the most popular TED talks averaged 465 hand gestures per 18 minutes, while the least popular averaged 271. The difference is 194 gestures, or about 72 percent more movement in the talks people loved.</p>
+      <div class="chart" id="chart-gestures">
+        <h4>Hand gestures in TED talks, per 18 minutes</h4>
+        <p class="csub">The named study behind the gesture claim. Hover for detail.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of gestures in popular versus unpopular TED talks">
+          <rect class="bar" x="150" y="40" width="110" height="210" data-tip="Most popular TED talks: 465 hand gestures per 18 minutes."></rect>
+          <rect class="bar alt" x="390" y="146" width="110" height="104" data-tip="Least popular TED talks: 271 hand gestures per 18 minutes."></rect>
+          <text class="vallab" x="205" y="32" text-anchor="middle">465</text>
+          <text class="vallab" x="445" y="138" text-anchor="middle">271</text>
+          <text class="axis" x="205" y="272" text-anchor="middle">most popular talks</text>
+          <text class="axis" x="445" y="272" text-anchor="middle">least popular talks</text>
+          <text class="axis" x="320" y="180" text-anchor="middle">gap: 194 (about 72% more)</text>
+        </svg>
+        <p class="csrc">Source: Diary of a CEO, Vanessa Van Edwards, 41:26. The TED gesture study, as cited on air.</p>
+      </div>
+      <div class="warnbox"><b>Trap card.</b> The 12.5 times gesture figure is an episode claim with the original study unnamed on air. Quote the number only with that flag. The 465 versus 271 TED count is the named study behind the same point.</div>
+      <p><span class="tag fact">Source fact</span> Vocal variety works the same way for the voice. She teaches three voices. The TED voice is the big-stage voice, projected and paced. The numbers voice is the precise voice for data, slower and flatter so figures land. The story voice is the warm, varied voice for narratives. Monotone speakers use one voice for all three jobs.</p>
+      <p><span class="tag fact">Source fact</span> The penguin problem names what goes wrong. A penguin stands contracted, arms pinned, body small. Many people present as penguins: small posture, small voice, vocal fry at the ends of sentences. The fix she gives is simple: speak louder. Volume forces the body open and the fry fades.</p>
+    </section>
+
+    <section class="chapter" id="ch-lies" data-time="1:07:26" data-title="How to Spot a Liar">
+      <p class="ch-time">1:07:26 · How to Spot a Liar</p>
+      <h2>How to Spot a Liar</h2>
+      <p><span class="tag fact">Source fact</span> Humans detect lies at about 54 percent accuracy, barely above a coin flip. The episode states the figure without naming the original study on air.</p>
+      <p><span class="tag fact">Source fact</span> The episode lists cues that raise the odds: question inflection on statements, a sudden drop in volume, nods that do not match the words, with the warning that nodding norms differ, naming India, Bulgaria, and Pakistan as examples, and disgust or sniffing when someone describes something they claim to like.</p>
+      <p><span class="tag fact">Source fact</span> Monica Moore's availability research, cited in the episode: people signal romantic availability with about eight glances, feet pointed toward the target like a croissant, and an open torso. The cues are countable, which is the point.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Reading</p>
+        <h4>Count, do not guess</h4>
+        <p><span class="lbl">What happened. </span>Lie detection sits at about 54 percent, near a coin flip. But availability cues are countable: about eight glances, feet like a croissant, an open torso.</p>
+        <p><span class="lbl">Why it matters. </span>Reading people fails as vibes and works as counting. Flirting is a cue sequence, not a mystery.</p>
+        <p><span class="lbl">The principle. </span>Replace impressions with tallies. Count the glances, the feet, the torso. Never read a single nod as a universal yes.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-greetings" data-time="1:14:54" data-title="Greetings Set the Frame">
+      <p class="ch-time">1:14:54 · 1:18:09</p>
+      <h2>Greetings Set the Frame</h2>
+      <p><span class="tag fact">Source fact</span> Two stances, two meanings. Blading, turning the body sideways, is a protective stance and reads as guarded. Arms out, chest open, reads as welcome. For the handshake, the window is one to three seconds. Shorter reads as dismissive. Longer reads as dominance play.</p>
+      <p><span class="tag fact">Source fact</span> Two handshake variants to know. The cupping handshake, where one hand cups over the other person's hand, is the politician's handshake. It reads as warmth plus control. The Trump flip, where the shaker yanks the other person's hand toward themselves, is a danger-zone move. It claims dominance and the room feels it.</p>
+      <p><span class="tag fact">Source fact</span> Nod direction matters. Nodding up, chin lifted, reads as casual and friendly among peers. Nodding down reads as formal acknowledgment, the kind you give a superior. Choose on purpose.</p>
+      <p><span class="tag fact">Source fact</span> Stage blocking, from her work with speakers: put science on the left side of the stage and stories on the right. The audience then files each part in the right drawer without being told.</p>
+    </section>
+
+    <section class="chapter" id="ch-questions" data-time="21:15" data-title="The Six Questions">
+      <p class="ch-time">21:15 · The Formula to a Perfect Conversation · 1:21:16 The 6 Questions to Connect With Someone</p>
+      <h2>The Six Questions</h2>
+      <p><span class="tag fact">Source fact</span> Three conversation upgrades run through the episode. First, replace what do you do with what are you working on that excites you. She prescribes a 30-day diet: ask the excitement question for 30 days and watch conversations change. What do you do gets a job title. The excitement question gets a story.</p>
+      <p><span class="tag fact">Source fact</span> Second, ask the goal question. What is your goal right now invites people to share what they care about. Third, ask the character question. The Katniss example: asking someone which fictional character they relate to reveals values faster than any resume question.</p>
+    </section>
+
+    <section class="chapter" id="ch-room" data-time="~1:33" data-title="The Room Itself">
+      <p class="ch-time">~1:33 · Leaning In, Then the Room</p>
+      <h2>The Room Itself</h2>
+      <p><span class="tag fact">Source fact</span> Lean in slightly when someone speaks, and build the nonverbal bridge: a foot, a knee, or a torso pointed toward the person you want to welcome.</p>
+      <p><span class="tag fact">Source fact</span> The other-shoe effect, from Richard Wiseman's work as retold in the episode: a researcher knocked over coffee, and the audience rated the clumsy person as warmer and more competent. A small, human mistake drops the guard of the room. Perfection raises it. The episode retells this as Wiseman's work without naming the original study on air.</p>
+      <p><span class="tag fact">Source fact</span> Friendship dating is her term for auditioning friends the way people audition partners. The Casa de Luz test: she visited a community space repeatedly to see whether the same people showed up, whether conversations went past small talk, and whether she felt welcomed.</p>
+      <p><span class="tag fact">Source fact</span> The AirPods warning: constant earbuds kill weak ties, the casual acquaintances who deliver most new opportunities.</p>
+      <p><span class="tag fact">Source fact</span> The ambivalent tie finding: a study of police officers found that ambivalent relationships, hot and cold, damaged health more than purely toxic ones. Predictable enemies are easier on the body than unpredictable friends.</p>
+      <p><span class="tag fact">Source fact</span> The Truman story: at the 1944 Democratic convention, Truman's team air-conditioned a small room and invited power brokers inside on a hot day. Comfort did the persuading. Control the room and you control the cues.</p>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Charisma is a recipe: pick the cues that fit you and drill them.</li>
+          <li>You broadcast on four channels. The room receives a fraction of what you feel, so broadcast bigger.</li>
+          <li>Set the thermostat: warmth and competence, both just past the middle.</li>
+          <li>End sentences down. Land claims with eyes on the listener.</li>
+          <li>The triple nod costs nothing and buys 67 percent more talk.</li>
+          <li>Keep a liked-list. Popularity follows liking.</li>
+          <li>Audit your 25 feet. Proximity is a cue delivery system.</li>
+        </ol>
+        <p class="src">Distilled from Diary of a CEO, Vanessa Van Edwards: The Science of Charisma, Dec 2024. Full episode: youtube.com/watch?v=VHUrdELKjDw. Times follow the show's published chapter list. Times marked ~ are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Diary of a CEO episode "Vanessa Van Edwards: The Science of Charisma" (December 2024). All facts and figures come from the episode transcript (research/charisma/transcripts/VHUrdELKjDw.txt) and the show's published chapter list (Audible). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Three claims carry trap-card flags where the episode cited research without naming the original study on air: the 12.5 times gesture figure, the 54 percent lie-detection figure, and the other-shoe effect retold as Wiseman's work. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 47 words: two pull quotes from Vanessa Van Edwards (14 and 24 words, each with speaker and episode-time attribution), plus the Wiseman newspaper message quoted as spoken on air, in big print on the second page (9 words). All example phrases and question templates in the body are the builder's own wording and carry no quotation marks.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: thermostat ---------- */
+  (function(){
+    var w = document.getElementById('warmth'), c = document.getElementById('comp');
+    var wv = document.getElementById('warmth-v'), cv = document.getElementById('comp-v');
+    var out = document.getElementById('thermo-verdict');
+    function upd(){
+      var wvN = +w.value, cvN = +c.value;
+      wv.textContent = wvN; cv.textContent = cvN;
+      var msg, col;
+      if(wvN >= 60 && cvN >= 60){ msg = 'Sweet spot: trusted and followed. Hold both dials here.'; col = '#1f5fb0'; }
+      else if(wvN >= 60 && cvN < 40){ msg = 'Danger zone: liked, not followed. Dial up competence.'; col = '#b4531f'; }
+      else if(cvN >= 60 && wvN < 40){ msg = 'Danger zone: respected, not trusted. Dial up warmth.'; col = '#b4531f'; }
+      else if(wvN < 40 && cvN < 40){ msg = 'Ignored: neither dial is sending. Turn both up.'; col = '#8f1f1f'; }
+      else { msg = 'Tuning zone: both dials sit near the middle. Push the room\'s need just past it.'; col = '#6f6455'; }
+      out.textContent = msg;
+      out.style.borderColor = col; out.style.color = col;
+    }
+    w.addEventListener('input', upd); c.addEventListener('input', upd); upd();
+  })();
+
+  /* ---------- toy: face audit ---------- */
+  (function(){
+    var boxes = ['fa1','fa2','fa3'].map(function(id){ return document.getElementById(id); });
+    var out = document.getElementById('face-verdict');
+    function upd(){
+      var n = boxes.filter(function(b){ return b.checked; }).length;
+      if(n === 0){ out.textContent = 'Clean: no mistake found. The picture passes the audit.'; out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f'; }
+      else { out.textContent = n + (n === 1 ? ' mistake found. ' : ' mistakes found. ') + 'Replace the picture, then run the pen trick for ten seconds before the new photo.'; out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14'; }
+    }
+    boxes.forEach(function(b){ b.addEventListener('change', upd); }); upd();
+  })();
+})();
+</script>
+</body>
+</html>
