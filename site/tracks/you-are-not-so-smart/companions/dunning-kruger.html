@@ -442,8 +442,8 @@ span.ptag, .ptag {
 <div class="stat"><div class="n">50 years</div><div class="l">For Vertigo to be voted the best film of all time</div><div class="s">Dunning interview, ep036</div></div>
 <div class="stat"><div class="n">8 to 10</div><div class="l">Hometown friends sure they were the best in the world</div><div class="s">Dunning interview, ep036</div></div>
 </div>
-</div><figure class="paint wide" data-entrance="bloom" data-hero="1">
-<div class="frame"><div class="stage"><img alt="Watercolor illustration for this companion" class="base" fetchpriority="high" src="assets/dunning-kruger.webp"/></div></div>
+</div><figure data-phase2="1" data-scene="dunning-kruger-hero" class="paint wide" data-entrance="bloom" data-hero="1">
+<div class="frame"><div class="stage"><img alt="Watercolor illustration for this companion" class="base" fetchpriority="high" src="assets/dunning-kruger.webp"/><img alt="" aria-hidden="true" class="ly mul" data-obj="hero-subject" data-depth="14" loading="lazy" src="assets/dunning-kruger-hero-layer.png" style="left:5%;top:5%;width:90%"/></div></div>
 <figcaption><b>Illustration.</b> Watercolor-style image generated for this page. A lone figure at a small pond sees a giant crowned reflection. Not a photograph.</figcaption></figure>
 <section class="chapter col" data-chapter="1" data-time="Part 1" data-title="The tournament nobody was ready for" id="ch-tournament"><div class="ch-head"><div><p class="ch-meta"><span class="ts">Part 1</span> · The tournament nobody was ready for</p><h2>The Tournament Nobody Was Ready For</h2></div></div>
 <p><span class="tag-src">SOURCE</span>The core finding, in the words Dunning uses in the interview: “relatively meagre, to often non-existent.” That is the measured link between what people believe about their skill and the reality of it.</p>
@@ -451,7 +451,7 @@ span.ptag, .ptag {
 <p><span class="tag-src">SOURCE</span>Every hometown player lost both matches at once. None placed. None came close. They shook their heads and asked how they could be not just mediocre but terrible.</p>
 <p><span class="tag-src">SOURCE</span>Dunning calls this the small pond problem. The friends judged their skill against the only rivals they had ever seen. They had never met the master level, so they placed themselves near it. He gives the college version: the best swimmer on a high school team can land in the bottom 20 percent of college tryouts. The swimmer did not get worse. The pond got bigger.</p>
 <p><span class="tag-int">INTERPRETATION</span>The rule for the reader: you cannot know your rank until you see the top. Find one practitioner clearly better than you and study their work for an hour each month. That hour is the pond check.</p>
-<aside class="tag" data-chapter="ch-tournament" data-sign-label="Aisle" id="nugget-2"><div class="tag-price"><span class="tag-big">•</span><span class="tag-unit">The small pond</span></div><div class="tag-body"><div class="tag-title">The small pond</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>Eight to ten friends, best in their world, lost every match to champions they had never seen.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>Rank needs the full range in view. Without the top in sight, the mind puts you near it.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Seek the real top monthly and measure the gap. Exposure beats introspection.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE</span></div></div></aside>
+<aside class="tag" data-chapter="ch-tournament" data-sign-label="Aisle" id="nugget-2"><div class="tag-price"><span class="tag-big">8-10</span><span class="tag-unit">friends, best in their world, lost to champions</span></div><div class="tag-body"><div class="tag-title">The small pond</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>Eight to ten friends, best in their world, lost every match to champions they had never seen.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>Rank needs the full range in view. Without the top in sight, the mind puts you near it.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Seek the real top monthly and measure the gap. Exposure beats introspection.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE</span></div></div></aside>
 </section>
 <section class="chapter col" data-chapter="1" data-time="Part 2" data-title="The double curse" id="ch-double"><div class="ch-head"><div class="aisle"><span class="l">Aisle</span><span class="n">1</span></div><div><p class="ch-meta"><span class="ts">Part 2</span> · The double curse</p><h2>The Double Curse</h2></div></div>
 <p><span class="tag-src">SOURCE</span>Dunning gives the short version first. Incompetent people are not in a position to know they are incompetent, in many areas of life. Three things follow. They judge other people worse. They can see the gap once they gain skill. And they find it hard to learn how low they stand.</p>
@@ -528,11 +528,36 @@ span.ptag, .ptag {
 <text class="axis" text-anchor="middle" x="320" y="302">New OS</text>
 <text class="axis" text-anchor="middle" x="485" y="302">Concrete</text>
 </svg>
+
+<div class="figctl" role="group" aria-label="Buffer multiplier explorer">
+<label for="bf-range">Buffer: <b id="bf-lab">Software feature, x1.3</b></label>
+<input type="range" id="bf-range" min="0" max="2" step="1" value="0" aria-describedby="bf-out">
+<p class="figout" id="bf-out" aria-live="polite"></p>
+</div>
+<!--p2-chart:buffer-->
+<script>
+(function(){
+var presets=[{m:1.3,label:'Software feature, x1.3',out:'A 10 week estimate becomes 13 weeks.'},
+ {m:2,label:'New operating system, x2',out:'A 10 week estimate becomes up to 20 weeks.'},
+ {m:8,label:'Building concrete, x8',out:'100 tons specified becomes up to 800 tons.'}];
+var rng=document.getElementById('bf-range'),lab=document.getElementById('bf-lab'),out=document.getElementById('bf-out');
+if(!rng||!lab||!out)return;
+var bars=rng.closest('.chart').querySelectorAll('svg rect.bar');
+function draw(i){
+ lab.textContent=presets[i].label;
+ out.textContent=presets[i].out+' The multiplier prices the unseen border, not bad arithmetic.';
+ for(var k=0;k<bars.length;k++)bars[k].style.opacity=(k===i)?'1':'0.35';
+}
+rng.addEventListener('input',function(){draw(parseInt(rng.value,10));});
+draw(0);
+})();
+</script>
+
 <p class="csrc">Source: Dunning interview, ep036, via the track chapter. Original toy chart built from episode claims. Buffers cover unknown unknowns, not bad arithmetic.</p>
 </div>
 <p><span class="tag-src">SOURCE</span>The closing counsel is social. Self knowledge is a brutal solo task and an easier group one. Other minds supply what introspection cannot. Dunning says it takes a village for a person to know themselves. His own test: ask whether you feel vague embarrassment at things you did 5 or 10 years ago. If yes, you grow. If your past self looks flawless, you stalled.</p>
 <p><span class="tag-int">INTERPRETATION</span>Four moves for an engineer. Study the real top monthly. Put a breaker in every design review. Multiply every estimate: 1.3 for familiar work, 2 for new systems. Run the embarrassment test on your old code each year. If nothing embarrasses you, the model is stale.</p>
-<aside class="tag" data-chapter="ch-fix" data-sign-label="Aisle" data-sign-num="4" id="nugget-4"><div class="tag-price"><span class="tag-big">•</span><span class="tag-unit">The buffer rule</span></div><div class="tag-body"><div class="tag-title">The buffer rule</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>Managers add 30 percent to software estimates, up to 100 percent for new systems. Architects multiply concrete by up to 8.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>You cannot locate the border, so you price it instead.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Multiply the estimate before you speak it. The buffer is the cost of the unseen border.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 04</span></div></div></aside>
+<aside class="tag" data-chapter="ch-fix" data-sign-label="Aisle" data-sign-num="4" id="nugget-4"><div class="tag-price"><span class="tag-big">30-100%</span><span class="tag-unit">buffer on estimates, and concrete multiplied by up to 8</span></div><div class="tag-body"><div class="tag-title">The buffer rule</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>Managers add 30 percent to software estimates, up to 100 percent for new systems. Architects multiply concrete by up to 8.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>You cannot locate the border, so you price it instead.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Multiply the estimate before you speak it. The buffer is the cost of the unseen border.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 04</span></div></div></aside>
 <aside class="tag" data-chapter="ch-fix" data-sign-label="Aisle" data-sign-num="4" id="nugget-1b"><div class="tag-price"><span class="tag-big">•</span><span class="tag-unit">The double curse, restated</span></div><div class="tag-body"><div class="tag-title">The double curse, restated</div><div class="tag-eye">The lesson</div><p><b>What happened. </b><span class="tag-src">SOURCE</span>Dunning names the root bug of the whole track: the instrument that judges is the instrument that errs.</p><p><b>Why it matters. </b><span class="tag-int">INTERPRETATION</span>Every later episode assumes you can catch your own mind. This one proves the catcher is broken by default.</p><p><b>The principle. </b><span class="tag-int">INTERPRETATION</span>Build the outside instruments first: other eyes, buffers, and the village.</p><div class="tag-sku"><svg aria-hidden="true" class="bars"></svg><span>AISLE 04</span></div></div></aside>
 </section>
 </main>
@@ -1252,5 +1277,19 @@ span.ptag, .ptag {
   });
 })();
 
-</script></body>
+</script><script>
+(function(){if(!window.CompanionFX)return;var FX=window.CompanionFX;
+FX.registerScene('dunning-kruger-hero',{
+ init:function(F,FX){
+  F._m=FX.motes(F.stage,F.W,F.H,24,7);
+  F._g=FX.glows(F.stage,F.W,F.H,[[F.W*0.5,F.H*0.30,Math.min(F.W,F.H)*0.22]],'screen','#E8A94B')[0];
+ },
+ pose:function(S,FX){
+  var F=S.F;F._m.tick(S.t);
+  F._g.style.opacity=(0.20+0.10*FX.flicker(S.t,3)).toFixed(3);
+  return {'hero-subject':{x:7*Math.sin(S.t*0.6),y:5*Math.sin(S.t*0.83+1),r:0,s:1,o:1}};
+ } });
+})();
+</script>
+</body>
 </html>
