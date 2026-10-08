@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning, Sleep and AI: Terry Sejnowski | Huberman Lab Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Terry Sejnowski: sleep spindles and memory consolidation, the Ambien perturbation experiment, the Boltzmann machine history, and self-attention in transformers and brains.">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f4efe3; --ink:#23201a; --muted:#6e6455;
+    --line:#e0d6c0; --accent:#2f6f8f; --accent-ink:#1f5068; --soft:#e9f1f4;
+    --warn:#8a5a1d;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#bfe0ec}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .legend{background:var(--paper2);border:1px solid var(--line);padding:14px 18px;margin:22px 0;
+    font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+  .legend b{color:var(--ink)}
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;
+    margin-right:8px;vertical-align:middle}
+  .tag.src{background:#dff0f7;color:var(--accent-ink);border:1px solid #bcd9e4}
+  .tag.int{background:#f5e8d4;color:var(--warn);border:1px solid #e3cda1}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+  .gap{background:#fdf6ec;border:1px dashed #d9b98a;padding:16px 20px;margin:26px 0;
+    font-family:var(--sans);font-size:13.5px;color:#6b5636;line-height:1.6}
+  .gap b{color:#4a3a22}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Huberman Lab · Track Companion</a>
+  <span class="sub">Episode 3 · Terry Sejnowski · 2024-11-18</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode 3 · Companion</p>
+      <h1>Learning, Sleep and AI</h1>
+      <p class="dek">Terry Sejnowski co-invented the Boltzmann machine with Geoffrey Hinton in the 1980s. Here he explains how sleep spindles write your day into long-term memory, why doubling them doubles recall, and how transformers do self-attention, with a bet that your basal ganglia does the same. This companion follows the conversation in order.</p>
+      <img src="assets/ep03-hero-spindles.webp" alt="Watercolor illustration of a sleeping head with glowing circular waves traveling around the brain at night">
+      <p class="caption"><b>Illustration.</b> The spindle: a one to two second circular wave that kneads the day into the cortex. Made for this page. AI-generated watercolor in a New Yorker style, made for this page. It carries no words or labels.</p>
+      <div class="legend"><b>How to read this companion.</b>
+        Claims tagged <span class="tag src">SOURCE</span> trace to the episode or its transcript.
+        Claims tagged <span class="tag int">INTERPRETATION</span> are analysis added by this companion.
+        Numbers name their source line. Anything the episode never says is marked <b>Not in source</b>.</div>
+      <div class="stats">
+<div class="stat"><div class="n">1-2 s</div><div class="l">how long each sleep spindle lasts, traveling in a circle around the cortex</div><div class="s">Transcript, opening section</div></div>
+        <div class="stat"><div class="n">2x</div><div class="l">spindle count doubled by the drug, recall doubled, memories stable</div><div class="s">Transcript, Ambien experiment</div></div>
+        <div class="stat"><div class="n">Trillions</div><div class="l">of parameters in the largest networks the episode discusses</div><div class="s">Transcript, transformer section</div></div>
+        <div class="stat"><div class="n">40 yrs</div><div class="l">from the 1980s Boltzmann bet to the transformer era</div><div class="s">Worked arithmetic from episode dates</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/etbfLTHD_VU" title="Huberman Lab episode 3 with Terry Sejnowski, official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video on youtube-nocookie, the only external dependency on this page. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+<li><a href="#nugget-1">The consolidation loop</a></li>
+          <li><a href="#nugget-2">Circular waves nobody saw before</a></li>
+          <li><a href="#nugget-3">Perturbation beats observation</a></li>
+          <li><a href="#nugget-4">You pay the piper</a></li>
+          <li><a href="#nugget-5">The unmonitored visual cortex</a></li>
+          <li><a href="#nugget-6">The 40-year bet</a></li>
+          <li><a href="#nugget-7">Self-attention in one sentence</a></li>
+          <li><a href="#nugget-8">Improvement without plasticity</a></li>
+          <li><a href="#nugget-9">The basal ganglia bet</a></li>
+          <li><a href="#nugget-10">Overbuild then prune</a></li>
+          <li><a href="#nugget-11">Cognitive velocity</a></li>
+        </ol>
+      </div>
+    </div>
+    <section class="chapter" id="ch-spindles" data-time="Opening" data-title="Sleep spindles write the day">
+      <p class="ch-time">Opening section</p>
+      <h2>Sleep spindles: the 1 to 2 second waves</h2>
+      <p><span class="tag src">SOURCE</span> Sejnowski's group records directly from human cortex. They work with epilepsy patients at Mass General Hospital who have electrodes implanted for weeks while doctors locate seizure origins. During those weeks, the scientists get continuous recordings of a living human cortex. That is how they found something nobody saw before: circular traveling waves during sleep.</p>
+      <p><span class="tag src">SOURCE</span> The key structure is the sleep spindle: a burst of rhythmic brain activity lasting about a second or two, traveling in a circle around the cortex during non-REM sleep, especially in transition states. Non-REM sleep is sleep without rapid eye movement, the quiet slow-wave part of sleep. REM sleep, its contrast, is the stage with rapid eye movements and the most vivid dreams.</p>
+      <div class="pull reveal">
+        <blockquote>it's known that these spindles are important for consolidating experiences you've had during the day into your long-term memory storage</blockquote>
+        <p class="who">Terry Sejnowski, opening section of the episode</p>
+      </div>
+      <p><span class="tag src">SOURCE</span> What spindles do: they consolidate the day's experiences into long-term memory. The hippocampus, the brain region required for forming new memories, replays the day's experiences. The replay triggers spindles, and the spindles knead the replayed experience into the cortex. The kneading metaphor matters: you must incorporate the new experience into existing knowledge without overwriting what is already there.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Memory</p>
+        <h4>The consolidation loop</h4>
+        <p><span class="lbl">What happened.</span> Sejnowski's team watched the loop directly in human cortex: the hippocampus replays the day, the replay triggers spindles, and the spindles knead the experience into the cortex.</p>
+        <p><span class="lbl">Why it matters.</span> The design constraint is universal: every learning system, biological or artificial, must add new knowledge without destroying old knowledge. The spindle is the brain's solution to that constraint.</p>
+        <p><span class="lbl">The principle.</span> When you build or use any learning system, ask how it solves the overwrite problem. The brain's answer is replay plus slow integration during sleep.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Discovery</p>
+        <h4>Circular waves nobody saw before</h4>
+        <p><span class="lbl">What happened.</span> Weeks of continuous recordings from implanted electrodes revealed traveling waves moving in a circle around the cortex during sleep. Nobody saw the circular pattern before this work.</p>
+        <p><span class="lbl">Why it matters.</span> The discovery came from access, not theory: patients already had electrodes for clinical reasons, and the scientists recorded for weeks. Long observation windows beat clever hypotheses.</p>
+        <p><span class="lbl">The principle.</span> If you want to find what nobody saw, get continuous data from the real system for longer than anyone else bothered to record.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-ambien" data-time="Early" data-title="The Ambien experiment">
+      <p class="ch-time">Early section</p>
+      <h2>The Ambien experiment: double the spindles, double the memory</h2>
+      <p><span class="tag src">SOURCE</span> Observation is not proof. Sejnowski describes the perturbation experiment by Sara Mednick at UC Irvine that tests whether spindles cause memory. The setup: subjects learn something at night, then take the drug zolpidem, sold as Ambien. The drug doubles the number of sleep spindles. In the morning, subjects remember twice as much of what they learned, and the memories are stable over time.</p>
+      <div class="chart">
+        <h4>The perturbation test, counted</h4>
+        <p class="csub">One variable manipulated, spindle count. Both outputs doubled. That is the causal signature.</p>
+        <svg viewBox="0 0 640 240" role="img" aria-label="Grouped bar chart: control night versus Ambien night, spindle count and recall both double">
+          <title>Ambien experiment: doubled spindles, doubled recall</title>
+          <line x1="60" y1="180" x2="620" y2="180" stroke="#3d352a" stroke-width="2"/>
+          <rect x="120" y="110" width="80" height="70" class="bar alt"><title>Control night: baseline spindle count</title></rect>
+          <rect x="220" y="110" width="80" height="70" class="bar alt"><title>Control night: baseline recall</title></rect>
+          <rect x="360" y="40" width="80" height="140" class="bar"><title>Ambien night: doubled spindle count</title></rect>
+          <rect x="460" y="40" width="80" height="140" class="bar"><title>Ambien night: doubled recall</title></rect>
+          <text x="160" y="98" text-anchor="middle" class="vallab">N</text>
+          <text x="260" y="98" text-anchor="middle" class="vallab">R</text>
+          <text x="400" y="28" text-anchor="middle" class="vallab">2N</text>
+          <text x="500" y="28" text-anchor="middle" class="vallab">2R</text>
+          <text x="210" y="200" text-anchor="middle" class="axis">control night</text>
+          <text x="450" y="200" text-anchor="middle" class="axis">Ambien night</text>
+          <text x="320" y="228" text-anchor="middle" class="axis">Left bar of each pair: spindles. Right bar: morning recall.</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, Ambien experiment section (Sara Mednick, UC Irvine). The drug doubles spindle count. Subjects remember twice as much. Memories are stable over time. N and R are schematic labels, not measured counts.</p>
+      </div>
+      <p><span class="tag src">SOURCE</span> The logic chain: learning happens in the evening, the drug doubles spindle count during sleep, morning recall doubles. Therefore spindles cause consolidation, not just correlate with it. This is the perturbation test, the gold standard Sejnowski names: do not just observe the system, perturb it and watch.</p>
+      <p><span class="tag src">SOURCE</span> The honest price, which Sejnowski and Huberman state explicitly: “pay the piper.” Tweak one thing in the brain and something else gives. Ambien users report waking in hotel rooms with no memory of how they got there. The broader rule from the episode: with brain drugs, you do not get anything for free. Behaviors beat pharmacology as tools. Sleep enough, exercise during the day, and the spindles come without the drug. Daytime exercise increases nighttime spindle prevalence.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Method</p>
+        <h4>Perturbation beats observation</h4>
+        <p><span class="lbl">What happened.</span> Watching spindles during learning showed correlation. Doubling spindles with a drug and watching recall double showed causation. The manipulated variable did the proving.</p>
+        <p><span class="lbl">Why it matters.</span> Most debates stall at correlation. The perturbation test is the move that ends them: change one thing, hold the rest, read the output.</p>
+        <p><span class="lbl">The principle.</span> When you need to know whether X causes Y, stop collecting more observations of X and Y together. Find the lever that moves X alone and pull it.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Trade-offs</p>
+        <h4>You pay the piper</h4>
+        <p><span class="lbl">What happened.</span> The drug that doubles recall also erases how you got to your hotel room. Sejnowski and Huberman state the rule plainly: tweak one thing in the brain and something else gives.</p>
+        <p><span class="lbl">Why it matters.</span> Every pharmacological shortcut carries a ledger. The episode's answer is behaviors first: full sleep and daytime exercise raise spindles with no debt.</p>
+        <p><span class="lbl">The principle.</span> Price every brain tweak before you take it. If you cannot name the price, you have not looked hard enough. The price is always there.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-dreams" data-time="Early middle" data-title="Two kinds of dreams">
+      <p class="ch-time">Early middle section</p>
+      <h2>Two kinds of dreams</h2>
+      <p><span class="tag src">SOURCE</span> The episode distinguishes dream types by sleep stage. REM dreams: vivid, constantly changing, never the same twice. Slow-wave sleep dreams: repetitive, the same dream over and over across nights, heavy emotional content.</p>
+      <p><span class="tag src">SOURCE</span> Mechanism for the bizarreness of REM dreams: during REM, acetylcholine rises, but not in the prefrontal cortex. Acetylcholine is a neuromodulator important for attention. The visual cortex produces imagery, but the prefrontal circuits that would monitor and interpret the imagery are offline. Unmonitored visual activity becomes bizarre: floating, impossible events, no anchor.</p>
+      <p><span class="tag src">SOURCE</span> Practical rule from the episode: if a dream repeats with heavy emotion, it is probably a slow-wave dream. If it is vivid and novel, it is probably REM.</p>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Sleep</p>
+        <h4>The unmonitored visual cortex</h4>
+        <p><span class="lbl">What happened.</span> REM sleep raises acetylcholine everywhere except the prefrontal cortex. The visual system fires at full power with no supervisor online. The result is vivid nonsense.</p>
+        <p><span class="lbl">Why it matters.</span> Bizarreness is not a message. It is a missing monitor. The mechanism dissolves the temptation to over-interpret every strange dream.</p>
+        <p><span class="lbl">The principle.</span> When a system produces strange output, check which monitor went offline before you decode the output as a signal.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-history" data-time="Middle" data-title="The 1980s bet against symbols">
+      <p class="ch-time">Middle section</p>
+      <h2>The 1980s bet against symbols</h2>
+      <figure>
+        <img src="assets/ep03-terry-sejnowski-photo.jpg" alt="Photograph of Terry Sejnowski">
+        <p class="caption"><b>Photograph.</b> Terry Sejnowski. Real photograph, Salk Institute headshot, via salk.edu. Used with source attribution. This is not an AI-generated image.</p>
+      </figure>
+      <p><span class="tag src">SOURCE</span> Sejnowski started in the 1980s as a pioneer of learning algorithms for neural networks. He collaborated with Geoffrey Hinton on the Boltzmann machine. The episode notes that Hinton won the Nobel Prize that same year, 2024.</p>
+      <p><span class="tag src">SOURCE</span> The bet they made: the dominant AI of the time was symbol processing, rules and logic, a different program for every problem. Sejnowski and Hinton bet on learning systems instead: networks that learn from data rather than from hand-written rules.</p>
+      <div class="chart">
+        <h4>A bet that took 40 years to pay off</h4>
+        <p class="csub">The 1980s to the 2020s is about 40 years. The episode gives the endpoints. The subtraction is this companion's.</p>
+        <svg viewBox="0 0 640 200" role="img" aria-label="Timeline from the 1980s Boltzmann machine to the 2020s transformer era">
+          <title>From the Boltzmann machine to transformers: about 40 years</title>
+          <line x1="40" y1="120" x2="600" y2="120" stroke="#3d352a" stroke-width="2"/>
+          <circle cx="120" cy="120" r="7" fill="#2f6f8f"><title>1980s: Boltzmann machine, Sejnowski and Hinton</title></circle>
+          <circle cx="330" cy="120" r="7" fill="#d8c9a8"><title>2010s: deep learning takes off</title></circle>
+          <circle cx="520" cy="120" r="7" fill="#3d352a"><title>2020s: transformer era</title></circle>
+          <text x="120" y="155" text-anchor="middle" class="axis">1980s</text>
+          <text x="330" y="155" text-anchor="middle" class="axis">2010s</text>
+          <text x="520" y="155" text-anchor="middle" class="axis">2020s</text>
+          <text x="120" y="95" text-anchor="middle" class="axis">the bet</text>
+          <text x="330" y="95" text-anchor="middle" class="axis">the payoff begins</text>
+          <text x="520" y="95" text-anchor="middle" class="axis">the payoff lands</text>
+          <text x="320" y="45" text-anchor="middle" class="vallab">about 40 years from bet to full payoff</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, history section. The 1980s start and the 2024 Nobel are from the episode. The 40-year figure is worked arithmetic.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Strategy</p>
+        <h4>The 40-year bet</h4>
+        <p><span class="lbl">What happened.</span> When symbols and hand-written rules dominated AI, Sejnowski and Hinton bet on networks that learn from data. The field ignored the bet for decades, then paid it off all at once.</p>
+        <p><span class="lbl">Why it matters.</span> A correct call made early looks identical to a wrong call for 40 years. The difference is only visible at the end. Time horizon is part of the strategy, not just patience.</p>
+        <p><span class="lbl">The principle.</span> If your thesis needs decades, size the commitment for decades. A bet you cannot hold for 40 years is not a 40-year bet.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-transformer" data-time="Middle late" data-title="What a transformer actually does">
+      <p class="ch-time">Middle late section</p>
+      <h2>What a transformer actually does</h2>
+      <p><span class="tag src">SOURCE</span> Sejnowski's explanation of the transformer is the clearest on the track. A transformer is a deep-learning architecture, a feedforward network, with a component called self-attention. Self-attention connects words that are far apart in a sequence. Given the word this and three or four nouns it could refer to, context disambiguates which noun it means.</p>
+      <p><span class="tag src">SOURCE</span> Training: the transformer predicts the next word in a sentence, over and over, on huge amounts of text. Email autocomplete is a primitive version of the same algorithm. What emerges at scale: the network builds an internal semantic representation. Words that relate to each other develop associations inside the network, forming an internal model of the meaning of the sentence. Sejnowski says researchers probed transformers and now hold fair confidence this internal model exists. The scale: networks with trillions of parameters.</p>
+      <p><span class="tag src">SOURCE</span> Sejnowski's research proposal asks how the brain does self-attention, since brains also connect distant pieces of context. His hypothesis: the basal ganglia, a group of deep brain structures involved in movement control and habit selection. Status: hypothesis in a grant proposal, not a finding. It is certain that he proposes it. Whether it is true remains open.</p>
+      <p><span class="tag src">SOURCE</span> One of the biggest surprises about large language models, per Sejnowski: there is no learning after training. The model trains once on data. After that, it only runs inference, a fast loop producing one word after another. No weights change. And yet, as a dialogue continues, the model seems to get better at the task. This is called in-context learning: improvement within the conversation without any plasticity, without any weight updates. The brain, by contrast, has continuous plasticity and self-generated activity, including during sleep.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Mechanism</p>
+        <h4>Self-attention in one sentence</h4>
+        <p><span class="lbl">What happened.</span> In the toy sentence, the word it could bind to piano, keys, or sunset. Self-attention scores each candidate against the context. Piano wins because you play pianos, not sunsets. The highest score binds.</p>
+        <p><span class="lbl">Why it matters.</span> Binding across distance is temporal context, and it is the core operation of the transformer. Everything else in the architecture serves this scoring.</p>
+        <p><span class="lbl">The principle.</span> When you meet a complex architecture, find its one scoring operation. Understand the score and you understand the machine.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Learning</p>
+        <h4>Improvement without plasticity</h4>
+        <p><span class="lbl">What happened.</span> A language model trains once, then its weights freeze. During a dialogue it only runs inference. Yet it gets better at the task as the conversation continues, with zero weight updates.</p>
+        <p><span class="lbl">Why it matters.</span> Improvement without plasticity should not happen under the old picture of learning. In-context learning breaks the equation of learning with weight change.</p>
+        <p><span class="lbl">The principle.</span> Never confuse training with learning. Training changes weights once. In-context learning improves with frozen weights. The brain does both, plus continuous self-generated activity.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Hypothesis</p>
+        <h4>The basal ganglia bet</h4>
+        <p><span class="lbl">What happened.</span> Sejnowski proposes that the brain does something equivalent to self-attention, and bets the basal ganglia is where it happens. He states it as a proposal to be tested with experimental collaborators.</p>
+        <p><span class="lbl">Why it matters.</span> A labeled hypothesis is a gift: it tells you exactly what would prove it wrong. An unlabeled one spreads as fact.</p>
+        <p><span class="lbl">The principle.</span> Tag every scientific claim with its status: finding, proposal, or guess. This companion marks the basal ganglia claim as proposal. Treat it as such.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-prune" data-time="Late" data-title="Energy and pruning">
+      <p class="ch-time">Late section</p>
+      <h2>Energy and pruning</h2>
+      <p><span class="tag src">SOURCE</span> In the first two years of life, the infant brain forms a tremendous number of new synapses, far more than needed. Then it prunes them. Why overbuild then cut? Synapses are expensive. Activating neurons and synapses costs energy, especially neurotransmitter turnover. The efficient design: build an overabundant network, keep the synapses that prove important, prune the rest. Pruning slows with age but never fully stops, which is why cortex thins over the lifespan.</p>
+      <figure>
+        <img src="assets/ep03-prune.webp" alt="Watercolor illustration of a dense young tree beside a sparse pruned mature tree">
+        <p class="caption"><b>Illustration.</b> Overbuild then prune: the infant brain grows every possible connection, then keeps only the proven ones. AI-generated watercolor in a New Yorker style, made for this page.</p>
+      </figure>
+      <p><span class="tag int">INTERPRETATION</span> The engineering parallel: this is the biological version of neural network pruning. Train big, then cut. The brain discovered the recipe first.</p>
+      <p><span class="tag src">SOURCE</span> Huberman contributes a concept Sejnowski endorses: cognitive velocity. From skateboarding, Huberman learned it is easier to learn a trick going slightly faster than comfortable. Standing still on carpet is the worst way to learn. He translated this to his reading pace: a pace of intake exists where he must engage cognitively and retains information, versus a reflexive leisurely pace where nothing sticks. Sejnowski's addition: we know more about brain states during sleep than during wakefulness. Cognitive velocity could become a real metric of brain state during waking hours.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Design</p>
+        <h4>Overbuild then prune</h4>
+        <p><span class="lbl">What happened.</span> The infant brain builds far more synapses than it needs, then cuts the unproven ones to save energy. The adult brain is sparse, efficient, and thinner.</p>
+        <p><span class="lbl">Why it matters.</span> Sparseness is not damage. It is the optimized state. Bigger connectivity is not always better. Proven connectivity is better.</p>
+        <p><span class="lbl">The principle.</span> In any learning system, start abundant, then prune by evidence. The recipe works in cortex and in neural networks alike.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-11">
+        <p class="eyebrow">Nugget 11 · Practice</p>
+        <h4>Cognitive velocity</h4>
+        <p><span class="lbl">What happened.</span> Huberman learns fastest slightly above comfort speed: skateboard tricks, reading pace, intake rate. Social media trains the opposite: slow, passive, multi-context cycling where the brain disengages.</p>
+        <p><span class="lbl">Why it matters.</span> Pace is a brain state, not a preference. The leisurely pace feels easy and retains nothing. The slightly-too-fast pace forces engagement and the material sticks.</p>
+        <p><span class="lbl">The principle.</span> Learn slightly faster than comfortable, with full engagement. If it feels easy, you are on the carpet. Speed up.</p>
+      </div>
+    </section>
+
+    <div class="takeaways">
+      <h3>Takeaways</h3>
+      <ol>
+<li>Sleep spindles, one to two second circular waves in non-REM sleep, are the mechanism that writes the day into long-term memory. The hippocampus replays the day. The spindles knead the replay into the cortex without overwriting old knowledge.</li>
+      <li>Observation is correlation. Perturbation is causation. Doubling spindles with a drug doubled recall, which is what proved spindles cause consolidation.</li>
+      <li>You pay the piper. Every brain tweak has a price. Behaviors, sleep and exercise, beat pharmacology as learning tools.</li>
+      <li>Sejnowski and Hinton bet on learning systems over hand-written rules in the 1980s. The bet took about 40 years to pay off. Time horizon is a strategy.</li>
+      <li>Transformers predict the next word at massive scale and grow an internal model of meaning. The brain may do the equivalent of self-attention in the basal ganglia. That is a hypothesis, not a finding.</li>
+      </ol>
+    </div>
+    <footer>
+      <p><b>Sources.</b> This companion narrates Huberman Lab Episode 3, How to Improve at Learning Using Neuroscience and AI with Dr. Terry Sejnowski (2024-11-18, video etbfLTHD_VU). All facts and figures come from the episode transcript (cleaned captions, not verbatim-certified) and the episode page in this track. Each chart names its source line. Illustrations are AI-generated watercolors made for this page. The photograph is real, with visible attribution in its caption. Transcripts carry no timestamps, so chapters are ordered by episode progression instead of clock time.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 23 words: one pull quote of 20 words on what spindles do, and one three-word episode phrase. Both carry attribution where they appear. The pull quotes carry speaker attribution and their place in the episode. Everything else is original paraphrase and analysis. The transcript used here is cleaned captions, not a verbatim-certified record, so brief quoted phrases reproduce its wording, not necessarily the exact spoken word.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    var t = ch.getAttribute('data-time') || '';
+    var title = ch.getAttribute('data-title') || '';
+    a.innerHTML = (t ? '<span class="t">' + t + '</span>' : '') + title;
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function onScroll(){
+    var best = null, by = 160;
+    chapters.forEach(function(ch){
+      var r = ch.getBoundingClientRect();
+      if (r.top <= by) best = ch;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', best && a.getAttribute('href') === '#' + best.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
