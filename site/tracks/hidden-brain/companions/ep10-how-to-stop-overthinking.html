@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Stop Overthinking: Hidden Brain Interactive Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Hidden Brain episode on overthinking: Ethan Kross, the inner voice, and distanced self-talk.">
+<style>
+:root{
+  --paper:#fbf9f3; --paper2:#f4eee1; --ink:#24201a; --muted:#6f6455;
+  --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+  --green:#2e6b34; --blue:#2c5f8a;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:18px;line-height:1.65}
+a{color:var(--accent-ink)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+.topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+  align-items:center;gap:14px}
+.topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+.chapnav{position:sticky;top:52px;z-index:99;background:var(--paper2);
+  border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+  padding:8px 12px}
+.chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+  color:var(--muted);text-decoration:none;padding:6px 10px;margin-right:6px;
+  border:1px solid transparent;border-radius:20px}
+.chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+.chapnav a:hover{border-color:var(--line);color:var(--ink)}
+.chapnav a.active{background:var(--ink);color:#fff}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;padding:0 20px}
+@media(min-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,760px)}
+  .chapnav{display:none}
+  .sidenav{display:block}
+}
+.sidenav{display:none;position:sticky;top:70px;align-self:start;
+  max-height:calc(100vh - 90px);overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+.sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+.sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+.sidenav a:hover{color:var(--ink)}
+.sidenav a.active{border-left-color:var(--accent);color:var(--ink);font-weight:700}
+.content{min-width:0;padding:26px 0 60px}
+.breadcrumb{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px}
+h1{font-size:40px;line-height:1.15;margin:0 0 10px}
+.meta-line{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.sourcebox{border:1px solid var(--line);background:var(--paper2);padding:14px 16px;
+  margin:0 0 26px;font-family:var(--sans);font-size:13px;line-height:1.55}
+.sourcebox .badge{display:inline-block;font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 9px;border-radius:3px;margin-right:8px}
+.badge.transcript{background:#e5f0e2;color:var(--green)}
+.badge.descr{background:#f6e8d4;color:var(--accent-ink)}
+.legend{margin-top:10px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 8px;border-radius:10px;margin:0 6px 4px 0}
+.tag.sf{background:#e5f0e2;color:var(--green)}
+.tag.in{background:#e6ecf5;color:var(--blue)}
+p{margin:0 0 16px}
+h2{font-size:28px;margin:44px 0 12px;scroll-margin-top:130px}
+h3{font-size:21px;margin:28px 0 8px}
+section.chapter{scroll-margin-top:120px}
+figure{margin:26px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+figcaption .kind{font-weight:700;color:var(--ink)}
+.nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+.nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+.nugget h4{font-size:20px;margin:0 0 10px}
+.nugget p{font-size:16.5px;margin:0 0 10px}
+.nugget p:last-child{margin-bottom:0}
+.nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.nugget .nsrc{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.pull{margin:34px 0;padding:6px 0;text-align:center}
+.pull blockquote{font-size:25px;line-height:1.4;margin:0 0 10px;font-style:italic}
+.pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+  background:var(--accent);margin:0 auto 18px}
+.pull:after{margin:18px auto 0}
+.chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+.chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+.chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:12px 0 0}
+.chart .illust{font-family:var(--sans);font-size:11.5px;color:var(--accent-ink);margin:6px 0 0;font-style:italic}
+.video .frame{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--line)}
+.video .frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.nugindex{columns:2;column-gap:28px;font-family:var(--sans);font-size:13.5px}
+.nugindex li{margin-bottom:8px;break-inside:avoid}
+footer.honesty{border-top:2px solid var(--ink);margin-top:50px;padding:24px 0 10px;
+  font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+footer.honesty h3{font-size:15px;color:var(--ink);margin:18px 0 8px}
+footer.honesty .big{font-size:15px;color:var(--ink);font-weight:700}
+footer.honesty code{font-family:var(--mono);font-size:12px;background:var(--paper2);padding:1px 5px}
+#tip{position:fixed;pointer-events:none;background:#1d1a15;color:#f7f3ea;
+  font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:6px;
+  max-width:280px;opacity:0;transition:opacity .15s;z-index:300}
+.stat-row{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.stat{flex:1 1 150px;border:1px solid var(--line);background:#fff;padding:14px;text-align:center}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent-ink)}
+.stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.stat .s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:4px}
+@media(max-width:700px){h1{font-size:30px}.nugindex{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">Hidden Brain &middot; Interactive companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <aside class="sidenav" id="sidenav" aria-label="Chapters"></aside>
+  <main class="content" id="main">
+    <article>
+      <nav class="breadcrumb"><a href="../index.html">Hidden Brain</a> / <span>How to Stop Overthinking</span></nav>
+      <p class="eyebrow">Interactive companion</p>
+      <h1>How to Stop Overthinking</h1>
+      <p class="meta-line">Episode 10 &middot; Hidden Brain &middot; Guest: Ethan Kross, psychologist &middot; Published 2026-08-20 &middot; 7,463 views &middot; 9 min 38 s</p>
+      <div class="sourcebox"><span class="badge descr">Description plus published research</span> This episode has no full transcript on disk (the auto-generated captions were rate-limited at collection time, and no manual captions exist). This companion is narrated from the official episode description plus Ethan Kross published research, re-verified on 2026-10-08. Every claim carries a source tag. No spoken lines are quoted.
+      <div class="legend"><span class="tag sf">Source fact</span> claim verified in the source named beside it. <span class="tag in">Interpretation</span> my analysis, clearly separated from source facts.</div></div>
+      <figure class="reveal"><img src="img/ep10-overthinking-a.webp" alt="Watercolor: night chatter" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> The voice that wakes you at 3am.</figcaption></figure>
+      <section class="chapter" id="voice" data-time="Source: description"><h2>The voice at 3am</h2><p class="reveal"><span class="tag sf">Source fact</span> The episode opens with a question: what if the voice that wakes you up at 3am is also the reason you can think clearly at all?</p><p class="reveal"><span class="tag sf">Published research</span> The guest is psychologist Ethan Kross, who directs the University of Michigan Emotion and Self-Control Laboratory and wrote the book Chatter: The Voice in Our Head. His research starts from a double truth: the inner voice is the instrument of clear thought, and it is also the instrument of torment. The same voice that plans your day replays your failures at night.</p><div class="nugget reveal" id="n1"><p class="eyebrow">Nugget 1 &middot; The double truth</p><h4>The tool and the torment share one voice</h4><p><span class="lbl">What happened.</span> Kross research treats the inner voice as both instrument and affliction: necessary for reasoning, capable of trapping you in loops.</p><p><span class="lbl">Why it matters.</span> You cannot silence the voice without losing the thinking. The goal is to steer, not to mute.</p><p><span class="lbl">The principle.</span> Do not fight the voice. Change your seat relative to it.</p><p class="nsrc">Source: episode description + published research. <span class="tag sf">Source fact</span></p></div></section><section class="chapter" id="television" data-time="Source: description"><h2>The man on television</h2><p class="reveal"><span class="tag sf">Source fact</span> The episode tells of one of the most reassuring men on television, who privately wrestled with the very same doubt.</p><p class="reveal"><span class="tag in">Interpretation</span> The description does not name him, and this companion does not guess. The point survives without the name: chatter does not respect resumes. A man whose job is to calm millions can lie awake negotiating with his own voice. That makes it a human feature, not a personal failure.</p></section><section class="chapter" id="stroke" data-time="Source: description"><h2>The stroke that switched it off</h2><p class="reveal"><span class="tag sf">Source fact</span> The episode tells what really happened when a neuroscientist stroke switched her inner voice off completely.</p><p class="reveal"><span class="tag in">Interpretation</span> The description does not name her either. The story functions as a natural experiment: what is a mind without the voice? Whatever peace the silence brought, it also took the narrator with it. The episode question sharpens here. The voice is not the enemy. Unmanaged chatter is.</p><figure class="reveal"><img src="img/ep10-overthinking-b.webp" alt="Watercolor: distant observer" loading="lazy"><figcaption><span class="kind">AI-generated watercolor illustration.</span> Watching your own thoughts from a distance, like they belong to someone else.</figcaption></figure></section><section class="chapter" id="distanced" data-time="Source: description + research"><h2>Distanced self-talk</h2><p class="reveal"><span class="tag sf">Source fact</span> The episode closing tool: watching your own thoughts from a distance, like they belong to someone else, can loosen chatter grip.</p><p class="reveal"><span class="tag sf">Published research</span> Kross published research gives the mechanism a name: distanced self-talk. Instead of addressing yourself as I, address yourself by name or as you. In one experiment with Jason Moser, participants viewed disturbing photographs and reflected using immersed language (What am I feeling?) or distanced language (What is he feeling?). Brain monitoring showed much less emotional activity with distanced language, and the relief emerged within one second. One second. It is high on results and low on effort: it does not overtax executive function the way effortful calming techniques do.</p><p class="reveal"><span class="tag sf">Published research</span> The same line of research produced Solomon Paradox: people reason more wisely about problems when they consider them as if they belonged to someone else. Distance is not coldness. It is the vantage point from which wisdom becomes available.</p><div class="chart reveal"><h4>Immersed vs distanced self-talk</h4><p class="csub">The same storm, two seats</p><svg viewBox="0 0 560 200" role="img">
+<title>Two ways to talk to yourself: immersed first-person self-talk keeps you inside the storm, distanced self-talk views the same thoughts from the outside</title>
+<rect x="30" y="20" width="240" height="150" fill="#f4eee1"/>
+<text x="150" y="45" font-size="13" font-weight="bold" fill="#8f3f14" font-family="sans-serif" text-anchor="middle">Immersed: I</text>
+<text x="150" y="70" font-size="12" fill="#6f6455" font-family="sans-serif" text-anchor="middle">Why am I feeling this?</text>
+<circle cx="150" cy="110" r="22" fill="none" stroke="#b4531f" stroke-width="3"/>
+<path d="M150,88 C175,95 175,125 150,132 C125,125 125,95 150,88" fill="none" stroke="#b4531f" stroke-width="2"/>
+<text x="150" y="160" font-size="11" fill="#b4531f" font-family="sans-serif" text-anchor="middle">inside the storm</text>
+<rect x="290" y="20" width="240" height="150" fill="#e9e2d2"/>
+<text x="410" y="45" font-size="13" font-weight="bold" fill="#2e6b34" font-family="sans-serif" text-anchor="middle">Distanced: your name</text>
+<text x="410" y="70" font-size="12" fill="#6f6455" font-family="sans-serif" text-anchor="middle">What is she feeling?</text>
+<circle cx="410" cy="110" r="22" fill="none" stroke="#2e6b34" stroke-width="3"/>
+<circle cx="470" cy="110" r="14" fill="none" stroke="#2e6b34" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="410" y="160" font-size="11" fill="#2e6b34" font-family="sans-serif" text-anchor="middle">the fly on the wall</text>
+</svg><p class="csrc">Conceptual diagram based on Kross published research. <span class="tag sf">Published research</span></p><p class="illust">Illustrative: a concept sketch of the two stances, not measured data.</p></div><div class="stat-row"><div class="stat reveal"><div class="n">1 s</div><div class="l">For distanced self-talk to shift brain activity</div><div class="s">Published research</div></div><div class="stat reveal"><div class="n">2nd</div><div class="l">Person or your own name instead of I</div><div class="s">Published research</div></div></div><div class="nugget reveal" id="n2"><p class="eyebrow">Nugget 2 &middot; Distanced self-talk</p><h4>Change the pronoun, change the weather</h4><p><span class="lbl">What happened.</span> One pronoun swap, from I to your name, cut emotional brain activity within a second in the lab.</p><p><span class="lbl">Why it matters.</span> The cheapest intervention in psychology may be grammatical. No app, no hour of meditation, one word.</p><p><span class="lbl">The principle.</span> Talk to yourself the way you would talk to a friend. The distance does the work.</p><p class="nsrc">Source: Kross and Moser published experiment. <span class="tag sf">Published research</span></p></div></section>
+      <section class="chapter video" id="watch" data-time="video"><h2>Watch the episode</h2><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/p6l-bd34Hhk" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><span style="position:absolute;left:-9999px">Official Hidden Brain episode video for How to Stop Overthinking.</span><p style="font-family:var(--sans);font-size:13px;color:var(--muted)">The official Hidden Brain episode video, embedded via youtube-nocookie.com, the only external dependency on this page.</p></section>
+      <section class="chapter" id="nuggets" data-time="index">
+        <h2>Nugget index</h2>
+        <ol class="nugindex"><li><a href="#n1"><b>Nugget 1.</b> The tool and the torment share one voice</a> <span style="color:var(--muted)">(The voice at 3am)</span></li><li><a href="#n2"><b>Nugget 2.</b> Change the pronoun, change the weather</a> <span style="color:var(--muted)">(Distanced self-talk)</span></li></ol>
+      </section>
+    </article>
+    <footer class="honesty" id="honesty"><h3>How this companion was built</h3><p><span class="big">Sourcing.</span> No transcript exists for this episode, so every factual claim is tagged with its provenance: the episode description or Kross independently published research (re-verified October 2026). The television figure and the neuroscientist are unnamed in the description, so they stay unnamed here.</p><h3>Sources</h3><ul><li>Episode description: research/hidden-brain/descriptions.txt (entry p6l-bd34Hhk).</li><li>Episode metadata: research/hidden-brain/episodes.json (views 7,463, upload 2026-08-20, duration 578 s).</li><li>Ethan Kross, Chatter (2021), via published summaries re-verified 2026-10-08.</li><li>Kross and Moser distanced self-talk EEG experiment, via published summaries re-verified 2026-10-08.</li><li>Kross and Grossmann (2012) on Solomon Paradox and wise reasoning, via published summaries re-verified 2026-10-08.</li></ul><h3>On quotes</h3><p><span class="big">Quoted words in this companion: 0.</span> The quote budget allows at most 50 words of direct quotation per artifact. This is the mechanical recount defined in the build notes: every word inside pull-quote or blockquote markup, plus every quoted phrase in body text and attributes, footer excluded. Unquoted image alt text is not a quoted phrase, so it is excluded from this count. No phrases are itemized below, because the recount is zero.</p><p>No words in this companion are quoted from the episode. Everything is paraphrase.</p><p>No episode dialogue is quoted anywhere in this companion: no transcript exists, so no spoken lines could be verified.</p><h3>What was not invented</h3><p>Thin source, handled openly. The 3am voice, the television figure, the neuroscientist stroke, and the distanced self-talk tool all come from the official description. The mechanisms (one-second EEG shift, Solomon Paradox, Chatter book) come from Kross published research, not from the episode audio. No names are attached to the description anecdotes because the description gives none. The immersed-vs-distanced diagram is labeled a concept sketch, not data.</p><h3>Images and video</h3><p>Illustrations on this page are AI-generated watercolors made for this companion and are labeled as illustrations. No real photographs appear, so no attribution is owed. The video embed uses youtube-nocookie.com, the only external dependency. Everything else loads from local relative paths and works from file://.</p><p>Companion to the <a href="../index.html">Hidden Brain track index</a> and <a href="../ep10.html">the track chapter</a>. Built for study, not affiliated with the show.</p></footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+"use strict";
+var tip=document.getElementById("tip");
+document.addEventListener("mousemove",function(e){
+  var t=e.target.closest("[data-tip]");
+  if(t){tip.textContent=t.getAttribute("data-tip");
+    tip.style.opacity="1";
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-300)+"px";
+    tip.style.top=(e.clientY+16)+"px";}
+  else{tip.style.opacity="0";}
+});
+var chapters=Array.prototype.slice.call(document.querySelectorAll("section.chapter"));
+function navLink(ch){
+  var a=document.createElement("a");
+  a.href="#"+ch.id;
+  var sp=document.createElement("span");sp.className="t";
+  sp.textContent=ch.getAttribute("data-time");
+  a.appendChild(sp);
+  var h=ch.querySelector("h2");
+  a.appendChild(document.createTextNode(h?h.textContent:ch.id));
+  a.setAttribute("data-ch",ch.id);
+  return a;
+}
+var navs=[document.getElementById("chapnav"),document.getElementById("sidenav")];
+navs.forEach(function(n){if(!n)return;chapters.forEach(function(ch){n.appendChild(navLink(ch));});});
+function spy(){
+  var cur=null;
+  chapters.forEach(function(ch){if(ch.getBoundingClientRect().top<160)cur=ch.id;});
+  var links=document.querySelectorAll("[data-ch]");
+  Array.prototype.forEach.call(links,function(a){
+    a.classList.toggle("active",a.getAttribute("data-ch")===cur);});
+}
+document.addEventListener("scroll",spy,{passive:true});spy();
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+  });
+},{threshold:.08});
+Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
