@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Episode 3: The Brutal Truth About Female Attraction: Dating Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Modern Wisdom episode with Macken Murphy: attraction science, the size study, formidability, signaling, and status.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Dating Instruction · Track Companion</a>
+  <span class="sub">Ep 3 · The Truth About Female Attraction</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Modern Wisdom · Dating Instruction · Episode 3 · Companion</p>
+      <h1>The Brutal Truth<br>About Female<br>Attraction</h1>
+      <p class="dek">Evolutionary psychologist Macken Murphy walks through the research on what women find attractive: the size study, formidability, signaling, and status. This companion follows the full episode, section by section.</p>
+      <img src="assets/ep03-formidability-hero.webp" alt="Watercolor illustration contrasting a bodybuilder with a lean capable man, observed by a woman">
+      <p class="caption"><b>Illustration.</b> Show muscle versus useful muscle: the episode argues women read formidability, not gym scores. AI-generated watercolor, made for this page. No text appears in the image.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">675,310</div><div class="l">Views on the episode video</div><div class="s">Verified 2026-10-06 via yt-dlp</div></div>
+        <div class="stat"><div class="n">~2h 41m</div><div class="l">Episode length, 9,695 seconds</div><div class="s">Verified 2026-10-06 via yt-dlp</div></div>
+        <div class="stat"><div class="n">17</div><div class="l">Studies in the meta-analysis behind the average size figures</div><div class="s">Episode transcript, size study section</div></div>
+        <div class="stat"><div class="n">27%</div><div class="l">Of women who said they ended a relationship at least partly over size</div><div class="s">Episode transcript, size study section</div></div>
+      </div>
+      <p class="src"><b>Reading guide.</b> Each nugget separates <b>SOURCE FACT</b> (what Murphy said) from <b>INTERPRETATION</b> (why it matters, the transferable principle). Charts name their source line. This episode discusses anatomy in clinical research terms. The companion keeps that register.</p>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/oOIEIEXH_f4" title="Modern Wisdom: The Brutal Truth About Female Attraction, Macken Murphy (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Ask behavioral questions</a></li>
+          <li><a href="#nugget-2">Ideal is not minimum</a></li>
+          <li><a href="#nugget-3">Train for formidability</a></li>
+          <li><a href="#nugget-4">Status compounds through other men</a></li>
+        </ol>
+      </div>
+      </div>
+
+    <section class="chapter" id="ch-size" data-time="Part 1" data-title="The size study">
+      <p class="ch-time">Part 1</p>
+      <h2>The Size Study, Without the Myths</h2>
+      <p>Murphy opens on the most loaded topic in male anxiety: what the research actually says about size preferences. He calls the literature an "emotional roller coaster" for men, because the findings start comforting and end less so.</p>
+      <p>The best study, he says, comes from Prause and colleagues. Women handled real 3D models and picked what they preferred, which beats pen and paper surveys. Nobody knows what seven inches looks like from a questionnaire, and male overreporting creates a "penis inflation effect" that warps what everyone thinks the numbers mean.</p>
+      <figure>
+        <img src="assets/ep03-study.webp" alt="Watercolor illustration of calipers, a ruler, and graduated test cylinders on a lab bench">
+        <p class="caption"><b>Illustration.</b> The gold standard design: unlabeled 3D models instead of self-reported inches. AI-generated watercolor, made for this page. No text appears in the image.</p>
+      </figure>
+      <p>The preferred numbers: 6.3 inches of length for a long term partner, 6.4 for a short term one, and 4.8 to 5.0 inches of circumference. The actual averages, from a meta-analysis of 17 studies, are 5.16 inches erect length and 4.59 inches circumference. The 95th percentile sits at 6.3 inches, which Murphy notes is about as common as a man being 6 foot 2. Not rare. Not typical either.</p>
+      <p>Two twists matter more than the averages. First, most women picked a size bigger than any they had personally experienced, the same pattern as height ideals most women name but few ever date. Second, the behavioral question: have you ever broken up with a man at least partly over his size. About 27 percent said yes, mostly because he was too small. Most women do not treat it as a dealbreaker. About a third treated it as one factor among several.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Research method</p>
+        <h4>Ask behavioral questions</h4>
+        <p><span class="lbl">Source fact. </span>Murphy prefers the breakup question over stated ideals, because hypotheticals inflate and behavior reveals. The 27 percent figure comes from that behavioral framing.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Stated preferences describe fantasies. Revealed choices describe markets. The gap between them is where most dating anxiety lives.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Judge any claim about what people want by what they did, not what they said. Behavior is the honest survey.</p>
+      </div>
+      <div class="chart" id="chart-size">
+        <h4>Preferred versus actual</h4>
+        <p class="csub">Hover any bar for detail. Inches. Preferences from the 3D model study. Averages from a 17-study meta-analysis.</p>
+        <svg viewBox="0 0 640 380" role="img" aria-label="Bar chart comparing preferred and average sizes">
+          <text class="axis" x="320" y="24" text-anchor="middle">Length (inches)</text>
+          <rect class="bar alt" x="120" y="44" width="252" height="30" data-tip="Preferred length, long-term: 6.3 in (Prause and colleagues, 3D models)."></rect>
+          <rect class="bar alt" x="120" y="84" width="256" height="30" data-tip="Preferred length, short-term: 6.4 in."></rect>
+          <rect class="bar" x="120" y="124" width="206" height="30" data-tip="Actual average erect length: 5.16 in (meta-analysis of 17 studies)."></rect>
+          <text class="vallab" x="380" y="66" text-anchor="start">6.3</text>
+          <text class="vallab" x="384" y="106" text-anchor="start">6.4</text>
+          <text class="vallab" x="334" y="146" text-anchor="start">5.16 avg</text>
+          <text class="axis" x="110" y="66" text-anchor="end">long-term</text>
+          <text class="axis" x="110" y="106" text-anchor="end">short-term</text>
+          <text class="axis" x="110" y="146" text-anchor="end">average</text>
+          <text class="axis" x="320" y="200" text-anchor="middle">Circumference (inches)</text>
+          <rect class="bar alt" x="120" y="220" width="240" height="30" data-tip="Preferred circumference, long-term: 4.8 in."></rect>
+          <rect class="bar alt" x="120" y="260" width="250" height="30" data-tip="Preferred circumference, short-term: 5.0 in."></rect>
+          <rect class="bar" x="120" y="300" width="230" height="30" data-tip="Actual average circumference: 4.59 in (meta-analysis of 17 studies)."></rect>
+          <text class="vallab" x="368" y="242" text-anchor="start">4.8</text>
+          <text class="vallab" x="378" y="282" text-anchor="start">5.0</text>
+          <text class="vallab" x="358" y="322" text-anchor="start">4.59 avg</text>
+          <text class="axis" x="110" y="242" text-anchor="end">long-term</text>
+          <text class="axis" x="110" y="282" text-anchor="end">short-term</text>
+          <text class="axis" x="110" y="322" text-anchor="end">average</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, size study section (Prause and colleagues, 17-study meta-analysis). Men overestimate their own size by about 20 percent, roughly an inch, per the episode.</p>
+      </div>
+      <div class="pull">
+        <blockquote>ideal mate preferences can be a little silly</blockquote>
+        <p class="who">Macken Murphy · Episode transcript, size study section</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Ideals</p>
+        <h4>Ideal is not minimum</h4>
+        <p><span class="lbl">Source fact. </span>Murphy stresses these are ideal preferences, and that minimum acceptable preferences, where flexibility lives, were not collected in the study.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Men read the ideal as the entry price and disqualify themselves. The study never measured the entry price.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Never confuse a stated ideal with a cutoff. Markets clear far below the fantasy.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-formid" data-time="Part 2" data-title="Formidability">
+      <p class="ch-time">Part 2</p>
+      <h2>Formidability Beats the Mirror</h2>
+      <p>The conversation turns to muscle, and Murphy draws a sharp line. Women respond to formidability: the sense that a man could protect and handle trouble. What many young men build instead is stage muscle, optimized for other men.</p>
+      <p>Bodybuilding culture, he argues, has become an intrasexual status contest. Difficulty is the scoring system. Putting on mass while staying lean is brutally hard, so it earns respect from men, the same way extreme thinness earns status in fashion modeling even though the opposite sex does not prefer it. The standard drifted past what women want because the judges changed.</p>
+      <p>The female read is simpler. A "reliable ally", in his phrase: the sort of guy I could go into battle with. That is the full quote he reaches for, and it reframes training. The question is not how impressive you look to men who lift. It is how capable you look to a woman scanning for safety.</p>
+      <div class="pull">
+        <blockquote>the sort of guy I could go into battle with</blockquote>
+        <p class="who">Macken Murphy · Episode transcript, formidability section</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Training</p>
+        <h4>Train for formidability</h4>
+        <p><span class="lbl">Source fact. </span>Murphy argues women select for formidability, a reliable ally, while male bodybuilding culture optimizes for difficulty based status among men.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>Men can spend years optimizing a metric the target audience does not grade. Effort without calibration is just expensive.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Train for the judge that matters. Capability that reads as protection beats size that reads as vanity.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-signal" data-time="Part 3" data-title="Signaling">
+      <p class="ch-time">Part 3</p>
+      <h2>Who Are You Signaling To</h2>
+      <p>Murphy notices a strange symmetry in married spending. Women pour discretionary income into beautification. Men pour it into watches and cars. Each sex signals mostly to its own side. The heels impress other women more than the husband. The sports car impresses other men more than the wife.</p>
+      <p>The distinction is intrasexual versus intersexual competition: contests against your own sex versus advertisements to the other. Much of what men buy as attraction spending is really status spending aimed at men. It can still help, because male status feeds preselection, which the next section covers. But the buyer should know which game he funds.</p>
+      <p>Cross sex mind reading fails in both directions. Men assume women want the shredded look other men admire. Women assume the signals they value read clearly to men. Both sides misprice the other side's preferences with confidence.</p>
+    </section>
+
+    <section class="chapter" id="ch-status" data-time="Part 4" data-title="Status and money">
+      <p class="ch-time">Part 4</p>
+      <h2>Status, Money, and Who Marries Whom</h2>
+      <p>On status, Murphy is blunt about the data pattern: assortative mating. Higher status men marry higher status women. Richer men marry richer women. More educated men marry more educated women. People pair with their equals far more than the fairy tales admit.</p>
+      <p>Then the subtle mechanism: preselection. Women use other men's esteem as a cue. If the men in the room treat you as someone who matters, she reads that as information. The episode plays with the thought experiment of a hundred identical men sent into the world at different body fat levels to see which performs best. The guess is that the one other men respect might outperform the one women rate highest in a photo lineup, because status in the room beats symmetry in the frame.</p>
+      <p>Money works the same indirect way. A gamer no woman would pick from a lineup can become magnetic through the wealth and renown he earns, largely through other men. The attraction is not to the hobby. It is to what the hobby built.</p>
+      <div class="chart" id="chart-breakup">
+        <h4>The behavioral bottom line</h4>
+        <p class="csub">Hover any slice for detail. The one question Murphy trusts: did size ever end a relationship.</p>
+        <svg viewBox="0 0 640 340" role="img" aria-label="Donut chart of breakup over size">
+          <g transform="translate(320,170)">
+            <circle r="110" fill="#e8e0cf"></circle>
+            <path d="M0,-110 A110,110 0 0 1 108.9,15.6 L0,0 Z" fill="#b4531f" data-tip="27%: said size was at least partly why they ended a relationship, mostly because he was too small."></path>
+            <circle r="62" fill="#fff"></circle>
+            <text class="vallab" x="0" y="-8" text-anchor="middle">27%</text>
+            <text class="axis" x="0" y="14" text-anchor="middle">ended it</text>
+            <text class="axis" x="0" y="30" text-anchor="middle">partly over size</text>
+          </g>
+          <text class="axis" x="320" y="310" text-anchor="middle">73% did not name size as a factor</text>
+        </svg>
+        <p class="csrc">Source: episode transcript, size study section. The question allowed no wiggle room: size as at least a partial influence on a breakup.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Status</p>
+        <h4>Status compounds through other men</h4>
+        <p><span class="lbl">Source fact. </span>Murphy argues women use male preselection as an attraction cue, and that intrasexual status can outweigh direct physical appeal.</p>
+        <p><span class="lbl">Interpretation: why it matters. </span>The room votes before she does. Respect from other men is legible in seconds. Wealth and character take months to verify.</p>
+        <p><span class="lbl">Interpretation: the principle. </span>Win the room, not just the mirror. Status that other men grant is status she can see.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-close" data-time="Close" data-title="The close">
+      <p class="ch-time">Close</p>
+      <h2>The Close: What to Do With All This</h2>
+      <p>The episode never pretends the science is a pickup manual. Its value is calibration. Know the real numbers so anxiety stops inventing worse ones. Train for the traits the other side actually grades. Spend status money with open eyes about which contest you enter. And remember that ideals flex. The woman naming 6 foot 2 mostly dated shorter men and stayed happy.</p>
+      <div class="takeaways">
+        <h3>Takeaways</h3>
+        <ol>
+          <li>Learn the real distributions. Most male anxiety is priced on fantasy numbers, not study numbers.</li>
+          <li>Separate ideals from cutoffs. She names the dream and dates the reality.</li>
+          <li>Build formidability, the reliable ally look, not stage muscle for male judges.</li>
+          <li>Check who your spending signals to. Intrasexual status still helps, but only when you know the purchase you make.</li>
+          <li>Collect status among men. Preselection is the shortcut she trusts.</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Modern Wisdom episode "The Brutal Truth About Female Attraction" with Macken Murphy (uploaded 2025-12-11, 675,310 views, 9,695 seconds, video id oOIEIEXH_f4, numbers verified 2026-10-06 via yt-dlp). All facts and figures come from the episode transcript or from that verified metadata. Study figures are Murphy's presentation of the cited research, including Prause and colleagues and the 17-study meta-analysis. Each chart names its source line.</p>
+      <p><b>On quotes.</b> Brief quoted phrases in this companion total 26 words: two pull quotes (8 and 10 words), "emotional roller coaster" (3 words), "penis inflation effect" (3 words), and "reliable ally" (2 words). Each was verified verbatim against the transcript. Everything else is original paraphrase and analysis.</p>
+      <p><b>On images.</b> The two illustrations are AI-generated watercolors made for this page and labeled as illustrations. No real photographs are used: the source is a contemporary podcast with no historical photographs to show.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- chart: store count ---------- */
+  (function(){
+    var pts = [
+      ['1979',3,'3 stores: two open in June, a third by year end'],
+      ['1981',4,'4 stores at the IPO'],
+      ['1984',31,'31 stores across GA, FL, TX'],
+      ['1986',60,'60 stores; $1B in sales'],
+      ['1989',118,'118 stores; passes Lowe\'s'],
+      ['2000',1100,'1,100 stores; $40B revenue'],
+      ['2006',2000,'2,000 stores under Nardelli'],
+      ['2008',2300,'2,300 stores; Blake freezes expansion'],
+      ['2026',2400,'2,400 stores today']
+    ];
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var W=680,H=360,pl=56,pr=20,pt=20,pb=44;
+    var xs = pts.map(function(p,i){ return pl + i*(W-pl-pr)/(pts.length-1); });
+    function y(v){ var max=2500; return pt + (1 - v/max)*(H-pt-pb); }
+    var grid = document.getElementById('store-grid');
+    [0,500,1000,1500,2000,2500].forEach(function(v){
+      var ln = document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',pl); ln.setAttribute('x2',W-pr);
+      ln.setAttribute('y1',y(v)); ln.setAttribute('y2',y(v));
+      ln.setAttribute('class','gridln'); grid.appendChild(ln);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x',pl-8); t.setAttribute('y',y(v)+4);
+      t.setAttribute('text-anchor','end'); t.setAttribute('class','axis');
+      t.textContent = v.toLocaleString(); grid.appendChild(t);
+    });
+    var poly = document.getElementById('store-line');
+    poly.setAttribute('points', pts.map(function(p,i){ return xs[i].toFixed(1)+','+y(p[1]).toFixed(1); }).join(' '));
+    var dots = document.getElementById('store-dots');
+    pts.forEach(function(p,i){
+      var c = document.createElementNS(svgNS,'circle');
+      c.setAttribute('cx',xs[i]); c.setAttribute('cy',y(p[1])); c.setAttribute('r',6);
+      c.setAttribute('fill','#b4531f'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','2');
+      c.setAttribute('data-tip', p[0]+': '+p[2]);
+      c.style.cursor='pointer'; dots.appendChild(c);
+      var t = document.createElementNS(svgNS,'text');
+      t.setAttribute('x',xs[i]); t.setAttribute('y',H-24);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('class','axis');
+      t.textContent = p[0]; dots.appendChild(t);
+      if(i%2===0){
+        var v = document.createElementNS(svgNS,'text');
+        v.setAttribute('x',xs[i]); v.setAttribute('y',y(p[1])-12);
+        v.setAttribute('text-anchor','middle'); v.setAttribute('class','vallab');
+        v.textContent = p[1].toLocaleString(); dots.appendChild(v);
+      }
+    });
+    dots.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+    });
+  })();
+
+  /* ---------- chart: market share pie ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var data=[['Home Depot',51,'#b4531f','Home Depot: 51% of US home improvement stores'],
+              ['Lowe\'s',29,'#d8c9a8','Lowe\'s: 29%'],
+              ['Menards',5,'#8a7c66','Menards: under 5%'],
+              ['Others',15,'#e8e0cf','All others: about 15% (derived)']];
+    var g=document.getElementById('pie'), total=100, a0=-Math.PI/2, R=120;
+    data.forEach(function(d){
+      var a1=a0+(d[1]/total)*Math.PI*2;
+      var x0=R*Math.cos(a0), y0=R*Math.sin(a0), x1=R*Math.cos(a1), y1=R*Math.sin(a1);
+      var large=(a1-a0)>Math.PI?1:0;
+      var p=document.createElementNS(svgNS,'path');
+      p.setAttribute('d','M0,0 L'+x0.toFixed(1)+','+y0.toFixed(1)+' A'+R+','+R+' 0 '+large+' 1 '+x1.toFixed(1)+','+y1.toFixed(1)+' Z');
+      p.setAttribute('fill',d[2]); p.setAttribute('stroke','#fff'); p.setAttribute('stroke-width','2');
+      p.setAttribute('data-tip',d[3]); p.style.cursor='pointer';
+      g.appendChild(p); a0=a1;
+      p.addEventListener('mousemove',function(ev){showTip(d[3],ev.clientX,ev.clientY);});
+      p.addEventListener('mouseleave',hideTip);
+    });
+  })();
+
+  /* ---------- chart: home age bars ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var data=[['1980',23,'Median home age in 1980: 23 years. Postwar building kept the stock young.'],
+              ['1990',25,'1990: 25 years'],
+              ['2000',30,'2000: 30 years'],
+              ['2010',33,'2010: 33 years'],
+              ['Today',42,'Today: 42 years. Old houses need constant repair.']];
+    var g=document.getElementById('homeage-bars');
+    var W=640,H=340,pt=30,pb=60,bw=70,gap=(W-60)/data.length;
+    function y(v){ return pt+(1-v/50)*(H-pt-pb); }
+    [0,10,20,30,40,50].forEach(function(v){
+      var ln=document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',40);ln.setAttribute('x2',W-20);ln.setAttribute('y1',y(v));ln.setAttribute('y2',y(v));
+      ln.setAttribute('class','gridln');g.appendChild(ln);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',32);t.setAttribute('y',y(v)+4);t.setAttribute('text-anchor','end');
+      t.setAttribute('class','axis');t.textContent=v;g.appendChild(t);
+    });
+    data.forEach(function(d,i){
+      var x=40+i*gap+(gap-bw)/2;
+      var r=document.createElementNS(svgNS,'rect');
+      r.setAttribute('x',x);r.setAttribute('y',y(d[1]));r.setAttribute('width',bw);
+      r.setAttribute('height',H-pb-y(d[1]));r.setAttribute('class','bar');
+      r.setAttribute('data-tip',d[2]);r.style.cursor='pointer';g.appendChild(r);
+      var v=document.createElementNS(svgNS,'text');
+      v.setAttribute('x',x+bw/2);v.setAttribute('y',y(d[1])-10);v.setAttribute('text-anchor','middle');
+      v.setAttribute('class','vallab');v.textContent=d[1];g.appendChild(v);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',x+bw/2);t.setAttribute('y',H-36);t.setAttribute('text-anchor','middle');
+      t.setAttribute('class','axis');t.textContent=d[0];g.appendChild(t);
+    });
+    g.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('mousemove',function(ev){showTip(el.getAttribute('data-tip'),ev.clientX,ev.clientY);});
+      el.addEventListener('mouseleave',hideTip);
+    });
+  })();
+
+  /* ---------- chart: IPO gridlines ---------- */
+  (function(){
+    var svgNS='http://www.w3.org/2000/svg';
+    var g=document.getElementById('ipo-grid');
+    [0,1,2,3,4,5,6,7].forEach(function(e){
+      var val=Math.pow(10,e)*1000, ypos=290-(e/7)*240;
+      var ln=document.createElementNS(svgNS,'line');
+      ln.setAttribute('x1',60);ln.setAttribute('x2',600);ln.setAttribute('y1',ypos);ln.setAttribute('y2',ypos);
+      ln.setAttribute('class','gridln');g.appendChild(ln);
+      var t=document.createElementNS(svgNS,'text');
+      t.setAttribute('x',52);t.setAttribute('y',ypos+4);t.setAttribute('text-anchor','end');
+      t.setAttribute('class','axis');
+      t.textContent=['$1K','$10K','$100K','$1M','$10M','$100M','$1B','$10B'][e];
+      g.appendChild(t);
+    });
+  })();
+})();
+
+</script>
+</body>
+</html>
