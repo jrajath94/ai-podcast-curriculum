@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Making Money Isn&#x27;t About Luck: Naval Ravikant Episode Companion</title>
+<meta name="description" content="Why making money is a skill, not a lottery: the four kinds of luck from blind fortune to unique character, the 999-universe standard, the deep-sea div">
+<style>
+    --line:#e2d8c3; --accent:#b4531f; --accent-ink:#8f3f14; --soft:#f3e9d6;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  /* chapter nav */
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#f0c9a8}
+
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+
+  /* hero */
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+
+  /* nuggets */
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* pull quotes */
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+
+  /* charts */
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#d8c9a8}
+  .bar.dark{fill:#3d352a}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#eee4d2;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+
+  /* wisdom index */
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;
+    display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+  .takeaways{background:var(--ink);color:#f3ead9;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#b9ac93}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+
+
+  .tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;
+    margin:0 6px 8px 0}
+  .tag.src{background:#e8f0e4;color:#3d6b34;border:1px solid #c4d8bb}
+  .tag.int{background:#efe6f5;color:#5f3f7a;border:1px solid #d8c4e8}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted)}
+  .toy{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .toy h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .toy .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .toy input[type=range]{width:100%}
+  .toy .out{font-family:var(--mono);font-size:15px;color:var(--accent-ink);margin-top:10px}
+  .toy button{font-family:var(--sans);font-size:13px;padding:8px 14px;background:var(--ink);
+    color:#fff;border:none;border-radius:4px;cursor:pointer;margin:6px 6px 0 0}
+  .toy button:hover{background:#3a3226}
+  .toy label{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Naval Ravikant &middot; Track Companion</a>
+  <span class="sub">Ep 8 of 10</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Naval Ravikant · The Luck Ladder · Companion</p>
+      <h1>Making Money Isn&#x27;t About Luck</h1>
+      <p class="dek">Why making money is a skill, not a lottery: the four kinds of luck from blind fortune to unique character, the 999-universe standard, the deep-sea diver, two destroyed fortunes, and wealth that stacks one chip at a time.</p>
+      <img src="assets/ep08-making-money-isnt-about-luck/illustration-dice-chess.webp" alt="Watercolor illustration of dice fading into a chessboard">
+      <p class="caption"><b>Illustration.</b> From dice to chess: replacing chance with skill. AI-generated watercolor made for this page.</p>
+      <div class="legend"><span class="tag src">Source fact</span><span style="align-self:center">A claim from the episode itself.</span><span class="tag int">Interpretation</span><span style="align-self:center">My reading of what it means for you.</span></div>
+      <div class="stats">
+        <div class="stat"><div class="n">1,000</div><div class="l">Parallel universes in the thought experiment</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">999</div><div class="l">Of them where you are wealthy by skill</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">Kinds of luck, from blind to character-driven</div><div class="s">Episode</div></div>
+        <div class="stat"><div class="n">5-10</div><div class="l">Years to rebuild wealth from zero on a random street</div><div class="s">Episode</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/fsoEbYSA9l4" title="Naval Ravikant — Making Money Isn’t About Luck (official Naval podcast)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Naval podcast episode video. Use the chapter menu above to jump to any section of this companion as you listen.</p>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Build the person, not the lottery ticket</a></li>
+          <li><a href="#nugget-2">Climb the luck ladder</a></li>
+          <li><a href="#nugget-3">Position beats prayer</a></li>
+          <li><a href="#nugget-4">Survive your bad luck</a></li>
+          <li><a href="#nugget-5">Stack chips, ignore jackpots</a></li>
+        </ol>
+      </div>
+    </div>
+
+<section class="chapter" id="ch-skill" data-time="00:00" data-title="Become the kind of person">
+<p class="ch-time">00:00</p>
+<h2>Become the kind of person</h2>
+<p>The thesis is blunt: making money is not about luck. "It's about becoming the kind of person that makes money." Naval likes the thought experiment: drop him on a random street in any English-speaking country with nothing, and within 5 to 10 years he would be wealthy again, because the skill set travels and anyone can develop it.</p>
+<p>The standard is deterministic: wealthy by skill in 999 of 1,000 universes, not wealthy in the 50 where you got lucky. Factor luck out entirely.</p>
+<div class="pull reveal"><blockquote>In 1,000 parallel universes, you want to be wealthy in 999 of them.</blockquote><p class="who">Naval Ravikant, from the episode</p></div><div class="chart reveal" id="c-univ-chart"><h4>999 out of 1,000 universes</h4><p class="csub">The target: wealthy by skill in nearly every universe, not wealthy by luck in a few.</p><svg viewBox="0 0 680 148" width="100%" role="img" aria-label="999 out of 1,000 universes"><g id="c-univ"><text x="190" y="32" text-anchor="end" class="axis">Wealthy by skill</text><rect x="200" y="16" width="449.6" height="24" class="bar" data-tip="999 universes: wealthy because of the skill set, not the draw."/><text x="657.5" y="33" class="vallab">999</text><text x="190" y="76" text-anchor="end" class="axis">Wealthy by luck</text><rect x="200" y="60" width="22.5" height="24" class="bar" data-tip="The 50 lucky universes: the outcome you want to factor out."/><text x="230.5" y="77" class="vallab">50</text></g></svg><p class="csub"><b>Source.</b> Episode: the 1,000 parallel universes with 999 wealthy outcomes.</p></div><div class="nugget reveal" id="nugget-1"><p class="eyebrow">Wisdom nugget 1</p><span class="tag src">Source fact</span><h4>Build the person, not the lottery ticket</h4><p><b>What happened.</b> Naval claims wealth is a portable skill set and sets the 999-of-1,000-universes bar for a luck-free plan.</p><p><b>Why it matters.</b> It moves the goal from one big win to an identity that wins repeatedly under different draws.</p><p><b>Principle.</b> Ask of every money plan: does this work in 999 universes, or only in the lucky 50?</p></div>
+</section>
+<section class="chapter" id="ch-four" data-time="00:03" data-title="Four kinds of luck">
+<p class="ch-time">00:03</p>
+<h2>Four kinds of luck</h2>
+<p>The taxonomy comes from Marc Andreessen's blog post on luck and the entrepreneur. First, blind luck: fortune, fate, completely out of your control. Second, luck from hustling: persistence, hard work, motion. Run around generating energy and opportunities get stirred up, like mixing a petri dish or a batch of reagents to see what combines. "luck will find you".</p>
+<p>Third, luck from preparation: skill makes you sensitive to lucky breaks. The expert notices the opening in their field that everyone else walks past. Fourth, the weirdest and hardest: luck from your unique character. Build a one-of-one brand and mindset, and luck finds you.</p>
+<div class="chart reveal" id="c-luck-chart"><h4>The four kinds of luck</h4>
+<p class="csub">From Marc Andreessen's essay on luck and the entrepreneur, as retold in the episode. Climb the ladder.</p>
+<svg viewBox="0 0 680 340" width="100%" role="img" aria-label="Ladder of the four kinds of luck">
+<g data-tip="Level 1, blind luck: fortune, fate. Out of your control.">
+<rect x="180" y="20" width="320" height="60" fill="#f5f0e6" stroke="#8a7c66" stroke-width="2" rx="8"/>
+<text x="340" y="45" text-anchor="middle" class="vallab">1. Blind luck</text>
+<text x="340" y="66" text-anchor="middle" class="axis">fortune and fate</text></g>
+<g data-tip="Level 2, luck from hustling: motion stirs up opportunities, like mixing a petri dish.">
+<rect x="180" y="100" width="320" height="60" fill="#fbf9f3" stroke="#b4531f" stroke-width="2" rx="8"/>
+<text x="340" y="125" text-anchor="middle" class="vallab">2. Luck from hustling</text>
+<text x="340" y="146" text-anchor="middle" class="axis">persistence and motion</text></g>
+<g data-tip="Level 3, luck from preparation: skill makes you sensitive to lucky breaks others miss.">
+<rect x="180" y="180" width="320" height="60" fill="#fbf9f3" stroke="#b4531f" stroke-width="2" rx="8"/>
+<text x="340" y="205" text-anchor="middle" class="vallab">3. Luck from preparation</text>
+<text x="340" y="226" text-anchor="middle" class="axis">spotting the break</text></g>
+<g data-tip="Level 4, luck from unique character: build a one-of-one brand and luck finds you.">
+<rect x="180" y="260" width="320" height="60" fill="#e8f0e4" stroke="#3d6b34" stroke-width="3" rx="8"/>
+<text x="340" y="285" text-anchor="middle" class="vallab">4. Luck from unique character</text>
+<text x="340" y="306" text-anchor="middle" class="axis">luck finds you</text></g>
+</svg>
+<p class="csub"><b>Source.</b> Diagram of the episode's four kinds of luck, credited to Marc Andreessen's essay.</p></div><figure class="reveal"><img src="assets/ep08-making-money-isnt-about-luck/illustration-petri.webp" alt="Watercolor illustration of a petri dish with colorful reagents swirling into golden droplets"><p class="caption"><b>Illustration.</b> The petri dish: hustle stirring up combinations until luck finds you. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-2"><p class="eyebrow">Wisdom nugget 2</p><span class="tag src">Source fact</span><h4>Climb the luck ladder</h4><p><b>What happened.</b> Naval ranks the four lucks from blind fortune up to character-driven attraction, and says the fourth is the one to aim for.</p><p><b>Why it matters.</b> Most people wait at level one. Every level up is available to anyone willing to move, learn, or differentiate.</p><p><b>Principle.</b> Stop praying for level one. Hustle for level two, study for level three, and differentiate for level four.</p></div>
+</section>
+<section class="chapter" id="ch-diver" data-time="00:06" data-title="The deep-sea diver">
+<p class="ch-time">00:06</p>
+<h2>The deep-sea diver</h2>
+<p>The diver story makes level four concrete. Imagine you are the best deep-sea diver in the world, known for dives nobody else dares. By sheer blind luck, someone finds a sunken treasure ship and cannot reach it. Their luck just became your luck: they come to you, and you get paid, maybe half the treasure.</p>
+<p>The finder got lucky. You did not. "You created your own luck." You positioned yourself to capitalize on luck nobody else could touch, or to attract it where nobody else created the opportunity.</p>
+<figure class="reveal"><img src="assets/ep08-making-money-isnt-about-luck/illustration-dice-chess.webp" alt="Watercolor illustration of dice mid-roll fading into a chessboard"><p class="caption"><b>Illustration.</b> From dice to chess: replacing chance with skill. AI-generated watercolor made for this page.</p></figure><div class="nugget reveal" id="nugget-3"><p class="eyebrow">Wisdom nugget 3</p><span class="tag src">Source fact</span><h4>Position beats prayer</h4><p><b>What happened.</b> Naval shows that the diver's payout looks like luck but is really positioning: a unique capability meeting a random event.</p><p><b>Why it matters.</b> You cannot control the treasure ship. You can control being the only diver.</p><p><b>Principle.</b> Build the rare capability first. The random events are already happening. They just need someone ready.</p></div>
+</section>
+<section class="chapter" id="ch-999" data-time="00:08" data-title="Why 999 is not impossible">
+<p class="ch-time">00:08</p>
+<h2>Why 999 is not impossible</h2>
+<p>Nivi pushes back: 999 sounds too good to be true. Naval answers with his own file. He started as a poor kid in India, so the starting-circumstances excuse does not impress him. He grants the prerequisites: limbs, mental faculties, an education, a functioning body and mind, which anyone hearing the episode presumably has.</p>
+<p>Then the bad-luck ledger. The first little fortune he made, he lost in the stock market. The second, he should have made but got cheated by business partners. The third time was the charm, and even that came as a slow, steady struggle, never one giant payout. Bad luck happened. The skill set outlasted it.</p>
+<div class="toy reveal" id="toy-luck">
+  <h4>Toy: the luck audit</h4>
+  <p class="csub">Which kind of luck is your plan relying on? Pick the statement closest to your strategy.</p>
+  <div id="luck-q" style="font-size:17px;margin:12px 0;min-height:56px"></div>
+  <div id="luck-opts"></div>
+  <p class="out" id="luck-out"></p>
+</div><div class="nugget reveal" id="nugget-4"><p class="eyebrow">Wisdom nugget 4</p><span class="tag src">Source fact</span><h4>Survive your bad luck</h4><p><b>What happened.</b> Naval lists two destroyed fortunes before the third worked, and says none of his wealth came from one giant payout.</p><p><b>Why it matters.</b> The 999-universe claim survives contact with real bad luck. Skill compounds. Luck just visits.</p><p><b>Principle.</b> Expect to lose fortunes one and two. Keep the skill set intact and keep playing. The third attempt is the charm.</p></div>
+</section>
+<section class="chapter" id="ch-chips" data-time="00:11" data-title="Wealth stacks one chip at a time">
+<p class="ch-time">00:11</p>
+<h2>Wealth stacks one chip at a time</h2>
+<p>The closing picture: wealth stacks up chip by chip. More options, more businesses, more investments, more things you can do. Nenad, the video maker illacertus, is the live example: no single video will shower him with riches, but a lifetime of learning, reading, and creating compounds.</p>
+<p>And the definition of the finish line: enough wealth to retire into freedom. Not retirement as idleness, but as control: no place you must be, nothing you must do, no boss, your own hours. The internet made opportunities massively abundant. Naval says he has too many ways to make money and not enough time, with opportunities pouring out of his ears.</p>
+<div class="nugget reveal" id="nugget-5"><p class="eyebrow">Wisdom nugget 5</p><span class="tag src">Source fact</span><h4>Stack chips, ignore jackpots</h4><p><b>What happened.</b> Naval says his wealth came from many small things piling up, and defines retirement as freedom from obligation, not from work.</p><p><b>Why it matters.</b> Jackpot thinking produces lottery behavior. Chip thinking produces portfolios.</p><p><b>Principle.</b> Add one chip per quarter: an option, a business, an investment, a skill. Let the pile do the talking.</p></div>
+</section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Naval podcast episode "Making Money Isn't About Luck" (YouTube fsoEbYSA9l4), from the full official transcript at nav.al/rich. The four-kinds-of-luck taxonomy is credited in the episode to Marc Andreessen's essay on luck and the entrepreneur. Timestamps are proportional estimates. Illustrations are AI-generated watercolors made for this page.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 32 words: the "In 1,000 parallel universes, you want to be wealthy in 999 of them." pull quote (13 words), "It's about becoming the kind of person that makes money." (10 words), "luck will find you" (4 words), and "You created your own luck." (5 words). Each is a verbatim string from the official transcript, verified by search. The episode title keeps its original contraction. Everything else is original paraphrase and analysis.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){ nav.appendChild(navLink(ch)); side.appendChild(navLink(ch)); });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+
+
+/* ---------- toy: luck audit ---------- */
+(function(){
+  var data = [
+    {q: 'Your plan for this year is…',
+     o: ['A: wait for the right opportunity to appear', 'B: ship 50 things and talk to 200 people',
+        'C: master one field so I spot openings first', 'D: become the only person who does X'],
+     r: ['That is level 1, blind luck. The episode says to factor luck out, not to wait for it.',
+        'That is level 2, luck from hustling. Good: motion stirs up combinations.',
+        'That is level 3, luck from preparation. Good: skill makes you sensitive to breaks.',
+        'That is level 4, luck from unique character. Best: build the one-of-one brand and luck finds you.']},
+    {q: 'A windfall lands in your lap. You…',
+     o: ['A: spend it, luck is luck', 'B: ask what positioned me to receive it',
+        'C: study how to repeat the positioning', 'D: turn it into a reputation that attracts the next one'],
+     r: ['Level 1 thinking. Windfalls visit everyone; only the positioned keep them.',
+        'Level 2 thinking. Hustle creates the surface area.',
+        'Level 3 thinking. Preparation turns accidents into systems.',
+        'Level 4 thinking. Character turns systems into gravity.']}
+  ];
+  var box = document.getElementById('luck-q'), opts = document.getElementById('luck-opts'),
+      out = document.getElementById('luck-out');
+  if(!box) return;
+  var i = 0;
+  function show(){
+    if(i >= data.length){ box.textContent = 'Done. Aim every plan at level 4.'; opts.innerHTML = ''; return; }
+    box.textContent = (i + 1) + '. ' + data[i].q;
+    opts.innerHTML = '';
+    data[i].o.forEach(function(label, k){
+      var b = document.createElement('button');
+      b.textContent = label;
+      b.addEventListener('click', function(){ out.textContent = data[i].r[k]; i++; setTimeout(show, 2500); });
+      opts.appendChild(b);
+    });
+  }
+  show();
+})();
+
+</script>
+</body>
+</html>
