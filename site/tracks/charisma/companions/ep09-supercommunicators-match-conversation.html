@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ep09: Supercommunicators: Match the Conversation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--paper:#fdfbf6;--ink:#221c14;--muted:#6f6455;--line:#e6dcc8;--card:#f5f0e6;--warm:#f4ecd9;--blue:#e9eff9;--accent:#8f3f14;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.65;font-size:16.5px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+header.hero{background:var(--warm);border-bottom:1px solid var(--line);padding:64px 0 40px}
+header.hero h1{font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+header.hero .sub{font-size:18px;color:var(--muted);max-width:660px;margin-bottom:22px}
+.epmeta{font-size:14px;color:var(--muted)}
+.layout{display:flex;gap:28px;align-items:flex-start;padding-top:28px}
+.layout main{flex:1 1 0;min-width:0}
+aside.side{flex:0 0 210px;position:sticky;top:16px}
+.side h4{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px}
+.side a{display:block;padding:6px 0;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.4}
+.side a .t{color:var(--muted);font-size:12.5px;display:block}
+.side a:hover{color:var(--accent)}
+.side a.active{color:var(--accent);font-weight:700}
+#chapnav{overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:26px;position:sticky;top:0;background:var(--paper);z-index:50}
+#chapnav a{display:inline-block;margin-right:22px;font-size:13.5px;color:var(--muted);text-decoration:none;padding:4px 0}
+#chapnav a .t{display:block;font-size:11.5px}
+#chapnav a.active{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+section.chapter{margin-bottom:58px}
+.ch-time{font-size:13px;color:var(--muted);letter-spacing:1px;margin-bottom:6px}
+h2{font-size:27px;margin-bottom:16px;line-height:1.25}
+p{margin-bottom:16px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:10px}
+.fact{background:var(--blue);color:#144a8f}
+.interp{background:var(--warm);color:#6b4a12}
+.wisdom{background:var(--card);border:1px solid var(--line);padding:24px;margin:30px 0}
+.wisdom h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+.wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+@media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+.wisdom li{counter-increment:w;font-size:14px}
+.wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
+.wisdom li a:hover{border-color:var(--accent)}
+.wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;margin-right:8px}
+.legend{font-size:12.5px;color:var(--muted);margin:0 0 22px}
+figure{margin:26px 0;text-align:center}
+figure img{max-width:100%;border-radius:6px;border:1px solid var(--line)}
+.caption{font-size:13.5px;color:var(--muted);margin-top:8px}
+.caption b{color:var(--ink)}
+blockquote{font-size:21px;font-style:italic;line-height:1.5;color:#4a4136;border-left:3px solid var(--accent);padding:8px 0 8px 18px;margin:28px 0}
+p.attrline{font-size:14px;color:var(--muted);margin-top:-20px;margin-bottom:24px}
+.nugget{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin:30px 0;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.nugget.in{opacity:1;transform:none}
+.nugget .eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.nugget h4{font-size:20px;margin-bottom:12px}
+.nugget p{margin-bottom:10px}
+.nugget .lbl{font-weight:700}
+.toy{border:1px dashed var(--line);border-radius:10px;padding:24px;margin:30px 0;background:#fff}
+.toy h4{font-size:17px;margin-bottom:6px}
+.toy .tsub{font-size:14px;color:var(--muted);margin-bottom:14px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;margin:30px 0}
+.chart h4{font-size:17px;margin-bottom:4px}
+.chart .csub{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.chart .csrc{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+.chart svg{width:100%;height:auto}
+.axis{font-size:12px;fill:var(--muted)}
+.vallab{font-size:14px;fill:var(--ink);font-weight:600}
+.takeaways{background:var(--blue);border-radius:10px;padding:26px 28px;margin:40px 0}
+.takeaways h3{font-size:19px;margin-bottom:12px}
+.takeaways ol{padding-left:22px}
+.takeaways li{margin-bottom:8px}
+.takeaways .src{font-size:13px;color:var(--muted);margin-top:14px}
+footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:14px;color:var(--muted)}
+footer p{margin-bottom:12px}
+footer b{color:var(--ink)}
+.vid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid var(--line);margin:26px 0}
+.vid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+#tip{position:fixed;pointer-events:none;background:#1c1812;color:#fff;font-size:13px;padding:8px 12px;border-radius:6px;max-width:300px;opacity:0;transition:opacity .15s;z-index:100}
+.toy .row{margin-bottom:10px}
+.toy input[type=text]{font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;width:100%}
+.toy select,.toy button{font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.toy button{cursor:pointer;background:var(--accent);color:#fff;border:1px solid var(--accent);font-weight:700}
+.toy button:hover{opacity:.9}
+.toy .out{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:15px}
+.toy .check{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:15px}
+.toy .check input{margin-top:4px}
+.toy .verdict{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:15px}
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0}
+.cards .card{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--paper);cursor:pointer;font-size:14px}
+.cards .card:hover{border-color:var(--accent)}
+.cards .card.sel{background:var(--blue);border-color:#1f5fb0}
+@media(max-width:760px){aside.side{display:none}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="epmeta">CHARISMA · EPISODE 9 · MODERN WISDOM · MAR 2025</p>
+    <h1>Supercommunicators: Match the Conversation</h1>
+    <p class="sub">Charles Duhigg on the three conversation types, deep questions, looping for understanding, vulnerability, neural entrainment, and reverse charisma.</p>
+    <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/ZOD-C67bUc4" title="Charles Duhigg: How To Be A Supercommunicator" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</header>
+<div class="wrap layout">
+<aside class="side" id="sidenav"></aside>
+<main>
+<nav id="chapnav" aria-label="Chapters"></nav>
+
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The naturals all studied</a></li>
+          <li><a href="#nugget-2">Ask for the self, not the fact</a></li>
+          <li><a href="#nugget-3">Silence is not listening</a></li>
+          <li><a href="#nugget-4">Offer one judgeable thing</a></li>
+          <li><a href="#nugget-5">Diagnose before you answer</a></li>
+          <li><a href="#nugget-6">One person sets the tone</a></li>
+          <li><a href="#nugget-7">Make them feel brilliant</a></li>
+          <li><a href="#nugget-8">We mispredict deep conversation</a></li>
+          <li><a href="#nugget-9">Laughter means me too</a></li>
+          <li><a href="#nugget-10">Control the table, not the person</a></li>
+        </ol>
+      </div>
+      <p class="legend"><span class="tag fact">Source fact</span> A claim from the episode transcript. <span class="tag interp">Interpretation</span> My read on what it means. Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps.</p>
+
+    <section class="chapter" id="ch-skillset" data-time="~00:00" data-title="A Skill Set, Not a Trait">
+      <p class="ch-time">~00:00</p>
+      <h2>Communication Is a Skill Set, Not a Trait</h2>
+      <figure>
+        <img src="assets/ep09/photo-charles-duhigg.png" alt="Charles Duhigg">
+        <p class="caption"><b>Photo.</b> Charles Duhigg. Source: charlesduhigg.com.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Charles Duhigg wrote Supercommunicators after his own marriage hit the classic pattern: he came home complaining, his wife offered solutions, and both ended up angrier. The researchers he consulted said the field was in a golden age of communication science, and the answer was structural.</p>
+      <p><span class="tag fact">Source fact</span> The opening correction: people think great communicators are naturals. The naturals all say otherwise. Asked how they got good, they tell stories of studying: the lonely high schooler who analyzed how kids talk, the child of divorce who became the family peacemaker. Communication is homo sapiens' superpower, the thing that built villages and carried knowledge across generations. Brains evolved for it. But the skills still need practice.</p>
+      <p><span class="tag fact">Source fact</span> Introversion and extroversion fit the same frame. The episode presents them as habits, not hardwiring. Extroverts get more reps: more conversations, more failed attempts, more corrections. The difference is practice volume, and practice volume is changeable.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Skill</p>
+        <h4>The naturals all studied</h4>
+        <p><span class="lbl">What happened. </span>Every great communicator tells a study story. Extroverts just got more reps.</p>
+        <p><span class="lbl">Why it matters. </span>If it were a trait, you would be done. As a skill set, you can train it.</p>
+        <p><span class="lbl">The principle. </span>Count reps, not talent. Volume is changeable.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-deep" data-time="~00:19" data-title="Skill 1: Deep Questions">
+      <p class="ch-time">~00:19</p>
+      <h2>Skill 1: Ask Deep Questions, 10 to 20 Times More</h2>
+      <blockquote>how do you feel about that</blockquote>
+      <p class="attrline">Charles Duhigg on looping for understanding, ~00:27</p>
+      <p><span class="tag fact">Source fact</span> Consistent supercommunicators ask 10 to 20 times as many questions as average. Many are tiny invitations: what do you make of that. The powerful ones are deep questions: they ask about values, beliefs, or experiences.</p>
+      <p><span class="tag fact">Source fact</span> The doctor example: what hospital do you work at asks for a fact. What made you decide to go to medical school asks for a self. Same effort, different universe. Deep questions work in arguments too. Ask how someone felt on election night and they become the expert on their own feeling. Nobody can out-expert you on your own experience. Shared experience reveals the common ground the facts hid: the morning after, the kids, the friends. Then the disagreement becomes discussable.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Questions</p>
+        <h4>Ask for the self, not the fact</h4>
+        <p><span class="lbl">What happened. </span>Supercommunicators ask 10 to 20 times more questions, weighted toward values, beliefs, and experiences.</p>
+        <p><span class="lbl">Why it matters. </span>Facts invite debate. Selves invite connection. The answerer becomes the expert, and experts do not get argued with.</p>
+        <p><span class="lbl">The principle. </span>Replace one fact question daily with a values or experience question.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-loop" data-time="~00:27" data-title="Skill 2: Prove You Listen">
+      <p class="ch-time">~00:27</p>
+      <h2>Skill 2: Prove That You Listen</h2>
+      <figure>
+        <img src="assets/ep09/illustration-loop.webp" alt="Watercolor illustration of a listening loop between two people">
+        <p class="caption"><b>Illustration.</b> Looping for understanding: ask, repeat back, confirm. AI-generated watercolor.</p>
+      </figure>
+      <blockquote>what does that mean to you</blockquote>
+      <p class="attrline">Charles Duhigg on looping for understanding, ~00:27</p>
+      <p><span class="tag fact">Source fact</span> Real listening is not silence. Silence is the first condition, not the whole act. While you nod, the speaker suspects you wait your turn. The suspicion is usually correct.</p>
+      <p><span class="tag fact">Source fact</span> Looping for understanding, taught at Harvard and Stanford, has three steps. One, ask a question, preferably a deep one. Two, repeat back what you heard in your own words. Not mimicry. Show processing: what I hear you saying is this, and it connects to what you said last week. Three, ask if you got it right. Did I hear you correctly.</p>
+      <div class="chart" id="chart-loop">
+        <h4>The looping sequence</h4>
+        <p class="csub">Hover each step for its purpose.</p>
+        <svg viewBox="0 0 640 220" role="img" aria-label="Looping for understanding">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="60" width="180" height="100" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Step 1: ask a question, preferably a deep one. Opens the real topic."></rect>
+            <text x="100" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">1. Ask</text>
+            <text x="100" y="128" text-anchor="middle" font-size="13" fill="#221c14">a deep question</text>
+            <text x="202" y="117" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="214" y="60" width="180" height="100" rx="8" fill="#e9eff9" stroke="#e2d8c3" data-tip="Step 2: repeat back in your own words. Not mimicry. Prove processing."></rect>
+            <text x="304" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">2. Repeat back</text>
+            <text x="304" y="128" text-anchor="middle" font-size="13" fill="#221c14">in your own words</text>
+            <text x="406" y="117" text-anchor="middle" font-size="20" fill="#6f6455">→</text>
+            <rect x="418" y="60" width="212" height="100" rx="8" fill="#dcefe0" stroke="#e2d8c3" data-tip="Step 3: ask if you got it right. The step everyone skips. Gets you acknowledged as a listener."></rect>
+            <text x="524" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#221c14">3. Confirm</text>
+            <text x="524" y="128" text-anchor="middle" font-size="13" fill="#221c14">did I get it right</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Modern Wisdom, Charles Duhigg, ~00:27. Taught at Harvard and Stanford.</p>
+      </div>
+      <p><span class="tag fact">Source fact</span> Step three is the one everyone skips. It asks permission to be acknowledged as a listener. Once acknowledged, the speaker becomes many times more likely to listen to you in return. Basic social reciprocity, from episode 7, doing its quiet work.</p>
+      <p><span class="tag fact">Source fact</span> Bad conversations feel like tennis: each side waiting for the bounce to hit back. Good conversations look messy on a transcript: nonlinear, overlapping, alive. Eloquent transcripts are often boring conversations.</p>
+      <div class="toy" id="toy-loop">
+        <h4>Toy: the loop checklist</h4>
+        <p class="tsub">Recall your last real disagreement. Check which loop steps you ran.</p>
+        <div class="check"><input type="checkbox" id="lp1"><label for="lp1">I asked a deep question</label></div>
+        <div class="check"><input type="checkbox" id="lp2"><label for="lp2">I repeated back in my own words</label></div>
+        <div class="check"><input type="checkbox" id="lp3"><label for="lp3">I asked if I got it right</label></div>
+        <div class="verdict" id="loop-verdict">Check the boxes. The verdict appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Listening</p>
+        <h4>Silence is not listening</h4>
+        <p><span class="lbl">What happened. </span>The loop has three steps, and the third, asking if you got it right, is the one everyone skips.</p>
+        <p><span class="lbl">Why it matters. </span>Acknowledgment is what makes them listen back. The first two steps inform. The third bonds.</p>
+        <p><span class="lbl">The principle. </span>Run all three steps in your next disagreement. Never skip the confirm.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-vuln" data-time="~00:34" data-title="Skill 3: Vulnerability">
+      <p class="ch-time">~00:34</p>
+      <h2>Skill 3: Vulnerability, Correctly Defined</h2>
+      <p><span class="tag fact">Source fact</span> The neuroscience definition: vulnerability means telling someone something they could judge. Not trauma dumping. Not crying on shoulders. The mere act of offering judgeable material triggers a neural cascade of vulnerability.</p>
+      <p><span class="tag fact">Source fact</span> The rule is reciprocal. You offer something judgeable. They withhold judgment. Better: they offer something judgeable back. Then trust and liking rise automatically. The brain evolved this as a cheap policing system. Societies cannot afford a cop on every corner. Mutual hostages work better: we each hold something the other could use, neither uses it, and both are thereby certified safe.</p>
+      <p><span class="tag fact">Source fact</span> Authenticity detection is instant. The yacht example: I spent too much on this yacht, but it is a sweet yacht offers nothing real. The vacation question works: have you ever fought with your partner on a beautiful trip costs little and shares something true. The brain spots the difference immediately.</p>
+      <p><span class="tag fact">Source fact</span> The venting taxonomy adds a dark edge. Venting, in the episode's telling, can function as deniable aggression: I am so worried about Johanna, she sleeps with everyone. One sentence transmits the gossip, claims the moral high ground, and keeps culpable deniability. Performative vulnerability online runs the same software at scale. The test is always motive honesty: know what you actually feel, then say it plainly.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Vulnerability</p>
+        <h4>Offer one judgeable thing</h4>
+        <p><span class="lbl">What happened. </span>Vulnerability is the offer of material they could judge. Reciprocated, it certifies both parties safe.</p>
+        <p><span class="lbl">Why it matters. </span>Oversharing floods before trust exists. Calibrated vulnerability builds it.</p>
+        <p><span class="lbl">The principle. </span>Offer one true, judgeable thing. Watch what returns before offering the next.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-three" data-time="~00:57" data-title="The Three Conversations">
+      <p class="ch-time">~00:57</p>
+      <h2>The Three Conversations</h2>
+      <figure>
+        <img src="assets/ep09/illustration-three.webp" alt="Watercolor illustration of three braided conversation threads">
+        <p class="caption"><b>Illustration.</b> Practical, emotional, social: three threads in every discussion. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> Every discussion contains three layers. Practical: solving problems, making plans. What should we do. Emotional: sharing feelings, wanting empathy. Hear how I feel. Social: negotiating identity and belonging. Where do we stand.</p>
+      <p><span class="tag fact">Source fact</span> Duhigg's marriage is the case study. He arrived home in an emotional conversation: validate my frustration. His wife answered in a practical conversation: take your boss to lunch. Different circuits, different brain regions, zero connection. Neither was wrong. They were unmatched.</p>
+      <p><span class="tag fact">Source fact</span> Definition: neural entrainment is the syncing of two brains and bodies during a matched conversation. Breathing rates converge. Heart rates converge. Pupil dilation mirrors. The same brain regions activate with the same energy. Uri Hasson at Princeton pioneered the imaging work. Entrainment releases a reward cascade: the brain pays you for connecting, because connection kept the species alive.</p>
+      <div class="chart" id="chart-types">
+        <h4>The three types and what each wants</h4>
+        <p class="csub">Hover each row for its region.</p>
+        <svg viewBox="0 0 640 230" role="img" aria-label="Three conversation types">
+          <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+            <rect x="10" y="10" width="620" height="62" rx="4" fill="#e9eff9" stroke="#e2d8c3" data-tip="Practical: what should we do. Wants plans and solutions. Runs in prefrontal cortex."></rect>
+            <text x="26" y="36" class="vallab">Practical</text><text x="26" y="58" font-size="13" fill="#6f6455">What should we do · wants plans</text>
+            <rect x="10" y="84" width="620" height="62" rx="4" fill="#f9e9e9" stroke="#e2d8c3" data-tip="Emotional: hear how I feel. Wants empathy, not fixes. Runs in deep interior structures."></rect>
+            <text x="26" y="110" class="vallab">Emotional</text><text x="26" y="132" font-size="13" fill="#6f6455">Hear how I feel · wants empathy</text>
+            <rect x="10" y="158" width="620" height="62" rx="4" fill="#f4ecd9" stroke="#e2d8c3" data-tip="Social: where do we stand. Wants identity and belonging. Runs in social cognition networks."></rect>
+            <text x="26" y="184" class="vallab">Social</text><text x="26" y="206" font-size="13" fill="#6f6455">Where do we stand · wants belonging</text>
+          </g>
+        </svg>
+        <p class="csrc">Source: Modern Wisdom, Charles Duhigg, ~00:57. Types and regions as presented on air.</p>
+      </div>
+      <div class="toy" id="toy-pes">
+        <h4>Toy: the PES diagnoser</h4>
+        <p class="tsub">Think of your last frustrating conversation. Pick the type you held, then the type they held.</p>
+        <div class="row"><select id="me" style="width:100%"><option value="">You were in...</option><option>Practical</option><option>Emotional</option><option>Social</option></select></div>
+        <div class="row"><select id="them" style="width:100%"><option value="">They were in...</option><option>Practical</option><option>Emotional</option><option>Social</option></select></div>
+        <div class="out" id="pesout">Pick both. The diagnosis appears here.</div>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Matching</p>
+        <h4>Diagnose before you answer</h4>
+        <p><span class="lbl">What happened. </span>Mismatched conversations use different brain regions and cannot entrain. Neither partner is wrong. They are unmatched.</p>
+        <p><span class="lbl">Why it matters. </span>Intelligence does not bridge a hardware mismatch. Only matching does.</p>
+        <p><span class="lbl">The principle. </span>Name the type before you respond: practical, emotional, or social.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-match" data-time="~01:06" data-title="Skill 4: Match the Conversation">
+      <p class="ch-time">~01:06</p>
+      <h2>Skill 4: Match the Conversation</h2>
+      <p><span class="tag fact">Source fact</span> Diagnose the mindset first. Practical, emotional, or social. Then do the smallest thing to match it. The graduation example: instead of congratulations, ask what did it feel like to watch your kid cross the stage. One sentence moves you into their region. Then entrainment can begin.</p>
+      <p><span class="tag fact">Source fact</span> The Dartmouth study, cited in the episode: groups watched confusing foreign film clips, then had to reach consensus on what happened. Some groups clicked fast. Brain scans showed the fast groups' brains had become similar. The difference: each fast group contained at least one supercommunicator, someone who asked more questions and repeated others' points. One person modeling the skills entrained the whole room. Strangers, conservatives and liberals, southerners and northerners, clicked because one person set the tone.</p>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Entrainment</p>
+        <h4>One person sets the tone</h4>
+        <p><span class="lbl">What happened. </span>Each fast Dartmouth group held one supercommunicator. Brains converged. Strangers clicked.</p>
+        <p><span class="lbl">Why it matters. </span>You do not need the whole room trained. One model entrains everyone.</p>
+        <p><span class="lbl">The principle. </span>Be the one who asks more questions and repeats others' points.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-reverse" data-time="~01:14" data-title="Reverse Charisma">
+      <p class="ch-time">~01:14</p>
+      <h2>Reverse Charisma</h2>
+      <figure>
+        <img src="assets/ep09/illustration-reverse.webp" alt="Watercolor illustration of one person lighting another">
+        <p class="caption"><b>Illustration.</b> Reverse charisma: make them feel brilliant. AI-generated watercolor.</p>
+      </figure>
+      <p><span class="tag fact">Source fact</span> The Jenny Jerome story: Churchill's mother dined with Gladstone one night and Disraeli the next. After Gladstone, she thought him the cleverest man in England. After Disraeli, she felt herself the cleverest woman. Disraeli practiced reverse charisma: not to shine, but to make others feel brilliant.</p>
+      <p><span class="tag fact">Source fact</span> The episode's formula: charisma as usually defined, energetic outgoing likability, is hard to manufacture. Reverse charisma is easy. Ask the deep question. Prove you listened. Withhold judgment. They leave feeling brilliant, and they credit you.</p>
+      <p><span class="tag fact">Source fact</span> Maya Angelou's line, quoted in the episode: no one remembers what you said, they only remember how you made them feel. The science agrees. Ask someone what a great conversation covered and they recall two or three topics, no specifics. Ask how they felt and they report with surprising accuracy, especially the ending. Memory stores the feeling, not the transcript.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Reverse</p>
+        <h4>Make them feel brilliant</h4>
+        <p><span class="lbl">What happened. </span>Disraeli left Jenny Jerome feeling like the cleverest woman in England. Gladstone left her thinking him clever.</p>
+        <p><span class="lbl">Why it matters. </span>Memory stores the feeling, not the transcript. The credit flows back to you anyway.</p>
+        <p><span class="lbl">The principle. </span>Deep question, proven listening, withheld judgment. Let them shine.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-doorway" data-time="~01:21" data-title="Small Talk Is a Doorway">
+      <p class="ch-time">~01:21</p>
+      <h2>Small Talk Is a Doorway, Not a Room</h2>
+      <p><span class="tag fact">Source fact</span> Nobody likes small talk, including the people defending it. The problem is not smallness. It is the anxiety about going deeper. Nick Epley's experiments, cited in the episode: strangers asked to discuss when did you last cry in front of someone predicted misery and distance. Afterward every hand went up: better than expected, closer than expected. We systematically mispredict deep conversation.</p>
+      <p><span class="tag fact">Source fact</span> The weather pivot shows the technique. Do not answer the weather and stop. Use it: you do not like the rain. What brought you to Seattle anyway. Small talk hands you the material. The deep question spends it. Epley's own practice: on a Chicago bus, he reaches hopes and dreams within three questions. Did you always want to be an accountant beats what do you do every time.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Depth</p>
+        <h4>We mispredict deep conversation</h4>
+        <p><span class="lbl">What happened. </span>Epley's strangers predicted misery and reported closeness. Every hand went up.</p>
+        <p><span class="lbl">Why it matters. </span>The forecasting error keeps everyone in small talk. The data says jump.</p>
+        <p><span class="lbl">The principle. </span>Pivot small talk deep within two exchanges. Spend the material.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-laughter" data-time="~01:44" data-title="Laughter Is a Connection Signal">
+      <p class="ch-time">~01:44</p>
+      <h2>Laughter Is a Connection Signal</h2>
+      <p><span class="tag fact">Source fact</span> Robert Provine's research, cited in the episode: he taped people in malls and restaurants expecting to study humor. He found 80 percent of laughter follows nothing funny. Laughter signals I want to connect. Returned laughter signals me too. The vulnerability is small but real: laughing admits you found something funny, which is judgeable.</p>
+      <p><span class="tag fact">Source fact</span> NASA's Terry Maguire turned this into a selection tool. He spills papers, laughs a big embarrassing laugh, and watches. Some candidates help while pretending nothing happened. The emotionally intelligent ones jump in the boat: they laugh big back, matching his affect, removing his embarrassment by sharing it. Those candidates became NASA's best leaders.</p>
+      <p><span class="tag fact">Source fact</span> The unproven theory, flagged as such in the episode: primate danger calls sound like laughter, and relief at being safe in the trees may be laughter's evolutionary root. Tension built, tension released, everyone still alive. Jokes follow the same arc.</p>
+      <div class="nugget reveal" id="nugget-9">
+        <p class="eyebrow">Nugget 9 · Laughter</p>
+        <h4>Laughter means me too</h4>
+        <p><span class="lbl">What happened. </span>Eighty percent of laughter follows nothing funny. It is a connection signal, returned in kind.</p>
+        <p><span class="lbl">Why it matters. </span>Matching someone's laugh shares their embarrassment. That is the Maguire test for emotional intelligence.</p>
+        <p><span class="lbl">The principle. </span>Jump in the boat. Laugh big back.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-couples" data-time="~01:52" data-title="Couples: Stop Kitchen Sinking">
+      <p class="ch-time">~01:52</p>
+      <h2>Couples: Stop Kitchen Sinking</h2>
+      <p><span class="tag fact">Source fact</span> The disastrous pattern has a name: kitchen sinking. A fight about Christmas becomes a fight about everything: the mother-in-law, the money, the marriage. The mechanism: feeling threatened, each partner grabs for control, and the easiest thing to control is the other person. You should not feel that way is control disguised as argument.</p>
+      <p><span class="tag fact">Source fact</span> The fix is not to suppress the control impulse. It is to redirect it to shared control. Control the environment together: can we talk at 9am instead of midnight. Control the boundaries together: Christmas only, not moms, not money. Same side of the table. Teammates with a disagreement, not opponents with a marriage.</p>
+      <p><span class="tag fact">Source fact</span> The telephone history closes the hope case. Early phone calls were telegrams: state the need, hang up. Nobody thought real conversation could happen without faces. Then people learned. They over-enunciate about 30 percent on phones and add about 15 percent more vocal emotion, compensating for the missing channel. Today's online screaming is the telegram phase. The medium gets learned.</p>
+      <div class="nugget reveal" id="nugget-10">
+        <p class="eyebrow">Nugget 10 · Conflict</p>
+        <h4>Control the table, not the person</h4>
+        <p><span class="lbl">What happened. </span>Kitchen sinking grabs for control of the partner. Shared control redirects it to the environment and the boundaries.</p>
+        <p><span class="lbl">Why it matters. </span>The disagreement stays. The toxicity leaves. Same side of the table.</p>
+        <p><span class="lbl">The principle. </span>Christmas only, not moms, not money. One topic at a time.</p>
+      </div>
+      <div class="takeaways">
+        <h3>The episode in seven lines</h3>
+        <ol>
+          <li>Communication is a skill set. The naturals all studied.</li>
+          <li>Ask 10 to 20 times more questions. Weight them deep.</li>
+          <li>Loop for understanding: ask, repeat back, confirm.</li>
+          <li>Offer one judgeable thing. Vulnerability is reciprocal.</li>
+          <li>Diagnose PES before you answer. Match, then travel together.</li>
+          <li>Reverse charisma: make them feel brilliant.</li>
+          <li>We mispredict deep conversation. Jump anyway.</li>
+        </ol>
+        <p class="src">Distilled from Modern Wisdom, Charles Duhigg: How To Be A Supercommunicator, Mar 2025. Full episode: youtube.com/watch?v=ZOD-C67bUc4. Times are proportional estimates from the transcript.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Sources.</b> This companion narrates the Modern Wisdom episode "Charles Duhigg: How To Be A Supercommunicator" (March 2025). All facts and figures come from the episode transcript (research/charisma/transcripts/ZOD-C67bUc4.txt). Times marked ~ are proportional estimates from word position, since the transcript carries no timestamps. Cited researchers (Uri Hasson, Nick Epley, Robert Provine, Terry Maguire, Jay Van Bavel, Adam Mastriani) appear as named on air. The Maya Angelou line is quoted in the episode in paraphrase form and is presented here as paraphrase. Illustrations are AI-generated watercolors made for this page. Photographs are real, with attribution in each caption.</p>
+      <p><b>On quotes.</b> Direct quotations in this companion total 12 words: two pull quotes from Charles Duhigg (6 and 6 words, each with speaker and episode-time attribution). All example questions and illustrations in the body are the builder's own wording and carry no quotation marks.</p>
+      <p><b>Video.</b> Embedded via youtube-nocookie.com, the only external dependency on this page. Everything else, styles, scripts, charts, and images, loads from local relative paths and works from file://.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="status"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+
+  /* ---------- chapter nav ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+
+  /* ---------- tooltips ---------- */
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r.width - 10) + 'px';
+    tip.style.top = (y - r.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+
+  /* ---------- toy: loop checklist ---------- */
+  (function(){
+    var ids = ['lp1','lp2','lp3'];
+    var boxes = ids.map(function(id){ return document.getElementById(id); });
+    var out = document.getElementById('loop-verdict');
+    function upd(){
+      var n = boxes.filter(function(b){ return b.checked; }).length;
+      if(n === 3){ out.textContent = 'Full loop. You are a supercommunicator in that disagreement.'; out.style.borderColor = '#1f5fb0'; out.style.color = '#144a8f'; }
+      else if(n === 2){ out.textContent = 'Two of three. The missing step is usually the confirm.'; out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14'; }
+      else if(n === 1){ out.textContent = 'One of three. Silence is the first condition, not the whole act.'; out.style.borderColor = '#b4531f'; out.style.color = '#8f3f14'; }
+      else { out.textContent = 'No loop steps. Next time: ask, repeat back, confirm.'; out.style.borderColor = '#8f1f1f'; out.style.color = '#8f1f1f'; }
+    }
+    boxes.forEach(function(b){ b.addEventListener('change', upd); }); upd();
+  })();
+
+  /* ---------- toy: PES diagnoser ---------- */
+  (function(){
+    var me = document.getElementById('me'), them = document.getElementById('them');
+    var out = document.getElementById('pesout');
+    function upd(){
+      var m = me.value, t = them.value;
+      if(!m || !t){ out.textContent = 'Pick both. The diagnosis appears here.'; return; }
+      if(m === t){ out.innerHTML = '<b>Matched:</b> both ' + m.toLowerCase() + '. The hardware aligned. The problem, if any, was elsewhere.'; }
+      else { out.innerHTML = '<b>Mismatched:</b> you held ' + m.toLowerCase() + ', they held ' + t.toLowerCase() + '. You literally could not hear each other. Next time, diagnose first and match with one small move.'; }
+    }
+    me.addEventListener('change', upd); them.addEventListener('change', upd); upd();
+  })();
+})();
+</script>
+</body>
+</html>
