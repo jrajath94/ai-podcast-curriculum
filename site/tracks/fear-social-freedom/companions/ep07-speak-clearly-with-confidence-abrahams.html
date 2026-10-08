@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speak Clearly &amp; With Confidence: Matt Abrahams · Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Matt Abrahams on speaking clearly and with confidence under pressure.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#1f2a28; --muted:#6b7572;
+    --line:#ddd8c8; --accent:#0f766e; --accent-ink:#0b5c56; --soft:#e9f2ef;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#a9d6cf}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3a4542;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfd8d3}
+  .bar.dark{fill:#3a4542}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .flowbox{fill:#fff;stroke:var(--accent);stroke-width:1.5}
+  .flowlab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  .flowarrow{stroke:var(--muted);stroke-width:1.5;fill:none}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6;
+    border:1px dashed var(--line);padding:12px 16px;margin:26px 0}
+  .legend b{color:var(--ink)}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#eef3f1;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#a9b6b2}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Fear and Social Freedom · Track Companion</a>
+  <span class="sub">Huberman Lab · Matt Abrahams</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode Companion</p>
+      <h1>Speak Clearly &amp; With Confidence</h1>
+      <p class="dek">Matt Abrahams teaches strategic communication at Stanford's Graduate School of Business and hosts Think Fast, Talk Smart. His core claim: clear speaking is a learnable skill, built from structure and practice, not talent or memorization. This companion follows the full episode, beat by beat.</p>
+      <img src="assets/ep07-hero-podium.webp" alt="Watercolor illustration of a confident speaker at a wooden podium in a warm lecture hall">
+      <p class="caption"><b>Illustration.</b> Structure turns panic into performance. AI-generated watercolor made for this page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">~150</div><div class="l">People in the ancestral group where status meant survival</div><div class="s">Episode ~00:05</div></div>
+        <div class="stat"><div class="n">15 sec</div><div class="l">The pointing exercise: call things by wrong names for 15 seconds</div><div class="s">Episode ~00:10</div></div>
+        <div class="stat"><div class="n">3 words</div><div class="l">His mother-in-law's small-talk secret</div><div class="s">Episode ~00:01</div></div>
+        <div class="stat"><div class="n">30 sec / 1 min</div><div class="l">Where nervousness peaks: 30 seconds before, one minute in</div><div class="s">Episode ~01:30</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/ZtTUfMHuioA" title="Huberman Lab: Speak Clearly and With Confidence with Matt Abrahams (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Huberman Lab episode video. Use the chapter menu above to move through this companion as you listen.</p>
+      </div>
+      <div class="legend"><b>How to read this page.</b> Each nugget has three parts. <b>What happened</b> states a fact from the episode. <b>Why it matters</b> and <b>The principle</b> are my interpretation of that fact. Charts built from episode numbers name their source. Charts drawn from his descriptions are labeled schematic.</div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Three words from the Midwest</a></li>
+          <li><a href="#nugget-2">Status, not tigers</a></li>
+          <li><a href="#nugget-3">Be wrong on purpose</a></li>
+          <li><a href="#nugget-4">The judgment continuum</a></li>
+          <li><a href="#nugget-5">Structure is a story</a></li>
+          <li><a href="#nugget-6">Bullets kill</a></li>
+          <li><a href="#nugget-7">Road map, not script</a></li>
+          <li><a href="#nugget-8">Listen your way through the table</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-mother" data-time="~00:01" data-title="Three words from the Midwest">
+      <p class="ch-time">~00:01</p>
+      <h2>Three Words From the Midwest</h2>
+      <p>The episode opens with a small-talk masterclass from an unlikely teacher: Abrahams' mother-in-law. She had, in his words, a black belt in small talk. From the Midwest, she would come off the plane with three new best friends every visit. Her secret was three words: <q>tell me more</q>.</p>
+      <p>The method behind it: lead with questions, then give the person space to say more once they answer. That draws reticent speakers out and reveals what matters to them, so you can latch on and go deeper. Reticent people do not need pressure. They need an invitation with room in it.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Conversation</p>
+        <h4>Three words from the Midwest</h4>
+        <p><span class="lbl">What happened. </span>A woman who made three best friends per flight did it with three words: <q>tell me more</q>, said after every answer, with space to respond.</p>
+        <p><span class="lbl">Why it matters. </span>Most small talk dies because we interrogate instead of inviting. The three words convert an answer into a doorway.</p>
+        <p><span class="lbl">The principle. </span>Ask, then say tell me more, then be quiet.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-status" data-time="~00:05" data-title="Status, not tigers">
+      <p class="ch-time">~00:05</p>
+      <h2>Status, Not Tigers</h2>
+      <p>Why does speaking terrify people? It looks illogical until you hear the evolutionary story. When our species lived in groups of about 150, relative status meant everything, not the fancy car or the likes, but access to resources, food, shelter, reproduction. Anything that put your status at risk could be genuinely bad news.</p>
+      <p>Researchers believe this sensitivity is ingrained. We scan every speaking situation for status risk because, for most of human history, status risk was survival risk. The fear is not a glitch. It is an outdated alarm.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Roots</p>
+        <h4>Status, not tigers</h4>
+        <p><span class="lbl">What happened. </span>Speaking fear traces to ancestral groups of ~150, where losing status meant losing access to food, shelter, and mates. The alarm never got the memo that the stakes changed.</p>
+        <p><span class="lbl">Why it matters. </span>Naming the fear's origin shrinks it. You are not broken. You run on legacy code.</p>
+        <p><span class="lbl">The principle. </span>Thank the alarm for its service, then speak anyway. The tribe will not exile you for a pause.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-wrong" data-time="~00:10" data-title="Be wrong on purpose">
+      <p class="ch-time">~00:10</p>
+      <h2>Be Wrong on Purpose</h2>
+      <div class="pull">
+        <blockquote>I'm not being wrong enough.</blockquote>
+        <p class="who">Abrahams' student, during the 15-second pointing exercise · Episode ~00:10</p>
+      </div>
+      <p>The exercise: for 15 seconds, point at objects and call them by the wrong name. Point at a car and call it a floor. Point at the floor and call it a calculator. It is very challenging, because your brain refuses to be wrong.</p>
+      <p>Abrahams watched a student point at a chair in total silence. Asked what was wrong, the student said he planned to call it a cat, but a cat has four legs and a chair has four legs, and sometimes a cat sits on a chair. He could not be wrong enough. There was no rubric, no requirements, and the inner critic still vetoed every answer.</p>
+      <p><q>We are all on this continuum</q> of judging and evaluating, Abrahams says. The student sat several standard deviations out, but everyone carries the internal judge, and it locks us inside ourselves instead of letting us be external.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Exercise</p>
+        <h4>Be wrong on purpose</h4>
+        <p><span class="lbl">What happened. </span>Fifteen seconds of deliberate wrongness reveals the inner critic: a student froze because calling a chair a cat was not wrong enough for him.</p>
+        <p><span class="lbl">Why it matters. </span>The critic edits before you speak. Training wrongness on purpose weakens the veto.</p>
+        <p><span class="lbl">The principle. </span>Point at your desk and call it a giraffe. Do it badly. That is the point.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Inner critic</p>
+        <h4>The judgment continuum</h4>
+        <p><span class="lbl">What happened. </span>Everyone sits somewhere on the continuum of self-judgment. The inner critic locks attention inward, blocking the external focus speaking requires.</p>
+        <p><span class="lbl">Why it matters. </span>Self-monitoring consumes the bandwidth your audience needs. Presence is attention pointed outward.</p>
+        <p><span class="lbl">The principle. </span>When the judge starts talking, redirect your eyes and ears to the room.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-structure" data-time="~00:30" data-title="Structure is a story">
+      <p class="ch-time">~00:30</p>
+      <h2>Structure Is a Story</h2>
+      <figure>
+        <img src="assets/ep07-structure.webp" alt="Watercolor illustration of a small wooden block bridge being built on a drafting table over blueprints">
+        <p class="caption"><b>Illustration.</b> Structure: a logical connection of ideas, like a story. AI-generated watercolor made for this page.</p>
+      </figure>
+      <p>Abrahams defines structure as nothing more than a logical connection of ideas. It raises processing ability because brains are wired for story: beginning, middle, end. A random list is forgettable. A story is digestible.</p>
+      <p>His go-to frames: problem, solution, benefit (the television-ad frame), plus what, so what, now what, and past, present, future. He jokes with his students that <q>bullets kill</q>: a slide full of bullet points helps no one, because structure is connection, not enumeration.</p>
+      <div class="chart" id="chart-structure">
+        <h4>Three ready-made structures for any spontaneous answer</h4>
+        <p class="csub">From the episode. Pick one before you open your mouth.</p>
+        <svg viewBox="0 0 640 260" role="img" aria-label="Three structure frameworks shown as flow diagrams">
+          <rect class="flowbox" x="20" y="30" width="180" height="46" rx="4" data-tip="Problem, solution, benefit: the television-ad structure"></rect>
+          <text class="flowlab" x="110" y="58" text-anchor="middle">Problem, Solution, Benefit</text>
+          <rect class="flowbox" x="20" y="107" width="180" height="46" rx="4" data-tip="What, so what, now what: here's what, here's why it matters, here's next steps"></rect>
+          <text class="flowlab" x="110" y="135" text-anchor="middle">What, So What, Now What</text>
+          <rect class="flowbox" x="20" y="184" width="180" height="46" rx="4" data-tip="Past, present, future: where we were, where we are, where we're going"></rect>
+          <text class="flowlab" x="110" y="212" text-anchor="middle">Past, Present, Future</text>
+          <text class="axis" x="280" y="70" text-anchor="start">Name the issue, fix it, name the gain.</text>
+          <text class="axis" x="280" y="147" text-anchor="start">State it, sell its importance, assign next steps.</text>
+          <text class="axis" x="280" y="224" text-anchor="start">Where we were, where we are, where we go.</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Speak Clearly and With Confidence, ~00:30. Structures per Abrahams.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Craft</p>
+        <h4>Structure is a story</h4>
+        <p><span class="lbl">What happened. </span>Structure is a logical connection of ideas. Problem-solution-benefit and what-so what-now what give any spontaneous answer a beginning, middle, and end.</p>
+        <p><span class="lbl">Why it matters. </span>Lists evaporate. Stories stick. The audience cannot follow what has no connections.</p>
+        <p><span class="lbl">The principle. </span>Before you answer, pick a frame. Three boxes beat thirty bullets.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Slides</p>
+        <h4>Bullets kill</h4>
+        <p><span class="lbl">What happened. </span>Abrahams jokes that <q>bullets kill</q>: dense bullet slides help neither speaker nor audience, because bullets enumerate instead of connecting.</p>
+        <p><span class="lbl">Why it matters. </span>Slides should carry structure, not text. The speaker is the story. The slide is the skeleton.</p>
+        <p><span class="lbl">The principle. </span>One idea per slide. Let your mouth do the listing.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-memorize" data-time="~01:30" data-title="Road map, not script">
+      <p class="ch-time">~01:30</p>
+      <h2>Road Map, Not Script</h2>
+      <div class="chart" id="chart-nerves">
+        <h4>Where nervousness peaks</h4>
+        <p class="csub">Per Abrahams: the worst of it is 30 seconds before and about a minute in. Schematic.</p>
+        <svg viewBox="0 0 640 280" role="img" aria-label="Curve of speaking nervousness over time showing peaks before and just after starting">
+          <path d="M60,200 C120,200 150,120 200,110 C240,103 250,140 300,150 C360,162 400,190 580,210" fill="none" stroke="#0f766e" stroke-width="3" data-tip="Nervousness peaks about 30 seconds before you start, dips as you begin, then peaks again about a minute in, then settles"></path>
+          <line x1="200" y1="40" x2="200" y2="240" stroke="#ddd8c8" stroke-dasharray="4 4"></line>
+          <line x1="300" y1="40" x2="300" y2="240" stroke="#ddd8c8" stroke-dasharray="4 4"></line>
+          <text class="vallab" x="200" y="30" text-anchor="middle">-30 sec</text>
+          <text class="vallab" x="300" y="30" text-anchor="middle">+1 min</text>
+          <text class="axis" x="60" y="265" text-anchor="start">before</text>
+          <text class="axis" x="580" y="265" text-anchor="end">after: it settles</text>
+          <text class="axis" x="320" y="70" text-anchor="middle">peak</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Speak Clearly and With Confidence, ~01:30. Timing per Abrahams.</p>
+      </div>
+      <p>The peaks are knowable: about 30 seconds before you speak and about a minute in. That is the window to manage. But the management is not memorization. Abrahams is blunt about memorizing speeches: never.</p>
+      <p>The reason is cognitive load. Memorization creates a right way to say it, and you spend the whole speech comparing what you wanted to say with what you are actually saying. The comparison eats the bandwidth you need for the audience. What you want instead is a road map: structure, familiarity with the ideas, comfort with how you start. Know the route, not the script.</p>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Preparation</p>
+        <h4>Road map, not script</h4>
+        <p><span class="lbl">What happened. </span>Memorizing burdens cognitive load: you compare the plan against the performance in real time. Abrahams recommends a road map instead, with a familiar opening. Nervousness peaks 30 seconds before and about a minute in.</p>
+        <p><span class="lbl">Why it matters. </span>A script breaks under pressure. A road map bends. The minute-one peak passes whether you fight it or not.</p>
+        <p><span class="lbl">The principle. </span>Memorize your first line. Structure the rest. Survive minute one.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-table" data-time="~01:45" data-title="Listen your way through the table">
+      <p class="ch-time">~01:45</p>
+      <h2>Listen Your Way Through the Table</h2>
+      <figure>
+        <img src="assets/ep07-small-room.webp" alt="Watercolor illustration of a small meeting room where one nervous person stands to introduce themselves around an oval table">
+        <p class="caption"><b>Illustration.</b> The go-around-the-table introduction: ten people, one turn, pure anticipation. AI-generated watercolor made for this page.</p>
+      </figure>
+      <p>Huberman raises the most underrated terror: the small room, ten or fifteen or twenty people, and the words we will go around the table and introduce yourself. He wants to go first, because the anticipation ramps a circuit: hearing his own voice start, he feels awkward even though he has no trouble with public speaking and nobody notices.</p>
+      <p>His own fix is pure Abrahams doctrine: focus off himself and really listen to what people say. When the turn comes, just say your name. The attention was never the problem. The anticipation was.</p>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Anticipation</p>
+        <h4>Listen your way through the table</h4>
+        <p><span class="lbl">What happened. </span>Go-around-the-table introductions terrify even confident speakers through anticipation, not performance. Huberman copes by listening hard to each speaker instead of rehearsing his own line.</p>
+        <p><span class="lbl">Why it matters. </span>Waiting is the hard part. Listening converts dead waiting time into presence.</p>
+        <p><span class="lbl">The principle. </span>Do not rehearse your intro. Collect everyone else's.</p>
+      </div>
+    </section>
+
+    <div class="takeaways" id="ch-takeaways">
+      <h3>The episode in seven lines</h3>
+      <ol>
+        <li>Say tell me more after every answer, then leave space. Three new best friends per flight.</li>
+        <li>Speaking fear is status fear from ancestral groups of ~150. Legacy alarm, modern room.</li>
+        <li>Practice being wrong on purpose: 15 seconds of wrong names loosens the inner critic.</li>
+        <li>Structure is a logical connection of ideas. Pick one frame before you answer.</li>
+        <li>Never memorize. A road map bends. A script breaks under cognitive load.</li>
+        <li>Nervousness peaks 30 seconds before and about a minute in. Then it settles.</li>
+        <li>At the table, listen instead of rehearsing. The anticipation is the enemy, not the turn.</li>
+      </ol>
+      <p class="src">Distilled from Huberman Lab, Speak Clearly and With Confidence with Matt Abrahams (~2h27m). Full episode: youtube.com/watch?v=ZtTUfMHuioA. The structures and exercises are Abrahams' from his Stanford GSB teaching. Timestamps marked ~ are proportional estimates from transcript position. They may be off by a few minutes.</p>
+    </div>
+  </main>
+</div>
+<div id="tip" role="status" aria-live="polite"></div>
+<footer>
+  <div class="layout" style="grid-template-columns:1fr">
+    <main style="border:none;padding:0;max-width:760px">
+      <p><b>On quotes.</b> Direct quotations in this companion total 21 words: the pull quote (5 words) and five short phrases in quotation marks (3, 3, 6, 2, and 2 words). The pull quote carries speaker and episode-timestamp attribution. The pull quote keeps the speaker’s verbatim contraction (I’m). Everything else is original paraphrase and analysis.</p>
+      <p><b>On sources.</b> All numbers, exercises, and anecdotes come from the episode itself. The companion draws from a full transcript of the video. Chapter times marked ~ are proportional estimates and may be off by a few minutes. This companion is an unofficial study aid with no affiliation with Huberman Lab. Video embed is the official upload on youtube-nocookie.</p>
+      <p><b>Track.</b> Fear and Social Freedom · <a href="../index.html">Back to track index</a></p>
+    </main>
+  </div>
+</footer>
+<script>
+(function(){
+  var chaps=Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  var nav=document.getElementById('chapnav'), side=document.getElementById('sidenav');
+  var items=chaps.map(function(c){
+    return '<a href="#'+c.id+'"><span class="t">'+c.getAttribute('data-time')+'</span>'+c.getAttribute('data-title')+'</a>';
+  });
+  nav.innerHTML=items.join('');
+  side.innerHTML='<h4>Chapters</h4>'+items.join('');
+  var links=Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  var cur=null;
+  function activate(){
+    var best=chaps[0],i;
+    for(i=0;i<chaps.length;i++){if(chaps[i].getBoundingClientRect().top<160)best=chaps[i];}
+    if(best!==cur){cur=best;links.forEach(function(a){
+      a.classList.toggle('active',a.getAttribute('href')==='#'+best.id);});}
+  }
+  window.addEventListener('scroll',activate,{passive:true});activate();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var tip=document.getElementById('tip');
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mouseenter',function(){
+      tip.textContent=el.getAttribute('data-tip');tip.style.opacity='1';});
+    el.addEventListener('mousemove',function(ev){
+      tip.style.left=(ev.clientX+14)+'px';tip.style.top=(ev.clientY+14)+'px';});
+    el.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+  });
+})();
+</script>
+</body>
+</html>
