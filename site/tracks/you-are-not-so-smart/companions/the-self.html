@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Self: You Are Not So Smart Episode Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the You Are Not So Smart episode with Bruce Hood: the constructed self, the half-second delay, the duplicator, and the reflection.">
+<style>
+  :root{
+    --paper:#fbf9f3; --paper2:#f5f0e6; --ink:#221c14; --muted:#6f6455;
+    --line:#e2d8c3; --accent:#5b4a8c; --accent-ink:#463a75; --soft:#ece7f5;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#d6ccf2}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3d352a;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .backlinks{font-family:var(--sans);font-size:13px;margin:0 0 18px;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfc6e6}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .gridln{stroke:#e9e4f3;stroke-width:1}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--sans);
+    font-size:12.5px;color:var(--muted);margin:18px 0}
+  .tag-src,.tag-int{display:inline-block;font-family:var(--sans);font-size:10.5px;
+    font-weight:700;letter-spacing:.1em;padding:2px 8px;border-radius:10px;
+    margin-right:8px;vertical-align:middle}
+  .tag-src{background:#e8f0e4;color:#2f5d33;border:1px solid #bcd3b6}
+  .tag-int{background:#efe6f5;color:#5b3a8c;border:1px solid #d5c2e8}
+  footer.honesty{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer.honesty p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+  footer.honesty h3{font-family:var(--sans);font-size:13px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink);margin:22px 0 8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">AI Podcast Curriculum</a>
+  <span class="sub">You Are Not So Smart · Interactive Companion</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">You Are Not So Smart · Episode 4 · Interactive Companion</p>
+      <h1>The Self</h1>
+      <p class="dek">Bruce Hood on the constructed self. The narrator inside your head is a press release, the feed is edited for hours a day, and the identity you defend is a reflection the world holds up.</p>
+      <p class="backlinks"><a href="../index.html">← Track index</a> · <a href="../ep10.html">Episode chapter →</a></p>
+      <div class="legend"><span><b>SOURCE</b> marks a claim from the episode interview transcript.</span><span><b>INTERPRETATION</b> marks analysis or transferable advice from the companion author.</span></div>
+      <figure>
+        <img src="assets/the-self.webp" alt="Watercolor illustration for this companion">
+        <p class="caption"><b>Illustration.</b> Watercolor-style image generated for this page. A figure looks into a mirror that reflects many small figures back. Not a photograph.</p>
+      </figure>
+      <div class="stats">
+        <div class="stat"><div class="n">0.5 sec</div><div class="l">The delay between brain activity starting and the feeling of deciding</div><div class="s">Libet research via Hood, ep004</div></div>
+        <div class="stat"><div class="n">2-3 hrs</div><div class="l">Of every waking day you are blind, edited out, never noticed</div><div class="s">Vision research via Hood, ep004</div></div>
+        <div class="stat"><div class="n">~50%</div><div class="l">How alike identical twins score on personality measures</div><div class="s">Twin research via Hood, ep004</div></div>
+        <div class="stat"><div class="n">Age 5</div><div class="l">When children already reject duplicated minds as different</div><div class="s">Duplicator study via Hood, ep004</div></div>
+      </div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">The half-second delay</a></li>
+          <li><a href="#nugget-2">The blind hours</a></li>
+          <li><a href="#nugget-3">The duplicator</a></li>
+          <li><a href="#nugget-4">The reflection</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-delay" data-time="Part 1" data-title="The half-second delay">
+      <p class="ch-time">Part 1</p>
+      <h2>The Half-Second Delay</h2>
+      <p><span class="tag-src">SOURCE</span>Hood's first move is definitional, because illusion misleads. He does not mean the self does not exist. He means: &ldquo;an experience that is not what it seems.&rdquo; The experience of having a self is real. What it seems to be is not.</p>
+      <p><span class="tag-src">SOURCE</span>Libet's finding, retold by Hood: brain activity that predicts your decision starts about half a second before you feel you decided. The feeling of having chosen arrives after the choice is already in motion. Hood's framing: &ldquo;I decided&rdquo; is a press release issued by an office that was not in the meeting.</p>
+      <p><span class="tag-int">INTERPRETATION</span>Do not trust the authorship feeling as evidence of authorship. Check decisions against outcomes, not against the glow of having chosen.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget</p>
+        <h4>The half-second delay</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>The brain starts the decision half a second before the feeling of deciding arrives.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Free choice feels instant and authored. The feeling is real. The timing is edited.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Audit decisions by results. The press release is not the meeting.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-blind" data-time="Part 2" data-title="The blind hours">
+      <p class="ch-time">Part 2</p>
+      <h2>The Blind Hours</h2>
+      <p><span class="tag-src">SOURCE</span>The visual system proves the narrator edits heavily. You process only the central visual field in detail. You carry two blind spots the size of tennis balls. Every eye movement switches vision off, or the world would smear like a panning camera. Add it up: you are blind for about 2 to 3 hours of every waking day, and you never notice. The narrator fills the gaps and signs its name to the whole feed.</p>
+      <div class="chart" id="chart-blind">
+        <h4>A waking day, according to your narrator</h4>
+        <p class="csub">Hover any bar for detail. Sixteen waking hours, as told by the edited feed.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of blind versus seeing hours">
+          <line x1="60" x2="620" y1="240" y2="240" class="gridln"></line>
+          <line x1="60" x2="620" y1="160" y2="160" class="gridln"></line>
+          <line x1="60" x2="620" y1="80" y2="80" class="gridln"></line>
+          <text class="axis" x="52" y="244" text-anchor="end">0</text>
+          <text class="axis" x="52" y="164" text-anchor="end">8</text>
+          <text class="axis" x="52" y="84" text-anchor="end">16</text>
+          <rect class="bar" x="140" y="87" width="110" height="153" data-tip="Seeing: roughly 13 to 14 hours. Only the central visual field is ever in detail."></rect>
+          <rect class="bar alt" x="360" y="208" width="110" height="32" data-tip="Blind: 2 to 3 hours of every waking day, edited out. You never notice."></rect>
+          <text class="vallab" x="195" y="79" text-anchor="middle">13-14 hrs</text>
+          <text class="vallab" x="415" y="200" text-anchor="middle">2-3 hrs</text>
+          <text class="axis" x="195" y="262" text-anchor="middle">Seeing</text>
+          <text class="axis" x="415" y="262" text-anchor="middle">Blind</text>
+        </svg>
+        <p class="csrc">Source: vision research via Hood in the ep004 interview. Original toy chart built from episode claims. Bar heights are approximate, not measured values.</p>
+      </div>
+      <p><span class="tag-src">SOURCE</span>Hood's point is not that vision fails. It is that the whole production is like this. The self is the same kind of construction: registered firmly, corresponding loosely, like the square your neurons fire for though nothing is there.</p>
+      <p><span class="tag-int">INTERPRETATION</span>The next time a memory feels complete, remember the tennis-ball blind spots. The seam is always there. You just never see it.</p>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget</p>
+        <h4>The blind hours</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Two to three hours of each waking day are blind, deleted, unnoticed.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>The smooth feed is manufactured. The narrator hides the cuts from the audience, and the audience is you.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Distrust seamlessness. Wherever the feed feels perfect, the editing is heaviest.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-duplicator" data-time="Part 3" data-title="The duplicator">
+      <p class="ch-time">Part 3</p>
+      <h2>The Duplicator</h2>
+      <p><span class="tag-src">SOURCE</span>The hamster experiment. The team gave a pet hamster physical states (a marble in its tummy, a broken tooth) and mental states (a whispered name, a shown picture). Into the machine it went. A sibling hamster appeared in the other box. Children were asked: does this hamster have the same physical attributes? Does it have the same mind? By age 5 or 6, children said: same body, different mind. The effect strengthened when the first hamster had a name, an identity.</p>
+      <p><span class="tag-src">SOURCE</span>Five-year-olds accept duplicated toys as identical but insist a duplicated hamster has a different mind, more strongly when it is named. Physical duplication is fine. Mental duplication is rejected. Dualism is not a taught doctrine. It is the natural intuition, present before schooling, matching Descartes.</p>
+      <p><span class="tag-src">SOURCE</span>Hood is a materialist: the mind is the product of a complex biological computer, the brain. Change the brain and you change the self. Dementia's progressive erasure of the person is the terrible proof. No reliable evidence exists for souls or spirits. He borrows Marvin Minsky's phrase, the meat machine, and rejects the alternative as &ldquo;pixie dust and spooks.&rdquo; The wonder is not the stuff. It is the shared information.</p>
+      <div class="chart" id="chart-twins">
+        <h4>Twins and the 50 percent</h4>
+        <p class="csub">Hover any bar for detail. Same genes, half the personality shared.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of twin personality similarity">
+          <line x1="60" x2="620" y1="240" y2="240" class="gridln"></line>
+          <line x1="60" x2="620" y1="160" y2="160" class="gridln"></line>
+          <line x1="60" x2="620" y1="80" y2="80" class="gridln"></line>
+          <text class="axis" x="52" y="244" text-anchor="end">0%</text>
+          <text class="axis" x="52" y="164" text-anchor="end">50%</text>
+          <text class="axis" x="52" y="84" text-anchor="end">100%</text>
+          <rect class="bar" x="140" y="160" width="110" height="80" data-tip="Shared: about 50 percent of personality similarity. Genes and temperament set the starting conditions."></rect>
+          <rect class="bar alt" x="360" y="160" width="110" height="80" data-tip="Not shared: about 50 percent. The social environment does the rest."></rect>
+          <text class="vallab" x="195" y="152" text-anchor="middle">~50%</text>
+          <text class="vallab" x="415" y="152" text-anchor="middle">~50%</text>
+          <text class="axis" x="195" y="262" text-anchor="middle">Shared</text>
+          <text class="axis" x="415" y="262" text-anchor="middle">Not shared</text>
+        </svg>
+        <p class="csrc">Source: twin research via Hood in the ep004 interview. Original toy chart built from episode claims. Values are approximate.</p>
+      </div>
+      <p><span class="tag-int">INTERPRETATION</span>The reader's check: notice where you feel dualist about yourself. The intuition is five years old. It is not evidence.</p>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget</p>
+        <h4>The duplicator</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>Children copy bodies easily and refuse to copy minds. The soul intuition arrives before school does.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>Your deepest metaphysics may be a five-year-old's default. Check it against the evidence.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Change the brain and you change the self. The machine is the person.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-reflection" data-time="Part 4" data-title="The reflection">
+      <p class="ch-time">Part 4</p>
+      <h2>The Reflection</h2>
+      <p><span class="tag-src">SOURCE</span>The self as the reflection the world holds up: your identity is negotiated with your audience, not authored inside. Ostracism triggers desperate ingratiation because exclusion threatens the identity itself. The &ldquo;not myself&rdquo; pleas and the blamed wine are the narrator patching continuity when behavior breaks character.</p>
+      <p><span class="tag-src">SOURCE</span>Bronnie Ware, an Australian palliative nurse, interviewed the terminally ill about their regrets. The number one regret, by far: people felt they were not themselves, that they lived lives shaped by others' expectations. At the clarity of death's approach, the reflected self stands revealed: a life spent curating the reflection instead of authoring the character.</p>
+      <div class="pull">
+        <blockquote>An experience that is not what it seems.</blockquote>
+        <p class="who">Hood's definition of the self, in the episode</p>
+      </div>
+      <p><span class="tag-src">SOURCE</span>Hood does not offer an exit from the construction. He offers a different relationship to it. Knowing the self is an experience that is not what it seems does not delete the experience. It demotes the narrator from author to instrument. You still use the self. You stop obeying it blindly.</p>
+      <p><span class="tag-int">INTERPRETATION</span>Three operating rules fall out of the episode. One: distrust authorship feelings and check decisions against outcomes. Two: expect the reflection. Your self-estimates track your audience, so change the audience and watch the self change. That is data about the instrument. Three: maintain the story deliberately. Since dissonance will patch continuity anyway, choose the patches. Author the reflection you want to meet.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget</p>
+        <h4>The reflection</h4>
+        <p><span class="lbl">What happened. </span><span class="tag-src">SOURCE</span>The dying regret living by others' reflections. The self was curated, never authored.</p>
+        <p><span class="lbl">Why it matters. </span><span class="tag-int">INTERPRETATION</span>You cannot stop the narrator. You can choose its material.</p>
+        <p><span class="lbl">The principle. </span><span class="tag-int">INTERPRETATION</span>Use the self. Stop obeying it blindly. Author the reflection you want to meet.</p>
+      </div>
+    </section>
+
+    <footer class="honesty" id="honesty">
+      <h3>Sources</h3>
+      <p>This companion narrates You Are Not So Smart episode 4, an interview with Bruce Hood dated 2012-07-01 on the track chapter page (the official episode URL carries a 2012/07/03 path; the chapter date is used here). The on-disk source is the episode's interview chapter transcript. All numbers come from the transcript via the track chapter. Charts are original toys built from episode claims, each labeled with its source line. The blind-hours and twins charts use approximate heights, stated on each chart.</p>
+      <h3>On quotes</h3>
+      <p>Quoted words in the body total 24, all verified verbatim by grep against the on-disk chapter source: the pull quote &ldquo;An experience that is not what it seems.&rdquo; (8 words), its inline use (8 words), &ldquo;pixie dust and spooks.&rdquo; (4 words), &ldquo;I decided&rdquo; (2 words), and &ldquo;not myself&rdquo; (2 words). Everything else is original paraphrase and analysis.</p>
+      <h3>Honesty notes</h3>
+      <p>No official YouTube video of this episode was found, so there is no video embed. No historical photographs are used: no verifiable portrait of Hood was confirmed. The illustration is an AI-generated watercolor made for this page. The Libet, vision, twin, and duplicator numbers are retold from the interview transcript, not independently verified.</p>
+      <h3>Method</h3>
+      <p>Built per the binding companion spec. Quote count recounted mechanically (curly-quote aware script), not asserted. Builder prose passes ste_check.py with 0 hard fails. Text passed through wm_clean.py Layer A. JavaScript passes node --check. Tags balance and all relative links resolve.</p>
+    </footer>
+  </main>
+</div>
+<div id="tip" role="tooltip"></div>
+<script>
+(function(){
+  "use strict";
+  var tip = document.getElementById('tip');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  function navLink(ch){
+    var a = document.createElement('a');
+    a.href = '#' + ch.id;
+    a.innerHTML = '<span class="t">' + ch.getAttribute('data-time') + '</span>' + ch.getAttribute('data-title');
+    a.setAttribute('data-ch', ch.id);
+    return a;
+  }
+  var nav = document.getElementById('chapnav'), side = document.getElementById('sidenav');
+  var h = document.createElement('h4'); h.textContent = 'Chapters'; side.appendChild(h);
+  chapters.forEach(function(ch){
+    nav.appendChild(navLink(ch));
+    side.appendChild(navLink(ch));
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-ch') === id); });
+    var cur = document.querySelector('#chapnav a.active');
+    if(cur && nav.scrollTo){ nav.scrollTo({left: cur.offsetLeft - 20, behavior:'smooth'}); }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-20% 0px -65% 0px'});
+  chapters.forEach(function(ch){ io.observe(ch); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+  function showTip(html, x, y){
+    tip.innerHTML = html;
+    tip.style.opacity = '1';
+    var r = tip.getBoundingClientRect();
+    tip.style.opacity = '1';
+    var r2 = tip.getBoundingClientRect();
+    tip.style.left = Math.min(x + 14, window.innerWidth - r2.width - 10) + 'px';
+    tip.style.top = (y - r2.height - 12) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ showTip(el.getAttribute('data-tip'), ev.clientX, ev.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.style.cursor = 'pointer';
+  });
+})();
+</script>
+</body>
+</html>
