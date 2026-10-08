@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Battle-Tested Confidence: Nate Zinsser · Companion</title>
+<meta name="description" content="A chapter-by-chapter visual companion to the Huberman Lab episode with Dr. Nate Zinsser on building battle-tested confidence.">
+<style>
+  :root{
+    --paper:#fbfaf6; --paper2:#f3f1ea; --ink:#1f2a28; --muted:#6b7572;
+    --line:#ddd8c8; --accent:#0f766e; --accent-ink:#0b5c56; --soft:#e9f2ef;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+    font-size:18px;line-height:1.65}
+  a{color:var(--accent-ink)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:200}
+  .topbar{position:sticky;top:0;z-index:100;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 20px;display:flex;
+    align-items:center;gap:14px}
+  .topbar .brand{font-family:var(--sans);font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .topbar .sub{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  .chapnav{position:sticky;top:53px;z-index:99;background:var(--paper2);
+    border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;
+    padding:8px 12px;scrollbar-width:thin}
+  .chapnav a{display:inline-block;font-family:var(--sans);font-size:12.5px;
+    color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid transparent;
+    border-radius:20px;margin-right:6px}
+  .chapnav a .t{color:var(--accent-ink);font-family:var(--mono);font-size:11px;margin-right:6px}
+  .chapnav a:hover{border-color:var(--line);color:var(--ink)}
+  .chapnav a.active{background:var(--ink);color:#fff}
+  .chapnav a.active .t{color:#a9d6cf}
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;
+    gap:0;padding:0 20px}
+  @media(min-width:1100px){
+    .layout{grid-template-columns:250px minmax(0,760px)}
+    .chapnav{display:none}
+    .sidenav{display:block}
+  }
+  .sidenav{display:none;position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);
+    overflow-y:auto;padding:26px 18px 26px 0;font-family:var(--sans)}
+  .sidenav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .sidenav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+    padding:5px 8px;border-left:2px solid var(--line);margin-bottom:2px}
+  .sidenav a .t{font-family:var(--mono);font-size:10.5px;color:var(--accent-ink);display:block}
+  .sidenav a:hover{color:var(--ink)}
+  .sidenav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:700}
+  main{min-width:0;max-width:760px;padding:8px 0 80px}
+  @media(min-width:1100px){main{padding-left:34px;border-left:1px solid var(--line)}}
+  .hero{padding:40px 0 10px}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 14px;font-weight:700;
+    letter-spacing:-.01em}
+  .dek{font-size:21px;line-height:1.5;color:#3a4542;margin:0 0 22px;max-width:62ch}
+  .hero img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .caption{font-family:var(--sans);font-size:12.5px;color:var(--muted);
+    margin:8px 0 0;line-height:1.5}
+  .caption b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:26px 0}
+  @media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--paper);padding:16px 14px}
+  .stat .n{font-family:var(--sans);font-weight:800;font-size:24px;color:var(--ink)}
+  .stat .l{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .stat .s{font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+  section.chapter{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:110px}
+  section.chapter:first-of-type{border-top:none}
+  .ch-time{font-family:var(--mono);font-size:13px;color:var(--accent-ink);margin:0 0 6px}
+  h2{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h3{font-size:21px;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .src{font-family:var(--sans);font-size:12px;color:var(--muted)}
+  figure{margin:26px 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .nugget{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 20px;margin:26px 0;scroll-margin-top:120px}
+  .nugget .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 8px;font-weight:700}
+  .nugget h4{font-size:20px;margin:0 0 10px}
+  .nugget p{font-size:16.5px;margin:0 0 10px}
+  .nugget p:last-child{margin-bottom:0}
+  .nugget .lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .pull{margin:30px 0;padding:6px 0;text-align:center}
+  .pull blockquote{font-size:26px;line-height:1.4;margin:0 0 10px;font-style:italic}
+  .pull .who{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .pull:before,.pull:after{content:"";display:block;width:56px;height:2px;
+    background:var(--accent);margin:0 auto 18px}
+  .pull:after{margin:18px auto 0}
+  .chart{border:1px solid var(--line);background:#fff;padding:18px;margin:26px 0}
+  .chart h4{font-family:var(--sans);font-size:15px;margin:0 0 4px}
+  .chart .csub{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .csrc{font-family:var(--sans);font-size:11.5px;color:var(--muted);
+    margin:10px 0 0;font-style:italic;line-height:1.5}
+  .bar{fill:var(--accent)}
+  .bar.alt{fill:#cfd8d3}
+  .bar.dark{fill:#3a4542}
+  .axis{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .vallab{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:12.5px;padding:7px 10px;border-radius:4px;
+    opacity:0;transition:opacity .15s;z-index:300;max-width:240px;line-height:1.4}
+  .wisdom{background:var(--paper2);border:1px solid var(--line);padding:24px;margin:30px 0}
+  .wisdom h3{font-family:var(--sans);font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 14px;color:var(--ink)}
+  .wisdom ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:8px}
+  @media(min-width:700px){.wisdom ol{grid-template-columns:1fr 1fr}}
+  .wisdom li{counter-increment:w;font-family:var(--sans);font-size:14px}
+  .wisdom li a{color:var(--ink);text-decoration:none;display:block;padding:8px 10px;
+    border:1px solid var(--line);background:var(--paper)}
+  .wisdom li a:hover{border-color:var(--accent)}
+  .wisdom li a:before{content:counter(w,decimal-leading-zero);color:var(--accent-ink);
+    font-family:var(--mono);font-size:11px;margin-right:8px}
+  .legend{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6;
+    border:1px dashed var(--line);padding:12px 16px;margin:26px 0}
+  .legend b{color:var(--ink)}
+  .video{margin:30px 0}
+  .video .frame{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--line)}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .takeaways{background:var(--ink);color:#eef3f1;padding:28px;margin:34px 0}
+  .takeaways h3{color:#fff;font-size:22px;margin:0 0 12px}
+  .takeaways ol{margin:0;padding-left:22px}
+  .takeaways li{margin-bottom:10px;font-size:17px}
+  .takeaways .src{color:#a9b6b2}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px}
+  footer p{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html">Fear and Social Freedom · Track Companion</a>
+  <span class="sub">Huberman Lab · Dr. Nate Zinsser</span>
+</header>
+<nav class="chapnav" id="chapnav" aria-label="Chapters"></nav>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Chapters"></nav>
+  <main id="main">
+    <div class="hero">
+      <p class="kicker">Huberman Lab · Episode Companion</p>
+      <h1>Battle-Tested Confidence</h1>
+      <p class="dek">Dr. Nate Zinsser has spent 30-plus years, 29 of them at West Point, building confidence in soldiers, athletes, and surgeons. His formula is simple: performance equals competence times confidence, and confidence is a skill you build daily, like a bank account.</p>
+      <img src="assets/ep08-hero-stadium.webp" alt="Watercolor illustration of a lone soccer player about to take a penalty kick in a vast floodlit stadium">
+      <p class="caption"><b>Illustration.</b> The penalty kick: nine times in practice, five in the match. AI-generated watercolor made for this page.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">29 yrs</div><div class="l">Building confidence at West Point, of 30+ in the field</div><div class="s">Episode ~00:35</div></div>
+        <div class="stat"><div class="n">9 → 5</div><div class="l">Penalty kicks of 10 in practice vs in the match under self-doubt</div><div class="s">Episode ~00:08</div></div>
+        <div class="stat"><div class="n">3 to 4</div><div class="l">Words per daily deposit in a journal or app</div><div class="s">Episode ~00:25</div></div>
+        <div class="stat"><div class="n">6 to 12 mo</div><div class="l">Consistency window for the mental bank account to become habit</div><div class="s">Episode ~00:25</div></div>
+      </div>
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/JPRCxswxpMY" title="Huberman Lab: Battle-Tested Confidence with Dr. Nate Zinsser (official episode video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="caption"><b>Watch.</b> The official Huberman Lab episode video. Use the chapter menu above to move through this companion as you listen.</p>
+      </div>
+      <div class="legend"><b>How to read this page.</b> Each nugget has three parts. <b>What happened</b> states a fact from the episode. <b>Why it matters</b> and <b>The principle</b> are my interpretation of that fact. Charts built from episode numbers name their source. Charts drawn from his descriptions are labeled schematic.</div>
+      <div class="wisdom" id="wisdom-index">
+        <h3>The Wisdom Index: every nugget in this companion</h3>
+        <ol>
+          <li><a href="#nugget-1">Trust the backhand</a></li>
+          <li><a href="#nugget-2">Performance is a product</a></li>
+          <li><a href="#nugget-3">Nine becomes five</a></li>
+          <li><a href="#nugget-4">Never rehearse failure</a></li>
+          <li><a href="#nugget-5">The mental bank account</a></li>
+          <li><a href="#nugget-6">Forget the failures</a></li>
+          <li><a href="#nugget-7">Underconfidence is the epidemic</a></li>
+          <li><a href="#nugget-8">Certain on the pitch</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="chapter" id="ch-intro" data-time="~00:01" data-title="Intro: the confidence coach">
+      <p class="ch-time">~00:01</p>
+      <h2>Intro: The Confidence Coach</h2>
+      <p>Huberman introduces Dr. Nate Zinsser, director of the Performance Psychology Program at West Point, with more than 30 years in the field and 29 years at the academy. His clients include soldiers, elite athletes, and business leaders. His subject is confidence: not as a personality trait, but as a trained, deliberate skill.</p>
+      <p>The episode's wager: you can manufacture the feeling that produces elite execution, and you can do it with a journal, three words a day, and patience.</p>
+    </section>
+
+    <section class="chapter" id="ch-trust" data-time="~00:05" data-title="Trust the backhand">
+      <p class="ch-time">~00:05</p>
+      <h2>Trust the Backhand</h2>
+      <figure>
+        <img src="assets/ep08-backhand.webp" alt="Watercolor illustration of a tennis player mid-backhand swing on a clay court at golden hour">
+        <p class="caption"><b>Illustration.</b> The tennis player has to trust her backhand. AI-generated watercolor made for this page.</p>
+      </figure>
+      <p>Zinsser opens with the common denominator across all human performance. Training in calculus or physics is not all that different from training a cross-court backhand or a boxing combination. The instructions are coded into the brain and nervous system. The medical student and the boxer face the same task.</p>
+      <p>The tennis player has to trust her backhand. The boxer has to trust his combinations. The engineering student has to trust the accumulated knowledge so it can express itself on the exam, in the interview, with the patient. Confidence is the letting-go that releases trained skill.</p>
+      <div class="nugget reveal" id="nugget-1">
+        <p class="eyebrow">Nugget 1 · Trust</p>
+        <h4>Trust the backhand</h4>
+        <p><span class="lbl">What happened. </span>The boxer's combinations and the student's calculus are coded into the nervous system the same way. Performance requires trusting the trained pattern instead of steering it.</p>
+        <p><span class="lbl">Why it matters. </span>Interference is the enemy of expertise. The skill is already there. The doubt blocks it.</p>
+        <p><span class="lbl">The principle. </span>Train hard, then get out of the way. Trust the code.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-formula" data-time="~00:08" data-title="Performance is a product">
+      <p class="ch-time">~00:08</p>
+      <h2>Performance Is a Product</h2>
+      <p>Zinsser claims he was the first to describe human performance as a function of both competence, the skill you have, and confidence, your degree of certainty about that skill. It is a product, not a sum. Zero confidence zeroes the whole expression.</p>
+      <p>The penalty-kick math makes it concrete. The athlete hits it nine times out of ten in practice. In the match, under self-doubt and worry, muscular tension drops the rate to five out of ten. The competence did not change. The certainty did, and the outcome halved.</p>
+      <div class="chart" id="chart-kick">
+        <h4>The same kick, two different minds</h4>
+        <p class="csub">Penalty-kick success from the episode. Same competence, different certainty.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Chart showing 9 of 10 penalty kicks in practice versus 5 of 10 in the match">
+          <rect class="bar" x="130" y="50" width="120" height="180" data-tip="In practice: 9 out of 10. Full confidence, full skill."></rect>
+          <rect class="bar alt" x="390" y="130" width="120" height="100" data-tip="In the match under self-doubt: 5 out of 10. The skill is the same; muscular tension from worry halves it."></rect>
+          <text class="vallab" x="190" y="40" text-anchor="middle">9 / 10</text>
+          <text class="vallab" x="450" y="120" text-anchor="middle">5 / 10</text>
+          <text class="axis" x="190" y="252" text-anchor="middle">practice</text>
+          <text class="axis" x="450" y="252" text-anchor="middle">match, doubting</text>
+          <text class="axis" x="320" y="288" text-anchor="middle">Doubt is a tax. It took four kicks.</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Battle-Tested Confidence, ~00:08. Penalty-kick rates per Zinsser.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-2">
+        <p class="eyebrow">Nugget 2 · Formula</p>
+        <h4>Performance is a product</h4>
+        <p><span class="lbl">What happened. </span>Performance equals competence times confidence. With zero certainty, the product is zero, however deep the skill.</p>
+        <p><span class="lbl">Why it matters. </span>Most preparation targets the first factor and ignores the second. The formula says both are load-bearing.</p>
+        <p><span class="lbl">The principle. </span>Train the skill, then train the certainty. Half the equation is belief.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-3">
+        <p class="eyebrow">Nugget 3 · Doubt tax</p>
+        <h4>Nine becomes five</h4>
+        <p><span class="lbl">What happened. </span>Self-doubt produces worry, worry produces muscular tension, and the penalty kick drops from nine of ten to five of ten. The mechanism is physical, not mystical.</p>
+        <p><span class="lbl">Why it matters. </span>Doubt is not a mood. It is a biomechanical event that degrades execution.</p>
+        <p><span class="lbl">The principle. </span>Before the big moment, protect the body from the mind.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-eli" data-time="~00:12" data-title="Eli Manning's answer">
+      <p class="ch-time">~00:12</p>
+      <h2>Eli Manning's Answer</h2>
+      <div class="pull">
+        <blockquote>Um no, that's exactly what you don't do.</blockquote>
+        <p class="who">Eli Manning, via Zinsser · Episode ~00:12</p>
+      </div>
+      <p>The story: the Super Bowl, the biggest sporting event of the year in the United States. Eli Manning's team is behind, four minutes to play, not favored to win. From his own goal line he launches a 40-yard perfect rainbow to a tightly covered receiver with two defenders marking him closely. The ball drops into the receiver's hands, moves the team to midfield, and sets up the winning touchdown.</p>
+      <p>The next day, a sportscaster asks on national radio: do you ever consider the ramifications of failure at a moment like that? Manning, polite as ever, answers simply. Then he explains what he does instead: in a moment like that, you think about all the times you succeeded leading a comeback. He could rattle off four or five games from that season alone. You recall these moments and forget the times you did not do it. You hang on to the memories of previous successes, and that produces the feeling that lets you execute.</p>
+      <div class="nugget reveal" id="nugget-4">
+        <p class="eyebrow">Nugget 4 · Comeback file</p>
+        <h4>Never rehearse failure</h4>
+        <p><span class="lbl">What happened. </span>Asked whether he considers the ramifications of failure, Manning said no: that is exactly what you do not do. He deliberately recalled four or five comeback wins instead.</p>
+        <p><span class="lbl">Why it matters. </span>The pre-performance mind is programmable. Loading it with successes produces the feeling that allows execution.</p>
+        <p><span class="lbl">The principle. </span>Build a comeback file. Open it before the big moment.</p>
+      </div>
+    </section>
+    <section class="chapter" id="ch-bank" data-time="~00:25" data-title="The mental bank account">
+      <p class="ch-time">~00:25</p>
+      <h2>The Mental Bank Account</h2>
+      <figure>
+        <img src="assets/ep08-journal.webp" alt="Watercolor illustration of a worn leather journal and fountain pen on a wooden desk in morning light">
+        <p class="caption"><b>Illustration.</b> The daily deposit: three or four words, day after day. AI-generated watercolor made for this page.</p>
+      </figure>
+      <p>The practice is almost insultingly small. Write down three or four words, a little memory of something you did well, in a journal or a phone app. Not a paragraph. Three or four words. The power is the consistency: are you willing to look for the best in yourself day by day over a period of 6 months or a year?</p>
+      <p>The mechanism is the <q>mental bank account</q>. Every deposit is deliberate, day after day after day, until you no longer need to write it down, because it becomes what you think about automatically. It becomes a mental habit, the way tying your shoes became automatic. Confidence compounds like interest.</p>
+      <div class="chart" id="chart-bank">
+        <h4>Confidence compounds: daily deposits over a year</h4>
+        <p class="csub">Schematic. Three to four words a day, six months to a year of consistency.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Rising curve of confidence over twelve months of daily deposits">
+          <path d="M60,240 C180,235 260,210 340,170 C420,130 500,100 590,60" fill="none" stroke="#0f766e" stroke-width="3" data-tip="Each daily deposit is tiny: three or four words. Over 6 to 12 months the account becomes a mental habit you no longer need to write down."></path>
+          <circle cx="60" cy="240" r="5" fill="#0f766e" data-tip="Day 1: the first three-word deposit"></circle>
+          <circle cx="590" cy="60" r="5" fill="#0f766e" data-tip="Month 12: automatic self-belief, no writing needed"></circle>
+          <text class="axis" x="60" y="270" text-anchor="start">day 1</text>
+          <text class="axis" x="340" y="270" text-anchor="middle">month 6</text>
+          <text class="axis" x="590" y="270" text-anchor="end">month 12</text>
+          <text class="axis" x="320" y="30" text-anchor="middle">small deposits, compounding belief</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Battle-Tested Confidence, ~00:25. Deposit protocol per Zinsser.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-5">
+        <p class="eyebrow">Nugget 5 · Practice</p>
+        <h4>The mental bank account</h4>
+        <p><span class="lbl">What happened. </span>Three or four words a day, recorded consistently for 6 months or a year, builds a <q>mental bank account</q> that becomes automatic, like tying your shoes.</p>
+        <p><span class="lbl">Why it matters. </span>Confidence is not found. It is deposited, daily, until the habit runs itself.</p>
+        <p><span class="lbl">The principle. </span>Tonight, write three words about something you did well. Repeat for a year.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-6">
+        <p class="eyebrow">Nugget 6 · Selective memory</p>
+        <h4>Forget the failures</h4>
+        <p><span class="lbl">What happened. </span>Zinsser's instruction is explicit: <q>I forget the failures. I focus on the successes.</q> Manning did the same, misremembering the misses and hanging on to the comeback wins.</p>
+        <p><span class="lbl">Why it matters. </span>Memory is editable, and the edit is a skill. Curating your highlight reel is not delusion. It is deliberate practice.</p>
+        <p><span class="lbl">The principle. </span>Audit your highlight reel. Delete the blooper tape.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch-under" data-time="~00:35" data-title="Underconfidence is the epidemic">
+      <p class="ch-time">~00:35</p>
+      <h2>Underconfidence Is the Epidemic</h2>
+      <p>Is there such a thing as overconfidence? Zinsser answers from 30-plus years of work, 29 at West Point: there is a far greater tendency to be underconfident, to disbelieve the actual skill you hold. He can count on the fingers of one hand the cases where someone was ridiculously overconfident about their abilities.</p>
+      <p>Overconfidence only becomes a problem when the belief prevents the work: when you stop preparing because you are certain. Short of that, the error runs the other way. Most people are certain they are worse than they are.</p>
+      <div class="chart" id="chart-under">
+        <h4>What 30 years of confidence coaching actually finds</h4>
+        <p class="csub">Schematic. Direction of the miscalibration per Zinsser's experience.</p>
+        <svg viewBox="0 0 640 300" role="img" aria-label="Chart showing underconfidence far more common than overconfidence">
+          <rect class="bar" x="110" y="70" width="140" height="160" data-tip="Underconfident: far more common. People disbelieve the skill they actually hold."></rect>
+          <rect class="bar alt" x="390" y="180" width="140" height="50" data-tip="Overconfident: rare. Zinsser counts the cases on the fingers of one hand."></rect>
+          <text class="vallab" x="180" y="60" text-anchor="middle">common</text>
+          <text class="vallab" x="460" y="172" text-anchor="middle">rare</text>
+          <text class="axis" x="180" y="252" text-anchor="middle">underconfident</text>
+          <text class="axis" x="460" y="252" text-anchor="middle">overconfident</text>
+          <text class="axis" x="320" y="288" text-anchor="middle">The worry is upside down.</text>
+        </svg>
+        <p class="csrc">Source: Huberman Lab, Battle-Tested Confidence, ~00:35. Prevalence per Zinsser, 30+ years, 29 at West Point.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-7">
+        <p class="eyebrow">Nugget 7 · Calibration</p>
+        <h4>Underconfidence is the epidemic</h4>
+        <p><span class="lbl">What happened. </span>Thirty-plus years of coaching finds underconfidence vastly more common than overconfidence. The overconfident cases fit on one hand.</p>
+        <p><span class="lbl">Why it matters. </span>The fear of being arrogant keeps people small. The data says arrogance is not the risk. Shrinking is.</p>
+        <p><span class="lbl">The principle. </span>Assume you are underconfident. Then check the ledger.</p>
+      </div>
+      <div class="nugget reveal" id="nugget-8">
+        <p class="eyebrow">Nugget 8 · Certainty</p>
+        <h4>Certain on the pitch</h4>
+        <p><span class="lbl">What happened. </span>Zinsser's order to his athletes: no matter how much practice you have had, <q>you better be completely certain</q> when you step onto the pitch to play.</p>
+        <p><span class="lbl">Why it matters. </span>Preparation ends at the boundary. Past it, only certainty is allowed on the field.</p>
+        <p><span class="lbl">The principle. </span>Prepare like a skeptic. Perform like a believer.</p>
+      </div>
+    </section>
+
+    <div class="takeaways" id="ch-takeaways">
+      <h3>The episode in seven lines</h3>
+      <ol>
+        <li>Trust the backhand: trained patterns release themselves when you stop steering.</li>
+        <li>Performance equals competence times confidence. Zero the second factor and the product is zero.</li>
+        <li>Self-doubt is physical: worry creates muscular tension, and nine of ten becomes five.</li>
+        <li>Manning's rule: never consider the ramifications of failure. Load the mind with comeback wins.</li>
+        <li>Three or four words a day in a journal, for 6 months or a year. The bank account compounds.</li>
+        <li>Forget the failures. Focus on the successes. The edit is the skill.</li>
+        <li>Underconfidence is the epidemic. When you step on the pitch, be completely certain.</li>
+      </ol>
+      <p class="src">Distilled from Huberman Lab, Battle-Tested Confidence with Dr. Nate Zinsser (~1h01m). Full episode: youtube.com/watch?v=JPRCxswxpMY. The Eli Manning story and the penalty-kick math are told in the episode. Timestamps marked ~ are proportional estimates from transcript position. They may be off by a few minutes.</p>
+    </div>
+  </main>
+</div>
+<div id="tip" role="status" aria-live="polite"></div>
+<footer>
+  <div class="layout" style="grid-template-columns:1fr">
+    <main style="border:none;padding:0;max-width:760px">
+      <p><b>On quotes.</b> Direct quotations in this companion total 28 words: the pull quote (8 words) and four short phrases in quotation marks (3, 3, 9, and 5 words). The pull quote carries speaker and episode-timestamp attribution. The pull quote keeps the speaker’s verbatim contraction (don’t). Everything else is original paraphrase and analysis.</p>
+      <p><b>On sources.</b> All numbers, stories, and protocols come from the episode itself. The companion draws from a full transcript of the video. Chapter times marked ~ are proportional estimates and may be off by a few minutes. This companion is an unofficial study aid with no affiliation with Huberman Lab. Video embed is the official upload on youtube-nocookie.</p>
+      <p><b>Track.</b> Fear and Social Freedom · <a href="../index.html">Back to track index</a></p>
+    </main>
+  </div>
+</footer>
+<script>
+(function(){
+  var chaps=Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  var nav=document.getElementById('chapnav'), side=document.getElementById('sidenav');
+  var items=chaps.map(function(c){
+    return '<a href="#'+c.id+'"><span class="t">'+c.getAttribute('data-time')+'</span>'+c.getAttribute('data-title')+'</a>';
+  });
+  nav.innerHTML=items.join('');
+  side.innerHTML='<h4>Chapters</h4>'+items.join('');
+  var links=Array.prototype.slice.call(document.querySelectorAll('#chapnav a, #sidenav a'));
+  var cur=null;
+  function activate(){
+    var best=chaps[0],i;
+    for(i=0;i<chaps.length;i++){if(chaps[i].getBoundingClientRect().top<160)best=chaps[i];}
+    if(best!==cur){cur=best;links.forEach(function(a){
+      a.classList.toggle('active',a.getAttribute('href')==='#'+best.id);});}
+  }
+  window.addEventListener('scroll',activate,{passive:true});activate();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var tip=document.getElementById('tip');
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mouseenter',function(){
+      tip.textContent=el.getAttribute('data-tip');tip.style.opacity='1';});
+    el.addEventListener('mousemove',function(ev){
+      tip.style.left=(ev.clientX+14)+'px';tip.style.top=(ev.clientY+14)+'px';});
+    el.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+  });
+})();
+</script>
+</body>
+</html>
